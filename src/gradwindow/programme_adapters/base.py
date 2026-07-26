@@ -47,6 +47,7 @@ class ProgrammeAdapter(Protocol):
     intake: str
     application_opens_at_basis: str
     replace_pending_candidates: bool
+    window_watch_urls: tuple[str, ...]
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog: ...
 
@@ -57,6 +58,7 @@ class BaseProgrammeAdapter:
     intake = "Varies by programme"
     application_opens_at_basis = "official"
     replace_pending_candidates = False
+    window_watch_urls: tuple[str, ...] = ()
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
         return self.parse_catalog(fetcher(self.catalog_url))

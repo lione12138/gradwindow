@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from collections.abc import Callable
 from datetime import date, datetime, timezone
 from io import BytesIO
@@ -77,7 +78,16 @@ def discover_programmes(
     dry_run: bool = False,
 ) -> dict:
     checked_at = datetime.now(timezone.utc).isoformat()
-    catalog = adapter.parse_catalog_from_fetcher(fetcher)
+    watched_urls = set(getattr(adapter, "window_watch_urls", ()))
+    watched_source_hashes: dict[str, str] = {}
+
+    def tracking_fetcher(url: str) -> str:
+        content = fetcher(url)
+        if url in watched_urls:
+            watched_source_hashes[url] = _source_hash(content)
+        return content
+
+    catalog = adapter.parse_catalog_from_fetcher(tracking_fetcher)
     programs_payload = read_json(programs_path)
     known_programmes = {
         item["id"]: item
@@ -239,12 +249,79 @@ def discover_programmes(
         for programme in catalog.programmes
     }
     state_payload = read_json(state_path, {"meta": {}, "universities": {}})
+    previous_state = state_payload.get("universities", {}).get(
+        adapter.university_id, {}
+    )
+    observed_window_count = sum(
+        len(programme.windows) for programme in catalog.programmes
+    )
+    exact_window_count = sum(
+        _is_official_exact_window(adapter, catalog, window)
+        for programme in catalog.programmes
+        for window in programme.windows
+    )
+    missing_opening_date_count = sum(
+        not _has_official_exact_opening(adapter, catalog, window)
+        for programme in catalog.programmes
+        for window in programme.windows
+    )
+    window_fingerprint = _hash(
+        json.dumps(
+            {
+                programme.id: [
+                    {
+                        "round": window.round,
+                        "opensAt": window.opens_at,
+                        "closesAt": window.closes_at,
+                        "intake": window.intake,
+                        "applicantCategories": window.applicant_categories,
+                        "sourceUrl": window.source_url,
+                    }
+                    for window in programme.windows
+                ]
+                for programme in catalog.programmes
+            },
+            sort_keys=True,
+        )
+    )
+    watched_source_fingerprint = (
+        _hash(json.dumps(watched_source_hashes, sort_keys=True))
+        if watched_source_hashes
+        else None
+    )
+    programmes_without_deadlines = sum(
+        not programme.windows for programme in catalog.programmes
+    )
+    programmes_needing_review = sum(
+        programme.parse_status != "parsed" for programme in catalog.programmes
+    )
+    window_status = _window_status(
+        exact_window_count,
+        observed_window_count,
+        missing_opening_date_count,
+    )
+    limitation_reason = _limitation_reason(
+        exact_window_count,
+        observed_window_count,
+        missing_opening_date_count,
+    )
     state_payload.setdefault("universities", {})[adapter.university_id] = {
         "sourceUrl": adapter.catalog_url,
         "checkedAt": checked_at,
         "itemCount": len(catalog.programmes),
         "applicationOpensAt": catalog.application_opens_at,
         "catalogHash": _hash(json.dumps(snapshot_items, sort_keys=True)),
+        "catalogueStatus": "ok",
+        "windowStatus": window_status,
+        "observedWindowCount": observed_window_count,
+        "exactWindowCount": exact_window_count,
+        "missingOpeningDateCount": missing_opening_date_count,
+        "programmesWithoutDeadlines": programmes_without_deadlines,
+        "programmesNeedingReview": programmes_needing_review,
+        "limitationReason": limitation_reason,
+        "lastSuccessfulAt": checked_at,
+        "windowFingerprint": window_fingerprint,
+        "watchedWindowSourceHash": watched_source_fingerprint,
         "programmes": snapshot_items,
     }
     state_payload["meta"] = {
@@ -272,6 +349,7 @@ def discover_programmes(
         "sourceUrl": adapter.catalog_url,
         "checkedAt": checked_at,
         "catalogProgrammes": len(catalog.programmes),
+        "previousCatalogProgrammes": previous_state.get("itemCount"),
         "knownProgrammes": len(known_ids),
         "newCandidates": created,
         "newGuidanceCandidates": created_guidance_candidates,
@@ -293,12 +371,16 @@ def discover_programmes(
             and item.get("type") == "known-programme-window-guidance"
             for item in items
         ),
-        "programmesWithoutDeadlines": sum(
-            not programme.windows for programme in catalog.programmes
-        ),
-        "programmesNeedingReview": sum(
-            programme.parse_status != "parsed" for programme in catalog.programmes
-        ),
+        "catalogueStatus": "ok",
+        "windowStatus": window_status,
+        "observedWindowCount": observed_window_count,
+        "exactWindowCount": exact_window_count,
+        "missingOpeningDateCount": missing_opening_date_count,
+        "programmesWithoutDeadlines": programmes_without_deadlines,
+        "programmesNeedingReview": programmes_needing_review,
+        "limitationReason": limitation_reason,
+        "windowFingerprint": window_fingerprint,
+        "watchedWindowSourceHash": watched_source_fingerprint,
         "dryRun": dry_run,
     }
 
@@ -421,3 +503,66 @@ def _candidate_record(
 
 def _hash(value: str) -> str:
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def _source_hash(content: str) -> str:
+    """Fingerprint meaningful page text while ignoring formatting-only changes."""
+    stripped = re.sub(r"<script\b[^>]*>.*?</script>", " ", content, flags=re.I | re.S)
+    stripped = re.sub(r"<style\b[^>]*>.*?</style>", " ", stripped, flags=re.I | re.S)
+    stripped = re.sub(r"<[^>]+>", " ", stripped)
+    normalised = re.sub(r"\s+", " ", stripped).strip().lower()
+    return _hash(normalised)
+
+
+def _effective_opening(adapter, catalog, window) -> str | None:
+    opens_at = window.opens_at or catalog.application_opens_at
+    if not opens_at or opens_at > window.closes_at:
+        return None
+    return opens_at
+
+
+def _is_official_exact_window(adapter, catalog, window) -> bool:
+    return _has_official_exact_opening(adapter, catalog, window)
+
+
+def _has_official_exact_opening(adapter, catalog, window) -> bool:
+    if not _effective_opening(adapter, catalog, window):
+        return False
+    opening_basis = (
+        "official" if window.opens_at else adapter.application_opens_at_basis
+    )
+    return opening_basis == "official"
+
+
+def _window_status(
+    exact_window_count: int,
+    observed_window_count: int,
+    missing_opening_date_count: int,
+) -> str:
+    if exact_window_count and exact_window_count == observed_window_count:
+        return "exact"
+    if exact_window_count:
+        return "partial"
+    if observed_window_count or missing_opening_date_count:
+        return "needs-opening-date"
+    return "monitoring"
+
+
+def _limitation_reason(
+    exact_window_count: int,
+    observed_window_count: int,
+    missing_opening_date_count: int,
+) -> str | None:
+    if exact_window_count and exact_window_count == observed_window_count:
+        return None
+    if missing_opening_date_count:
+        return (
+            f"{missing_opening_date_count} parsed deadline(s) lack an official "
+            "exact opening date."
+        )
+    if observed_window_count:
+        return "Observed dates are incomplete or not safe for automatic publication."
+    return (
+        "The checked official sources currently expose no complete exact opening-"
+        "and-closing window to this adapter."
+    )

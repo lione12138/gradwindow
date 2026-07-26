@@ -3,8 +3,10 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
+from .adapter_health import update_adapter_health
 from .approvals import (
     approve_official_adapter_window_candidates,
     approve_programme_candidates,
@@ -176,6 +178,8 @@ def main() -> None:
     elif args.command == "discover-programmes":
         if args.university == "all":
             report, _successful_ids = _run_dedicated_discovery(dry_run=args.dry_run)
+            if not args.dry_run:
+                update_adapter_health(report)
         else:
             report = discover_programmes(
                 PROGRAMME_ADAPTERS[args.university](),
@@ -315,6 +319,13 @@ def main() -> None:
             discovery_reports, successful_dedicated_ids = _run_dedicated_discovery()
             for discovery_report in discovery_reports:
                 print(json.dumps(discovery_report, ensure_ascii=False))
+            adapter_health = update_adapter_health(discovery_reports)
+            print(
+                json.dumps(
+                    {"adapterHealth": adapter_health["meta"]["summary"]},
+                    ensure_ascii=False,
+                )
+            )
             generic_report = run_generic_discovery_batch(
                 successful_dedicated_university_ids=successful_dedicated_ids
             )
@@ -388,7 +399,9 @@ def _pipeline_discovery_report(
     adapter = None
     try:
         adapter = adapter_factory()
-        return discover_programmes(adapter, dry_run=dry_run)
+        report = discover_programmes(adapter, dry_run=dry_run)
+        report.setdefault("adapter", name)
+        return report
     except Exception as exc:
         return {
             "status": "error",
@@ -405,6 +418,7 @@ def _pipeline_discovery_report(
             ),
             "errorType": type(exc).__name__,
             "message": str(exc),
+            "checkedAt": datetime.now(timezone.utc).isoformat(),
             "dryRun": dry_run,
         }
 
