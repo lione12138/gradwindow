@@ -117,7 +117,11 @@ jobs:
           git commit -m "data: translate published programmes"
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
-      - name: Open or update data review pull request
+      - name: Test refreshed data before publication
+        if: github.event_name != 'push' && !inputs.translation_only
+        run: pytest -q
+
+      - name: Open or update automated data publication pull request
         if: github.event_name != 'push' && !inputs.translation_only
         id: data-pr
         uses: peter-evans/create-pull-request@v8
@@ -125,7 +129,7 @@ jobs:
           commit-message: "data: refresh application windows"
           branch: automation/application-data
           delete-branch: true
-          title: "data: review automated application-window refresh"
+          title: "data: publish automated application-window refresh"
           body: |
             Automated daily refresh of monitoring state, parser candidates,
             programme-discovery candidates, predictions, evidence snapshots,
@@ -133,11 +137,11 @@ jobs:
 
             Dedicated adapters automatically promote only complete application
             windows with official exact opening and closing dates. Inferred or
-            incomplete windows and parser date changes still require explicit
-            approval.
+            incomplete windows and parser date changes remain unpublished.
           add-paths: |
             data/applications.json
             data/predictions.json
+            data/programs.json
             data/programme-translations.json
             data/evidence/
             data/coverage.json
@@ -145,14 +149,18 @@ jobs:
             README.md
             README.zh-CN.md
 
-      - name: Run tests on the data review branch
+      - name: Merge validated data publication
         if: >-
           github.event_name != 'push' &&
           !inputs.translation_only &&
           steps.data-pr.outputs.pull-request-number
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run tests.yml --ref automation/application-data
+        run: >-
+          gh pr merge "${{ steps.data-pr.outputs.pull-request-number }}"
+          --repo "$GITHUB_REPOSITORY"
+          --squash
+          --delete-branch
 
       - name: Open issue for newly confirmed page changes
         if: github.event_name != 'push' && !inputs.translation_only
