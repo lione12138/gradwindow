@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-07-26T05:54:23.314497+00:00",
+    "generatedAt": "2026-07-26T07:23:54.052966+00:00",
     "description": "Automatic findings require maintainer review before publication."
   },
   "items": [
@@ -77,6 +77,18 @@
       "severity": "generic"
     },
     {
+      "id": "content-change:pennsylvania-state-university:42f25f077a0a",
+      "type": "content-change",
+      "universityId": "pennsylvania-state-university",
+      "school": "Pennsylvania State University",
+      "qsRank": 92,
+      "url": "https://gradschool.psu.edu/admissions/how-to-apply?",
+      "reason": "Official page content changed consistently in two consecutive checks.",
+      "severity": "application",
+      "detectedAt": "2026-07-26T06:50:07.522576+00:00",
+      "status": "pending"
+    },
+    {
       "id": "content-change:university-of-zurich-uzh:5c4c4e121a9b",
       "type": "content-change",
       "universityId": "university-of-zurich-uzh",
@@ -147,6 +159,18 @@
       "detectedAt": "2026-06-13T22:29:22.855078+00:00",
       "status": "pending",
       "severity": "generic"
+    },
+    {
+      "id": "content-change:queen-s-university-belfast:38f33893afea",
+      "type": "content-change",
+      "universityId": "queen-s-university-belfast",
+      "school": "Queen's University Belfast",
+      "qsRank": 174,
+      "url": "https://www.qub.ac.uk/courses/postgraduate-taught/",
+      "reason": "Official page content changed consistently in two consecutive checks.",
+      "severity": "generic",
+      "detectedAt": "2026-07-26T06:50:23.119222+00:00",
+      "status": "pending"
     },
     {
       "id": "content-change:universidad-de-chile:2a76d2582302",
@@ -498,6 +522,317 @@
       "status": "pending"
     },
     {
+      "id": "monitor-error:massachusetts-institute-of-technology-mit",
+      "type": "monitor-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:49:58.562462+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-whoi-joint-program-in-oceanography-applied-ocean-science-and-engineering-masters-2027-round-1",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-whoi-joint-program-in-oceanography-applied-ocean-science-and-engineering-masters-2027-round-1",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-supply-chain-management-residential-masters-2027-round-1",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-supply-chain-management-residential-masters-2027-round-1",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-aeronautics-and-astronautics-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-aeronautics-and-astronautics-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-chemical-engineering-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-chemical-engineering-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-materials-science-and-engineering-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-materials-science-and-engineering-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-mechanical-engineering-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-mechanical-engineering-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-whoi-joint-program-in-oceanography-applied-ocean-science-and-engineering-masters-2027-round-2",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-whoi-joint-program-in-oceanography-applied-ocean-science-and-engineering-masters-2027-round-2",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-civil-and-environmental-engineering-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-civil-and-environmental-engineering-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-earth-atmospheric-and-planetary-sciences-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-earth-atmospheric-and-planetary-sciences-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-media-arts-and-sciences-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-media-arts-and-sciences-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-nuclear-science-and-engineering-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-nuclear-science-and-engineering-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-operations-research-center-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-operations-research-center-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-political-science-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-political-science-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-technology-and-policy-program-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-technology-and-policy-program-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-transportation-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-transportation-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-urban-studies-and-planning-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-urban-studies-and-planning-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-music-technology-and-computation-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-music-technology-and-computation-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-architecture-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-architecture-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-center-for-real-estate-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-center-for-real-estate-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-supply-chain-management-blended-masters-2027-round-1",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-supply-chain-management-blended-masters-2027-round-1",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-data-economics-and-design-of-policy-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-data-economics-and-design-of-policy-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-science-writing-masters-2027-main-deadline",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-science-writing-masters-2027-main-deadline",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-supply-chain-management-residential-masters-2027-round-2",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-supply-chain-management-residential-masters-2027-round-2",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-supply-chain-management-residential-masters-2027-round-3",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-supply-chain-management-residential-masters-2027-round-3",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-error:mit-supply-chain-management-blended-masters-2027-round-2",
+      "type": "window-source-error",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "recordId": "mit-supply-chain-management-blended-masters-2027-round-2",
+      "school": "Massachusetts Institute of Technology (MIT)",
+      "qsRank": 1,
+      "url": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:52:50.377213+00:00",
+      "status": "pending"
+    },
+    {
       "id": "window-source-change:ucl-machine-learning-2026-visa:dfdc937076fe",
       "type": "window-source-change",
       "universityId": "ucl-university-college-london",
@@ -609,7 +944,7 @@
       "qsRank": 36,
       "url": "https://isc.sjtu.edu.cn/EN/content.aspx?flag=2&info_lb=38",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:32.724573+00:00",
+      "detectedAt": "2026-07-26T06:50:00.273413+00:00",
       "status": "pending"
     },
     {
@@ -621,7 +956,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -633,7 +968,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -645,7 +980,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -657,7 +992,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -669,7 +1004,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -681,7 +1016,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -693,7 +1028,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -705,7 +1040,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -717,7 +1052,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -729,7 +1064,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -741,7 +1076,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -753,7 +1088,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -765,7 +1100,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -777,7 +1112,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -789,7 +1124,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -801,7 +1136,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -813,7 +1148,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -825,7 +1160,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -837,7 +1172,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -849,7 +1184,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -861,7 +1196,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -873,7 +1208,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -885,7 +1220,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -897,7 +1232,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -909,7 +1244,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -921,7 +1256,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -933,7 +1268,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -945,7 +1280,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -957,7 +1292,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -969,7 +1304,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -981,7 +1316,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -993,7 +1328,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1005,7 +1340,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1017,7 +1352,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1029,7 +1364,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1041,7 +1376,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1053,7 +1388,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1065,7 +1400,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1077,7 +1412,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1089,7 +1424,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1101,7 +1436,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1113,7 +1448,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1125,7 +1460,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1137,7 +1472,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1149,7 +1484,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1161,7 +1496,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1173,7 +1508,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1185,7 +1520,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1197,7 +1532,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1209,7 +1544,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1221,7 +1556,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1233,7 +1568,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1245,7 +1580,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1257,7 +1592,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1269,7 +1604,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1281,7 +1616,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1293,7 +1628,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1305,7 +1640,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1317,7 +1652,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1329,7 +1664,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1341,7 +1676,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1353,7 +1688,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1365,7 +1700,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1377,7 +1712,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1389,7 +1724,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1401,7 +1736,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1413,7 +1748,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1425,7 +1760,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1437,7 +1772,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1449,7 +1784,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1461,7 +1796,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1473,7 +1808,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1485,7 +1820,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1497,7 +1832,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1509,7 +1844,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1521,7 +1856,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1533,7 +1868,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1545,7 +1880,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1557,7 +1892,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1569,7 +1904,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1581,7 +1916,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1593,7 +1928,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1605,7 +1940,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1617,7 +1952,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1629,7 +1964,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1641,7 +1976,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1653,7 +1988,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1665,7 +2000,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1677,7 +2012,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1689,7 +2024,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1701,7 +2036,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1713,7 +2048,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1725,7 +2060,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1737,7 +2072,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1749,7 +2084,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1761,7 +2096,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1773,7 +2108,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1785,7 +2120,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1797,7 +2132,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1809,7 +2144,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1821,7 +2156,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1833,7 +2168,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1845,7 +2180,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1857,7 +2192,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1869,7 +2204,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1881,7 +2216,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1893,7 +2228,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1905,7 +2240,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1917,7 +2252,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1929,7 +2264,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1941,7 +2276,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1953,7 +2288,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1965,7 +2300,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1977,7 +2312,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -1989,7 +2324,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2001,7 +2336,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2013,7 +2348,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2025,7 +2360,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2037,7 +2372,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2049,7 +2384,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2061,7 +2396,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2073,7 +2408,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2085,7 +2420,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2097,7 +2432,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2109,7 +2444,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2121,7 +2456,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2133,7 +2468,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2145,7 +2480,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2157,7 +2492,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2169,7 +2504,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2181,7 +2516,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2193,7 +2528,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2205,7 +2540,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2217,7 +2552,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2229,7 +2564,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2241,7 +2576,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2253,7 +2588,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2265,7 +2600,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2277,7 +2612,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2289,7 +2624,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2301,7 +2636,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2313,7 +2648,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2325,7 +2660,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2337,7 +2672,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2349,7 +2684,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2361,7 +2696,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2373,7 +2708,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2385,7 +2720,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2397,7 +2732,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2409,7 +2744,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2421,7 +2756,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2433,7 +2768,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2445,7 +2780,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2457,7 +2792,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2469,7 +2804,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2481,7 +2816,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2493,7 +2828,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2505,7 +2840,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2517,7 +2852,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2529,7 +2864,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2541,7 +2876,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2553,7 +2888,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2565,7 +2900,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2577,7 +2912,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2589,7 +2924,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2601,7 +2936,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2613,7 +2948,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2625,7 +2960,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2637,7 +2972,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2649,7 +2984,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2661,7 +2996,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2673,7 +3008,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2685,7 +3020,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2697,7 +3032,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2709,7 +3044,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2721,7 +3056,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2733,7 +3068,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2745,7 +3080,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2757,7 +3092,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2769,7 +3104,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2781,7 +3116,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2793,7 +3128,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2805,7 +3140,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2817,7 +3152,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2829,7 +3164,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2841,7 +3176,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2853,7 +3188,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2865,7 +3200,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2877,7 +3212,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2889,7 +3224,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2901,7 +3236,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2913,7 +3248,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2925,7 +3260,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2937,7 +3272,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2949,7 +3284,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2961,7 +3296,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2973,7 +3308,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2985,7 +3320,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -2997,7 +3332,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -3009,7 +3344,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -3021,7 +3356,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -3033,7 +3368,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:27:21.148502+00:00",
+      "detectedAt": "2026-07-26T06:53:33.221147+00:00",
       "status": "pending"
     },
     {
@@ -3440,6 +3775,1176 @@
       "status": "pending"
     },
     {
+      "id": "window-source-change:ubc-master-of-science-in-botany-msc-2027-application-deadline:894fd2eca0d7",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-botany-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-botany",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.283273+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-mining-engineering-masc-2027-international-applicant-deadline-international-students:ab62073551ad",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-mining-engineering-masc-2027-international-applicant-deadline-international-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-mining-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.662832+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-craniofacial-science-and-diploma-in-endodontics-msc-dip-endodontics-2027-application-deadline:fb008c46d742",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-craniofacial-science-and-diploma-in-endodontics-msc-dip-endodontics-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-science-craniofacial-science-diploma-endodontics",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.852586+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-chemical-and-biological-engineering-masc-2027-application-deadline:f9b7636e2ab8",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-chemical-and-biological-engineering-masc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-chemical-biological-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:24.306740+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-materials-engineering-masc-2027-application-deadline:3d702e9c4d39",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-materials-engineering-masc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-materials-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:25.078420+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-chemical-and-biological-engineering-msc-2027-application-deadline:28ad38fe493d",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-chemical-and-biological-engineering-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-chemical-biological-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:25.517810+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-materials-engineering-msc-2027-application-deadline:fd6f52215794",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-materials-engineering-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-materials-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:25.944434+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-rehabilitation-sciences-msc-2027-international-applicant-deadline-international-students:70b424adbfef",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-rehabilitation-sciences-msc-2027-international-applicant-deadline-international-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-rehabilitation-sciences",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:26.794857+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-mining-engineering-masc-2027-canadian-applicant-deadline-domestic-students:ab62073551ad",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-mining-engineering-masc-2027-canadian-applicant-deadline-domestic-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-mining-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.662832+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-experimental-medicine-msc-2027-international-applicant-deadline-international-students:932c08e20ae0",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-experimental-medicine-msc-2027-international-applicant-deadline-international-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-experimental-medicine",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:27.089401+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-genome-science-and-technology-msc-2027-application-deadline:c5d326cb8e7a",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-genome-science-and-technology-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-genome-science-technology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:27.258615+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-interdisciplinary-oncology-msc-2027-international-applicant-deadline-international-students:ee4d03b53ba2",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-interdisciplinary-oncology-msc-2027-international-applicant-deadline-international-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-interdisciplinary-oncology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:29.218001+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-applied-animal-biology-msc-2027-application-deadline:b21180e7b840",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-applied-animal-biology-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-applied-animal-biology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:29.792131+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-human-nutrition-msc-2027-application-deadline:a27c390e94e0",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-human-nutrition-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-human-nutrition",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:32.290704+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-integrated-studies-in-land-and-food-systems-msc-2027-application-deadline:8203ca64c2d4",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-integrated-studies-in-land-and-food-systems-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-integrated-studies-land-food-systems",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:32.449507+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-soil-science-msc-2027-application-deadline:82c4ea2b24d2",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-soil-science-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-soil-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:34.248084+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-pathology-and-laboratory-medicine-msc-2027-international-applicant-deadline-international-students:d4c6a97023dc",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-pathology-and-laboratory-medicine-msc-2027-international-applicant-deadline-international-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pathology-laboratory-medicine",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:34.431307+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-educational-technology-met-2027-application-deadline:cdb1a3895e9b",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-educational-technology-met-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-educational-technology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:35.573304+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-forestry-masc-2027-application-deadline:389a04b1ca06",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-forestry-masc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-forestry",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:36.614343+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-forestry-msc-2027-application-deadline:58ef979809c8",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-forestry-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-forestry",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:38.423545+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-experimental-medicine-msc-2027-canadian-applicant-deadline-domestic-students:932c08e20ae0",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-experimental-medicine-msc-2027-canadian-applicant-deadline-domestic-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-experimental-medicine",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:27.089401+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-interdisciplinary-oncology-msc-2027-canadian-applicant-deadline-domestic-students:ee4d03b53ba2",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-interdisciplinary-oncology-msc-2027-canadian-applicant-deadline-domestic-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-interdisciplinary-oncology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:29.218001+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-rehabilitation-sciences-msc-2027-canadian-applicant-deadline-domestic-students:70b424adbfef",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-rehabilitation-sciences-msc-2027-canadian-applicant-deadline-domestic-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-rehabilitation-sciences",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:26.794857+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-llm-master-of-laws-common-law-llmcl-2027-application-deadline:40aa2126464e",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-llm-master-of-laws-common-law-llmcl-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/llm-master-of-laws-common-law",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:40.335420+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-genome-science-and-technology-msc-2027-application-deadline-7c7a587b:c5d326cb8e7a",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-genome-science-and-technology-msc-2027-application-deadline-7c7a587b",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-genome-science-technology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:27.258615+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-nursing-nurse-practitioner-mn-2027-application-deadline:b4f53df7c94b",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-nursing-nurse-practitioner-mn-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-nursing-nurse-practitioner",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:41.206497+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-nutrition-and-dietetics-mnd-2027-application-deadline:001445d05d7c",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-nutrition-and-dietetics-mnd-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-nutrition-dietetics",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:42.299983+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-experimental-medicine-msc-2027-international-applicant-deadline-international-students-e2df4b07:932c08e20ae0",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-experimental-medicine-msc-2027-international-applicant-deadline-international-students-e2df4b07",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-experimental-medicine",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:27.089401+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-neuroscience-msc-2027-application-deadline:46671d83e28e",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-neuroscience-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-neuroscience",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:43.248309+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-nursing-msn-2027-application-deadline:dc002132f607",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-nursing-msn-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-nursing",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:44.829458+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-engineering-in-electrical-and-computer-engineering-meng-2027-application-deadline:783fe3b7eebe",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-engineering-in-electrical-and-computer-engineering-meng-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-engineering-electrical-computer-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:44.946305+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-cell-and-developmental-biology-msc-2027-application-deadline:71dc9a5dbdb4",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-cell-and-developmental-biology-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-cell-developmental-biology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:45.074101+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-microbiology-and-immunology-msc-2027-application-deadline:5c952042d2f3",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-microbiology-and-immunology-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-microbiology-immunology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:45.096061+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-counselling-psychology-ma-2027-application-deadline:fbe70e37d583",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-counselling-psychology-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-counselling-psychology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:45.431690+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-geography-ma-2027-application-deadline:6aa5d167c000",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-geography-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-geography",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:46.184311+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-measurement-evaluation-and-research-methodology-ma-2027-application-deadline:5b3fc1ae265b",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-measurement-evaluation-and-research-methodology-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-measurement-evaluation-research-methodology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:48.333582+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-school-and-applied-child-psychology-ma-2027-application-deadline:7de3096918c0",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-school-and-applied-child-psychology-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-school-applied-child-psychology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:49.188565+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-special-education-ma-2027-application-deadline:7f9e7806240b",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-special-education-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-special-education",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:50.441330+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-education-in-school-and-applied-child-psychology-med-2027-application-deadline:b8957469a17f",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-education-in-school-and-applied-child-psychology-med-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-education-school-applied-child-psychology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:51.568555+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-education-in-special-education-med-2027-application-deadline:322bc13ba1e7",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-education-in-special-education-med-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-education-special-education",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:52.320435+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-genome-science-and-technology-msc-2027-application-deadline-0c247556:c5d326cb8e7a",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-genome-science-and-technology-msc-2027-application-deadline-0c247556",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-genome-science-technology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:27.258615+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-geography-msc-2027-application-deadline:1ff4a0f83bf3",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-geography-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-geography",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:52.456256+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-pathology-and-laboratory-medicine-msc-2027-canadian-applicant-deadline-domestic-students:d4c6a97023dc",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-pathology-and-laboratory-medicine-msc-2027-canadian-applicant-deadline-domestic-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pathology-laboratory-medicine",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:34.431307+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-mining-engineering-masc-2027-international-applicant-deadline-international-students-15c2f346:ab62073551ad",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-mining-engineering-masc-2027-international-applicant-deadline-international-students-15c2f346",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-mining-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.662832+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-interdisciplinary-oncology-msc-2027-international-applicant-deadline-international-students-d21db4c1:ee4d03b53ba2",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-interdisciplinary-oncology-msc-2027-international-applicant-deadline-international-students-d21db4c1",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-interdisciplinary-oncology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:29.218001+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-business-administration-in-finance-mscb-2027-application-deadline:8ec8c576d90d",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-business-administration-in-finance-mscb-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-business-administration-finance",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:55.083719+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-pathology-and-laboratory-medicine-msc-2027-international-applicant-deadline-international-students-b2616af1:d4c6a97023dc",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-pathology-and-laboratory-medicine-msc-2027-international-applicant-deadline-international-students-b2616af1",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pathology-laboratory-medicine",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:34.431307+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-forestry-mf-2027-application-deadline:cfedee75ad64",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-forestry-mf-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-forestry",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:56.637941+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-political-science-ma-2027-application-deadline:44c335bafaa1",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-political-science-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-political-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:56.867917+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-art-history-critical-curatorial-studies-ma-2027-application-deadline:784e2488ad84",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-art-history-critical-curatorial-studies-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-critical-curatorial-studies",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:56.899651+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-art-history-ma-2027-application-deadline:ecaf83999755",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-art-history-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-art-history",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:59.175128+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-fine-arts-in-visual-art-mfa-2027-application-deadline:fc90c03eca0f",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-fine-arts-in-visual-art-mfa-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-fine-arts-visual-art",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:00.225607+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-history-ma-2027-application-deadline:0e54ad6615b9",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-history-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-history",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:00.645112+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-arts-in-kinesiology-ma-2027-application-deadline:7dbef85146f3",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-arts-in-kinesiology-ma-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-kinesiology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:01.118198+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-kinesiology-mkin-2027-application-deadline:8207a2082bda",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-kinesiology-mkin-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-kinesiology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:01.379462+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-botany-msc-2027-application-deadline-d2fb0c46:894fd2eca0d7",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-botany-msc-2027-application-deadline-d2fb0c46",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-botany",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.283273+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-kinesiology-msc-2027-application-deadline:8e9da9f79024",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-kinesiology-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-kinesiology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:01.600657+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-electrical-and-computer-engineering-masc-2027-application-deadline:ed634362838a",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-electrical-and-computer-engineering-masc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-electrical-computer-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:02.295747+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-mining-engineering-masc-2027-canadian-applicant-deadline-domestic-students-ccf4a913:ab62073551ad",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-mining-engineering-masc-2027-canadian-applicant-deadline-domestic-students-ccf4a913",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-mining-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.662832+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-engineering-in-geological-engineering-meng-2027-application-deadline:69831364a04f",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-engineering-in-geological-engineering-meng-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-engineering-geological-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:05.001834+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-atmospheric-science-msc-2027-application-deadline:be80fc484d4f",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-atmospheric-science-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-atmospheric-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:05.403039+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-experimental-medicine-msc-2027-canadian-applicant-deadline-domestic-students-ccf4a913:932c08e20ae0",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-experimental-medicine-msc-2027-canadian-applicant-deadline-domestic-students-ccf4a913",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-experimental-medicine",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:27.089401+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-geological-sciences-msc-2027-application-deadline:f44bc5dbde2e",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-geological-sciences-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-geological-sciences",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:05.543895+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-geophysics-msc-2027-application-deadline:02235340d76a",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-geophysics-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-geophysics",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:06.242357+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-interdisciplinary-oncology-msc-2027-canadian-applicant-deadline-domestic-students-63807517:ee4d03b53ba2",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-interdisciplinary-oncology-msc-2027-canadian-applicant-deadline-domestic-students-63807517",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-interdisciplinary-oncology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:29.218001+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-oceanography-msc-2027-application-deadline:7d4965173cd2",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-oceanography-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-oceanography",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:08.108796+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-rehabilitation-sciences-msc-2027-application-deadline:70b424adbfef",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-rehabilitation-sciences-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-rehabilitation-sciences",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:26.794857+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-education-in-adult-learning-and-education-med-2027-application-deadline:69671559e57b",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-education-in-adult-learning-and-education-med-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-education-adult-learning-education",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:09.444581+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-education-in-society-culture-and-politics-in-education-med-2027-application-deadline:493efee643d5",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-education-in-society-culture-and-politics-in-education-med-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-education-society-culture-politics-education",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:10.449974+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-food-science-mfs-2027-application-deadline:1480d538292c",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-food-science-mfs-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-food-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:12.354266+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-health-administration-mha-2027-international-applicant-deadline-international-students:bb9507d17cc6",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-health-administration-mha-2027-international-applicant-deadline-international-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-health-administration",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:12.355703+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-health-science-mhsc-2027-application-deadline:771d3627005a",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-health-science-mhsc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-health-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:13.280579+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-applied-animal-biology-msc-2027-application-deadline-4c8c1849:b21180e7b840",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-applied-animal-biology-msc-2027-application-deadline-4c8c1849",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-applied-animal-biology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:29.792131+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-human-nutrition-msc-2027-application-deadline-4c8c1849:a27c390e94e0",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-human-nutrition-msc-2027-application-deadline-4c8c1849",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-human-nutrition",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:32.290704+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-integrated-studies-in-land-and-food-systems-msc-2027-application-deadline-4c8c1849:8203ca64c2d4",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-integrated-studies-in-land-and-food-systems-msc-2027-application-deadline-4c8c1849",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-integrated-studies-land-food-systems",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:32.449507+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-soil-science-msc-2027-application-deadline-4c8c1849:82c4ea2b24d2",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-soil-science-msc-2027-application-deadline-4c8c1849",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-soil-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:34.248084+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-geomatics-for-environmental-management-mgem-2027-application-deadline:bff1394c6293",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-geomatics-for-environmental-management-mgem-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-geomatics-environmental-management",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:13.497023+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-microbiology-and-immunology-msc-2027-application-deadline-3fbd32f6:5c952042d2f3",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-microbiology-and-immunology-msc-2027-application-deadline-3fbd32f6",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-microbiology-immunology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:45.096061+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-sustainable-forest-management-msfm-2027-application-deadline:667a9b3f7fd3",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-sustainable-forest-management-msfm-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-sustainable-forest-management",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:15.152102+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-llm-master-of-laws-common-law-llmcl-2027-application-deadline-2f9452cb:40aa2126464e",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-llm-master-of-laws-common-law-llmcl-2027-application-deadline-2f9452cb",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/llm-master-of-laws-common-law",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:40.335420+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-health-administration-mha-2027-canadian-applicant-deadline-domestic-students:bb9507d17cc6",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-health-administration-mha-2027-canadian-applicant-deadline-domestic-students",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-health-administration",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:12.355703+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-cell-and-developmental-biology-msc-2027-application-deadline-04b1baa7:71dc9a5dbdb4",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-cell-and-developmental-biology-msc-2027-application-deadline-04b1baa7",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-cell-developmental-biology",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:45.074101+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-pathology-and-laboratory-medicine-msc-2027-canadian-applicant-deadline-domestic-students-ce2cc578:d4c6a97023dc",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-pathology-and-laboratory-medicine-msc-2027-canadian-applicant-deadline-domestic-students-ce2cc578",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pathology-laboratory-medicine",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:34.431307+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-mining-engineering-masc-2027-international-applicant-deadline-international-students-f4c92553:ab62073551ad",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-mining-engineering-masc-2027-international-applicant-deadline-international-students-f4c92553",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-mining-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.662832+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-mining-engineering-masc-2027-canadian-applicant-deadline-domestic-students-b3bfe1e9:ab62073551ad",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-mining-engineering-masc-2027-canadian-applicant-deadline-domestic-students-b3bfe1e9",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-mining-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:21.662832+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-atmospheric-science-msc-2028-application-deadline:be80fc484d4f",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-atmospheric-science-msc-2028-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-atmospheric-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:05.403039+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-geological-sciences-msc-2028-application-deadline:f44bc5dbde2e",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-geological-sciences-msc-2028-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-geological-sciences",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:05.543895+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-geophysics-msc-2028-application-deadline:02235340d76a",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-geophysics-msc-2028-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-geophysics",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:06.242357+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-oceanography-msc-2028-application-deadline:7d4965173cd2",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-oceanography-msc-2028-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-oceanography",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:56:08.108796+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-llm-master-of-laws-common-law-llmcl-2028-application-deadline:40aa2126464e",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-llm-master-of-laws-common-law-llmcl-2028-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/llm-master-of-laws-common-law",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-07-26T06:55:40.335420+00:00",
+      "status": "pending"
+    },
+    {
       "id": "window-source-change:polyu-microelectronics-and-quantum-systems-engineering-msc-2027-early-round:f6cb37541953",
       "type": "window-source-change",
       "universityId": "the-hong-kong-polytechnic-university",
@@ -3466,6 +4971,17 @@
       "status": "pending"
     },
     {
+      "id": "monitor-error:ku-leuven",
+      "type": "monitor-error",
+      "universityId": "ku-leuven",
+      "school": "KU Leuven",
+      "qsRank": 59,
+      "url": "https://icts.kuleuven.be/apps/tuitionfees/application-windows",
+      "reason": "[Errno 101] Network is unreachable",
+      "detectedAt": "2026-07-26T06:50:03.522282+00:00",
+      "status": "pending"
+    },
+    {
       "id": "monitor-error:the-university-of-amsterdam",
       "type": "monitor-error",
       "universityId": "the-university-of-amsterdam",
@@ -3473,7 +4989,7 @@
       "qsRank": 60,
       "url": "https://www.uva.nl/en/education/admissions/masters/applications-and-admission/applications-and-admission.html",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:35.219145+00:00",
+      "detectedAt": "2026-07-26T06:50:03.622380+00:00",
       "status": "pending"
     },
     {
@@ -3484,7 +5000,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:24:35.802915+00:00",
+      "detectedAt": "2026-07-26T06:50:04.678426+00:00",
       "status": "pending"
     },
     {
@@ -3496,7 +5012,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3508,7 +5024,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3520,7 +5036,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3532,7 +5048,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3544,7 +5060,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3556,7 +5072,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3568,7 +5084,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3580,7 +5096,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3592,7 +5108,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3604,7 +5120,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3616,7 +5132,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3628,7 +5144,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3640,7 +5156,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3652,7 +5168,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3664,7 +5180,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3676,7 +5192,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3688,7 +5204,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3700,7 +5216,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3712,7 +5228,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3724,7 +5240,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3736,7 +5252,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3748,7 +5264,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3760,7 +5276,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3772,7 +5288,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3784,7 +5300,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3796,7 +5312,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3808,7 +5324,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3820,7 +5336,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3832,7 +5348,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3844,7 +5360,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3856,7 +5372,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3868,7 +5384,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3880,7 +5396,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3892,7 +5408,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3904,7 +5420,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3916,7 +5432,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:26:43.681791+00:00",
+      "detectedAt": "2026-07-26T06:52:49.214634+00:00",
       "status": "pending"
     },
     {
@@ -3927,7 +5443,7 @@
       "qsRank": 79,
       "url": "https://adelaide.edu.au/study/how-to-apply/postgraduate-coursework",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:37.052994+00:00",
+      "detectedAt": "2026-07-26T06:50:05.930510+00:00",
       "status": "pending"
     },
     {
@@ -3938,7 +5454,7 @@
       "qsRank": 80,
       "url": "https://www.gla.ac.uk/postgraduate/howtoapplyforataughtdegree/",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:37.134581+00:00",
+      "detectedAt": "2026-07-26T06:50:05.959865+00:00",
       "status": "pending"
     },
     {
@@ -18314,7 +19830,7 @@
       "qsRank": 82,
       "url": "https://www.kth.se/en/studies/master/application",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:37.166249+00:00",
+      "detectedAt": "2026-07-26T06:50:06.418107+00:00",
       "status": "pending"
     },
     {
@@ -18325,7 +19841,29 @@
       "qsRank": 87,
       "url": "https://www.uu.se/en/study/admissions/master",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:37.845809+00:00",
+      "detectedAt": "2026-07-26T06:50:07.346960+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "monitor-error:freie-universit-t-berlin",
+      "type": "monitor-error",
+      "universityId": "freie-universit-t-berlin",
+      "school": "Freie Universitaet Berlin",
+      "qsRank": 98,
+      "url": "https://www.fu-berlin.de/en/studium/bewerbung/master/index.html",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:50:08.352297+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "monitor-error:university-of-zurich-uzh",
+      "type": "monitor-error",
+      "universityId": "university-of-zurich-uzh",
+      "school": "University of Zurich",
+      "qsRank": 98,
+      "url": "https://www.uzh.ch/en/studies/application/master.html",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:50:08.648775+00:00",
       "status": "pending"
     },
     {
@@ -18349,7 +19887,7 @@
       "qsRank": 110,
       "url": "https://www.sle.kit.edu/english/vorstudium/master.php",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:40.104216+00:00",
+      "detectedAt": "2026-07-26T06:50:10.807380+00:00",
       "status": "pending"
     },
     {
@@ -18360,7 +19898,7 @@
       "qsRank": 111,
       "url": "https://corsidilaurea.uniroma1.it/en/corso/2026/29932/home",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:40.194075+00:00",
+      "detectedAt": "2026-07-26T06:50:10.822358+00:00",
       "status": "pending"
     },
     {
@@ -18371,7 +19909,7 @@
       "qsRank": 113,
       "url": "https://uwaterloo.ca/future-graduate-students/applying-graduate-school",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:40.347137+00:00",
+      "detectedAt": "2026-07-26T06:50:10.914902+00:00",
       "status": "pending"
     },
     {
@@ -18382,7 +19920,7 @@
       "qsRank": 115,
       "url": "https://www.st-andrews.ac.uk/study/apply/postgraduate/",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:40.653618+00:00",
+      "detectedAt": "2026-07-26T06:50:11.142669+00:00",
       "status": "pending"
     },
     {
@@ -18393,7 +19931,7 @@
       "qsRank": 123,
       "url": "https://www.unibo.it/en/study/second-cycle-degree/application-and-enrolment",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:41.305194+00:00",
+      "detectedAt": "2026-07-26T06:50:11.791135+00:00",
       "status": "pending"
     },
     {
@@ -18404,7 +19942,7 @@
       "qsRank": 123,
       "url": "https://www.helsinki.fi/en/admissions-and-education/apply-masters-programmes",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:41.358206+00:00",
+      "detectedAt": "2026-07-26T06:50:11.880594+00:00",
       "status": "pending"
     },
     {
@@ -18415,7 +19953,7 @@
       "qsRank": 125,
       "url": "https://www.bath.ac.uk/guides/applying-for-a-masters-degree/",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:41.492369+00:00",
+      "detectedAt": "2026-07-26T06:50:12.000815+00:00",
       "status": "pending"
     },
     {
@@ -18426,7 +19964,7 @@
       "qsRank": 142,
       "url": "https://admission.nthu.edu.tw/",
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'admission.nthu.edu.tw'. (_ssl.c:1010)",
-      "detectedAt": "2026-07-26T05:24:43.086802+00:00",
+      "detectedAt": "2026-07-26T06:50:14.620489+00:00",
       "status": "pending"
     },
     {
@@ -18437,7 +19975,18 @@
       "qsRank": 148,
       "url": "https://www.eur.nl/en/education/application",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:43.736652+00:00",
+      "detectedAt": "2026-07-26T06:50:15.332279+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "monitor-error:newcastle-university",
+      "type": "monitor-error",
+      "universityId": "newcastle-university",
+      "school": "Newcastle University",
+      "qsRank": 149,
+      "url": "https://www.ncl.ac.uk/postgraduate/degrees/5056f/",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:50:15.362578+00:00",
       "status": "pending"
     },
     {
@@ -18448,7 +19997,7 @@
       "qsRank": 152,
       "url": "https://www.tue.nl/en/education/become-a-tue-student/admission-and-application",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:44.346984+00:00",
+      "detectedAt": "2026-07-26T06:50:16.008720+00:00",
       "status": "pending"
     },
     {
@@ -18459,7 +20008,7 @@
       "qsRank": 154,
       "url": "https://www.wur.nl/en/education/master/application-admission-masters/apply-masters-programme.htm",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:44.492621+00:00",
+      "detectedAt": "2026-07-26T06:50:16.162693+00:00",
       "status": "pending"
     },
     {
@@ -18470,7 +20019,7 @@
       "qsRank": 155,
       "url": "https://www.grad.hanyang.ac.kr/eng/entrance/calendar.php",
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.grad.hanyang.ac.kr'. (_ssl.c:1010)",
-      "detectedAt": "2026-07-26T05:24:44.497815+00:00",
+      "detectedAt": "2026-07-26T06:50:16.249916+00:00",
       "status": "pending"
     },
     {
@@ -18482,7 +20031,7 @@
       "qsRank": 155,
       "url": "https://oia.hanyang.ac.kr/files/attach/filebox/2026/02/24/9e341959d0a28e0c4ee5b3fb53ef287c.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-07-26T05:26:04.294066+00:00",
+      "detectedAt": "2026-07-26T06:51:53.793331+00:00",
       "status": "pending"
     },
     {
@@ -18493,7 +20042,7 @@
       "qsRank": 156,
       "url": "https://admissions.g30.nagoya-u.ac.jp/graduate/",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:24:44.548166+00:00",
+      "detectedAt": "2026-07-26T06:50:16.262809+00:00",
       "status": "pending"
     },
     {
@@ -18504,7 +20053,7 @@
       "qsRank": 158,
       "url": "https://admission.utm.my/international-postgraduate-study/",
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)",
-      "detectedAt": "2026-07-26T05:24:44.792983+00:00",
+      "detectedAt": "2026-07-26T06:50:16.726000+00:00",
       "status": "pending"
     },
     {
@@ -18515,7 +20064,7 @@
       "qsRank": 162,
       "url": "https://graduateschool.wustl.edu/admissions/",
       "reason": "timed out",
-      "detectedAt": "2026-07-26T05:24:45.421276+00:00",
+      "detectedAt": "2026-07-26T06:50:17.155715+00:00",
       "status": "pending"
     },
     {
@@ -18526,7 +20075,7 @@
       "qsRank": 165,
       "url": "https://admission.whu.edu.cn/en/?c=content&a=list&catid=81",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:45.626074+00:00",
+      "detectedAt": "2026-07-26T06:50:18.431035+00:00",
       "status": "pending"
     },
     {
@@ -18537,7 +20086,7 @@
       "qsRank": 167,
       "url": "https://www.su.se/english/search-courses-and-programmes",
       "reason": "[Errno 101] Network is unreachable",
-      "detectedAt": "2026-07-26T05:24:45.929525+00:00",
+      "detectedAt": "2026-07-26T06:50:18.452773+00:00",
       "status": "pending"
     },
     {
@@ -18548,7 +20097,18 @@
       "qsRank": 169,
       "url": "https://grad.tamu.edu/admissions",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:46.148084+00:00",
+      "detectedAt": "2026-07-26T06:50:19.167828+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "monitor-error:national-yang-ming-chiao-tung-university",
+      "type": "monitor-error",
+      "universityId": "national-yang-ming-chiao-tung-university",
+      "school": "National Yang Ming Chiao Tung University (NYCU Taiwan)",
+      "qsRank": 177,
+      "url": "https://oia.nycu.edu.tw/oia/en/app/folder/782",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:50:23.132889+00:00",
       "status": "pending"
     },
     {
@@ -18559,7 +20119,7 @@
       "qsRank": 184,
       "url": "https://uct.ac.za/students/applications-admissions/postgraduate-applications",
       "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:50.006826+00:00",
+      "detectedAt": "2026-07-26T06:50:25.353079+00:00",
       "status": "pending"
     },
     {
@@ -18569,8 +20129,19 @@
       "school": "Université catholique de Louvain (UCLouvain)",
       "qsRank": 196,
       "url": "https://uclouvain.be/en/study/admission.html",
-      "reason": "HTTP 404",
-      "detectedAt": "2026-07-26T05:24:51.648106+00:00",
+      "reason": "[Errno 101] Network is unreachable",
+      "detectedAt": "2026-07-26T06:50:28.930629+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "monitor-error:university-complutense-madrid",
+      "type": "monitor-error",
+      "universityId": "university-complutense-madrid",
+      "school": "Complutense University of Madrid",
+      "qsRank": 199,
+      "url": "https://informatica.ucm.es/master",
+      "reason": "timed out",
+      "detectedAt": "2026-07-26T06:50:29.273754+00:00",
       "status": "pending"
     }
   ]
