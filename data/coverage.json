@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-07-24T06:47:22.780503+00:00",
+    "generatedAt": "2026-07-26T02:52:45.791292+00:00",
     "rankingScope": "QS World University Rankings 2027 top 200",
     "batchSize": 5,
     "definition": "Entry, policy, programme, and exact-window coverage are counted separately. Predictions never count as verified deadlines."
@@ -13,7 +13,7 @@
     "cycleGuidanceAvailable": 198,
     "broadMastersAvailability": 195,
     "limitedMastersAvailability": 5,
-    "universitiesWithPrograms": 190,
+    "universitiesWithPrograms": 191,
     "universitiesWithWindows": 52,
     "verifiedWindows": 4581,
     "universitiesWithPredictions": 52,
@@ -21,8 +21,8 @@
     "nextActions": {
       "locate-official-entry": 0,
       "verify-window-policy": 0,
-      "select-target-programmes": 10,
-      "verify-exact-windows": 138,
+      "select-target-programmes": 9,
+      "verify-exact-windows": 139,
       "monitor-and-refresh": 52
     }
   },
@@ -36,7 +36,7 @@
       "universities": 5,
       "entriesLocated": 5,
       "policiesVerified": 5,
-      "universitiesWithPrograms": 2,
+      "universitiesWithPrograms": 3,
       "universitiesWithWindows": 2,
       "predictedWindows": 535
     },
@@ -568,7 +568,7 @@
         "opensText": "Early Fall 2026",
         "notes": "The central timeline is approximate; use each programme page for an exact deadline."
       },
-      "programmeCount": 21,
+      "programmeCount": 31,
       "windowCount": 25,
       "predictionCount": 25,
       "nextAction": "monitor-and-refresh"
@@ -587,7 +587,7 @@
       "policyModel": "mixed",
       "mastersAvailability": "broad",
       "cycleGuidance": null,
-      "programmeCount": 116,
+      "programmeCount": 248,
       "windowCount": 510,
       "predictionCount": 510,
       "nextAction": "monitor-and-refresh"
@@ -611,10 +611,10 @@
         "opensText": "Mid-September 2026",
         "notes": "The central application opening is announced, while deadlines remain programme-specific."
       },
-      "programmeCount": 0,
+      "programmeCount": 47,
       "windowCount": 0,
       "predictionCount": 0,
-      "nextAction": "select-target-programmes"
+      "nextAction": "verify-exact-windows"
     },
     {
       "universityId": "university-of-oxford",
@@ -755,7 +755,7 @@
         "opensText": "Check each course; many are currently open",
         "notes": "Admissions take place throughout the year, with visa-specific deadlines on individual course pages."
       },
-      "programmeCount": 10,
+      "programmeCount": 522,
       "windowCount": 20,
       "predictionCount": 20,
       "nextAction": "monitor-and-refresh"
@@ -798,7 +798,7 @@
         "opensText": "Check each programme page",
         "notes": "The MSc Computer Science page publishes main and clearing deadlines but does not expose an exact application opening date, so no complete calendar window is published."
       },
-      "programmeCount": 45,
+      "programmeCount": 152,
       "windowCount": 89,
       "predictionCount": 89,
       "nextAction": "monitor-and-refresh"
@@ -822,7 +822,7 @@
         "opensText": "Dates vary by programme",
         "notes": "The Master of Computing in Applied Artificial Intelligence lists a 1 November to 31 March period for the August 2026 intake."
       },
-      "programmeCount": 29,
+      "programmeCount": 110,
       "windowCount": 29,
       "predictionCount": 29,
       "nextAction": "monitor-and-refresh"
@@ -918,7 +918,7 @@
         "opensText": "The central application generally reopens in early September 2026",
         "notes": "Cornell gives only an approximate central opening. The Computer Science MEng publishes recurring February 1 and October 1 deadlines without an exact opening day for each intake."
       },
-      "programmeCount": 1,
+      "programmeCount": 108,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -966,7 +966,7 @@
         "opensText": "Applications commenced 1 September 2025 at 09:00 Hong Kong time",
         "notes": "The MSc in Computer Science closed on 31 January 2026. Other CUHK taught programmes use different rounds and deadlines."
       },
-      "programmeCount": 122,
+      "programmeCount": 123,
       "windowCount": 220,
       "predictionCount": 220,
       "nextAction": "monitor-and-refresh"
@@ -990,7 +990,7 @@
         "opensText": "Applications are accepted through the relevant UNSW or UAC portal",
         "notes": "The published 2026 term table gives closing dates but not a precise opening day, and the Master of Information Technology is subject to grouped offer rounds and capacity."
       },
-      "programmeCount": 1,
+      "programmeCount": 121,
       "windowCount": 3,
       "predictionCount": 2,
       "nextAction": "monitor-and-refresh"
@@ -1014,7 +1014,7 @@
         "opensText": "Applications accepted year-round",
         "notes": "The tracked Engineering for Professionals Computer Science MS accepts applications at any time and therefore has no finite application window."
       },
-      "programmeCount": 1,
+      "programmeCount": 249,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1062,7 +1062,7 @@
         "opensText": "Mid-November to 15 December, or 16 December to 31 March",
         "notes": "The official page states recurring month/day periods without binding them to a calendar year, so no exact calendar window is published."
       },
-      "programmeCount": 1,
+      "programmeCount": 29,
       "windowCount": 2,
       "predictionCount": 2,
       "nextAction": "monitor-and-refresh"
@@ -1086,7 +1086,7 @@
         "opensText": "Applications can be submitted before each course closing date",
         "notes": "The Master of Information Technology lists 30 November 2026 for the February 2027 intake and 31 May 2027 for the July 2027 intake, but no exact opening day."
       },
-      "programmeCount": 1,
+      "programmeCount": 219,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1134,7 +1134,7 @@
         "opensText": "Informatics MSc: 1 February–31 May for winter; 1 October–30 November for summer",
         "notes": "The programme page publishes stable month/day periods without an explicit cycle year, so they are retained as recurring guidance rather than exact calendar records."
       },
-      "programmeCount": 2,
+      "programmeCount": 115,
       "windowCount": 4,
       "predictionCount": 3,
       "nextAction": "monitor-and-refresh"
@@ -1182,7 +1182,7 @@
         "opensText": "September 2026",
         "notes": "The exact Fall 2027 opening day and Computer Science deadline are not yet published. The current Computer Science page still shows 15 December 2025 for Fall 2026."
       },
-      "programmeCount": 1,
+      "programmeCount": 12,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1206,7 +1206,7 @@
         "opensText": "Generally two years before the semester start date",
         "notes": "Standard postgraduate closing rules are 31 January or 15 July for domestic applicants and 18 December or 29 May for international applicants. Exact course pages take precedence."
       },
-      "programmeCount": 1,
+      "programmeCount": 172,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1230,7 +1230,7 @@
         "opensText": "2027 direct applications are currently open; exact opening day not stated",
         "notes": "Domestic direct applications close 13 February or 17 July 2027. International applications generally close 15 December 2026 or 15 May 2027, with earlier programme exceptions."
       },
-      "programmeCount": 1,
+      "programmeCount": 135,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1254,7 +1254,7 @@
         "opensText": "Computer Science MSc opens 15 September",
         "notes": "The thesis MSc lists 15 December for international applicants and 15 February for domestic applicants. The non-thesis MSc lists 15 December for both, but the page does not bind these dates to a calendar year."
       },
-      "programmeCount": 153,
+      "programmeCount": 159,
       "windowCount": 304,
       "predictionCount": 304,
       "nextAction": "monitor-and-refresh"
@@ -1278,7 +1278,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 164,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1326,7 +1326,7 @@
         "opensText": "Exact opening day not stated",
         "notes": "The MSc in Information Technology lists three deadlines for local and non-local applicants: 1 November 2025, 1 January 2026, and 1 March 2026. The page describes admissions as rolling."
       },
-      "programmeCount": 47,
+      "programmeCount": 48,
       "windowCount": 109,
       "predictionCount": 109,
       "nextAction": "monitor-and-refresh"
@@ -1398,7 +1398,7 @@
         "opensText": "Applications opened 15 October 2025",
         "notes": "The official guide lists scholarship deadlines on 15 December 2025, 15 February 2026, and 31 March 2026, with self-supported applications closing 31 May 2026."
       },
-      "programmeCount": 1,
+      "programmeCount": 112,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1422,7 +1422,7 @@
         "opensText": "Applications usually open in mid-October for the following September",
         "notes": "The Advanced Computing MSc is currently marked open, but the official guidance does not expose an exact opening day and its accessible course content does not state a finite closing date."
       },
-      "programmeCount": 1,
+      "programmeCount": 172,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1470,7 +1470,7 @@
         "opensText": "29 May-4 June 2026",
         "notes": "The IST application page gives a complete summer application period. The Computer Science guide states that its master's programme does not accept winter-examination applications."
       },
-      "programmeCount": 6,
+      "programmeCount": 86,
       "windowCount": 8,
       "predictionCount": 8,
       "nextAction": "monitor-and-refresh"
@@ -1494,7 +1494,7 @@
         "opensText": "Exact opening day not stated",
         "notes": "Advanced Computer Science lists 7 November 2025, 2 January 2026, 27 February 2026, and 22 May 2026 selection deadlines. Later applications depend on availability."
       },
-      "programmeCount": 19,
+      "programmeCount": 272,
       "windowCount": 72,
       "predictionCount": 72,
       "nextAction": "monitor-and-refresh"
@@ -1566,7 +1566,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 264,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1590,7 +1590,7 @@
         "opensText": "29 October 2025-28 May 2026 across three sessions",
         "notes": "The first two IP Paris portal sessions are common dated windows. The third session ran 27 March-28 May 2026 but is not represented as a general window because some programmes did not open for it."
       },
-      "programmeCount": 1,
+      "programmeCount": 19,
       "windowCount": 2,
       "predictionCount": 2,
       "nextAction": "monitor-and-refresh"
@@ -1638,7 +1638,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 90,
+      "programmeCount": 228,
       "windowCount": 136,
       "predictionCount": 99,
       "nextAction": "monitor-and-refresh"
@@ -1662,7 +1662,7 @@
         "opensText": "Exact next-cycle dates not published",
         "notes": "The international admissions listing should be monitored for the next annual postgraduate guide. No complete 2027 application period is currently published."
       },
-      "programmeCount": 1,
+      "programmeCount": 284,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1710,7 +1710,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 104,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -1734,7 +1734,7 @@
         "opensText": "2 July 2025 to 30 April 2026",
         "notes": "The MSc in Information Technology had early and main deadlines on 15 October 2025 and 15 January 2026, followed by an extended deadline on 30 April 2026."
       },
-      "programmeCount": 105,
+      "programmeCount": 109,
       "windowCount": 211,
       "predictionCount": 211,
       "nextAction": "monitor-and-refresh"
@@ -1902,7 +1902,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 23,
+      "programmeCount": 146,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -2190,7 +2190,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 311,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -2454,7 +2454,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 197,
+      "programmeCount": 247,
       "windowCount": 1114,
       "predictionCount": 1114,
       "nextAction": "monitor-and-refresh"
@@ -3246,7 +3246,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 201,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
