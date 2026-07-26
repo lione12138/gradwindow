@@ -25,7 +25,8 @@
 | 35 | The University of Edinburgh / 爱丁堡大学 | 93 个当前开放窗口 | 2026-07-30 | 官网核验 | [招生官网](https://study.ed.ac.uk/postgraduate/applying) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Edinburgh) |
 | 45 | University of British Columbia / 不列颠哥伦比亚大学 | 56 个当前开放窗口 | 2026-07-31 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 50 | The Hong Kong Polytechnic University / 香港理工大学 | 211 个当前开放窗口 | 2026-10-20 | 官网核验 + 预测参考 | [招生官网](https://www.polyu.edu.hk/study/pg/taught-postgraduate) · [查看全部项目](https://gradwindow.com/?q=The%20Hong%20Kong%20Polytechnic%20University) |
-| 56 | Universiti Malaya (UM) / 马来亚大学 | 1 个当前开放窗口 | 2026-08-30 | 官网核验 | [招生官网](https://study.um.edu.my/how-to-apply) · [查看全部项目](https://gradwindow.com/?q=Universiti%20Malaya%20%28UM%29) |
+| =52 | City University of Hong Kong (CityUHK) / 香港城市大学 | 12 个当前开放窗口 | 2026-07-31 | 官网核验 | [招生官网](https://www.cityu.edu.hk/pg/programme/p60) · [查看全部项目](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
+| 56 | Universiti Malaya (UM) / 马来亚大学 | 136 个当前开放窗口 | 2026-08-30 | 官网核验 | [招生官网](https://study.um.edu.my/how-to-apply) · [查看全部项目](https://gradwindow.com/?q=Universiti%20Malaya%20%28UM%29) |
 | =82 | The University of Sheffield / 谢菲尔德大学 | 20 个当前开放窗口 | 2026-09-04 | 官网核验 | [招生官网](https://www.sheffield.ac.uk/postgraduate/taught/apply) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Sheffield) |
 | =162 | Université de Montréal / 蒙特利尔大学 | 1 个当前开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [查看全部项目](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 
@@ -39,5 +40,6 @@
 | =45 | Northwestern University / 西北大学 | 11 个即将开放窗口 | 2026-08-01 | 官网核验 | [招生官网](https://www.tgs.northwestern.edu/admission/) · [查看全部项目](https://gradwindow.com/?q=Northwestern%20University) |
 | 45 | University of British Columbia / 不列颠哥伦比亚大学 | 10 个即将开放窗口 | 2026-08-01 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 54 | National Taiwan University (NTU) / 台湾大学 | 61 个即将开放窗口 | 2026-08-03 | 官网核验 | [招生官网](https://admissions.ntu.edu.tw/apply/degree-students/international-students/) · [查看全部项目](https://gradwindow.com/?q=National%20Taiwan%20University%20%28NTU%29) |
+| 65 | KAIST / 韩国科学技术院 | 36 个即将开放窗口 | 2026-08-18 | 官网核验 | [招生官网](https://admission.kaist.ac.kr/intl-graduate/) · [查看全部项目](https://gradwindow.com/?q=KAIST) |
 | 84 | Universidad de Buenos Aires (UBA) / 布宜诺斯艾利斯大学 | 1 个即将开放窗口 | 2026-08-06 | 预测参考 | [招生官网](https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/) · [查看全部项目](https://gradwindow.com/?q=Universidad%20de%20Buenos%20Aires%20%28UBA%29) |
 | =87 | The University of Technology Sydney (UTS) / 悉尼科技大学 | 1 个即将开放窗口 | 2026-07-28 | 官网核验 | [招生官网](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |
