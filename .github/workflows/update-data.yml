@@ -146,6 +146,46 @@ jobs:
         if: github.event_name != 'push' && !inputs.translation_only
         run: pytest -q
 
+      - name: Maintain one adapter-health issue
+        if: >-
+          github.event_name != 'push' &&
+          !inputs.translation_only &&
+          steps.daily_pipeline.outcome == 'success' &&
+          steps.adapter_health.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NEEDS_MAINTENANCE: ${{ steps.adapter_health.outputs.needs_maintenance }}
+          NOTIFICATION_CHANGED: ${{ steps.adapter_health.outputs.notification_changed }}
+        shell: bash
+        run: |
+          title="Adapter maintenance required"
+          report="data/ops/reports/programme-adapter-health.md"
+          issue_number="$(
+            gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+              --search "in:title $title" --json number,title \
+              --jq ".[] | select(.title == \"$title\") | .number" | head -n 1
+          )"
+
+          if [ "$NEEDS_MAINTENANCE" -gt 0 ]; then
+            if [ -z "$issue_number" ]; then
+              if [ "$NOTIFICATION_CHANGED" = "true" ]; then
+                gh issue create --repo "$GITHUB_REPOSITORY" \
+                  --title "$title" --body-file "$report" \
+                  --assignee "$GITHUB_REPOSITORY_OWNER"
+              fi
+            else
+              gh issue edit "$issue_number" --repo "$GITHUB_REPOSITORY" \
+                --body-file "$report"
+              if [ "$NOTIFICATION_CHANGED" = "true" ]; then
+                gh issue comment "$issue_number" --repo "$GITHUB_REPOSITORY" \
+                  --body "The school-level adapter alert set changed. The issue body now contains the current consolidated maintenance summary."
+              fi
+            fi
+          elif [ -n "$issue_number" ] && [ "$NOTIFICATION_CHANGED" = "true" ]; then
+            gh issue close "$issue_number" --repo "$GITHUB_REPOSITORY" \
+              --comment "All dedicated adapter maintenance alerts have cleared."
+          fi
+
       - name: Open or update automated data publication pull request
         if: github.event_name != 'push' && !inputs.translation_only
         id: data-pr
@@ -198,43 +238,3 @@ jobs:
           gh workflow run tests.yml
           --repo "$GITHUB_REPOSITORY"
           --ref main
-
-      - name: Maintain one adapter-health issue
-        if: >-
-          github.event_name != 'push' &&
-          !inputs.translation_only &&
-          steps.daily_pipeline.outcome == 'success' &&
-          steps.adapter_health.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          NEEDS_MAINTENANCE: ${{ steps.adapter_health.outputs.needs_maintenance }}
-          NOTIFICATION_CHANGED: ${{ steps.adapter_health.outputs.notification_changed }}
-        shell: bash
-        run: |
-          title="Adapter maintenance required"
-          report="data/ops/reports/programme-adapter-health.md"
-          issue_number="$(
-            gh issue list --repo "$GITHUB_REPOSITORY" --state open \
-              --search "in:title $title" --json number,title \
-              --jq ".[] | select(.title == \"$title\") | .number" | head -n 1
-          )"
-
-          if [ "$NEEDS_MAINTENANCE" -gt 0 ]; then
-            if [ -z "$issue_number" ]; then
-              if [ "$NOTIFICATION_CHANGED" = "true" ]; then
-                gh issue create --repo "$GITHUB_REPOSITORY" \
-                  --title "$title" --body-file "$report" \
-                  --assignee "$GITHUB_REPOSITORY_OWNER"
-              fi
-            else
-              gh issue edit "$issue_number" --repo "$GITHUB_REPOSITORY" \
-                --body-file "$report"
-              if [ "$NOTIFICATION_CHANGED" = "true" ]; then
-                gh issue comment "$issue_number" --repo "$GITHUB_REPOSITORY" \
-                  --body "The school-level adapter alert set changed. The issue body now contains the current consolidated maintenance summary."
-              fi
-            fi
-          elif [ -n "$issue_number" ] && [ "$NOTIFICATION_CHANGED" = "true" ]; then
-            gh issue close "$issue_number" --repo "$GITHUB_REPOSITORY" \
-              --comment "All dedicated adapter maintenance alerts have cleared."
-          fi
