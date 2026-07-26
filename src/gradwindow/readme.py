@@ -6,11 +6,8 @@ from urllib.parse import quote
 
 from .io import read_json
 from .paths import (
-    APPLICANT_CATEGORIES_PATH,
     APPLICATIONS_PATH,
     PREDICTIONS_PATH,
-    PROGRAMME_GROUPS_PATH,
-    PROGRAMS_PATH,
     ROOT,
     UNIVERSITIES_PATH,
 )
@@ -35,14 +32,8 @@ def generate_readmes(today: date | None = None) -> tuple[Path, Path]:
     universities = read_json(UNIVERSITIES_PATH)["universities"]
     applications = read_json(APPLICATIONS_PATH)["applications"]
     predictions = read_json(PREDICTIONS_PATH)["predictions"]
-    programs = read_json(PROGRAMS_PATH)["programs"]
-    groups = read_json(PROGRAMME_GROUPS_PATH)["groups"]
-    categories = read_json(APPLICANT_CATEGORIES_PATH)["categories"]
 
     university_by_id = {item["id"]: item for item in universities}
-    program_names = {item["id"]: item["name"] for item in programs}
-    group_names = {item["id"]: item["name"] for item in groups}
-    category_names = {item["id"]: item for item in categories}
     records = [{**item, "dataStatus": "official"} for item in applications] + [
         {**item, "dataStatus": "predicted"} for item in predictions
     ]
@@ -62,122 +53,103 @@ def generate_readmes(today: date | None = None) -> tuple[Path, Path]:
             active,
             upcoming,
             university_by_id,
-            program_names,
-            group_names,
-            category_names,
             today,
             language="en",
         ),
         encoding="utf-8",
+        newline="\n",
     )
     README_ZH_PATH.write_text(
         _render_readme(
             active,
             upcoming,
             university_by_id,
-            program_names,
-            group_names,
-            category_names,
             today,
             language="zh",
         ),
         encoding="utf-8",
+        newline="\n",
     )
     return README_PATH, README_ZH_PATH
-
-
-def _scope_name(
-    item: dict,
-    program_names: dict[str, str],
-    group_names: dict[str, str],
-    language: str,
-) -> str:
-    if item["scopeType"] == "programme":
-        return program_names.get(item["scopeId"], item["scopeId"])
-    if item["scopeType"] == "programme-group":
-        return group_names.get(item["scopeId"], item["scopeId"])
-    return "Institution-level window" if language == "en" else "学校级窗口"
-
-
-def _calendar_url(item: dict, university: dict, programme: str) -> str:
-    start = item["closesAt"].replace("-", "")
-    end = date.fromisoformat(item["closesAt"]).toordinal() + 1
-    end_value = date.fromordinal(end).isoformat().replace("-", "")
-    prefix = "[ESTIMATE] " if item["dataStatus"] == "predicted" else ""
-    title = quote(f"{prefix}{university['school']} {programme} application deadline")
-    return (
-        "https://calendar.google.com/calendar/render?action=TEMPLATE"
-        f"&text={title}&dates={start}%2F{end_value}"
-    )
 
 
 def _table(
     records: list[dict],
     university_by_id: dict[str, dict],
-    program_names: dict[str, str],
-    group_names: dict[str, str],
-    category_names: dict[str, dict],
     language: str,
+    window_state: str,
 ) -> str:
     if language == "en":
+        date_heading = "Next deadline" if window_state == "open" else "Next opening"
         header = (
-            "| QS | University | Programme / scope | Applicant category | "
-            "Intake | Opens | Deadline | Data | Links |\n"
-            "|---:|---|---|---|---|---|---|---|---|"
+            f"| QS | University | Coverage | {date_heading} | Data | Links |\n"
+            "|---:|---|---|---|---|---|"
         )
         empty = "_No matching windows today._"
         official = "Official"
         estimate = "Estimate"
-
-        def links(item, calendar):
-            return (
-                f"[Apply]({item['applicationUrl']}) · "
-                f"[Source]({item['sourceUrl']}) · [Calendar]({calendar})"
-            )
+        institution_window = "Institution-level window"
+        state_label = "open" if window_state == "open" else "upcoming"
+        admissions_link = "Admissions"
+        details_link = "All programme details"
     else:
+        date_heading = "最近截止" if window_state == "open" else "最近开放"
         header = (
-            "| QS | 大学 | 项目 / 范围 | 申请人类别 | 入学季 | 开放日期 | "
-            "截止日期 | 数据类型 | 链接 |\n"
-            "|---:|---|---|---|---|---|---|---|---|"
+            f"| QS | 大学 | 覆盖范围 | {date_heading} | 数据类型 | 链接 |\n"
+            "|---:|---|---|---|---|---|"
         )
         empty = "_今天没有符合条件的窗口。_"
         official = "官网核验"
         estimate = "预测参考"
-
-        def links(item, calendar):
-            return (
-                f"[申请]({item['applicationUrl']}) · "
-                f"[来源]({item['sourceUrl']}) · [日历]({calendar})"
-            )
+        institution_window = "学校级窗口"
+        state_label = "当前开放" if window_state == "open" else "即将开放"
+        admissions_link = "招生官网"
+        details_link = "查看全部项目"
 
     if not records:
         return empty
 
-    rows = [header]
+    grouped: dict[str, list[dict]] = {}
     for item in records:
-        university = university_by_id[item["universityId"]]
-        programme = _scope_name(item, program_names, group_names, language).replace(
-            "|", "\\|"
-        )
+        grouped.setdefault(item["universityId"], []).append(item)
+
+    rows = [header]
+    for university_id, university_records in grouped.items():
+        university = university_by_id[university_id]
         university_name = (
             f"{university['school']} / {university['schoolZh']}"
             if language == "zh" and university.get("schoolZh")
             else university["school"]
-        )
-        data_label = official if item["dataStatus"] == "official" else estimate
-        categories = " / ".join(
-            category_names.get(category, {}).get(
-                "labelEn" if language == "en" else "labelZh",
-                category,
-            )
-            for category in item["applicantCategories"]
         ).replace("|", "\\|")
-        calendar = _calendar_url(item, university, programme)
+        institution_records = [
+            item for item in university_records if item["scopeType"] == "institution"
+        ]
+        display_records = institution_records or university_records
+        if institution_records:
+            coverage = institution_window
+        elif language == "en":
+            suffix = "" if len(university_records) == 1 else "s"
+            coverage = f"{len(university_records)} {state_label} window{suffix}"
+        else:
+            coverage = f"{len(university_records)} 个{state_label}窗口"
+        date_field = "closesAt" if window_state == "open" else "opensAt"
+        nearest_date = min(item[date_field] for item in display_records)
+        statuses = {item["dataStatus"] for item in display_records}
+        data_label = (
+            official
+            if statuses == {"official"}
+            else estimate
+            if statuses == {"predicted"}
+            else f"{official} + {estimate}"
+        )
+        admissions_url = university.get("admissionsUrl") or university["homepageUrl"]
+        details_url = f"{SITE_URL}?q={quote(university['school'])}"
+        links = (
+            f"[{admissions_link}]({admissions_url}) · [{details_link}]({details_url})"
+        )
         rows.append(
             f"| {university['rankDisplay']} | {university_name} | "
-            f"{programme} | {categories} | {item['intake']} | {item['opensAt']} | "
-            f"{item['closesAt']} | {data_label} | "
-            f"{links(item, calendar)} |"
+            f"{coverage} | {nearest_date} | {data_label} | {links} |"
         )
     return "\n".join(rows)
 
@@ -186,9 +158,6 @@ def _render_readme(
     active: list[dict],
     upcoming: list[dict],
     university_by_id: dict[str, dict],
-    program_names: dict[str, str],
-    group_names: dict[str, str],
-    category_names: dict[str, dict],
     today: date,
     language: str,
 ) -> str:
@@ -203,8 +172,8 @@ def _render_readme(
         )
         intro = (
             "A QS Top 200 master's application tracker using official "
-            "university sources. The tables below show only applications "
-            "that are open now or scheduled to open within 30 days."
+            "university sources. The tables below summarize each university "
+            "once; full programme-level windows remain available on the website."
         )
         open_heading = "## Open Now"
         upcoming_heading = "## Opening Within 30 Days"
@@ -223,7 +192,7 @@ def _render_readme(
         )
         intro = (
             "基于大学官网数据的 QS 前 200 硕士申请追踪项目。下面只展示"
-            "当前正在开放，以及未来 30 天内即将开放的申请窗口。"
+            "每所大学的汇总信息；完整的项目级申请窗口请前往网站查看。"
         )
         open_heading = "## 正在开放"
         upcoming_heading = "## 30 天内即将开放"
@@ -250,9 +219,9 @@ def _render_readme(
 
 {open_heading}
 
-{_table(active, university_by_id, program_names, group_names, category_names, language)}
+{_table(active, university_by_id, language, "open")}
 
 {upcoming_heading}
 
-{_table(upcoming, university_by_id, program_names, group_names, category_names, language)}
+{_table(upcoming, university_by_id, language, "upcoming")}
 """
