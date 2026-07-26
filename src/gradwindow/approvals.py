@@ -237,6 +237,7 @@ def approve_programme_candidates(
     verified_at = approved_at.date().isoformat()
     promoted_programmes = 0
     promoted_windows = 0
+    candidate_records_changed = False
     evidence_records: list[tuple[dict, dict]] = []
 
     for candidate in candidates.get("items", []):
@@ -258,6 +259,7 @@ def approve_programme_candidates(
         programme_id = programme.get("id")
         if not programme_id:
             continue
+        candidate_before_approval = copy.deepcopy(candidate)
         programme["faculty"] = _dedupe_faculty(programme.get("faculty", ""))
         if programme_id not in known_program_ids:
             programs_payload.setdefault("programs", []).append(programme)
@@ -307,8 +309,14 @@ def approve_programme_candidates(
                 "is missing an official opening or closing date and still needs "
                 "review."
             )
+        candidate_records_changed = (
+            candidate_records_changed or candidate != candidate_before_approval
+        )
 
     if promoted_programmes == 0 and promoted_windows == 0:
+        if candidate_records_changed:
+            candidates.setdefault("meta", {})["updatedAt"] = approved_at.isoformat()
+            write_json(candidates_path, candidates)
         return {
             "promotedProgrammes": 0,
             "promotedWindows": 0,
