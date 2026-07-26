@@ -8,6 +8,7 @@ from .base import ProgrammeAdapter
 from .berkeley import BerkeleyAdapter
 from .birmingham import BirminghamAdapter
 from .bristol import BristolAdapter
+from .brown import BrownAdapter
 from .caltech import CaltechAdapter
 from .cambridge import CambridgeAdapter
 from .cityu import CityUAdapter
@@ -29,6 +30,8 @@ from .jhu import JHUAdapter
 from .kaist import KAISTAdapter
 from .kcl import KCLAdapter
 from .korea import KoreaAdapter
+from .kth import KTHAdapter
+from .leeds import LeedsAdapter
 from .manchester import ManchesterAdapter
 from .mcgill import McGillAdapter
 from .melbourne import MelbourneAdapter
@@ -62,7 +65,9 @@ from .um import UMAdapter
 from .unsw import UNSWAdapter
 from .upenn import UpennAdapter
 from .uq import UQAdapter
+from .ut_austin import UTAustinAdapter
 from .utokyo import UTokyoAdapter
+from .uva import UvAAdapter
 from .warwick import WarwickAdapter
 from .yale import YaleAdapter
 from .yonsei import YonseiAdapter
@@ -76,6 +81,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "berkeley": BerkeleyAdapter,
     "birmingham": BirminghamAdapter,
     "bristol": BristolAdapter,
+    "brown": BrownAdapter,
     "caltech": CaltechAdapter,
     "cambridge": CambridgeAdapter,
     "columbia": ColumbiaAdapter,
@@ -96,7 +102,9 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "jhu": JHUAdapter,
     "kaist": KAISTAdapter,
     "kcl": KCLAdapter,
+    "kth": KTHAdapter,
     "korea": KoreaAdapter,
+    "leeds": LeedsAdapter,
     "mcgill": McGillAdapter,
     "melbourne": MelbourneAdapter,
     "manchester": ManchesterAdapter,
@@ -128,9 +136,11 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "ucla": UCLAAdapter,
     "unsw": UNSWAdapter,
     "uq": UQAdapter,
+    "ut-austin": UTAustinAdapter,
     "um": UMAdapter,
     "upenn": UpennAdapter,
     "utokyo": UTokyoAdapter,
+    "uva": UvAAdapter,
     "warwick": WarwickAdapter,
     "yale": YaleAdapter,
     "yonsei": YonseiAdapter,

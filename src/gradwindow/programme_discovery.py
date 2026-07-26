@@ -32,6 +32,7 @@ def fetch_catalog(url: str) -> str:
         url,
         user_agent=DEFAULT_USER_AGENT,
         timeout=30,
+        max_bytes=8_000_000,
         accept=(
             "text/html,application/xhtml+xml,application/xml;q=0.9,"
             "text/xml;q=0.8,*/*;q=0.7"
