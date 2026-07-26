@@ -9,7 +9,7 @@ from gradwindow.programme_adapters.registry import PROGRAMME_ADAPTERS
 
 
 def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
-    assert len(PROGRAMME_ADAPTERS) == 69
+    assert len(PROGRAMME_ADAPTERS) == 74
     assert set(PROGRAMME_ADAPTERS) >= {
         "anu",
         "auckland",
@@ -23,7 +23,12 @@ def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
         "fudan",
         "ip-paris",
         "jhu",
+        "kfupm",
         "korea",
+        "ku-leuven",
+        "kyoto",
+        "lmu",
+        "lund",
         "manchester",
         "mcgill",
         "northwestern",
