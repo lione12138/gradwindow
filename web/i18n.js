@@ -421,7 +421,17 @@ export const I18N = {
     roadmapDetailsPlaceholder: "What problem would it solve?",
     roadmapSubmitButton: "Submit idea",
     roadmapCommunityKicker: "COMMUNITY IDEAS",
-    roa…130 tokens truncated…e community ideas section.",
+    roadmapCommunityTitle: "Suggestions from other users",
+    roadmapExpand: "Show suggestions",
+    roadmapCollapse: "Hide suggestions",
+    roadmapNoCommunity: "No suggestions yet",
+    roadmapUnavailable:
+      "Voting will be available once the public feedback service is connected.",
+    roadmapAlreadyVoted:
+      "You have already voted for this idea in this browser.",
+    roadmapVoteError: "Your vote could not be saved. Please try again later.",
+    roadmapSubmitSuccess:
+      "Your suggestion is now visible in the community ideas section.",
     roadmapSubmitError:
       "Your suggestion could not be submitted. Please try again later.",
     roadmapTurnstileError:
