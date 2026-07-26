@@ -1997,7 +1997,6 @@ function bindEvents() {
     });
   document.getElementById("search-input").addEventListener("input", (event) => {
     state.search = event.target.value;
-    setMobileNavActive("search");
     resetPages();
     syncUrl();
     render();
@@ -2111,11 +2110,6 @@ function bindEvents() {
         document
           .getElementById("application-board")
           .scrollIntoView({ behavior: "smooth" });
-      } else if (destination === "search") {
-        document
-          .getElementById("application-board")
-          .scrollIntoView({ behavior: "smooth" });
-        setTimeout(() => document.getElementById("search-input")?.focus(), 250);
       } else if (destination === "favorites") {
         state.favoritesOnly = true;
         resetPages();

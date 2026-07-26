@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import date
 
-from gradwindow.readme import generate_readmes
+from gradwindow.readme import _table, generate_readmes
 
 
 def test_generate_bilingual_result_readmes(monkeypatch, tmp_path) -> None:
@@ -27,3 +27,79 @@ def test_generate_bilingual_result_readmes(monkeypatch, tmp_path) -> None:
     assert "[代码](LICENSE)" in chinese_text
     assert "[数据](DATA_LICENSE.md)" in chinese_text
     assert "QS Top 200" in english_text
+    assert (
+        "full programme-level windows remain available on the website" in english_text
+    )
+    assert "完整的项目级申请窗口请前往网站查看" in chinese_text
+
+
+def test_readme_table_groups_programme_windows_by_university() -> None:
+    university = {
+        "id": "example-university",
+        "rankDisplay": "1",
+        "school": "Example University",
+        "schoolZh": "示例大学",
+        "homepageUrl": "https://example.edu/",
+        "admissionsUrl": "https://example.edu/admissions/",
+    }
+    records = [
+        {
+            "universityId": university["id"],
+            "scopeType": "programme",
+            "scopeId": "programme-a",
+            "opensAt": "2026-06-01",
+            "closesAt": "2026-08-20",
+            "dataStatus": "official",
+        },
+        {
+            "universityId": university["id"],
+            "scopeType": "programme",
+            "scopeId": "programme-b",
+            "opensAt": "2026-06-15",
+            "closesAt": "2026-08-10",
+            "dataStatus": "official",
+        },
+    ]
+
+    table = _table(records, {university["id"]: university}, "en", "open")
+
+    assert table.count("| 1 | Example University |") == 1
+    assert "2 open windows" in table
+    assert "2026-08-10" in table
+    assert "programme-a" not in table
+    assert "programme-b" not in table
+
+
+def test_readme_table_prefers_an_institution_level_window() -> None:
+    university = {
+        "id": "example-university",
+        "rankDisplay": "1",
+        "school": "Example University",
+        "schoolZh": "示例大学",
+        "homepageUrl": "https://example.edu/",
+        "admissionsUrl": "https://example.edu/admissions/",
+    }
+    records = [
+        {
+            "universityId": university["id"],
+            "scopeType": "programme",
+            "scopeId": "programme-a",
+            "opensAt": "2026-06-01",
+            "closesAt": "2026-08-10",
+            "dataStatus": "official",
+        },
+        {
+            "universityId": university["id"],
+            "scopeType": "institution",
+            "scopeId": university["id"],
+            "opensAt": "2026-07-01",
+            "closesAt": "2026-09-30",
+            "dataStatus": "official",
+        },
+    ]
+
+    table = _table(records, {university["id"]: university}, "zh", "open")
+
+    assert "学校级窗口" in table
+    assert "2026-09-30" in table
+    assert "2026-08-10" not in table

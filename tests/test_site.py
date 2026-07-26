@@ -187,6 +187,8 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'id="mobile-filter-toggle"' in index_html
     assert 'id="window-detail-panel"' in index_html
     assert 'class="mobile-bottom-nav"' in index_html
+    assert index_html.count("data-mobile-nav=") == 3
+    assert 'data-mobile-nav="search"' not in index_html
     assert 'id="sort-select"' not in index_html
     assert 'id="top100-toggle"' not in index_html
     assert 'id="coverage-batches"' not in index_html
