@@ -134,3 +134,38 @@ def test_approve_all_programmes_uses_all_pending_candidate_universities(
         "adapter-university": {"promotedProgrammes": 1, "promotedWindows": 2},
         "generic-university": {"promotedProgrammes": 1, "promotedWindows": 2},
     }
+
+
+def test_auto_approve_programmes_isolates_one_university_failure(monkeypatch) -> None:
+    calls = []
+
+    def fake_approve_programme_candidates(*, university_id, reviewer, parsed_only):
+        calls.append((university_id, reviewer, parsed_only))
+        if university_id == "broken-university":
+            raise ValueError("source URL is outside official domains")
+        return {"promotedProgrammes": 2, "promotedWindows": 1}
+
+    monkeypatch.setattr(
+        cli,
+        "approve_programme_candidates",
+        fake_approve_programme_candidates,
+    )
+
+    report = cli._auto_approve_programmes(
+        {"healthy-university", "broken-university"},
+        reviewer="automated-policy",
+    )
+
+    assert calls == [
+        ("broken-university", "automated-policy", False),
+        ("healthy-university", "automated-policy", False),
+    ]
+    assert report["broken-university"] == {
+        "status": "error",
+        "errorType": "ValueError",
+        "message": "source URL is outside official domains",
+    }
+    assert report["healthy-university"] == {
+        "promotedProgrammes": 2,
+        "promotedWindows": 1,
+    }

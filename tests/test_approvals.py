@@ -300,6 +300,57 @@ def test_approve_programme_candidates_can_publish_catalogue_only_records(
     assert candidates[0]["status"] == "approved"
 
 
+def test_approve_programme_candidates_persists_approval_for_existing_programme(
+    tmp_path,
+) -> None:
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "programme-candidates.json"
+    programs_payload = json.loads(PROGRAMS_PATH.read_text(encoding="utf-8"))
+    existing_programme = programs_payload["programs"][0]
+    programs_path.write_text(json.dumps(programs_payload), encoding="utf-8")
+    applications_path.write_text(
+        APPLICATIONS_PATH.read_text(encoding="utf-8"), encoding="utf-8"
+    )
+    candidates_path.write_text(
+        json.dumps(
+            {
+                "meta": {},
+                "items": [
+                    {
+                        "id": f"new-programme:{existing_programme['id']}",
+                        "type": "new-programme",
+                        "status": "pending",
+                        "universityId": existing_programme["universityId"],
+                        "programme": existing_programme,
+                        "windows": [],
+                        "parseStatus": "no-deadline",
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    report = approve_programme_candidates(
+        university_id=existing_programme["universityId"],
+        reviewer="automated-policy",
+        parsed_only=False,
+        candidates_path=candidates_path,
+        programs_path=programs_path,
+        applications_path=applications_path,
+    )
+
+    assert report == {
+        "promotedProgrammes": 0,
+        "promotedWindows": 0,
+        "remainingPending": 0,
+    }
+    candidates = json.loads(candidates_path.read_text(encoding="utf-8"))["items"]
+    assert candidates[0]["status"] == "approved"
+    assert candidates[0]["reviewedBy"] == "automated-policy"
+
+
 def test_approve_window_rejects_non_official_opening_basis(tmp_path) -> None:
     candidates_path = tmp_path / "window-candidates.json"
     candidates_path.write_text(
