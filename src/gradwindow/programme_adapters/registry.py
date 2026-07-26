@@ -29,9 +29,14 @@ from .ip_paris import IPParisAdapter
 from .jhu import JHUAdapter
 from .kaist import KAISTAdapter
 from .kcl import KCLAdapter
+from .kfupm import KFUPMAdapter
 from .korea import KoreaAdapter
 from .kth import KTHAdapter
+from .ku_leuven import KULeuvenAdapter
+from .kyoto import KyotoAdapter
 from .leeds import LeedsAdapter
+from .lmu import LMUAdapter
+from .lund import LundAdapter
 from .manchester import ManchesterAdapter
 from .mcgill import McGillAdapter
 from .melbourne import MelbourneAdapter
@@ -102,9 +107,14 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "jhu": JHUAdapter,
     "kaist": KAISTAdapter,
     "kcl": KCLAdapter,
+    "kfupm": KFUPMAdapter,
     "kth": KTHAdapter,
     "korea": KoreaAdapter,
+    "ku-leuven": KULeuvenAdapter,
+    "kyoto": KyotoAdapter,
     "leeds": LeedsAdapter,
+    "lmu": LMUAdapter,
+    "lund": LundAdapter,
     "mcgill": McGillAdapter,
     "melbourne": MelbourneAdapter,
     "manchester": ManchesterAdapter,
