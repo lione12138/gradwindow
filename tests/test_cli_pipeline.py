@@ -20,7 +20,11 @@ def test_pipeline_discovery_report_returns_success_payload(monkeypatch) -> None:
 
     report = cli._pipeline_discovery_report("example", FakeAdapter)
 
-    assert report == {"status": "ok", "catalogProgrammes": 3}
+    assert report == {
+        "status": "ok",
+        "catalogProgrammes": 3,
+        "adapter": "example",
+    }
 
 
 def test_pipeline_discovery_report_converts_adapter_failure(monkeypatch) -> None:
@@ -32,6 +36,7 @@ def test_pipeline_discovery_report_converts_adapter_failure(monkeypatch) -> None
 
     report = cli._pipeline_discovery_report("example", FakeAdapter, dry_run=True)
 
+    assert report.pop("checkedAt")
     assert report == {
         "status": "error",
         "adapter": "example",

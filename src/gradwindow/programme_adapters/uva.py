@@ -18,6 +18,7 @@ class UvAAdapter(BaseProgrammeAdapter):
     application_url = APPLICATION_URL
     application_opens_at_basis = "missing"
     replace_pending_candidates = True
+    window_watch_urls = (APPLICATION_URL,)
 
     def __init__(self, minimum_expected_programmes: int = 260) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
