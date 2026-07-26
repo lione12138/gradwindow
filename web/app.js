@@ -683,7 +683,1114 @@ function updateRankingAvailability() {
   const select = document.getElementById("ranking-filter");
   [...select.options].forEach((option) => {
     if (option.value === "qs") return;
-    const ranking = state.…9236 tokens truncated…ment.querySelector("script[data-gradwindow-turnstile]")) {
+    const ranking = state.rankingPayload.rankings?.[option.value];
+    option.disabled =
+      !ranking || ranking.available === false || !ranking.rows?.length;
+  });
+}
+
+function updateRankRangeOptions() {
+  const rankRangeSelect = document.getElementById("rank-range-filter");
+  if (!rankRangeSelect) return;
+  [...rankRangeSelect.options].forEach((option) => {
+    option.textContent = rankRangeLabel(option.value);
+  });
+  rankRangeSelect.value = [...rankRangeSelect.options].some(
+    (option) => option.value === state.rankLimit,
+  )
+    ? state.rankLimit
+    : "200";
+}
+
+function recordSearchText(record) {
+  if (!recordSearchTextCache.has(record)) {
+    recordSearchTextCache.set(
+      record,
+      [
+        record.school,
+        record.schoolZh,
+        ...(record.schoolAliasesZh || []),
+        acronym(record.school),
+        record.program,
+        ...programmeSearchTerms(record.scopeId, record.program),
+        record.universityId,
+        record.scopeId,
+        record.country,
+        record.region,
+      ]
+        .join(" ")
+        .toLocaleLowerCase("zh-CN"),
+    );
+  }
+  return recordSearchTextCache.get(record);
+}
+
+function filteredRecords() {
+  const query = state.search.trim().toLocaleLowerCase("zh-CN");
+  return recordsInSelectedRanking().filter((record) => {
+    return (
+      (!query || recordSearchText(record).includes(query)) &&
+      (state.region === "all" || record.region === state.region) &&
+      (state.intake === "all" || recordIntake(record).key === state.intake) &&
+      (selectedRankForUniversity(record.universityId)?.rankPosition || 999) <=
+        Number(state.rankLimit) &&
+      (!state.favoritesOnly ||
+        state.favorites.has(favoriteKey("window", record.id)))
+    );
+  });
+}
+
+function filteredUniversities() {
+  const query = state.search.trim().toLocaleLowerCase("zh-CN");
+  if (state.intake !== "all") return [];
+  return selectedDirectoryUniversities().filter((university) => {
+    const searchable = [
+      university.school,
+      university.schoolZh,
+      ...(university.schoolAliasesZh || []),
+      acronym(university.school),
+      university.id,
+      university.country,
+      university.region,
+    ]
+      .join(" ")
+      .toLocaleLowerCase("zh-CN");
+    return (
+      (!query || searchable.includes(query)) &&
+      (state.region === "all" || university.region === state.region) &&
+      university.rankPosition <= Number(state.rankLimit) &&
+      (!state.favoritesOnly ||
+        state.favorites.has(favoriteKey("university", university.id)))
+    );
+  });
+}
+
+function compareRecords(a, b) {
+  const rankPosition = (record) =>
+    selectedRankForUniversity(record.universityId)?.rankPosition || 999;
+  const byRank = () =>
+    rankPosition(a) - rankPosition(b) || a.closesAt.localeCompare(b.closesAt);
+  if (state.sort === "opens") {
+    return (
+      a.opensAt.localeCompare(b.opensAt) ||
+      a.closesAt.localeCompare(b.closesAt) ||
+      rankPosition(a) - rankPosition(b)
+    );
+  }
+  if (state.sort === "deadline") {
+    return (
+      a.closesAt.localeCompare(b.closesAt) ||
+      a.opensAt.localeCompare(b.opensAt) ||
+      rankPosition(a) - rankPosition(b)
+    );
+  }
+  return byRank();
+}
+
+function hasActiveSearch() {
+  return state.search.trim().length > 0;
+}
+
+function activeNonStatusFilter() {
+  return (
+    hasActiveSearch() ||
+    state.ranking !== "qs" ||
+    state.region !== "all" ||
+    state.intake !== "all" ||
+    state.rankLimit !== "200" ||
+    state.favoritesOnly
+  );
+}
+
+function localizedCount(count, labelKey) {
+  return state.language === "zh"
+    ? `${count}${t(labelKey)}`
+    : `${count} ${t(labelKey)}`;
+}
+
+function syncFilterInputs() {
+  document.getElementById("search-input").value = state.search;
+  document.getElementById("ranking-filter").value = state.ranking;
+  refreshFilterOptions();
+  document.getElementById("region-filter").value = state.region;
+  document.getElementById("intake-filter").value = state.intake;
+  updateRankRangeOptions();
+}
+
+function resetFilter(filter) {
+  if (filter === "search") state.search = "";
+  if (filter === "ranking") {
+    state.ranking = "qs";
+    state.region = "all";
+    state.intake = "all";
+  }
+  if (filter === "region") state.region = "all";
+  if (filter === "intake") state.intake = "all";
+  if (filter === "rankLimit") state.rankLimit = "200";
+  if (filter === "favorites") state.favoritesOnly = false;
+  syncFilterInputs();
+  resetPages();
+  syncUrl();
+  render();
+}
+
+function clearFilters() {
+  state.search = "";
+  state.ranking = "qs";
+  state.region = "all";
+  state.intake = "all";
+  state.rankLimit = "200";
+  state.favoritesOnly = false;
+  syncFilterInputs();
+  resetPages();
+  syncUrl();
+  render();
+}
+
+function activeFilterItems() {
+  const items = [];
+  if (state.search.trim()) {
+    items.push({
+      key: "search",
+      label: `${t("searchFilterChip")}: ${state.search.trim()}`,
+    });
+  }
+  if (state.ranking !== "qs") {
+    items.push({
+      key: "ranking",
+      label:
+        document.getElementById("ranking-filter").selectedOptions[0]
+          ?.textContent || rankingShortLabel(),
+    });
+  }
+  if (state.region !== "all") {
+    items.push({
+      key: "region",
+      label: regionLabel(state.region, state.language),
+    });
+  }
+  if (state.intake !== "all") {
+    items.push({
+      key: "intake",
+      label:
+        document.getElementById("intake-filter").selectedOptions[0]
+          ?.textContent || state.intake,
+    });
+  }
+  if (state.rankLimit !== "200") {
+    items.push({ key: "rankLimit", label: rankRangeLabel(state.rankLimit) });
+  }
+  if (state.favoritesOnly) {
+    items.push({ key: "favorites", label: t("favoritesOnly") });
+  }
+  return items;
+}
+
+function makeFilterChip(item) {
+  const button = makeElement("button", {
+    className: "active-filter-chip",
+    title: `${t("clearFilters")}: ${item.label}`,
+  });
+  button.type = "button";
+  button.append(
+    makeElement("span", { text: item.label }),
+    makeElement("span", { className: "active-filter-chip-remove", text: "×" }),
+  );
+  button.addEventListener("click", () => resetFilter(item.key));
+  return button;
+}
+
+function updateResultsToolbar(records, universities, exceptionUniversities) {
+  const universityIds = new Set(
+    records.map((record) => record.universityId).filter(Boolean),
+  );
+  if (state.status === "exception") {
+    exceptionUniversities.forEach((university) =>
+      universityIds.add(university.id),
+    );
+  }
+  if (state.status === "unknown" || hasActiveSearch()) {
+    universities.forEach((university) => universityIds.add(university.id));
+  }
+  document.getElementById("results-school-count").textContent = localizedCount(
+    universityIds.size,
+    "universitiesShown",
+  );
+  document.getElementById("results-window-count").textContent = windowCountText(
+    records.length,
+  );
+
+  const chipContainer = document.getElementById("active-filter-chips");
+  const filters = activeFilterItems();
+  chipContainer.replaceChildren(...filters.map(makeFilterChip));
+  if (filters.length) {
+    const clearButton = makeElement("button", {
+      className: "clear-filter-button",
+      text: t("clearFilters"),
+    });
+    clearButton.type = "button";
+    clearButton.addEventListener("click", clearFilters);
+    chipContainer.appendChild(clearButton);
+    chipContainer.setAttribute("aria-label", t("activeFilters"));
+  } else {
+    chipContainer.removeAttribute("aria-label");
+  }
+
+  const groupRows = [
+    ...document.querySelectorAll(".university-group-parent[data-group-key]"),
+  ];
+  const groupActions = document.getElementById("group-view-actions");
+  groupActions.hidden = groupRows.length === 0;
+  if (groupRows.length) {
+    const expandedCount = groupRows.filter(
+      (row) => row.dataset.groupState === "expanded",
+    ).length;
+    document.getElementById("expand-visible-groups").disabled =
+      expandedCount === groupRows.length;
+    document.getElementById("collapse-visible-groups").disabled =
+      expandedCount === 0;
+  }
+}
+
+function setVisibleUniversityGroups(expanded) {
+  document
+    .querySelectorAll(".university-group-parent[data-group-key]")
+    .forEach((row) => {
+      if (expanded) state.expandedUniversityGroups.add(row.dataset.groupKey);
+      else state.expandedUniversityGroups.delete(row.dataset.groupKey);
+    });
+  render();
+}
+
+function updateStatusTabs(focusStatus = "") {
+  document.querySelectorAll(".status-tab").forEach((tab) => {
+    const active = tab.dataset.status === state.status;
+    tab.classList.toggle("active", active);
+    tab.setAttribute("aria-selected", String(active));
+    tab.tabIndex = active ? 0 : -1;
+    if (focusStatus && tab.dataset.status === focusStatus) {
+      tab.focus();
+      tab.scrollIntoView({ block: "nearest", inline: "center" });
+    }
+  });
+}
+
+function recordsForCurrentView(baseRecords) {
+  if (hasActiveSearch()) return baseRecords;
+  return baseRecords.filter((record) => getStatus(record) === state.status);
+}
+
+function createRow(record, status, windowGroup = null) {
+  const row = document.createElement("tr");
+  row.className = "window-card-row";
+  row.tabIndex = 0;
+  row.dataset.detailHint = t("mobileCardHint");
+  const days = daysUntil(record.closesAt);
+  const deadlineClass =
+    status === "open" && days >= 0 && days <= 14 ? "deadline-soon" : "";
+
+  const rank = makeElement("span", {
+    className: "rank-cell",
+    text: formatRank(
+      selectedRankForUniversity(record.universityId)?.rankDisplay ||
+        record.qsRank,
+    ),
+  });
+  const school = makeSchoolDisplay(record);
+  const intake = intakeLabel(recordIntake(record), state.language);
+  const localizedRound = roundLabel(record.round, state.language);
+  const programme = makeLinkedTextStack(
+    programmeLabel(record.scopeId, record.program, state.language),
+    record.applicationUrl,
+    `${intake}${localizedRound ? ` · ${localizedRound}` : ""}`,
+    "program-link date-primary",
+  );
+  if (windowGroup?.collapsible) {
+    row.classList.add("window-group-parent");
+    const expanded = state.expandedWindowGroups.has(windowGroup.key);
+    const hiddenCount = windowGroup.records.length - 1;
+    const toggle = makeElement("button", {
+      className: "window-group-toggle",
+      text: expanded
+        ? t("collapseSameDatePrograms")
+        : `${t("expandSameDatePrograms")} ${hiddenCount} ${t("moreProgrammes")}`,
+      title: expanded
+        ? t("collapseSameDatePrograms")
+        : `${t("expandSameDatePrograms")} ${hiddenCount} ${t("moreProgrammes")}`,
+    });
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", String(expanded));
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (expanded) state.expandedWindowGroups.delete(windowGroup.key);
+      else state.expandedWindowGroups.add(windowGroup.key);
+      render();
+    });
+    programme.appendChild(toggle);
+  }
+  const source = document.createDocumentFragment();
+  const predicted = record.dataStatus === "predicted";
+  const [sourceStatus, sourceClass] = predicted
+    ? [t("estimateBadge"), "predicted"]
+    : sourceMonitorDescription(record);
+  source.append(
+    makeLink(
+      predicted ? t("viewReference") : t("viewOfficial"),
+      record.sourceUrl,
+      "source-link",
+    ),
+    makeElement("span", {
+      className: `source-badge ${sourceClass}`,
+      text: sourceStatus,
+    }),
+    makeElement("span", {
+      className: "date-secondary",
+      text: predicted
+        ? `${t("reference")} ${record.sourceCycle} · ${predictionConfidenceText(record)}`
+        : `${t("verifiedOn")} ${record.verifiedAt}`,
+    }),
+  );
+  const deadline = makeResponsiveDeadline(
+    record.opensAt,
+    record.closesAt,
+    deadlineNote(record, status),
+    `date-primary ${deadlineClass}`.trim(),
+  );
+  const calendar = makeCalendarMenu(record);
+  const favorite = makeFavoriteButton(favoriteKey("window", record.id));
+  const university = state.universityById.get(record.universityId);
+  const cardActions = makeElement("div", { className: "mobile-card-actions" });
+  cardActions.appendChild(favorite);
+  if (university) cardActions.appendChild(makeReviewButton(university));
+
+  const openDetails = (event) => {
+    if (!window.matchMedia("(max-width: 720px)").matches) return;
+    if (event.target.closest("a, button, details, input, select")) return;
+    openWindowDetail(record, status);
+  };
+  row.addEventListener("click", openDetails);
+  row.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openDetails(event);
+    }
+  });
+
+  row.append(
+    makeCell(t("rank"), rank),
+    makeCell(t("university"), school),
+    makeCell(t("programme"), programme),
+    makeCell(
+      t("applicantGroup"),
+      makeElement("span", {
+        className: "applicant-category",
+        text: applicantCategoryText(record.applicantCategories),
+      }),
+    ),
+    makeCell(
+      t("opens"),
+      makeTextStack(
+        formatDate(record.opensAt),
+        predicted ? t("estimatedOpen") : t("applicationsOpen"),
+      ),
+    ),
+    makeCell(t("deadline"), deadline),
+    makeCell(t("calendar"), calendar),
+    makeCell(t("favorite"), cardActions),
+    makeCell(t("source"), source),
+  );
+  return row;
+}
+
+function windowCountText(count) {
+  return `${count} ${t("windows")}`;
+}
+
+function programmeCountText(count) {
+  return `${count} ${t("programmes")}`;
+}
+
+function createUniversityGroupRow(universityGroup, status) {
+  const representative = universityGroup.records[0];
+  const row = document.createElement("tr");
+  const expanded = state.expandedUniversityGroups.has(universityGroup.key);
+  row.className = `window-card-row university-group-parent university-group-parent--${
+    expanded ? "expanded" : "collapsed"
+  }`;
+  row.dataset.groupKey = universityGroup.key;
+  row.dataset.groupState = expanded ? "expanded" : "collapsed";
+  const records = universityGroup.records;
+  const rank = makeElement("span", {
+    className: "rank-cell",
+    text: formatRank(
+      selectedRankForUniversity(representative.universityId)?.rankDisplay ||
+        representative.qsRank,
+    ),
+  });
+  const school = makeSchoolDisplay(representative);
+
+  const programmes = new Set(records.map((record) => record.scopeId));
+  const programmeSummary = makeElement("div", {
+    className: "school-group-summary",
+  });
+  const summaryHeading = makeElement("div", {
+    className: "school-group-summary-heading",
+  });
+  summaryHeading.append(
+    makeElement("span", {
+      className: "school-group-kicker",
+      text: t("schoolWindowGroup"),
+    }),
+    makeElement("span", {
+      className: "school-group-state",
+      text: expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed"),
+    }),
+  );
+  const summaryCounts = makeElement("div", {
+    className: "school-group-counts",
+  });
+  summaryCounts.append(
+    makeElement("strong", {
+      className: "school-group-programme-count",
+      text: programmeCountText(programmes.size),
+    }),
+    makeElement("span", {
+      className: "school-group-window-count",
+      text: windowCountText(records.length),
+    }),
+  );
+  const toggle = makeElement("button", {
+    className: "window-group-toggle university-group-toggle",
+    title: expanded
+      ? t("collapseSchoolWindows")
+      : `${t("expandSchoolWindows")} ${programmeCountText(programmes.size)}`,
+  });
+  toggle.type = "button";
+  toggle.setAttribute("aria-expanded", String(expanded));
+  toggle.append(
+    makeElement("span", {
+      text: expanded
+        ? t("collapseSchoolWindows")
+        : `${t("expandSchoolWindows")} ${programmeCountText(programmes.size)}`,
+    }),
+    makeElement("span", {
+      className: "school-group-chevron",
+      text: "›",
+    }),
+  );
+  const toggleGroup = () => {
+    if (expanded) state.expandedUniversityGroups.delete(universityGroup.key);
+    else state.expandedUniversityGroups.add(universityGroup.key);
+    render();
+  };
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleGroup();
+  });
+  programmeSummary.append(summaryHeading, summaryCounts, toggle);
+  row.addEventListener("click", (event) => {
+    if (event.target.closest("a, button")) return;
+    toggleGroup();
+  });
+
+  const earliestOpen = records
+    .map((record) => record.opensAt)
+    .filter(Boolean)
+    .sort()[0];
+  const nearestDeadline = [...records].sort((a, b) =>
+    a.closesAt.localeCompare(b.closesAt),
+  )[0];
+  const source = makeElement("span", {
+    className: "source-badge discovered school-group-source",
+    text: `${windowCountText(records.length)} · ${t("groupedBySchool")}`,
+  });
+
+  row.append(
+    makeCell(t("rank"), rank),
+    makeCell(t("university"), school),
+    makeCell(t("programme"), programmeSummary),
+    makeCell(
+      t("applicantGroup"),
+      makeElement("span", {
+        className: "applicant-category",
+        text: t("multipleApplicantGroups"),
+      }),
+    ),
+    makeCell(
+      t("opens"),
+      earliestOpen
+        ? makeTextStack(formatDate(earliestOpen), t("earliestOpening"))
+        : makeElement("span", { text: "—" }),
+    ),
+    makeCell(
+      t("deadline"),
+      makeResponsiveDeadline(
+        earliestOpen,
+        nearestDeadline.closesAt,
+        `${t("nextDeadlineLabel")} · ${deadlineNote(nearestDeadline, status)}`,
+      ),
+    ),
+    makeCell(t("calendar"), makeElement("span", { text: "—" })),
+    makeCell(t("favorite"), makeElement("span", { text: "—" })),
+    makeCell(t("source"), source),
+  );
+  return row;
+}
+
+function markUniversityGroupChild(row, universityGroup) {
+  if (!universityGroup) return;
+  row.classList.add("university-group-child");
+  row.dataset.universityGroup = universityGroup.universityId;
+}
+
+function appendWindowGroupRows(
+  tbody,
+  windowGroup,
+  status,
+  universityGroup = null,
+) {
+  const [representative, ...additionalRecords] = windowGroup.records;
+  const representativeRow = createRow(representative, status, windowGroup);
+  markUniversityGroupChild(representativeRow, universityGroup);
+  tbody.appendChild(representativeRow);
+  if (!state.expandedWindowGroups.has(windowGroup.key)) return;
+  additionalRecords.forEach((record) => {
+    const row = createRow(record, status);
+    row.classList.add("window-group-child");
+    markUniversityGroupChild(row, universityGroup);
+    tbody.appendChild(row);
+  });
+}
+
+function predictionConfidenceText(record) {
+  const labels = {
+    low: t("lowConfidence"),
+    medium: t("mediumConfidence"),
+    high: t("highConfidence"),
+  };
+  return `${labels[record.confidence] || t("estimate")} · ${record.evidenceCycleCount} ${t("historicalCycles")}`;
+}
+
+function createGroup(status, records) {
+  const heading = statusLabels()[status];
+  const { section, tbody } = createTableSection(
+    status,
+    heading,
+    `${records.length} ${t("windows")}`,
+    [
+      { label: rankColumnLabel(), sort: "rank" },
+      t("universityEntry"),
+      t("programmeIntake"),
+      t("applicantGroup"),
+      { label: t("opens"), sort: "opens" },
+      { label: t("deadline"), sort: "deadline" },
+      t("addCalendar"),
+      t("favorite"),
+      t("dataSource"),
+    ],
+  );
+  const universityGroups = groupWindowRecordsForDisplay(records, {
+    keyPrefix: status,
+  });
+  const { items, start, end, total, page, totalPages } = paginate(
+    status,
+    universityGroups,
+  );
+  items.forEach((universityGroup) => {
+    if (!universityGroup.collapsible) {
+      appendWindowGroupRows(tbody, universityGroup.windowGroups[0], status);
+      return;
+    }
+    tbody.appendChild(createUniversityGroupRow(universityGroup, status));
+    if (!state.expandedUniversityGroups.has(universityGroup.key)) return;
+    const childStart = tbody.children.length;
+    universityGroup.windowGroups.forEach((windowGroup) => {
+      appendWindowGroupRows(tbody, windowGroup, status, universityGroup);
+    });
+    const childRows = [...tbody.children].slice(childStart);
+    childRows.at(0)?.classList.add("university-group-child--first");
+    childRows.at(-1)?.classList.add("university-group-child--last");
+  });
+  section.appendChild(
+    createPagination(status, { start, end, total, page, totalPages }),
+  );
+  return section;
+}
+
+function paginate(key, items) {
+  const total = items.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const page = Math.min(Math.max(state.pages[key] || 1, 1), totalPages);
+  state.pages[key] = page;
+  const startIndex = (page - 1) * PAGE_SIZE;
+  return {
+    items: items.slice(startIndex, startIndex + PAGE_SIZE),
+    start: total ? startIndex + 1 : 0,
+    end: Math.min(startIndex + PAGE_SIZE, total),
+    total,
+    page,
+    totalPages,
+  };
+}
+
+function createPagination(key, pagination) {
+  if (pagination.total <= PAGE_SIZE) return document.createDocumentFragment();
+  const wrapper = makeElement("div", { className: "table-pagination" });
+  const label = makeElement("span", {
+    className: "pagination-summary",
+    text: `${pagination.start}-${pagination.end} / ${pagination.total}`,
+  });
+  const previous = makeElement("button", {
+    className: "pagination-button",
+    text: "‹",
+    title: t("paginationPrevious"),
+  });
+  const next = makeElement("button", {
+    className: "pagination-button",
+    text: "›",
+    title: t("paginationNext"),
+  });
+  previous.type = "button";
+  next.type = "button";
+  previous.disabled = pagination.page <= 1;
+  next.disabled = pagination.page >= pagination.totalPages;
+  previous.addEventListener("click", () => {
+    state.pages[key] = Math.max(1, pagination.page - 1);
+    render();
+  });
+  next.addEventListener("click", () => {
+    state.pages[key] = Math.min(pagination.totalPages, pagination.page + 1);
+    render();
+  });
+  wrapper.append(label, previous, next);
+  return wrapper;
+}
+
+function createTableSection(
+  status,
+  heading,
+  countLabel,
+  columns,
+  tableClass = "",
+) {
+  const section = makeElement("section", { className: "application-group" });
+  section.dataset.status = status;
+
+  const groupHeading = makeElement("div", { className: "group-heading" });
+  const title = makeElement("h3");
+  title.append(
+    makeElement("span", { className: `status-indicator ${status}` }),
+    document.createTextNode(heading.title),
+  );
+  groupHeading.append(
+    title,
+    makeElement("p", { text: `${heading.description} · ${countLabel}` }),
+  );
+
+  const wrapper = makeElement("div", { className: "table-wrap" });
+  const table = makeElement("table", {
+    className: `application-table ${tableClass}`.trim(),
+  });
+  const head = document.createElement("thead");
+  const headRow = document.createElement("tr");
+  columns.forEach((column) => {
+    const th = document.createElement("th");
+    if (typeof column === "object" && column.sort) {
+      const button = makeElement("button", {
+        className:
+          `table-sort-button ${state.sort === column.sort ? "active" : ""}`.trim(),
+      });
+      button.type = "button";
+      button.dataset.sort = column.sort;
+      button.append(
+        makeElement("span", { text: column.label }),
+        makeElement("span", {
+          className: "sort-indicator",
+          text: state.sort === column.sort ? "↑" : "↕",
+        }),
+      );
+      button.addEventListener("click", () => {
+        state.sort = column.sort;
+        resetPages();
+        syncUrl();
+        render();
+      });
+      th.appendChild(button);
+    } else {
+      th.textContent = typeof column === "object" ? column.label : column;
+    }
+    headRow.appendChild(th);
+  });
+  head.appendChild(headRow);
+  const tbody = document.createElement("tbody");
+  table.append(head, tbody);
+  wrapper.appendChild(table);
+  section.append(groupHeading, wrapper);
+  return { section, tbody };
+}
+
+function directoryStatus(university) {
+  if (university.rankingOnly) return [t("rankingOnly"), "homepage"];
+  const status = university.admissionsDiscovery;
+  if (status === "curated") return [t("curatedEntry"), "verified"];
+  if (status === "discovered") return [t("discoveredEntry"), "discovered"];
+  if (status === "low-confidence") return [t("candidateEntry"), "candidate"];
+  return [t("homepageEntry"), "homepage"];
+}
+
+function monitorStatus(university) {
+  if (university.rankingOnly) return [t("notMonitored"), "homepage"];
+  const monitor = university.monitor || {};
+  if (monitor.changed) return [t("pageChanged"), "candidate"];
+  if (monitor.status === "ok") return [t("checkOk"), "verified"];
+  if (monitor.status === "blocked") return [t("accessLimited"), "candidate"];
+  if (monitor.status === "error" || monitor.status === "http-error") {
+    return [t("checkError"), "homepage"];
+  }
+  return [t("notChecked"), "homepage"];
+}
+
+function policyDescription(university) {
+  if (university.rankingOnly) {
+    return [t("rankingDataOnly"), t("notInQsMonitor")];
+  }
+  const policy = university.windowPolicy;
+  if (!policy) return [t("policyPending"), t("checkProgramme")];
+  const guidance = policy.cycleGuidance?.opensText;
+  const windowCount = university.coverage?.windowCount || 0;
+  const prefix = windowCount ? `${t("published")} ${windowCount} · ` : "";
+  if (policy.model === "programme-specific") {
+    return [
+      t("programmeDeadline"),
+      `${prefix}${guidance ? `${t("nextCycle")}: ${guidance}` : t("programmeVaries")}`,
+    ];
+  }
+  if (policy.model === "mixed") {
+    return [
+      t("mixedPolicy"),
+      `${prefix}${guidance ? `${t("nextCycle")}: ${guidance}` : t("fillsEarly")}`,
+    ];
+  }
+  if (policy.model === "applicant-category") {
+    return [
+      t("sharedWindow"),
+      `${prefix}${guidance ? `${t("nextCycle")}: ${guidance}` : t("categorySpecific")}`,
+    ];
+  }
+  return [t("inheritedPolicy"), t("programmeOverrides")];
+}
+
+function mastersAvailabilityDescription(university) {
+  if (university.rankingOnly) {
+    return [t("unverified"), t("rankingOnlyMasters")];
+  }
+  const availability = university.windowPolicy?.mastersAvailability;
+  if (availability === "broad")
+    return [t("broadMasters"), t("representativeAvailable")];
+  if (availability === "limited") {
+    return [t("limitedMasters"), t("someNotDirect")];
+  }
+  return [t("unverified"), t("inspectProgramme")];
+}
+
+function isExceptionUniversity(university) {
+  // A blocked monitor request means the crawler was rejected, not that users
+  // lack a usable official route. Keep those universities in the directory.
+  return needsManualCheck(university);
+}
+
+function renderCoverage() {
+  // Coverage remains available in data/coverage.json for development, but the
+  // public page no longer exposes the internal build-progress panel.
+}
+
+function createUniversityGroup(universities, status = "unknown") {
+  const heading = statusLabels()[status];
+  const { section, tbody } = createTableSection(
+    status,
+    heading,
+    `${universities.length} ${t("schools")}`,
+    [
+      { label: rankColumnLabel(), sort: "rank" },
+      t("universityEntry"),
+      t("mastersScope"),
+      t("countries"),
+      t("entryStatus"),
+      t("latestCheck"),
+      t("graduateApplication"),
+      t("dateNotes"),
+      t("schoolReviews"),
+    ],
+    "university-table",
+  );
+  const sortedUniversities = universities.sort(
+    (a, b) =>
+      a.rankPosition - b.rankPosition || a.school.localeCompare(b.school),
+  );
+  const { items, start, end, total, page, totalPages } = paginate(
+    status,
+    sortedUniversities,
+  );
+  items.forEach((university) => {
+    const [statusLabel, statusClass] = directoryStatus(university);
+    const [monitorLabel, monitorClass] = monitorStatus(university);
+    const rankLabel = formatRank(university.rankDisplay);
+    const directUrl = university.admissionsUrl;
+    const directLabel = t("applicationEntry");
+    const row = document.createElement("tr");
+    row.className = "university-card-row";
+    const schoolText = schoolLabels(university, state.language);
+    const school = makeTextStack(schoolText.primary, schoolText.secondary);
+    const admissions = university.rankingOnly
+      ? makeLink(t("rankingSource"), university.rankingSourceUrl, "source-link")
+      : directUrl
+        ? makeLink(directLabel, directUrl, "school-link")
+        : makeElement("span", {
+            className: "school-meta",
+            text: t("programmeDirectoryRequired"),
+          });
+    const actions = document.createDocumentFragment();
+    actions.appendChild(admissions);
+    if (!university.rankingOnly) {
+      actions.appendChild(
+        makeLink(t("officialWebsite"), university.homepageUrl, "source-link"),
+      );
+    }
+    actions.appendChild(
+      makeFavoriteButton(favoriteKey("university", university.id)),
+    );
+    const [policyPrimary, policySecondary] = policyDescription(university);
+    const [mastersPrimary, mastersSecondary] =
+      mastersAvailabilityDescription(university);
+    row.append(
+      makeCell(
+        t("rank"),
+        makeElement("span", { className: "rank-cell", text: rankLabel }),
+      ),
+      makeCell(t("universityEntry"), school),
+      makeCell(
+        t("mastersScope"),
+        makeTextStack(mastersPrimary, mastersSecondary),
+      ),
+      makeCell(
+        t("countries"),
+        makeElement("span", {
+          text: countryLabel(university.country, state.language),
+        }),
+      ),
+      makeCell(
+        t("entryStatus"),
+        makeElement("span", {
+          className: `source-badge ${statusClass}`,
+          text: statusLabel,
+        }),
+      ),
+      makeCell(
+        t("latestCheck"),
+        makeElement("span", {
+          className: `source-badge ${monitorClass}`,
+          text: monitorLabel,
+        }),
+      ),
+      makeCell(t("graduateApplication"), actions),
+      makeCell(
+        t("dateNotes"),
+        makeTextStack(policyPrimary, policySecondary, "date-primary"),
+      ),
+      makeCell(t("schoolReviews"), makeReviewButton(university)),
+    );
+    tbody.appendChild(row);
+  });
+  section.appendChild(
+    createPagination(status, { start, end, total, page, totalPages }),
+  );
+  return section;
+}
+
+function renderCounts(records, universities) {
+  const applicationCounts = countUniversitiesByStatus(records, getStatus);
+  const allUniversityIds = new Set([
+    ...records.map((record) => record.universityId).filter(Boolean),
+    ...universities.map((university) => university.id).filter(Boolean),
+  ]);
+  const counts = {
+    all: allUniversityIds.size,
+    ...applicationCounts,
+    exception: universities.filter(isExceptionUniversity).length,
+    unknown: universities.length,
+  };
+  Object.entries(counts).forEach(([status, count]) => {
+    const node = document.getElementById(`count-${status}`);
+    if (node) node.textContent = count;
+  });
+  const mobileOpen = document.getElementById("mobile-open-count");
+  const mobileUpcoming = document.getElementById("mobile-upcoming-count");
+  const heroUpcoming = document.getElementById("hero-upcoming-count");
+  const heroException = document.getElementById("hero-exception-count");
+  if (mobileOpen) mobileOpen.textContent = counts.open;
+  if (mobileUpcoming) mobileUpcoming.textContent = counts.upcoming;
+  if (heroUpcoming) heroUpcoming.textContent = counts.upcoming;
+  if (heroException) heroException.textContent = counts.exception;
+  return counts;
+}
+
+function render() {
+  const baseRecords = filteredRecords();
+  const baseUniversities = filteredUniversities();
+  const counts = renderCounts(baseRecords, baseUniversities);
+  const records = recordsForCurrentView(baseRecords);
+  const exceptionUniversities = baseUniversities.filter(isExceptionUniversity);
+  const container = document.getElementById("application-groups");
+  const emptyState = document.getElementById("empty-state");
+  document.body.dataset.viewStatus = state.status;
+  container.replaceChildren();
+
+  ["open", "upcoming", "future", "closed"].forEach((status) => {
+    if (!hasActiveSearch() && state.status !== status) return;
+    const groupRecords = records
+      .filter((record) => getStatus(record) === status)
+      .sort(compareRecords);
+    if (groupRecords.length) {
+      container.appendChild(createGroup(status, groupRecords));
+    }
+  });
+  if (state.status === "exception" && exceptionUniversities.length) {
+    container.appendChild(
+      createUniversityGroup([...exceptionUniversities], "exception"),
+    );
+  }
+  if (
+    (state.status === "unknown" || hasActiveSearch()) &&
+    baseUniversities.length
+  ) {
+    container.appendChild(createUniversityGroup([...baseUniversities]));
+  }
+
+  emptyState.hidden =
+    !activeNonStatusFilter() ||
+    records.length > 0 ||
+    (state.status === "exception" && exceptionUniversities.length > 0) ||
+    ((state.status === "unknown" || hasActiveSearch()) &&
+      baseUniversities.length > 0);
+  document.getElementById("hero-open-count").textContent = counts.open;
+  document.querySelectorAll("[data-mobile-sort]").forEach((button) => {
+    button.classList.toggle("active", button.dataset.mobileSort === state.sort);
+  });
+  updateResultsToolbar(records, baseUniversities, exceptionUniversities);
+  updateStatusTabs();
+  updateMobileFilterToggle();
+  updateFavoriteControls();
+}
+
+function syncUrl() {
+  const params = new URLSearchParams();
+  if (state.search) params.set("q", state.search);
+  if (state.ranking !== "qs") params.set("ranking", state.ranking);
+  if (state.region !== "all") params.set("region", state.region);
+  if (state.intake !== "all") params.set("intake", state.intake);
+  if (state.status !== "open") params.set("status", state.status);
+  if (state.sort !== "rank") params.set("sort", state.sort);
+  if (state.rankLimit !== "200") params.set("rank", state.rankLimit);
+  history.replaceState(
+    null,
+    "",
+    `${location.pathname}${params.size ? `?${params}` : ""}${location.hash}`,
+  );
+}
+
+function loadUrlState() {
+  const params = new URLSearchParams(location.search);
+  state.search = params.get("q") || "";
+  state.ranking = params.get("ranking") || "qs";
+  state.region = params.get("region") || "all";
+  state.intake = params.get("intake") || "all";
+  state.status = params.get("status") || "open";
+  state.sort = ["rank", "opens", "deadline"].includes(params.get("sort"))
+    ? params.get("sort")
+    : "rank";
+  state.rankLimit = ["30", "50", "100", "150", "200"].includes(
+    params.get("rank"),
+  )
+    ? params.get("rank")
+    : params.get("top") === "100"
+      ? "100"
+      : "200";
+}
+
+function updateFavoriteControls() {
+  const count = state.favorites.size;
+  document.getElementById("favorite-count").textContent = count;
+  document
+    .getElementById("favorites-toggle")
+    .classList.toggle("active", state.favoritesOnly);
+  document.getElementById("export-favorites").disabled = !state.data.some(
+    (record) => state.favorites.has(favoriteKey("window", record.id)),
+  );
+  document
+    .querySelectorAll(".favorite-button[data-favorite-key]")
+    .forEach((button) => {
+      const active = state.favorites.has(button.dataset.favoriteKey);
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+      button.textContent = active ? t("favorited") : t("favorite");
+      button.title = active ? t("removeFavorite") : t("favorite");
+    });
+}
+
+function applyStaticTranslations() {
+  document.documentElement.lang = state.language === "zh" ? "zh-CN" : "en";
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const translated = t(node.dataset.i18n);
+    if (translated !== node.dataset.i18n) node.textContent = translated;
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+    const translated = t(node.dataset.i18nHtml);
+    if (translated !== node.dataset.i18nHtml) node.innerHTML = translated;
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+    const translated = t(node.dataset.i18nPlaceholder);
+    if (translated !== node.dataset.i18nPlaceholder)
+      node.placeholder = translated;
+  });
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((node) => {
+    const translated = t(node.dataset.i18nAriaLabel);
+    if (translated !== node.dataset.i18nAriaLabel) {
+      node.setAttribute("aria-label", translated);
+    }
+  });
+  document.getElementById("language-toggle").textContent =
+    state.language === "en" ? "中文" : "EN";
+  document.getElementById("theme-toggle").textContent =
+    state.theme === "dark" ? "☀" : "☾";
+  document
+    .getElementById("theme-toggle")
+    .setAttribute(
+      "aria-label",
+      state.theme === "dark" ? t("switchToLight") : t("switchToDark"),
+    );
+  updateRankRangeOptions();
+  updateAuthUi();
+  document.title =
+    state.language === "zh"
+      ? "GradWindow · QS 200 硕士申请时间表"
+      : "GradWindow · QS Top 200 Master's Applications";
+}
+
+function applyTheme() {
+  document.documentElement.dataset.theme = state.theme;
+  localStorage.setItem("gradwindow:theme", state.theme);
+  const button = document.getElementById("theme-toggle");
+  if (button) {
+    button.textContent = state.theme === "dark" ? "☀" : "☾";
+    button.setAttribute(
+      "aria-label",
+      state.theme === "dark" ? t("switchToLight") : t("switchToDark"),
+    );
+  }
+}
+
+function loadTurnstile(siteKey) {
+  if (!siteKey || document.querySelector("script[data-gradwindow-turnstile]")) {
     return;
   }
   const container = document.getElementById("turnstile-container");
