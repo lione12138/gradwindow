@@ -319,14 +319,10 @@ def main() -> None:
                 successful_dedicated_university_ids=successful_dedicated_ids
             )
             print(json.dumps(generic_report["summary"], ensure_ascii=False))
-            auto_programme_report = {
-                university_id: approve_programme_candidates(
-                    university_id=university_id,
-                    reviewer="automated-official-source-policy",
-                    parsed_only=False,
-                )
-                for university_id in sorted(successful_dedicated_ids)
-            }
+            auto_programme_report = _auto_approve_programmes(
+                successful_dedicated_ids,
+                reviewer="automated-official-source-policy",
+            )
             auto_window_report = approve_official_adapter_window_candidates(
                 reviewer="automated-official-source-policy",
                 university_ids=successful_dedicated_ids,
@@ -437,6 +433,28 @@ def _approve_all_programmes(*, reviewer: str, parsed_only: bool) -> dict:
             reviewer=reviewer,
             parsed_only=parsed_only,
         )
+    return report
+
+
+def _auto_approve_programmes(
+    university_ids: set[str],
+    *,
+    reviewer: str,
+) -> dict:
+    report = {}
+    for university_id in sorted(university_ids):
+        try:
+            report[university_id] = approve_programme_candidates(
+                university_id=university_id,
+                reviewer=reviewer,
+                parsed_only=False,
+            )
+        except Exception as exc:
+            report[university_id] = {
+                "status": "error",
+                "errorType": type(exc).__name__,
+                "message": str(exc),
+            }
     return report
 
 
