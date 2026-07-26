@@ -32,7 +32,6 @@ on:
 permissions:
   actions: write
   contents: write
-  issues: write
   pull-requests: write
 
 concurrency:
@@ -93,12 +92,12 @@ jobs:
           github.event_name != 'push' &&
           steps.programme_translations.outcome == 'failure'
         run: |
-          echo "::warning title=Programme translation update failed::The data pipeline succeeded, but DeepSeek translation failed. Successfully checkpointed batches will still be included in the data review pull request."
+          echo "::warning title=Programme translation update failed::The data pipeline succeeded, but DeepSeek translation failed. Successfully checkpointed batches will still be included in the automated publication pull request."
           {
             echo "### Programme translation warning"
             echo ""
             echo "The application-data pipeline succeeded, but the optional DeepSeek translation step failed."
-            echo "Successfully checkpointed translation batches are preserved and the data review pull request will still be created."
+            echo "Successfully checkpointed translation batches are preserved and the automated publication pull request will still be created."
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit translation-only refresh
@@ -162,92 +161,14 @@ jobs:
           --squash
           --delete-branch
 
-      - name: Open issue for newly confirmed page changes
-        if: github.event_name != 'push' && !inputs.translation_only
-        uses: actions/github-script@v9
-        with:
-          script: |
-            const fs = require("fs");
-            const path = require("path");
-            const readJson = filename => {
-              const payload = JSON.parse(fs.readFileSync(filename, "utf8"));
-              if (!payload.partitioning) return payload;
-              const { collectionKey, groupKey, files } = payload.partitioning;
-              const collection = groupKey ? [] : {};
-              for (const relativeName of files) {
-                const shard = JSON.parse(
-                  fs.readFileSync(path.join(path.dirname(filename), relativeName), "utf8")
-                )[collectionKey];
-                if (groupKey) collection.push(...shard);
-                else Object.assign(collection, shard);
-              }
-              return { meta: payload.meta || {}, [collectionKey]: collection };
-            };
-            const queue = JSON.parse(fs.readFileSync("data/ops/review-queue.json", "utf8"));
-            const candidates = readJson("data/ops/window-candidates.json");
-            const programmeCandidates = readJson("data/ops/programme-candidates.json");
-            const universities = JSON.parse(fs.readFileSync("data/universities.json", "utf8"));
-            const universityById = new Map(
-              universities.universities.map(item => [item.id, item])
-            );
-            const today = new Date().toISOString().slice(0, 10);
-            const monitorChanges = queue.items.filter(
-              item => ["content-change", "window-source-change"].includes(item.type) &&
-                item.severity === "deadline" &&
-                item.status === "pending" &&
-                item.detectedAt.startsWith(today)
-            );
-            const parserChanges = candidates.items.filter(
-              item => item.type === "parser-date-change" &&
-                item.status === "pending" &&
-                item.detectedAt.startsWith(today)
-            ).map(item => {
-              const university = universityById.get(item.record.universityId) || {};
-              return {
-                qsRank: university.qsRank || "?",
-                school: university.school || item.record.universityId,
-                url: item.sourceUrl,
-                reason: `Parser proposed ${item.record.opensAt} to ${item.record.closesAt}; manual approval required.`
-              };
-            });
-            const newProgrammes = programmeCandidates.items.filter(
-              item => item.type === "new-programme" &&
-                item.status === "pending" &&
-                item.detectedAt.startsWith(today)
-            ).map(item => {
-              const university = universityById.get(item.universityId) || {};
-              return {
-                qsRank: university.qsRank || "?",
-                school: university.school || item.universityId,
-                url: item.sourceUrl,
-                reason: `New programme discovered: ${item.programme.name}; ${item.windows.length} deadline candidate(s) require review.`
-              };
-            });
-            const changes = [...monitorChanges, ...parserChanges, ...newProgrammes];
-            if (!changes.length) return;
-
-            const marker = `<!-- gradwindow-review:${today} -->`;
-            const existing = await github.paginate(github.rest.issues.listForRepo, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: "all",
-              per_page: 100
-            });
-            if (existing.some(issue => issue.body?.includes(marker))) return;
-
-            const rows = changes.map(item =>
-              `| ${item.qsRank} | ${item.school} | [official page](${item.url}) | ${item.reason} |`
-            ).join("\n");
-            await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `Review confirmed admissions-page changes (${today})`,
-              body: `${marker}
-            The monitor observed the same new visible-content fingerprint on two consecutive checks.
-
-            | QS | University | Source | Reason |
-            |---:|---|---|---|
-            ${rows}
-
-            Review the official pages before changing any application window.`
-            });
+      - name: Start production test and deployment
+        if: >-
+          github.event_name != 'push' &&
+          !inputs.translation_only &&
+          steps.data-pr.outputs.pull-request-number
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh workflow run tests.yml
+          --repo "$GITHUB_REPOSITORY"
+          --ref main
