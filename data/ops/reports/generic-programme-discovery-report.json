@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-07-26T07:23:16.346933+00:00",
+    "updatedAt": "2026-07-27T08:23:56.072553+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -15,7 +15,7 @@
     "readyToApprove": 0,
     "needsOpeningReview": 0,
     "needsOpeningDate": 634,
-    "needsAdapter": 546,
+    "needsAdapter": 547,
     "comingSoonMonitor": 3,
     "deadlineUnavailableMonitor": 172
   },
@@ -83,7 +83,7 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-07-26T07:23:27.237932+00:00",
+      "checkedAt": "2026-07-27T08:24:08.117920+00:00",
       "catalogProgrammes": 2,
       "previousCatalogProgrammes": 2,
       "knownProgrammes": 1,
@@ -111,7 +111,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-07-26T07:23:28.761916+00:00",
+      "checkedAt": "2026-07-27T08:24:12.573331+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 1,
@@ -9273,6 +9273,15 @@
         "universityId": "the-university-of-melbourne",
         "programmeName": "Master of Youth Mental Health",
         "sourceUrl": "https://handbook.unimelb.edu.au/2026/courses/mc-youthmh",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:melbourne-master-of-counselling-mc-counsmo",
+        "universityId": "the-university-of-melbourne",
+        "programmeName": "Master of Counselling",
+        "sourceUrl": "https://handbook.unimelb.edu.au/2026/courses/mc-counsmo",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
