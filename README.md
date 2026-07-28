@@ -9,7 +9,7 @@
 
 A QS Top 200 master's application tracker using official university sources. The tables below summarize each university once; full programme-level windows remain available on the website.
 
-Status date: **2026-07-27**
+Status date: **2026-07-28**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -29,6 +29,7 @@ Status date: **2026-07-27**
 | =52 | City University of Hong Kong (CityUHK) | 13 open windows | 2026-07-31 | Official | [Admissions](https://www.cityu.edu.hk/pg/programme/p60) · [All programme details](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
 | 56 | Universiti Malaya (UM) | 137 open windows | 2026-08-30 | Official | [Admissions](https://study.um.edu.my/how-to-apply) · [All programme details](https://gradwindow.com/?q=Universiti%20Malaya%20%28UM%29) |
 | =82 | The University of Sheffield | 20 open windows | 2026-09-04 | Official | [Admissions](https://www.sheffield.ac.uk/postgraduate/taught/apply) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Sheffield) |
+| =87 | The University of Technology Sydney (UTS) | 1 open window | 2027-01-31 | Official | [Admissions](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |
 | =162 | Université de Montréal | 1 open window | 2026-09-01 | Official | [Admissions](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [All programme details](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 
 ## Opening Within 30 Days
@@ -43,4 +44,3 @@ Status date: **2026-07-27**
 | 54 | National Taiwan University (NTU) | 61 upcoming windows | 2026-08-03 | Official | [Admissions](https://admissions.ntu.edu.tw/apply/degree-students/international-students/) · [All programme details](https://gradwindow.com/?q=National%20Taiwan%20University%20%28NTU%29) |
 | 65 | KAIST | 36 upcoming windows | 2026-08-18 | Official | [Admissions](https://admission.kaist.ac.kr/intl-graduate/) · [All programme details](https://gradwindow.com/?q=KAIST) |
 | 84 | Universidad de Buenos Aires (UBA) | 1 upcoming window | 2026-08-06 | Estimate | [Admissions](https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/) · [All programme details](https://gradwindow.com/?q=Universidad%20de%20Buenos%20Aires%20%28UBA%29) |
-| =87 | The University of Technology Sydney (UTS) | 1 upcoming window | 2026-07-28 | Official | [Admissions](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |
