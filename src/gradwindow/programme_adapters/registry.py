@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
+from .adelaide import AdelaideAdapter
 from .anu import ANUAdapter
 from .auckland import AucklandAdapter
 from .base import ProgrammeAdapter
@@ -22,6 +23,7 @@ from .eth import ETHAdapter
 from .fudan import FudanAdapter
 from .glasgow import GlasgowAdapter
 from .harvard import HarvardAdapter
+from .heidelberg import HeidelbergAdapter
 from .hku import HKUAdapter
 from .hkust import HKUSTAdapter
 from .imperial import ImperialAdapter
@@ -43,18 +45,22 @@ from .melbourne import MelbourneAdapter
 from .mit import MITAdapter
 from .monash import MonashAdapter
 from .northwestern import NorthwesternAdapter
+from .nottingham import NottinghamAdapter
 from .ntu import NTUAdapter
 from .ntu_taiwan import NTUTaiwanAdapter
 from .nus import NUSAdapter
 from .oxford import OxfordAdapter
 from .paris_saclay import ParisSaclayAdapter
 from .peking import PekingAdapter
+from .penn_state import PennStateAdapter
+from .polimi import PolimiAdapter
 from .polyu import PolyUAdapter
 from .princeton import PrincetonAdapter
 from .psl import PSLAdapter
 from .sheffield import SheffieldAdapter
 from .sjtu import SJTUAdapter
 from .snu import SNUAdapter
+from .sorbonne import SorbonneAdapter
 from .southampton import SouthamptonAdapter
 from .stanford import StanfordAdapter
 from .sydney import SydneyAdapter
@@ -66,13 +72,17 @@ from .ubc import UBCAdapter
 from .uchicago import UChicagoAdapter
 from .ucl import UCLAdapter
 from .ucla import UCLAAdapter
+from .ucsd import UCSDAdapter
+from .uiuc import UIUCAdapter
 from .um import UMAdapter
 from .unsw import UNSWAdapter
 from .upenn import UpennAdapter
 from .uq import UQAdapter
 from .ut_austin import UTAustinAdapter
 from .utokyo import UTokyoAdapter
+from .uts import UTSAdapter
 from .uva import UvAAdapter
+from .uwa import UWAAdapter
 from .warwick import WarwickAdapter
 from .yale import YaleAdapter
 from .yonsei import YonseiAdapter
@@ -81,6 +91,7 @@ from .zju import ZJUAdapter
 AdapterFactory = Callable[[], ProgrammeAdapter]
 
 PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
+    "adelaide": AdelaideAdapter,
     "anu": ANUAdapter,
     "auckland": AucklandAdapter,
     "berkeley": BerkeleyAdapter,
@@ -100,6 +111,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "fudan": FudanAdapter,
     "glasgow": GlasgowAdapter,
     "harvard": HarvardAdapter,
+    "heidelberg": HeidelbergAdapter,
     "hku": HKUAdapter,
     "hkust": HKUSTAdapter,
     "imperial": ImperialAdapter,
@@ -120,6 +132,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "manchester": ManchesterAdapter,
     "mit": MITAdapter,
     "monash": MonashAdapter,
+    "nottingham": NottinghamAdapter,
     "northwestern": NorthwesternAdapter,
     "ntu": NTUAdapter,
     "ntu-taiwan": NTUTaiwanAdapter,
@@ -127,6 +140,8 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "oxford": OxfordAdapter,
     "peking": PekingAdapter,
     "paris-saclay": ParisSaclayAdapter,
+    "penn-state": PennStateAdapter,
+    "polimi": PolimiAdapter,
     "polyu": PolyUAdapter,
     "princeton": PrincetonAdapter,
     "psl": PSLAdapter,
@@ -134,6 +149,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "sheffield": SheffieldAdapter,
     "snu": SNUAdapter,
     "southampton": SouthamptonAdapter,
+    "sorbonne": SorbonneAdapter,
     "stanford": StanfordAdapter,
     "sydney": SydneyAdapter,
     "toronto": TorontoAdapter,
@@ -144,13 +160,17 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "uchicago": UChicagoAdapter,
     "ucl": UCLAdapter,
     "ucla": UCLAAdapter,
+    "ucsd": UCSDAdapter,
+    "uiuc": UIUCAdapter,
     "unsw": UNSWAdapter,
     "uq": UQAdapter,
     "ut-austin": UTAustinAdapter,
     "um": UMAdapter,
     "upenn": UpennAdapter,
     "utokyo": UTokyoAdapter,
+    "uts": UTSAdapter,
     "uva": UvAAdapter,
+    "uwa": UWAAdapter,
     "warwick": WarwickAdapter,
     "yale": YaleAdapter,
     "yonsei": YonseiAdapter,

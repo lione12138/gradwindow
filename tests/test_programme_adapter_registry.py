@@ -9,8 +9,9 @@ from gradwindow.programme_adapters.registry import PROGRAMME_ADAPTERS
 
 
 def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
-    assert len(PROGRAMME_ADAPTERS) == 74
+    assert len(PROGRAMME_ADAPTERS) == 84
     assert set(PROGRAMME_ADAPTERS) >= {
+        "adelaide",
         "anu",
         "auckland",
         "berkeley",
@@ -21,6 +22,7 @@ def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
         "cornell",
         "epfl",
         "fudan",
+        "heidelberg",
         "ip-paris",
         "jhu",
         "kfupm",
@@ -32,16 +34,20 @@ def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
         "manchester",
         "mcgill",
         "northwestern",
+        "nottingham",
         "ntu",
         "ntu-taiwan",
         "nus",
         "peking",
+        "penn-state",
+        "polimi",
         "princeton",
         "psl",
         "sjtu",
         "sheffield",
         "snu",
         "southampton",
+        "sorbonne",
         "toronto",
         "tsinghua",
         "tum",
@@ -49,9 +55,13 @@ def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
         "uchicago",
         "ucl",
         "ucla",
+        "ucsd",
+        "uiuc",
         "unsw",
         "upenn",
         "utokyo",
+        "uts",
+        "uwa",
         "warwick",
         "yale",
         "yonsei",
