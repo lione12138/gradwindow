@@ -9,7 +9,7 @@
 
 基于大学官网数据的 QS 前 200 硕士申请追踪项目。下面只展示每所大学的汇总信息；完整的项目级申请窗口请前往网站查看。
 
-状态日期：**2026-07-28**
+状态日期：**2026-07-29**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -26,7 +26,7 @@
 | 35 | The University of Edinburgh / 爱丁堡大学 | 93 个当前开放窗口 | 2026-07-30 | 官网核验 | [招生官网](https://study.ed.ac.uk/postgraduate/applying) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Edinburgh) |
 | 45 | University of British Columbia / 不列颠哥伦比亚大学 | 56 个当前开放窗口 | 2026-07-31 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 50 | The Hong Kong Polytechnic University / 香港理工大学 | 211 个当前开放窗口 | 2026-10-20 | 官网核验 + 预测参考 | [招生官网](https://www.polyu.edu.hk/study/pg/taught-postgraduate) · [查看全部项目](https://gradwindow.com/?q=The%20Hong%20Kong%20Polytechnic%20University) |
-| =52 | City University of Hong Kong (CityUHK) / 香港城市大学 | 13 个当前开放窗口 | 2026-07-31 | 官网核验 | [招生官网](https://www.cityu.edu.hk/pg/programme/p60) · [查看全部项目](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
+| =52 | City University of Hong Kong (CityUHK) / 香港城市大学 | 14 个当前开放窗口 | 2026-07-31 | 官网核验 | [招生官网](https://www.cityu.edu.hk/pg/programme/p60) · [查看全部项目](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
 | 56 | Universiti Malaya (UM) / 马来亚大学 | 137 个当前开放窗口 | 2026-08-30 | 官网核验 | [招生官网](https://study.um.edu.my/how-to-apply) · [查看全部项目](https://gradwindow.com/?q=Universiti%20Malaya%20%28UM%29) |
 | =82 | The University of Sheffield / 谢菲尔德大学 | 20 个当前开放窗口 | 2026-09-04 | 官网核验 | [招生官网](https://www.sheffield.ac.uk/postgraduate/taught/apply) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Sheffield) |
 | =87 | The University of Technology Sydney (UTS) / 悉尼科技大学 | 1 个当前开放窗口 | 2027-01-31 | 官网核验 | [招生官网](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |

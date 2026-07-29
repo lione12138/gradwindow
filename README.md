@@ -9,7 +9,7 @@
 
 A QS Top 200 master's application tracker using official university sources. The tables below summarize each university once; full programme-level windows remain available on the website.
 
-Status date: **2026-07-28**
+Status date: **2026-07-29**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -26,7 +26,7 @@ Status date: **2026-07-28**
 | 35 | The University of Edinburgh | 93 open windows | 2026-07-30 | Official | [Admissions](https://study.ed.ac.uk/postgraduate/applying) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Edinburgh) |
 | 45 | University of British Columbia | 56 open windows | 2026-07-31 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 50 | The Hong Kong Polytechnic University | 211 open windows | 2026-10-20 | Official + Estimate | [Admissions](https://www.polyu.edu.hk/study/pg/taught-postgraduate) · [All programme details](https://gradwindow.com/?q=The%20Hong%20Kong%20Polytechnic%20University) |
-| =52 | City University of Hong Kong (CityUHK) | 13 open windows | 2026-07-31 | Official | [Admissions](https://www.cityu.edu.hk/pg/programme/p60) · [All programme details](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
+| =52 | City University of Hong Kong (CityUHK) | 14 open windows | 2026-07-31 | Official | [Admissions](https://www.cityu.edu.hk/pg/programme/p60) · [All programme details](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
 | 56 | Universiti Malaya (UM) | 137 open windows | 2026-08-30 | Official | [Admissions](https://study.um.edu.my/how-to-apply) · [All programme details](https://gradwindow.com/?q=Universiti%20Malaya%20%28UM%29) |
 | =82 | The University of Sheffield | 20 open windows | 2026-09-04 | Official | [Admissions](https://www.sheffield.ac.uk/postgraduate/taught/apply) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Sheffield) |
 | =87 | The University of Technology Sydney (UTS) | 1 open window | 2027-01-31 | Official | [Admissions](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |
