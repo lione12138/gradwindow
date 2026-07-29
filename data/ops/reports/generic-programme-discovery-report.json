@@ -1,23 +1,23 @@
 {
   "meta": {
-    "updatedAt": "2026-07-28T07:13:33.844209+00:00",
+    "updatedAt": "2026-07-29T07:20:57.097160+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
   },
   "summary": {
     "schoolsConfigured": 9,
-    "schoolsSucceeded": 2,
+    "schoolsSucceeded": 1,
     "schoolsErrored": 1,
-    "schoolsSkipped": 6,
-    "schoolsSkippedByDedicated": 6,
+    "schoolsSkipped": 7,
+    "schoolsSkippedByDedicated": 7,
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
     "needsOpeningDate": 634,
     "needsAdapter": 547,
-    "comingSoonMonitor": 3,
-    "deadlineUnavailableMonitor": 172
+    "comingSoonMonitor": 1,
+    "deadlineUnavailableMonitor": 305
   },
   "results": [
     {
@@ -69,6 +69,14 @@
       "dryRun": false
     },
     {
+      "batchStatus": "skipped",
+      "status": "skipped",
+      "skipReason": "dedicated-primary-succeeded",
+      "universityId": "the-university-of-nottingham",
+      "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
+      "dryRun": false
+    },
+    {
       "status": "error",
       "universityId": "university-of-oxford",
       "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/courses-a-z-listing",
@@ -83,7 +91,7 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-07-28T07:13:50.756038+00:00",
+      "checkedAt": "2026-07-29T07:21:08.036310+00:00",
       "catalogProgrammes": 2,
       "previousCatalogProgrammes": 2,
       "knownProgrammes": 1,
@@ -103,34 +111,6 @@
       "programmesNeedingReview": 2,
       "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
       "windowFingerprint": "2da25635e85592ca7f9d20d7b2dcedc78ac98deba590337ee132bae71865c33d",
-      "watchedWindowSourceHash": null,
-      "dryRun": false,
-      "batchStatus": "ok"
-    },
-    {
-      "status": "ok",
-      "universityId": "the-university-of-nottingham",
-      "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-07-28T07:13:53.520599+00:00",
-      "catalogProgrammes": 14,
-      "previousCatalogProgrammes": 14,
-      "knownProgrammes": 1,
-      "newCandidates": 0,
-      "newGuidanceCandidates": 0,
-      "newWindowCandidates": 0,
-      "changedWindowCandidates": 0,
-      "pendingWindowCandidates": 0,
-      "pendingCandidates": 14,
-      "pendingGuidanceCandidates": 0,
-      "catalogueStatus": "ok",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
-      "exactWindowCount": 0,
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 14,
-      "programmesNeedingReview": 14,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "windowFingerprint": "dd6c460cedf736129b388a9898cff657c60b995f5eeef2444f35e20eaade25c3",
       "watchedWindowSourceHash": null,
       "dryRun": false,
       "batchStatus": "ok"
@@ -10774,24 +10754,6 @@
     ],
     "comingSoonMonitor": [
       {
-        "id": "new-programme:nottingham-advanced-chemical-engineering-msc",
-        "universityId": "the-university-of-nottingham",
-        "programmeName": "Advanced Chemical Engineering MSc",
-        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-chemical-engineering-msc",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:nottingham-applied-translation-studies-ma",
-        "universityId": "the-university-of-nottingham",
-        "programmeName": "Applied Translation Studies MA",
-        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-translation-studies-ma",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
         "id": "new-programme:uchicago-ms-in-applied-data-science",
         "universityId": "university-of-chicago",
         "programmeName": "MS in Applied Data Science",
@@ -12234,25 +12196,34 @@
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-accounting-and-finance-msc",
+        "id": "known-programme-guidance:nottingham-accounting-and-finance-msc",
         "universityId": "the-university-of-nottingham",
-        "programmeName": "Accounting and Finance MSc",
+        "programmeName": "Accounting And Finance MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/accounting-and-finance-msc",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-additive-manufacturing-and-3d-printing-msc",
+        "id": "known-programme-guidance:nottingham-additive-manufacturing-and-3d-printing-msc",
         "universityId": "the-university-of-nottingham",
-        "programmeName": "Additive Manufacturing and 3D Printing MSc",
+        "programmeName": "Additive Manufacturing And 3d Printing MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/additive-manufacturing-and-3d-printing-msc",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-advanced-building-performance-engineering-msc",
+        "id": "known-programme-guidance:nottingham-advanced-architecture-design-march",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Advanced Architecture Design MArch",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-architecture-design-march",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-advanced-building-performance-engineering-msc",
         "universityId": "the-university-of-nottingham",
         "programmeName": "Advanced Building Performance Engineering MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-building-performance-engineering-msc",
@@ -12261,7 +12232,16 @@
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-advanced-civil-engineering-msc",
+        "id": "known-programme-guidance:nottingham-advanced-chemical-engineering-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Advanced Chemical Engineering MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-chemical-engineering-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-advanced-civil-engineering-msc",
         "universityId": "the-university-of-nottingham",
         "programmeName": "Advanced Civil Engineering MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-civil-engineering-msc",
@@ -12270,7 +12250,7 @@
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-advanced-clinical-practice-msc",
+        "id": "known-programme-guidance:nottingham-advanced-clinical-practice-msc",
         "universityId": "the-university-of-nottingham",
         "programmeName": "Advanced Clinical Practice MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-clinical-practice-msc",
@@ -12279,16 +12259,25 @@
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-advanced-electrical-and-electronic-engineering-with-extended-research-msc",
+        "id": "known-programme-guidance:nottingham-advanced-clinical-practitioner-degree-apprenticeship-msc",
         "universityId": "the-university-of-nottingham",
-        "programmeName": "Advanced Electrical and Electronic Engineering with Extended Research MSc",
+        "programmeName": "Advanced Clinical Practitioner Degree Apprenticeship MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-clinical-practitioner-degree-apprenticeship-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-advanced-electrical-and-electronic-engineering-with-extended-research-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Advanced Electrical And Electronic Engineering With Extended Research MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-electrical-and-electronic-engineering-with-extended-research-msc",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-advanced-materials-msc",
+        "id": "known-programme-guidance:nottingham-advanced-materials-msc",
         "universityId": "the-university-of-nottingham",
         "programmeName": "Advanced Materials MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/advanced-materials-msc",
@@ -12297,34 +12286,43 @@
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-ai-and-digital-chemistry-msc",
+        "id": "known-programme-guidance:nottingham-ai-and-digital-chemistry-msc",
         "universityId": "the-university-of-nottingham",
-        "programmeName": "AI and Digital Chemistry MSc",
+        "programmeName": "Ai And Digital Chemistry MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/ai-and-digital-chemistry-msc",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-animal-nutrition-msc-pgdip",
+        "id": "known-programme-guidance:nottingham-american-studies-mres",
         "universityId": "the-university-of-nottingham",
-        "programmeName": "Animal Nutrition MSc/PGDip",
+        "programmeName": "American Studies MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/american-studies-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-animal-nutrition-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Animal Nutrition MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/animal-nutrition-msc",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-applied-linguistics-and-english-language-teaching-ma",
+        "id": "known-programme-guidance:nottingham-applied-linguistics-and-english-language-teaching-ma",
         "universityId": "the-university-of-nottingham",
-        "programmeName": "Applied Linguistics and English Language Teaching MA",
+        "programmeName": "Applied Linguistics And English Language Teaching MA",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-linguistics-and-english-language-teaching-ma",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-applied-linguistics-ma",
+        "id": "known-programme-guidance:nottingham-applied-linguistics-ma",
         "universityId": "the-university-of-nottingham",
         "programmeName": "Applied Linguistics MA",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-linguistics-ma",
@@ -12333,10 +12331,1171 @@
         "reviewReason": "No application deadline was parsed."
       },
       {
-        "id": "new-programme:nottingham-applied-sport-and-exercise-medicine-msc",
+        "id": "known-programme-guidance:nottingham-applied-sport-and-exercise-medicine-msc",
         "universityId": "the-university-of-nottingham",
-        "programmeName": "Applied Sport and Exercise Medicine MSc",
+        "programmeName": "Applied Sport And Exercise Medicine MSc",
         "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-sport-and-exercise-medicine-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-applied-translation-studies-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Applied Translation Studies MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/applied-translation-studies-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-archaeology-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Archaeology MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/archaeology-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-architecture-and-sustainable-design-march",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Architecture And Sustainable Design MArch",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-and-sustainable-design-march",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-art-history-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Art History MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/art-history-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-banking-and-finance-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Banking And Finance MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/banking-and-finance-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-behavioural-economics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Behavioural Economics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/behavioural-economics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-bioengineering-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Bioengineering MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/bioengineering-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-bioinformatics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Bioinformatics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/bioinformatics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-biotechnology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Biotechnology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/biotechnology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-business-administration-mba",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Business Administration MBA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/business-administration-mba",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-business-analytics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Business Analytics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/business-analytics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-business-and-management-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Business And Management MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/business-and-management-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-business-consulting-and-analytics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Business Consulting And Analytics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/business-consulting-and-analytics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-cancer-immunology-and-biotechnology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Cancer Immunology And Biotechnology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/cancer-immunology-and-biotechnology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-chemistry-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Chemistry MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/chemistry-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-chinese-english-translation-and-interpreting-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Chinese English Translation And Interpreting MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/chinese-english-translation-and-interpreting-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-civil-engineering-and-management-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Civil Engineering And Management MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/civil-engineering-and-management-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-civil-engineering-digital-construction-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Civil Engineering Digital Construction MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/civil-engineering-digital-construction-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-classics-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Classics MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/classics-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-clinical-education-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Clinical Education MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/clinical-education-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-clinical-microbiology-distance-learning-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Clinical Microbiology Distance Learning MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/clinical-microbiology-distance-learning-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-clinical-molecular-microbiology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Clinical Molecular Microbiology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/clinical-molecular-microbiology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-clinical-nutrition-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Clinical Nutrition MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/clinical-nutrition-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-cognitive-behavioural-therapy-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Cognitive Behavioural Therapy MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/cognitive-behavioural-therapy-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-cognitive-neuroscience-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Cognitive Neuroscience MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/cognitive-neuroscience-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-communication-and-entrepreneurship-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Communication And Entrepreneurship MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/communication-and-entrepreneurship-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-computational-neuroscience-cognition-and-ai-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Computational Neuroscience Cognition And Ai MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/computational-neuroscience-cognition-and-ai-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-creative-writing-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Creative Writing MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/creative-writing-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-criminology-and-criminal-justice-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Criminology And Criminal Justice MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/criminology-and-criminal-justice-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-critical-theory-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Critical Theory MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/critical-theory-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-cultural-industries-and-entrepreneurship-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Cultural Industries And Entrepreneurship MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/cultural-industries-and-entrepreneurship-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-cultural-studies-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Cultural Studies MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/cultural-studies-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-cyberphysical-systems-2year-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Cyberphysical Systems 2year MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/cyberphysical-systems-2year-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-cyberphysical-systems-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Cyberphysical Systems MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/cyberphysical-systems-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-data-analytics-and-ai-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Data Analytics And Ai MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/data-analytics-and-ai-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-data-science-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Data Science MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/data-science-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-development-economics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Development Economics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/development-economics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-developmental-disorders-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Developmental Disorders MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/developmental-disorders-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-digital-marketing-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Digital Marketing MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/digital-marketing-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-economic-development-and-policy-analysis-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Economic Development And Policy Analysis MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/economic-development-and-policy-analysis-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-economics-and-data-science-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Economics And Data Science MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/economics-and-data-science-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-economics-and-econometrics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Economics And Econometrics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/economics-and-econometrics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-economics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Economics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/economics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-education-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Education MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/education-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-education-online-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Education Online MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/education-online-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-electrical-and-electronic-engineering-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Electrical And Electronic Engineering MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/electrical-and-electronic-engineering-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-electrical-engineering-for-sustainable-and-renewable-energy-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Electrical Engineering For Sustainable And Renewable Energy MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/electrical-engineering-for-sustainable-and-renewable-energy-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-electronic-communications-and-computer-engineering-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Electronic Communications And Computer Engineering MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/electronic-communications-and-computer-engineering-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-english-literature-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "English Literature MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/english-literature-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-english-online-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "English Online MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/english-online-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-english-studies-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "English Studies MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/english-studies-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-entrepreneurship-innovation-and-management-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Entrepreneurship Innovation And Management MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/entrepreneurship-innovation-and-management-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-environmental-leadership-and-management-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Environmental Leadership And Management MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/environmental-leadership-and-management-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-environmental-process-engineering-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Environmental Process Engineering MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/environmental-process-engineering-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-film-and-television-studies-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Film And Television Studies MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/film-and-television-studies-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-film-television-and-screen-industries-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Film Television And Screen Industries MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/film-television-and-screen-industries-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-finance-and-investment-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Finance And Investment MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/finance-and-investment-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-financial-and-computational-mathematics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Financial And Computational Mathematics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/financial-and-computational-mathematics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-financial-economics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Financial Economics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/financial-economics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-food-innovation-and-management-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Food Innovation And Management MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/food-innovation-and-management-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-food-process-engineering-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Food Process Engineering MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/food-process-engineering-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-forensic-and-criminological-psychology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Forensic And Criminological Psychology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/forensic-and-criminological-psychology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-geography-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Geography MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/geography-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-global-environmental-sustainability-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Global Environmental Sustainability MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/global-environmental-sustainability-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-global-social-and-public-policy-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Global Social And Public Policy MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/global-social-and-public-policy-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-gravity-particles-and-fields-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Gravity Particles And Fields MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/gravity-particles-and-fields-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-health-psychology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Health Psychology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/health-psychology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-history-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "History MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/history-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-human-computer-interaction-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Human Computer Interaction MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/human-computer-interaction-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-human-factors-and-ergonomics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Human Factors And Ergonomics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/human-factors-and-ergonomics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-human-resource-management-and-organisation-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Human Resource Management And Organisation MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/human-resource-management-and-organisation-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-human-rights-law-llm",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Human Rights Law LLM",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/human-rights-law-llm",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-immunology-and-immunotherapeutics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Immunology And Immunotherapeutics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/immunology-and-immunotherapeutics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-international-business-and-commercial-law-llm",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "International Business And Commercial Law LLM",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/international-business-and-commercial-law-llm",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-international-business-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "International Business MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/international-business-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-international-economics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "International Economics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/international-economics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-international-law-llm",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "International Law LLM",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/international-law-llm",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-international-media-and-communication-studies-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "International Media And Communication Studies MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/international-media-and-communication-studies-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-international-relations-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "International Relations MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/international-relations-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-international-security-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "International Security MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/international-security-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-machine-learning-in-science-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Machine Learning In Science MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/machine-learning-in-science-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-management-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Management MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/management-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-management-psychology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Management Psychology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/management-psychology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-marketing-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Marketing MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/marketing-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-master-of-laws-llm",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Master Of Laws LLM",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/master-of-laws-llm",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-mechanical-engineering-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Mechanical Engineering MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/mechanical-engineering-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-mental-health-research-and-practice-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Mental Health Research And Practice MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/mental-health-research-and-practice-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-microbiology-and-immunology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Microbiology And Immunology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/microbiology-and-immunology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-modern-languages-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Modern Languages MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/modern-languages-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-music-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Music MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/music-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-nutritional-sciences-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Nutritional Sciences MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/nutritional-sciences-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-occupational-psychology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Occupational Psychology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/occupational-psychology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-oncology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Oncology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/oncology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-person-centred-experiential-counselling-and-psychotherapy-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Person Centred Experiential Counselling And Psychotherapy MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/person-centred-experiential-counselling-and-psychotherapy-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-physiotherapy-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Physiotherapy MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/physiotherapy-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-plant-and-crop-sciences-phd-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Plant And Crop Sciences Phd MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/plant-and-crop-sciences-phd-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-politics-and-international-relations-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Politics And International Relations MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/politics-and-international-relations-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-psychology-conversion-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Psychology Conversion MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/psychology-conversion-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-psychology-research-methods-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Psychology Research Methods MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/psychology-research-methods-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-public-health-global-mph",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Public Health Global MPH",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/public-health-global-mph",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-public-health-health-research-mph",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Public Health Health Research MPH",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/public-health-health-research-mph",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-public-health-mph",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Public Health MPH",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/public-health-mph",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-public-procurement-law-and-policy-llm",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Public Procurement Law And Policy LLM",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/public-procurement-law-and-policy-llm",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-quality-and-patient-safety-improvement-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Quality And Patient Safety Improvement MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/quality-and-patient-safety-improvement-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-quantum-science-and-technology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Quantum Science And Technology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/quantum-science-and-technology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-religious-studies-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Religious Studies MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/religious-studies-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-renewable-energy-and-architecture-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Renewable Energy And Architecture MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/renewable-energy-and-architecture-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-research-methods-health-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Research Methods Health MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/research-methods-health-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-risk-management-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Risk Management MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/risk-management-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-social-science-research-criminology-sociology-social-policy-social-work-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Social Science Research Criminology Sociology Social Policy Social Work MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/social-science-research-criminology-sociology-social-policy-social-work-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-sports-and-exercise-medicine-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Sports And Exercise Medicine MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/sports-and-exercise-medicine-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-statistical-science-distance-learning-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Statistical Science Distance Learning MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/statistical-science-distance-learning-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-statistics-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Statistics MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/statistics-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-stem-cell-technology-and-regenerative-medicine-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Stem Cell Technology And Regenerative Medicine MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/stem-cell-technology-and-regenerative-medicine-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-structural-engineering-digital-construction-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Structural Engineering Digital Construction MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/structural-engineering-digital-construction-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-supply-chain-and-operations-management-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Supply Chain And Operations Management MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/supply-chain-and-operations-management-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-sustainable-building-technology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Sustainable Building Technology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/sustainable-building-technology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-sustainable-energy-and-entrepreneurship-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Sustainable Energy And Entrepreneurship MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/sustainable-energy-and-entrepreneurship-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-sustainable-energy-engineering-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Sustainable Energy Engineering MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/sustainable-energy-engineering-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-teaching-chinese-to-speakers-of-other-languages-tcsol-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Teaching Chinese To Speakers Of Other Languages Tcsol MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/teaching-chinese-to-speakers-of-other-languages-tcsol-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-teaching-english-to-speakers-of-other-languages-tesol-ma",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Teaching English To Speakers Of Other Languages Tesol MA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/teaching-english-to-speakers-of-other-languages-tesol-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-technology-and-intellectual-property-law-llm",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Technology And Intellectual Property Law LLM",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/technology-and-intellectual-property-law-llm",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-theology-and-religious-studies-mphil",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Theology And Religious Studies MPhil",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/theology-and-religious-studies-mphil",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-theology-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Theology MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/theology-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-veterinary-physiotherapy-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Veterinary Physiotherapy MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/veterinary-physiotherapy-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-veterinary-science-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Veterinary Science MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/veterinary-science-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-visual-culture-mres",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Visual Culture MRes",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/research/visual-culture-mres",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-work-and-organisational-psychology-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Work And Organisational Psychology MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/work-and-organisational-psychology-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "known-programme-guidance:nottingham-workplace-health-and-wellbeing-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Workplace Health And Wellbeing MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/workplace-health-and-wellbeing-msc",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
