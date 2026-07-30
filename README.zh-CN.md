@@ -40,7 +40,7 @@
 | 10 | National University of Singapore (NUS) / 新加坡国立大学 | 4 个即将开放窗口 | 2026-08-01 | 官网核验 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
 | =40 | The University of Queensland / 昆士兰大学 | 151 个即将开放窗口 | 2026-08-01 | 预测参考 | [招生官网](https://study.uq.edu.au/admissions/postgraduate-coursework) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Queensland) |
 | =45 | Northwestern University / 西北大学 | 11 个即将开放窗口 | 2026-08-01 | 官网核验 | [招生官网](https://www.tgs.northwestern.edu/admission/) · [查看全部项目](https://gradwindow.com/?q=Northwestern%20University) |
-| 45 | University of British Columbia / 不列颠哥伦比亚大学 | 10 个即将开放窗口 | 2026-08-01 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
+| 45 | University of British Columbia / 不列颠哥伦比亚大学 | 18 个即将开放窗口 | 2026-08-01 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 54 | National Taiwan University (NTU) / 台湾大学 | 61 个即将开放窗口 | 2026-08-03 | 官网核验 | [招生官网](https://admissions.ntu.edu.tw/apply/degree-students/international-students/) · [查看全部项目](https://gradwindow.com/?q=National%20Taiwan%20University%20%28NTU%29) |
 | 65 | KAIST / 韩国科学技术院 | 36 个即将开放窗口 | 2026-08-18 | 官网核验 | [招生官网](https://admission.kaist.ac.kr/intl-graduate/) · [查看全部项目](https://gradwindow.com/?q=KAIST) |
 | 84 | Universidad de Buenos Aires (UBA) / 布宜诺斯艾利斯大学 | 1 个即将开放窗口 | 2026-08-06 | 预测参考 | [招生官网](https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/) · [查看全部项目](https://gradwindow.com/?q=Universidad%20de%20Buenos%20Aires%20%28UBA%29) |
