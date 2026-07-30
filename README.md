@@ -9,7 +9,7 @@
 
 A QS Top 200 master's application tracker using official university sources. The tables below summarize each university once; full programme-level windows remain available on the website.
 
-Status date: **2026-07-29**
+Status date: **2026-07-30**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 

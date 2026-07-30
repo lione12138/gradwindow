@@ -489,6 +489,33 @@ def test_known_programme_missing_opening_stays_in_guidance_queue(tmp_path) -> No
     ]
 
 
+def test_known_programme_without_dates_stays_in_monitoring_not_review_queue() -> None:
+    adapter = BaseProgrammeAdapter()
+    adapter.university_id = "example-university"
+    programme = DiscoveredProgramme(
+        id="known-programme",
+        name="Known programme",
+        degree_type="MSc",
+        faculty="Example University",
+        department="",
+        source_url="https://example.edu/programmes/known",
+        application_url="https://example.edu/apply",
+        windows=[],
+        deadline_text="No exact dates are currently published.",
+        parse_status="no-deadline",
+    )
+
+    assert (
+        programme_discovery._known_programme_guidance_candidate(
+            adapter,
+            programme,
+            None,
+            "2026-07-30T00:00:00+00:00",
+        )
+        is None
+    )
+
+
 def test_known_programme_window_change_becomes_review_candidate(tmp_path) -> None:
     programs_path = tmp_path / "programs.json"
     applications_path = tmp_path / "applications.json"

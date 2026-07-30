@@ -397,6 +397,8 @@ def _known_programme_guidance_candidate(
         shared_opens_at,
         detected_at,
     )
+    if not candidate["windows"]:
+        return None
     unresolved_windows = [
         window
         for window in candidate["windows"]
