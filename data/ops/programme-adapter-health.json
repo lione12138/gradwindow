@@ -1,25 +1,25 @@
 {
   "meta": {
-    "updatedAt": "2026-08-01T07:12:33.957561+00:00",
+    "updatedAt": "2026-08-02T07:18:28.889967+00:00",
     "description": "Machine-readable dedicated-adapter health and maintenance state. A lack of published exact dates is monitoring, not an error.",
-    "activeAlertHash": "fbfdf852b2cb55f03e233c06c3098de8ffeeea636300d0d819d31ab9b5f46ad4",
+    "activeAlertHash": "4848bdb95fead4078ab76e438f500fb24eceaf03ff3bae27aad337741ec5e8f9",
     "notificationChanged": true,
     "summary": {
       "totalAdapters": 104,
-      "healthyAdapters": 83,
-      "needsMaintenance": 21,
-      "activeAlerts": 39,
-      "catalogueErrors": 20,
+      "healthyAdapters": 84,
+      "needsMaintenance": 20,
+      "activeAlerts": 38,
+      "catalogueErrors": 18,
       "monitoringWithoutExactWindows": 57,
-      "newExactWindowSchools": 1
+      "newExactWindowSchools": 0
     }
   },
   "universities": {
     "adelaide-university": {
       "adapter": "adelaide",
       "sourceUrl": "https://adelaide.edu.au/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T06:47:56.195805+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:47:56.195805+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:20.093308+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:55:20.093308+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -44,15 +44,15 @@
     "aalto-university": {
       "adapter": "aalto",
       "sourceUrl": "https://www.aalto.fi/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T06:47:58.701489+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:23.789766+00:00",
       "lastSuccessfulAt": "2026-07-30T03:56:36.366815+00:00",
-      "consecutiveFailures": 2,
+      "consecutiveFailures": 3,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T06:47:58.701489+00:00"
+        "detectedAt": "2026-08-02T06:55:23.789766+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -61,7 +61,7 @@
           "universityId": "aalto-university",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 2 consecutive checks: HTTP 403",
+          "message": "Adapter failed 3 consecutive checks: HTTP 403",
           "sourceUrl": "https://www.aalto.fi/sitemap.xml"
         },
         {
@@ -77,8 +77,8 @@
     "australian-national-university": {
       "adapter": "anu",
       "sourceUrl": "https://programsandcourses.anu.edu.au/search",
-      "lastAttemptAt": "2026-08-01T06:47:58.701511+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:47:58.701511+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:23.789788+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:55:23.789788+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -103,8 +103,8 @@
     "the-university-of-auckland": {
       "adapter": "auckland",
       "sourceUrl": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option.html",
-      "lastAttemptAt": "2026-08-01T06:48:03.799204+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:48:03.799204+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:28.860627+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:55:28.860627+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -129,8 +129,8 @@
     "university-of-basel": {
       "adapter": "basel",
       "sourceUrl": "https://www.unibas.ch/en/Studies/Before-My-Studies/Degree-Programs.html?degree=master",
-      "lastAttemptAt": "2026-08-01T06:48:06.838866+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:48:06.838866+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:31.633363+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:55:31.633363+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -155,8 +155,8 @@
     "university-of-bath": {
       "adapter": "bath",
       "sourceUrl": "https://www.bath.ac.uk/courses/postgraduate-2026/taught-postgraduate-courses/",
-      "lastAttemptAt": "2026-08-01T06:48:08.821518+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:48:08.821518+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:34.165378+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:55:34.165378+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -181,15 +181,15 @@
     "university-of-california-berkeley-ucb": {
       "adapter": "berkeley",
       "sourceUrl": "https://grad.berkeley.edu/admissions/our-programs/",
-      "lastAttemptAt": "2026-08-01T06:48:10.299234+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:35.750343+00:00",
       "lastSuccessfulAt": "2026-07-23T11:22:56.672814+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T06:48:10.299234+00:00"
+        "detectedAt": "2026-08-02T06:55:35.750343+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -198,7 +198,7 @@
           "universityId": "university-of-california-berkeley-ucb",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://grad.berkeley.edu/admissions/our-programs/"
         },
         {
@@ -214,8 +214,8 @@
     "university-of-birmingham": {
       "adapter": "birmingham",
       "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/taught/course-search",
-      "lastAttemptAt": "2026-08-01T06:48:10.299252+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:48:10.299252+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:35.750365+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:55:35.750365+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
@@ -240,8 +240,8 @@
     "boston-university": {
       "adapter": "boston",
       "sourceUrl": "https://www.bu.edu/academics/degree-programs/",
-      "lastAttemptAt": "2026-08-01T06:48:23.427166+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:48:23.427166+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:51.430266+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:55:51.430266+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -266,8 +266,8 @@
     "university-of-bristol": {
       "adapter": "bristol",
       "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/search/",
-      "lastAttemptAt": "2026-08-01T06:48:24.556568+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:48:24.556568+00:00",
+      "lastAttemptAt": "2026-08-02T06:55:52.576430+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:55:52.576430+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
@@ -292,15 +292,15 @@
     "brown-university": {
       "adapter": "brown",
       "sourceUrl": "https://graduateprograms.brown.edu/graduate_programs",
-      "lastAttemptAt": "2026-08-01T06:49:02.758482+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:40.249297+00:00",
       "lastSuccessfulAt": "2026-07-26T04:39:30.200455+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T06:49:02.758482+00:00"
+        "detectedAt": "2026-08-02T06:56:40.249297+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -309,7 +309,7 @@
           "universityId": "brown-university",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://graduateprograms.brown.edu/graduate_programs"
         },
         {
@@ -325,15 +325,15 @@
     "california-institute-of-technology-caltech": {
       "adapter": "caltech",
       "sourceUrl": "https://catalog.caltech.edu/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T06:49:02.881748+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:40.310268+00:00",
       "lastSuccessfulAt": "2026-07-14T22:44:38.493805+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T06:49:02.881748+00:00"
+        "detectedAt": "2026-08-02T06:56:40.310268+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -342,7 +342,7 @@
           "universityId": "california-institute-of-technology-caltech",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://catalog.caltech.edu/sitemap.xml"
         },
         {
@@ -358,15 +358,15 @@
     "university-of-cambridge": {
       "adapter": "cambridge",
       "sourceUrl": "https://www.postgraduate.study.cam.ac.uk/courses/directory",
-      "lastAttemptAt": "2026-08-01T06:49:03.418037+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:40.783082+00:00",
       "lastSuccessfulAt": "2026-07-01T16:13:46.525518+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T06:49:03.418037+00:00"
+        "detectedAt": "2026-08-02T06:56:40.783082+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -375,7 +375,7 @@
           "universityId": "university-of-cambridge",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://www.postgraduate.study.cam.ac.uk/courses/directory"
         },
         {
@@ -391,8 +391,8 @@
     "columbia-university": {
       "adapter": "columbia",
       "sourceUrl": "https://app.powerbi.com/view?r=eyJrIjoiNWU5MDIzNmEtNjc1ZC00YzBmLWFlMDktZTRiODJiOTIyZGQzIiwidCI6ImQ5OTY4ODc1LTU0OWUtNGE2ZS04OGMzLTJlMWIzYTYwNTVjYiIsImMiOjN9",
-      "lastAttemptAt": "2026-08-01T06:49:03.418057+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:03.418057+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:40.783129+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:56:40.783129+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -417,8 +417,8 @@
     "cornell-university": {
       "adapter": "cornell",
       "sourceUrl": "https://catalog.cornell.edu/programs/",
-      "lastAttemptAt": "2026-08-01T06:49:07.444095+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:07.444095+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:44.329556+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:56:44.329556+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -443,8 +443,8 @@
     "the-chinese-university-of-hong-kong": {
       "adapter": "cuhk",
       "sourceUrl": "https://www.gs.cuhk.edu.hk/admissions/application-deadline",
-      "lastAttemptAt": "2026-08-01T06:49:08.645611+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:08.645611+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:46.020050+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:56:46.020050+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "partial",
@@ -469,8 +469,8 @@
     "city-university-of-hong-kong": {
       "adapter": "cityu",
       "sourceUrl": "https://www.cb.cityu.edu.hk/en/pg/taught-postgraduate-programmes/list",
-      "lastAttemptAt": "2026-08-01T06:49:10.236697+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:10.236697+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:47.778820+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:56:47.778820+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -495,8 +495,8 @@
     "duke-university": {
       "adapter": "duke",
       "sourceUrl": "https://gradschool.duke.edu/academics/programs-and-degrees/masters-programs/",
-      "lastAttemptAt": "2026-08-01T06:49:13.611896+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:13.611896+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:50.447980+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:56:50.447980+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -521,8 +521,8 @@
     "technical-university-of-denmark": {
       "adapter": "dtu",
       "sourceUrl": "https://www.dtu.dk/english/education/graduate/msc-programmes",
-      "lastAttemptAt": "2026-08-01T06:49:14.900103+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:14.900103+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:52.967184+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:56:52.967184+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -547,15 +547,15 @@
     "university-of-edinburgh": {
       "adapter": "edinburgh",
       "sourceUrl": "https://study.ed.ac.uk/programmes/postgraduate-taught",
-      "lastAttemptAt": "2026-08-01T06:49:16.342096+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:55.264548+00:00",
       "lastSuccessfulAt": "2026-07-14T18:21:45.060199+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T06:49:16.342096+00:00"
+        "detectedAt": "2026-08-02T06:56:55.264548+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -564,7 +564,7 @@
           "universityId": "university-of-edinburgh",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://study.ed.ac.uk/programmes/postgraduate-taught"
         },
         {
@@ -580,8 +580,8 @@
     "cole-polytechnique-f-d-rale-de-lausanne": {
       "adapter": "epfl",
       "sourceUrl": "https://www.epfl.ch/education/master/programs/",
-      "lastAttemptAt": "2026-08-01T06:49:16.342110+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:16.342110+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:55.264564+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:56:55.264564+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -606,8 +606,8 @@
     "eth-zurich-swiss-federal-institute-of-technology": {
       "adapter": "eth",
       "sourceUrl": "https://ethz.ch/en/studies/master/application/profile-requirements.html",
-      "lastAttemptAt": "2026-08-01T06:49:19.871779+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:19.871779+00:00",
+      "lastAttemptAt": "2026-08-02T06:56:58.803026+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:56:58.803026+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -632,8 +632,8 @@
     "university-of-exeter": {
       "adapter": "exeter",
       "sourceUrl": "https://www.exeter.ac.uk/study/postgraduate/courses/",
-      "lastAttemptAt": "2026-08-01T06:49:21.164828+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:21.164828+00:00",
+      "lastAttemptAt": "2026-08-02T06:57:00.639245+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:57:00.639245+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -658,8 +658,8 @@
     "fudan-university": {
       "adapter": "fudan",
       "sourceUrl": "https://iso.fudan.edu.cn/isoenglish/EnglishwTaughtProgram/list.htm",
-      "lastAttemptAt": "2026-08-01T06:49:22.112384+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:49:22.112384+00:00",
+      "lastAttemptAt": "2026-08-02T06:57:01.831045+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:57:01.831045+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -684,10 +684,10 @@
     "freie-universit-t-berlin": {
       "adapter": "fu-berlin",
       "sourceUrl": "https://www.fu-berlin.de/studium/studienangebot/master/index.html",
-      "lastAttemptAt": "2026-08-01T06:51:10.021811+00:00",
-      "lastSuccessfulAt": "2026-07-30T06:52:50.957400+00:00",
-      "consecutiveFailures": 1,
-      "catalogueStatus": "error",
+      "lastAttemptAt": "2026-08-02T06:57:17.039133+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:57:17.039133+00:00",
+      "consecutiveFailures": 0,
+      "catalogueStatus": "ok",
       "windowStatus": "monitoring",
       "catalogProgrammes": 96,
       "baselineCatalogProgrammes": 96,
@@ -703,28 +703,15 @@
       "pendingWatchedWindowSourceHash": null,
       "pendingWatchedWindowSourceChecks": 0,
       "unparsedSourceChange": null,
-      "lastError": {
-        "errorType": "FetchFailure",
-        "message": "timed out",
-        "detectedAt": "2026-08-01T06:51:10.021811+00:00"
-      },
-      "healthStatus": "needs-maintenance",
-      "alerts": [
-        {
-          "id": "stale-success:freie-universit-t-berlin",
-          "universityId": "freie-universit-t-berlin",
-          "type": "stale-success",
-          "severity": "maintenance",
-          "message": "No successful adapter check has completed in the last 48 hours.",
-          "sourceUrl": "https://www.fu-berlin.de/studium/studienangebot/master/index.html"
-        }
-      ]
+      "lastError": null,
+      "healthStatus": "ok",
+      "alerts": []
     },
     "university-of-glasgow": {
       "adapter": "glasgow",
       "sourceUrl": "https://www.gla.ac.uk/postgraduate/taught/",
-      "lastAttemptAt": "2026-08-01T06:51:10.021842+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:51:10.021842+00:00",
+      "lastAttemptAt": "2026-08-02T06:57:18.677382+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:57:18.677382+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "partial",
@@ -749,8 +736,8 @@
     "university-of-groningen": {
       "adapter": "groningen",
       "sourceUrl": "https://www.rug.nl/masters/alphabetical?lang=en",
-      "lastAttemptAt": "2026-08-01T06:51:53.302477+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:51:53.302477+00:00",
+      "lastAttemptAt": "2026-08-02T06:58:07.195389+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:58:07.195389+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -775,15 +762,15 @@
     "harvard-university": {
       "adapter": "harvard",
       "sourceUrl": "https://gsas.harvard.edu/programs",
-      "lastAttemptAt": "2026-08-01T06:51:54.683584+00:00",
+      "lastAttemptAt": "2026-08-02T06:58:08.654666+00:00",
       "lastSuccessfulAt": "2026-07-07T15:44:51.145053+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T06:51:54.683584+00:00"
+        "detectedAt": "2026-08-02T06:58:08.654666+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -792,7 +779,7 @@
           "universityId": "harvard-university",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://gsas.harvard.edu/programs"
         },
         {
@@ -808,8 +795,8 @@
     "ruprecht-karls-universit-t-heidelberg": {
       "adapter": "heidelberg",
       "sourceUrl": "https://www.uni-heidelberg.de/en/study/all-subjects",
-      "lastAttemptAt": "2026-08-01T06:51:54.683604+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:51:54.683604+00:00",
+      "lastAttemptAt": "2026-08-02T06:58:08.654692+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:58:08.654692+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -834,15 +821,15 @@
     "university-of-helsinki": {
       "adapter": "helsinki",
       "sourceUrl": "https://www.helsinki.fi/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T06:53:01.545870+00:00",
+      "lastAttemptAt": "2026-08-02T06:59:56.795339+00:00",
       "lastSuccessfulAt": "2026-07-30T03:46:13.194655+00:00",
-      "consecutiveFailures": 2,
+      "consecutiveFailures": 3,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "[Errno 101] Network is unreachable",
-        "detectedAt": "2026-08-01T06:53:01.545870+00:00"
+        "detectedAt": "2026-08-02T06:59:56.795339+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -851,7 +838,7 @@
           "universityId": "university-of-helsinki",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 2 consecutive checks: [Errno 101] Network is unreachable",
+          "message": "Adapter failed 3 consecutive checks: [Errno 101] Network is unreachable",
           "sourceUrl": "https://www.helsinki.fi/sitemap.xml"
         },
         {
@@ -867,8 +854,8 @@
     "the-university-of-hong-kong": {
       "adapter": "hku",
       "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-listing",
-      "lastAttemptAt": "2026-08-01T06:53:01.545898+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:53:01.545898+00:00",
+      "lastAttemptAt": "2026-08-02T06:59:56.795363+00:00",
+      "lastSuccessfulAt": "2026-08-02T06:59:56.795363+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
@@ -893,8 +880,8 @@
     "the-hong-kong-university-of-science-and-technology": {
       "adapter": "hkust",
       "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/print_result.php?is_s=Y&degree%5B%5D=MSC&degree%5B%5D=MA&degree%5B%5D=MPM&degree%5B%5D=MPP&year=2026-27",
-      "lastAttemptAt": "2026-08-01T06:56:26.568350+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:56:26.568350+00:00",
+      "lastAttemptAt": "2026-08-02T07:02:30.351839+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:02:30.351839+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
@@ -919,8 +906,8 @@
     "imperial-college-london": {
       "adapter": "imperial",
       "sourceUrl": "https://www.imperial.ac.uk/study/courses/postgraduate-taught/",
-      "lastAttemptAt": "2026-08-01T06:56:55.856512+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:56:55.856512+00:00",
+      "lastAttemptAt": "2026-08-02T07:02:54.585250+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:02:54.585250+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -945,8 +932,8 @@
     "institut-polytechnique-de-paris": {
       "adapter": "ip-paris",
       "sourceUrl": "https://www.ip-paris.fr/en/education/graduate-programs/masters-science",
-      "lastAttemptAt": "2026-08-01T06:57:47.859539+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:57:47.859539+00:00",
+      "lastAttemptAt": "2026-08-02T07:03:53.213961+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:03:53.213961+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -971,8 +958,8 @@
     "johns-hopkins-university": {
       "adapter": "jhu",
       "sourceUrl": "https://e-catalogue.jhu.edu/programs/",
-      "lastAttemptAt": "2026-08-01T06:57:48.958015+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:57:48.958015+00:00",
+      "lastAttemptAt": "2026-08-02T07:03:54.771253+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:03:54.771253+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -997,8 +984,8 @@
     "kaist": {
       "adapter": "kaist",
       "sourceUrl": "https://admission.kaist.ac.kr/intl-graduate/Discover/ExplorePrograms",
-      "lastAttemptAt": "2026-08-01T06:57:50.394896+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:57:50.394896+00:00",
+      "lastAttemptAt": "2026-08-02T07:03:56.842513+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:03:56.842513+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -1023,8 +1010,8 @@
     "king-s-college-london-kcl": {
       "adapter": "kcl",
       "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses",
-      "lastAttemptAt": "2026-08-01T06:58:33.088618+00:00",
-      "lastSuccessfulAt": "2026-08-01T06:58:33.088618+00:00",
+      "lastAttemptAt": "2026-08-02T07:04:00.479901+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:04:00.479901+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
@@ -1049,8 +1036,8 @@
     "king-fahd-university-of-petroleum-and-minerals": {
       "adapter": "kfupm",
       "sourceUrl": "https://bulletin.kfupm.edu.sa/programs/graduate-programs/",
-      "lastAttemptAt": "2026-08-01T07:00:16.445593+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:00:16.445593+00:00",
+      "lastAttemptAt": "2026-08-02T07:05:50.509141+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:05:50.509141+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1075,8 +1062,8 @@
     "kth-royal-institute-of-technology": {
       "adapter": "kth",
       "sourceUrl": "https://www.kth.se/en/studies/master/programmes",
-      "lastAttemptAt": "2026-08-01T07:00:20.683971+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:00:20.683971+00:00",
+      "lastAttemptAt": "2026-08-02T07:05:59.471070+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:05:59.471070+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1101,8 +1088,8 @@
     "korea-university": {
       "adapter": "korea",
       "sourceUrl": "https://graduate2.korea.ac.kr/department/major.html",
-      "lastAttemptAt": "2026-08-01T07:00:22.804634+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:00:22.804634+00:00",
+      "lastAttemptAt": "2026-08-02T07:06:02.248244+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:06:02.248244+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1127,8 +1114,8 @@
     "ku-leuven": {
       "adapter": "ku-leuven",
       "sourceUrl": "https://onderwijsaanbod.kuleuven.be/opleidingen/e",
-      "lastAttemptAt": "2026-08-01T07:00:26.198187+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:00:26.198187+00:00",
+      "lastAttemptAt": "2026-08-02T07:06:06.072860+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:06:06.072860+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1153,8 +1140,8 @@
     "kyoto-university": {
       "adapter": "kyoto",
       "sourceUrl": "https://www.kyoto-u.ac.jp/en/education-campus/education-and-admissions/english-taught-degree-programs",
-      "lastAttemptAt": "2026-08-01T07:00:29.564377+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:00:29.564377+00:00",
+      "lastAttemptAt": "2026-08-02T07:06:09.847070+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:06:09.847070+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1179,8 +1166,8 @@
     "university-of-leeds": {
       "adapter": "leeds",
       "sourceUrl": "https://courses.leeds.ac.uk/course-search/masters-courses",
-      "lastAttemptAt": "2026-08-01T07:00:30.806027+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:00:30.806027+00:00",
+      "lastAttemptAt": "2026-08-02T07:06:11.464450+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:06:11.464450+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1205,8 +1192,8 @@
     "leiden-university": {
       "adapter": "leiden",
       "sourceUrl": "https://www.universiteitleiden.nl/en/education/study-programmes?pageNumber=1&type=master",
-      "lastAttemptAt": "2026-08-01T07:00:51.749859+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:00:51.749859+00:00",
+      "lastAttemptAt": "2026-08-02T07:06:34.781219+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:06:34.781219+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1231,8 +1218,8 @@
     "ludwig-maximilians-universit-t-m-nchen": {
       "adapter": "lmu",
       "sourceUrl": "https://www.lmu.de/en/study/all-degrees-and-programs/international-degree-programs/",
-      "lastAttemptAt": "2026-08-01T07:01:16.502060+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:01:16.502060+00:00",
+      "lastAttemptAt": "2026-08-02T07:07:03.969120+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:07:03.969120+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1257,8 +1244,8 @@
     "lund-university": {
       "adapter": "lund",
       "sourceUrl": "https://www.lunduniversity.lu.se/study/courses-programmes/%2A/educations/1/EducationsFilterByType-programme/",
-      "lastAttemptAt": "2026-08-01T07:01:17.954615+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:01:17.954615+00:00",
+      "lastAttemptAt": "2026-08-02T07:07:06.093910+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:07:06.093910+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1283,8 +1270,8 @@
     "university-of-liverpool": {
       "adapter": "liverpool",
       "sourceUrl": "https://www.liverpool.ac.uk/courses/postgraduate-taught",
-      "lastAttemptAt": "2026-08-01T07:01:31.781878+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:01:31.781878+00:00",
+      "lastAttemptAt": "2026-08-02T07:07:17.489455+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:07:17.489455+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1309,9 +1296,9 @@
     "mcgill-university": {
       "adapter": "mcgill",
       "sourceUrl": "https://www.mcgill.ca/gradapplicants/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T07:01:59.302779+00:00",
+      "lastAttemptAt": "2026-08-02T07:07:46.189219+00:00",
       "lastSuccessfulAt": "2026-07-28T07:00:29.202007+00:00",
-      "consecutiveFailures": 3,
+      "consecutiveFailures": 4,
       "catalogueStatus": "error",
       "windowStatus": "exact",
       "catalogProgrammes": 159,
@@ -1331,7 +1318,7 @@
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:01:59.302779+00:00"
+        "detectedAt": "2026-08-02T07:07:46.189219+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -1340,7 +1327,7 @@
           "universityId": "mcgill-university",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 3 consecutive checks: HTTP 403",
+          "message": "Adapter failed 4 consecutive checks: HTTP 403",
           "sourceUrl": "https://www.mcgill.ca/gradapplicants/sitemap.xml"
         },
         {
@@ -1356,8 +1343,8 @@
     "the-university-of-melbourne": {
       "adapter": "melbourne",
       "sourceUrl": "https://handbook.unimelb.edu.au/courses",
-      "lastAttemptAt": "2026-08-01T07:01:59.302804+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:01:59.302804+00:00",
+      "lastAttemptAt": "2026-08-02T07:07:46.189249+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:07:46.189249+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1382,8 +1369,8 @@
     "the-university-of-manchester": {
       "adapter": "manchester",
       "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/basic/",
-      "lastAttemptAt": "2026-08-01T07:02:05.171999+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:02:05.171999+00:00",
+      "lastAttemptAt": "2026-08-02T07:07:52.957970+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:07:52.957970+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "partial",
@@ -1408,8 +1395,8 @@
     "massachusetts-institute-of-technology-mit": {
       "adapter": "mit",
       "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
-      "lastAttemptAt": "2026-08-01T07:02:48.210342+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:02:48.210342+00:00",
+      "lastAttemptAt": "2026-08-02T07:08:37.383054+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:08:37.383054+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "partial",
@@ -1434,8 +1421,8 @@
     "monash-university": {
       "adapter": "monash",
       "sourceUrl": "https://handbook.monash.edu/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T07:02:49.685973+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:02:49.685973+00:00",
+      "lastAttemptAt": "2026-08-02T07:08:39.362146+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:08:39.362146+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1460,8 +1447,8 @@
     "the-university-of-nottingham": {
       "adapter": "nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx",
-      "lastAttemptAt": "2026-08-01T07:03:21.001412+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:03:21.001412+00:00",
+      "lastAttemptAt": "2026-08-02T07:09:10.549001+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:09:10.549001+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1486,8 +1473,8 @@
     "newcastle-university": {
       "adapter": "newcastle",
       "sourceUrl": "https://www.ncl.ac.uk/postgraduate/degrees/",
-      "lastAttemptAt": "2026-08-01T07:03:29.026325+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:03:29.026325+00:00",
+      "lastAttemptAt": "2026-08-02T07:09:18.315649+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:09:18.315649+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1512,9 +1499,9 @@
     "northwestern-university": {
       "adapter": "northwestern",
       "sourceUrl": "https://www.northwestern.edu/academics/graduate-a-to-z.html",
-      "lastAttemptAt": "2026-08-01T07:03:30.590866+00:00",
+      "lastAttemptAt": "2026-08-02T07:09:20.266908+00:00",
       "lastSuccessfulAt": "2026-07-29T07:08:13.273947+00:00",
-      "consecutiveFailures": 2,
+      "consecutiveFailures": 3,
       "catalogueStatus": "error",
       "windowStatus": "exact",
       "catalogProgrammes": 108,
@@ -1534,7 +1521,7 @@
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:03:30.590866+00:00"
+        "detectedAt": "2026-08-02T07:09:20.266908+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -1543,7 +1530,7 @@
           "universityId": "northwestern-university",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 2 consecutive checks: HTTP 403",
+          "message": "Adapter failed 3 consecutive checks: HTTP 403",
           "sourceUrl": "https://www.northwestern.edu/academics/graduate-a-to-z.html"
         },
         {
@@ -1559,8 +1546,8 @@
     "nanyang-technological-university-singapore-ntu-singapore": {
       "adapter": "ntu",
       "sourceUrl": "https://www.ntu.edu.sg/admissions/graduate/programme-listing/GetProgrammes/?programmelevels=master&page=1",
-      "lastAttemptAt": "2026-08-01T07:03:30.590887+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:03:30.590887+00:00",
+      "lastAttemptAt": "2026-08-02T07:09:20.266931+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:09:20.266931+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -1585,10 +1572,10 @@
     "national-taiwan-university-ntu": {
       "adapter": "ntu-taiwan",
       "sourceUrl": "https://oiasystem.ntu.edu.tw/globaladmission/foreign/requirement/dept.list/id/hXwLg3Je9mtt/fsemester/1/fdisplay/1?lang=en",
-      "lastAttemptAt": "2026-08-01T07:03:48.447647+00:00",
-      "lastSuccessfulAt": "2026-07-30T07:07:40.978284+00:00",
-      "consecutiveFailures": 1,
-      "catalogueStatus": "error",
+      "lastAttemptAt": "2026-08-02T07:09:30.291984+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:09:30.291984+00:00",
+      "consecutiveFailures": 0,
+      "catalogueStatus": "ok",
       "windowStatus": "exact",
       "catalogProgrammes": 61,
       "baselineCatalogProgrammes": 61,
@@ -1604,28 +1591,15 @@
       "pendingWatchedWindowSourceHash": null,
       "pendingWatchedWindowSourceChecks": 0,
       "unparsedSourceChange": null,
-      "lastError": {
-        "errorType": "FetchFailure",
-        "message": "HTTP 500",
-        "detectedAt": "2026-08-01T07:03:48.447647+00:00"
-      },
-      "healthStatus": "needs-maintenance",
-      "alerts": [
-        {
-          "id": "stale-success:national-taiwan-university-ntu",
-          "universityId": "national-taiwan-university-ntu",
-          "type": "stale-success",
-          "severity": "maintenance",
-          "message": "No successful adapter check has completed in the last 48 hours.",
-          "sourceUrl": "https://oiasystem.ntu.edu.tw/globaladmission/foreign/requirement/dept.list/id/hXwLg3Je9mtt/fsemester/1/fdisplay/1?lang=en"
-        }
-      ]
+      "lastError": null,
+      "healthStatus": "ok",
+      "alerts": []
     },
     "national-university-of-singapore-nus": {
       "adapter": "nus",
       "sourceUrl": "https://study.nus.edu.sg/programme",
-      "lastAttemptAt": "2026-08-01T07:03:48.447736+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:03:48.447736+00:00",
+      "lastAttemptAt": "2026-08-02T07:09:33.690042+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:09:33.690042+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1659,15 +1633,15 @@
     "university-of-oxford": {
       "adapter": "oxford",
       "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/courses-a-z-listing",
-      "lastAttemptAt": "2026-08-01T07:04:03.258116+00:00",
+      "lastAttemptAt": "2026-08-02T07:09:42.065150+00:00",
       "lastSuccessfulAt": "2026-07-14T03:14:35.526337+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:04:03.258116+00:00"
+        "detectedAt": "2026-08-02T07:09:42.065150+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -1676,7 +1650,7 @@
           "universityId": "university-of-oxford",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/courses-a-z-listing"
         },
         {
@@ -1692,8 +1666,8 @@
     "university-of-oslo": {
       "adapter": "oslo",
       "sourceUrl": "https://www.uio.no/english/studies/programmes/",
-      "lastAttemptAt": "2026-08-01T07:04:03.258132+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:04:03.258132+00:00",
+      "lastAttemptAt": "2026-08-02T07:09:42.065168+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:09:42.065168+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1718,8 +1692,8 @@
     "peking-university": {
       "adapter": "peking",
       "sourceUrl": "https://www.isd.pku.edu.cn/cn/graduate_do.php?act=majorQuery&termid=2&departmentid=0&major=&direction=&language=0&degreetype=0&kw=",
-      "lastAttemptAt": "2026-08-01T07:04:04.220850+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:04:04.220850+00:00",
+      "lastAttemptAt": "2026-08-02T07:09:43.618018+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:09:43.618018+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -1744,8 +1718,8 @@
     "universit-paris-saclay": {
       "adapter": "paris-saclay",
       "sourceUrl": "https://www.universite-paris-saclay.fr/en/education/masters-degree",
-      "lastAttemptAt": "2026-08-01T07:04:31.338881+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:04:31.338881+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:09.448191+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:09.448191+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1770,8 +1744,8 @@
     "pennsylvania-state-university": {
       "adapter": "penn-state",
       "sourceUrl": "https://bulletins.psu.edu/graduate-professional-programs/",
-      "lastAttemptAt": "2026-08-01T07:04:37.827874+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:04:37.827874+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:11.882557+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:11.882557+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1786,7 +1760,7 @@
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
       "windowFingerprint": "af3c539e4409b37301b10b7914aafe9d13e5bdd8e705690b053afaeb9f5141ed",
       "stableWatchedWindowSourceHash": "62c78edd7d9c4c3470518d180a6a77ec4ff579a9fb7ad197dc38eee64329df69",
-      "pendingWatchedWindowSourceHash": "0629a5313d0bec37e130fbece8568bbb800daa3175aa4db73e67d6249c8fc208",
+      "pendingWatchedWindowSourceHash": "02a3fd336dd7f5f4199fcbd515cd202b2054fe639921c88f41a9ab45d07e8713",
       "pendingWatchedWindowSourceChecks": 1,
       "unparsedSourceChange": null,
       "lastError": null,
@@ -1796,8 +1770,8 @@
     "politecnico-di-milano": {
       "adapter": "polimi",
       "sourceUrl": "https://www.polimi.it/en/education/laurea-magistrale-programmes",
-      "lastAttemptAt": "2026-08-01T07:04:39.524516+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:04:39.524516+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:14.215525+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:14.215525+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1822,8 +1796,8 @@
     "the-hong-kong-polytechnic-university": {
       "adapter": "polyu",
       "sourceUrl": "https://www.polyu.edu.hk/study/pg/taught-postgraduate",
-      "lastAttemptAt": "2026-08-01T07:04:41.711525+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:04:41.711525+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:16.687196+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:16.687196+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -1848,9 +1822,9 @@
     "princeton-university": {
       "adapter": "princeton",
       "sourceUrl": "https://gradschool.princeton.edu/academics/degrees-requirements/fields-study",
-      "lastAttemptAt": "2026-08-01T07:04:43.466069+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:18.427576+00:00",
       "lastSuccessfulAt": "2026-07-29T07:10:30.551856+00:00",
-      "consecutiveFailures": 2,
+      "consecutiveFailures": 3,
       "catalogueStatus": "error",
       "windowStatus": "needs-opening-date",
       "catalogProgrammes": 12,
@@ -1870,7 +1844,7 @@
       "lastError": {
         "errorType": "ValueError",
         "message": "Princeton official page was unavailable: https://gradschool.princeton.edu/academics/degrees-requirements/fields-study",
-        "detectedAt": "2026-08-01T07:04:43.466069+00:00"
+        "detectedAt": "2026-08-02T07:10:18.427576+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -1879,7 +1853,7 @@
           "universityId": "princeton-university",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 2 consecutive checks: Princeton official page was unavailable: https://gradschool.princeton.edu/academics/degrees-requirements/fields-study",
+          "message": "Adapter failed 3 consecutive checks: Princeton official page was unavailable: https://gradschool.princeton.edu/academics/degrees-requirements/fields-study",
           "sourceUrl": "https://gradschool.princeton.edu/academics/degrees-requirements/fields-study"
         },
         {
@@ -1895,8 +1869,8 @@
     "psl-university": {
       "adapter": "psl",
       "sourceUrl": "https://psl.eu/formations?field_niveau%5B30%5D=30",
-      "lastAttemptAt": "2026-08-01T07:04:43.466086+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:04:43.466086+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:18.427597+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:18.427597+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1921,8 +1895,8 @@
     "rice-university": {
       "adapter": "rice",
       "sourceUrl": "https://ga.rice.edu/graduate-students/academic-opportunities/degree-chart/",
-      "lastAttemptAt": "2026-08-01T07:04:59.743573+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:04:59.743573+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:36.451844+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:36.451844+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1947,8 +1921,8 @@
     "rmit-university": {
       "adapter": "rmit",
       "sourceUrl": "https://www.rmit.edu.au/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T07:05:00.488995+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:05:00.488995+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:37.716808+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:37.716808+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1973,8 +1947,8 @@
     "shanghai-jiao-tong-university": {
       "adapter": "sjtu",
       "sourceUrl": "https://isc.sjtu.edu.cn/cn/content.aspx?flag=64&info_lb=101",
-      "lastAttemptAt": "2026-08-01T07:05:02.533825+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:05:02.533825+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:39.687489+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:39.687489+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -1999,8 +1973,8 @@
     "the-university-of-sheffield": {
       "adapter": "sheffield",
       "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2026",
-      "lastAttemptAt": "2026-08-01T07:05:10.135371+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:05:10.135371+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:48.028333+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:48.028333+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2025,8 +1999,8 @@
     "seoul-national-university": {
       "adapter": "snu",
       "sourceUrl": "https://en.snu.ac.kr/admission/graduate/application",
-      "lastAttemptAt": "2026-08-01T07:05:12.517408+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:05:12.517408+00:00",
+      "lastAttemptAt": "2026-08-02T07:10:50.682974+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:10:50.682974+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -2051,8 +2025,8 @@
     "university-of-southampton": {
       "adapter": "southampton",
       "sourceUrl": "https://www.southampton.ac.uk/courses/postgraduate-taught",
-      "lastAttemptAt": "2026-08-01T07:05:21.593721+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:05:21.593721+00:00",
+      "lastAttemptAt": "2026-08-02T07:11:02.186782+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:11:02.186782+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
@@ -2077,8 +2051,8 @@
     "sorbonne-university-merged-from-paris-iv-and-upmc": {
       "adapter": "sorbonne",
       "sourceUrl": "https://www.sorbonne-universite.fr/en/programs-english",
-      "lastAttemptAt": "2026-08-01T07:05:56.021763+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:05:56.021763+00:00",
+      "lastAttemptAt": "2026-08-02T07:11:42.582117+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:11:42.582117+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2103,8 +2077,8 @@
     "stanford-university": {
       "adapter": "stanford",
       "sourceUrl": "https://applygrad.stanford.edu/portal/explore-programs?cmd=grad-program-list",
-      "lastAttemptAt": "2026-08-01T07:05:58.065556+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:05:58.065556+00:00",
+      "lastAttemptAt": "2026-08-02T07:11:44.918249+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:11:44.918249+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
@@ -2129,8 +2103,8 @@
     "the-university-of-sydney": {
       "adapter": "sydney",
       "sourceUrl": "https://www.sydney.edu.au/courses/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T07:05:59.208180+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:05:59.208180+00:00",
+      "lastAttemptAt": "2026-08-02T07:11:46.406425+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:11:46.406425+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
@@ -2155,15 +2129,15 @@
     "university-of-toronto": {
       "adapter": "toronto",
       "sourceUrl": "https://www.sgs.utoronto.ca/programs/",
-      "lastAttemptAt": "2026-08-01T07:06:27.596437+00:00",
+      "lastAttemptAt": "2026-08-02T07:12:15.176129+00:00",
       "lastSuccessfulAt": "2026-07-23T15:17:30.251008+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:06:27.596437+00:00"
+        "detectedAt": "2026-08-02T07:12:15.176129+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -2172,7 +2146,7 @@
           "universityId": "university-of-toronto",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://www.sgs.utoronto.ca/programs/"
         },
         {
@@ -2188,8 +2162,8 @@
     "tsinghua-university": {
       "adapter": "tsinghua",
       "sourceUrl": "https://yz.tsinghua.edu.cn/en/Programs/Master_s_Degrees.htm",
-      "lastAttemptAt": "2026-08-01T07:06:27.596459+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:06:27.596459+00:00",
+      "lastAttemptAt": "2026-08-02T07:12:15.176148+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:12:15.176148+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "partial",
@@ -2214,8 +2188,8 @@
     "delft-university-of-technology": {
       "adapter": "tudelft",
       "sourceUrl": "https://www.tudelft.nl/en/education/programmes/masters",
-      "lastAttemptAt": "2026-08-01T07:08:00.920278+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:08:00.920278+00:00",
+      "lastAttemptAt": "2026-08-02T07:13:41.037577+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:13:41.037577+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -2240,8 +2214,8 @@
     "technical-university-of-munich": {
       "adapter": "tum",
       "sourceUrl": "https://www.tum.de/en/studies/degree-programs?tx_solr%5Bq%5D=&graduation=Master",
-      "lastAttemptAt": "2026-08-01T07:08:02.978219+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:08:02.978219+00:00",
+      "lastAttemptAt": "2026-08-02T07:13:43.544418+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:13:43.544418+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -2266,8 +2240,8 @@
     "university-of-british-columbia": {
       "adapter": "ubc",
       "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs",
-      "lastAttemptAt": "2026-08-01T07:08:27.156423+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:08:27.156423+00:00",
+      "lastAttemptAt": "2026-08-02T07:14:20.866867+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:14:20.866867+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "partial",
@@ -2280,7 +2254,7 @@
       "programmesWithoutDeadlines": 132,
       "programmesNeedingReview": 132,
       "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "windowFingerprint": "81ecbe3c48ab386a2bea0993bc2f5264179ab86c810e4a6116199f10d027c302",
+      "windowFingerprint": "ab38826e5928f40b979090b243cdfd2f35d27b6c67e5cb9070d6e069b6b32157",
       "stableWatchedWindowSourceHash": null,
       "pendingWatchedWindowSourceHash": null,
       "pendingWatchedWindowSourceChecks": 0,
@@ -2292,15 +2266,15 @@
     "university-of-chicago": {
       "adapter": "uchicago",
       "sourceUrl": "https://grad.uchicago.edu/admissions/programs/",
-      "lastAttemptAt": "2026-08-01T07:09:35.583422+00:00",
+      "lastAttemptAt": "2026-08-02T07:15:14.956908+00:00",
       "lastSuccessfulAt": "2026-07-26T02:51:15.361384+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:09:35.583422+00:00"
+        "detectedAt": "2026-08-02T07:15:14.956908+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -2309,7 +2283,7 @@
           "universityId": "university-of-chicago",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://grad.uchicago.edu/admissions/programs/"
         },
         {
@@ -2325,8 +2299,8 @@
     "ucl-university-college-london": {
       "adapter": "ucl",
       "sourceUrl": "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees?query=",
-      "lastAttemptAt": "2026-08-01T07:09:35.583439+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:09:35.583439+00:00",
+      "lastAttemptAt": "2026-08-02T07:15:14.956934+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:15:14.956934+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2351,8 +2325,8 @@
     "university-of-california-los-angeles-ucla": {
       "adapter": "ucla",
       "sourceUrl": "https://grad.ucla.edu/",
-      "lastAttemptAt": "2026-08-01T07:09:36.671725+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:09:36.671725+00:00",
+      "lastAttemptAt": "2026-08-02T07:15:16.855015+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:15:16.855015+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2377,8 +2351,8 @@
     "university-of-california-san-diego-ucsd": {
       "adapter": "ucsd",
       "sourceUrl": "https://catalog.ucsd.edu/graduate/degrees-offered/index.html",
-      "lastAttemptAt": "2026-08-01T07:10:10.583309+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:10:10.583309+00:00",
+      "lastAttemptAt": "2026-08-02T07:15:50.433763+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:15:50.433763+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2403,8 +2377,8 @@
     "university-of-illinois-at-urbana-champaign": {
       "adapter": "uiuc",
       "sourceUrl": "https://catalog.illinois.edu/degree-programs/graduate_index/",
-      "lastAttemptAt": "2026-08-01T07:10:11.757152+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:10:11.757152+00:00",
+      "lastAttemptAt": "2026-08-02T07:15:51.515604+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:15:51.515604+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2429,8 +2403,8 @@
     "the-university-of-new-south-wales": {
       "adapter": "unsw",
       "sourceUrl": "https://www.unsw.edu.au/study.sitemap.xml",
-      "lastAttemptAt": "2026-08-01T07:10:13.135305+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:10:13.135305+00:00",
+      "lastAttemptAt": "2026-08-02T07:15:53.323603+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:15:53.323603+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2455,15 +2429,15 @@
     "the-university-of-queensland": {
       "adapter": "uq",
       "sourceUrl": "https://study.uq.edu.au/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T07:10:41.088489+00:00",
+      "lastAttemptAt": "2026-08-02T07:16:23.161561+00:00",
       "lastSuccessfulAt": "2026-07-06T13:50:25.975297+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:10:41.088489+00:00"
+        "detectedAt": "2026-08-02T07:16:23.161561+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -2472,7 +2446,7 @@
           "universityId": "the-university-of-queensland",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://study.uq.edu.au/sitemap.xml"
         },
         {
@@ -2488,15 +2462,15 @@
     "university-of-texas-at-austin": {
       "adapter": "ut-austin",
       "sourceUrl": "https://gradschool.utexas.edu/degrees-programs",
-      "lastAttemptAt": "2026-08-01T07:10:41.178209+00:00",
+      "lastAttemptAt": "2026-08-02T07:16:23.224838+00:00",
       "lastSuccessfulAt": "2026-07-26T04:39:38.035209+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:10:41.178209+00:00"
+        "detectedAt": "2026-08-02T07:16:23.224838+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -2505,7 +2479,7 @@
           "universityId": "university-of-texas-at-austin",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://gradschool.utexas.edu/degrees-programs"
         },
         {
@@ -2521,8 +2495,8 @@
     "universiti-malaya-um": {
       "adapter": "um",
       "sourceUrl": "https://study.um.edu.my/pg-faculties",
-      "lastAttemptAt": "2026-08-01T07:10:41.178224+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:10:41.178224+00:00",
+      "lastAttemptAt": "2026-08-02T07:16:23.224856+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:16:23.224856+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -2547,15 +2521,15 @@
     "university-of-pennsylvania": {
       "adapter": "upenn",
       "sourceUrl": "https://catalog.upenn.edu/programs/",
-      "lastAttemptAt": "2026-08-01T07:11:11.872015+00:00",
+      "lastAttemptAt": "2026-08-02T07:16:52.090897+00:00",
       "lastSuccessfulAt": "2026-07-15T00:47:37.357985+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:11:11.872015+00:00"
+        "detectedAt": "2026-08-02T07:16:52.090897+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -2564,7 +2538,7 @@
           "universityId": "university-of-pennsylvania",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://catalog.upenn.edu/programs/"
         },
         {
@@ -2580,8 +2554,8 @@
     "the-university-of-tokyo": {
       "adapter": "utokyo",
       "sourceUrl": "https://www.u-tokyo.ac.jp/en/academics/graduate_schools.html",
-      "lastAttemptAt": "2026-08-01T07:11:11.872035+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:11:11.872035+00:00",
+      "lastAttemptAt": "2026-08-02T07:16:52.090916+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:16:52.090916+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -2606,8 +2580,8 @@
     "university-of-technology-sydney": {
       "adapter": "uts",
       "sourceUrl": "https://www.uts.edu.au/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T07:11:46.853038+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:11:46.853038+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:29.278193+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:29.278193+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2622,8 +2596,8 @@
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
       "windowFingerprint": "252d0ff9152bfeeae3ec3eafb96e091083573b575518fa882731fc46fc37a4b6",
       "stableWatchedWindowSourceHash": "779ec02a98ce5028140364e08d91f8f56e780170866cd7cdd472dd22ab05a6d4",
-      "pendingWatchedWindowSourceHash": null,
-      "pendingWatchedWindowSourceChecks": 0,
+      "pendingWatchedWindowSourceHash": "ed9f3422b21605c3c2eb790538103638703809524ece175c66a5fcca692325d9",
+      "pendingWatchedWindowSourceChecks": 1,
       "unparsedSourceChange": null,
       "lastError": null,
       "healthStatus": "ok",
@@ -2632,8 +2606,8 @@
     "the-university-of-amsterdam": {
       "adapter": "uva",
       "sourceUrl": "https://www.uva.nl/en/education/master-s/master-s-programmes/masters-programmes.html",
-      "lastAttemptAt": "2026-08-01T07:11:49.312028+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:11:49.312028+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:31.804531+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:31.804531+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2658,8 +2632,8 @@
     "university-of-zurich-uzh": {
       "adapter": "uzh",
       "sourceUrl": "https://www.uzh.ch/de/studies/programs/master.html",
-      "lastAttemptAt": "2026-08-01T07:11:51.265283+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:11:51.265283+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:34.758423+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:34.758423+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2684,8 +2658,8 @@
     "the-university-of-western-australia": {
       "adapter": "uwa",
       "sourceUrl": "https://www.uwa.edu.au/study/sitemap.xml",
-      "lastAttemptAt": "2026-08-01T07:11:54.991791+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:11:54.991791+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:38.363335+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:38.363335+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2699,19 +2673,32 @@
       "programmesNeedingReview": 91,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
       "windowFingerprint": "056d32d3bd1507da5969d31185920c1389569d7f05e304fbef40ffabc0a58ea5",
-      "stableWatchedWindowSourceHash": "ab82b134ee3367b156ef5365ce319cf469ed17c5f3be5553dbd7624628982679",
-      "pendingWatchedWindowSourceHash": "55267c61914c75e9adba0aa9e2a319a1e797f4dd846d84b5150fb0f4093eb9da",
-      "pendingWatchedWindowSourceChecks": 1,
-      "unparsedSourceChange": null,
+      "stableWatchedWindowSourceHash": "55267c61914c75e9adba0aa9e2a319a1e797f4dd846d84b5150fb0f4093eb9da",
+      "pendingWatchedWindowSourceHash": null,
+      "pendingWatchedWindowSourceChecks": 0,
+      "unparsedSourceChange": {
+        "detectedAt": "2026-08-02T07:18:28.889967+00:00",
+        "sourceHash": "55267c61914c75e9adba0aa9e2a319a1e797f4dd846d84b5150fb0f4093eb9da",
+        "windowFingerprint": "056d32d3bd1507da5969d31185920c1389569d7f05e304fbef40ffabc0a58ea5"
+      },
       "lastError": null,
-      "healthStatus": "ok",
-      "alerts": []
+      "healthStatus": "needs-maintenance",
+      "alerts": [
+        {
+          "id": "unparsed-source-change:the-university-of-western-australia",
+          "universityId": "the-university-of-western-australia",
+          "type": "unparsed-source-change",
+          "severity": "maintenance",
+          "message": "The official window-watch source changed in two consecutive checks, but the parsed window result did not change.",
+          "sourceUrl": "https://www.uwa.edu.au/study/sitemap.xml"
+        }
+      ]
     },
     "the-university-of-warwick": {
       "adapter": "warwick",
       "sourceUrl": "https://warwick.ac.uk/study/postgraduate/courses/",
-      "lastAttemptAt": "2026-08-01T07:12:00.892490+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:12:00.892490+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:43.413889+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:43.413889+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2736,8 +2723,8 @@
     "wageningen-university-and-research": {
       "adapter": "wageningen",
       "sourceUrl": "https://www.wur.nl/en/education/master/programmes",
-      "lastAttemptAt": "2026-08-01T07:12:03.423141+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:12:03.423141+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:47.039079+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:47.039079+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2762,8 +2749,8 @@
     "university-of-waterloo": {
       "adapter": "waterloo",
       "sourceUrl": "https://uwaterloo.ca/future-graduate-students/programs",
-      "lastAttemptAt": "2026-08-01T07:12:04.590006+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:12:04.590006+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:48.611165+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:48.611165+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2788,15 +2775,15 @@
     "yale-university": {
       "adapter": "yale",
       "sourceUrl": "https://gsas.yale.edu/programs-of-study",
-      "lastAttemptAt": "2026-08-01T07:12:05.308610+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:49.843988+00:00",
       "lastSuccessfulAt": "2026-07-23T10:52:23.116027+00:00",
-      "consecutiveFailures": 7,
+      "consecutiveFailures": 8,
       "catalogueStatus": "error",
       "windowStatus": "unknown",
       "lastError": {
         "errorType": "FetchFailure",
         "message": "HTTP 403",
-        "detectedAt": "2026-08-01T07:12:05.308610+00:00"
+        "detectedAt": "2026-08-02T07:17:49.843988+00:00"
       },
       "healthStatus": "needs-maintenance",
       "alerts": [
@@ -2805,7 +2792,7 @@
           "universityId": "yale-university",
           "type": "consecutive-failures",
           "severity": "maintenance",
-          "message": "Adapter failed 7 consecutive checks: HTTP 403",
+          "message": "Adapter failed 8 consecutive checks: HTTP 403",
           "sourceUrl": "https://gsas.yale.edu/programs-of-study"
         },
         {
@@ -2821,8 +2808,8 @@
     "university-of-york": {
       "adapter": "york",
       "sourceUrl": "https://www.york.ac.uk/study/postgraduate/courses/all?mode=taught",
-      "lastAttemptAt": "2026-08-01T07:12:05.308625+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:12:05.308625+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:49.844003+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:49.844003+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2847,8 +2834,8 @@
     "yonsei-university": {
       "adapter": "yonsei",
       "sourceUrl": "https://graduate.yonsei.ac.kr/graduate_en/admission/forein_schedule.do",
-      "lastAttemptAt": "2026-08-01T07:12:06.982085+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:12:06.982085+00:00",
+      "lastAttemptAt": "2026-08-02T07:17:51.758933+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:17:51.758933+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "exact",
@@ -2873,8 +2860,8 @@
     "zhejiang-university": {
       "adapter": "zju",
       "sourceUrl": "https://iczu.zju.edu.cn/admissionsen/wasterwswwegreewwrograms/list.htm",
-      "lastAttemptAt": "2026-08-01T07:12:24.682596+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:12:24.682596+00:00",
+      "lastAttemptAt": "2026-08-02T07:18:16.872450+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:18:16.872450+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
@@ -2899,8 +2886,8 @@
     "university-of-vienna": {
       "adapter": "vienna",
       "sourceUrl": "https://studieren.univie.ac.at/en/degree-programmes/master-programmes/",
-      "lastAttemptAt": "2026-08-01T07:12:32.532476+00:00",
-      "lastSuccessfulAt": "2026-08-01T07:12:32.532476+00:00",
+      "lastAttemptAt": "2026-08-02T07:18:26.986944+00:00",
+      "lastSuccessfulAt": "2026-08-02T07:18:26.986944+00:00",
       "consecutiveFailures": 0,
       "catalogueStatus": "ok",
       "windowStatus": "monitoring",
