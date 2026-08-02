@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-01T07:12:33.997192+00:00",
+    "updatedAt": "2026-08-02T07:18:28.966757+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,7 +14,7 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 636,
+    "needsOpeningDate": 638,
     "needsAdapter": 422,
     "comingSoonMonitor": 1,
     "deadlineUnavailableMonitor": 1
@@ -91,9 +91,9 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-01T07:12:48.332331+00:00",
+      "checkedAt": "2026-08-02T07:18:41.719685+00:00",
       "catalogProgrammes": 2,
-      "previousCatalogProgrammes": 1,
+      "previousCatalogProgrammes": 2,
       "knownProgrammes": 1,
       "newCandidates": 0,
       "newGuidanceCandidates": 0,
@@ -1457,6 +1457,24 @@
         "universityId": "the-university-of-sydney",
         "programmeName": "Master of Environmental Science and Law",
         "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-environmental-science-and-law.html",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:sydney-master-of-environmental-science-and-law0",
+        "universityId": "the-university-of-sydney",
+        "programmeName": "Master of Environmental Science and Law",
+        "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-environmental-science-and-law0.html",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:sydney-master-of-environmental-science0",
+        "universityId": "the-university-of-sydney",
+        "programmeName": "Master of Environmental Science",
+        "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-environmental-science0.html",
         "windowCount": 4,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
