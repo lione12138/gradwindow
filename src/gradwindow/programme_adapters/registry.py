@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable
 
 from .aalto import AaltoAdapter
+from .aarhus import AarhusAdapter
 from .adelaide import AdelaideAdapter
 from .anu import ANUAdapter
 from .auckland import AucklandAdapter
@@ -45,10 +46,12 @@ from .korea import KoreaAdapter
 from .kth import KTHAdapter
 from .ku_leuven import KULeuvenAdapter
 from .kyoto import KyotoAdapter
+from .lancaster import LancasterAdapter
 from .leeds import LeedsAdapter
 from .leiden import LeidenAdapter
 from .liverpool import LiverpoolAdapter
 from .lmu import LMUAdapter
+from .lse import LSEAdapter
 from .lund import LundAdapter
 from .manchester import ManchesterAdapter
 from .mcgill import McGillAdapter
@@ -102,7 +105,9 @@ from .uzh import UZHAdapter
 from .vienna import ViennaAdapter
 from .wageningen import WageningenAdapter
 from .warwick import WarwickAdapter
+from .washington import WashingtonAdapter
 from .waterloo import WaterlooAdapter
+from .wisconsin import WisconsinAdapter
 from .yale import YaleAdapter
 from .yonsei import YonseiAdapter
 from .york import YorkAdapter
@@ -113,6 +118,7 @@ AdapterFactory = Callable[[], ProgrammeAdapter]
 PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "adelaide": AdelaideAdapter,
     "aalto": AaltoAdapter,
+    "aarhus": AarhusAdapter,
     "anu": ANUAdapter,
     "auckland": AucklandAdapter,
     "basel": BaselAdapter,
@@ -153,10 +159,12 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "korea": KoreaAdapter,
     "ku-leuven": KULeuvenAdapter,
     "kyoto": KyotoAdapter,
+    "lancaster": LancasterAdapter,
     "leeds": LeedsAdapter,
     "leiden": LeidenAdapter,
     "lmu": LMUAdapter,
     "lund": LundAdapter,
+    "lse": LSEAdapter,
     "liverpool": LiverpoolAdapter,
     "mcgill": McGillAdapter,
     "melbourne": MelbourneAdapter,
@@ -208,8 +216,10 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "uzh": UZHAdapter,
     "uwa": UWAAdapter,
     "warwick": WarwickAdapter,
+    "washington": WashingtonAdapter,
     "wageningen": WageningenAdapter,
     "waterloo": WaterlooAdapter,
+    "wisconsin": WisconsinAdapter,
     "yale": YaleAdapter,
     "york": YorkAdapter,
     "yonsei": YonseiAdapter,
