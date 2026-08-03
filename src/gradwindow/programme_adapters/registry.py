@@ -19,6 +19,7 @@ from .caltech import CaltechAdapter
 from .cambridge import CambridgeAdapter
 from .cityu import CityUAdapter
 from .columbia import ColumbiaAdapter
+from .copenhagen import CopenhagenAdapter
 from .cornell import CornellAdapter
 from .cuhk import CUHKAdapter
 from .dtu import DTUAdapter
@@ -29,6 +30,7 @@ from .eth import ETHAdapter
 from .exeter import ExeterAdapter
 from .fu_berlin import FUBerlinAdapter
 from .fudan import FudanAdapter
+from .ghent import GhentAdapter
 from .glasgow import GlasgowAdapter
 from .groningen import GroningenAdapter
 from .harvard import HarvardAdapter
@@ -80,10 +82,13 @@ from .sjtu import SJTUAdapter
 from .snu import SNUAdapter
 from .sorbonne import SorbonneAdapter
 from .southampton import SouthamptonAdapter
+from .st_andrews import StAndrewsAdapter
 from .stanford import StanfordAdapter
+from .stockholm import StockholmAdapter
 from .sydney import SydneyAdapter
 from .toronto import TorontoAdapter
 from .tsinghua import TsinghuaAdapter
+from .tu_wien import TUWienAdapter
 from .tudelft import TUDelftAdapter
 from .tum import TUMAdapter
 from .ubc import UBCAdapter
@@ -131,6 +136,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "caltech": CaltechAdapter,
     "cambridge": CambridgeAdapter,
     "columbia": ColumbiaAdapter,
+    "copenhagen": CopenhagenAdapter,
     "cornell": CornellAdapter,
     "cuhk": CUHKAdapter,
     "cityu": CityUAdapter,
@@ -143,6 +149,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "fudan": FudanAdapter,
     "fu-berlin": FUBerlinAdapter,
     "glasgow": GlasgowAdapter,
+    "ghent": GhentAdapter,
     "groningen": GroningenAdapter,
     "harvard": HarvardAdapter,
     "heidelberg": HeidelbergAdapter,
@@ -192,13 +199,16 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "sheffield": SheffieldAdapter,
     "snu": SNUAdapter,
     "southampton": SouthamptonAdapter,
+    "st-andrews": StAndrewsAdapter,
     "sorbonne": SorbonneAdapter,
     "stanford": StanfordAdapter,
+    "stockholm": StockholmAdapter,
     "sydney": SydneyAdapter,
     "toronto": TorontoAdapter,
     "tsinghua": TsinghuaAdapter,
     "tudelft": TUDelftAdapter,
     "tum": TUMAdapter,
+    "tu-wien": TUWienAdapter,
     "ubc": UBCAdapter,
     "uchicago": UChicagoAdapter,
     "ucl": UCLAdapter,
