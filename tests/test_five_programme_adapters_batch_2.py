@@ -30,7 +30,8 @@ from gradwindow.programme_adapters.tu_wien import TUWienAdapter
         (
             GhentAdapter(),
             """\
-<urlset><url><loc>https://studiekiezer.ugent.be/master-of-science-in-data-science-en</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://studiekiezer.ugent.be/master-of-science-in-data-science-en</loc></url>
 <url><loc>https://studiekiezer.ugent.be/master-of-science-in-de-datawetenschappen</loc></url></urlset>
 """,
             "Master of Science in Data Science",

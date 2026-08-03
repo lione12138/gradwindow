@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 from urllib.parse import urlparse
-
-from bs4 import BeautifulSoup
+from xml.etree import ElementTree
 
 from .official_catalog import CatalogEntry, OfficialCatalogAdapter, degree_from, entry
 
@@ -24,10 +23,12 @@ class GhentAdapter(OfficialCatalogAdapter):
     retrieval_method = "official-english-programme-sitemap"
 
     def extract_entries(self, xml: str) -> list[CatalogEntry]:
-        soup = BeautifulSoup(xml, "xml")
+        root = ElementTree.fromstring(xml)
         entries = []
-        for node in soup.find_all("loc"):
-            source_url = node.get_text(strip=True)
+        for node in root.iter():
+            if node.tag.rsplit("}", 1)[-1] != "loc":
+                continue
+            source_url = (node.text or "").strip()
             slug = urlparse(source_url).path.strip("/")
             if not slug.startswith("master-") or not slug.endswith("-en"):
                 continue
