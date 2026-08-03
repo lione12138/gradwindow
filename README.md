@@ -9,7 +9,7 @@
 
 A QS Top 200 master's application tracker using official university sources. The tables below summarize each university once; full programme-level windows remain available on the website.
 
-Status date: **2026-08-03**
+Status date: **2026-08-04**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -39,8 +39,9 @@ Status date: **2026-08-03**
 
 | QS | University | Coverage | Next opening | Data | Links |
 |---:|---|---|---|---|---|
-| 1 | Massachusetts Institute of Technology (MIT) | 7 upcoming windows | 2026-09-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| 1 | Massachusetts Institute of Technology (MIT) | 12 upcoming windows | 2026-09-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
 | =2 | Imperial College London | 13 upcoming windows | 2026-08-18 | Estimate | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
+| 6 | University of Cambridge | 128 upcoming windows | 2026-09-03 | Estimate | [Admissions](https://www.postgraduate.study.cam.ac.uk/application-process) · [All programme details](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | 10 | National University of Singapore (NUS) | 9 upcoming windows | 2026-09-01 | Official + Estimate | [Admissions](https://nusgs.nus.edu.sg/admissions/) · [All programme details](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
 | 11 | The University of Hong Kong | 89 upcoming windows | 2026-09-01 | Estimate | [Admissions](https://admissions.hku.hk/tpg/) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Hong%20Kong) |
 | 18 | The Chinese University of Hong Kong (CUHK) | 220 upcoming windows | 2026-09-01 | Estimate | [Admissions](https://www.gs.cuhk.edu.hk/admissions) · [All programme details](https://gradwindow.com/?q=The%20Chinese%20University%20of%20Hong%20Kong%20%28CUHK%29) |
@@ -50,4 +51,5 @@ Status date: **2026-08-03**
 | 45 | University of British Columbia | 14 upcoming windows | 2026-08-15 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 65 | KAIST | 36 upcoming windows | 2026-08-18 | Official | [Admissions](https://admission.kaist.ac.kr/intl-graduate/) · [All programme details](https://gradwindow.com/?q=KAIST) |
 | 66 | Brown University | 1 upcoming window | 2026-09-01 | Estimate | [Admissions](https://graduateschool.brown.edu/admission) · [All programme details](https://gradwindow.com/?q=Brown%20University) |
+| 81 | University of California, San Diego (UCSD) | 1 upcoming window | 2026-09-03 | Estimate | [Admissions](https://grad.ucsd.edu/admissions/) · [All programme details](https://gradwindow.com/?q=University%20of%20California%2C%20San%20Diego%20%28UCSD%29) |
 | 84 | Universidad de Buenos Aires (UBA) | 1 upcoming window | 2026-08-06 | Estimate | [Admissions](https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/) · [All programme details](https://gradwindow.com/?q=Universidad%20de%20Buenos%20Aires%20%28UBA%29) |

@@ -139,7 +139,11 @@ def _fetch_once(
                     bytes_read=len(chunks),
                     truncated=truncated,
                 )
-    except (httpx.TimeoutException, httpx.NetworkError) as exc:
+    except (
+        httpx.TimeoutException,
+        httpx.NetworkError,
+        httpx.RemoteProtocolError,
+    ) as exc:
         raise FetchFailure(
             str(exc),
             kind="network",
