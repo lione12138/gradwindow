@@ -9,7 +9,7 @@
 
 基于大学官网数据的 QS 前 200 硕士申请追踪项目。下面只展示每所大学的汇总信息；完整的项目级申请窗口请前往网站查看。
 
-状态日期：**2026-08-03**
+状态日期：**2026-08-04**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -39,8 +39,9 @@
 
 | QS | 大学 | 覆盖范围 | 最近开放 | 数据类型 | 链接 |
 |---:|---|---|---|---|---|
-| 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 7 个即将开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 12 个即将开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
 | =2 | Imperial College London / 帝国理工学院 | 13 个即将开放窗口 | 2026-08-18 | 预测参考 | [招生官网](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [查看全部项目](https://gradwindow.com/?q=Imperial%20College%20London) |
+| 6 | University of Cambridge / 剑桥大学 | 128 个即将开放窗口 | 2026-09-03 | 预测参考 | [招生官网](https://www.postgraduate.study.cam.ac.uk/application-process) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | 10 | National University of Singapore (NUS) / 新加坡国立大学 | 9 个即将开放窗口 | 2026-09-01 | 官网核验 + 预测参考 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
 | 11 | The University of Hong Kong / 香港大学 | 89 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://admissions.hku.hk/tpg/) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Hong%20Kong) |
 | 18 | The Chinese University of Hong Kong (CUHK) / 香港中文大学 | 220 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://www.gs.cuhk.edu.hk/admissions) · [查看全部项目](https://gradwindow.com/?q=The%20Chinese%20University%20of%20Hong%20Kong%20%28CUHK%29) |
@@ -50,4 +51,5 @@
 | 45 | University of British Columbia / 不列颠哥伦比亚大学 | 14 个即将开放窗口 | 2026-08-15 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 65 | KAIST / 韩国科学技术院 | 36 个即将开放窗口 | 2026-08-18 | 官网核验 | [招生官网](https://admission.kaist.ac.kr/intl-graduate/) · [查看全部项目](https://gradwindow.com/?q=KAIST) |
 | 66 | Brown University / 布朗大学 | 1 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://graduateschool.brown.edu/admission) · [查看全部项目](https://gradwindow.com/?q=Brown%20University) |
+| 81 | University of California, San Diego (UCSD) / 加利福尼亚大学圣迭戈分校 | 1 个即将开放窗口 | 2026-09-03 | 预测参考 | [招生官网](https://grad.ucsd.edu/admissions/) · [查看全部项目](https://gradwindow.com/?q=University%20of%20California%2C%20San%20Diego%20%28UCSD%29) |
 | 84 | Universidad de Buenos Aires (UBA) / 布宜诺斯艾利斯大学 | 1 个即将开放窗口 | 2026-08-06 | 预测参考 | [招生官网](https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/) · [查看全部项目](https://gradwindow.com/?q=Universidad%20de%20Buenos%20Aires%20%28UBA%29) |

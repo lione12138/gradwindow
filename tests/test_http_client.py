@@ -24,6 +24,17 @@ class FakeClient:
         return nullcontext(self.response)
 
 
+class IncompleteResponse:
+    status_code = 200
+    encoding = "utf-8"
+    headers = {"content-type": "text/html"}
+    url = "https://example.edu"
+
+    @staticmethod
+    def iter_bytes():
+        raise httpx.RemoteProtocolError("incomplete chunked read")
+
+
 def test_fetch_page_classifies_blocked_response(monkeypatch) -> None:
     FakeClient.response = httpx.Response(
         403,
@@ -81,3 +92,18 @@ def test_fetch_page_stops_at_byte_limit(monkeypatch) -> None:
     assert page.body == "01234"
     assert page.bytes_read == 5
     assert page.truncated is True
+
+
+def test_fetch_page_classifies_incomplete_body_as_retryable(monkeypatch) -> None:
+    FakeClient.response = IncompleteResponse()
+    monkeypatch.setattr(http_client.httpx, "Client", FakeClient)
+    monkeypatch.setattr(http_client, "MIN_HOST_INTERVAL", 0)
+
+    with pytest.raises(http_client.FetchFailure) as caught:
+        http_client.fetch_page(
+            "https://example.edu",
+            user_agent="test",
+            attempts=1,
+        )
+    assert caught.value.kind == "network"
+    assert caught.value.retryable is True
