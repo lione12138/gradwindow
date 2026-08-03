@@ -9,7 +9,7 @@
 
 A QS Top 200 master's application tracker using official university sources. The tables below summarize each university once; full programme-level windows remain available on the website.
 
-Status date: **2026-08-02**
+Status date: **2026-08-03**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -26,9 +26,10 @@ Status date: **2026-08-02**
 | 35 | The University of Edinburgh | 41 open windows | 2026-08-21 | Official | [Admissions](https://study.ed.ac.uk/postgraduate/applying) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Edinburgh) |
 | =40 | The University of Queensland | 151 open windows | 2026-08-05 | Estimate | [Admissions](https://study.uq.edu.au/admissions/postgraduate-coursework) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Queensland) |
 | =45 | Northwestern University | 11 open windows | 2026-12-01 | Official | [Admissions](https://www.tgs.northwestern.edu/admission/) · [All programme details](https://gradwindow.com/?q=Northwestern%20University) |
-| 45 | University of British Columbia | 56 open windows | 2026-08-12 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
+| 45 | University of British Columbia | 64 open windows | 2026-08-12 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 50 | The Hong Kong Polytechnic University | 211 open windows | 2026-10-20 | Official + Estimate | [Admissions](https://www.polyu.edu.hk/study/pg/taught-postgraduate) · [All programme details](https://gradwindow.com/?q=The%20Hong%20Kong%20Polytechnic%20University) |
 | =52 | City University of Hong Kong (CityUHK) | 6 open windows | 2026-08-05 | Official | [Admissions](https://www.cityu.edu.hk/pg/programme/p60) · [All programme details](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
+| 54 | National Taiwan University (NTU) | 61 open windows | 2026-09-17 | Official | [Admissions](https://admissions.ntu.edu.tw/apply/degree-students/international-students/) · [All programme details](https://gradwindow.com/?q=National%20Taiwan%20University%20%28NTU%29) |
 | 56 | Universiti Malaya (UM) | 137 open windows | 2026-08-30 | Official | [Admissions](https://study.um.edu.my/how-to-apply) · [All programme details](https://gradwindow.com/?q=Universiti%20Malaya%20%28UM%29) |
 | =82 | The University of Sheffield | 20 open windows | 2026-09-04 | Official | [Admissions](https://www.sheffield.ac.uk/postgraduate/taught/apply) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Sheffield) |
 | =87 | The University of Technology Sydney (UTS) | 1 open window | 2027-01-31 | Official | [Admissions](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |
@@ -46,8 +47,7 @@ Status date: **2026-08-02**
 | =20 | University of California, Berkeley (UCB) | 1 upcoming window | 2026-09-01 | Estimate | [Admissions](https://grad.berkeley.edu/admissions/) · [All programme details](https://gradwindow.com/?q=University%20of%20California%2C%20Berkeley%20%28UCB%29) |
 | 25 | Technical University of Munich | 1 upcoming window | 2026-09-01 | Official | [Admissions](https://www.tum.de/en/studies/application/application-info-portal) · [All programme details](https://gradwindow.com/?q=Technical%20University%20of%20Munich) |
 | 33 | The Hong Kong University of Science and Technology | 109 upcoming windows | 2026-09-01 | Estimate | [Admissions](https://seng.hkust.edu.hk/academics/taught-postgraduate/msc-it) · [All programme details](https://gradwindow.com/?q=The%20Hong%20Kong%20University%20of%20Science%20and%20Technology) |
-| 45 | University of British Columbia | 22 upcoming windows | 2026-08-03 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
-| 54 | National Taiwan University (NTU) | 61 upcoming windows | 2026-08-03 | Official | [Admissions](https://admissions.ntu.edu.tw/apply/degree-students/international-students/) · [All programme details](https://gradwindow.com/?q=National%20Taiwan%20University%20%28NTU%29) |
+| 45 | University of British Columbia | 14 upcoming windows | 2026-08-15 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 65 | KAIST | 36 upcoming windows | 2026-08-18 | Official | [Admissions](https://admission.kaist.ac.kr/intl-graduate/) · [All programme details](https://gradwindow.com/?q=KAIST) |
 | 66 | Brown University | 1 upcoming window | 2026-09-01 | Estimate | [Admissions](https://graduateschool.brown.edu/admission) · [All programme details](https://gradwindow.com/?q=Brown%20University) |
 | 84 | Universidad de Buenos Aires (UBA) | 1 upcoming window | 2026-08-06 | Estimate | [Admissions](https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/) · [All programme details](https://gradwindow.com/?q=Universidad%20de%20Buenos%20Aires%20%28UBA%29) |
