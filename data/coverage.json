@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-04T01:42:03.725398+00:00",
+    "generatedAt": "2026-08-04T04:06:42.722231+00:00",
     "rankingScope": "QS World University Rankings 2027 top 200",
     "batchSize": 5,
     "definition": "Entry, policy, programme, and exact-window coverage are counted separately. Predictions never count as verified deadlines."
@@ -14,16 +14,16 @@
     "broadMastersAvailability": 195,
     "limitedMastersAvailability": 5,
     "universitiesWithPrograms": 191,
-    "universitiesWithWindows": 54,
-    "verifiedWindows": 4899,
-    "universitiesWithPredictions": 54,
-    "predictedWindows": 4844,
+    "universitiesWithWindows": 55,
+    "verifiedWindows": 4900,
+    "universitiesWithPredictions": 55,
+    "predictedWindows": 4845,
     "nextActions": {
       "locate-official-entry": 0,
       "verify-window-policy": 0,
       "select-target-programmes": 9,
-      "verify-exact-windows": 137,
-      "monitor-and-refresh": 54
+      "verify-exact-windows": 136,
+      "monitor-and-refresh": 55
     }
   },
   "batches": [
@@ -401,8 +401,8 @@
       "entriesLocated": 5,
       "policiesVerified": 5,
       "universitiesWithPrograms": 5,
-      "universitiesWithWindows": 0,
-      "predictedWindows": 0
+      "universitiesWithWindows": 1,
+      "predictedWindows": 1
     },
     {
       "batch": 30,
@@ -2862,7 +2862,7 @@
         "opensText": "IGP(B) and IGP(C) application period 14 January-5 April 2026",
         "notes": "Science Tokyo published separate IGP(B) and IGP(C) calls for Fall 2026 with the same application period; IGP(C) is recorded as the representative formal window."
       },
-      "programmeCount": 1,
+      "programmeCount": 20,
       "windowCount": 1,
       "predictionCount": 1,
       "nextAction": "monitor-and-refresh"
@@ -3942,7 +3942,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 114,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -3966,10 +3966,10 @@
         "opensText": "The official admissions centre exposes master's admissions and international-student routes but no exact current application opening or closing dates were captured.",
         "notes": "The Computer Science department page connection reset in this environment, so programme-level dates were not recorded."
       },
-      "programmeCount": 1,
-      "windowCount": 0,
-      "predictionCount": 0,
-      "nextAction": "verify-exact-windows"
+      "programmeCount": 65,
+      "windowCount": 1,
+      "predictionCount": 1,
+      "nextAction": "monitor-and-refresh"
     },
     {
       "universityId": "western-university",
@@ -3990,7 +3990,7 @@
         "opensText": "Domestic applicants: 31 July; international applicants: 15 February. The department accepts new MSc students in the fall September term only.",
         "notes": "The official page gives closing dates but not a cycle year or exact application opening date."
       },
-      "programmeCount": 1,
+      "programmeCount": 87,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4278,7 +4278,7 @@
         "opensText": "The official G30 graduate page lists English-taught graduate programmes with Master and Doctor routes.",
         "notes": "The central master's page points to the G30 graduate site, but this pass did not capture current date ranges for applications."
       },
-      "programmeCount": 1,
+      "programmeCount": 17,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4566,7 +4566,7 @@
         "opensText": "The official registration system requires applicants to select their profile before showing conditions, application deadlines, and required documents.",
         "notes": "Do not infer a universal date. The current official page says CUI bachelor and master enrollment is temporarily suspended while the programmes are revised; other master's routes may have applicant-specific dates."
       },
-      "programmeCount": 1,
+      "programmeCount": 95,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4638,7 +4638,7 @@
         "opensText": "The page links to ISEE master's admissions and includes 2026 notices about admission-process changes effective from AY 2027, but no exact current application opening or closing dates were captured.",
         "notes": "No formal dated window is recorded until the current examination/application schedule is captured."
       },
-      "programmeCount": 1,
+      "programmeCount": 38,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4662,7 +4662,7 @@
         "opensText": "Fall 2026 application opens 1 September 2025; Spring 2027 application opens 1 February 2026. Specific deadline information is programme-specific in Degree Search.",
         "notes": "Engineering/SCAI programme pages returned 403 in this environment and the Degree Search Computer Science MS deep link did not resolve, so no Computer Science-specific formal window is recorded."
       },
-      "programmeCount": 1,
+      "programmeCount": 404,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4734,7 +4734,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 81,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4878,7 +4878,7 @@
         "opensText": "The central page explains how to apply to graduate programmes and links to the online application, but no exact institution-wide opening or closing dates were captured.",
         "notes": "Programme pages should be checked for individual admissions requirements and deadlines."
       },
-      "programmeCount": 1,
+      "programmeCount": 87,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
