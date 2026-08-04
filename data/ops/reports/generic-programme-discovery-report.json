@@ -1,10 +1,9 @@
 {
   "meta": {
-    "updatedAt": "2026-08-04T03:59:35.388687+00:00",
+    "updatedAt": "2026-08-04T07:23:44.498937+00:00",
     "dryRun": false,
     "replaceExisting": false,
-    "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed.",
-    "classificationRefreshedFromCandidates": true
+    "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
   },
   "summary": {
     "schoolsConfigured": 9,
@@ -92,9 +91,9 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-03T08:25:58.876519+00:00",
-      "catalogProgrammes": 1,
-      "previousCatalogProgrammes": 2,
+      "checkedAt": "2026-08-04T07:23:57.020770+00:00",
+      "catalogProgrammes": 2,
+      "previousCatalogProgrammes": 1,
       "knownProgrammes": 1,
       "newCandidates": 0,
       "newGuidanceCandidates": 0,
@@ -104,14 +103,14 @@
       "pendingCandidates": 42,
       "pendingGuidanceCandidates": 1,
       "catalogueStatus": "ok",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 1,
       "exactWindowCount": 0,
-      "missingOpeningDateCount": 0,
+      "missingOpeningDateCount": 1,
       "programmesWithoutDeadlines": 1,
-      "programmesNeedingReview": 1,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "windowFingerprint": "716e764ff3d78bc4b153674ad3984a598e4f804b5cccf17f361f55a12466efab",
+      "programmesNeedingReview": 2,
+      "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
+      "windowFingerprint": "2da25635e85592ca7f9d20d7b2dcedc78ac98deba590337ee132bae71865c33d",
       "watchedWindowSourceHash": null,
       "dryRun": false,
       "batchStatus": "ok"
@@ -1447,7 +1446,7 @@
       {
         "id": "known-programme-guidance:sydney-master-of-environmental-science",
         "universityId": "the-university-of-sydney",
-        "programmeName": "Master of Environmental Science",
+        "programmeName": "Master of Environmental Science (2026 entry)",
         "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-environmental-science.html",
         "windowCount": 4,
         "parseStatus": "incomplete",
@@ -1456,7 +1455,7 @@
       {
         "id": "known-programme-guidance:sydney-master-of-environmental-science-and-law",
         "universityId": "the-university-of-sydney",
-        "programmeName": "Master of Environmental Science and Law",
+        "programmeName": "Master of Environmental Science and Law (2026 entry)",
         "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-environmental-science-and-law.html",
         "windowCount": 4,
         "parseStatus": "incomplete",
