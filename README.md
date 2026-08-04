@@ -33,6 +33,7 @@ Status date: **2026-08-04**
 | 56 | Universiti Malaya (UM) | 137 open windows | 2026-08-30 | Official | [Admissions](https://study.um.edu.my/how-to-apply) · [All programme details](https://gradwindow.com/?q=Universiti%20Malaya%20%28UM%29) |
 | =82 | The University of Sheffield | 20 open windows | 2026-09-04 | Official | [Admissions](https://www.sheffield.ac.uk/postgraduate/taught/apply) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Sheffield) |
 | =87 | The University of Technology Sydney (UTS) | 1 open window | 2027-01-31 | Official | [Admissions](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |
+| =142 | National Tsing Hua University - NTHU | 1 open window | 2026-09-30 | Official | [Admissions](https://admission.nthu.edu.tw/) · [All programme details](https://gradwindow.com/?q=National%20Tsing%20Hua%20University%20-%20NTHU) |
 | =162 | Université de Montréal | 1 open window | 2026-09-01 | Official | [Admissions](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [All programme details](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 
 ## Opening Within 30 Days
