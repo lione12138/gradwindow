@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-04T04:06:42.722231+00:00",
+    "generatedAt": "2026-08-04T04:48:55.612603+00:00",
     "rankingScope": "QS World University Rankings 2027 top 200",
     "batchSize": 5,
     "definition": "Entry, policy, programme, and exact-window coverage are counted separately. Predictions never count as verified deadlines."
@@ -13,17 +13,17 @@
     "cycleGuidanceAvailable": 198,
     "broadMastersAvailability": 195,
     "limitedMastersAvailability": 5,
-    "universitiesWithPrograms": 191,
-    "universitiesWithWindows": 55,
-    "verifiedWindows": 4900,
-    "universitiesWithPredictions": 55,
-    "predictedWindows": 4845,
+    "universitiesWithPrograms": 192,
+    "universitiesWithWindows": 56,
+    "verifiedWindows": 4902,
+    "universitiesWithPredictions": 56,
+    "predictedWindows": 4847,
     "nextActions": {
       "locate-official-entry": 0,
       "verify-window-policy": 0,
-      "select-target-programmes": 9,
+      "select-target-programmes": 8,
       "verify-exact-windows": 136,
-      "monitor-and-refresh": 55
+      "monitor-and-refresh": 56
     }
   },
   "batches": [
@@ -296,7 +296,7 @@
       "universities": 5,
       "entriesLocated": 5,
       "policiesVerified": 5,
-      "universitiesWithPrograms": 4,
+      "universitiesWithPrograms": 5,
       "universitiesWithWindows": 0,
       "predictedWindows": 0
     },
@@ -414,8 +414,8 @@
       "entriesLocated": 5,
       "policiesVerified": 5,
       "universitiesWithPrograms": 5,
-      "universitiesWithWindows": 0,
-      "predictedWindows": 0
+      "universitiesWithWindows": 1,
+      "predictedWindows": 2
     },
     {
       "batch": 31,
@@ -2694,7 +2694,7 @@
         "opensText": "The official online service platform and graduate school page are accessible, but exact current application opening or closing dates were not captured in accessible text.",
         "notes": "This replaces the earlier not-found status caused by stale or unreliable guessed paths."
       },
-      "programmeCount": 1,
+      "programmeCount": 9,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -2814,7 +2814,7 @@
         "opensText": "Special Selection in Summer for International Applicants main application acceptance period 22-26 June 2026",
         "notes": "The 2027 application guide page links the official PDF for April 2027 master course admissions. The PDF states a pre-application screening period of 25-29 May 2026 and a main application acceptance period of 22-26 June 2026 for Special Selection in Summer for International Applicants."
       },
-      "programmeCount": 1,
+      "programmeCount": 23,
       "windowCount": 1,
       "predictionCount": 1,
       "nextAction": "monitor-and-refresh"
@@ -3006,10 +3006,10 @@
         "opensText": "Application qualifications, procedures, and application periods vary depending on each graduate school",
         "notes": "The central page confirms graduate admission routes and explicitly says applicants should contact their desired graduate school for detailed information. No general computing-specific window is recorded from the central page."
       },
-      "programmeCount": 0,
+      "programmeCount": 8,
       "windowCount": 0,
       "predictionCount": 0,
-      "nextAction": "select-target-programmes"
+      "nextAction": "verify-exact-windows"
     },
     {
       "universityId": "queen-mary-university-of-london-qmul",
@@ -4038,10 +4038,10 @@
         "opensText": "The International Students Office homepage shows admissions navigation, online application, scholarship routes, and 2026 fall-term notices, but exact master application window dates were not captured.",
         "notes": "The guessed /Admissions.htm path returned 404, so the stable office homepage is retained."
       },
-      "programmeCount": 1,
-      "windowCount": 0,
-      "predictionCount": 0,
-      "nextAction": "verify-exact-windows"
+      "programmeCount": 2,
+      "windowCount": 2,
+      "predictionCount": 2,
+      "nextAction": "monitor-and-refresh"
     },
     {
       "universityId": "khalifa-university-of-science-and-technology",
@@ -4062,7 +4062,7 @@
         "opensText": "The online application for admission is currently closed; applicants can create an account to receive notifications when the next intake opens.",
         "notes": "No exact next intake opening or closing date was captured."
       },
-      "programmeCount": 1,
+      "programmeCount": 22,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
