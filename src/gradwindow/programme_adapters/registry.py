@@ -51,6 +51,7 @@ from .jhu import JHUAdapter
 from .kaist import KAISTAdapter
 from .kcl import KCLAdapter
 from .kfupm import KFUPMAdapter
+from .khalifa import KhalifaAdapter
 from .kit import KITAdapter
 from .korea import KoreaAdapter
 from .kth import KTHAdapter
@@ -71,6 +72,7 @@ from .melbourne import MelbourneAdapter
 from .mit import MITAdapter
 from .monash import MonashAdapter
 from .nagoya import NagoyaAdapter
+from .nanjing import NanjingAdapter
 from .newcastle import NewcastleAdapter
 from .northwestern import NorthwesternAdapter
 from .nottingham import NottinghamAdapter
@@ -78,6 +80,7 @@ from .nthu import NTHUAdapter
 from .ntu import NTUAdapter
 from .ntu_taiwan import NTUTaiwanAdapter
 from .nus import NUSAdapter
+from .osaka import OsakaAdapter
 from .oslo import OsloAdapter
 from .oxford import OxfordAdapter
 from .paris_saclay import ParisSaclayAdapter
@@ -101,6 +104,8 @@ from .st_andrews import StAndrewsAdapter
 from .stanford import StanfordAdapter
 from .stockholm import StockholmAdapter
 from .sydney import SydneyAdapter
+from .tohoku import TohokuAdapter
+from .tongji import TongjiAdapter
 from .toronto import TorontoAdapter
 from .tsinghua import TsinghuaAdapter
 from .tu_berlin import TUBerlinAdapter
@@ -187,6 +192,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "ip-paris": IPParisAdapter,
     "jhu": JHUAdapter,
     "kaist": KAISTAdapter,
+    "khalifa": KhalifaAdapter,
     "kit": KITAdapter,
     "kcl": KCLAdapter,
     "kfupm": KFUPMAdapter,
@@ -209,6 +215,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "mit": MITAdapter,
     "monash": MonashAdapter,
     "nagoya": NagoyaAdapter,
+    "nanjing": NanjingAdapter,
     "nottingham": NottinghamAdapter,
     "newcastle": NewcastleAdapter,
     "northwestern": NorthwesternAdapter,
@@ -218,6 +225,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "nus": NUSAdapter,
     "oxford": OxfordAdapter,
     "oslo": OsloAdapter,
+    "osaka": OsakaAdapter,
     "peking": PekingAdapter,
     "paris-saclay": ParisSaclayAdapter,
     "penn-state": PennStateAdapter,
@@ -240,6 +248,8 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "stockholm": StockholmAdapter,
     "sydney": SydneyAdapter,
     "toronto": TorontoAdapter,
+    "tohoku": TohokuAdapter,
+    "tongji": TongjiAdapter,
     "tsinghua": TsinghuaAdapter,
     "tudelft": TUDelftAdapter,
     "tum": TUMAdapter,
