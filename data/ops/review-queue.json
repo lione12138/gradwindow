@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-04T07:24:54.122353+00:00",
+    "generatedAt": "2026-08-05T07:24:54.046481+00:00",
     "description": "Automatic findings require maintainer review before publication."
   },
   "items": [
@@ -218,6 +218,18 @@
       "reason": "Official page content changed consistently in two consecutive checks.",
       "severity": "application",
       "detectedAt": "2026-08-01T06:41:37.065678+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "content-change:pohang-university-of-science-and-technology-postech:d549759dd66c",
+      "type": "content-change",
+      "universityId": "pohang-university-of-science-and-technology-postech",
+      "school": "Pohang University of Science And Technology (POSTECH)",
+      "qsRank": 106,
+      "url": "https://adm-g.postech.ac.kr/",
+      "reason": "Official page content changed consistently in two consecutive checks.",
+      "severity": "generic",
+      "detectedAt": "2026-08-05T06:43:11.565524+00:00",
       "status": "pending"
     },
     {
@@ -1060,42 +1072,6 @@
       "reason": "A published application-window source changed consistently in two consecutive checks.",
       "severity": "deadline",
       "detectedAt": "2026-08-01T06:45:09.011673+00:00",
-      "status": "pending"
-    },
-    {
-      "id": "window-source-error:hku-the-field-of-translation-ma-2026-round-1",
-      "type": "window-source-error",
-      "universityId": "the-university-of-hong-kong",
-      "recordId": "hku-the-field-of-translation-ma-2026-round-1",
-      "school": "The University of Hong Kong",
-      "qsRank": 11,
-      "url": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-translation-arts&mode=FT",
-      "reason": "The read operation timed out",
-      "detectedAt": "2026-08-04T06:46:54.233861+00:00",
-      "status": "pending"
-    },
-    {
-      "id": "window-source-error:hku-social-sciences-in-the-field-of-population-and-policy-analysis-master-2026-round-3-clearing-round",
-      "type": "window-source-error",
-      "universityId": "the-university-of-hong-kong",
-      "recordId": "hku-social-sciences-in-the-field-of-population-and-policy-analysis-master-2026-round-3-clearing-round",
-      "school": "The University of Hong Kong",
-      "qsRank": 11,
-      "url": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-population-and-policy-analysis-socsc&mode=FT",
-      "reason": "The read operation timed out",
-      "detectedAt": "2026-08-04T06:46:57.585407+00:00",
-      "status": "pending"
-    },
-    {
-      "id": "window-source-error:hku-the-field-of-translation-ma-2026-round-2",
-      "type": "window-source-error",
-      "universityId": "the-university-of-hong-kong",
-      "recordId": "hku-the-field-of-translation-ma-2026-round-2",
-      "school": "The University of Hong Kong",
-      "qsRank": 11,
-      "url": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-translation-arts&mode=FT",
-      "reason": "The read operation timed out",
-      "detectedAt": "2026-08-04T06:46:54.233861+00:00",
       "status": "pending"
     },
     {
@@ -4382,7 +4358,7 @@
       "qsRank": 36,
       "url": "https://isc.sjtu.edu.cn/EN/content.aspx?flag=2&info_lb=38",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:41:58.073553+00:00",
+      "detectedAt": "2026-08-05T06:43:03.036501+00:00",
       "status": "pending"
     },
     {
@@ -4394,7 +4370,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4406,7 +4382,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4418,7 +4394,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4430,7 +4406,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4442,7 +4418,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4454,7 +4430,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4466,7 +4442,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4478,7 +4454,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4490,7 +4466,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4502,7 +4478,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4514,7 +4490,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4526,7 +4502,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4538,7 +4514,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4550,7 +4526,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4562,7 +4538,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4574,7 +4550,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4586,7 +4562,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4598,7 +4574,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4610,7 +4586,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4622,7 +4598,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4634,7 +4610,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4646,7 +4622,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4658,7 +4634,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4670,7 +4646,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4682,7 +4658,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4694,7 +4670,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4706,7 +4682,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4718,7 +4694,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4730,7 +4706,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4742,7 +4718,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4754,7 +4730,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4766,7 +4742,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4778,7 +4754,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4790,7 +4766,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4802,7 +4778,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4814,7 +4790,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4826,7 +4802,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4838,7 +4814,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4850,7 +4826,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4862,7 +4838,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4874,7 +4850,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4886,7 +4862,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4898,7 +4874,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4910,7 +4886,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4922,7 +4898,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4934,7 +4910,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4946,7 +4922,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4958,7 +4934,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4970,7 +4946,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4982,7 +4958,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -4994,7 +4970,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5006,7 +4982,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5018,7 +4994,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5030,7 +5006,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5042,7 +5018,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5054,7 +5030,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5066,7 +5042,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5078,7 +5054,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5090,7 +5066,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5102,7 +5078,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5114,7 +5090,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5126,7 +5102,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5138,7 +5114,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5150,7 +5126,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5162,7 +5138,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5174,7 +5150,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5186,7 +5162,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5198,7 +5174,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5210,7 +5186,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5222,7 +5198,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5234,7 +5210,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5246,7 +5222,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5258,7 +5234,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5270,7 +5246,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5282,7 +5258,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5294,7 +5270,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5306,7 +5282,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5318,7 +5294,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5330,7 +5306,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5342,7 +5318,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5354,7 +5330,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5366,7 +5342,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5378,7 +5354,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5390,7 +5366,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5402,7 +5378,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5414,7 +5390,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5426,7 +5402,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5438,7 +5414,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5450,7 +5426,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5462,7 +5438,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5474,7 +5450,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5486,7 +5462,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5498,7 +5474,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5510,7 +5486,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5522,7 +5498,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5534,7 +5510,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5546,7 +5522,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5558,7 +5534,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5570,7 +5546,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5582,7 +5558,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5594,7 +5570,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5606,7 +5582,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5618,7 +5594,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5630,7 +5606,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5642,7 +5618,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5654,7 +5630,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5666,7 +5642,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5678,7 +5654,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5690,7 +5666,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5702,7 +5678,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5714,7 +5690,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5726,7 +5702,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5738,7 +5714,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5750,7 +5726,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5762,7 +5738,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5774,7 +5750,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5786,7 +5762,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5798,7 +5774,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5810,7 +5786,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5822,7 +5798,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5834,7 +5810,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5846,7 +5822,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5858,7 +5834,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5870,7 +5846,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5882,7 +5858,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5894,7 +5870,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5906,7 +5882,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5918,7 +5894,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5930,7 +5906,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5942,7 +5918,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5954,7 +5930,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5966,7 +5942,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5978,7 +5954,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -5990,7 +5966,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6002,7 +5978,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6014,7 +5990,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6026,7 +6002,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6038,7 +6014,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6050,7 +6026,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6062,7 +6038,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6074,7 +6050,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6086,7 +6062,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6098,7 +6074,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6110,7 +6086,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6122,7 +6098,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6134,7 +6110,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6146,7 +6122,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6158,7 +6134,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6170,7 +6146,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6182,7 +6158,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6194,7 +6170,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6206,7 +6182,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6218,7 +6194,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6230,7 +6206,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6242,7 +6218,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6254,7 +6230,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6266,7 +6242,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6278,7 +6254,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6290,7 +6266,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6302,7 +6278,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6314,7 +6290,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6326,7 +6302,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6338,7 +6314,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6350,7 +6326,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6362,7 +6338,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6374,7 +6350,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6386,7 +6362,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6398,7 +6374,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6410,7 +6386,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6422,7 +6398,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6434,7 +6410,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6446,7 +6422,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6458,7 +6434,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6470,7 +6446,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6482,7 +6458,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6494,7 +6470,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6506,7 +6482,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6518,7 +6494,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6530,7 +6506,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6542,7 +6518,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6554,7 +6530,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6566,7 +6542,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6578,7 +6554,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6590,7 +6566,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6602,7 +6578,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6614,7 +6590,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6626,7 +6602,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6638,7 +6614,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6650,7 +6626,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6662,7 +6638,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6674,7 +6650,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6686,7 +6662,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6698,7 +6674,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6710,7 +6686,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6722,7 +6698,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6734,7 +6710,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6746,7 +6722,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6758,7 +6734,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6770,7 +6746,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6782,7 +6758,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6794,7 +6770,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -6806,7 +6782,7 @@
       "qsRank": 38,
       "url": "https://en.snu.ac.kr/webdata/uploads/eng/file/2026/06/2027Spring_graduate_eng.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:45:13.717200+00:00",
+      "detectedAt": "2026-08-05T06:46:24.195631+00:00",
       "status": "pending"
     },
     {
@@ -9706,6 +9682,84 @@
       "reason": "A published application-window source changed consistently in two consecutive checks.",
       "severity": "deadline",
       "detectedAt": "2026-08-04T06:48:20.818273+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-botany-msc-2027-application-deadline:05aabd6e1a5d",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-botany-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-botany",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-08-05T06:48:14.514613+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-botany-msc-2027-application-deadline-d2fb0c46:05aabd6e1a5d",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-botany-msc-2027-application-deadline-d2fb0c46",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-botany",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-08-05T06:48:14.514613+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-atmospheric-science-msc-2027-application-deadline:0aa0b0ecedd1",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-atmospheric-science-msc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-atmospheric-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-08-05T06:49:01.729737+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-applied-science-in-civil-engineering-masc-2027-application-deadline:83958c049cb9",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-applied-science-in-civil-engineering-masc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-applied-science-civil-engineering",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-08-05T06:49:04.296325+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-health-science-mhsc-2027-application-deadline:09d79a1787cc",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-health-science-mhsc-2027-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-health-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-08-05T06:49:09.973007+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:ubc-master-of-science-in-atmospheric-science-msc-2028-application-deadline:0aa0b0ecedd1",
+      "type": "window-source-change",
+      "universityId": "university-of-british-columbia",
+      "recordId": "ubc-master-of-science-in-atmospheric-science-msc-2028-application-deadline",
+      "school": "University of British Columbia",
+      "qsRank": 45,
+      "url": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-atmospheric-science",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-08-05T06:49:01.729737+00:00",
       "status": "pending"
     },
     {
@@ -14383,7 +14437,7 @@
       "qsRank": 60,
       "url": "https://www.uva.nl/en/education/admissions/masters/applications-and-admission/applications-and-admission.html",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:01.201783+00:00",
+      "detectedAt": "2026-08-05T06:43:06.034663+00:00",
       "status": "pending"
     },
     {
@@ -14394,7 +14448,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:42:01.807647+00:00",
+      "detectedAt": "2026-08-05T06:43:06.673390+00:00",
       "status": "pending"
     },
     {
@@ -14406,7 +14460,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14418,7 +14472,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14430,7 +14484,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14442,7 +14496,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14454,7 +14508,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14466,7 +14520,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14478,7 +14532,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14490,7 +14544,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14502,7 +14556,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14514,7 +14568,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14526,7 +14580,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14538,7 +14592,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14550,7 +14604,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14562,7 +14616,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14574,7 +14628,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14586,7 +14640,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14598,7 +14652,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14610,7 +14664,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14622,7 +14676,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14634,7 +14688,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14646,7 +14700,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14658,7 +14712,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14670,7 +14724,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14682,7 +14736,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14694,7 +14748,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14706,7 +14760,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14718,7 +14772,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14730,7 +14784,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14742,7 +14796,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14754,7 +14808,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14766,7 +14820,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14778,7 +14832,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14790,7 +14844,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14802,7 +14856,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14814,7 +14868,7 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
       "status": "pending"
     },
     {
@@ -14826,7 +14880,18 @@
       "qsRank": 65,
       "url": "https://admission.kaist.ac.kr/intl-graduate/Admission/YearlyTimelines",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:44:33.675078+00:00",
+      "detectedAt": "2026-08-05T06:45:41.740837+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "monitor-error:university-of-illinois-at-urbana-champaign",
+      "type": "monitor-error",
+      "universityId": "university-of-illinois-at-urbana-champaign",
+      "school": "University of Illinois Urbana-Champaign",
+      "qsRank": 74,
+      "url": "https://grad.illinois.edu/admissions/apply",
+      "reason": "timed out",
+      "detectedAt": "2026-08-05T06:43:07.361865+00:00",
       "status": "pending"
     },
     {
@@ -14837,7 +14902,7 @@
       "qsRank": 79,
       "url": "https://adelaide.edu.au/study/how-to-apply/postgraduate-coursework",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:03.176657+00:00",
+      "detectedAt": "2026-08-05T06:43:07.807245+00:00",
       "status": "pending"
     },
     {
@@ -14848,7 +14913,7 @@
       "qsRank": 80,
       "url": "https://www.gla.ac.uk/postgraduate/howtoapplyforataughtdegree/",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:03.465423+00:00",
+      "detectedAt": "2026-08-05T06:43:07.927305+00:00",
       "status": "pending"
     },
     {
@@ -30433,7 +30498,20 @@
       "qsRank": 82,
       "url": "https://www.kth.se/en/studies/master/application",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:03.700220+00:00",
+      "detectedAt": "2026-08-05T06:43:08.100520+00:00",
+      "status": "pending"
+    },
+    {
+      "id": "window-source-change:postech-general-graduate-2026-27-round-1:d549759dd66c",
+      "type": "window-source-change",
+      "universityId": "pohang-university-of-science-and-technology-postech",
+      "recordId": "postech-general-graduate-2026-27-round-1",
+      "school": "Pohang University of Science And Technology (POSTECH)",
+      "qsRank": 106,
+      "url": "https://adm-g.postech.ac.kr/",
+      "reason": "A published application-window source changed consistently in two consecutive checks.",
+      "severity": "deadline",
+      "detectedAt": "2026-08-05T06:46:15.851385+00:00",
       "status": "pending"
     },
     {
@@ -30457,7 +30535,7 @@
       "qsRank": 110,
       "url": "https://www.sle.kit.edu/english/vorstudium/master.php",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:07.586713+00:00",
+      "detectedAt": "2026-08-05T06:43:12.191276+00:00",
       "status": "pending"
     },
     {
@@ -30468,7 +30546,7 @@
       "qsRank": 111,
       "url": "https://corsidilaurea.uniroma1.it/en/corso/2026/29932/home",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:07.812941+00:00",
+      "detectedAt": "2026-08-05T06:43:12.293580+00:00",
       "status": "pending"
     },
     {
@@ -30479,7 +30557,7 @@
       "qsRank": 113,
       "url": "https://uwaterloo.ca/future-graduate-students/applying-graduate-school",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:08.000379+00:00",
+      "detectedAt": "2026-08-05T06:43:12.706136+00:00",
       "status": "pending"
     },
     {
@@ -30490,7 +30568,7 @@
       "qsRank": 115,
       "url": "https://www.st-andrews.ac.uk/study/apply/postgraduate/",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:08.170168+00:00",
+      "detectedAt": "2026-08-05T06:43:13.073071+00:00",
       "status": "pending"
     },
     {
@@ -30501,7 +30579,7 @@
       "qsRank": 123,
       "url": "https://www.helsinki.fi/en/admissions-and-education/apply-masters-programmes",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:08.785313+00:00",
+      "detectedAt": "2026-08-05T06:43:13.469225+00:00",
       "status": "pending"
     },
     {
@@ -30512,7 +30590,7 @@
       "qsRank": 125,
       "url": "https://www.bath.ac.uk/guides/applying-for-a-masters-degree/",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:08.791075+00:00",
+      "detectedAt": "2026-08-05T06:43:13.577507+00:00",
       "status": "pending"
     },
     {
@@ -30523,7 +30601,7 @@
       "qsRank": 130,
       "url": "https://www.ukm.my/portalukm/postgraduate/",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:09.408238+00:00",
+      "detectedAt": "2026-08-05T06:43:13.973631+00:00",
       "status": "pending"
     },
     {
@@ -30534,7 +30612,7 @@
       "qsRank": 142,
       "url": "https://admission.nthu.edu.tw/",
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'admission.nthu.edu.tw'. (_ssl.c:1010)",
-      "detectedAt": "2026-08-04T06:42:10.580248+00:00",
+      "detectedAt": "2026-08-05T06:43:15.159611+00:00",
       "status": "pending"
     },
     {
@@ -30545,7 +30623,7 @@
       "qsRank": 152,
       "url": "https://www.tue.nl/en/education/become-a-tue-student/admission-and-application",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:12.272468+00:00",
+      "detectedAt": "2026-08-05T06:43:16.630670+00:00",
       "status": "pending"
     },
     {
@@ -30556,7 +30634,7 @@
       "qsRank": 154,
       "url": "https://www.wur.nl/en/education/master/application-admission-masters/apply-masters-programme.htm",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:12.323152+00:00",
+      "detectedAt": "2026-08-05T06:43:16.697665+00:00",
       "status": "pending"
     },
     {
@@ -30567,7 +30645,7 @@
       "qsRank": 155,
       "url": "https://www.grad.hanyang.ac.kr/eng/entrance/calendar.php",
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.grad.hanyang.ac.kr'. (_ssl.c:1010)",
-      "detectedAt": "2026-08-04T06:42:12.332307+00:00",
+      "detectedAt": "2026-08-05T06:43:16.795885+00:00",
       "status": "pending"
     },
     {
@@ -30579,7 +30657,7 @@
       "qsRank": 155,
       "url": "https://oia.hanyang.ac.kr/files/attach/filebox/2026/02/24/9e341959d0a28e0c4ee5b3fb53ef287c.pdf",
       "reason": "Invalid object in /Pages",
-      "detectedAt": "2026-08-04T06:43:42.493948+00:00",
+      "detectedAt": "2026-08-05T06:44:49.065182+00:00",
       "status": "pending"
     },
     {
@@ -30590,7 +30668,7 @@
       "qsRank": 156,
       "url": "https://admissions.g30.nagoya-u.ac.jp/graduate/",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:12.395392+00:00",
+      "detectedAt": "2026-08-05T06:43:17.143924+00:00",
       "status": "pending"
     },
     {
@@ -30601,7 +30679,7 @@
       "qsRank": 158,
       "url": "https://admission.utm.my/international-postgraduate-study/",
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)",
-      "detectedAt": "2026-08-04T06:42:12.929307+00:00",
+      "detectedAt": "2026-08-05T06:43:17.241110+00:00",
       "status": "pending"
     },
     {
@@ -30612,7 +30690,7 @@
       "qsRank": 162,
       "url": "https://graduateschool.wustl.edu/admissions/",
       "reason": "timed out",
-      "detectedAt": "2026-08-04T06:42:13.171130+00:00",
+      "detectedAt": "2026-08-05T06:43:17.548209+00:00",
       "status": "pending"
     },
     {
@@ -30623,7 +30701,7 @@
       "qsRank": 165,
       "url": "https://admission.whu.edu.cn/en/?c=content&a=list&catid=81",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:13.324154+00:00",
+      "detectedAt": "2026-08-05T06:43:17.755822+00:00",
       "status": "pending"
     },
     {
@@ -30634,7 +30712,7 @@
       "qsRank": 167,
       "url": "https://www.su.se/english/search-courses-and-programmes",
       "reason": "[Errno 101] Network is unreachable",
-      "detectedAt": "2026-08-04T06:42:13.355657+00:00",
+      "detectedAt": "2026-08-05T06:43:17.769912+00:00",
       "status": "pending"
     },
     {
@@ -30645,7 +30723,7 @@
       "qsRank": 169,
       "url": "https://grad.tamu.edu/admissions",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:14.060689+00:00",
+      "detectedAt": "2026-08-05T06:43:18.357484+00:00",
       "status": "pending"
     },
     {
@@ -30656,7 +30734,7 @@
       "qsRank": 184,
       "url": "https://uct.ac.za/students/applications-admissions/postgraduate-applications",
       "reason": "HTTP 404",
-      "detectedAt": "2026-08-04T06:42:18.342706+00:00",
+      "detectedAt": "2026-08-05T06:43:23.011888+00:00",
       "status": "pending"
     },
     {
@@ -30667,7 +30745,7 @@
       "qsRank": 196,
       "url": "https://uclouvain.be/en/study/admission.html",
       "reason": "[Errno 101] Network is unreachable",
-      "detectedAt": "2026-08-04T06:42:20.172273+00:00",
+      "detectedAt": "2026-08-05T06:43:24.763870+00:00",
       "status": "pending"
     }
   ]
