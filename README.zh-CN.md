@@ -9,7 +9,7 @@
 
 基于大学官网数据的 QS 前 200 硕士申请追踪项目。下面只展示每所大学的汇总信息；完整的项目级申请窗口请前往网站查看。
 
-状态日期：**2026-08-04**
+状态日期：**2026-08-05**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -27,7 +27,7 @@
 | =40 | The University of Queensland / 昆士兰大学 | 151 个当前开放窗口 | 2026-08-05 | 预测参考 | [招生官网](https://study.uq.edu.au/admissions/postgraduate-coursework) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Queensland) |
 | =45 | Northwestern University / 西北大学 | 11 个当前开放窗口 | 2026-12-01 | 官网核验 | [招生官网](https://www.tgs.northwestern.edu/admission/) · [查看全部项目](https://gradwindow.com/?q=Northwestern%20University) |
 | 45 | University of British Columbia / 不列颠哥伦比亚大学 | 64 个当前开放窗口 | 2026-08-12 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
-| 50 | The Hong Kong Polytechnic University / 香港理工大学 | 211 个当前开放窗口 | 2026-10-20 | 官网核验 + 预测参考 | [招生官网](https://www.polyu.edu.hk/study/pg/taught-postgraduate) · [查看全部项目](https://gradwindow.com/?q=The%20Hong%20Kong%20Polytechnic%20University) |
+| 50 | The Hong Kong Polytechnic University / 香港理工大学 | 215 个当前开放窗口 | 2026-10-20 | 官网核验 + 预测参考 | [招生官网](https://www.polyu.edu.hk/study/pg/taught-postgraduate) · [查看全部项目](https://gradwindow.com/?q=The%20Hong%20Kong%20Polytechnic%20University) |
 | =52 | City University of Hong Kong (CityUHK) / 香港城市大学 | 6 个当前开放窗口 | 2026-08-05 | 官网核验 | [招生官网](https://www.cityu.edu.hk/pg/programme/p60) · [查看全部项目](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
 | 54 | National Taiwan University (NTU) / 台湾大学 | 61 个当前开放窗口 | 2026-09-17 | 官网核验 | [招生官网](https://admissions.ntu.edu.tw/apply/degree-students/international-students/) · [查看全部项目](https://gradwindow.com/?q=National%20Taiwan%20University%20%28NTU%29) |
 | 56 | Universiti Malaya (UM) / 马来亚大学 | 137 个当前开放窗口 | 2026-08-30 | 官网核验 | [招生官网](https://study.um.edu.my/how-to-apply) · [查看全部项目](https://gradwindow.com/?q=Universiti%20Malaya%20%28UM%29) |
