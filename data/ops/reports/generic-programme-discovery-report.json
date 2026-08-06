@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-05T07:23:36.480511+00:00",
+    "updatedAt": "2026-08-06T07:29:43.861719+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -16,7 +16,7 @@
     "needsOpeningReview": 0,
     "needsOpeningDate": 638,
     "needsAdapter": 422,
-    "comingSoonMonitor": 1,
+    "comingSoonMonitor": 2,
     "deadlineUnavailableMonitor": 1
   },
   "results": [
@@ -91,26 +91,26 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-05T07:23:53.449257+00:00",
-      "catalogProgrammes": 2,
+      "checkedAt": "2026-08-06T07:29:56.518887+00:00",
+      "catalogProgrammes": 3,
       "previousCatalogProgrammes": 2,
       "knownProgrammes": 1,
-      "newCandidates": 0,
+      "newCandidates": 1,
       "newGuidanceCandidates": 0,
       "newWindowCandidates": 0,
       "changedWindowCandidates": 0,
       "pendingWindowCandidates": 0,
-      "pendingCandidates": 42,
+      "pendingCandidates": 43,
       "pendingGuidanceCandidates": 1,
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
       "observedWindowCount": 1,
       "exactWindowCount": 0,
       "missingOpeningDateCount": 1,
-      "programmesWithoutDeadlines": 1,
-      "programmesNeedingReview": 2,
+      "programmesWithoutDeadlines": 2,
+      "programmesNeedingReview": 3,
       "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "windowFingerprint": "2da25635e85592ca7f9d20d7b2dcedc78ac98deba590337ee132bae71865c33d",
+      "windowFingerprint": "44e69c3a5fb7a5efb682a2db8d1f24fcb3373009d1d74ce568f6e0efaf022036",
       "watchedWindowSourceHash": null,
       "dryRun": false,
       "batchStatus": "ok"
@@ -9664,6 +9664,15 @@
       }
     ],
     "comingSoonMonitor": [
+      {
+        "id": "new-programme:uchicago-meng-jiang-notre-dame-schmidt-ai-in-science-speaker-series",
+        "universityId": "university-of-chicago",
+        "programmeName": "Meng Jiang (Notre Dame): Schmidt AI in Science Speaker Series",
+        "sourceUrl": "https://datascience.uchicago.edu/events/meng-jiang-notre-dame-schmidt-ai-in-science-speaker-series/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
       {
         "id": "new-programme:uchicago-ms-in-applied-data-science",
         "universityId": "university-of-chicago",
