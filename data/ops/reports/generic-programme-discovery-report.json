@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-06T07:29:43.861719+00:00",
+    "updatedAt": "2026-08-07T06:33:26.140288+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -15,7 +15,7 @@
     "readyToApprove": 0,
     "needsOpeningReview": 0,
     "needsOpeningDate": 638,
-    "needsAdapter": 422,
+    "needsAdapter": 423,
     "comingSoonMonitor": 2,
     "deadlineUnavailableMonitor": 1
   },
@@ -91,11 +91,11 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-06T07:29:56.518887+00:00",
+      "checkedAt": "2026-08-07T06:33:40.873786+00:00",
       "catalogProgrammes": 3,
-      "previousCatalogProgrammes": 2,
+      "previousCatalogProgrammes": 3,
       "knownProgrammes": 1,
-      "newCandidates": 1,
+      "newCandidates": 0,
       "newGuidanceCandidates": 0,
       "newWindowCandidates": 0,
       "changedWindowCandidates": 0,
@@ -9298,6 +9298,15 @@
         "universityId": "the-university-of-melbourne",
         "programmeName": "Master of Youth Mental Health",
         "sourceUrl": "https://handbook.unimelb.edu.au/2026/courses/mc-youthmh",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:melbourne-master-of-theatre-mc-thtr",
+        "universityId": "the-university-of-melbourne",
+        "programmeName": "Master of Theatre",
+        "sourceUrl": "https://handbook.unimelb.edu.au/2026/courses/mc-thtr",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
