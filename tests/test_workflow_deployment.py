@@ -44,7 +44,14 @@ def test_data_writing_workflows_share_one_concurrency_lock() -> None:
     assert _concurrency_group(monitor_workflow) == "application-data-state-writes"
     assert "cancel-in-progress: false" in update_workflow
     assert "cancel-in-progress: false" in monitor_workflow
-    assert "git pull --rebase origin main" in monitor_workflow
+
+    pull_position = monitor_workflow.index("git pull --ff-only origin main")
+    scan_position = monitor_workflow.index("gradwindow monitor --workers 16")
+    commit_position = monitor_workflow.index(
+        'git commit -m "chore: publish daily monitoring status"'
+    )
+    assert pull_position < scan_position < commit_position
+    assert "git pull --rebase origin main" not in monitor_workflow
 
 
 def test_data_workflows_maintain_failure_issues_without_comment_spam() -> None:
