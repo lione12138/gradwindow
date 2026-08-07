@@ -38,11 +38,27 @@ export const I18N = {
     saveProfile: "Save profile",
     authSendingCode: "Sending login code…",
     authCodeSent: "Check your email for the 6-digit code.",
+    authCodeSentTo: "We sent a 6-digit code to",
+    authChangeEmail: "Use a different email",
+    authPrivacy:
+      "Passwordless sign-in. Your email is encrypted and never shown publicly.",
+    authChallengeError:
+      "The security check could not load. Please refresh and try again.",
     authVerifying: "Signing in…",
     authSignedIn: "You are signed in.",
     authProfileSaved: "Profile saved.",
     authError: "Account action failed. Please try again.",
     authRequiredForComments: "Please sign in before posting a school comment.",
+    favoritesStoredLocally:
+      "{count} saved item(s) are stored only on this device.",
+    favoritesSignIn: "Sign in to sync",
+    favoritesSignInPrompt:
+      "Your saved items are still on this device. Sign in to sync them across devices.",
+    favoritesSyncing: "Syncing saved items with your account…",
+    favoritesSynced: "{count} saved item(s) synced with your account.",
+    favoritesSyncError:
+      "Cloud sync failed. Your saved items are still safe on this device.",
+    mobileNavAccount: "Account",
     eyebrow: "Official sources · daily checks · deadline alerts",
     heroTitle: "Never let a master's<br /><em>deadline slip away</em>",
     heroDescription:
@@ -469,11 +485,23 @@ export const I18N = {
     saveProfile: "保存资料",
     authSendingCode: "正在发送验证码…",
     authCodeSent: "请查看邮箱中的 6 位验证码。",
+    authCodeSentTo: "验证码已发送至",
+    authChangeEmail: "换一个邮箱",
+    authPrivacy: "无密码登录；邮箱会加密保存，也不会公开显示。",
+    authChallengeError: "安全验证加载失败，请刷新页面后重试。",
     authVerifying: "正在登录…",
     authSignedIn: "已登录。",
     authProfileSaved: "资料已保存。",
     authError: "账号操作失败，请稍后重试。",
     authRequiredForComments: "发表评论前请先登录。",
+    favoritesStoredLocally: "{count} 个收藏目前仅保存在这台设备上。",
+    favoritesSignIn: "登录并同步",
+    favoritesSignInPrompt:
+      "收藏已经保存在这台设备上。登录后即可在不同设备间同步。",
+    favoritesSyncing: "正在与账号同步收藏…",
+    favoritesSynced: "已与账号同步 {count} 个收藏。",
+    favoritesSyncError: "云端同步失败，收藏仍安全保存在这台设备上。",
+    mobileNavAccount: "账号",
     eyebrow: "官网来源 · 每日检查 · 截止提醒",
     heroTitle: "别让心仪项目的<br /><em>截止日期</em>悄悄溜走",
     heroDescription:

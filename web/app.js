@@ -4,8 +4,9 @@ import { t } from "./strings.js";
 import { makeCalendarMenu } from "./calendar-export.js";
 import {
   initAuth,
+  loadInitialFavorites,
   openAuthPanel,
-  scheduleFavoriteSync,
+  persistFavorites,
   setupAuthPanel,
   updateAuthUi,
 } from "./auth.js";
@@ -42,6 +43,11 @@ import {
   filterRecordsToRanking,
 } from "./ranking-filter.js";
 import { groupWindowRecordsForDisplay } from "./window-grouping.js";
+import {
+  ensureTurnstileWidget,
+  resetTurnstileWidget,
+  turnstileToken,
+} from "./turnstile.js";
 
 const PAGE_SIZE = 20;
 const dateFormatters = new Map();
@@ -148,12 +154,7 @@ function favoriteKey(type, id) {
 }
 
 function saveFavorites() {
-  localStorage.setItem(
-    "gradwindow:favorites",
-    JSON.stringify([...state.favorites]),
-  );
-  updateFavoriteControls();
-  scheduleFavoriteSync();
+  persistFavorites();
 }
 
 function toggleFavorite(key) {
@@ -1735,6 +1736,25 @@ function updateFavoriteControls() {
       button.textContent = active ? t("favorited") : t("favorite");
       button.title = active ? t("removeFavorite") : t("favorite");
     });
+  const notice = document.getElementById("favorites-sync-notice");
+  const message = document.getElementById("favorites-sync-message");
+  const signIn = document.getElementById("favorites-sign-in");
+  if (!notice || !message || !signIn) return;
+  notice.hidden = count === 0;
+  notice.dataset.status = state.favoriteSyncStatus;
+  signIn.hidden = Boolean(state.user);
+  if (!state.user) {
+    message.textContent = t("favoritesStoredLocally").replace("{count}", count);
+  } else if (state.favoriteSyncStatus === "error") {
+    message.textContent = t("favoritesSyncError");
+  } else if (
+    state.favoriteSyncStatus === "pending" ||
+    state.favoriteSyncStatus === "syncing"
+  ) {
+    message.textContent = t("favoritesSyncing");
+  } else {
+    message.textContent = t("favoritesSynced").replace("{count}", count);
+  }
 }
 
 function applyStaticTranslations() {
@@ -1770,6 +1790,7 @@ function applyStaticTranslations() {
     );
   updateRankRangeOptions();
   updateAuthUi();
+  updateFavoriteControls();
   document.title =
     state.language === "zh"
       ? "GradWindow · QS 200 硕士申请时间表"
@@ -1787,25 +1808,6 @@ function applyTheme() {
       state.theme === "dark" ? t("switchToLight") : t("switchToDark"),
     );
   }
-}
-
-function loadTurnstile(siteKey) {
-  if (!siteKey || document.querySelector("script[data-gradwindow-turnstile]")) {
-    return;
-  }
-  const container = document.getElementById("turnstile-container");
-  if (!container) return;
-  const widget = makeElement("div", { className: "cf-turnstile" });
-  widget.dataset.sitekey = siteKey;
-  widget.dataset.action = "turnstile-spin-v1";
-  widget.dataset.theme = state.theme === "dark" ? "dark" : "light";
-  container.appendChild(widget);
-  const script = document.createElement("script");
-  script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
-  script.async = true;
-  script.defer = true;
-  script.dataset.gradwindowTurnstile = "true";
-  document.head.appendChild(script);
 }
 
 function setupSubscription() {
@@ -1832,18 +1834,23 @@ function setupSubscription() {
   }
   button.disabled = false;
   if (!subscriptionState) status.textContent = "";
-  loadTurnstile(config.turnstileSiteKey || "");
+  ensureTurnstileWidget("turnstile-container", "turnstile-spin-v1").catch(
+    () => {
+      status.className = "subscribe-status error";
+      status.textContent = t("subscribeError");
+    },
+  );
   if (form.dataset.bound === "true") return;
   form.dataset.bound = "true";
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const email = document.getElementById("subscribe-email").value.trim();
-    const turnstileToken =
-      form.querySelector('[name="cf-turnstile-response"]')?.value || "";
     button.disabled = true;
     status.className = "subscribe-status";
     status.textContent = t("subscribeSending");
     try {
+      await ensureTurnstileWidget("turnstile-container", "turnstile-spin-v1");
+      const challengeToken = turnstileToken("turnstile-container");
       const response = await fetch(`${endpoint}/subscribe`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -1851,14 +1858,14 @@ function setupSubscription() {
           email,
           language: state.language,
           consent: true,
-          turnstileToken,
+          turnstileToken: challengeToken,
         }),
       });
       if (!response.ok) throw new Error("subscribe failed");
       form.reset();
       status.className = "subscribe-status success";
       status.textContent = t("subscribeSuccess");
-      if (window.turnstile) window.turnstile.reset();
+      resetTurnstileWidget("turnstile-container");
     } catch {
       status.className = "subscribe-status error";
       status.textContent = t("subscribeError");
@@ -2081,6 +2088,9 @@ function bindEvents() {
     resetPages();
     render();
   });
+  document.getElementById("favorites-sign-in").addEventListener("click", () => {
+    openAuthPanel(t("favoritesSignInPrompt"));
+  });
   document
     .getElementById("export-favorites")
     .addEventListener("click", downloadFavoriteCalendars);
@@ -2271,13 +2281,7 @@ async function init() {
       university.coverage = coverageByUniversity.get(university.id) || null;
     });
     state.meta = { ...payload.meta, ...universityPayload.meta };
-    try {
-      state.favorites = new Set(
-        JSON.parse(localStorage.getItem("gradwindow:favorites") || "[]"),
-      );
-    } catch {
-      state.favorites = new Set();
-    }
+    state.favorites = loadInitialFavorites();
     loadUrlState();
     if (selectedRankingDefinition().available === false) state.ranking = "qs";
     updateRankingAvailability();

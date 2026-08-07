@@ -84,6 +84,8 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     assert (tmp_path / "window-grouping.js").exists()
     assert (tmp_path / "localization.js").exists()
     assert (tmp_path / "i18n.js").exists()
+    assert (tmp_path / "turnstile.js").exists()
+    assert (tmp_path / "auth.js").exists()
     assert (tmp_path / "privacy.html").exists()
     assert (tmp_path / "roadmap.html").exists()
     assert (tmp_path / "roadmap.js").exists()
@@ -187,6 +189,9 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'id="mobile-filter-toggle"' in index_html
     assert 'id="window-detail-panel"' in index_html
     assert 'class="mobile-bottom-nav"' in index_html
+    assert 'id="auth-turnstile"' in index_html
+    assert 'id="auth-verify-form" hidden' in index_html
+    assert 'id="favorites-sync-notice"' in index_html
     assert index_html.count("data-mobile-nav=") == 3
     assert 'data-mobile-nav="search"' not in index_html
     assert 'id="sort-select"' not in index_html

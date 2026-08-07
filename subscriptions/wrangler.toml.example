@@ -1,6 +1,7 @@
 name = "gradwindow-subscriptions"
 main = "worker.js"
-compatibility_date = "2026-06-15"
+compatibility_date = "2026-08-07"
+compatibility_flags = ["nodejs_compat"]
 
 [triggers]
 crons = ["31 3 * * *"]

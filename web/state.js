@@ -35,4 +35,5 @@ export const state = {
   authToken: "",
   user: null,
   favoriteSyncTimer: null,
+  favoriteSyncStatus: "local",
 };
