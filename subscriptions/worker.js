@@ -11,7 +11,11 @@ import {
   verifyUnsubscribeToken,
 } from "./core.js";
 
-const JSON_HEADERS = { "Content-Type": "application/json; charset=utf-8" };
+const JSON_HEADERS = {
+  "Content-Type": "application/json; charset=utf-8",
+  "Cache-Control": "private, no-store",
+  "X-Content-Type-Options": "nosniff",
+};
 const MAX_EVENTS = 1000;
 const MAX_SENDS_PER_REQUEST = 80;
 const MAX_DIGEST_GROUPS = 8;
@@ -50,9 +54,25 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-async function verifyTurnstile(token, env) {
+function turnstileHostnames(env) {
+  return new Set(
+    String(env.ALLOWED_ORIGINS || "")
+      .split(",")
+      .map((origin) => {
+        try {
+          return new URL(origin.trim()).hostname;
+        } catch {
+          return "";
+        }
+      })
+      .filter(Boolean),
+  );
+}
+
+async function verifyTurnstile(token, request, env, expectedAction) {
   if (!env.TURNSTILE_SECRET_KEY) return true;
   if (!token) return false;
+  const remoteIp = request.headers.get("CF-Connecting-IP") || "";
   const response = await fetch(
     "https://challenges.cloudflare.com/turnstile/v0/siteverify",
     {
@@ -61,11 +81,36 @@ async function verifyTurnstile(token, env) {
       body: new URLSearchParams({
         secret: env.TURNSTILE_SECRET_KEY,
         response: token,
+        ...(remoteIp ? { remoteip: remoteIp } : {}),
       }),
     },
   );
+  if (!response.ok) return false;
   const result = await response.json();
-  return result.success === true;
+  return (
+    result.success === true &&
+    result.action === expectedAction &&
+    turnstileHostnames(env).has(result.hostname)
+  );
+}
+
+async function secretsEqual(provided, expected) {
+  if (!provided || !expected) return false;
+  const encoder = new TextEncoder();
+  const [providedHash, expectedHash] = await Promise.all([
+    crypto.subtle.digest("SHA-256", encoder.encode(provided)),
+    crypto.subtle.digest("SHA-256", encoder.encode(expected)),
+  ]);
+  if (typeof crypto.subtle.timingSafeEqual === "function") {
+    return crypto.subtle.timingSafeEqual(providedHash, expectedHash);
+  }
+  const providedBytes = new Uint8Array(providedHash);
+  const expectedBytes = new Uint8Array(expectedHash);
+  let difference = 0;
+  for (let index = 0; index < providedBytes.length; index += 1) {
+    difference |= providedBytes[index] ^ expectedBytes[index];
+  }
+  return difference === 0;
 }
 
 function normalizeVisitorId(value) {
@@ -124,7 +169,7 @@ function normalizeFavoriteKey(value) {
 }
 
 function authSecret(env) {
-  return env.AUTH_SECRET_KEY || env.TOKEN_SIGNING_KEY || env.ROADMAP_VOTER_HASH_KEY;
+  return String(env.AUTH_SECRET_KEY || "").trim();
 }
 
 function publicUser(row) {
@@ -164,7 +209,7 @@ async function authCodeEmail(language, code) {
 async function sessionUser(request, env) {
   const header = request.headers.get("Authorization") || "";
   const match = header.match(/^Bearer\s+(.+)$/i);
-  if (!match || !authSecret(env)) return null;
+  if (!match) return null;
   const sessionHash = await sha256Hex(match[1]);
   const row = await env.DB.prepare(
     `SELECT u.id, u.display_name, u.language, u.country, u.target_intake
@@ -254,7 +299,10 @@ async function roadmapAdminStats(request, env) {
   const expected = String(env.ROADMAP_ADMIN_API_KEY || "").trim();
   if (
     !expected ||
-    request.headers.get("Authorization") !== `Bearer ${expected}`
+    !(await secretsEqual(
+      request.headers.get("Authorization"),
+      `Bearer ${expected}`,
+    ))
   ) {
     return jsonResponse(request, env, { ok: false }, 401);
   }
@@ -353,7 +401,14 @@ async function createRoadmapProposal(request, env) {
   } catch {
     return jsonResponse(request, env, { ok: false }, 400);
   }
-  if (!(await verifyTurnstile(payload.turnstileToken, env))) {
+  if (
+    !(await verifyTurnstile(
+      payload.turnstileToken,
+      request,
+      env,
+      "turnstile-spin-v1",
+    ))
+  ) {
     return jsonResponse(request, env, { ok: false }, 400);
   }
   let identity;
@@ -396,7 +451,14 @@ async function requestAuthCode(request, env) {
   } catch {
     return jsonResponse(request, env, { ok: false }, 400);
   }
-  if (payload.turnstileToken && !(await verifyTurnstile(payload.turnstileToken, env))) {
+  if (
+    !(await verifyTurnstile(
+      payload.turnstileToken,
+      request,
+      env,
+      "auth-login",
+    ))
+  ) {
     return jsonResponse(request, env, { ok: false }, 400);
   }
   let email;
@@ -475,6 +537,32 @@ async function verifyAuthCode(request, env) {
     return jsonResponse(request, env, { ok: false }, 400);
   }
   const emailHash = await hmacHex(env.EMAIL_INDEX_KEY, email);
+  const ip = request.headers.get("CF-Connecting-IP") || "";
+  const ipHash =
+    ip && env.ROADMAP_VOTER_HASH_KEY
+      ? await hmacHex(env.ROADMAP_VOTER_HASH_KEY, ip)
+      : "";
+  const [emailAllowed, ipAllowed] = await Promise.all([
+    consumeRoadmapRateLimit(
+      env,
+      "auth-verify-email",
+      emailHash,
+      10,
+      AUTH_CODE_TTL_MS,
+    ),
+    ipHash
+      ? consumeRoadmapRateLimit(
+          env,
+          "auth-verify-ip",
+          ipHash,
+          60,
+          AUTH_CODE_TTL_MS,
+        )
+      : true,
+  ]);
+  if (!emailAllowed || !ipAllowed) {
+    return jsonResponse(request, env, { ok: false }, 429);
+  }
   const codeHash = await hmacHex(authSecret(env), `${emailHash}:${code}`);
   const now = new Date().toISOString();
   const challenge = await env.DB.prepare(
@@ -779,7 +867,14 @@ async function subscribe(request, env) {
   if (payload.consent !== true) {
     return jsonResponse(request, env, { ok: false }, 400);
   }
-  if (!(await verifyTurnstile(payload.turnstileToken, env))) {
+  if (
+    !(await verifyTurnstile(
+      payload.turnstileToken,
+      request,
+      env,
+      "turnstile-spin-v1",
+    ))
+  ) {
     return jsonResponse(request, env, { ok: false }, 400);
   }
   let email;
@@ -1089,7 +1184,10 @@ async function notify(request, env) {
   const adminApiKey = String(env.ADMIN_API_KEY || "").trim();
   if (
     !adminApiKey ||
-    request.headers.get("Authorization") !== `Bearer ${adminApiKey}`
+    !(await secretsEqual(
+      request.headers.get("Authorization"),
+      `Bearer ${adminApiKey}`,
+    ))
   ) {
     return jsonResponse(request, env, { ok: false }, 401);
   }

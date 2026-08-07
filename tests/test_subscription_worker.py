@@ -115,6 +115,82 @@ def test_worker_preflight_allows_comment_reads_and_writes() -> None:
     assert "PUT" in response["methods"]
 
 
+def test_auth_requires_a_dedicated_secret() -> None:
+    node = shutil.which("node")
+    assert node is not None, "Node.js is required for subscription worker tests"
+    worker_uri = (
+        (Path(__file__).parents[1] / "subscriptions" / "worker.js").resolve().as_uri()
+    )
+    script = f"""
+      import worker from {json.dumps(worker_uri)};
+      const response = await worker.fetch(
+        new Request("https://worker.example/auth/request", {{
+          method: "POST",
+          headers: {{
+            Origin: "https://gradwindow.com",
+            "Content-Type": "application/json",
+          }},
+          body: JSON.stringify({{ email: "user@example.com", language: "en" }}),
+        }}),
+        {{
+          ALLOWED_ORIGINS: "https://gradwindow.com",
+          TOKEN_SIGNING_KEY: "must-not-double-as-auth-secret",
+        }},
+      );
+      console.log(JSON.stringify({{ status: response.status }}));
+    """
+    result = subprocess.run(
+        [node, "--input-type=module", "-e", script],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert json.loads(result.stdout) == {"status": 503}
+
+
+def test_auth_requires_the_expected_turnstile_action() -> None:
+    node = shutil.which("node")
+    assert node is not None, "Node.js is required for subscription worker tests"
+    worker_uri = (
+        (Path(__file__).parents[1] / "subscriptions" / "worker.js").resolve().as_uri()
+    )
+    script = f"""
+      import worker from {json.dumps(worker_uri)};
+      globalThis.fetch = async () => Response.json({{
+        success: true,
+        action: "turnstile-spin-v1",
+        hostname: "gradwindow.com",
+      }});
+      const response = await worker.fetch(
+        new Request("https://worker.example/auth/request", {{
+          method: "POST",
+          headers: {{
+            Origin: "https://gradwindow.com",
+            "Content-Type": "application/json",
+          }},
+          body: JSON.stringify({{
+            email: "user@example.com",
+            language: "en",
+            turnstileToken: "valid-for-the-wrong-action",
+          }}),
+        }}),
+        {{
+          ALLOWED_ORIGINS: "https://gradwindow.com",
+          AUTH_SECRET_KEY: "dedicated-auth-secret",
+          TURNSTILE_SECRET_KEY: "turnstile-secret",
+        }},
+      );
+      console.log(JSON.stringify({{ status: response.status }}));
+    """
+    result = subprocess.run(
+        [node, "--input-type=module", "-e", script],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    assert json.loads(result.stdout) == {"status": 400}
+
+
 def test_admin_roadmap_stats_require_a_dedicated_secret_and_only_aggregate() -> None:
     node = shutil.which("node")
     assert node is not None, "Node.js is required for subscription worker tests"

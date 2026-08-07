@@ -50,6 +50,7 @@ PUBLIC_FILES = (
     "state.js",
     "strings.js",
     "calendar-export.js",
+    "turnstile.js",
     "auth.js",
     "review.js",
     "styles.css",

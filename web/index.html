@@ -120,13 +120,23 @@
             <form class="auth-form" id="auth-request-form">
               <label for="auth-email" data-i18n="authEmailLabel">Email address</label>
               <input id="auth-email" type="email" autocomplete="email" required data-i18n-placeholder="emailPlaceholder" placeholder="you@example.com" />
+              <div id="auth-turnstile" class="auth-turnstile"></div>
               <button class="primary-button" id="auth-request-button" type="submit" data-i18n="sendLoginCode">Send login code</button>
             </form>
-            <form class="auth-form" id="auth-verify-form">
+            <form class="auth-form" id="auth-verify-form" hidden>
+              <p class="auth-code-help">
+                <span data-i18n="authCodeSentTo">We sent a 6-digit code to</span>
+                <strong id="auth-code-email"></strong>
+              </p>
               <label for="auth-code" data-i18n="authCodeLabel">Login code</label>
-              <input id="auth-code" inputmode="numeric" maxlength="6" autocomplete="one-time-code" data-i18n-placeholder="authCodePlaceholder" placeholder="6-digit code" />
+              <input id="auth-code" inputmode="numeric" maxlength="6" pattern="[0-9]{6}" autocomplete="one-time-code" required data-i18n-placeholder="authCodePlaceholder" placeholder="6-digit code" />
               <button class="primary-button" id="auth-verify-button" type="submit" data-i18n="verifyLoginCode">Sign in</button>
+              <button class="text-button" id="auth-change-email" type="button" data-i18n="authChangeEmail">Use a different email</button>
             </form>
+            <p class="auth-privacy">
+              <span data-i18n="authPrivacy">Passwordless sign-in. Your email is encrypted and never shown publicly.</span>
+              <a href="./privacy.html" data-i18n="privacyPolicy">Privacy policy</a>
+            </p>
           </div>
 
           <div class="auth-signed-in" id="auth-signed-in" hidden>
@@ -354,6 +364,12 @@
               <button id="expand-visible-groups" type="button" data-i18n="expandVisibleSchools">Expand schools on this page</button>
               <button id="collapse-visible-groups" type="button" data-i18n="collapseVisibleSchools">Collapse all</button>
             </div>
+          </div>
+
+          <div class="favorites-sync-notice" id="favorites-sync-notice" hidden>
+            <span class="favorites-sync-dot" aria-hidden="true"></span>
+            <span id="favorites-sync-message"></span>
+            <button class="text-button" id="favorites-sign-in" type="button" data-i18n="favoritesSignIn">Sign in to sync</button>
           </div>
 
           <div id="application-groups" class="application-groups"></div>

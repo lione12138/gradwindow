@@ -148,7 +148,7 @@ INSERT INTO roadmap_proposals (
     'Account login and synced favourites', '个人注册登录与收藏',
     'Create an account to save favourite universities and programmes, then access them across devices.',
     '注册账号后收藏大学和项目，并在不同设备间同步查看。',
-    'planned', 0, '2026-06-21T00:00:00Z', NULL
+    'complete', 100, '2026-06-21T00:00:00Z', NULL
   ),
   (
     'wechat-mini-program', 'owner',
