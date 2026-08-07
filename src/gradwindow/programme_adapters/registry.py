@@ -22,6 +22,7 @@ from .caltech import CaltechAdapter
 from .cambridge import CambridgeAdapter
 from .chalmers import ChalmersAdapter
 from .cityu import CityUAdapter
+from .cmu import CMUAdapter
 from .columbia import ColumbiaAdapter
 from .copenhagen import CopenhagenAdapter
 from .cornell import CornellAdapter
@@ -70,6 +71,7 @@ from .manchester import ManchesterAdapter
 from .mcgill import McGillAdapter
 from .mcmaster import McMasterAdapter
 from .melbourne import MelbourneAdapter
+from .michigan import MichiganAdapter
 from .mit import MITAdapter
 from .monash import MonashAdapter
 from .nagoya import NagoyaAdapter
@@ -81,6 +83,7 @@ from .nthu import NTHUAdapter
 from .ntu import NTUAdapter
 from .ntu_taiwan import NTUTaiwanAdapter
 from .nus import NUSAdapter
+from .nyu import NYUAdapter
 from .osaka import OsakaAdapter
 from .oslo import OsloAdapter
 from .oxford import OxfordAdapter
@@ -110,11 +113,13 @@ from .tamu import TAMUAdapter
 from .tohoku import TohokuAdapter
 from .tongji import TongjiAdapter
 from .toronto import TorontoAdapter
+from .trinity import TrinityAdapter
 from .tsinghua import TsinghuaAdapter
 from .tu_berlin import TUBerlinAdapter
 from .tu_wien import TUWienAdapter
 from .tudelft import TUDelftAdapter
 from .tum import TUMAdapter
+from .uba import UBAAdapter
 from .ubc import UBCAdapter
 from .ucd import UCDAdapter
 from .uchicago import UChicagoAdapter
@@ -174,6 +179,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "cornell": CornellAdapter,
     "cuhk": CUHKAdapter,
     "cityu": CityUAdapter,
+    "cmu": CMUAdapter,
     "duke": DukeAdapter,
     "dtu": DTUAdapter,
     "edinburgh": EdinburghAdapter,
@@ -218,6 +224,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "melbourne": MelbourneAdapter,
     "manchester": ManchesterAdapter,
     "mcmaster": McMasterAdapter,
+    "michigan": MichiganAdapter,
     "mit": MITAdapter,
     "monash": MonashAdapter,
     "nagoya": NagoyaAdapter,
@@ -229,6 +236,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "ntu-taiwan": NTUTaiwanAdapter,
     "nthu": NTHUAdapter,
     "nus": NUSAdapter,
+    "nyu": NYUAdapter,
     "oxford": OxfordAdapter,
     "oslo": OsloAdapter,
     "osaka": OsakaAdapter,
@@ -258,12 +266,14 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "toronto": TorontoAdapter,
     "tohoku": TohokuAdapter,
     "tongji": TongjiAdapter,
+    "trinity": TrinityAdapter,
     "tsinghua": TsinghuaAdapter,
     "tudelft": TUDelftAdapter,
     "tum": TUMAdapter,
     "tu-wien": TUWienAdapter,
     "tu-berlin": TUBerlinAdapter,
     "ubc": UBCAdapter,
+    "uba": UBAAdapter,
     "uchicago": UChicagoAdapter,
     "ucl": UCLAdapter,
     "ucla": UCLAAdapter,
