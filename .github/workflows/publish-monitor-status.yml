@@ -9,11 +9,12 @@ on:
 
 permissions:
   contents: write
+  issues: write
   pages: write
   id-token: write
 
 concurrency:
-  group: publish-monitor-status
+  group: application-data-state-writes
   cancel-in-progress: false
 
 jobs:
@@ -55,6 +56,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore: publish daily monitoring status"
+          git pull --rebase origin main
           git push
           echo "published=true" >> "$GITHUB_OUTPUT"
 
@@ -87,3 +89,36 @@ jobs:
           python3 scripts/submit_indexnow.py
           --sitemap site/sitemap.xml
           --key-file site/ffcdfa5871ff4d52aed733120c248bf8.txt
+
+      - name: Maintain monitoring workflow failure issue
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          title="Monitoring-status publication failed"
+          issue_number="$(
+            gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+              --search "in:title $title" --json number,title \
+              --jq ".[] | select(.title == \"$title\") | .number" | head -n 1
+          )"
+
+          if [ "$JOB_STATUS" = "failure" ]; then
+            body="$(printf '%s\n\n%s\n\n%s\n' \
+              'The daily monitoring-status publication failed.' \
+              "Run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+              'This issue is updated in place and closes automatically after the next successful publication.')"
+            if [ -z "$issue_number" ]; then
+              gh issue create --repo "$GITHUB_REPOSITORY" \
+                --title "$title" --body "$body" \
+                --assignee "$GITHUB_REPOSITORY_OWNER"
+            else
+              gh issue edit "$issue_number" --repo "$GITHUB_REPOSITORY" \
+                --body "$body"
+            fi
+          elif [ -n "$issue_number" ]; then
+            gh issue close "$issue_number" --repo "$GITHUB_REPOSITORY" \
+              --reason completed
+          fi
