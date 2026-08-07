@@ -36,7 +36,7 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: update-application-data
+  group: application-data-state-writes
   cancel-in-progress: false
 
 jobs:
@@ -140,6 +140,7 @@ jobs:
             exit 0
           fi
           git commit -m "data: translate published programmes"
+          git pull --rebase origin "$GITHUB_REF_NAME"
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: Test refreshed data before publication
@@ -238,3 +239,39 @@ jobs:
           gh workflow run tests.yml
           --repo "$GITHUB_REPOSITORY"
           --ref main
+
+      - name: Maintain update workflow failure issue
+        if: >-
+          always() &&
+          github.event_name != 'push' &&
+          !inputs.translation_only
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          title="Application-data refresh failed"
+          issue_number="$(
+            gh issue list --repo "$GITHUB_REPOSITORY" --state open \
+              --search "in:title $title" --json number,title \
+              --jq ".[] | select(.title == \"$title\") | .number" | head -n 1
+          )"
+
+          if [ "$JOB_STATUS" = "failure" ]; then
+            body="$(printf '%s\n\n%s\n\n%s\n' \
+              'The scheduled application-data refresh failed.' \
+              "Run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+              'This issue is updated in place and closes automatically after the next successful full refresh.')"
+            if [ -z "$issue_number" ]; then
+              gh issue create --repo "$GITHUB_REPOSITORY" \
+                --title "$title" --body "$body" \
+                --assignee "$GITHUB_REPOSITORY_OWNER"
+            else
+              gh issue edit "$issue_number" --repo "$GITHUB_REPOSITORY" \
+                --body "$body"
+            fi
+          elif [ -n "$issue_number" ]; then
+            gh issue close "$issue_number" --repo "$GITHUB_REPOSITORY" \
+              --reason completed
+          fi
