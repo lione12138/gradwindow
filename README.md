@@ -9,7 +9,7 @@
 
 A QS Top 200 master's application tracker using official university sources. The tables below summarize each university once; full programme-level windows remain available on the website.
 
-Status date: **2026-08-08**
+Status date: **2026-08-09**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -26,7 +26,7 @@ Status date: **2026-08-08**
 | 35 | The University of Edinburgh | 41 open windows | 2026-08-21 | Official | [Admissions](https://study.ed.ac.uk/postgraduate/applying) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Edinburgh) |
 | =40 | The University of Queensland | 150 open windows | 2026-09-30 | Estimate | [Admissions](https://study.uq.edu.au/admissions/postgraduate-coursework) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Queensland) |
 | =45 | Northwestern University | 11 open windows | 2026-12-01 | Official | [Admissions](https://www.tgs.northwestern.edu/admission/) · [All programme details](https://gradwindow.com/?q=Northwestern%20University) |
-| 45 | University of British Columbia | 64 open windows | 2026-08-12 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
+| 45 | University of British Columbia | 67 open windows | 2026-08-12 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 50 | The Hong Kong Polytechnic University | 215 open windows | 2026-10-20 | Official + Estimate | [Admissions](https://www.polyu.edu.hk/study/pg/taught-postgraduate) · [All programme details](https://gradwindow.com/?q=The%20Hong%20Kong%20Polytechnic%20University) |
 | =52 | City University of Hong Kong (CityUHK) | 5 open windows | 2026-08-14 | Official | [Admissions](https://www.cityu.edu.hk/pg/programme/p60) · [All programme details](https://gradwindow.com/?q=City%20University%20of%20Hong%20Kong%20%28CityUHK%29) |
 | 54 | National Taiwan University (NTU) | 61 open windows | 2026-09-17 | Official | [Admissions](https://admissions.ntu.edu.tw/apply/degree-students/international-students/) · [All programme details](https://gradwindow.com/?q=National%20Taiwan%20University%20%28NTU%29) |

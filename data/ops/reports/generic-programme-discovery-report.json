@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-08T05:53:12.977810+00:00",
+    "updatedAt": "2026-08-09T06:12:06.126916+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -91,8 +91,8 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-08T05:53:25.321229+00:00",
-      "catalogProgrammes": 3,
+      "checkedAt": "2026-08-09T06:12:19.998690+00:00",
+      "catalogProgrammes": 1,
       "previousCatalogProgrammes": 3,
       "knownProgrammes": 1,
       "newCandidates": 0,
@@ -103,14 +103,14 @@
       "pendingCandidates": 43,
       "pendingGuidanceCandidates": 1,
       "catalogueStatus": "ok",
-      "windowStatus": "needs-opening-date",
-      "observedWindowCount": 1,
+      "windowStatus": "monitoring",
+      "observedWindowCount": 0,
       "exactWindowCount": 0,
-      "missingOpeningDateCount": 1,
-      "programmesWithoutDeadlines": 2,
-      "programmesNeedingReview": 3,
-      "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "windowFingerprint": "44e69c3a5fb7a5efb682a2db8d1f24fcb3373009d1d74ce568f6e0efaf022036",
+      "missingOpeningDateCount": 0,
+      "programmesWithoutDeadlines": 1,
+      "programmesNeedingReview": 1,
+      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
+      "windowFingerprint": "716e764ff3d78bc4b153674ad3984a598e4f804b5cccf17f361f55a12466efab",
       "watchedWindowSourceHash": null,
       "dryRun": false,
       "batchStatus": "ok"
@@ -4810,6 +4810,15 @@
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
       {
+        "id": "known-programme-guidance:southampton-environmental-management-and-sustainability-msc",
+        "universityId": "university-of-southampton",
+        "programmeName": "Environmental Management and Sustainability (MSc)",
+        "sourceUrl": "https://www.southampton.ac.uk/courses/environmental-management-sustainability-masters-msc",
+        "windowCount": 2,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
         "id": "known-programme-guidance:southampton-environmental-monitoring-and-assessment-msc",
         "universityId": "university-of-southampton",
         "programmeName": "Environmental Monitoring and Assessment (MSc)",
@@ -5858,15 +5867,6 @@
         "universityId": "university-of-southampton",
         "programmeName": "Wildlife Conservation (MRes)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/wildlife-conservation-masters-mres",
-        "windowCount": 2,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "new-programme:southampton-environmental-management-and-sustainability-msc",
-        "universityId": "university-of-southampton",
-        "programmeName": "Environmental Management and Sustainability (MSc)",
-        "sourceUrl": "https://www.southampton.ac.uk/courses/environmental-management-sustainability-masters-msc",
         "windowCount": 2,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
