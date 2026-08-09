@@ -38,6 +38,7 @@
 | =142 | National Tsing Hua University - NTHU / 台湾清华大学 | 1 个当前开放窗口 | 2026-09-30 | 官网核验 | [招生官网](https://admission.nthu.edu.tw/) · [查看全部项目](https://gradwindow.com/?q=National%20Tsing%20Hua%20University%20-%20NTHU) |
 | =162 | Université de Montréal / 蒙特利尔大学 | 1 个当前开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [查看全部项目](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 | =177 | National Yang Ming Chiao Tung University (NYCU Taiwan) / 阳明交通大学 | 1 个当前开放窗口 | 2026-09-30 | 官网核验 | [招生官网](https://oia.nycu.edu.tw/oia/en/app/folder/782) · [查看全部项目](https://gradwindow.com/?q=National%20Yang%20Ming%20Chiao%20Tung%20University%20%28NYCU%20Taiwan%29) |
+| =191 | National Cheng Kung University (NCKU) / 国立成功大学 | 1 个当前开放窗口 | 2026-09-15 | 官网核验 | [招生官网](https://oia.ncku.edu.tw/p/404-1032-229816.php?Lang=en) · [查看全部项目](https://gradwindow.com/?q=National%20Cheng%20Kung%20University%20%28NCKU%29) |
 
 ## 30 天内即将开放
 

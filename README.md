@@ -38,6 +38,7 @@ Status date: **2026-08-10**
 | =142 | National Tsing Hua University - NTHU | 1 open window | 2026-09-30 | Official | [Admissions](https://admission.nthu.edu.tw/) · [All programme details](https://gradwindow.com/?q=National%20Tsing%20Hua%20University%20-%20NTHU) |
 | =162 | Université de Montréal | 1 open window | 2026-09-01 | Official | [Admissions](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [All programme details](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 | =177 | National Yang Ming Chiao Tung University (NYCU Taiwan) | 1 open window | 2026-09-30 | Official | [Admissions](https://oia.nycu.edu.tw/oia/en/app/folder/782) · [All programme details](https://gradwindow.com/?q=National%20Yang%20Ming%20Chiao%20Tung%20University%20%28NYCU%20Taiwan%29) |
+| =191 | National Cheng Kung University (NCKU) | 1 open window | 2026-09-15 | Official | [Admissions](https://oia.ncku.edu.tw/p/404-1032-229816.php?Lang=en) · [All programme details](https://gradwindow.com/?q=National%20Cheng%20Kung%20University%20%28NCKU%29) |
 
 ## Opening Within 30 Days
 

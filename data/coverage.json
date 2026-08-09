@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-09T21:43:57.647640+00:00",
+    "generatedAt": "2026-08-09T22:12:10.308895+00:00",
     "rankingScope": "QS World University Rankings 2027 top 200",
     "batchSize": 5,
     "definition": "Entry, policy, programme, and exact-window coverage are counted separately. Predictions never count as verified deadlines."
@@ -13,17 +13,17 @@
     "cycleGuidanceAvailable": 198,
     "broadMastersAvailability": 195,
     "limitedMastersAvailability": 5,
-    "universitiesWithPrograms": 196,
-    "universitiesWithWindows": 58,
-    "verifiedWindows": 4943,
-    "universitiesWithPredictions": 58,
-    "predictedWindows": 4888,
+    "universitiesWithPrograms": 197,
+    "universitiesWithWindows": 59,
+    "verifiedWindows": 4944,
+    "universitiesWithPredictions": 59,
+    "predictedWindows": 4889,
     "nextActions": {
       "locate-official-entry": 0,
       "verify-window-policy": 0,
-      "select-target-programmes": 4,
+      "select-target-programmes": 3,
       "verify-exact-windows": 138,
-      "monitor-and-refresh": 58
+      "monitor-and-refresh": 59
     }
   },
   "batches": [
@@ -531,8 +531,8 @@
       "entriesLocated": 5,
       "policiesVerified": 5,
       "universitiesWithPrograms": 5,
-      "universitiesWithWindows": 0,
-      "predictedWindows": 0
+      "universitiesWithWindows": 1,
+      "predictedWindows": 1
     },
     {
       "batch": 40,
@@ -543,7 +543,7 @@
       "universities": 5,
       "entriesLocated": 5,
       "policiesVerified": 5,
-      "universitiesWithPrograms": 4,
+      "universitiesWithPrograms": 5,
       "universitiesWithWindows": 0,
       "predictedWindows": 0
     }
@@ -5046,7 +5046,7 @@
         "opensText": "Postgraduate portal available; dates not captured",
         "notes": "Use the selected Tec master programme and Admisiones y Becas route for exact windows."
       },
-      "programmeCount": 1,
+      "programmeCount": 36,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -5094,7 +5094,7 @@
         "opensText": "Applications are open all year round; deadline May 31, 2026",
         "notes": "No exact opensAt is recorded because the official page only says applications are open all year round."
       },
-      "programmeCount": 1,
+      "programmeCount": 53,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -5118,10 +5118,10 @@
         "opensText": "Fall 2026: December 20, 2025; Spring 2027: July 1, 2026",
         "notes": "The schedule applies to international student degree and dual-degree admission applications."
       },
-      "programmeCount": 1,
-      "windowCount": 0,
-      "predictionCount": 0,
-      "nextAction": "verify-exact-windows"
+      "programmeCount": 43,
+      "windowCount": 1,
+      "predictionCount": 1,
+      "nextAction": "monitor-and-refresh"
     },
     {
       "universityId": "vienna-university-of-technology",
@@ -5166,7 +5166,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 74,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -5238,10 +5238,10 @@
         "opensText": "General deadlines include 31 March 2025 for non-EU non-resident visa applicants, 13 September 2025 for eligible foreign diploma profiles, and 30 September 2025 for Belgian/eligible domestic profiles.",
         "notes": "These are central profile-based deadlines from the official calendar; programme-level exceptions may still apply."
       },
-      "programmeCount": 0,
+      "programmeCount": 139,
       "windowCount": 0,
       "predictionCount": 0,
-      "nextAction": "select-target-programmes"
+      "nextAction": "verify-exact-windows"
     },
     {
       "universityId": "university-of-reading",
