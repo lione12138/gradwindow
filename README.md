@@ -9,7 +9,7 @@
 
 A QS Top 200 master's application tracker using official university sources. The tables below summarize each university once; full programme-level windows remain available on the website.
 
-Status date: **2026-08-09**
+Status date: **2026-08-10**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -52,6 +52,7 @@ Status date: **2026-08-09**
 | 25 | Technical University of Munich | 1 upcoming window | 2026-09-01 | Official | [Admissions](https://www.tum.de/en/studies/application/application-info-portal) · [All programme details](https://gradwindow.com/?q=Technical%20University%20of%20Munich) |
 | 33 | The Hong Kong University of Science and Technology | 109 upcoming windows | 2026-09-01 | Estimate | [Admissions](https://seng.hkust.edu.hk/academics/taught-postgraduate/msc-it) · [All programme details](https://gradwindow.com/?q=The%20Hong%20Kong%20University%20of%20Science%20and%20Technology) |
 | 45 | University of British Columbia | 14 upcoming windows | 2026-08-15 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
+| 55 | Carnegie Mellon University | 1 upcoming window | 2026-09-09 | Official | [Admissions](https://www.cmu.edu/graduate/admissions/index.html) · [All programme details](https://gradwindow.com/?q=Carnegie%20Mellon%20University) |
 | 65 | KAIST | 36 upcoming windows | 2026-08-18 | Official | [Admissions](https://admission.kaist.ac.kr/intl-graduate/) · [All programme details](https://gradwindow.com/?q=KAIST) |
 | 66 | Brown University | 1 upcoming window | 2026-09-01 | Estimate | [Admissions](https://graduateschool.brown.edu/admission) · [All programme details](https://gradwindow.com/?q=Brown%20University) |
 | 81 | University of California, San Diego (UCSD) | 1 upcoming window | 2026-09-03 | Estimate | [Admissions](https://grad.ucsd.edu/admissions/) · [All programme details](https://gradwindow.com/?q=University%20of%20California%2C%20San%20Diego%20%28UCSD%29) |

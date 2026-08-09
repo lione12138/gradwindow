@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": "new-programme:barcelona-university-master-catalogue",
+      "type": "new-programme",
+      "status": "approved",
+      "universityId": "university-of-barcelona",
+      "detectedAt": "2026-08-09T20:56:57.392519+00:00",
+      "sourceUrl": "https://web.ub.edu/ca/web/estudis/cercador-masters-postgraus?TipologiaDEnsenyament=5741411",
+      "programme": {
+        "id": "barcelona-university-master-catalogue",
+        "universityId": "university-of-barcelona",
+        "name": "University master's degree catalogue",
+        "degreeType": "Master",
+        "faculty": "Universitat de Barcelona | Universitat de Barcelona",
+        "applicationUrl": "https://web.ub.edu/ca/web/estudis/masters-postgraus",
+        "sourceUrl": "https://web.ub.edu/ca/web/estudis/cercador-masters-postgraus?TipologiaDEnsenyament=5741411"
+      },
+      "windows": [],
+      "parseStatus": "no-deadline",
+      "reviewReason": "No application deadline was parsed.",
+      "evidenceExcerpt": "The official UB catalogue is protected by Cloudflare and returns HTTP 403 to unattended clients. Its official robots policy is monitored; no programme names or dates are inferred from search results.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-cloudflare-catalogue-monitor",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      },
+      "reviewedBy": "automated-official-source-policy",
+      "reviewedAt": "2026-08-09T20:58:34.581938+00:00"
+    }
+  ]
+}

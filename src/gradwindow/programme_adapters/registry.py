@@ -9,6 +9,7 @@ from .alberta import AlbertaAdapter
 from .anu import ANUAdapter
 from .asu import ASUAdapter
 from .auckland import AucklandAdapter
+from .barcelona import BarcelonaAdapter
 from .base import ProgrammeAdapter
 from .basel import BaselAdapter
 from .bath import BathAdapter
@@ -39,6 +40,7 @@ from .epfl import EPFLAdapter
 from .erasmus import ErasmusAdapter
 from .eth import ETHAdapter
 from .exeter import ExeterAdapter
+from .farabi import FarabiAdapter
 from .fu_berlin import FUBerlinAdapter
 from .fudan import FudanAdapter
 from .geneva import GenevaAdapter
@@ -87,6 +89,7 @@ from .melbourne import MelbourneAdapter
 from .michigan import MichiganAdapter
 from .mit import MITAdapter
 from .monash import MonashAdapter
+from .montreal import MontrealAdapter
 from .msu import MSUAdapter
 from .nagoya import NagoyaAdapter
 from .nanjing import NanjingAdapter
@@ -113,6 +116,7 @@ from .puc_chile import PUCChileAdapter
 from .purdue import PurdueAdapter
 from .qatar import QatarAdapter
 from .qmul import QMULAdapter
+from .qub import QUBAdapter
 from .queens_ontario import QueensOntarioAdapter
 from .reading import ReadingAdapter
 from .rice import RiceAdapter
@@ -183,6 +187,7 @@ from .washu import WashUAdapter
 from .waterloo import WaterlooAdapter
 from .western import WesternAdapter
 from .wisconsin import WisconsinAdapter
+from .wuhan import WuhanAdapter
 from .yale import YaleAdapter
 from .yonsei import YonseiAdapter
 from .york import YorkAdapter
@@ -203,6 +208,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "bern": BernAdapter,
     "birmingham": BirminghamAdapter,
     "boston": BostonAdapter,
+    "barcelona": BarcelonaAdapter,
     "bologna": BolognaAdapter,
     "bristol": BristolAdapter,
     "brown": BrownAdapter,
@@ -226,6 +232,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "erasmus": ErasmusAdapter,
     "eth": ETHAdapter,
     "exeter": ExeterAdapter,
+    "farabi": FarabiAdapter,
     "fudan": FudanAdapter,
     "fu-berlin": FUBerlinAdapter,
     "glasgow": GlasgowAdapter,
@@ -273,6 +280,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "mcmaster": McMasterAdapter,
     "michigan": MichiganAdapter,
     "mit": MITAdapter,
+    "montreal": MontrealAdapter,
     "monash": MonashAdapter,
     "nagoya": NagoyaAdapter,
     "nanjing": NanjingAdapter,
@@ -299,6 +307,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "purdue": PurdueAdapter,
     "qatar": QatarAdapter,
     "qmul": QMULAdapter,
+    "qub": QUBAdapter,
     "queens-ontario": QueensOntarioAdapter,
     "reading": ReadingAdapter,
     "rice": RiceAdapter,
@@ -367,6 +376,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "waterloo": WaterlooAdapter,
     "western": WesternAdapter,
     "wisconsin": WisconsinAdapter,
+    "wuhan": WuhanAdapter,
     "yale": YaleAdapter,
     "york": YorkAdapter,
     "yonsei": YonseiAdapter,

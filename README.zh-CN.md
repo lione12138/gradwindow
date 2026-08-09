@@ -9,7 +9,7 @@
 
 基于大学官网数据的 QS 前 200 硕士申请追踪项目。下面只展示每所大学的汇总信息；完整的项目级申请窗口请前往网站查看。
 
-状态日期：**2026-08-09**
+状态日期：**2026-08-10**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -52,6 +52,7 @@
 | 25 | Technical University of Munich / 慕尼黑工业大学 | 1 个即将开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://www.tum.de/en/studies/application/application-info-portal) · [查看全部项目](https://gradwindow.com/?q=Technical%20University%20of%20Munich) |
 | 33 | The Hong Kong University of Science and Technology / 香港科技大学 | 109 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://seng.hkust.edu.hk/academics/taught-postgraduate/msc-it) · [查看全部项目](https://gradwindow.com/?q=The%20Hong%20Kong%20University%20of%20Science%20and%20Technology) |
 | 45 | University of British Columbia / 不列颠哥伦比亚大学 | 14 个即将开放窗口 | 2026-08-15 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
+| 55 | Carnegie Mellon University / 卡内基梅隆大学 | 1 个即将开放窗口 | 2026-09-09 | 官网核验 | [招生官网](https://www.cmu.edu/graduate/admissions/index.html) · [查看全部项目](https://gradwindow.com/?q=Carnegie%20Mellon%20University) |
 | 65 | KAIST / 韩国科学技术院 | 36 个即将开放窗口 | 2026-08-18 | 官网核验 | [招生官网](https://admission.kaist.ac.kr/intl-graduate/) · [查看全部项目](https://gradwindow.com/?q=KAIST) |
 | 66 | Brown University / 布朗大学 | 1 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://graduateschool.brown.edu/admission) · [查看全部项目](https://gradwindow.com/?q=Brown%20University) |
 | 81 | University of California, San Diego (UCSD) / 加利福尼亚大学圣迭戈分校 | 1 个即将开放窗口 | 2026-09-03 | 预测参考 | [招生官网](https://grad.ucsd.edu/admissions/) · [查看全部项目](https://gradwindow.com/?q=University%20of%20California%2C%20San%20Diego%20%28UCSD%29) |

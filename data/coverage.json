@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-09T17:17:20.534391+00:00",
+    "generatedAt": "2026-08-09T21:04:00.733355+00:00",
     "rankingScope": "QS World University Rankings 2027 top 200",
     "batchSize": 5,
     "definition": "Entry, policy, programme, and exact-window coverage are counted separately. Predictions never count as verified deadlines."
@@ -13,17 +13,17 @@
     "cycleGuidanceAvailable": 198,
     "broadMastersAvailability": 195,
     "limitedMastersAvailability": 5,
-    "universitiesWithPrograms": 194,
-    "universitiesWithWindows": 56,
-    "verifiedWindows": 4941,
-    "universitiesWithPredictions": 56,
-    "predictedWindows": 4886,
+    "universitiesWithPrograms": 196,
+    "universitiesWithWindows": 57,
+    "verifiedWindows": 4942,
+    "universitiesWithPredictions": 57,
+    "predictedWindows": 4887,
     "nextActions": {
       "locate-official-entry": 0,
       "verify-window-policy": 0,
-      "select-target-programmes": 6,
-      "verify-exact-windows": 138,
-      "monitor-and-refresh": 56
+      "select-target-programmes": 4,
+      "verify-exact-windows": 139,
+      "monitor-and-refresh": 57
     }
   },
   "batches": [
@@ -361,7 +361,7 @@
       "universities": 5,
       "entriesLocated": 5,
       "policiesVerified": 5,
-      "universitiesWithPrograms": 4,
+      "universitiesWithPrograms": 5,
       "universitiesWithWindows": 1,
       "predictedWindows": 1
     },
@@ -452,7 +452,7 @@
       "universities": 5,
       "entriesLocated": 5,
       "policiesVerified": 5,
-      "universitiesWithPrograms": 4,
+      "universitiesWithPrograms": 5,
       "universitiesWithWindows": 1,
       "predictedWindows": 1
     },
@@ -466,8 +466,8 @@
       "entriesLocated": 5,
       "policiesVerified": 5,
       "universitiesWithPrograms": 5,
-      "universitiesWithWindows": 1,
-      "predictedWindows": 1
+      "universitiesWithWindows": 2,
+      "predictedWindows": 2
     },
     {
       "batch": 35,
@@ -3414,7 +3414,7 @@
         "opensText": "The official postgraduate admissions route is accessible, but exact current application opening or closing dates were not captured in accessible text.",
         "notes": "The earlier uc.cl/postgrado path returned 404; the current admision.uc.cl route is retained."
       },
-      "programmeCount": 1,
+      "programmeCount": 105,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -3582,10 +3582,10 @@
         "opensText": "Use the central How to apply route and calendar filters; exact application dates vary by course and study period.",
         "notes": "The accessible official pages expose the application route and key-date calendar, but not a single institution-wide postgraduate deadline."
       },
-      "programmeCount": 0,
+      "programmeCount": 1,
       "windowCount": 0,
       "predictionCount": 0,
-      "nextAction": "select-target-programmes"
+      "nextAction": "verify-exact-windows"
     },
     {
       "universityId": "aarhus-university",
@@ -3654,7 +3654,7 @@
         "opensText": "The official postgraduate page confirms admissions and contact routes but no exact current application opening or closing dates were captured.",
         "notes": "The earlier guessed graduate-admission URL returned 404; the current portal page is retained."
       },
-      "programmeCount": 1,
+      "programmeCount": 178,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -3726,7 +3726,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 238,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4182,7 +4182,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 25,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4206,7 +4206,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 379,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4254,7 +4254,7 @@
         "opensText": "The official guide states that online applications run from 10:00 on 4 March to 17:00 on 27 March 2026, Korea Standard Time.",
         "notes": "This central international-student window applies to the graduate admissions route; individual departments may add eligibility or document requirements."
       },
-      "programmeCount": 1,
+      "programmeCount": 165,
       "windowCount": 1,
       "predictionCount": 1,
       "nextAction": "monitor-and-refresh"
@@ -4350,7 +4350,7 @@
         "opensText": "The official postgraduate admission page exposes programme categories and application route but not exact intake opening or closing dates in the accessible text.",
         "notes": "Keep monitoring UTM admission pages and faculty pages for intake-specific postgraduate deadlines."
       },
-      "programmeCount": 1,
+      "programmeCount": 2,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4422,7 +4422,7 @@
         "opensText": "Hiver 2027: applications from 1 February 2026 to 1 September 2026. Automne 2027: applications possible from 1 August 2026. Hiver 2028: applications possible from 1 February 2027.",
         "notes": "The Hiver 2027 opening and closing dates are exact and recorded as a formal application window. Later intakes currently expose opening dates only in the captured text."
       },
-      "programmeCount": 1,
+      "programmeCount": 141,
       "windowCount": 1,
       "predictionCount": 1,
       "nextAction": "monitor-and-refresh"
@@ -4494,10 +4494,10 @@
         "opensText": "Use the master and postgraduate catalogue; exact dates are programme-specific unless UB publishes a central deadline page.",
         "notes": "The official overview confirms broad master/postgraduate availability but not a unified application window."
       },
-      "programmeCount": 0,
+      "programmeCount": 1,
       "windowCount": 0,
       "predictionCount": 0,
-      "nextAction": "select-target-programmes"
+      "nextAction": "verify-exact-windows"
     },
     {
       "universityId": "wuhan-university",
@@ -4518,10 +4518,10 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
-      "windowCount": 0,
-      "predictionCount": 0,
-      "nextAction": "verify-exact-windows"
+      "programmeCount": 244,
+      "windowCount": 1,
+      "predictionCount": 1,
+      "nextAction": "monitor-and-refresh"
     },
     {
       "universityId": "stockholm-university",
@@ -4782,7 +4782,7 @@
         "opensText": "Admissions 2026 portal is available",
         "notes": "Use the Master's programme and foreign applicant routes for exact KazNU application windows."
       },
-      "programmeCount": 1,
+      "programmeCount": 222,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
