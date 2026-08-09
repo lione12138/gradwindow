@@ -324,13 +324,21 @@ def discover_programmes(
         observed_window_count,
         missing_opening_date_count,
     )
+    catalogue_status = getattr(adapter, "catalogue_status", "ok")
+    catalogue_limitation_reason = getattr(adapter, "catalogue_limitation_reason", None)
+    if catalogue_limitation_reason:
+        limitation_reason = " ".join(
+            reason
+            for reason in (catalogue_limitation_reason, limitation_reason)
+            if reason
+        )
     state_payload.setdefault("universities", {})[adapter.university_id] = {
         "sourceUrl": adapter.catalog_url,
         "checkedAt": checked_at,
         "itemCount": len(catalog.programmes),
         "applicationOpensAt": catalog.application_opens_at,
         "catalogHash": _hash(json.dumps(snapshot_items, sort_keys=True)),
-        "catalogueStatus": "ok",
+        "catalogueStatus": catalogue_status,
         "windowStatus": window_status,
         "observedWindowCount": observed_window_count,
         "exactWindowCount": exact_window_count,
@@ -391,7 +399,7 @@ def discover_programmes(
             and item.get("type") == "known-programme-window-guidance"
             for item in items
         ),
-        "catalogueStatus": "ok",
+        "catalogueStatus": catalogue_status,
         "windowStatus": window_status,
         "observedWindowCount": observed_window_count,
         "exactWindowCount": exact_window_count,

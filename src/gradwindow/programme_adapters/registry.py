@@ -109,6 +109,7 @@ from .nycu import NYCUAdapter
 from .nyu import NYUAdapter
 from .osaka import OsakaAdapter
 from .oslo import OsloAdapter
+from .otago import OtagoAdapter
 from .oxford import OxfordAdapter
 from .paris_saclay import ParisSaclayAdapter
 from .peking import PekingAdapter
@@ -311,6 +312,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "oxford": OxfordAdapter,
     "oslo": OsloAdapter,
     "osaka": OsakaAdapter,
+    "otago": OtagoAdapter,
     "peking": PekingAdapter,
     "paris-saclay": ParisSaclayAdapter,
     "penn-state": PennStateAdapter,
