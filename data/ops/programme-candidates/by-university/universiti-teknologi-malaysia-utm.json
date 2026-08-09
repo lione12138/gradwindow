@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": "new-programme:utm-postgraduate-programmes",
+      "type": "new-programme",
+      "status": "approved",
+      "universityId": "universiti-teknologi-malaysia-utm",
+      "detectedAt": "2026-08-09T20:34:54.382947+00:00",
+      "sourceUrl": "http://admission.utm.my/malaysian-postgraduate-study/",
+      "programme": {
+        "id": "utm-postgraduate-programmes",
+        "universityId": "universiti-teknologi-malaysia-utm",
+        "name": "Postgraduate programmes directory",
+        "degreeType": "Master",
+        "faculty": "Universiti Teknologi Malaysia | School of Graduate Studies",
+        "applicationUrl": "https://admission.utm.my/international-postgraduate-study/",
+        "sourceUrl": "http://admission.utm.my/malaysian-postgraduate-study/"
+      },
+      "windows": [],
+      "parseStatus": "no-deadline",
+      "reviewReason": "No application deadline was parsed.",
+      "evidenceExcerpt": "UTM's official homepage links the postgraduate directory. The directory hosts currently fail TLS certificate verification for unattended clients, so no programme names or dates are inferred.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-postgraduate-directory-monitor",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      },
+      "reviewedBy": "automated-official-source-policy",
+      "reviewedAt": "2026-08-09T20:35:45.515876+00:00"
+    }
+  ]
+}

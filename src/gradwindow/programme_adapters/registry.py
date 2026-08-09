@@ -46,6 +46,7 @@ from .georgia_tech import GeorgiaTechAdapter
 from .ghent import GhentAdapter
 from .glasgow import GlasgowAdapter
 from .groningen import GroningenAdapter
+from .hanyang import HanyangAdapter
 from .harvard import HarvardAdapter
 from .heidelberg import HeidelbergAdapter
 from .helsinki import HelsinkiAdapter
@@ -138,9 +139,11 @@ from .tsinghua import TsinghuaAdapter
 from .tu_berlin import TUBerlinAdapter
 from .tu_wien import TUWienAdapter
 from .tudelft import TUDelftAdapter
+from .tue import TUEAdapter
 from .tum import TUMAdapter
 from .uba import UBAAdapter
 from .ubc import UBCAdapter
+from .uc_davis import UCDavisAdapter
 from .ucd import UCDAdapter
 from .uchicago import UChicagoAdapter
 from .uchile import UChileAdapter
@@ -159,10 +162,12 @@ from .upenn import UpennAdapter
 from .upm import UPMAdapter
 from .uppsala import UppsalaAdapter
 from .uq import UQAdapter
+from .usc import USCAdapter
 from .usm import USMAdapter
 from .usp import USPAdapter
 from .ustc import USTCAdapter
 from .ut_austin import UTAustinAdapter
+from .utm import UTMAdapter
 from .utokyo import UTokyoAdapter
 from .utrecht import UtrechtAdapter
 from .uts import UTSAdapter
@@ -229,6 +234,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "geneva": GenevaAdapter,
     "groningen": GroningenAdapter,
     "harvard": HarvardAdapter,
+    "hanyang": HanyangAdapter,
     "heidelberg": HeidelbergAdapter,
     "helsinki": HelsinkiAdapter,
     "hokkaido": HokkaidoAdapter,
@@ -317,6 +323,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "trinity": TrinityAdapter,
     "tsinghua": TsinghuaAdapter,
     "tudelft": TUDelftAdapter,
+    "tue": TUEAdapter,
     "tum": TUMAdapter,
     "tu-wien": TUWienAdapter,
     "tu-berlin": TUBerlinAdapter,
@@ -325,6 +332,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "uchicago": UChicagoAdapter,
     "ucl": UCLAdapter,
     "ucla": UCLAAdapter,
+    "uc-davis": UCDavisAdapter,
     "ucsd": UCSDAdapter,
     "ucsb": UCSBAdapter,
     "ucd": UCDAdapter,
@@ -334,6 +342,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "unsw": UNSWAdapter,
     "uq": UQAdapter,
     "utrecht": UtrechtAdapter,
+    "utm": UTMAdapter,
     "upm": UPMAdapter,
     "ut-austin": UTAustinAdapter,
     "um": UMAdapter,
@@ -344,6 +353,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "utokyo": UTokyoAdapter,
     "uts": UTSAdapter,
     "usm": USMAdapter,
+    "usc": USCAdapter,
     "usp": USPAdapter,
     "ustc": USTCAdapter,
     "uva": UvAAdapter,
