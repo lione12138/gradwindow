@@ -224,10 +224,21 @@ def discover_programmes(
                     candidate[key] = previous[key]
         existing[candidate_id] = candidate
 
-    items = sorted(
-        existing.values(),
+    original_candidate_items = candidates_payload.get("items", [])
+    unrelated_items = [
+        existing[item["id"]]
+        for item in original_candidate_items
+        if item.get("universityId") != adapter.university_id and item["id"] in existing
+    ]
+    target_items = sorted(
+        (
+            item
+            for item in existing.values()
+            if item.get("universityId") == adapter.university_id
+        ),
         key=lambda item: (item.get("status") != "pending", item["id"]),
     )
+    items = unrelated_items + target_items
     snapshot_items = {
         programme.id: {
             "name": programme.name,
