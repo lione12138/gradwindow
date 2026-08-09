@@ -1,8 +1,7 @@
 from __future__ import annotations
 
 from urllib.parse import unquote, urlsplit
-
-from bs4 import BeautifulSoup
+from xml.etree import ElementTree
 
 from .base import DiscoveredCatalog, Fetcher
 from .official_catalog import CatalogEntry, OfficialCatalogAdapter, entry
@@ -32,21 +31,18 @@ class HumboldtAdapter(OfficialCatalogAdapter):
     retrieval_method = "official-study-finder-sitemap"
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
-        index = BeautifulSoup(fetcher(CATALOG_URL), "xml")
         study_sitemaps = [
-            _compact_url(node.get_text())
-            for node in index.select("loc")
-            if "sitemap=study_finder" in node.get_text()
+            url
+            for url in _sitemap_locations(fetcher(CATALOG_URL))
+            if "sitemap=study_finder" in url
         ]
         if not study_sitemaps:
             raise ValueError("Humboldt sitemap did not expose the study finder sitemap")
         return self.parse_catalog(fetcher(study_sitemaps[0]))
 
     def extract_entries(self, html: str) -> list[CatalogEntry]:
-        soup = BeautifulSoup(html, "xml")
         entries: list[CatalogEntry] = []
-        for node in soup.select("loc"):
-            source_url = _compact_url(node.get_text())
+        for source_url in _sitemap_locations(html):
             parsed = _programme_from_url(source_url)
             if parsed is None:
                 continue
@@ -84,3 +80,12 @@ def _humanise(value: str) -> str:
 
 def _compact_url(value: str) -> str:
     return "".join(value.split())
+
+
+def _sitemap_locations(xml: str) -> list[str]:
+    root = ElementTree.fromstring(xml)
+    return [
+        _compact_url(node.text or "")
+        for node in root.iter()
+        if node.tag.rsplit("}", 1)[-1] == "loc" and node.text
+    ]
