@@ -24,9 +24,11 @@ from .chalmers import ChalmersAdapter
 from .cityu import CityUAdapter
 from .cmu import CMUAdapter
 from .columbia import ColumbiaAdapter
+from .complutense import ComplutenseAdapter
 from .copenhagen import CopenhagenAdapter
 from .cornell import CornellAdapter
 from .cuhk import CUHKAdapter
+from .curtin import CurtinAdapter
 from .dtu import DTUAdapter
 from .duke import DukeAdapter
 from .edinburgh import EdinburghAdapter
@@ -48,10 +50,14 @@ from .helsinki import HelsinkiAdapter
 from .hku import HKUAdapter
 from .hkust import HKUSTAdapter
 from .hokkaido import HokkaidoAdapter
+from .humboldt import HumboldtAdapter
+from .iit_bombay import IITBombayAdapter
+from .iit_madras import IITMadrasAdapter
 from .imperial import ImperialAdapter
 from .ip_paris import IPParisAdapter
 from .jhu import JHUAdapter
 from .kaist import KAISTAdapter
+from .kau import KAUAdapter
 from .kcl import KCLAdapter
 from .kfupm import KFUPMAdapter
 from .khalifa import KhalifaAdapter
@@ -130,12 +136,14 @@ from .uba import UBAAdapter
 from .ubc import UBCAdapter
 from .ucd import UCDAdapter
 from .uchicago import UChicagoAdapter
+from .uchile import UChileAdapter
 from .ucl import UCLAdapter
 from .ucla import UCLAAdapter
 from .ucsb import UCSBAdapter
 from .ucsd import UCSDAdapter
 from .uiuc import UIUCAdapter
 from .um import UMAdapter
+from .unam import UNAMAdapter
 from .unc import UNCAdapter
 from .unsw import UNSWAdapter
 from .uow import UOWAdapter
@@ -144,6 +152,7 @@ from .upm import UPMAdapter
 from .uppsala import UppsalaAdapter
 from .uq import UQAdapter
 from .usm import USMAdapter
+from .ustc import USTCAdapter
 from .ut_austin import UTAustinAdapter
 from .utokyo import UTokyoAdapter
 from .uts import UTSAdapter
@@ -155,6 +164,7 @@ from .vu_amsterdam import VUAmsterdamAdapter
 from .wageningen import WageningenAdapter
 from .warwick import WarwickAdapter
 from .washington import WashingtonAdapter
+from .washu import WashUAdapter
 from .waterloo import WaterlooAdapter
 from .western import WesternAdapter
 from .wisconsin import WisconsinAdapter
@@ -185,9 +195,11 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "cambridge": CambridgeAdapter,
     "chalmers": ChalmersAdapter,
     "columbia": ColumbiaAdapter,
+    "complutense": ComplutenseAdapter,
     "copenhagen": CopenhagenAdapter,
     "cornell": CornellAdapter,
     "cuhk": CUHKAdapter,
+    "curtin": CurtinAdapter,
     "cityu": CityUAdapter,
     "cmu": CMUAdapter,
     "duke": DukeAdapter,
@@ -209,12 +221,16 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "heidelberg": HeidelbergAdapter,
     "helsinki": HelsinkiAdapter,
     "hokkaido": HokkaidoAdapter,
+    "humboldt": HumboldtAdapter,
+    "iit-bombay": IITBombayAdapter,
+    "iit-madras": IITMadrasAdapter,
     "hku": HKUAdapter,
     "hkust": HKUSTAdapter,
     "imperial": ImperialAdapter,
     "ip-paris": IPParisAdapter,
     "jhu": JHUAdapter,
     "kaist": KAISTAdapter,
+    "kau": KAUAdapter,
     "khalifa": KhalifaAdapter,
     "kit": KITAdapter,
     "kcl": KCLAdapter,
@@ -297,24 +313,28 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "ucsd": UCSDAdapter,
     "ucsb": UCSBAdapter,
     "ucd": UCDAdapter,
+    "uchile": UChileAdapter,
     "uiuc": UIUCAdapter,
     "unsw": UNSWAdapter,
     "uq": UQAdapter,
     "upm": UPMAdapter,
     "ut-austin": UTAustinAdapter,
     "um": UMAdapter,
+    "unam": UNAMAdapter,
     "unc": UNCAdapter,
     "upenn": UpennAdapter,
     "uppsala": UppsalaAdapter,
     "utokyo": UTokyoAdapter,
     "uts": UTSAdapter,
     "usm": USMAdapter,
+    "ustc": USTCAdapter,
     "uva": UvAAdapter,
     "uow": UOWAdapter,
     "uzh": UZHAdapter,
     "uwa": UWAAdapter,
     "warwick": WarwickAdapter,
     "washington": WashingtonAdapter,
+    "washu": WashUAdapter,
     "wageningen": WageningenAdapter,
     "waterloo": WaterlooAdapter,
     "western": WesternAdapter,

@@ -149,7 +149,9 @@ def discover_programmes(
             if item.get("universityId") != adapter.university_id
             or item.get("status", "pending") != "pending"
         }
-    original_window_candidate_items = window_candidates_payload.get("items", [])
+    original_window_candidates_by_id = {
+        item["id"]: item for item in window_candidates_payload.get("items", [])
+    }
     applications_by_cycle = {
         official_cycle_key(item): item
         for item in applications
@@ -344,7 +346,7 @@ def discover_programmes(
             existing_window_candidates.values(),
             key=lambda item: (item.get("status") != "pending", item["id"]),
         )
-        if window_candidate_items != original_window_candidate_items:
+        if existing_window_candidates != original_window_candidates_by_id:
             window_candidates_payload["items"] = window_candidate_items
             window_candidates_payload.setdefault("meta", {})["updatedAt"] = checked_at
             write_json(window_candidates_path, window_candidates_payload)

@@ -667,3 +667,40 @@ def test_known_programme_inferred_opening_does_not_create_window_candidate(
 
     assert report["newWindowCandidates"] == 0
     assert not window_candidates_path.exists()
+
+
+def test_unrelated_discovery_does_not_reorder_window_candidates(tmp_path) -> None:
+    class EmptyAdapter(BaseProgrammeAdapter):
+        university_id = "example-university"
+        catalog_url = "https://example.edu/programmes"
+
+        def parse_catalog(self, _html):
+            return DiscoveredCatalog(application_opens_at=None, programmes=[])
+
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "programme-candidates.json"
+    window_candidates_path = tmp_path / "window-candidates.json"
+    state_path = tmp_path / "programme-catalog-state.json"
+    programs_path.write_text(json.dumps({"programs": []}), encoding="utf-8")
+    applications_path.write_text(json.dumps({"applications": []}), encoding="utf-8")
+    original = {
+        "meta": {"updatedAt": "2026-08-01T00:00:00+00:00"},
+        "items": [
+            {"id": "z-candidate", "universityId": "other", "status": "approved"},
+            {"id": "a-candidate", "universityId": "other", "status": "approved"},
+        ],
+    }
+    window_candidates_path.write_text(json.dumps(original), encoding="utf-8")
+
+    discover_programmes(
+        EmptyAdapter(),
+        programs_path=programs_path,
+        applications_path=applications_path,
+        candidates_path=candidates_path,
+        window_candidates_path=window_candidates_path,
+        state_path=state_path,
+        fetcher=lambda url: "<html></html>",
+    )
+
+    assert json.loads(window_candidates_path.read_text(encoding="utf-8")) == original

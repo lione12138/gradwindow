@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-09T07:05:11.314700+00:00",
+    "generatedAt": "2026-08-09T16:29:29.292263+00:00",
     "rankingScope": "QS World University Rankings 2027 top 200",
     "batchSize": 5,
     "definition": "Entry, policy, programme, and exact-window coverage are counted separately. Predictions never count as verified deadlines."
@@ -13,7 +13,7 @@
     "cycleGuidanceAvailable": 198,
     "broadMastersAvailability": 195,
     "limitedMastersAvailability": 5,
-    "universitiesWithPrograms": 192,
+    "universitiesWithPrograms": 194,
     "universitiesWithWindows": 56,
     "verifiedWindows": 4941,
     "universitiesWithPredictions": 56,
@@ -21,8 +21,8 @@
     "nextActions": {
       "locate-official-entry": 0,
       "verify-window-policy": 0,
-      "select-target-programmes": 8,
-      "verify-exact-windows": 136,
+      "select-target-programmes": 6,
+      "verify-exact-windows": 138,
       "monitor-and-refresh": 56
     }
   },
@@ -387,7 +387,7 @@
       "universities": 5,
       "entriesLocated": 5,
       "policiesVerified": 5,
-      "universitiesWithPrograms": 4,
+      "universitiesWithPrograms": 5,
       "universitiesWithWindows": 0,
       "predictedWindows": 0
     },
@@ -543,7 +543,7 @@
       "universities": 5,
       "entriesLocated": 5,
       "policiesVerified": 5,
-      "universitiesWithPrograms": 3,
+      "universitiesWithPrograms": 4,
       "universitiesWithWindows": 0,
       "predictedWindows": 0
     }
@@ -3750,7 +3750,7 @@
         "opensText": "Last date to apply online without late fine is 10 April 2026.",
         "notes": "The official Academic Office page confirms the 2026-27 M.Tech. admissions cycle and deadline. No formal dated application window is recorded because the opening date was not captured."
       },
-      "programmeCount": 1,
+      "programmeCount": 58,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -3774,7 +3774,7 @@
         "opensText": "The International College page confirms postgraduate admissions routes but exact current application opening or closing dates were not captured.",
         "notes": "The graduate school Chinese portal is also accessible as a secondary source."
       },
-      "programmeCount": 1,
+      "programmeCount": 82,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -3894,10 +3894,10 @@
         "opensText": "Official admission page exists, but deadline details require manual/browser verification because the current environment is blocked by Anubis.",
         "notes": "Keep in the anomaly/manual-check bucket until a browser or alternate official source can verify exact master dates."
       },
-      "programmeCount": 0,
+      "programmeCount": 159,
       "windowCount": 0,
       "predictionCount": 0,
-      "nextAction": "select-target-programmes"
+      "nextAction": "verify-exact-windows"
     },
     {
       "universityId": "university-of-vienna",
@@ -4014,7 +4014,7 @@
         "opensText": "The official postgraduate portal confirms master and doctoral programme routes but no exact current application opening or closing dates were captured.",
         "notes": "The guessed /admision/ path returned 404."
       },
-      "programmeCount": 1,
+      "programmeCount": 58,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4446,7 +4446,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 97,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4614,7 +4614,7 @@
         "opensText": "Online application portal opened 28 March 2026 and closed 28 April 2026 at 11:59 PM; the page currently states registration is closed.",
         "notes": "The exact 2026 application window is recorded as a formal verified window."
       },
-      "programmeCount": 1,
+      "programmeCount": 43,
       "windowCount": 1,
       "predictionCount": 1,
       "nextAction": "monitor-and-refresh"
@@ -4998,7 +4998,7 @@
         "opensText": "The central postgraduate catalogue confirms computing-related master's routes but does not expose exact application window dates in accessible text.",
         "notes": "A direct DCC programme path tested in this pass returned 404, so the catalogue is recorded as reliable programme presence only."
       },
-      "programmeCount": 1,
+      "programmeCount": 123,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -5070,7 +5070,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 26,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -5310,7 +5310,7 @@
         "opensText": "The official Faculty of Informatics page lists master's programmes for the 2025/2026 and 2026/2027 cycles, but no exact application opening or closing dates were captured.",
         "notes": "The central master's admissions URL tested in this pass returned 404."
       },
-      "programmeCount": 1,
+      "programmeCount": 188,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -5334,10 +5334,10 @@
         "opensText": "Use the central postgraduate admission page and admission portal; exact dates depend on admission route and programme group.",
         "notes": "The official page was updated on 2026-06-15 and links to the postgraduate admission portal, guide, procedures, and conditions."
       },
-      "programmeCount": 0,
+      "programmeCount": 108,
       "windowCount": 0,
       "predictionCount": 0,
-      "nextAction": "select-target-programmes"
+      "nextAction": "verify-exact-windows"
     }
   ]
 }
