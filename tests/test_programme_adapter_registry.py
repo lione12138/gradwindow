@@ -129,6 +129,13 @@ def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
     }
     university_ids = [factory.university_id for factory in PROGRAMME_ADAPTERS.values()]
     assert len(university_ids) == len(set(university_ids))
+    public_university_ids = {
+        university["id"]
+        for university in json.loads(
+            Path("data/universities.json").read_text(encoding="utf-8")
+        )["universities"]
+    }
+    assert set(university_ids) == public_university_ids
 
 
 def test_manual_discovery_workflow_delegates_adapter_validation_to_registry() -> None:
