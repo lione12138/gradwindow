@@ -16,6 +16,12 @@ from .paths import (
 FAILURE_ALERT_THRESHOLD = 2
 STALE_AFTER = timedelta(hours=48)
 CATALOGUE_DROP_RATIO = 0.8
+REMINDER_AFTER = timedelta(days=7)
+DATA_INTEGRITY_ALERT_TYPES = {
+    "catalogue-drop",
+    "exact-window-drop",
+    "unparsed-source-change",
+}
 
 
 def update_adapter_health(
@@ -33,6 +39,7 @@ def update_adapter_health(
         health_path,
         {"meta": {}, "universities": {}},
     )
+    previous_meta = previous_payload.get("meta", {})
     previous_entries = previous_payload.get("universities", {})
     catalog_entries = read_json(
         catalog_state_path,
@@ -72,12 +79,38 @@ def update_adapter_health(
         alerts.extend(entry_alerts)
 
     active_alert_hash = _alert_hash(alerts)
-    previous_alert_hash = previous_payload.get("meta", {}).get("activeAlertHash")
+    previous_alert_hash = previous_meta.get("activeAlertHash")
     notification_changed = (
         previous_alert_hash is not None and active_alert_hash != previous_alert_hash
     )
     if previous_alert_hash is None and alerts:
         notification_changed = True
+
+    previous_had_alerts = any(
+        entry.get("alerts") for entry in previous_entries.values()
+    )
+    last_notification_at = _parse_datetime(previous_meta.get("lastNotificationAt"))
+    if last_notification_at is None and previous_meta.get("notificationChanged"):
+        # Legacy health snapshots did not store a reminder timestamp. Their
+        # update time corresponds to the issue comment emitted by that run.
+        last_notification_at = _parse_datetime(previous_meta.get("updatedAt"))
+    notification_due = False
+    notification_reason = None
+    if alerts:
+        if not previous_had_alerts:
+            notification_due = True
+            notification_reason = "alerts-opened"
+        elif (
+            last_notification_at is None
+            or checked_at - last_notification_at >= REMINDER_AFTER
+        ):
+            notification_due = True
+            notification_reason = "weekly-reminder"
+    elif previous_had_alerts:
+        notification_due = True
+        notification_reason = "alerts-cleared"
+    if notification_due:
+        last_notification_at = checked_at
 
     summary = {
         "totalAdapters": len(entries),
@@ -95,6 +128,20 @@ def update_adapter_health(
         "newExactWindowSchools": sum(
             change.get("type") == "exact-window-increase" for change in changes
         ),
+        "dataIntegrityRisks": len(
+            {
+                alert["universityId"]
+                for alert in alerts
+                if alert.get("category") == "data-integrity"
+            }
+        ),
+        "unavailableAdapters": len(
+            {
+                alert["universityId"]
+                for alert in alerts
+                if alert.get("category") == "availability"
+            }
+        ),
     }
     payload = {
         "meta": {
@@ -105,6 +152,11 @@ def update_adapter_health(
             ),
             "activeAlertHash": active_alert_hash,
             "notificationChanged": notification_changed,
+            "notificationDue": notification_due,
+            "notificationReason": notification_reason,
+            "lastNotificationAt": (
+                last_notification_at.isoformat() if last_notification_at else None
+            ),
             "summary": summary,
         },
         "universities": entries,
@@ -151,9 +203,17 @@ def _successful_entry(
     pending_source_hash = previous.get("pendingWatchedWindowSourceHash")
     pending_source_checks = int(previous.get("pendingWatchedWindowSourceChecks", 0))
     current_source_hash = report.get("watchedWindowSourceHash")
+    current_source_version = report.get("watchedWindowSourceFingerprintVersion")
+    previous_source_version = previous.get("watchedWindowSourceFingerprintVersion")
+    unparsed_source_change = previous.get("unparsedSourceChange")
     confirmed_source_change = False
     if current_source_hash:
-        if not stable_source_hash:
+        if current_source_version != previous_source_version:
+            stable_source_hash = current_source_hash
+            pending_source_hash = None
+            pending_source_checks = 0
+            unparsed_source_change = None
+        elif not stable_source_hash:
             stable_source_hash = current_source_hash
             pending_source_hash = None
             pending_source_checks = 0
@@ -173,7 +233,6 @@ def _successful_entry(
                 confirmed_source_change = True
 
     window_fingerprint = report.get("windowFingerprint")
-    unparsed_source_change = previous.get("unparsedSourceChange")
     if unparsed_source_change and window_fingerprint != unparsed_source_change.get(
         "windowFingerprint"
     ):
@@ -207,6 +266,7 @@ def _successful_entry(
         "limitationReason": report.get("limitationReason"),
         "windowFingerprint": window_fingerprint,
         "stableWatchedWindowSourceHash": stable_source_hash,
+        "watchedWindowSourceFingerprintVersion": current_source_version,
         "pendingWatchedWindowSourceHash": pending_source_hash,
         "pendingWatchedWindowSourceChecks": pending_source_checks,
         "unparsedSourceChange": unparsed_source_change,
@@ -273,9 +333,10 @@ def _entry_alerts(
         )
 
     last_success = _parse_datetime(entry.get("lastSuccessfulAt"))
-    if entry.get("catalogueStatus") == "error" and (
+    stale_success = entry.get("catalogueStatus") == "error" and (
         last_success is None or checked_at - last_success > STALE_AFTER
-    ):
+    )
+    if stale_success and failures < FAILURE_ALERT_THRESHOLD:
         alerts.append(
             _alert(
                 university_id,
@@ -330,6 +391,11 @@ def _alert(university_id: str, alert_type: str, message: str, entry: dict) -> di
         "universityId": university_id,
         "type": alert_type,
         "severity": "maintenance",
+        "category": (
+            "data-integrity"
+            if alert_type in DATA_INTEGRITY_ALERT_TYPES
+            else "availability"
+        ),
         "message": message,
         "sourceUrl": entry.get("sourceUrl"),
     }
@@ -370,14 +436,22 @@ def render_health_report(
     for university_id, alerts in sorted(alerts_by_university.items()):
         entry = payload["universities"][university_id]
         reason = " ".join(alert["message"] for alert in alerts)
+        priority = (
+            "data integrity"
+            if any(alert.get("category") == "data-integrity" for alert in alerts)
+            else "availability"
+        )
+        next_action = _recommended_action(alerts)
         rows.append(
             "| "
             + " | ".join(
                 (
                     university_names.get(university_id, university_id),
+                    priority,
                     entry.get("catalogueStatus", "unknown"),
                     entry.get("windowStatus", "unknown"),
                     reason.replace("|", "\\|"),
+                    next_action,
                     entry.get("lastSuccessfulAt") or "never",
                 )
             )
@@ -389,8 +463,8 @@ def render_health_report(
             (
                 "## Maintenance required",
                 "",
-                "| University | Catalogue | Windows | Reason | Last success |",
-                "|---|---|---|---|---|",
+                "| University | Priority | Catalogue | Windows | Reason | Next action | Last success |",
+                "|---|---|---|---|---|---|---|",
                 *rows,
             )
         )
@@ -419,9 +493,23 @@ def render_health_report(
 - Schools needing maintenance: {summary["needsMaintenance"]}
 - Schools monitoring without exact windows: {summary["monitoringWithoutExactWindows"]}
 - Schools that gained exact windows: {change_text}
+- Published-data risks: {summary["dataIntegrityRisks"]}
+- Unavailable adapters: {summary["unavailableAdapters"]}
 
 {maintenance}
 
-Expected `monitoring` status is not an error. Notifications are emitted only
-when the active school-level alert set changes.
+Expected `monitoring` status is not an error. The issue body is refreshed after
+every full run, while consolidated reminder comments are limited to once every
+seven days until all alerts clear.
 """
+
+
+def _recommended_action(alerts: list[dict]) -> str:
+    alert_types = {alert.get("type") for alert in alerts}
+    if "exact-window-drop" in alert_types:
+        return "Compare the official cycle with parsed windows before publication."
+    if "catalogue-drop" in alert_types:
+        return "Confirm the official catalogue and repair its endpoint or parser."
+    if "unparsed-source-change" in alert_types:
+        return "Review the official date signals and update window parsing if needed."
+    return "Check source access; update the endpoint or official-domain fallback."

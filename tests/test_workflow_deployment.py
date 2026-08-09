@@ -30,6 +30,10 @@ def test_adapter_health_issue_is_updated_before_data_pr_cleans_worktree() -> Non
     )
 
     assert health_issue_step < data_pr_step
+    assert "notification_due=" in workflow
+    assert "notification_reason=" in workflow
+    assert 'if [ "$NOTIFICATION_DUE" = "true" ]; then' in workflow
+    assert "Weekly consolidated adapter-maintenance reminder" in workflow
 
 
 def test_data_writing_workflows_share_one_concurrency_lock() -> None:

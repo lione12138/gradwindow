@@ -94,8 +94,12 @@ jobs:
           meta = payload["meta"]
           print(f"needs_maintenance={meta['summary']['needsMaintenance']}")
           print(
-              "notification_changed="
-              + str(meta["notificationChanged"]).lower()
+              "notification_due="
+              + str(meta["notificationDue"]).lower()
+          )
+          print(
+              "notification_reason="
+              + str(meta.get("notificationReason") or "none")
           )
           PY
 
@@ -156,7 +160,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           NEEDS_MAINTENANCE: ${{ steps.adapter_health.outputs.needs_maintenance }}
-          NOTIFICATION_CHANGED: ${{ steps.adapter_health.outputs.notification_changed }}
+          NOTIFICATION_DUE: ${{ steps.adapter_health.outputs.notification_due }}
+          NOTIFICATION_REASON: ${{ steps.adapter_health.outputs.notification_reason }}
         shell: bash
         run: |
           title="Adapter maintenance required"
@@ -169,20 +174,20 @@ jobs:
 
           if [ "$NEEDS_MAINTENANCE" -gt 0 ]; then
             if [ -z "$issue_number" ]; then
-              if [ "$NOTIFICATION_CHANGED" = "true" ]; then
-                gh issue create --repo "$GITHUB_REPOSITORY" \
-                  --title "$title" --body-file "$report" \
-                  --assignee "$GITHUB_REPOSITORY_OWNER"
-              fi
+              gh issue create --repo "$GITHUB_REPOSITORY" \
+                --title "$title" --body-file "$report" \
+                --assignee "$GITHUB_REPOSITORY_OWNER"
             else
               gh issue edit "$issue_number" --repo "$GITHUB_REPOSITORY" \
                 --body-file "$report"
-              if [ "$NOTIFICATION_CHANGED" = "true" ]; then
-                gh issue comment "$issue_number" --repo "$GITHUB_REPOSITORY" \
-                  --body "The school-level adapter alert set changed. The issue body now contains the current consolidated maintenance summary."
+              if [ "$NOTIFICATION_DUE" = "true" ]; then
+                if [ "$NOTIFICATION_REASON" = "weekly-reminder" ]; then
+                  gh issue comment "$issue_number" --repo "$GITHUB_REPOSITORY" \
+                    --body "Weekly consolidated adapter-maintenance reminder: $NEEDS_MAINTENANCE schools currently need attention. The issue body contains the latest school-level summary."
+                fi
               fi
             fi
-          elif [ -n "$issue_number" ] && [ "$NOTIFICATION_CHANGED" = "true" ]; then
+          elif [ -n "$issue_number" ]; then
             gh issue close "$issue_number" --repo "$GITHUB_REPOSITORY" \
               --comment "All dedicated adapter maintenance alerts have cleared."
           fi

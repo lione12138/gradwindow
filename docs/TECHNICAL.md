@@ -130,6 +130,15 @@ prediction regeneration, validation, coverage generation, review reporting,
 and site generation. When an official target-cycle record is added, the
 matching prediction is removed automatically.
 
+Dedicated-adapter health is consolidated into one GitHub issue. Every full
+pipeline run refreshes the issue body without adding a comment. While problems
+remain open, one consolidated reminder comment is allowed every seven days;
+the issue closes once all alerts clear. Fetch failures and stale access are
+deduplicated into one availability alert per school. Catalogue/window drops and
+confirmed deadline-signal changes are labelled as data-integrity risks. Watched
+source fingerprints include only deadline-related text, so unrelated news or
+page-chrome changes do not create maintenance alerts.
+
 Dedicated parsers never write directly to `applications.json`. A detected
 date change becomes a pending item in `window-candidates.json` and must pass
 `approve-window` before publication.

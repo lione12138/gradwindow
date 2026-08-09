@@ -10,6 +10,7 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
+from .content import deadline_signal_text
 from .http_client import DEFAULT_USER_AGENT, fetch_page
 from .io import read_json, write_json
 from .monitor import extract_fetched_text
@@ -26,6 +27,8 @@ from .programme_windows import (
     has_official_exact_window,
     known_programme_window_candidates,
 )
+
+WATCHED_SOURCE_FINGERPRINT_VERSION = 2
 
 
 def fetch_catalog(url: str) -> str:
@@ -289,6 +292,9 @@ def discover_programmes(
         if watched_source_hashes
         else None
     )
+    watched_source_fingerprint_version = (
+        WATCHED_SOURCE_FINGERPRINT_VERSION if watched_source_hashes else None
+    )
     programmes_without_deadlines = sum(
         not programme.windows for programme in catalog.programmes
     )
@@ -322,6 +328,7 @@ def discover_programmes(
         "lastSuccessfulAt": checked_at,
         "windowFingerprint": window_fingerprint,
         "watchedWindowSourceHash": watched_source_fingerprint,
+        "watchedWindowSourceFingerprintVersion": (watched_source_fingerprint_version),
         "programmes": snapshot_items,
     }
     state_payload["meta"] = {
@@ -381,6 +388,7 @@ def discover_programmes(
         "limitationReason": limitation_reason,
         "windowFingerprint": window_fingerprint,
         "watchedWindowSourceHash": watched_source_fingerprint,
+        "watchedWindowSourceFingerprintVersion": (watched_source_fingerprint_version),
         "dryRun": dry_run,
     }
 
@@ -508,11 +516,9 @@ def _hash(value: str) -> str:
 
 
 def _source_hash(content: str) -> str:
-    """Fingerprint meaningful page text while ignoring formatting-only changes."""
-    stripped = re.sub(r"<script\b[^>]*>.*?</script>", " ", content, flags=re.I | re.S)
-    stripped = re.sub(r"<style\b[^>]*>.*?</style>", " ", stripped, flags=re.I | re.S)
-    stripped = re.sub(r"<[^>]+>", " ", stripped)
-    normalised = re.sub(r"\s+", " ", stripped).strip().lower()
+    """Fingerprint deadline signals, excluding unrelated page-content churn."""
+    signal = deadline_signal_text(content, max_lines=None)
+    normalised = re.sub(r"\s+", " ", signal).strip().lower()
     return _hash(normalised)
 
 

@@ -198,7 +198,7 @@ def evidence_context(
     }
 
 
-def deadline_signal_text(raw_html: str) -> str:
+def deadline_signal_text(raw_html: str, max_lines: int | None = 20) -> str:
     lines = extract_main_text(raw_html).splitlines()
     selected = [
         line
@@ -210,4 +210,4 @@ def deadline_signal_text(raw_html: str) -> str:
             flags=re.IGNORECASE,
         )
     ]
-    return "\n".join(selected[:20])
+    return "\n".join(selected if max_lines is None else selected[:max_lines])
