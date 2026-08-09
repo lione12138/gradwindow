@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-09T21:04:00.733355+00:00",
+    "generatedAt": "2026-08-09T21:43:57.647640+00:00",
     "rankingScope": "QS World University Rankings 2027 top 200",
     "batchSize": 5,
     "definition": "Entry, policy, programme, and exact-window coverage are counted separately. Predictions never count as verified deadlines."
@@ -14,16 +14,16 @@
     "broadMastersAvailability": 195,
     "limitedMastersAvailability": 5,
     "universitiesWithPrograms": 196,
-    "universitiesWithWindows": 57,
-    "verifiedWindows": 4942,
-    "universitiesWithPredictions": 57,
-    "predictedWindows": 4887,
+    "universitiesWithWindows": 58,
+    "verifiedWindows": 4943,
+    "universitiesWithPredictions": 58,
+    "predictedWindows": 4888,
     "nextActions": {
       "locate-official-entry": 0,
       "verify-window-policy": 0,
       "select-target-programmes": 4,
-      "verify-exact-windows": 139,
-      "monitor-and-refresh": 57
+      "verify-exact-windows": 138,
+      "monitor-and-refresh": 58
     }
   },
   "batches": [
@@ -492,8 +492,8 @@
       "entriesLocated": 5,
       "policiesVerified": 5,
       "universitiesWithPrograms": 5,
-      "universitiesWithWindows": 0,
-      "predictedWindows": 0
+      "universitiesWithWindows": 1,
+      "predictedWindows": 1
     },
     {
       "batch": 37,
@@ -4806,10 +4806,10 @@
         "opensText": "The OIA admissions folder confirms the international degree-seeking admissions route, but no exact current application opening or closing dates were captured in accessible text.",
         "notes": "Older guessed NYCU OIA short paths returned 404; the current OIA folder path is retained."
       },
-      "programmeCount": 1,
-      "windowCount": 0,
-      "predictionCount": 0,
-      "nextAction": "verify-exact-windows"
+      "programmeCount": 63,
+      "windowCount": 1,
+      "predictionCount": 1,
+      "nextAction": "monitor-and-refresh"
     },
     {
       "universityId": "cardiff-university",
@@ -4950,7 +4950,7 @@
         "opensText": "Use the central graduate admissions route; exact dates remain programme-specific unless a central deadline page is published.",
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
-      "programmeCount": 1,
+      "programmeCount": 98,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
@@ -4974,7 +4974,7 @@
         "opensText": "Concrete deadlines are listed per degree programme in SINS",
         "notes": "The central deadlines page gives doctoral enrolment windows but not a universal master's deadline."
       },
-      "programmeCount": 1,
+      "programmeCount": 72,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
