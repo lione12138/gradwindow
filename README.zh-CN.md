@@ -34,6 +34,7 @@
 | =82 | The University of Sheffield / 谢菲尔德大学 | 20 个当前开放窗口 | 2026-09-04 | 官网核验 | [招生官网](https://www.sheffield.ac.uk/postgraduate/taught/apply) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Sheffield) |
 | 84 | Universidad de Buenos Aires (UBA) / 布宜诺斯艾利斯大学 | 1 个当前开放窗口 | 2026-08-11 | 预测参考 | [招生官网](https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/) · [查看全部项目](https://gradwindow.com/?q=Universidad%20de%20Buenos%20Aires%20%28UBA%29) |
 | =87 | The University of Technology Sydney (UTS) / 悉尼科技大学 | 1 个当前开放窗口 | 2027-01-31 | 官网核验 | [招生官网](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |
+| 106 | Pohang University of Science And Technology (POSTECH) / 浦项科技大学 | 17 个当前开放窗口 | 2026-09-11 | 官网核验 | [招生官网](https://adm-g.postech.ac.kr/) · [查看全部项目](https://gradwindow.com/?q=Pohang%20University%20of%20Science%20And%20Technology%20%28POSTECH%29) |
 | =142 | National Tsing Hua University - NTHU / 台湾清华大学 | 1 个当前开放窗口 | 2026-09-30 | 官网核验 | [招生官网](https://admission.nthu.edu.tw/) · [查看全部项目](https://gradwindow.com/?q=National%20Tsing%20Hua%20University%20-%20NTHU) |
 | =162 | Université de Montréal / 蒙特利尔大学 | 1 个当前开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [查看全部项目](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 

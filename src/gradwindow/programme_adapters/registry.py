@@ -47,6 +47,7 @@ from .heidelberg import HeidelbergAdapter
 from .helsinki import HelsinkiAdapter
 from .hku import HKUAdapter
 from .hkust import HKUSTAdapter
+from .hokkaido import HokkaidoAdapter
 from .imperial import ImperialAdapter
 from .ip_paris import IPParisAdapter
 from .jhu import JHUAdapter
@@ -92,16 +93,22 @@ from .peking import PekingAdapter
 from .penn_state import PennStateAdapter
 from .polimi import PolimiAdapter
 from .polyu import PolyUAdapter
+from .postech import POSTECHAdapter
 from .princeton import PrincetonAdapter
 from .psl import PSLAdapter
 from .purdue import PurdueAdapter
 from .qatar import QatarAdapter
+from .qmul import QMULAdapter
 from .queens_ontario import QueensOntarioAdapter
+from .reading import ReadingAdapter
 from .rice import RiceAdapter
 from .rmit import RMITAdapter
+from .rwth import RWTHAdapter
+from .sapienza import SapienzaAdapter
 from .science_tokyo import ScienceTokyoAdapter
 from .sheffield import SheffieldAdapter
 from .sjtu import SJTUAdapter
+from .skku import SKKUAdapter
 from .snu import SNUAdapter
 from .sorbonne import SorbonneAdapter
 from .southampton import SouthamptonAdapter
@@ -131,9 +138,12 @@ from .uiuc import UIUCAdapter
 from .um import UMAdapter
 from .unc import UNCAdapter
 from .unsw import UNSWAdapter
+from .uow import UOWAdapter
 from .upenn import UpennAdapter
+from .upm import UPMAdapter
 from .uppsala import UppsalaAdapter
 from .uq import UQAdapter
+from .usm import USMAdapter
 from .ut_austin import UTAustinAdapter
 from .utokyo import UTokyoAdapter
 from .uts import UTSAdapter
@@ -198,6 +208,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "harvard": HarvardAdapter,
     "heidelberg": HeidelbergAdapter,
     "helsinki": HelsinkiAdapter,
+    "hokkaido": HokkaidoAdapter,
     "hku": HKUAdapter,
     "hkust": HKUSTAdapter,
     "imperial": ImperialAdapter,
@@ -245,15 +256,21 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "penn-state": PennStateAdapter,
     "polimi": PolimiAdapter,
     "polyu": PolyUAdapter,
+    "postech": POSTECHAdapter,
     "princeton": PrincetonAdapter,
     "psl": PSLAdapter,
     "purdue": PurdueAdapter,
     "qatar": QatarAdapter,
+    "qmul": QMULAdapter,
     "queens-ontario": QueensOntarioAdapter,
+    "reading": ReadingAdapter,
     "rice": RiceAdapter,
     "rmit": RMITAdapter,
+    "rwth": RWTHAdapter,
+    "sapienza": SapienzaAdapter,
     "science-tokyo": ScienceTokyoAdapter,
     "sjtu": SJTUAdapter,
+    "skku": SKKUAdapter,
     "sheffield": SheffieldAdapter,
     "snu": SNUAdapter,
     "southampton": SouthamptonAdapter,
@@ -283,6 +300,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "uiuc": UIUCAdapter,
     "unsw": UNSWAdapter,
     "uq": UQAdapter,
+    "upm": UPMAdapter,
     "ut-austin": UTAustinAdapter,
     "um": UMAdapter,
     "unc": UNCAdapter,
@@ -290,7 +308,9 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "uppsala": UppsalaAdapter,
     "utokyo": UTokyoAdapter,
     "uts": UTSAdapter,
+    "usm": USMAdapter,
     "uva": UvAAdapter,
+    "uow": UOWAdapter,
     "uzh": UZHAdapter,
     "uwa": UWAAdapter,
     "warwick": WarwickAdapter,

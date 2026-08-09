@@ -34,6 +34,7 @@ Status date: **2026-08-09**
 | =82 | The University of Sheffield | 20 open windows | 2026-09-04 | Official | [Admissions](https://www.sheffield.ac.uk/postgraduate/taught/apply) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Sheffield) |
 | 84 | Universidad de Buenos Aires (UBA) | 1 open window | 2026-08-11 | Estimate | [Admissions](https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/) · [All programme details](https://gradwindow.com/?q=Universidad%20de%20Buenos%20Aires%20%28UBA%29) |
 | =87 | The University of Technology Sydney (UTS) | 1 open window | 2027-01-31 | Official | [Admissions](https://www.uts.edu.au/for-students/admissions-entry/application-dates) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Technology%20Sydney%20%28UTS%29) |
+| 106 | Pohang University of Science And Technology (POSTECH) | 17 open windows | 2026-09-11 | Official | [Admissions](https://adm-g.postech.ac.kr/) · [All programme details](https://gradwindow.com/?q=Pohang%20University%20of%20Science%20And%20Technology%20%28POSTECH%29) |
 | =142 | National Tsing Hua University - NTHU | 1 open window | 2026-09-30 | Official | [Admissions](https://admission.nthu.edu.tw/) · [All programme details](https://gradwindow.com/?q=National%20Tsing%20Hua%20University%20-%20NTHU) |
 | =162 | Université de Montréal | 1 open window | 2026-09-01 | Official | [Admissions](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [All programme details](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 
