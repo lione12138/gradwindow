@@ -277,8 +277,8 @@ def approve_programme_candidates(
                 {
                     "id": record_id,
                     "universityId": university_id,
-                    "scopeType": "programme",
-                    "scopeId": programme_id,
+                    "scopeType": window.get("scopeType", "programme"),
+                    "scopeId": window.get("scopeId") or programme_id,
                     "intake": window["intake"],
                     "round": window.get("round", ""),
                     "applicantCategories": window.get("applicantCategories", ["all"]),

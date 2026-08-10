@@ -39,7 +39,7 @@ def generate_readmes(today: date | None = None) -> tuple[Path, Path]:
     ]
     records.sort(
         key=lambda item: (
-            university_by_id[item["universityId"]]["qsPosition"],
+            university_by_id[item["universityId"]].get("qsPosition") or 10_000,
             item["opensAt"],
         )
     )
@@ -148,7 +148,7 @@ def _table(
             f"[{admissions_link}]({admissions_url}) · [{details_link}]({details_url})"
         )
         rows.append(
-            f"| {university['rankDisplay']} | {university_name} | "
+            f"| {university.get('rankDisplay') or '—'} | {university_name} | "
             f"{coverage} | {nearest_date} | {data_label} | {links} |"
         )
     return "\n".join(rows)

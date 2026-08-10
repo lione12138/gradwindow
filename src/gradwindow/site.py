@@ -208,9 +208,14 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
             item for item in predictions if item["universityId"] == university["id"]
         ]
         canonical = f"{public_site_url}/university/{university['id']}/"
+        ranking_label = (
+            f"QS {university['rankDisplay']}"
+            if university.get("rankDisplay")
+            else "THE / ARWU / U.S. News monitored university"
+        )
         body = (
             f'<p class="back"><a href="../../index.html">Back to tracker</a></p>'
-            f"<p>QS {html.escape(university['rankDisplay'])} · "
+            f"<p>{html.escape(ranking_label)} · "
             f"{html.escape(university['country'])}</p>"
             f'<p><a href="{html.escape(university["homepageUrl"], quote=True)}">'
             "University website</a>"
@@ -256,6 +261,8 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
 
     by_country: dict[str, list[dict]] = {}
     for university in universities:
+        if university.get("qsPosition") is None:
+            continue
         by_country.setdefault(university["country"], []).append(university)
     for country, items in by_country.items():
         country_slug = slugify(country)
@@ -488,7 +495,14 @@ def render_sources_page(public_site_url: str) -> str:
     monitor = read_json(MONITOR_STATE_PATH, {"universities": {}})
     monitor_entries = monitor.get("universities", {})
     rows = []
-    for university in sorted(universities, key=lambda item: item["qsPosition"]):
+    for university in sorted(
+        universities,
+        key=lambda item: (
+            item.get("qsPosition") is None,
+            item.get("qsPosition") or 10_000,
+            item["school"],
+        ),
+    ):
         monitor_item = monitor_entries.get(university["id"], {})
         admissions_url = university.get("admissionsUrl")
         admissions = (
@@ -498,7 +512,7 @@ def render_sources_page(public_site_url: str) -> str:
         )
         rows.append(
             "<tr>"
-            f"<td>{html.escape(university['rankDisplay'])}</td>"
+            f"<td>{html.escape(university.get('rankDisplay') or '—')}</td>"
             f'<td><a href="{html.escape(university["homepageUrl"], quote=True)}">'
             f"{html.escape(university['school'])}</a></td>"
             f"<td>{html.escape(university['country'])}</td>"
@@ -510,7 +524,7 @@ def render_sources_page(public_site_url: str) -> str:
     title = "Sources and coverage · GradWindow"
     description = (
         "Review GradWindow's official university sources, graduate application "
-        "entry discovery status, and latest monitoring results for the QS Top 200."
+        "entry discovery status, and latest monitoring results across supported rankings."
     )
     canonical = f"{public_site_url}/sources.html"
     structured_data = json.dumps(
@@ -586,7 +600,7 @@ def render_sources_page(public_site_url: str) -> str:
   <main>
     <a class="back" href="index.html">← Back to tracker</a>
     <h1>Sources and coverage</h1>
-    <p>Public list of all 200 universities, official websites, admissions-entry discovery status, and latest monitoring result.</p>
+    <p>Public list of {len(universities)} monitored universities, official websites, admissions-entry discovery status, and latest monitoring result.</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>QS</th><th>University</th><th>Country/region</th><th>Entry status</th><th>Application page</th><th>Monitoring</th></tr></thead>

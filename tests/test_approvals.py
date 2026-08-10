@@ -151,6 +151,8 @@ def test_approve_programme_candidates_promotes_parsed_windows(tmp_path) -> None:
                 "opensAt": "2025-09-29",
                 "opensAtBasis": "official",
                 "closesAt": "2026-01-07",
+                "scopeType": "institution",
+                "scopeId": "imperial-college-london",
             }
         ],
         "parseStatus": "parsed",
@@ -181,8 +183,8 @@ def test_approve_programme_candidates_promotes_parsed_windows(tmp_path) -> None:
         for item in applications
         if item["id"] == "imperial-example-msc-2026-round-2"
     )
-    assert window["scopeType"] == "programme"
-    assert window["scopeId"] == "imperial-example-msc"
+    assert window["scopeType"] == "institution"
+    assert window["scopeId"] == "imperial-college-london"
     assert window["intakeDetails"]["cycleYear"] == 2026
     candidates = json.loads(candidates_path.read_text(encoding="utf-8"))["items"]
     assert candidates[0]["status"] == "approved"

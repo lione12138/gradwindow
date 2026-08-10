@@ -84,6 +84,23 @@ def test_university_model_does_not_treat_qs_rank_as_list_position() -> None:
     assert parsed.qs_rank == 225
 
 
+def test_university_model_accepts_a_non_qs_ranked_institution() -> None:
+    payload = json.loads(
+        (APPLICATIONS_PATH.parent / "universities.json").read_text(encoding="utf-8")
+    )
+    record = copy.deepcopy(payload["universities"][0])
+    record["id"] = "ranking-union-university"
+    record["qsRank"] = None
+    record["qsPosition"] = None
+    record["rankDisplay"] = None
+
+    parsed = University.model_validate(record)
+
+    assert parsed.qs_rank is None
+    assert parsed.qs_position is None
+    assert parsed.rank_display is None
+
+
 def test_qs_universities_have_chinese_names_for_search() -> None:
     payload = json.loads(
         (APPLICATIONS_PATH.parent / "universities.json").read_text(encoding="utf-8")

@@ -57,9 +57,9 @@ class IntakeDetails(DataModel):
 
 class University(DataModel):
     id: str = Field(pattern=SLUG_PATTERN)
-    qs_rank: int = Field(alias="qsRank", ge=1)
-    qs_position: int = Field(alias="qsPosition", ge=1, le=200)
-    rank_display: str = Field(alias="rankDisplay")
+    qs_rank: int | None = Field(default=None, alias="qsRank", ge=1)
+    qs_position: int | None = Field(default=None, alias="qsPosition", ge=1, le=200)
+    rank_display: str | None = Field(default=None, alias="rankDisplay")
     school: str
     school_zh: str = Field(alias="schoolZh")
     school_aliases_zh: list[str] = Field(default_factory=list, alias="schoolAliasesZh")
@@ -76,6 +76,17 @@ class University(DataModel):
     monitor_enabled: bool = Field(alias="monitorEnabled")
     admissions_candidate_score: int | None = Field(alias="admissionsCandidateScore")
     admissions_candidate_title: str | None = Field(alias="admissionsCandidateTitle")
+
+    @model_validator(mode="after")
+    def validate_qs_identity(self) -> University:
+        qs_values = (self.qs_rank, self.qs_position, self.rank_display)
+        if any(value is None for value in qs_values) and not all(
+            value is None for value in qs_values
+        ):
+            raise ValueError(
+                "qsRank, qsPosition, and rankDisplay must be provided together"
+            )
+        return self
 
     @field_validator("official_domains")
     @classmethod

@@ -103,8 +103,8 @@ def validate_data(
     predictions = read_json(predictions_path).get("predictions")
     errors: list[str] = []
 
-    if not isinstance(universities, list) or len(universities) != 200:
-        errors.append("universities must contain exactly 200 institutions")
+    if not isinstance(universities, list) or len(universities) < 200:
+        errors.append("universities must contain at least the 200 QS institutions")
         universities = universities or []
     if not isinstance(applications, list):
         errors.append("applications must be a list")
@@ -139,7 +139,8 @@ def validate_data(
             errors.append(f"{label}: duplicate university id")
         university_ids.add(label)
         university_domains[label] = item["officialDomains"]
-        positions.append(item["qsPosition"])
+        if item.get("qsPosition") is not None:
+            positions.append(item["qsPosition"])
 
     if sorted(positions) != list(range(1, 201)):
         errors.append("QS positions must be unique and cover 1 through 200")

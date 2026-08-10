@@ -158,7 +158,14 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     payload = json.loads(
         (tmp_path / "data" / "universities.json").read_text(encoding="utf-8")
     )
-    assert len(payload["universities"]) == 200
+    assert len(payload["universities"]) == payload["meta"]["recordCount"]
+    assert (
+        sum(
+            university.get("qsPosition") is not None
+            for university in payload["universities"]
+        )
+        == 200
+    )
     sources_html = (tmp_path / "sources.html").read_text(encoding="utf-8")
     assert "Sources and coverage" in sources_html
     assert 'lang="en"' in sources_html

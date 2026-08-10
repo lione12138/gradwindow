@@ -33,7 +33,11 @@ def generate_coverage(
     predictions = read_json(predictions_path)["predictions"]
 
     top = sorted(
-        (item for item in universities if item["qsPosition"] <= TOP_LIMIT),
+        (
+            item
+            for item in universities
+            if item.get("qsPosition") is not None and item["qsPosition"] <= TOP_LIMIT
+        ),
         key=lambda item: item["qsPosition"],
     )
     policies_by_university = {item["universityId"]: item for item in policies}

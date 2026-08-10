@@ -458,19 +458,22 @@ def _candidate_record(
         return opens_at, shared_opening_basis
 
     windows = []
+    scope_type = getattr(adapter, "known_programme_window_scope_type", "programme")
+    scope_id = getattr(adapter, "known_programme_window_scope_id", None) or programme.id
     for window in programme.windows:
         opens_at, opens_at_basis = opening_for(window)
-        windows.append(
-            {
-                "intake": window.intake or adapter.intake,
-                "round": window.round,
-                "applicantCategories": window.applicant_categories,
-                "opensAt": opens_at,
-                "opensAtBasis": opens_at_basis,
-                "closesAt": window.closes_at,
-                "sourceUrl": window.source_url or programme.source_url,
-            }
-        )
+        window_record = {
+            "intake": window.intake or adapter.intake,
+            "round": window.round,
+            "applicantCategories": window.applicant_categories,
+            "opensAt": opens_at,
+            "opensAtBasis": opens_at_basis,
+            "closesAt": window.closes_at,
+            "sourceUrl": window.source_url or programme.source_url,
+        }
+        if scope_type != "programme" or scope_id != programme.id:
+            window_record.update({"scopeType": scope_type, "scopeId": scope_id})
+        windows.append(window_record)
     has_unresolved_opening = any(window["opensAt"] is None for window in windows)
     has_inferred_opening = any(
         window.get("opensAtBasis", "").startswith("inferred") for window in windows

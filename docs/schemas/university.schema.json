@@ -7,19 +7,43 @@
       "type": "string"
     },
     "qsRank": {
-      "minimum": 1,
-      "title": "Qsrank",
-      "type": "integer"
+      "anyOf": [
+        {
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Qsrank"
     },
     "qsPosition": {
-      "maximum": 200,
-      "minimum": 1,
-      "title": "Qsposition",
-      "type": "integer"
+      "anyOf": [
+        {
+          "maximum": 200,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Qsposition"
     },
     "rankDisplay": {
-      "title": "Rankdisplay",
-      "type": "string"
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rankdisplay"
     },
     "school": {
       "title": "School",
@@ -131,9 +155,6 @@
   },
   "required": [
     "id",
-    "qsRank",
-    "qsPosition",
-    "rankDisplay",
     "school",
     "schoolZh",
     "country",

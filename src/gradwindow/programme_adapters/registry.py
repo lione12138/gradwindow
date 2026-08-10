@@ -59,6 +59,7 @@ from .hku import HKUAdapter
 from .hkust import HKUSTAdapter
 from .hokkaido import HokkaidoAdapter
 from .humboldt import HumboldtAdapter
+from .icahn import IcahnAdapter
 from .iit_bombay import IITBombayAdapter
 from .iit_delhi import IITDelhiAdapter
 from .iit_madras import IITMadrasAdapter
@@ -66,6 +67,7 @@ from .imperial import ImperialAdapter
 from .ip_paris import IPParisAdapter
 from .jhu import JHUAdapter
 from .kaist import KAISTAdapter
+from .karolinska import KarolinskaAdapter
 from .kau import KAUAdapter
 from .kcl import KCLAdapter
 from .kfupm import KFUPMAdapter
@@ -91,6 +93,7 @@ from .mcmaster import McMasterAdapter
 from .melbourne import MelbourneAdapter
 from .michigan import MichiganAdapter
 from .michigan_state import MichiganStateAdapter
+from .minnesota import MinnesotaAdapter
 from .mit import MITAdapter
 from .monash import MonashAdapter
 from .montreal import MontrealAdapter
@@ -128,6 +131,7 @@ from .queens_ontario import QueensOntarioAdapter
 from .reading import ReadingAdapter
 from .rice import RiceAdapter
 from .rmit import RMITAdapter
+from .rockefeller import RockefellerAdapter
 from .rwth import RWTHAdapter
 from .sapienza import SapienzaAdapter
 from .science_tokyo import ScienceTokyoAdapter
@@ -165,6 +169,7 @@ from .ucla import UCLAAdapter
 from .uclouvain import UCLouvainAdapter
 from .ucsb import UCSBAdapter
 from .ucsd import UCSDAdapter
+from .ucsf import UCSFAdapter
 from .uiuc import UIUCAdapter
 from .ukm import UKMAdapter
 from .um import UMAdapter
@@ -260,6 +265,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "hit": HITAdapter,
     "hokkaido": HokkaidoAdapter,
     "humboldt": HumboldtAdapter,
+    "icahn": IcahnAdapter,
     "iit-bombay": IITBombayAdapter,
     "iit-delhi": IITDelhiAdapter,
     "iit-madras": IITMadrasAdapter,
@@ -269,6 +275,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "ip-paris": IPParisAdapter,
     "jhu": JHUAdapter,
     "kaist": KAISTAdapter,
+    "karolinska": KarolinskaAdapter,
     "kau": KAUAdapter,
     "khalifa": KhalifaAdapter,
     "kit": KITAdapter,
@@ -294,6 +301,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "mcmaster": McMasterAdapter,
     "michigan": MichiganAdapter,
     "michigan-state": MichiganStateAdapter,
+    "minnesota": MinnesotaAdapter,
     "mit": MITAdapter,
     "montreal": MontrealAdapter,
     "monash": MonashAdapter,
@@ -330,6 +338,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "reading": ReadingAdapter,
     "rice": RiceAdapter,
     "rmit": RMITAdapter,
+    "rockefeller": RockefellerAdapter,
     "rwth": RWTHAdapter,
     "sapienza": SapienzaAdapter,
     "science-tokyo": ScienceTokyoAdapter,
@@ -365,6 +374,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "uc-davis": UCDavisAdapter,
     "ucsd": UCSDAdapter,
     "ucsb": UCSBAdapter,
+    "ucsf": UCSFAdapter,
     "ucd": UCDAdapter,
     "uchile": UChileAdapter,
     "uiuc": UIUCAdapter,

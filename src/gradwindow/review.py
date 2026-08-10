@@ -47,7 +47,7 @@ def generate_review_outputs(
                     "type": "content-change",
                     "universityId": university_id,
                     "school": university["school"],
-                    "qsRank": university["qsRank"],
+                    "qsRank": university.get("qsRank"),
                     "url": result["url"],
                     "reason": "Official page content changed consistently in two consecutive checks.",
                     "severity": result.get("changeSeverity", "generic"),
@@ -65,7 +65,7 @@ def generate_review_outputs(
                 "type": "monitor-error",
                 "universityId": university_id,
                 "school": university["school"],
-                "qsRank": university["qsRank"],
+                "qsRank": university.get("qsRank"),
                 "url": result["url"],
                 "reason": result.get("message")
                 or f"HTTP status {result.get('httpStatus', 'unknown')}",
@@ -102,7 +102,7 @@ def generate_review_outputs(
                         "universityId": record["universityId"],
                         "recordId": record_id,
                         "school": university["school"],
-                        "qsRank": university["qsRank"],
+                        "qsRank": university.get("qsRank"),
                         "url": result["url"],
                         "reason": (
                             "A published application-window source changed "
@@ -121,7 +121,7 @@ def generate_review_outputs(
                     "universityId": record["universityId"],
                     "recordId": record_id,
                     "school": university["school"],
-                    "qsRank": university["qsRank"],
+                    "qsRank": university.get("qsRank"),
                     "url": result["url"],
                     "reason": result.get("message")
                     or f"HTTP status {result.get('httpStatus', 'unknown')}",
@@ -133,7 +133,11 @@ def generate_review_outputs(
 
     items = sorted(
         existing_by_id.values(),
-        key=lambda item: (item["type"] != "content-change", item["qsRank"]),
+        key=lambda item: (
+            item["type"] != "content-change",
+            item.get("qsRank") is None,
+            item.get("qsRank") or 10_000,
+        ),
     )
     queue_payload = {
         "meta": {
@@ -166,7 +170,7 @@ def generate_review_outputs(
 def render_report(monitor: dict, items: list[dict], summary: dict[str, int]) -> str:
     monitor_summary = monitor["meta"]["summary"]
     rows = "\n".join(
-        f"| {item['qsRank']} | {item['school']} | "
+        f"| {item.get('qsRank') or '—'} | {item['school']} | "
         f"{item.get('severity', '-')} | {item['type']} | "
         f"[official page]({item['url']}) | {item['reason']} |"
         for item in items

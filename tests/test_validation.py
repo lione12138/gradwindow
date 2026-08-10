@@ -13,7 +13,9 @@ from gradwindow.validation import valid_http_url, validate_data
 def test_current_public_data_is_valid() -> None:
     errors, summary = validate_data(UNIVERSITIES_PATH, APPLICATIONS_PATH)
     assert errors == []
-    assert summary["universities"] == 200
+    university_payload = json.loads(UNIVERSITIES_PATH.read_text(encoding="utf-8"))
+    assert summary["universities"] == university_payload["meta"]["recordCount"]
+    assert summary["universities"] >= 200
     assert summary["curatedAdmissions"] >= 80
     assert summary["windowPolicies"] >= 80
     assert summary["programs"] >= 78

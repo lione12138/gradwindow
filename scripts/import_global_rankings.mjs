@@ -214,6 +214,7 @@ const aliasEntries = [
   ["universityofsopaulo", "universidade-de-s-o-paulo-usp"],
   ["sao-paulo", "universidade-de-s-o-paulo-usp"],
   ["karolinskainstitutet", "karolinska-institutet"],
+  ["karolinskainstitute", "karolinska-institutet"],
   [
     "universityofcalifornia,sanfrancisco",
     "university-of-california-san-francisco",
@@ -256,6 +257,12 @@ const aliasEntries = [
   ["universityofpittsburgh", "university-of-pittsburgh"],
   ["universityofmarylandcollegepark", "university-of-maryland-college-park"],
   ["universityofminnesotatwincities", "university-of-minnesota-twin-cities"],
+  ["universityofminnesota", "university-of-minnesota-twin-cities"],
+  ["rockefelleruniversity", "rockefeller-university"],
+  [
+    "icahnschoolofmedicineatmountsinai",
+    "icahn-school-of-medicine-at-mount-sinai",
+  ],
   ["universityofwashingtonseattle", "university-of-washington"],
   ["universityofwisconsinmadison", "university-of-wisconsin-madison"],
   ["universityofnottinghamming", "university-of-nottingham"],
@@ -449,6 +456,19 @@ function parseArwu(payloadText) {
     }));
 }
 
+function existingLocalization(rankingId, school) {
+  const existingRows = existingOutput.rankings?.[rankingId]?.rows || [];
+  const key = identityKey(school);
+  const existing = existingRows.find((row) => identityKey(row.school) === key);
+  if (!existing) return {};
+  return {
+    ...(existing.schoolZh ? { schoolZh: existing.schoolZh } : {}),
+    ...(existing.schoolAliasesZh?.length
+      ? { schoolAliasesZh: existing.schoolAliasesZh }
+      : {}),
+  };
+}
+
 function buildRows(rows, rankingId, sourceUrl) {
   const usedIds = new Map();
   return rows.map((row) => {
@@ -457,17 +477,40 @@ function buildRows(rows, rankingId, sourceUrl) {
     const baseId = university?.id || `${rankingId}-${slug(row.name)}`;
     const count = usedIds.get(baseId) || 0;
     usedIds.set(baseId, count + 1);
+    const localization = existingLocalization(rankingId, row.name);
     return {
       id: count ? `${baseId}-${count + 1}` : baseId,
       universityId: university?.id || null,
       school: university?.school || row.name,
-      schoolZh: university?.schoolZh || "",
+      schoolZh: university?.schoolZh || localization.schoolZh || "",
       country: university?.country || country,
       region: university?.region || regionByCountry.get(country) || "Other",
       rankPosition: rankStart(row.rankDisplay),
       rankDisplay: row.rankDisplay,
       rankingOnly: !university,
       sourceUrl: row.sourceUrl || sourceUrl,
+      ...(university?.schoolAliasesZh?.length
+        ? { schoolAliasesZh: university.schoolAliasesZh }
+        : localization.schoolAliasesZh?.length
+          ? { schoolAliasesZh: localization.schoolAliasesZh }
+          : {}),
+    };
+  });
+}
+
+function relinkPreservedRows(rows = []) {
+  return rows.map((row) => {
+    const university = resolveUniversity(row.school);
+    if (!university) return row;
+    return {
+      ...row,
+      id: university.id,
+      universityId: university.id,
+      school: university.school,
+      schoolZh: university.schoolZh,
+      country: university.country,
+      region: university.region,
+      rankingOnly: false,
     };
   });
 }
@@ -499,7 +542,10 @@ function preservedRanking(rankingId, error) {
     console.warn(
       `${rankingId}: preserving existing rows because refresh failed: ${error.message}`,
     );
-    return existing;
+    return {
+      ...existing,
+      rows: relinkPreservedRows(existing.rows),
+    };
   }
   return {
     available: false,
@@ -514,7 +560,7 @@ const output = {
     generatedAt: todayInBeijing(),
     selectionPolicy:
       "All institutions whose published rank starts at 200 or above are retained; tied and banded ranks are preserved.",
-    note: "QS remains the admissions-monitoring core. Ranking-only institutions are not represented as monitored admissions data.",
+    note: "All ranking views resolve through the shared canonical university table. Ranking-only rows remain visible until their institution is added to monitored admissions coverage.",
   },
   rankings: {
     the: theRows

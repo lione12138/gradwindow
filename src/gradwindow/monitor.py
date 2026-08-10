@@ -222,7 +222,14 @@ def monitor_universities(
 
     ordered = {
         item["id"]: results[item["id"]]
-        for item in sorted(universities, key=lambda value: value["qsPosition"])
+        for item in sorted(
+            universities,
+            key=lambda value: (
+                value.get("qsPosition") is None,
+                value.get("qsPosition") or 10_000,
+                value["school"],
+            ),
+        )
     }
     summary = summarize_monitor_results(ordered)
     payload = {

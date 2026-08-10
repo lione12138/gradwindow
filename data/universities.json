@@ -3,9 +3,10 @@
     "rankingEdition": "QS World University Rankings 2027",
     "rankingPublishedAt": "2026-06-18",
     "rankingSource": "https://www.topuniversities.com/world-university-rankings",
-    "recordCount": 200,
-    "selectionRule": "First 200 rows in the published QS 2027 table; ties retain QS rank_display values.",
-    "institutionSource": "QS official rankings endpoint; official domains resolved through existing records and ROR v2 for newly added institutions."
+    "recordCount": 205,
+    "qsRecordCount": 200,
+    "selectionRule": "First 200 rows in the published QS 2027 table, plus canonical institutions from the supported THE, ARWU, and U.S. News top-200 tables as adapter coverage expands.",
+    "institutionSource": "Official ranking publishers; official domains resolved through existing records and ROR v2 for newly added institutions."
   },
   "universities": [
     {
@@ -4872,6 +4873,143 @@
       "monitorEnabled": true,
       "admissionsCandidateScore": null,
       "admissionsCandidateTitle": null
+    },
+    {
+      "id": "university-of-california-san-francisco",
+      "qsRank": null,
+      "qsPosition": null,
+      "rankDisplay": null,
+      "school": "University of California, San Francisco",
+      "schoolZh": "加州大学旧金山分校",
+      "country": "United States",
+      "region": "Americas",
+      "homepageUrl": "https://www.ucsf.edu/",
+      "officialDomains": [
+        "ucsf.edu"
+      ],
+      "rorId": "https://ror.org/043mz5j54",
+      "rorMatchScore": 1.0,
+      "rorMatched": true,
+      "admissionsUrl": "https://graduate.ucsf.edu/admission",
+      "admissionsDiscovery": "curated",
+      "datePolicy": "program-specific",
+      "monitorEnabled": true,
+      "admissionsCandidateScore": null,
+      "admissionsCandidateTitle": null,
+      "schoolAliasesZh": [
+        "加州大学旧金山",
+        "UCSF"
+      ]
+    },
+    {
+      "id": "rockefeller-university",
+      "qsRank": null,
+      "qsPosition": null,
+      "rankDisplay": null,
+      "school": "Rockefeller University",
+      "schoolZh": "洛克菲勒大学",
+      "country": "United States",
+      "region": "Americas",
+      "homepageUrl": "https://www.rockefeller.edu/",
+      "officialDomains": [
+        "rockefeller.edu"
+      ],
+      "rorId": "https://ror.org/0420db125",
+      "rorMatchScore": 1.0,
+      "rorMatched": true,
+      "admissionsUrl": "https://www.rockefeller.edu/education-and-training/graduate-program-in-bioscience/admissions/",
+      "admissionsDiscovery": "curated",
+      "datePolicy": "doctoral-only",
+      "monitorEnabled": true,
+      "admissionsCandidateScore": null,
+      "admissionsCandidateTitle": null,
+      "schoolAliasesZh": [
+        "洛克菲勒"
+      ]
+    },
+    {
+      "id": "icahn-school-of-medicine-at-mount-sinai",
+      "qsRank": null,
+      "qsPosition": null,
+      "rankDisplay": null,
+      "school": "Icahn School of Medicine at Mount Sinai",
+      "schoolZh": "西奈山伊坎医学院",
+      "country": "United States",
+      "region": "Americas",
+      "homepageUrl": "https://icahn.mssm.edu/",
+      "officialDomains": [
+        "mssm.edu",
+        "icahngraduate.org"
+      ],
+      "rorId": "https://ror.org/04a9tmd77",
+      "rorMatchScore": 1.0,
+      "rorMatched": true,
+      "admissionsUrl": "https://icahn.mssm.edu/education/masters",
+      "admissionsDiscovery": "curated",
+      "datePolicy": "program-specific",
+      "monitorEnabled": true,
+      "admissionsCandidateScore": null,
+      "admissionsCandidateTitle": null,
+      "schoolAliasesZh": [
+        "伊坎医学院",
+        "西奈山医学院"
+      ]
+    },
+    {
+      "id": "karolinska-institutet",
+      "qsRank": null,
+      "qsPosition": null,
+      "rankDisplay": null,
+      "school": "Karolinska Institutet",
+      "schoolZh": "卡罗林斯卡学院",
+      "country": "Sweden",
+      "region": "Europe",
+      "homepageUrl": "https://ki.se/en",
+      "officialDomains": [
+        "ki.se"
+      ],
+      "rorId": "https://ror.org/056d84691",
+      "rorMatchScore": 1.0,
+      "rorMatched": true,
+      "admissionsUrl": "https://education.ki.se/bachelors-masters-studies/apply/apply-for-a-masters-programme",
+      "admissionsDiscovery": "curated",
+      "datePolicy": "institution-wide",
+      "monitorEnabled": true,
+      "admissionsCandidateScore": null,
+      "admissionsCandidateTitle": null,
+      "schoolAliasesZh": [
+        "卡罗琳斯卡学院",
+        "卡罗林斯卡医学院",
+        "KI"
+      ]
+    },
+    {
+      "id": "university-of-minnesota-twin-cities",
+      "qsRank": null,
+      "qsPosition": null,
+      "rankDisplay": null,
+      "school": "University of Minnesota, Twin Cities",
+      "schoolZh": "明尼苏达大学双城分校",
+      "country": "United States",
+      "region": "Americas",
+      "homepageUrl": "https://twin-cities.umn.edu/",
+      "officialDomains": [
+        "umn.edu"
+      ],
+      "rorId": "https://ror.org/017zqws13",
+      "rorMatchScore": 1.0,
+      "rorMatched": true,
+      "admissionsUrl": "https://grad.umn.edu/admissions",
+      "admissionsDiscovery": "curated",
+      "datePolicy": "program-specific",
+      "monitorEnabled": true,
+      "admissionsCandidateScore": null,
+      "admissionsCandidateTitle": null,
+      "schoolAliasesZh": [
+        "明尼苏达大学",
+        "明大",
+        "UMN"
+      ]
     }
   ]
 }

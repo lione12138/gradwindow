@@ -544,18 +544,20 @@ function buildSelectedRankingDefinition() {
       id: "qs",
       shortLabel: "QS",
       available: true,
-      rows: state.universities.map((university) => ({
-        id: university.id,
-        universityId: university.id,
-        school: university.school,
-        schoolZh: university.schoolZh,
-        schoolAliasesZh: university.schoolAliasesZh || [],
-        country: university.country,
-        region: university.region,
-        rankPosition: university.qsPosition,
-        rankDisplay: university.rankDisplay,
-        rankingOnly: false,
-      })),
+      rows: state.universities
+        .filter((university) => university.qsPosition != null)
+        .map((university) => ({
+          id: university.id,
+          universityId: university.id,
+          school: university.school,
+          schoolZh: university.schoolZh,
+          schoolAliasesZh: university.schoolAliasesZh || [],
+          country: university.country,
+          region: university.region,
+          rankPosition: university.qsPosition,
+          rankDisplay: university.rankDisplay,
+          rankingOnly: false,
+        })),
     };
   }
   const ranking = state.rankingPayload.rankings?.[state.ranking];
