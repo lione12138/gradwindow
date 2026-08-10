@@ -256,6 +256,20 @@ const aliasEntries = [
   ["universityofpittsburghpittsburghcampus", "university-of-pittsburgh"],
   ["universityofpittsburgh", "university-of-pittsburgh"],
   ["universityofmarylandcollegepark", "university-of-maryland-college-park"],
+  [
+    "universityofchineseacademyofsciences",
+    "university-of-chinese-academy-of-sciences",
+  ],
+  [
+    "universityoftexassouthwesternmedicalcenter",
+    "university-of-texas-southwestern-medical-center",
+  ],
+  [
+    "theuniversityoftexassouthwesternmedicalcenter",
+    "university-of-texas-southwestern-medical-center",
+  ],
+  ["universitepariscite", "universite-paris-cite"],
+  ["universitedeparis", "universite-paris-cite"],
   ["universityofminnesotatwincities", "university-of-minnesota-twin-cities"],
   ["universityofminnesota", "university-of-minnesota-twin-cities"],
   ["rockefelleruniversity", "rockefeller-university"],

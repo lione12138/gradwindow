@@ -114,9 +114,11 @@ from .osaka import OsakaAdapter
 from .oslo import OsloAdapter
 from .otago import OtagoAdapter
 from .oxford import OxfordAdapter
+from .paris_cite import ParisCiteAdapter
 from .paris_saclay import ParisSaclayAdapter
 from .peking import PekingAdapter
 from .penn_state import PennStateAdapter
+from .pittsburgh import PittsburghAdapter
 from .polimi import PolimiAdapter
 from .polyu import PolyUAdapter
 from .postech import POSTECHAdapter
@@ -161,6 +163,7 @@ from .tum import TUMAdapter
 from .uba import UBAAdapter
 from .ubc import UBCAdapter
 from .uc_davis import UCDavisAdapter
+from .ucas import UCASAdapter
 from .ucd import UCDAdapter
 from .uchicago import UChicagoAdapter
 from .uchile import UChileAdapter
@@ -173,6 +176,7 @@ from .ucsf import UCSFAdapter
 from .uiuc import UIUCAdapter
 from .ukm import UKMAdapter
 from .um import UMAdapter
+from .umd import UMDAdapter
 from .unam import UNAMAdapter
 from .unc import UNCAdapter
 from .universitas_indonesia import UniversitasIndonesiaAdapter
@@ -191,6 +195,7 @@ from .utm import UTMAdapter
 from .utokyo import UTokyoAdapter
 from .utrecht import UtrechtAdapter
 from .uts import UTSAdapter
+from .utsw import UTSWAdapter
 from .uva import UvAAdapter
 from .uwa import UWAAdapter
 from .uzh import UZHAdapter
@@ -324,6 +329,8 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "peking": PekingAdapter,
     "paris-saclay": ParisSaclayAdapter,
     "penn-state": PennStateAdapter,
+    "pittsburgh": PittsburghAdapter,
+    "paris-cite": ParisCiteAdapter,
     "polimi": PolimiAdapter,
     "polyu": PolyUAdapter,
     "puc-chile": PUCChileAdapter,
@@ -375,6 +382,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "ucsd": UCSDAdapter,
     "ucsb": UCSBAdapter,
     "ucsf": UCSFAdapter,
+    "ucas": UCASAdapter,
     "ucd": UCDAdapter,
     "uchile": UChileAdapter,
     "uiuc": UIUCAdapter,
@@ -385,6 +393,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "utm": UTMAdapter,
     "upm": UPMAdapter,
     "ut-austin": UTAustinAdapter,
+    "umd": UMDAdapter,
     "um": UMAdapter,
     "unam": UNAMAdapter,
     "unc": UNCAdapter,
@@ -393,6 +402,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "uppsala": UppsalaAdapter,
     "utokyo": UTokyoAdapter,
     "uts": UTSAdapter,
+    "utsw": UTSWAdapter,
     "usm": USMAdapter,
     "usc": USCAdapter,
     "usp": USPAdapter,
