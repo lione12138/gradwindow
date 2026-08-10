@@ -19,6 +19,7 @@ CATALOGUE_DROP_RATIO = 0.8
 REMINDER_AFTER = timedelta(days=7)
 DATA_INTEGRITY_ALERT_TYPES = {
     "catalogue-drop",
+    "observed-window-drop",
     "exact-window-drop",
     "unparsed-source-change",
 }
@@ -185,6 +186,7 @@ def _successful_entry(
     if previous_count is None:
         previous_count = report.get("previousCatalogProgrammes")
     previous_exact = previous.get("exactWindowCount")
+    previous_observed = previous.get("observedWindowCount")
     baseline_count = max(
         value
         for value in (
@@ -197,6 +199,11 @@ def _successful_entry(
         int(previous.get("baselineExactWindowCount", 0)),
         int(previous_exact or 0),
         current_exact,
+    )
+    baseline_observed = max(
+        int(previous.get("baselineObservedWindowCount", 0)),
+        int(previous_observed or 0),
+        int(report.get("observedWindowCount", 0)),
     )
 
     stable_source_hash = previous.get("stableWatchedWindowSourceHash")
@@ -258,6 +265,7 @@ def _successful_entry(
         "catalogProgrammes": current_count,
         "baselineCatalogProgrammes": baseline_count,
         "observedWindowCount": int(report.get("observedWindowCount", 0)),
+        "baselineObservedWindowCount": baseline_observed,
         "exactWindowCount": current_exact,
         "baselineExactWindowCount": baseline_exact,
         "missingOpeningDateCount": int(report.get("missingOpeningDateCount", 0)),
@@ -366,6 +374,19 @@ def _entry_alerts(
                 university_id,
                 "exact-window-drop",
                 f"Exact window count fell from baseline {baseline_exact} to {current_exact}.",
+                entry,
+            )
+        )
+
+    baseline_observed = int(entry.get("baselineObservedWindowCount", 0))
+    current_observed = int(entry.get("observedWindowCount", 0))
+    if baseline_observed and current_observed < baseline_observed:
+        alerts.append(
+            _alert(
+                university_id,
+                "observed-window-drop",
+                "Observed window count fell from baseline "
+                f"{baseline_observed} to {current_observed}.",
                 entry,
             )
         )

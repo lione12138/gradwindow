@@ -68,7 +68,9 @@ def known_programme_window_candidates(
     candidates = []
     for window in programme.windows:
         opens_at = window.opens_at or shared_opens_at
-        opening_basis = "official" if window.opens_at else shared_opening_basis
+        opening_basis = window.opens_at_basis or (
+            "official" if window.opens_at else shared_opening_basis
+        )
         if not opens_at or opens_at > window.closes_at or opening_basis != "official":
             continue
         source_url = window.source_url or programme.source_url

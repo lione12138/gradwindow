@@ -15,6 +15,7 @@ class DiscoveredWindow:
     opens_at: str | None = None
     intake: str | None = None
     source_url: str | None = None
+    opens_at_basis: str | None = None
 
 
 @dataclass(slots=True)

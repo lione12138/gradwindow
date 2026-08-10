@@ -286,6 +286,83 @@ def test_discovery_creates_candidates_without_mutating_programmes(
     assert repeated["pendingWindowCandidates"] == 1
 
 
+def test_recurring_policy_dates_remain_guidance_not_exact_windows(tmp_path) -> None:
+    class RecurringPolicyAdapter(BaseProgrammeAdapter):
+        university_id = "example-university"
+        catalog_url = "https://example.edu/programmes"
+        intake = "Summer semester 2027"
+        replace_pending_candidates = True
+
+        def parse_catalog(self, _html):
+            return DiscoveredCatalog(
+                application_opens_at=None,
+                programmes=[
+                    DiscoveredProgramme(
+                        id="example-msc",
+                        name="Example MSc",
+                        degree_type="MSc",
+                        faculty="",
+                        department="",
+                        source_url=self.catalog_url,
+                        application_url="https://example.edu/apply",
+                        windows=[
+                            DiscoveredWindow(
+                                round="Recurring application period",
+                                opens_at="2026-10-01",
+                                closes_at="2026-11-30",
+                                intake=self.intake,
+                                opens_at_basis="official-recurring-policy",
+                            )
+                        ],
+                        deadline_text="Summer semester: 01.10. - 30.11.",
+                        parse_status="incomplete",
+                    )
+                ],
+            )
+
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "programme-candidates.json"
+    window_candidates_path = tmp_path / "window-candidates.json"
+    state_path = tmp_path / "state.json"
+    programs_path.write_text(
+        json.dumps(
+            {
+                "programs": [
+                    {
+                        "id": "example-msc",
+                        "universityId": "example-university",
+                        "name": "Example MSc",
+                        "applicationUrl": "https://example.edu/apply",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    applications_path.write_text(json.dumps({"applications": []}), encoding="utf-8")
+
+    report = discover_programmes(
+        RecurringPolicyAdapter(),
+        programs_path=programs_path,
+        applications_path=applications_path,
+        candidates_path=candidates_path,
+        window_candidates_path=window_candidates_path,
+        state_path=state_path,
+        fetcher=lambda _url: "<main></main>",
+    )
+
+    assert report["observedWindowCount"] == 1
+    assert report["exactWindowCount"] == 0
+    assert report["missingOpeningDateCount"] == 1
+    assert report["windowStatus"] == "needs-opening-date"
+    assert not window_candidates_path.exists()
+    guidance = json.loads(candidates_path.read_text(encoding="utf-8"))["items"][0]
+    assert guidance["type"] == "known-programme-window-guidance"
+    assert guidance["windows"][0]["opensAtBasis"] == "official-recurring-policy"
+    assert "not eligible for automatic publication" in guidance["reviewReason"]
+
+
 def test_dedicated_adapter_can_replace_stale_pending_candidates(tmp_path) -> None:
     class ReplacingAdapter(BaseProgrammeAdapter):
         university_id = "example-university"

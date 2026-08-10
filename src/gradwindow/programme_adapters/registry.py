@@ -45,13 +45,16 @@ from .erasmus import ErasmusAdapter
 from .eth import ETHAdapter
 from .exeter import ExeterAdapter
 from .farabi import FarabiAdapter
+from .florida import FloridaAdapter
 from .fu_berlin import FUBerlinAdapter
 from .fudan import FudanAdapter
 from .geneva import GenevaAdapter
 from .georgia_tech import GeorgiaTechAdapter
 from .ghent import GhentAdapter
 from .glasgow import GlasgowAdapter
+from .gottingen import GottingenAdapter
 from .groningen import GroningenAdapter
+from .hamburg import HamburgAdapter
 from .hanyang import HanyangAdapter
 from .harvard import HarvardAdapter
 from .heidelberg import HeidelbergAdapter
@@ -161,6 +164,7 @@ from .tsinghua import TsinghuaAdapter
 from .tu_berlin import TUBerlinAdapter
 from .tu_dresden import TUDresdenAdapter
 from .tu_wien import TUWienAdapter
+from .tubingen import TubingenAdapter
 from .tudelft import TUDelftAdapter
 from .tue import TUEAdapter
 from .tum import TUMAdapter
@@ -171,6 +175,7 @@ from .ucas import UCASAdapter
 from .ucd import UCDAdapter
 from .uchicago import UChicagoAdapter
 from .uchile import UChileAdapter
+from .uci import UCIAdapter
 from .ucl import UCLAdapter
 from .ucla import UCLAAdapter
 from .uclouvain import UCLouvainAdapter
@@ -264,13 +269,16 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "exeter": ExeterAdapter,
     "farabi": FarabiAdapter,
     "fudan": FudanAdapter,
+    "florida": FloridaAdapter,
     "fu-berlin": FUBerlinAdapter,
     "glasgow": GlasgowAdapter,
+    "gottingen": GottingenAdapter,
     "ghent": GhentAdapter,
     "georgia-tech": GeorgiaTechAdapter,
     "geneva": GenevaAdapter,
     "groningen": GroningenAdapter,
     "harvard": HarvardAdapter,
+    "hamburg": HamburgAdapter,
     "hanyang": HanyangAdapter,
     "heidelberg": HeidelbergAdapter,
     "helsinki": HelsinkiAdapter,
@@ -378,6 +386,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "tudelft": TUDelftAdapter,
     "tue": TUEAdapter,
     "tum": TUMAdapter,
+    "tubingen": TubingenAdapter,
     "tu-wien": TUWienAdapter,
     "tu-berlin": TUBerlinAdapter,
     "tu-dresden": TUDresdenAdapter,
@@ -391,6 +400,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "ucsd": UCSDAdapter,
     "ucsb": UCSBAdapter,
     "ucsf": UCSFAdapter,
+    "uci": UCIAdapter,
     "ucas": UCASAdapter,
     "ucd": UCDAdapter,
     "uchile": UChileAdapter,

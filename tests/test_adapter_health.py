@@ -284,6 +284,48 @@ def test_exact_window_drop_remains_alerted_against_healthy_baseline(tmp_path) ->
     assert payload["meta"]["summary"]["dataIntegrityRisks"] == 1
 
 
+def test_observed_window_drop_is_reported_even_when_exact_count_is_stable(
+    tmp_path,
+) -> None:
+    start = datetime(2026, 8, 10, tzinfo=timezone.utc)
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    update_adapter_health(
+        [
+            _success(
+                start,
+                windowStatus="partial",
+                observedWindowCount=45,
+                exactWindowCount=2,
+            )
+        ],
+        health_path=health_path,
+        report_path=report_path,
+        catalog_state_path=catalog_path,
+        universities_path=universities_path,
+        now=start,
+    )
+
+    payload = update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=1),
+                windowStatus="partial",
+                observedWindowCount=2,
+                exactWindowCount=2,
+            )
+        ],
+        health_path=health_path,
+        report_path=report_path,
+        catalog_state_path=catalog_path,
+        universities_path=universities_path,
+        now=start + timedelta(days=1),
+    )
+
+    alerts = payload["universities"]["example-university"]["alerts"]
+    assert [item["type"] for item in alerts] == ["observed-window-drop"]
+    assert alerts[0]["category"] == "data-integrity"
+
+
 def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
     tmp_path,
 ) -> None:

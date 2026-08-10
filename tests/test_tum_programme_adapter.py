@@ -1,8 +1,16 @@
 from __future__ import annotations
 
+from datetime import date
+
 import pytest
 
-from gradwindow.programme_adapters.tum import CATALOG_URL, TUMAdapter, catalog_page_url
+from gradwindow.programme_adapters.tum import (
+    CATALOG_URL,
+    RECURRING_WINDOW_BASIS,
+    TUMAdapter,
+    _materialize_recurring_period,
+    catalog_page_url,
+)
 
 FIRST_CATALOG_PAGE = """
 <main>
@@ -55,6 +63,7 @@ def _detail(
     name: str,
     deadline: str,
     school: str,
+    start: str = "Possible for both winter and summer semester",
 ) -> str:
     return f"""
     <main>
@@ -80,6 +89,10 @@ def _detail(
             <h2 class="h5"><a href="https://example.tum.de/">{school}</a></h2>
           </div>
         </div>
+      </div>
+      <div class="flex__md-6 flex__xl-4">
+        <strong>Start of Degree Program</strong>
+        <ul><li>{start}</li></ul>
       </div>
     </main>
     """
@@ -117,6 +130,7 @@ def test_tum_adapter_follows_catalogue_pagination_and_reuses_informatics_id() ->
     catalog = TUMAdapter(
         minimum_expected_programmes=3,
         detail_workers=1,
+        reference_date=date(2026, 8, 10),
     ).parse_catalog_from_fetcher(lambda url: pages[url])
 
     assert catalog.application_opens_at is None
@@ -134,6 +148,7 @@ def test_tum_adapter_parses_only_year_specific_exact_windows() -> None:
     catalog = TUMAdapter(
         minimum_expected_programmes=3,
         detail_workers=1,
+        reference_date=date(2026, 8, 10),
     ).parse_catalog_from_fetcher(lambda url: pages[url])
     biomedical = catalog.programmes[0]
 
@@ -160,11 +175,12 @@ def test_tum_adapter_parses_only_year_specific_exact_windows() -> None:
     )
 
 
-def test_tum_adapter_keeps_recurring_yearless_periods_as_monitoring_evidence() -> None:
+def test_tum_adapter_materializes_recurring_yearless_periods_as_guidance() -> None:
     pages = _pages()
     catalog = TUMAdapter(
         minimum_expected_programmes=3,
         detail_workers=1,
+        reference_date=date(2026, 8, 10),
     ).parse_catalog_from_fetcher(lambda url: pages[url])
     informatics = next(
         programme
@@ -175,10 +191,39 @@ def test_tum_adapter_keeps_recurring_yearless_periods_as_monitoring_evidence() -
     assert informatics.faculty == (
         "TUM School of Computation, Information and Technology"
     )
-    assert informatics.windows == []
-    assert informatics.parse_status == "no-deadline"
-    assert "does not publish a cycle year" in informatics.deadline_text
-    assert "no application window is inferred" in informatics.deadline_text
+    assert [window.intake for window in informatics.windows] == [
+        "Winter semester 2027/28",
+        "Summer semester 2027",
+    ]
+    assert [window.opens_at for window in informatics.windows] == [
+        "2027-02-01",
+        "2026-10-01",
+    ]
+    assert [window.closes_at for window in informatics.windows] == [
+        "2027-05-31",
+        "2026-11-30",
+    ]
+    assert all(
+        window.opens_at_basis == RECURRING_WINDOW_BASIS
+        for window in informatics.windows
+    )
+    assert informatics.parse_status == "incomplete"
+    assert "cycle year is not written literally" in informatics.deadline_text
+
+
+def test_tum_recurring_period_handles_cross_year_and_missing_final_dot() -> None:
+    assert _materialize_recurring_period(
+        "Summer",
+        "01.09.",
+        "15.01.",
+        date(2026, 8, 10),
+    ) == ("2026-09-01", "2027-01-15", "Summer semester 2027")
+    assert _materialize_recurring_period(
+        "Summer",
+        "01.10.",
+        "30.11",
+        date(2026, 8, 10),
+    ) == ("2026-10-01", "2026-11-30", "Summer semester 2027")
 
 
 def test_tum_adapter_rejects_a_truncated_master_catalogue() -> None:
@@ -187,6 +232,7 @@ def test_tum_adapter_rejects_a_truncated_master_catalogue() -> None:
         TUMAdapter(
             minimum_expected_programmes=4,
             detail_workers=1,
+            reference_date=date(2026, 8, 10),
         ).parse_catalog_from_fetcher(lambda url: pages[url])
 
 

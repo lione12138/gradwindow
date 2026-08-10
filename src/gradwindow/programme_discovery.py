@@ -255,6 +255,7 @@ def discover_programmes(
                             "closesAt": window.closes_at,
                             "applicantCategories": window.applicant_categories,
                             "sourceUrl": window.source_url,
+                            "opensAtBasis": window.opens_at_basis,
                         }
                         for window in programme.windows
                     ],
@@ -292,6 +293,7 @@ def discover_programmes(
                         "intake": window.intake,
                         "applicantCategories": window.applicant_categories,
                         "sourceUrl": window.source_url,
+                        "opensAtBasis": window.opens_at_basis,
                     }
                     for window in programme.windows
                 ]
@@ -318,11 +320,13 @@ def discover_programmes(
         exact_window_count,
         observed_window_count,
         missing_opening_date_count,
+        programmes_without_deadlines,
     )
     limitation_reason = _limitation_reason(
         exact_window_count,
         observed_window_count,
         missing_opening_date_count,
+        programmes_without_deadlines,
     )
     catalogue_status = getattr(adapter, "catalogue_status", "ok")
     catalogue_limitation_reason = getattr(adapter, "catalogue_limitation_reason", None)
@@ -454,7 +458,7 @@ def _candidate_record(
         if not opens_at or opens_at > window.closes_at:
             return None, "missing"
         if window.opens_at:
-            return opens_at, "official"
+            return opens_at, window.opens_at_basis or "official"
         return opens_at, shared_opening_basis
 
     windows = []
@@ -477,6 +481,9 @@ def _candidate_record(
     has_unresolved_opening = any(window["opensAt"] is None for window in windows)
     has_inferred_opening = any(
         window.get("opensAtBasis", "").startswith("inferred") for window in windows
+    )
+    has_recurring_policy = any(
+        window.get("opensAtBasis") == "official-recurring-policy" for window in windows
     )
     deadline_precedes_shared_opening = bool(
         shared_opens_at
@@ -516,6 +523,12 @@ def _candidate_record(
                     "confirm it on the programme page."
                 )
                 if has_unresolved_opening
+                else (
+                    "Dates were materialized from an official recurring schedule; "
+                    "the cycle year is derived and is not eligible for automatic "
+                    "publication."
+                )
+                if has_recurring_policy
                 else (
                     "Opening date uses a configured cycle default; review the "
                     "officially parsed deadline before promotion."
@@ -560,7 +573,7 @@ def _is_official_exact_window(adapter, catalog, window) -> bool:
 def _has_official_exact_opening(adapter, catalog, window) -> bool:
     if not _effective_opening(adapter, catalog, window):
         return False
-    opening_basis = (
+    opening_basis = window.opens_at_basis or (
         "official" if window.opens_at else adapter.application_opens_at_basis
     )
     return opening_basis == "official"
@@ -570,8 +583,13 @@ def _window_status(
     exact_window_count: int,
     observed_window_count: int,
     missing_opening_date_count: int,
+    programmes_without_deadlines: int,
 ) -> str:
-    if exact_window_count and exact_window_count == observed_window_count:
+    if (
+        exact_window_count
+        and exact_window_count == observed_window_count
+        and not programmes_without_deadlines
+    ):
         return "exact"
     if exact_window_count:
         return "partial"
@@ -584,8 +602,13 @@ def _limitation_reason(
     exact_window_count: int,
     observed_window_count: int,
     missing_opening_date_count: int,
+    programmes_without_deadlines: int,
 ) -> str | None:
-    if exact_window_count and exact_window_count == observed_window_count:
+    if (
+        exact_window_count
+        and exact_window_count == observed_window_count
+        and not programmes_without_deadlines
+    ):
         return None
     if missing_opening_date_count:
         return (
@@ -593,7 +616,15 @@ def _limitation_reason(
             "exact opening date."
         )
     if observed_window_count:
-        return "Observed dates are incomplete or not safe for automatic publication."
+        suffix = (
+            f" {programmes_without_deadlines} programme(s) expose no parsed deadline."
+            if programmes_without_deadlines
+            else ""
+        )
+        return (
+            "Observed dates are incomplete or not safe for automatic publication."
+            f"{suffix}"
+        )
     return (
         "The checked official sources currently expose no complete exact opening-"
         "and-closing window to this adapter."

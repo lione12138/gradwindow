@@ -8,7 +8,7 @@ import re
 import unicodedata
 from collections.abc import Callable
 from dataclasses import replace
-from datetime import datetime
+from datetime import date, datetime, timezone
 from urllib.parse import urldefrag, urljoin, urlparse
 
 from bs4 import BeautifulSoup
@@ -46,9 +46,19 @@ _EXACT_WINDOW_RE = re.compile(
     re.IGNORECASE,
 )
 
+_RECURRING_WINDOW_RE = re.compile(
+    r"(?P<intake>Winter|Summer)\s+semester\s*:\s*"
+    r"(?P<opens>\d{2}\.\d{2}\.)(?!\d)\s*[–—-]\s*"
+    r"(?P<closes>\d{2}\.\d{2}\.?)(?!\d)",
+    re.IGNORECASE,
+)
+
+RECURRING_WINDOW_BASIS = "official-recurring-policy"
+REGULAR_DEGREE_TYPES = {"MSc", "MA"}
+
 
 class TUMAdapter(BaseProgrammeAdapter):
-    """Discover TUM master's programmes and exact year-specific windows."""
+    """Discover TUM master's programmes and official application policies."""
 
     university_id = UNIVERSITY_ID
     catalog_url = CATALOG_URL
@@ -62,10 +72,19 @@ class TUMAdapter(BaseProgrammeAdapter):
         minimum_expected_programmes: int = 110,
         detail_workers: int = 8,
         minimum_detail_success_ratio: float = 0.9,
+        minimum_expected_summer_windows: int | None = None,
+        reference_date: date | None = None,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.detail_workers = detail_workers
         self.minimum_detail_success_ratio = minimum_detail_success_ratio
+        self.minimum_expected_summer_windows = (
+            40
+            if minimum_expected_summer_windows is None
+            and minimum_expected_programmes >= 110
+            else int(minimum_expected_summer_windows or 0)
+        )
+        self.reference_date = reference_date or datetime.now(timezone.utc).date()
 
     def parse_catalog_from_fetcher(
         self,
@@ -101,7 +120,14 @@ class TUMAdapter(BaseProgrammeAdapter):
             programme: DiscoveredProgramme,
         ) -> tuple[DiscoveredProgramme, bool]:
             try:
-                return _parse_detail(programme, fetcher(programme.source_url)), True
+                return (
+                    _parse_detail(
+                        programme,
+                        fetcher(programme.source_url),
+                        reference_date=self.reference_date,
+                    ),
+                    True,
+                )
             except Exception as exc:
                 return (
                     replace(
@@ -128,6 +154,19 @@ class TUMAdapter(BaseProgrammeAdapter):
                 "TUM detail-page discovery only checked "
                 f"{successful_details} of {len(programmes)} programmes; "
                 f"expected at least {minimum_successes}"
+            )
+        summer_window_programmes = sum(
+            any(
+                (window.intake or "").lower().startswith("summer semester")
+                for window in programme.windows
+            )
+            for programme, _success in parsed
+        )
+        if summer_window_programmes < self.minimum_expected_summer_windows:
+            raise ValueError(
+                "TUM official detail pages only produced "
+                f"{summer_window_programmes} summer-window programmes; expected "
+                f"at least {self.minimum_expected_summer_windows}"
             )
         return DiscoveredCatalog(
             application_opens_at=None,
@@ -196,6 +235,8 @@ def _catalogue_programmes(html: str) -> list[DiscoveredProgramme]:
 def _parse_detail(
     programme: DiscoveredProgramme,
     html: str,
+    *,
+    reference_date: date,
 ) -> DiscoveredProgramme:
     soup = BeautifulSoup(html, "html.parser")
     course = _course_json_ld(soup)
@@ -209,8 +250,29 @@ def _parse_detail(
         if faculty_link is not None
         else programme.faculty
     )
-    windows = _exact_windows(deadline, programme.source_url)
-    if windows:
+    start_of_degree = _detail_value(soup, "Start of Degree Program")
+    exact_windows = _exact_windows(deadline, programme.source_url)
+    recurring_windows = _recurring_windows(
+        programme,
+        deadline,
+        start_of_degree,
+        programme.source_url,
+        reference_date,
+    )
+    windows = exact_windows + recurring_windows
+    if recurring_windows:
+        materialized = ", ".join(
+            f"{window.intake}: {window.opens_at} to {window.closes_at}"
+            for window in recurring_windows
+        )
+        deadline_text = (
+            f"Official TUM recurring application period: {deadline} "
+            f"Start of Degree Program: {start_of_degree or 'not stated'}. "
+            "The next cycle was deterministically materialized for monitoring: "
+            f"{materialized}. The cycle year is not written literally on the page."
+        )
+        parse_status = "incomplete"
+    elif exact_windows:
         deadline_text = deadline
         parse_status = "parsed"
     elif deadline:
@@ -234,6 +296,21 @@ def _parse_detail(
         deadline_text=deadline_text,
         parse_status=parse_status,
     )
+
+
+def _detail_value(soup: BeautifulSoup, label: str) -> str:
+    wanted = _normalise(label).casefold()
+    for heading in soup.find_all(["strong", "dt", "h2", "h3"]):
+        if _normalise(heading.get_text(" ", strip=True)).casefold() != wanted:
+            continue
+        container = heading.parent
+        if container is None:
+            continue
+        text = _normalise(container.get_text(" ", strip=True))
+        if text.casefold().startswith(wanted):
+            return text[len(label) :].strip(" :")
+        return text
+    return ""
 
 
 def _course_json_ld(soup: BeautifulSoup) -> dict:
@@ -286,6 +363,86 @@ def _exact_windows(deadline: str, source_url: str) -> list[DiscoveredWindow]:
             )
         )
     return windows
+
+
+def _recurring_windows(
+    programme: DiscoveredProgramme,
+    deadline: str,
+    start_of_degree: str,
+    source_url: str,
+    reference_date: date,
+) -> list[DiscoveredWindow]:
+    if programme.degree_type not in REGULAR_DEGREE_TYPES:
+        return []
+    if "executive" in programme.name.casefold():
+        return []
+
+    eligible_terms = _eligible_terms(start_of_degree)
+    windows = []
+    for match in _RECURRING_WINDOW_RE.finditer(deadline):
+        term = match.group("intake").title()
+        if term.casefold() not in eligible_terms:
+            continue
+        opens_at, closes_at, intake = _materialize_recurring_period(
+            term,
+            match.group("opens"),
+            match.group("closes"),
+            reference_date,
+        )
+        windows.append(
+            DiscoveredWindow(
+                round="Recurring application period",
+                opens_at=opens_at,
+                closes_at=closes_at,
+                intake=intake,
+                source_url=source_url,
+                opens_at_basis=RECURRING_WINDOW_BASIS,
+            )
+        )
+    return windows
+
+
+def _eligible_terms(start_of_degree: str) -> set[str]:
+    value = start_of_degree.casefold()
+    terms = set()
+    if "both winter and summer" in value:
+        return {"winter", "summer"}
+    if "winter semester" in value:
+        terms.add("winter")
+    if "summer semester" in value:
+        terms.add("summer")
+    return terms
+
+
+def _materialize_recurring_period(
+    term: str,
+    opens_text: str,
+    closes_text: str,
+    reference_date: date,
+) -> tuple[str, str, str]:
+    opens_month, opens_day = _month_day(opens_text)
+    closes_month, closes_day = _month_day(closes_text)
+    for opens_year in range(reference_date.year - 1, reference_date.year + 3):
+        opens_at = date(opens_year, opens_month, opens_day)
+        closes_year = opens_year + (
+            (closes_month, closes_day) < (opens_month, opens_day)
+        )
+        closes_at = date(closes_year, closes_month, closes_day)
+        if closes_at < reference_date:
+            continue
+        if term.casefold() == "summer":
+            intake_year = opens_year + 1
+            intake = f"Summer semester {intake_year}"
+        else:
+            intake_year = closes_year
+            intake = f"Winter semester {intake_year}/{str(intake_year + 1)[-2:]}"
+        return opens_at.isoformat(), closes_at.isoformat(), intake
+    raise ValueError("could not materialize the next recurring TUM application period")
+
+
+def _month_day(value: str) -> tuple[int, int]:
+    parsed = datetime.strptime(value.rstrip("."), "%d.%m")
+    return parsed.month, parsed.day
 
 
 def _programme_url(value: str) -> str | None:
