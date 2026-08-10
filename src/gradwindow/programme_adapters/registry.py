@@ -25,6 +25,7 @@ from .caltech import CaltechAdapter
 from .cambridge import CambridgeAdapter
 from .cape_town import CapeTownAdapter
 from .cardiff import CardiffAdapter
+from .case_western import CaseWesternAdapter
 from .chalmers import ChalmersAdapter
 from .cityu import CityUAdapter
 from .cmu import CMUAdapter
@@ -35,6 +36,7 @@ from .copenhagen import CopenhagenAdapter
 from .cornell import CornellAdapter
 from .cuhk import CUHKAdapter
 from .curtin import CurtinAdapter
+from .dartmouth import DartmouthAdapter
 from .dtu import DTUAdapter
 from .duke import DukeAdapter
 from .durham import DurhamAdapter
@@ -91,6 +93,7 @@ from .liverpool import LiverpoolAdapter
 from .lmu import LMUAdapter
 from .lse import LSEAdapter
 from .lund import LundAdapter
+from .maastricht import MaastrichtAdapter
 from .macquarie import MacquarieAdapter
 from .manchester import ManchesterAdapter
 from .mcgill import McGillAdapter
@@ -136,9 +139,11 @@ from .qatar import QatarAdapter
 from .qmul import QMULAdapter
 from .qub import QUBAdapter
 from .queens_ontario import QueensOntarioAdapter
+from .radboud import RadboudAdapter
 from .reading import ReadingAdapter
 from .rice import RiceAdapter
 from .rmit import RMITAdapter
+from .rochester import RochesterAdapter
 from .rockefeller import RockefellerAdapter
 from .rwth import RWTHAdapter
 from .sapienza import SapienzaAdapter
@@ -248,6 +253,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "brown": BrownAdapter,
     "caltech": CaltechAdapter,
     "cambridge": CambridgeAdapter,
+    "case-western": CaseWesternAdapter,
     "chalmers": ChalmersAdapter,
     "columbia": ColumbiaAdapter,
     "complutense": ComplutenseAdapter,
@@ -256,6 +262,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "cornell": CornellAdapter,
     "cuhk": CUHKAdapter,
     "curtin": CurtinAdapter,
+    "dartmouth": DartmouthAdapter,
     "cityu": CityUAdapter,
     "cmu": CMUAdapter,
     "duke": DukeAdapter,
@@ -318,6 +325,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "melbourne": MelbourneAdapter,
     "manchester": ManchesterAdapter,
     "macquarie": MacquarieAdapter,
+    "maastricht": MaastrichtAdapter,
     "mcmaster": McMasterAdapter,
     "michigan": MichiganAdapter,
     "michigan-state": MichiganStateAdapter,
@@ -358,10 +366,12 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "qmul": QMULAdapter,
     "qub": QUBAdapter,
     "queens-ontario": QueensOntarioAdapter,
+    "radboud": RadboudAdapter,
     "reading": ReadingAdapter,
     "rice": RiceAdapter,
     "rmit": RMITAdapter,
     "rockefeller": RockefellerAdapter,
+    "rochester": RochesterAdapter,
     "rwth": RWTHAdapter,
     "sapienza": SapienzaAdapter,
     "science-tokyo": ScienceTokyoAdapter,
