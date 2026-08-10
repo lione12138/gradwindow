@@ -17,6 +17,7 @@ from .berkeley import BerkeleyAdapter
 from .bern import BernAdapter
 from .birmingham import BirminghamAdapter
 from .bologna import BolognaAdapter
+from .bonn import BonnAdapter
 from .boston import BostonAdapter
 from .bristol import BristolAdapter
 from .brown import BrownAdapter
@@ -27,6 +28,7 @@ from .cardiff import CardiffAdapter
 from .chalmers import ChalmersAdapter
 from .cityu import CityUAdapter
 from .cmu import CMUAdapter
+from .colorado_boulder import ColoradoBoulderAdapter
 from .columbia import ColumbiaAdapter
 from .complutense import ComplutenseAdapter
 from .copenhagen import CopenhagenAdapter
@@ -110,6 +112,7 @@ from .ntu_taiwan import NTUTaiwanAdapter
 from .nus import NUSAdapter
 from .nycu import NYCUAdapter
 from .nyu import NYUAdapter
+from .ohio_state import OhioStateAdapter
 from .osaka import OsakaAdapter
 from .oslo import OsloAdapter
 from .otago import OtagoAdapter
@@ -146,6 +149,7 @@ from .southampton import SouthamptonAdapter
 from .st_andrews import StAndrewsAdapter
 from .stanford import StanfordAdapter
 from .stockholm import StockholmAdapter
+from .sun_yat_sen import SunYatSenAdapter
 from .sydney import SydneyAdapter
 from .tamu import TAMUAdapter
 from .tec_monterrey import TecMonterreyAdapter
@@ -199,6 +203,7 @@ from .utsw import UTSWAdapter
 from .uva import UvAAdapter
 from .uwa import UWAAdapter
 from .uzh import UZHAdapter
+from .vanderbilt import VanderbiltAdapter
 from .vienna import ViennaAdapter
 from .vu_amsterdam import VUAmsterdamAdapter
 from .wageningen import WageningenAdapter
@@ -233,6 +238,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "boston": BostonAdapter,
     "barcelona": BarcelonaAdapter,
     "bologna": BolognaAdapter,
+    "bonn": BonnAdapter,
     "bristol": BristolAdapter,
     "brown": BrownAdapter,
     "caltech": CaltechAdapter,
@@ -240,6 +246,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "chalmers": ChalmersAdapter,
     "columbia": ColumbiaAdapter,
     "complutense": ComplutenseAdapter,
+    "colorado-boulder": ColoradoBoulderAdapter,
     "copenhagen": CopenhagenAdapter,
     "cornell": CornellAdapter,
     "cuhk": CUHKAdapter,
@@ -322,6 +329,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "nus": NUSAdapter,
     "nyu": NYUAdapter,
     "nycu": NYCUAdapter,
+    "ohio-state": OhioStateAdapter,
     "oxford": OxfordAdapter,
     "oslo": OsloAdapter,
     "osaka": OsakaAdapter,
@@ -358,6 +366,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "sorbonne": SorbonneAdapter,
     "stanford": StanfordAdapter,
     "stockholm": StockholmAdapter,
+    "sun-yat-sen": SunYatSenAdapter,
     "sydney": SydneyAdapter,
     "tamu": TAMUAdapter,
     "tec-monterrey": TecMonterreyAdapter,
@@ -408,6 +417,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "usp": USPAdapter,
     "ustc": USTCAdapter,
     "uva": UvAAdapter,
+    "vanderbilt": VanderbiltAdapter,
     "uow": UOWAdapter,
     "uzh": UZHAdapter,
     "uwa": UWAAdapter,
