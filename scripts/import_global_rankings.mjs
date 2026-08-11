@@ -314,6 +314,22 @@ const aliasEntries = [
   ["chariteuniversityhospitalberlin", "charite-universitatsmedizin-berlin"],
   ["universityofalabamaatbirmingham", "university-of-alabama-at-birmingham"],
   ["universityofalabamabirmingham", "university-of-alabama-at-birmingham"],
+  [
+    "ntnunorwegianuniversityofscienceandtechnology",
+    "norwegian-university-of-science-and-technology",
+  ],
+  [
+    "norwegianuniversityofscienceandtechnology",
+    "norwegian-university-of-science-and-technology",
+  ],
+  ["hebrewuniversityofjerusalem", "hebrew-university-of-jerusalem"],
+  ["thehebrewuniversityofjerusalem", "hebrew-university-of-jerusalem"],
+  ["telavivuniversity", "tel-aviv-university"],
+  [
+    "universityofcoloradoanschutzmedicalcampus",
+    "university-of-colorado-anschutz-medical-campus",
+  ],
+  ["baylorcollegeofmedicine", "baylor-college-of-medicine"],
   ["universityofpittsburghpittsburghcampus", "university-of-pittsburgh"],
   ["universityofpittsburgh", "university-of-pittsburgh"],
   ["universityofmarylandcollegepark", "university-of-maryland-college-park"],
