@@ -15,9 +15,12 @@ from .base import ProgrammeAdapter
 from .basel import BaselAdapter
 from .bath import BathAdapter
 from .baylor import BaylorAdapter
+from .beihang import BeihangAdapter
 from .berkeley import BerkeleyAdapter
 from .bern import BernAdapter
 from .birmingham import BirminghamAdapter
+from .bit import BITAdapter
+from .bnu import BNUAdapter
 from .bologna import BolognaAdapter
 from .bonn import BonnAdapter
 from .boston import BostonAdapter
@@ -84,6 +87,7 @@ from .iit_madras import IITMadrasAdapter
 from .imperial import ImperialAdapter
 from .ip_paris import IPParisAdapter
 from .jhu import JHUAdapter
+from .jilin import JilinAdapter
 from .kaist import KAISTAdapter
 from .karolinska import KarolinskaAdapter
 from .kau import KAUAdapter
@@ -258,6 +262,7 @@ from .western import WesternAdapter
 from .wisconsin import WisconsinAdapter
 from .wuhan import WuhanAdapter
 from .wurzburg import WurzburgAdapter
+from .xiamen import XiamenAdapter
 from .xjtu import XJTUAdapter
 from .yale import YaleAdapter
 from .yonsei import YonseiAdapter
@@ -277,11 +282,14 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "basel": BaselAdapter,
     "bath": BathAdapter,
     "baylor-medicine": BaylorAdapter,
+    "beihang": BeihangAdapter,
     "cape-town": CapeTownAdapter,
     "cardiff": CardiffAdapter,
     "berkeley": BerkeleyAdapter,
     "bern": BernAdapter,
     "birmingham": BirminghamAdapter,
+    "bit": BITAdapter,
+    "bnu": BNUAdapter,
     "boston": BostonAdapter,
     "barcelona": BarcelonaAdapter,
     "bologna": BolognaAdapter,
@@ -347,6 +355,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "imperial": ImperialAdapter,
     "ip-paris": IPParisAdapter,
     "jhu": JHUAdapter,
+    "jilin": JilinAdapter,
     "kaist": KAISTAdapter,
     "kaust": KAUSTAdapter,
     "karolinska": KarolinskaAdapter,
@@ -519,6 +528,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "wuhan": WuhanAdapter,
     "wurzburg": WurzburgAdapter,
     "xjtu": XJTUAdapter,
+    "xiamen": XiamenAdapter,
     "yale": YaleAdapter,
     "york": YorkAdapter,
     "yonsei": YonseiAdapter,
