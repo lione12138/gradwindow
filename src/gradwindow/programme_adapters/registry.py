@@ -6,6 +6,7 @@ from .aalto import AaltoAdapter
 from .aarhus import AarhusAdapter
 from .adelaide import AdelaideAdapter
 from .alberta import AlbertaAdapter
+from .antwerp import AntwerpAdapter
 from .anu import ANUAdapter
 from .asu import ASUAdapter
 from .auckland import AucklandAdapter
@@ -49,6 +50,7 @@ from .eth import ETHAdapter
 from .exeter import ExeterAdapter
 from .farabi import FarabiAdapter
 from .florida import FloridaAdapter
+from .freiburg import FreiburgAdapter
 from .fu_berlin import FUBerlinAdapter
 from .fudan import FudanAdapter
 from .geneva import GenevaAdapter
@@ -113,6 +115,7 @@ from .nanjing import NanjingAdapter
 from .ncku import NCKUAdapter
 from .newcastle import NewcastleAdapter
 from .northwestern import NorthwesternAdapter
+from .notre_dame import NotreDameAdapter
 from .nottingham import NottinghamAdapter
 from .nthu import NTHUAdapter
 from .ntu import NTUAdapter
@@ -124,6 +127,7 @@ from .ohio_state import OhioStateAdapter
 from .osaka import OsakaAdapter
 from .oslo import OsloAdapter
 from .otago import OtagoAdapter
+from .ottawa import OttawaAdapter
 from .oxford import OxfordAdapter
 from .paris_cite import ParisCiteAdapter
 from .paris_saclay import ParisSaclayAdapter
@@ -229,6 +233,7 @@ from .waterloo import WaterlooAdapter
 from .western import WesternAdapter
 from .wisconsin import WisconsinAdapter
 from .wuhan import WuhanAdapter
+from .wurzburg import WurzburgAdapter
 from .yale import YaleAdapter
 from .yonsei import YonseiAdapter
 from .york import YorkAdapter
@@ -241,6 +246,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "aalto": AaltoAdapter,
     "aarhus": AarhusAdapter,
     "anu": ANUAdapter,
+    "antwerp": AntwerpAdapter,
     "auckland": AucklandAdapter,
     "asu": ASUAdapter,
     "basel": BaselAdapter,
@@ -283,6 +289,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "farabi": FarabiAdapter,
     "fudan": FudanAdapter,
     "florida": FloridaAdapter,
+    "freiburg": FreiburgAdapter,
     "fu-berlin": FUBerlinAdapter,
     "glasgow": GlasgowAdapter,
     "gottingen": GottingenAdapter,
@@ -344,6 +351,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "nanjing": NanjingAdapter,
     "ncku": NCKUAdapter,
     "nottingham": NottinghamAdapter,
+    "notre-dame": NotreDameAdapter,
     "newcastle": NewcastleAdapter,
     "northwestern": NorthwesternAdapter,
     "ntu": NTUAdapter,
@@ -357,6 +365,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "oslo": OsloAdapter,
     "osaka": OsakaAdapter,
     "otago": OtagoAdapter,
+    "ottawa": OttawaAdapter,
     "peking": PekingAdapter,
     "paris-saclay": ParisSaclayAdapter,
     "penn-state": PennStateAdapter,
@@ -459,6 +468,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "western": WesternAdapter,
     "wisconsin": WisconsinAdapter,
     "wuhan": WuhanAdapter,
+    "wurzburg": WurzburgAdapter,
     "yale": YaleAdapter,
     "york": YorkAdapter,
     "yonsei": YonseiAdapter,
