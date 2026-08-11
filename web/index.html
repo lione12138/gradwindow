@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Track official master's application opening dates and deadlines for QS Top 200 universities. Search by university, region, intake, and status."
+      content="Track verified master's application opening dates and deadlines for 250+ leading universities worldwide. Filter by university, country, intake, and application status."
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="color-scheme" content="light dark" />
@@ -32,10 +32,10 @@
     <link rel="modulepreload" href="./intake-filter.js" />
     <link rel="modulepreload" href="./localization.js" />
 
-    <meta property="og:title" content="GradWindow | QS Top 200 Master's Application Deadlines" />
+    <meta property="og:title" content="{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines & Opening Dates | GradWindow" />
     <meta
       property="og:description"
-      content="Track official master's application opening dates and deadlines for QS Top 200 universities. Search by university, region, intake, and status."
+      content="Track verified master's application opening dates and deadlines for 250+ leading universities worldwide. Filter by university, country, intake, and application status."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GradWindow" />
@@ -53,13 +53,13 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="GradWindow — track QS Top 200 master's application windows"
+      content="GradWindow master's application deadlines and opening dates tracker"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="GradWindow | QS Top 200 Master's Application Deadlines" />
+    <meta name="twitter:title" content="{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines & Opening Dates | GradWindow" />
     <meta
       name="twitter:description"
-      content="Track official master's application opening dates and deadlines for QS Top 200 universities. Search by university, region, intake, and status."
+      content="Track verified master's application opening dates and deadlines for 250+ leading universities worldwide. Filter by university, country, intake, and application status."
     />
     <meta
       name="twitter:image"
@@ -82,7 +82,7 @@
             "@id": "https://gradwindow.com/#website",
             "name": "GradWindow",
             "url": "https://gradwindow.com/",
-            "description": "Track official master's application opening dates and deadlines for QS Top 200 universities.",
+            "description": "Track verified master's application opening dates and deadlines for 250+ leading universities worldwide.",
             "inLanguage": ["en", "zh-CN"],
             "publisher": { "@id": "https://gradwindow.com/#organization" }
           },
@@ -92,6 +92,14 @@
             "description": "Curated exact graduate application opening and closing dates with university, programme or scope, intake, applicant category, and official source URLs.",
             "url": "https://gradwindow.com/",
             "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+            "dateModified": "{{GRADWINDOW_DATASET_DATE_MODIFIED}}",
+            "temporalCoverage": "{{GRADWINDOW_DATASET_TEMPORAL_COVERAGE}}",
+            "keywords": [
+              "master's application deadlines {{GRADWINDOW_TARGET_CYCLE_YEAR}}",
+              "master's application opening dates",
+              "graduate application deadlines {{GRADWINDOW_TARGET_CYCLE_YEAR}}",
+              "university application calendar"
+            ],
             "creator": { "@id": "https://gradwindow.com/#organization" },
             "isPartOf": { "@id": "https://gradwindow.com/#website" },
             "distribution": [
@@ -112,7 +120,7 @@
     </script>
 
     <script>window.GRADWINDOW_CONFIG = {};</script>
-    <title>GradWindow | QS Top 200 Master's Application Deadlines</title>
+    <title>{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines & Opening Dates | GradWindow</title>
     <link rel="stylesheet" href="./styles.css?v=20260626-density" />
   </head>
   <body>
@@ -206,9 +214,9 @@
               <span class="live-dot"></span>
               <span data-i18n="eyebrow">Daily monitoring of global university application windows</span>
             </div>
-            <h1 data-i18n-html="heroTitle">Master's application windows,<br /><em>clear at a glance</em></h1>
+            <h1 data-i18n-html="heroTitle">{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines<br /><em>& Opening Dates</em></h1>
             <p data-i18n="heroDescription">
-              Filter by ranking, region, application status, and deadline to quickly find programmes that are still open.
+              Master's application windows, clear at a glance. Filter by university, country, intake, application status, and deadline.
             </p>
             <div class="hero-actions">
               <a class="primary-button" href="#application-board">
@@ -251,6 +259,26 @@
           <div><span>02</span> <span data-i18n="featureDaily">Daily checks</span></div>
           <div><span>03</span> <span data-i18n="featureCalendar">Add to calendar</span></div>
           <div><span>04</span> <span data-i18n="featureRanked">QS-ranked</span></div>
+        </section>
+
+        <section class="seo-discovery" aria-labelledby="seo-discovery-title">
+          <div class="seo-discovery-heading">
+            <span class="section-kicker">{{GRADWINDOW_TARGET_CYCLE_YEAR}} APPLICATION TIMELINES</span>
+            <h2 id="seo-discovery-title" data-i18n="seoDiscoveryTitle">Explore master's application timelines</h2>
+            <p data-i18n="seoDiscoveryDescription">Browse universities accepting applications now, opening soon, or grouped by opening month and intake.</p>
+          </div>
+          <div class="seo-discovery-columns">
+            <section>
+              <h3 data-i18n="seoOpenNowTitle">Open now</h3>
+              <ul>{{GRADWINDOW_FEATURED_OPEN_LINKS}}</ul>
+            </section>
+            <section>
+              <h3 data-i18n="seoOpeningSoonTitle">Opening soon</h3>
+              <ul>{{GRADWINDOW_FEATURED_UPCOMING_LINKS}}</ul>
+            </section>
+            <nav class="seo-landing-links" aria-label="Browse application timelines">{{GRADWINDOW_SEARCH_LANDING_LINKS}}</nav>
+            <p class="seo-discovery-note" data-i18n="seoDiscoveryNote">Verified dates, official recurring policies, and unofficial estimates remain clearly labelled on every linked page.</p>
+          </div>
         </section>
 
         <section class="board-section" id="application-board">

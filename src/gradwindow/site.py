@@ -5,6 +5,7 @@ import json
 import os
 import re
 import shutil
+from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
@@ -64,6 +65,22 @@ PUBLIC_FILES = (
 LEGACY_SITE_URL = "https://lione12138.github.io/qs-master-applications"
 DEFAULT_SITE_URL = "https://gradwindow.com"
 UPCOMING_WINDOW_DAYS = 30
+MIN_SEARCH_LANDING_RECORDS = 3
+FEATURED_UNIVERSITY_LIMIT = 8
+MONTH_NAMES = (
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+)
 CLOUDFLARE_ANALYTICS_TOKEN = "02939949076c423f953d11db0caade78"
 CLOUDFLARE_ANALYTICS = (
     '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
@@ -116,6 +133,7 @@ def _safe_build_output_dir(output_dir: Path) -> Path:
 def build_site(output_dir: Path = SITE_DIR) -> Path:
     output_dir = _safe_build_output_dir(output_dir)
     public_site_url = site_url()
+    build_date = date.today()
     public_config = {
         "subscribeUrl": os.environ.get("GRADWINDOW_SUBSCRIBE_URL", "").rstrip("/"),
         "turnstileSiteKey": os.environ.get(
@@ -160,7 +178,7 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
         )
     index_path = output_dir / "index.html"
     index_path.write_text(
-        render_home_snapshot(index_path.read_text(encoding="utf-8")),
+        render_home_snapshot(index_path.read_text(encoding="utf-8"), build_date),
         encoding="utf-8",
     )
     data_dir = output_dir / "data"
@@ -172,14 +190,15 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     (output_dir / "sources.html").write_text(
         render_sources_page(public_site_url), encoding="utf-8"
     )
-    generated_urls = generate_index_pages(output_dir, public_site_url)
-    sitemap_urls = [
-        public_site_url,
-        f"{public_site_url}/calendar.html",
+    generated_urls = generate_index_pages(output_dir, public_site_url, build_date)
+    data_lastmod = public_data_lastmod()
+    sitemap_urls: list[str | tuple[str, str | None]] = [
+        (public_site_url, data_lastmod),
+        (f"{public_site_url}/calendar.html", data_lastmod),
         f"{public_site_url}/contact.html",
         f"{public_site_url}/roadmap.html",
         f"{public_site_url}/privacy.html",
-        f"{public_site_url}/sources.html",
+        (f"{public_site_url}/sources.html", data_lastmod),
         *generated_urls,
     ]
     (output_dir / "sitemap.xml").write_text(
@@ -204,6 +223,143 @@ def application_status(item: dict, today: date) -> str:
     return "future"
 
 
+def iso_date(value: str | None) -> str | None:
+    if not value:
+        return None
+    match = re.match(r"^(\d{4}-\d{2}-\d{2})", value)
+    return match.group(1) if match else None
+
+
+def latest_date(*values: str | None) -> str | None:
+    dates = [value for value in (iso_date(item) for item in values) if value]
+    return max(dates, default=None)
+
+
+def record_lastmod(item: dict) -> str | None:
+    return latest_date(
+        item.get("verifiedAt"),
+        item.get("policyCheckedAt"),
+        item.get("basedOnVerifiedAt"),
+    )
+
+
+def records_lastmod(items: list[dict]) -> str | None:
+    return max(
+        (value for item in items if (value := record_lastmod(item))),
+        default=None,
+    )
+
+
+def public_data_lastmod() -> str:
+    applications = read_json(APPLICATIONS_PATH)["meta"]
+    recurring = read_json(RECURRING_WINDOWS_PATH)["meta"]
+    monitor = read_json(MONITOR_STATE_PATH, {}).get("meta", {})
+    return (
+        latest_date(
+            applications.get("updatedAt"),
+            recurring.get("updatedAt"),
+            monitor.get("checkedAt"),
+        )
+        or date.today().isoformat()
+    )
+
+
+def human_date(value: str) -> str:
+    parsed = date.fromisoformat(value[:10])
+    return f"{MONTH_NAMES[parsed.month - 1]} {parsed.day}, {parsed.year}"
+
+
+def month_label(value: str) -> str:
+    year, month = (int(part) for part in value.split("-", 1))
+    return f"{MONTH_NAMES[month - 1]} {year}"
+
+
+def intake_slug(item: dict) -> str | None:
+    details = item.get("intakeDetails") or {}
+    cycle_year = details.get("cycleYear")
+    term = details.get("term")
+    if cycle_year and term in {"fall", "spring"}:
+        return f"{cycle_year}-{term}"
+    return None
+
+
+def intake_page_label(slug: str) -> str:
+    year, term = slug.split("-", 1)
+    return f"{term.title()} {year}"
+
+
+def primary_cycle_year(predictions: list[dict], today: date) -> int:
+    cycle_counts = Counter(
+        details["cycleYear"]
+        for item in predictions
+        if (details := item.get("intakeDetails") or {}).get("cycleYear")
+        and details["cycleYear"] >= today.year
+    )
+    if not cycle_counts:
+        return today.year + 1
+    return max(cycle_counts, key=lambda year: (cycle_counts[year], -year))
+
+
+def featured_university_links(
+    items: list[dict],
+    universities_by_id: dict[str, dict],
+) -> str:
+    university_ids = sorted(
+        {item["universityId"] for item in items},
+        key=lambda university_id: (
+            universities_by_id.get(university_id, {}).get("qsPosition") is None,
+            universities_by_id.get(university_id, {}).get("qsPosition") or 10_000,
+            universities_by_id.get(university_id, {}).get("school", university_id),
+        ),
+    )[:FEATURED_UNIVERSITY_LIMIT]
+    return "".join(
+        f'<li><a href="./university/{university_id}/">'
+        f"{html.escape(universities_by_id[university_id]['school'])}</a></li>"
+        for university_id in university_ids
+        if university_id in universities_by_id
+    )
+
+
+def search_landing_links(
+    rows: list[dict],
+    target_cycle_year: int,
+    today: date,
+) -> str:
+    opening_counts = Counter(item["opensAt"][:7] for item in rows)
+    current_month = today.isoformat()[:7]
+    future_opening_months = sorted(
+        month
+        for month, count in opening_counts.items()
+        if month > current_month and count >= MIN_SEARCH_LANDING_RECORDS
+    )
+    links: list[tuple[str, str]] = []
+    if future_opening_months:
+        month = future_opening_months[0]
+        links.append(
+            (
+                f"./opening/{month}/",
+                f"{month_label(month)} application openings",
+            )
+        )
+    intake_counts = Counter(
+        slug for item in rows if (slug := intake_slug(item)) is not None
+    )
+    for term in ("fall", "spring"):
+        slug = f"{target_cycle_year}-{term}"
+        if intake_counts[slug] >= MIN_SEARCH_LANDING_RECORDS:
+            links.append((f"./intake/{slug}/", f"{intake_page_label(slug)} intake"))
+    links.extend(
+        [
+            ("./calendar.html", f"{target_cycle_year} application calendar"),
+            ("./sources.html", "Official sources and coverage"),
+        ]
+    )
+    return "".join(
+        f'<a href="{html.escape(url, quote=True)}">{html.escape(label)}</a>'
+        for url, label in links
+    )
+
+
 def home_snapshot(today: date | None = None) -> dict[str, str]:
     today = today or date.today()
     university_payload = read_json(UNIVERSITIES_PATH)
@@ -221,6 +377,7 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     ]
     qs_ids = {item["id"] for item in qs_universities}
     rows = [*applications, *recurring_windows, *predictions]
+    target_cycle_year = primary_cycle_year(predictions, today)
     ranked_rows = [item for item in rows if item["universityId"] in qs_ids]
     rows_by_status = {
         status: [
@@ -265,7 +422,11 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
         key=lambda item: item["closesAt"],
         default=None,
     )
-    university_names = {item["id"]: item["school"] for item in universities}
+    universities_by_id = {item["id"]: item for item in universities}
+    university_names = {
+        university_id: item["school"]
+        for university_id, item in universities_by_id.items()
+    }
     if next_deadline:
         deadline_date = date.fromisoformat(next_deadline["closesAt"])
         deadline_day = f"{deadline_date.day:02d}"
@@ -293,6 +454,8 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     updated_month = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()[
         updated_date.month - 1
     ]
+    official_start = min(item["opensAt"] for item in applications)
+    official_end = max(item["closesAt"] for item in applications)
 
     return {
         "updated_at": (
@@ -316,16 +479,32 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
         ),
         "directory_universities": str(len(qs_universities)),
         "open_windows": str(len(rows_by_status["open"])),
+        "target_cycle_year": str(target_cycle_year),
+        "dataset_date_modified": iso_date(application_payload["meta"]["updatedAt"])
+        or today.isoformat(),
+        "dataset_temporal_coverage": f"{official_start}/{official_end}",
+        "featured_open_links": featured_university_links(
+            rows_by_status["open"], universities_by_id
+        ),
+        "featured_upcoming_links": featured_university_links(
+            rows_by_status["upcoming"], universities_by_id
+        ),
+        "search_landing_links": search_landing_links(rows, target_cycle_year, today),
     }
 
 
 def render_home_snapshot(source: str, today: date | None = None) -> str:
     snapshot = home_snapshot(today)
     rendered = source
+    raw_html_keys = {
+        "featured_open_links",
+        "featured_upcoming_links",
+        "search_landing_links",
+    }
     for key, value in snapshot.items():
         rendered = rendered.replace(
             f"{{{{GRADWINDOW_{key.upper()}}}}}",
-            html.escape(value, quote=True),
+            value if key in raw_html_keys else html.escape(value, quote=True),
         )
     unresolved = sorted(set(re.findall(r"\{\{GRADWINDOW_[A-Z_]+\}\}", rendered)))
     if unresolved:
@@ -338,11 +517,19 @@ def slugify(value: str) -> str:
     return slug or "other"
 
 
-def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
+def generate_index_pages(
+    output_dir: Path,
+    public_site_url: str,
+    today: date | None = None,
+) -> list[tuple[str, str | None]]:
+    today = today or date.today()
     universities = read_json(UNIVERSITIES_PATH)["universities"]
     applications = read_json(APPLICATIONS_PATH)["applications"]
     predictions = read_json(PREDICTIONS_PATH)["predictions"]
     recurring_windows = read_json(RECURRING_WINDOWS_PATH)["recurringWindows"]
+    monitor_entries = read_json(MONITOR_STATE_PATH, {"universities": {}}).get(
+        "universities", {}
+    )
     programs = read_json(PROGRAMS_PATH)["programs"]
     groups = read_json(PROGRAMME_GROUPS_PATH)["groups"]
     applicant_categories = read_json(APPLICANT_CATEGORIES_PATH)["categories"]
@@ -355,22 +542,36 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
     indexed_countries = {
         item["country"] for item in universities if item.get("qsPosition") is not None
     }
-    generated_urls: list[str] = []
+    target_cycle_year = primary_cycle_year(predictions, today)
+    generated_urls: list[tuple[str, str | None]] = []
+    all_records = [*applications, *recurring_windows, *predictions]
+    intake_counts = Counter(
+        slug for item in all_records if (slug := intake_slug(item)) is not None
+    )
+    valid_intake_slugs = {
+        slug
+        for slug, count in intake_counts.items()
+        if count >= MIN_SEARCH_LANDING_RECORDS
+    }
+    official_by_university: dict[str, list[dict]] = defaultdict(list)
+    recurring_by_university: dict[str, list[dict]] = defaultdict(list)
+    predicted_by_university: dict[str, list[dict]] = defaultdict(list)
+    for item in applications:
+        official_by_university[item["universityId"]].append(item)
+    for item in recurring_windows:
+        recurring_by_university[item["universityId"]].append(item)
+    for item in predictions:
+        predicted_by_university[item["universityId"]].append(item)
 
     for university in universities:
         university_dir = output_dir / "university" / university["id"]
         university_dir.mkdir(parents=True, exist_ok=True)
-        official = [
-            item for item in applications if item["universityId"] == university["id"]
-        ]
-        estimated = [
-            item for item in predictions if item["universityId"] == university["id"]
-        ]
-        recurring = [
-            item
-            for item in recurring_windows
-            if item["universityId"] == university["id"]
-        ]
+        university_id = university["id"]
+        official = official_by_university[university_id]
+        estimated = predicted_by_university[university_id]
+        recurring = recurring_by_university[university_id]
+        all_records = [*official, *recurring, *estimated]
+        indexable = bool(all_records)
         canonical = f"{public_site_url}/university/{university['id']}/"
         ranking_label = (
             f"QS {university['rankDisplay']}"
@@ -383,6 +584,7 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
                 f'<a href="../../country/{slugify(university["country"])}/">'
                 f"{country_label}</a>"
             )
+        monitor_item = monitor_entries.get(university_id, {})
         body = (
             f'<p class="back"><a href="../../index.html">Back to tracker</a></p>'
             f"<p>{html.escape(ranking_label)} · "
@@ -396,17 +598,29 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
                 else ""
             )
             + "</p>"
+            + render_university_summary(
+                official,
+                recurring,
+                estimated,
+                monitor_item,
+                today,
+                valid_intake_slugs,
+            )
             + render_window_list(
                 official,
                 "Verified official windows",
                 program_names,
                 group_names,
+                applicant_category_names,
+                valid_intake_slugs,
             )
             + render_window_list(
                 recurring,
                 "Official recurring policies (cycle year mapped by GradWindow)",
                 program_names,
                 group_names,
+                applicant_category_names,
+                valid_intake_slugs,
                 recurring=True,
             )
             + render_window_list(
@@ -414,27 +628,41 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
                 "Next-cycle calendar-shift references",
                 program_names,
                 group_names,
+                applicant_category_names,
+                valid_intake_slugs,
                 predicted=True,
             )
         )
+        if indexable:
+            title = university_page_title(university["school"], target_cycle_year)
+            description = university_meta_description(
+                university["school"], official, recurring, estimated, target_cycle_year
+            )
+        else:
+            title = f"{university['school']} Graduate Admissions Sources"
+            description = (
+                f"Official website and graduate admissions entry for {university['school']}. "
+                "GradWindow has no verified or estimated application-window records for this university yet."
+            )
         (university_dir / "index.html").write_text(
             render_static_page(
-                f"{university['school']} master's application dates",
-                (
-                    "Browse verified master's application dates, deadlines, "
-                    "official links, and clearly labelled next-cycle estimates "
-                    f"for {university['school']}."
-                ),
+                title,
+                description,
                 body,
                 canonical,
                 [
                     ("GradWindow", f"{public_site_url}/"),
                     (university["school"], canonical),
                 ],
+                indexable=indexable,
+                date_modified=latest_date(
+                    records_lastmod(all_records), monitor_item.get("checkedAt")
+                ),
             ),
             encoding="utf-8",
         )
-        generated_urls.append(canonical)
+        if indexable:
+            generated_urls.append((canonical, records_lastmod(all_records)))
 
     by_country: dict[str, list[dict]] = {}
     for university in universities:
@@ -474,7 +702,12 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
             ),
             encoding="utf-8",
         )
-        generated_urls.append(canonical)
+        generated_urls.append(
+            (
+                canonical,
+                records_lastmod([*applications, *recurring_windows, *predictions]),
+            )
+        )
 
     by_month: dict[str, list[tuple[dict, str]]] = {}
     for item in applications:
@@ -521,8 +754,283 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
             ),
             encoding="utf-8",
         )
-        generated_urls.append(canonical)
+        generated_urls.append((canonical, records_lastmod([item for item, _ in items])))
+
+    by_opening_month: dict[str, list[tuple[dict, str]]] = defaultdict(list)
+    by_intake: dict[str, list[tuple[dict, str]]] = defaultdict(list)
+    for data_status, records in (
+        ("official", applications),
+        ("recurring", recurring_windows),
+        ("predicted", predictions),
+    ):
+        for item in records:
+            by_opening_month[item["opensAt"][:7]].append((item, data_status))
+            if slug := intake_slug(item):
+                by_intake[slug].append((item, data_status))
+
+    for month, items in sorted(by_opening_month.items()):
+        if len(items) < MIN_SEARCH_LANDING_RECORDS:
+            continue
+        opening_dir = output_dir / "opening" / month
+        opening_dir.mkdir(parents=True, exist_ok=True)
+        canonical = f"{public_site_url}/opening/{month}/"
+        label = month_label(month)
+        body = render_landing_summary(
+            items,
+            university_names,
+            mode="opening",
+        )
+        description = (
+            f"Explore {len(items)} master's application windows opening in {label}, "
+            "grouped by university with verified dates, official recurring policies, "
+            "and clearly labelled estimates."
+        )
+        (opening_dir / "index.html").write_text(
+            render_static_page(
+                f"{label} Master's Applications Opening Dates",
+                description,
+                '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
+                + body,
+                canonical,
+                [
+                    ("GradWindow", f"{public_site_url}/"),
+                    (f"Applications opening in {label}", canonical),
+                ],
+                date_modified=records_lastmod([item for item, _ in items]),
+            ),
+            encoding="utf-8",
+        )
+        generated_urls.append((canonical, records_lastmod([item for item, _ in items])))
+
+    for slug, items in sorted(by_intake.items()):
+        if len(items) < MIN_SEARCH_LANDING_RECORDS:
+            continue
+        intake_dir = output_dir / "intake" / slug
+        intake_dir.mkdir(parents=True, exist_ok=True)
+        canonical = f"{public_site_url}/intake/{slug}/"
+        label = intake_page_label(slug)
+        body = render_landing_summary(items, university_names, mode="intake")
+        description = (
+            f"Compare {len(items)} master's application deadlines for {label}, grouped "
+            "by university with verified dates, official recurring policies, and clearly "
+            "labelled estimates."
+        )
+        (intake_dir / "index.html").write_text(
+            render_static_page(
+                f"{label} Master's Application Deadlines",
+                description,
+                '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
+                + body,
+                canonical,
+                [
+                    ("GradWindow", f"{public_site_url}/"),
+                    (f"{label} intake", canonical),
+                ],
+                date_modified=records_lastmod([item for item, _ in items]),
+            ),
+            encoding="utf-8",
+        )
+        generated_urls.append((canonical, records_lastmod([item for item, _ in items])))
     return generated_urls
+
+
+def trim_description(value: str, limit: int = 180) -> str:
+    if len(value) <= limit:
+        return value
+    shortened = value[: limit - 1].rsplit(" ", 1)[0].rstrip(" ,.;:")
+    return f"{shortened}…"
+
+
+def university_meta_description(
+    school: str,
+    official: list[dict],
+    recurring: list[dict],
+    estimated: list[dict],
+    target_cycle_year: int,
+) -> str:
+    return trim_description(
+        f"Track {len(official)} verified, {len(recurring)} recurring-policy, and "
+        f"{len(estimated)} estimated master's application windows for {school}, "
+        f"including {target_cycle_year} opening dates, deadlines, intakes, and official sources."
+    )
+
+
+def university_page_title(school: str, target_cycle_year: int) -> str:
+    title = f"{school} Master's Application Deadlines {target_cycle_year}"
+    if len(f"{title} · GradWindow") <= 100:
+        return title
+    return f"{school} Master's Deadlines {target_cycle_year}"
+
+
+def render_university_summary(
+    official: list[dict],
+    recurring: list[dict],
+    estimated: list[dict],
+    monitor_item: dict,
+    today: date,
+    valid_intake_slugs: set[str],
+) -> str:
+    all_records = [*official, *recurring, *estimated]
+    if not all_records:
+        checked_at = iso_date(monitor_item.get("checkedAt"))
+        checked_note = (
+            f" The official admissions route was last checked on {human_date(checked_at)}."
+            if checked_at
+            else ""
+        )
+        return (
+            '<section class="record-summary"><h2>Application-window coverage</h2>'
+            "<p>GradWindow has no verified, recurring-policy, or estimated application "
+            f"windows for this university yet.{checked_note}</p>"
+            "<p>Use the official links above for current admissions information. This "
+            "directory page remains available for discovery but is excluded from search indexing.</p>"
+            "</section>"
+        )
+
+    official_status_rows = [*official, *recurring]
+    open_now = sum(
+        application_status(item, today) == "open" for item in official_status_rows
+    )
+    opening_soon = sum(
+        application_status(item, today) == "upcoming" for item in official_status_rows
+    )
+    future_official = [
+        item
+        for item in official_status_rows
+        if date.fromisoformat(item["closesAt"]) >= today
+    ]
+    next_deadline = min(
+        future_official, key=lambda item: item["closesAt"], default=None
+    )
+    next_opening = min(
+        (
+            item
+            for item in official_status_rows
+            if date.fromisoformat(item["opensAt"]) > today
+        ),
+        key=lambda item: item["opensAt"],
+        default=None,
+    )
+    opening_basis = "verified or recurring-policy"
+    if next_opening is None:
+        next_opening = min(
+            (item for item in estimated if date.fromisoformat(item["opensAt"]) > today),
+            key=lambda item: item["opensAt"],
+            default=None,
+        )
+        opening_basis = "unofficial calendar-shift reference"
+    checked_at = latest_date(
+        monitor_item.get("checkedAt"),
+        records_lastmod(all_records),
+    )
+    intake_slugs = sorted(
+        {
+            slug
+            for item in all_records
+            if (slug := intake_slug(item)) in valid_intake_slugs
+        }
+    )
+    intake_links = "".join(
+        f'<a href="../../intake/{slug}/">{html.escape(intake_page_label(slug))}</a>'
+        for slug in intake_slugs
+    )
+    facts = [
+        f"<li><strong>{len(all_records)}</strong> tracked windows: "
+        f"{len(official)} verified, {len(recurring)} recurring-policy, "
+        f"{len(estimated)} estimated.</li>",
+        f"<li><strong>{open_now}</strong> official or recurring-policy windows open now; "
+        f"<strong>{opening_soon}</strong> opening within {UPCOMING_WINDOW_DAYS} days.</li>",
+    ]
+    if next_deadline:
+        facts.append(
+            "<li>Next official or recurring-policy deadline: "
+            f"<strong>{human_date(next_deadline['closesAt'])}</strong>.</li>"
+        )
+    if next_opening:
+        facts.append(
+            f"<li>Next opening ({opening_basis}): "
+            f"<strong>{human_date(next_opening['opensAt'])}</strong>.</li>"
+        )
+    if checked_at:
+        facts.append(f"<li>Last checked or verified: {human_date(checked_at)}.</li>")
+    intake_html = (
+        f'<p class="intake-links"><strong>Browse intakes:</strong> {intake_links}</p>'
+        if intake_links
+        else ""
+    )
+    return (
+        '<section class="record-summary"><h2>Application-window summary</h2>'
+        f"<ul>{''.join(facts)}</ul>{intake_html}</section>"
+    )
+
+
+def render_landing_summary(
+    items: list[tuple[dict, str]],
+    university_names: dict[str, str],
+    mode: str,
+) -> str:
+    grouped: dict[str, list[tuple[dict, str]]] = defaultdict(list)
+    for item, data_status in items:
+        grouped[item["universityId"]].append((item, data_status))
+    cards = []
+    for university_id, records in sorted(
+        grouped.items(), key=lambda pair: university_names[pair[0]]
+    ):
+        rows = [item for item, _ in records]
+        status_counts = Counter(data_status for _, data_status in records)
+        opening_start = min(item["opensAt"] for item in rows)
+        opening_end = max(item["opensAt"] for item in rows)
+        deadline_start = min(item["closesAt"] for item in rows)
+        deadline_end = max(item["closesAt"] for item in rows)
+        openings = (
+            human_date(opening_start)
+            if opening_start == opening_end
+            else f"{human_date(opening_start)} to {human_date(opening_end)}"
+        )
+        deadlines = (
+            human_date(deadline_start)
+            if deadline_start == deadline_end
+            else f"{human_date(deadline_start)} to {human_date(deadline_end)}"
+        )
+        intake_labels = sorted({item["intake"] for item in rows})
+        visible_intakes = ", ".join(intake_labels[:4])
+        if len(intake_labels) > 4:
+            visible_intakes += f", and {len(intake_labels) - 4} more"
+        source = next(
+            (item["sourceUrl"] for item, status in records if status != "predicted"),
+            rows[0]["sourceUrl"],
+        )
+        status_parts = []
+        if status_counts["official"]:
+            status_parts.append(f"{status_counts['official']} verified")
+        if status_counts["recurring"]:
+            status_parts.append(f"{status_counts['recurring']} recurring-policy")
+        if status_counts["predicted"]:
+            status_parts.append(
+                f"{status_counts['predicted']} unofficial calendar-shift reference"
+            )
+        lead = "Opening date" if mode == "opening" else "Opening dates"
+        cards.append(
+            '<article class="landing-card">'
+            f'<h2><a href="../../university/{university_id}/">'
+            f"{html.escape(university_names[university_id])}</a></h2>"
+            f"<p><strong>{len(records)} windows</strong> · "
+            f"{html.escape(', '.join(status_parts))}</p>"
+            f"<p>{lead}: {html.escape(openings)}<br>"
+            f"Deadlines: {html.escape(deadlines)}</p>"
+            f"<p>Intakes: {html.escape(visible_intakes)}</p>"
+            f'<p><a href="{html.escape(source, quote=True)}">Official source</a></p>'
+            "</article>"
+        )
+    trust_note = (
+        "Verified dates come from official university pages. Recurring-policy dates "
+        "map an official day/month rule to a cycle year; estimates are non-official "
+        "calendar shifts and must be checked before applying."
+    )
+    return (
+        f'<p class="trust-note">{trust_note}</p>'
+        f'<div class="landing-grid">{"".join(cards)}</div>'
+    )
 
 
 def scope_name(
@@ -542,20 +1050,32 @@ def render_window_list(
     heading: str,
     program_names: dict[str, str],
     group_names: dict[str, str],
+    applicant_category_names: dict[str, str],
+    valid_intake_slugs: set[str],
     predicted: bool = False,
     recurring: bool = False,
 ) -> str:
     if not items:
-        return (
-            f"<section><h2>{html.escape(heading)}</h2><p>No records yet.</p></section>"
-        )
+        return ""
     rows = "".join(
         "<li>"
         f'<strong><a href="../../deadline/{html.escape(item["closesAt"][:7])}/">'
         f"{html.escape(item['opensAt'])} to "
         f"{html.escape(item['closesAt'])}</a></strong><br>"
         f"{html.escape(scope_name(item, program_names, group_names))} · "
-        f"{html.escape(item['intake'])}"
+        + (
+            f'<a href="../../intake/{slug}/">{html.escape(item["intake"])}</a>'
+            if (slug := intake_slug(item)) in valid_intake_slugs
+            else html.escape(item["intake"])
+        )
+        + f" · Round: {html.escape(item['round'])}"
+        + " · Applicants: "
+        + html.escape(
+            ", ".join(
+                applicant_category_names.get(category, category)
+                for category in item["applicantCategories"]
+            )
+        )
         + (
             "<br><small>Shifted by one calendar year; not an official published date.</small>"
             if predicted
@@ -565,7 +1085,9 @@ def render_window_list(
                 else ""
             )
         )
-        + f'<br><a href="{html.escape(item["sourceUrl"], quote=True)}">Official source</a>'
+        + f'<br><a href="{html.escape(item["applicationUrl"], quote=True)}">Application page</a>'
+        + " · "
+        + f'<a href="{html.escape(item["sourceUrl"], quote=True)}">Official source</a>'
         "</li>"
         for item in sorted(items, key=lambda value: value["closesAt"])
     )
@@ -578,6 +1100,9 @@ def render_static_page(
     body: str,
     canonical: str,
     breadcrumbs: list[tuple[str, str]],
+    *,
+    indexable: bool = True,
+    date_modified: str | None = None,
 ) -> str:
     escaped_title = html.escape(title)
     escaped_description = html.escape(description, quote=True)
@@ -610,6 +1135,8 @@ def render_static_page(
             "url": f"{public_site_url}/",
         },
     }
+    if date_modified:
+        web_page_schema["dateModified"] = date_modified
     structured_data = json.dumps(
         [web_page_schema, breadcrumb_schema],
         ensure_ascii=False,
@@ -625,7 +1152,7 @@ def render_static_page(
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{escaped_title} · GradWindow</title>
   <meta name="description" content="{escaped_description}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="{"index, follow, max-image-preview:large" if indexable else "noindex, follow"}">
   <link rel="canonical" href="{escaped_canonical}">
   <link rel="icon" href="{public_site_url}/favicon.svg" type="image/svg+xml">
   <meta property="og:title" content="{escaped_title} · GradWindow">
@@ -651,8 +1178,16 @@ def render_static_page(
     a {{ color: #1e6548; }}
     small {{ color: #68736d; }}
     .back {{ margin-bottom: 28px; }}
+    .record-summary, .trust-note {{ padding: 18px 22px; border: 1px solid #d9ddd7; border-radius: 12px; background: #fffef9; }}
+    .record-summary h2 {{ margin-top: 0; }}
+    .intake-links {{ display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }}
+    .landing-grid {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 24px; }}
+    .landing-card {{ padding: 18px 20px; border: 1px solid #d9ddd7; border-radius: 12px; background: #fffef9; }}
+    .landing-card h2 {{ margin-top: 0; font-size: 19px; }}
+    .landing-card p {{ margin: 8px 0; }}
     .breadcrumbs {{ display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; color: #68736d; font-size: 14px; }}
     .site-links {{ display: flex; gap: 18px; flex-wrap: wrap; padding-top: 28px; margin-top: 42px; border-top: 1px solid #d9ddd7; font-size: 14px; }}
+    @media (max-width: 680px) {{ .landing-grid {{ grid-template-columns: 1fr; }} }}
   </style>
 </head>
 <body><main>
@@ -668,8 +1203,12 @@ def render_static_page(
 """
 
 
-def render_sitemap(urls: list[str]) -> str:
-    entries = "".join(f"  <url><loc>{html.escape(url)}</loc></url>\n" for url in urls)
+def render_sitemap(urls: list[str | tuple[str, str | None]]) -> str:
+    entries = ""
+    for entry in urls:
+        url, lastmod = entry if isinstance(entry, tuple) else (entry, None)
+        lastmod_xml = f"<lastmod>{html.escape(lastmod)}</lastmod>" if lastmod else ""
+        entries += f"  <url><loc>{html.escape(url)}</loc>{lastmod_xml}</url>\n"
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -697,6 +1236,21 @@ def render_sources_page(public_site_url: str) -> str:
             for item in [*applications, *predictions, *recurring_windows]
         }
     )
+    all_window_records = [*applications, *predictions, *recurring_windows]
+    opening_counts = Counter(item["opensAt"][:7] for item in all_window_records)
+    opening_months = sorted(
+        month
+        for month, count in opening_counts.items()
+        if count >= MIN_SEARCH_LANDING_RECORDS
+    )
+    intake_counts = Counter(
+        slug for item in all_window_records if (slug := intake_slug(item)) is not None
+    )
+    intake_slugs = sorted(
+        slug
+        for slug, count in intake_counts.items()
+        if count >= MIN_SEARCH_LANDING_RECORDS
+    )
     country_links = "".join(
         f'<li><a href="country/{slugify(country)}/">'
         f"QS Top 200 universities in {html.escape(country)}</a></li>"
@@ -705,6 +1259,16 @@ def render_sources_page(public_site_url: str) -> str:
     deadline_links = "".join(
         f'<li><a href="deadline/{month}/">{month} master\'s application deadlines</a></li>'
         for month in deadline_months
+    )
+    opening_links = "".join(
+        f'<li><a href="opening/{month}/">Master\'s applications opening in '
+        f"{html.escape(month_label(month))}</a></li>"
+        for month in opening_months
+    )
+    intake_links = "".join(
+        f'<li><a href="intake/{slug}/">{html.escape(intake_page_label(slug))} '
+        "master's application deadlines</a></li>"
+        for slug in intake_slugs
     )
     rows = []
     for university in sorted(
@@ -831,6 +1395,14 @@ def render_sources_page(public_site_url: str) -> str:
       <div>
         <h2>Browse by deadline month</h2>
         <ul class="browse-list">{deadline_links}</ul>
+      </div>
+      <div>
+        <h2>Browse by opening month</h2>
+        <ul class="browse-list">{opening_links}</ul>
+      </div>
+      <div>
+        <h2>Browse by intake</h2>
+        <ul class="browse-list">{intake_links}</ul>
       </div>
     </section>
     <h2>University directory and official sources</h2>

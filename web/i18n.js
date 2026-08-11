@@ -60,9 +60,17 @@ export const I18N = {
       "Cloud sync failed. Your saved items are still safe on this device.",
     mobileNavAccount: "Account",
     eyebrow: "Official sources · daily checks · deadline alerts",
-    heroTitle: "Never let a master's<br /><em>deadline slip away</em>",
+    heroTitle:
+      "2027 Master's Application Deadlines<br /><em>& Opening Dates</em>",
     heroDescription:
-      "Track master's application periods across QS, THE, and ARWU-ranked universities. Find programmes, save dates, and apply from the official source.",
+      "Master's application windows, clear at a glance. Filter by university, country, intake, application status, and deadline.",
+    seoDiscoveryTitle: "Explore master's application timelines",
+    seoDiscoveryDescription:
+      "Browse universities accepting applications now, opening soon, or grouped by opening month and intake.",
+    seoOpenNowTitle: "Open now",
+    seoOpeningSoonTitle: "Opening soon",
+    seoDiscoveryNote:
+      "Verified dates, official recurring policies, and unofficial estimates remain clearly labelled on every linked page.",
     browseWindows: "Browse application windows",
     loadingData: "Loading data…",
     updateSchedule: "Updated daily at 8:00 AM Beijing time",
@@ -510,9 +518,16 @@ export const I18N = {
     favoritesSyncError: "云端同步失败，收藏仍安全保存在这台设备上。",
     mobileNavAccount: "账号",
     eyebrow: "官网来源 · 每日检查 · 截止提醒",
-    heroTitle: "别让心仪项目的<br /><em>截止日期</em>悄悄溜走",
+    heroTitle: "2027 硕士申请截止日期<br /><em>与开放时间</em>",
     heroDescription:
-      "汇总 QS、THE 与软科榜单大学硕士申请时间，按开放状态自动整理。找到项目、记住日期、直接申请。",
+      "硕士申请窗口一目了然，可按大学、国家和地区、入学季、申请状态及截止日期筛选。",
+    seoDiscoveryTitle: "浏览硕士申请时间线",
+    seoDiscoveryDescription:
+      "查看正在开放、即将开放的大学，或按开放月份和入学季浏览申请时间。",
+    seoOpenNowTitle: "正在开放",
+    seoOpeningSoonTitle: "即将开放",
+    seoDiscoveryNote:
+      "每个链接页面都会明确区分已核实日期、官网周期政策和非官方估算。",
     browseWindows: "浏览申请窗口",
     loadingData: "正在读取数据…",
     updateSchedule: "每天早上北京时间八点更新",

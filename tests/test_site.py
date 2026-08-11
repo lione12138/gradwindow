@@ -125,6 +125,9 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     assert (tmp_path / "university" / "university-of-cambridge" / "index.html").exists()
     assert (tmp_path / "country" / "united-kingdom" / "index.html").exists()
     assert (tmp_path / "deadline" / "2026-02" / "index.html").exists()
+    assert (tmp_path / "opening" / "2026-09" / "index.html").exists()
+    assert (tmp_path / "intake" / "2027-fall" / "index.html").exists()
+    assert (tmp_path / "intake" / "2027-spring" / "index.html").exists()
 
 
 def test_indexable_pages_have_substantial_unique_meta_descriptions(tmp_path) -> None:
@@ -179,6 +182,9 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'href="university/university-of-cambridge/"' in sources_html
     assert 'href="country/united-kingdom/"' in sources_html
     assert 'href="deadline/2026-02/"' in sources_html
+    assert 'href="opening/2026-09/"' in sources_html
+    assert 'href="intake/2027-fall/"' in sources_html
+    assert 'href="intake/2027-spring/"' in sources_html
     assert "Official university website" in sources_html
     index_html = (tmp_path / "index.html").read_text(encoding="utf-8")
     assert 'data-status="predicted"' not in index_html
@@ -222,6 +228,9 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert "application/ld+json" in index_html
     assert '"@type": "Dataset"' in index_html
     assert '"@type": "DataDownload"' in index_html
+    assert '"dateModified": "2026-' in index_html
+    assert '"temporalCoverage": "' in index_html
+    assert "master's application deadlines 2027" in index_html
     assert 'rel="alternate"' in index_html
     assert "./data/applications.json" in index_html
     assert "Source code" in index_html
@@ -233,6 +242,16 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert "Loading data…" not in index_html
     assert "Post anonymously as good people" not in index_html
     assert "Post anonymously" in index_html
+    assert (
+        f"<title>{snapshot['target_cycle_year']} Master's Application Deadlines "
+        "& Opening Dates | GradWindow</title>"
+    ) in index_html
+    assert (
+        f"{snapshot['target_cycle_year']} Master's Application Deadlines<br />"
+        "<em>& Opening Dates</em>"
+    ) in index_html
+    assert 'class="seo-discovery"' in index_html
+    assert index_html.count('href="./university/') >= 10
     assert f'id="total-schools">{snapshot["total_universities"]}</strong>' in index_html
     assert f'id="total-records">{snapshot["official_windows"]}</strong>' in index_html
     assert (
@@ -318,6 +337,59 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
         assert 'rel="canonical"' in page_html
         assert 'property="og:image"' in page_html
         assert 'type="application/ld+json"' in page_html
+
+
+def test_search_landing_pages_and_thin_university_indexing(tmp_path) -> None:
+    build_site(tmp_path)
+
+    sitemap = (tmp_path / "sitemap.xml").read_text(encoding="utf-8")
+    nus_html = (
+        tmp_path / "university" / "national-university-of-singapore-nus" / "index.html"
+    ).read_text(encoding="utf-8")
+    stanford_html = (
+        tmp_path / "university" / "stanford-university" / "index.html"
+    ).read_text(encoding="utf-8")
+    aalto_html = (
+        tmp_path / "university" / "aalto-university" / "index.html"
+    ).read_text(encoding="utf-8")
+    opening_html = (tmp_path / "opening" / "2026-09" / "index.html").read_text(
+        encoding="utf-8"
+    )
+    fall_html = (tmp_path / "intake" / "2027-fall" / "index.html").read_text(
+        encoding="utf-8"
+    )
+
+    assert (
+        "National University of Singapore (NUS) Master's Application Deadlines 2027"
+        in nus_html
+    )
+    assert "Application-window summary" in nus_html
+    assert "tracked windows" in nus_html
+    assert "Last checked or verified" in nus_html
+    assert "Applicants:" in nus_html
+    assert "Round:" in nus_html
+    assert 'content="index, follow, max-image-preview:large"' in nus_html
+    assert (
+        "https://gradwindow.com/university/national-university-of-singapore-nus/"
+        in sitemap
+    )
+
+    assert 'content="noindex, follow"' in stanford_html
+    assert (
+        "no verified, recurring-policy, or estimated application windows"
+        in stanford_html
+    )
+    assert "https://gradwindow.com/university/stanford-university/" not in sitemap
+    assert 'href="../../intake/2027-fall/"' in aalto_html
+
+    assert "September 2026 Master's Applications Opening Dates" in opening_html
+    assert "Verified dates come from official university pages" in opening_html
+    assert 'href="../../university/' in opening_html
+    assert "Fall 2027 Master's Application Deadlines" in fall_html
+    assert "unofficial calendar-shift reference" in fall_html
+    assert "https://gradwindow.com/opening/2026-09/" in sitemap
+    assert "https://gradwindow.com/intake/2027-fall/" in sitemap
+    assert "<lastmod>" in sitemap
 
 
 def test_build_site_uses_configured_public_url(tmp_path, monkeypatch) -> None:
