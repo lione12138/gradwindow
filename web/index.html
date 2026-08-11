@@ -14,6 +14,12 @@
     <meta name="format-detection" content="telephone=no" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link
+      rel="alternate"
+      type="application/json"
+      href="./data/applications.json"
+      title="GradWindow verified application windows dataset"
+    />
+    <link
       rel="canonical"
       href="https://gradwindow.com/"
     />
@@ -63,11 +69,45 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "GradWindow",
-        "url": "https://gradwindow.com/",
-        "description": "Track official master's application opening dates and deadlines for QS Top 200 universities.",
-        "inLanguage": ["en", "zh-CN"]
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://gradwindow.com/#organization",
+            "name": "GradWindow",
+            "url": "https://gradwindow.com/",
+            "sameAs": ["https://github.com/lione12138/qs-master-applications"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://gradwindow.com/#website",
+            "name": "GradWindow",
+            "url": "https://gradwindow.com/",
+            "description": "Track official master's application opening dates and deadlines for QS Top 200 universities.",
+            "inLanguage": ["en", "zh-CN"],
+            "publisher": { "@id": "https://gradwindow.com/#organization" }
+          },
+          {
+            "@type": "Dataset",
+            "name": "GradWindow Verified Graduate Application Windows",
+            "description": "Curated exact graduate application opening and closing dates with university, programme or scope, intake, applicant category, and official source URLs.",
+            "url": "https://gradwindow.com/",
+            "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+            "creator": { "@id": "https://gradwindow.com/#organization" },
+            "isPartOf": { "@id": "https://gradwindow.com/#website" },
+            "distribution": [
+              {
+                "@type": "DataDownload",
+                "encodingFormat": "application/json",
+                "contentUrl": "https://gradwindow.com/data/applications.json"
+              },
+              {
+                "@type": "DataDownload",
+                "encodingFormat": "application/json",
+                "contentUrl": "https://gradwindow.com/data/universities.json"
+              }
+            ]
+          }
+        ]
       }
     </script>
 
@@ -78,7 +118,7 @@
   <body>
     <div class="page-shell">
       <header class="site-header">
-        <a class="brand" href="#" aria-label="GradWindow home">
+        <a class="brand" href="./index.html" aria-label="GradWindow home">
           <span class="brand-mark">G</span>
           <span>GradWindow</span>
         </a>
@@ -176,7 +216,7 @@
                 <span aria-hidden="true">↓</span>
               </a>
               <span class="update-note update-schedule" data-i18n="updateSchedule">Updated daily at 8:00 AM Beijing time</span>
-              <span class="update-note" id="updated-at" data-i18n="loadingData">Loading data…</span>
+              <span class="update-note" id="updated-at">{{GRADWINDOW_UPDATED_AT}}</span>
             </div>
             <div class="hero-disclaimer">
               <strong data-i18n="heroDisclaimerTitle">Before you apply</strong>
@@ -191,13 +231,13 @@
             <div class="orbit orbit-two"></div>
             <div class="date-card date-card-main">
               <span class="date-card-label" data-i18n="nextDeadline">NEXT DEADLINE</span>
-              <strong id="hero-deadline-day">--</strong>
-              <span id="hero-deadline-month">---</span>
-              <div class="date-card-school" id="hero-deadline-school">Loading</div>
+              <strong id="hero-deadline-day">{{GRADWINDOW_DEADLINE_DAY}}</strong>
+              <span id="hero-deadline-month">{{GRADWINDOW_DEADLINE_MONTH}}</span>
+              <div class="date-card-school" id="hero-deadline-school">{{GRADWINDOW_DEADLINE_SCHOOL}}</div>
             </div>
             <div class="mini-card mini-card-open">
               <span data-i18n="openNow">OPEN NOW</span>
-              <strong id="hero-open-count">0</strong>
+              <strong id="hero-open-count">{{GRADWINDOW_OPEN_UNIVERSITIES}}</strong>
             </div>
             <div class="mini-card mini-card-rank">
               <span data-i18n="qsRankLabel">QS RANK</span>
@@ -219,14 +259,14 @@
             <h2 data-i18n="mobileTrackerTitle">Check urgent deadlines first</h2>
             <p data-i18n="mobileTrackerDescription">Search globally, filter precisely, and confirm every deadline on the official page.</p>
             <div class="mobile-summary-pills">
-              <span><strong id="mobile-open-count">0</strong> <span data-i18n="statusOpen">Open now</span></span>
-              <span><strong id="mobile-upcoming-count">0</strong> <span data-i18n="statusUpcoming">Opening soon</span></span>
+              <span><strong id="mobile-open-count">{{GRADWINDOW_OPEN_UNIVERSITIES}}</strong> <span data-i18n="statusOpen">Open now</span></span>
+              <span><strong id="mobile-upcoming-count">{{GRADWINDOW_UPCOMING_UNIVERSITIES}}</strong> <span data-i18n="statusUpcoming">Opening soon</span></span>
             </div>
-            <a class="mobile-deadline-alert" id="mobile-deadline-link" href="#application-groups">
+            <a class="mobile-deadline-alert" id="mobile-deadline-link" href="{{GRADWINDOW_DEADLINE_URL}}">
               <span data-i18n="nextDeadline">NEXT DEADLINE</span>
-              <strong id="mobile-deadline-school">Loading</strong>
-              <b id="mobile-deadline-date">--</b>
-              <small id="mobile-deadline-note"></small>
+              <strong id="mobile-deadline-school">{{GRADWINDOW_DEADLINE_SCHOOL}}</strong>
+              <b id="mobile-deadline-date">{{GRADWINDOW_DEADLINE_MOBILE_DATE}}</b>
+              <small id="mobile-deadline-note">{{GRADWINDOW_DEADLINE_NOTE}}</small>
             </a>
           </div>
 
@@ -237,15 +277,15 @@
             </div>
             <div class="summary-stats" aria-label="Application statistics" data-i18n-aria-label="applicationStatsLabel">
               <div>
-                <strong id="total-schools">0</strong>
+                <strong id="total-schools">{{GRADWINDOW_TOTAL_UNIVERSITIES}}</strong>
                 <span data-i18n="universities">universities</span>
               </div>
               <div>
-                <strong id="total-records">0</strong>
+                <strong id="total-records">{{GRADWINDOW_OFFICIAL_WINDOWS}}</strong>
                 <span data-i18n="officialWindows">official windows</span>
               </div>
               <div>
-                <strong id="total-predictions">0</strong>
+                <strong id="total-predictions">{{GRADWINDOW_ESTIMATED_WINDOWS}}</strong>
                 <span data-i18n="estimatedWindows">estimated windows</span>
               </div>
             </div>
@@ -332,31 +372,31 @@
 
           <div class="status-tabs" role="tablist" aria-label="Application status" data-i18n-aria-label="statusTabsLabel">
             <button class="status-tab active" data-status="open" role="tab">
-              <span data-i18n="statusOpen">Open now</span> <span id="count-open">0</span>
+              <span data-i18n="statusOpen">Open now</span> <span id="count-open">{{GRADWINDOW_OPEN_UNIVERSITIES}}</span>
             </button>
             <button class="status-tab" data-status="upcoming" role="tab">
-              <span data-i18n="statusUpcoming">Opening soon</span> <span id="count-upcoming">0</span>
+              <span data-i18n="statusUpcoming">Opening soon</span> <span id="count-upcoming">{{GRADWINDOW_UPCOMING_UNIVERSITIES}}</span>
             </button>
             <button class="status-tab" data-status="future" role="tab">
-              <span data-i18n="statusFuture">Future</span> <span id="count-future">0</span>
+              <span data-i18n="statusFuture">Future</span> <span id="count-future">{{GRADWINDOW_FUTURE_UNIVERSITIES}}</span>
             </button>
             <button class="status-tab" data-status="closed" role="tab">
-              <span data-i18n="statusClosed">Closed</span> <span id="count-closed">0</span>
+              <span data-i18n="statusClosed">Closed</span> <span id="count-closed">{{GRADWINDOW_CLOSED_UNIVERSITIES}}</span>
             </button>
             <button class="status-tab" data-status="exception" role="tab">
-              <span data-i18n="statusException">Needs manual check</span> <span id="count-exception">0</span>
+              <span data-i18n="statusException">Needs manual check</span> <span id="count-exception">{{GRADWINDOW_MANUAL_CHECK_UNIVERSITIES}}</span>
             </button>
             <button class="status-tab" data-status="unknown" role="tab">
-              <span data-i18n="statusDirectory">University directory</span> <span id="count-unknown">0</span>
+              <span data-i18n="statusDirectory">University directory</span> <span id="count-unknown">{{GRADWINDOW_DIRECTORY_UNIVERSITIES}}</span>
             </button>
           </div>
 
           <div class="results-toolbar" id="results-toolbar" aria-live="polite">
             <div class="results-context">
               <div class="results-counts">
-                <strong id="results-school-count">0 universities</strong>
+                <strong id="results-school-count">{{GRADWINDOW_OPEN_UNIVERSITIES}} universities</strong>
                 <span aria-hidden="true">·</span>
-                <span id="results-window-count">0 windows</span>
+                <span id="results-window-count">{{GRADWINDOW_OPEN_WINDOWS}} windows</span>
               </div>
               <div class="active-filter-chips" id="active-filter-chips"></div>
             </div>
@@ -404,7 +444,7 @@
               />
               <label class="review-anonymous-option">
                 <input id="review-anonymous" type="checkbox" />
-                <span data-i18n="reviewAnonymousMode">Post anonymously as good people</span>
+                <span data-i18n="reviewAnonymousMode">Post anonymously</span>
               </label>
               <label for="review-body" data-i18n="reviewBodyLabel">Your comment</label>
               <textarea

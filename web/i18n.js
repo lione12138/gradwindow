@@ -359,7 +359,7 @@ export const I18N = {
     reviewPublicNote:
       "Comments are public. Do not post private contact details or sensitive information.",
     reviewAnonymous: "Anonymous",
-    reviewAnonymousMode: "Post anonymously as good people",
+    reviewAnonymousMode: "Post anonymously",
     reviewNoComments: "No comments yet. Be the first to share a note.",
     reviewUnavailable:
       "School comments require the public feedback service to be connected.",

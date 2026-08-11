@@ -174,6 +174,12 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'rel="canonical" href="https://gradwindow.com/sources.html"' in sources_html
     assert 'property="og:image"' in sources_html
     assert '"@type": "BreadcrumbList"' in sources_html
+    assert 'aria-label="Breadcrumb"' in sources_html
+    assert '"@type": "CollectionPage"' in sources_html
+    assert 'href="university/university-of-cambridge/"' in sources_html
+    assert 'href="country/united-kingdom/"' in sources_html
+    assert 'href="deadline/2026-02/"' in sources_html
+    assert "Official university website" in sources_html
     index_html = (tmp_path / "index.html").read_text(encoding="utf-8")
     assert 'data-status="predicted"' not in index_html
     assert 'id="language-toggle"' in index_html
@@ -214,12 +220,35 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     )
     assert 'rel="modulepreload"' in index_html
     assert "application/ld+json" in index_html
+    assert '"@type": "Dataset"' in index_html
+    assert '"@type": "DataDownload"' in index_html
+    assert 'rel="alternate"' in index_html
+    assert "./data/applications.json" in index_html
     assert "Source code" in index_html
     assert "AGPL-3.0" in index_html
     assert "Data: CC BY-NC 4.0" in index_html
     assert index_html.count(ANALYTICS_BEACON) == 1
+    snapshot = site.home_snapshot()
+    assert "{{GRADWINDOW_" not in index_html
+    assert "Loading data…" not in index_html
+    assert "Post anonymously as good people" not in index_html
+    assert "Post anonymously" in index_html
+    assert f'id="total-schools">{snapshot["total_universities"]}</strong>' in index_html
+    assert f'id="total-records">{snapshot["official_windows"]}</strong>' in index_html
+    assert (
+        f'id="total-predictions">{snapshot["estimated_windows"]}</strong>' in index_html
+    )
+    assert (
+        f'id="hero-open-count">{snapshot["open_universities"]}</strong>' in index_html
+    )
+    assert snapshot["deadline_school"] in index_html
+    assert snapshot["deadline_mobile_date"] in index_html
+    assert snapshot["updated_at"] in index_html
     app_js = (tmp_path / "app.js").read_text(encoding="utf-8")
+    i18n_js = (tmp_path / "i18n.js").read_text(encoding="utf-8")
     styles_css = (tmp_path / "styles.css").read_text(encoding="utf-8")
+    assert 'reviewAnonymousMode: "Post anonymously"' in i18n_js
+    assert "Post anonymously as good people" not in i18n_js
     assert "openWindowDetail(record" in app_js
     assert 'id="hero-deadline-countdown"' not in index_html
     assert "data-mobile-sort" in index_html
@@ -249,16 +278,29 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     university_html = (
         tmp_path / "university" / "university-of-cambridge" / "index.html"
     ).read_text(encoding="utf-8")
-    assert '"@type": "WebPage"' in university_html
+    assert '"@type": "CollectionPage"' in university_html
     assert '"@type": "BreadcrumbList"' in university_html
     assert 'property="og:image"' in university_html
     assert 'aria-label="GradWindow pages"' in university_html
+    assert 'href="../../country/united-kingdom/"' in university_html
+    assert 'href="../../deadline/' in university_html
     assert (tmp_path / "country" / "united-kingdom" / "index.html").read_text(
         encoding="utf-8"
     ).count(ANALYTICS_BEACON) == 1
     assert (tmp_path / "deadline" / "2026-02" / "index.html").read_text(
         encoding="utf-8"
     ).count(ANALYTICS_BEACON) == 1
+    hkust_deadlines = (tmp_path / "deadline" / "2026-05" / "index.html").read_text(
+        encoding="utf-8"
+    )
+    assert "Master of Arts in Arts and Machine Creativity" in hkust_deadlines
+    assert "Applicants: Domestic students" in hkust_deadlines
+    assert "Applicants: International students" in hkust_deadlines
+    uba_html = (
+        tmp_path / "university" / "universidad-de-buenos-aires" / "index.html"
+    ).read_text(encoding="utf-8")
+    assert "Maestría en Explotación de Datos" in uba_html
+    assert "Maestr?a" not in uba_html
     assert "university-of-cambridge" in (tmp_path / "sitemap.xml").read_text(
         encoding="utf-8"
     )

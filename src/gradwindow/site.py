@@ -5,6 +5,7 @@ import json
 import os
 import re
 import shutil
+from datetime import date
 from pathlib import Path
 
 from .io import read_json
@@ -62,6 +63,7 @@ PUBLIC_FILES = (
 )
 LEGACY_SITE_URL = "https://lione12138.github.io/qs-master-applications"
 DEFAULT_SITE_URL = "https://gradwindow.com"
+UPCOMING_WINDOW_DAYS = 30
 CLOUDFLARE_ANALYTICS_TOKEN = "02939949076c423f953d11db0caade78"
 CLOUDFLARE_ANALYTICS = (
     '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
@@ -156,6 +158,11 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
             ),
             encoding="utf-8",
         )
+    index_path = output_dir / "index.html"
+    index_path.write_text(
+        render_home_snapshot(index_path.read_text(encoding="utf-8")),
+        encoding="utf-8",
+    )
     data_dir = output_dir / "data"
     data_dir.mkdir()
     for source in PUBLIC_DATA:
@@ -185,6 +192,147 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     return output_dir / "index.html"
 
 
+def application_status(item: dict, today: date) -> str:
+    opens_at = date.fromisoformat(item["opensAt"])
+    closes_at = date.fromisoformat(item["closesAt"])
+    if today > closes_at:
+        return "closed"
+    if today >= opens_at:
+        return "open"
+    if (opens_at - today).days <= UPCOMING_WINDOW_DAYS:
+        return "upcoming"
+    return "future"
+
+
+def home_snapshot(today: date | None = None) -> dict[str, str]:
+    today = today or date.today()
+    university_payload = read_json(UNIVERSITIES_PATH)
+    application_payload = read_json(APPLICATIONS_PATH)
+    universities = university_payload["universities"]
+    applications = application_payload["applications"]
+    predictions = read_json(PREDICTIONS_PATH)["predictions"]
+    recurring_windows = read_json(RECURRING_WINDOWS_PATH)["recurringWindows"]
+    policies = read_json(WINDOW_POLICIES_PATH)["policies"]
+    coverage = read_json(COVERAGE_PATH)["universities"]
+    monitor = read_json(MONITOR_STATE_PATH, {})
+
+    qs_universities = [
+        item for item in universities if item.get("qsPosition") is not None
+    ]
+    qs_ids = {item["id"] for item in qs_universities}
+    rows = [*applications, *recurring_windows, *predictions]
+    ranked_rows = [item for item in rows if item["universityId"] in qs_ids]
+    rows_by_status = {
+        status: [
+            item for item in ranked_rows if application_status(item, today) == status
+        ]
+        for status in ("open", "upcoming", "future", "closed")
+    }
+    university_counts = {
+        status: len({item["universityId"] for item in items})
+        for status, items in rows_by_status.items()
+    }
+
+    coverage_by_university = {item["universityId"]: item for item in coverage}
+    policies_by_university = {item["universityId"]: item for item in policies}
+    manual_policy_statuses = {
+        "official-entry-protected",
+        "dynamic-listing-dates-not-captured",
+        "official-route-current-dates-not-captured",
+    }
+
+    def needs_manual_check(university: dict) -> bool:
+        university_id = university["id"]
+        next_action = coverage_by_university.get(university_id, {}).get("nextAction")
+        policy_status = (
+            policies_by_university.get(university_id, {})
+            .get("cycleGuidance", {})
+            .get("status", "")
+        )
+        return (
+            next_action in {"locate-official-entry", "verify-window-policy"}
+            or university.get("admissionsDiscovery")
+            in {"low-confidence", "not-found", "pending", "error"}
+            or policy_status in manual_policy_statuses
+        )
+
+    next_deadline = min(
+        (
+            item
+            for item in applications
+            if date.fromisoformat(item["closesAt"]) >= today
+        ),
+        key=lambda item: item["closesAt"],
+        default=None,
+    )
+    university_names = {item["id"]: item["school"] for item in universities}
+    if next_deadline:
+        deadline_date = date.fromisoformat(next_deadline["closesAt"])
+        deadline_day = f"{deadline_date.day:02d}"
+        deadline_month = "JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC".split()[
+            deadline_date.month - 1
+        ]
+        deadline_school = university_names[next_deadline["universityId"]]
+        deadline_mobile_date = (
+            f"{deadline_date.day} {deadline_month.title()} {deadline_date.year}"
+        )
+        deadline_url = next_deadline["applicationUrl"]
+        deadline_note = "Official application deadline"
+    else:
+        deadline_day = str(len(qs_universities))
+        deadline_month = "SCHOOLS"
+        deadline_school = "Official admissions directory"
+        deadline_mobile_date = f"TOP {len(qs_universities)}"
+        deadline_url = "#application-groups"
+        deadline_note = ""
+
+    checked_at = monitor.get("meta", {}).get("checkedAt")
+    updated_at = checked_at or application_payload["meta"]["updatedAt"]
+    updated_date = date.fromisoformat(updated_at[:10])
+    updated_label = "Official pages checked" if checked_at else "Official data updated"
+    updated_month = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()[
+        updated_date.month - 1
+    ]
+
+    return {
+        "updated_at": (
+            f"{updated_label} {updated_date.day} {updated_month} {updated_date.year}"
+        ),
+        "deadline_day": deadline_day,
+        "deadline_month": deadline_month,
+        "deadline_school": deadline_school,
+        "deadline_mobile_date": deadline_mobile_date,
+        "deadline_url": deadline_url,
+        "deadline_note": deadline_note,
+        "total_universities": str(len(universities)),
+        "official_windows": str(len(applications)),
+        "estimated_windows": str(len(predictions)),
+        "open_universities": str(university_counts["open"]),
+        "upcoming_universities": str(university_counts["upcoming"]),
+        "future_universities": str(university_counts["future"]),
+        "closed_universities": str(university_counts["closed"]),
+        "manual_check_universities": str(
+            sum(needs_manual_check(item) for item in qs_universities)
+        ),
+        "directory_universities": str(len(qs_universities)),
+        "open_windows": str(len(rows_by_status["open"])),
+    }
+
+
+def render_home_snapshot(source: str, today: date | None = None) -> str:
+    snapshot = home_snapshot(today)
+    rendered = source
+    for key, value in snapshot.items():
+        rendered = rendered.replace(
+            f"{{{{GRADWINDOW_{key.upper()}}}}}",
+            html.escape(value, quote=True),
+        )
+    unresolved = sorted(set(re.findall(r"\{\{GRADWINDOW_[A-Z_]+\}\}", rendered)))
+    if unresolved:
+        raise ValueError(f"Unresolved home snapshot tokens: {', '.join(unresolved)}")
+    return rendered
+
+
 def slugify(value: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
     return slug or "other"
@@ -197,9 +345,16 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
     recurring_windows = read_json(RECURRING_WINDOWS_PATH)["recurringWindows"]
     programs = read_json(PROGRAMS_PATH)["programs"]
     groups = read_json(PROGRAMME_GROUPS_PATH)["groups"]
+    applicant_categories = read_json(APPLICANT_CATEGORIES_PATH)["categories"]
     program_names = {item["id"]: item["name"] for item in programs}
     group_names = {item["id"]: item["name"] for item in groups}
+    applicant_category_names = {
+        item["id"]: item["labelEn"] for item in applicant_categories
+    }
     university_names = {item["id"]: item["school"] for item in universities}
+    indexed_countries = {
+        item["country"] for item in universities if item.get("qsPosition") is not None
+    }
     generated_urls: list[str] = []
 
     for university in universities:
@@ -222,10 +377,16 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
             if university.get("rankDisplay")
             else "THE / ARWU / U.S. News monitored university"
         )
+        country_label = html.escape(university["country"])
+        if university["country"] in indexed_countries:
+            country_label = (
+                f'<a href="../../country/{slugify(university["country"])}/">'
+                f"{country_label}</a>"
+            )
         body = (
             f'<p class="back"><a href="../../index.html">Back to tracker</a></p>'
             f"<p>{html.escape(ranking_label)} · "
-            f"{html.escape(university['country'])}</p>"
+            f"{country_label}</p>"
             f'<p><a href="{html.escape(university["homepageUrl"], quote=True)}">'
             "University website</a>"
             + (
@@ -331,6 +492,7 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
             f'<a href="../../university/{item["universityId"]}/">'
             f"{html.escape(university_names[item['universityId']])}</a>"
             f" · {html.escape(scope_name(item, program_names, group_names))}"
+            f" · Applicants: {html.escape(', '.join(applicant_category_names.get(category, category) for category in item['applicantCategories']))}"
             f"{' · unofficial calendar-shift reference' if data_status == 'predicted' else ''}"
             f"{' · official recurring policy; cycle year mapped by GradWindow' if data_status == 'recurring' else ''}</li>"
             for item, data_status in sorted(
@@ -389,8 +551,9 @@ def render_window_list(
         )
     rows = "".join(
         "<li>"
-        f"<strong>{html.escape(item['opensAt'])} to "
-        f"{html.escape(item['closesAt'])}</strong><br>"
+        f'<strong><a href="../../deadline/{html.escape(item["closesAt"][:7])}/">'
+        f"{html.escape(item['opensAt'])} to "
+        f"{html.escape(item['closesAt'])}</a></strong><br>"
         f"{html.escape(scope_name(item, program_names, group_names))} · "
         f"{html.escape(item['intake'])}"
         + (
@@ -437,7 +600,7 @@ def render_static_page(
     }
     web_page_schema = {
         "@context": "https://schema.org",
-        "@type": "WebPage",
+        "@type": "CollectionPage",
         "name": title,
         "description": description,
         "url": canonical,
@@ -516,8 +679,33 @@ def render_sitemap(urls: list[str]) -> str:
 
 def render_sources_page(public_site_url: str) -> str:
     universities = read_json(UNIVERSITIES_PATH)["universities"]
+    applications = read_json(APPLICATIONS_PATH)["applications"]
+    predictions = read_json(PREDICTIONS_PATH)["predictions"]
+    recurring_windows = read_json(RECURRING_WINDOWS_PATH)["recurringWindows"]
     monitor = read_json(MONITOR_STATE_PATH, {"universities": {}})
     monitor_entries = monitor.get("universities", {})
+    countries = sorted(
+        {
+            university["country"]
+            for university in universities
+            if university.get("qsPosition") is not None
+        }
+    )
+    deadline_months = sorted(
+        {
+            item["closesAt"][:7]
+            for item in [*applications, *predictions, *recurring_windows]
+        }
+    )
+    country_links = "".join(
+        f'<li><a href="country/{slugify(country)}/">'
+        f"QS Top 200 universities in {html.escape(country)}</a></li>"
+        for country in countries
+    )
+    deadline_links = "".join(
+        f'<li><a href="deadline/{month}/">{month} master\'s application deadlines</a></li>'
+        for month in deadline_months
+    )
     rows = []
     for university in sorted(
         universities,
@@ -537,8 +725,10 @@ def render_sources_page(public_site_url: str) -> str:
         rows.append(
             "<tr>"
             f"<td>{html.escape(university.get('rankDisplay') or '—')}</td>"
-            f'<td><a href="{html.escape(university["homepageUrl"], quote=True)}">'
-            f"{html.escape(university['school'])}</a></td>"
+            f'<td><a href="university/{university["id"]}/">'
+            f"{html.escape(university['school'])}</a>"
+            f'<br><a class="official-link" href="{html.escape(university["homepageUrl"], quote=True)}">'
+            "Official university website</a></td>"
             f"<td>{html.escape(university['country'])}</td>"
             f"<td>{html.escape(university['admissionsDiscovery'])}</td>"
             f"<td>{admissions}</td>"
@@ -555,7 +745,7 @@ def render_sources_page(public_site_url: str) -> str:
         [
             {
                 "@context": "https://schema.org",
-                "@type": "WebPage",
+                "@type": "CollectionPage",
                 "name": "Sources and coverage",
                 "description": description,
                 "url": canonical,
@@ -611,20 +801,39 @@ def render_sources_page(public_site_url: str) -> str:
     body {{ margin: 0; background: #f7f5ef; color: #17231d; font: 14px/1.6 system-ui, sans-serif; }}
     main {{ width: min(1180px, calc(100% - 32px)); margin: 48px auto; }}
     a {{ color: #1e6548; }}
-    .back {{ display: inline-block; margin-bottom: 20px; }}
+    .breadcrumbs {{ display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; color: #68736d; font-size: 14px; }}
     h1 {{ margin-bottom: 8px; }}
+    h2 {{ margin-top: 36px; }}
     p {{ color: #68736d; }}
+    .browse-grid {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }}
+    .browse-list {{ columns: 2; padding-left: 20px; }}
+    .browse-list li {{ break-inside: avoid; margin: 6px 0; }}
+    .official-link {{ color: #68736d; font-size: 12px; }}
     .table-wrap {{ overflow-x: auto; border: 1px solid #d9ddd7; border-radius: 10px; background: #fffef9; }}
     table {{ width: 100%; min-width: 900px; border-collapse: collapse; }}
     th, td {{ padding: 11px 14px; border-bottom: 1px solid #e7e9e5; text-align: left; }}
     th {{ background: #f1f4ef; font-size: 11px; text-transform: uppercase; color: #68736d; }}
+    @media (max-width: 760px) {{ .browse-grid {{ grid-template-columns: 1fr; }} .browse-list {{ columns: 1; }} }}
   </style>
 </head>
 <body>
   <main>
-    <a class="back" href="index.html">← Back to tracker</a>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">GradWindow</a><span aria-hidden="true">/</span><span>Sources and coverage</span>
+    </nav>
     <h1>Sources and coverage</h1>
     <p>Public list of {len(universities)} monitored universities, official websites, admissions-entry discovery status, and latest monitoring result.</p>
+    <section class="browse-grid" aria-label="Browse application deadline pages">
+      <div>
+        <h2>Browse by country or region</h2>
+        <ul class="browse-list">{country_links}</ul>
+      </div>
+      <div>
+        <h2>Browse by deadline month</h2>
+        <ul class="browse-list">{deadline_links}</ul>
+      </div>
+    </section>
+    <h2>University directory and official sources</h2>
     <div class="table-wrap">
       <table>
         <thead><tr><th>QS</th><th>University</th><th>Country/region</th><th>Entry status</th><th>Application page</th><th>Monitoring</th></tr></thead>
