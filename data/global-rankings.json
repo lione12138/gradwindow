@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-10",
+    "generatedAt": "2026-08-11",
     "selectionPolicy": "All institutions whose published rank starts at 200 or above are retained; tied and banded ranks are preserved.",
     "note": "All ranking views resolve through the shared canonical university table. Ranking-only rows remain visible until their institution is added to monitored admissions coverage."
   },
@@ -2508,17 +2508,19 @@
           "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/medical-university-vienna"
         },
         {
-          "id": "the-university-of-california-santa-cruz",
-          "universityId": null,
+          "id": "university-of-california-santa-cruz",
+          "universityId": "university-of-california-santa-cruz",
           "school": "University of California, Santa Cruz",
-          "schoolZh": "加州大学圣克鲁斯分校",
+          "schoolZh": "加州大学圣克鲁兹分校",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 181,
           "rankDisplay": "=181",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-california-santa-cruz",
           "schoolAliasesZh": [
+            "加州大学圣塔克鲁兹分校",
+            "UC Santa Cruz",
             "UCSC"
           ]
         },
@@ -2601,16 +2603,20 @@
           "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-ottawa"
         },
         {
-          "id": "the-tufts-university",
-          "universityId": null,
+          "id": "tufts-university",
+          "universityId": "tufts-university",
           "school": "Tufts University",
           "schoolZh": "塔夫茨大学",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 189,
           "rankDisplay": "189",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/tufts-university"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/tufts-university",
+          "schoolAliasesZh": [
+            "塔夫兹大学",
+            "Tufts"
+          ]
         },
         {
           "id": "universite-paris-cite",
@@ -2629,16 +2635,20 @@
           ]
         },
         {
-          "id": "the-university-of-twente",
-          "universityId": null,
+          "id": "university-of-twente",
+          "universityId": "university-of-twente",
           "school": "University of Twente",
-          "schoolZh": "特温特大学",
+          "schoolZh": "特文特大学",
           "country": "Netherlands",
           "region": "Europe",
           "rankPosition": 190,
           "rankDisplay": "=190",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-twente"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-twente",
+          "schoolAliasesZh": [
+            "屯特大学",
+            "Universiteit Twente"
+          ]
         },
         {
           "id": "eindhoven-university-of-technology",
@@ -2653,16 +2663,20 @@
           "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/eindhoven-university-technology"
         },
         {
-          "id": "the-university-of-leicester",
-          "universityId": null,
+          "id": "university-of-leicester",
+          "universityId": "university-of-leicester",
           "school": "University of Leicester",
           "schoolZh": "莱斯特大学",
           "country": "United Kingdom",
           "region": "Europe",
           "rankPosition": 192,
           "rankDisplay": "=192",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-leicester"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-leicester",
+          "schoolAliasesZh": [
+            "列斯特大学",
+            "Leicester University"
+          ]
         },
         {
           "id": "the-university-of-notre-dame",
@@ -2737,16 +2751,20 @@
           "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/queens-university-belfast"
         },
         {
-          "id": "the-university-of-calgary",
-          "universityId": null,
+          "id": "university-of-calgary",
+          "universityId": "university-of-calgary",
           "school": "University of Calgary",
           "schoolZh": "卡尔加里大学",
           "country": "Canada",
           "region": "Americas",
           "rankPosition": 200,
           "rankDisplay": "200",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-calgary"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-calgary",
+          "schoolAliasesZh": [
+            "卡大",
+            "UCalgary"
+          ]
         }
       ]
     },
@@ -5059,15 +5077,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-the-university-of-calgary",
-          "universityId": null,
-          "school": "The University of Calgary",
+          "id": "university-of-calgary",
+          "universityId": "university-of-calgary",
+          "school": "University of Calgary",
           "schoolZh": "卡尔加里大学",
           "country": "Canada",
           "region": "Americas",
           "rankPosition": 151,
           "rankDisplay": "151-200",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
@@ -5143,15 +5161,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-university-of-california-santa-cruz",
-          "universityId": null,
+          "id": "university-of-california-santa-cruz",
+          "universityId": "university-of-california-santa-cruz",
           "school": "University of California, Santa Cruz",
-          "schoolZh": "加州大学圣克鲁斯分校",
+          "schoolZh": "加州大学圣克鲁兹分校",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 151,
           "rankDisplay": "151-200",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025",
           "schoolAliasesZh": [
             "UCSC"
@@ -7384,17 +7402,19 @@
           "sourceUrl": "https://www.usnews.com/education/best-global-universities/sichuan-university-506145"
         },
         {
-          "id": "usnews-university-of-california-santa-cruz",
-          "universityId": null,
-          "school": "University of California--Santa Cruz",
-          "schoolZh": "加州大学圣克鲁斯分校",
+          "id": "university-of-california-santa-cruz",
+          "universityId": "university-of-california-santa-cruz",
+          "school": "University of California, Santa Cruz",
+          "schoolZh": "加州大学圣克鲁兹分校",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 141,
           "rankDisplay": "141",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.usnews.com/education/best-global-universities/university-of-california-santa-cruz-110714",
           "schoolAliasesZh": [
+            "加州大学圣塔克鲁兹分校",
+            "UC Santa Cruz",
             "UCSC"
           ]
         },
@@ -7738,16 +7758,20 @@
           "sourceUrl": "https://www.usnews.com/education/best-global-universities/tianjin-university-503557"
         },
         {
-          "id": "usnews-university-of-leicester",
-          "universityId": null,
+          "id": "university-of-leicester",
+          "universityId": "university-of-leicester",
           "school": "University of Leicester",
           "schoolZh": "莱斯特大学",
           "country": "United Kingdom",
           "region": "Europe",
           "rankPosition": 166,
           "rankDisplay": "=166",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.usnews.com/education/best-global-universities/university-of-leicester-501221"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.usnews.com/education/best-global-universities/university-of-leicester-501221",
+          "schoolAliasesZh": [
+            "列斯特大学",
+            "Leicester University"
+          ]
         },
         {
           "id": "university-of-liverpool",
