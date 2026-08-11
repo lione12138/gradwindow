@@ -9,7 +9,7 @@
 
 基于大学官网数据的 QS 前 200 硕士申请追踪项目。下面只展示每所大学的汇总信息；完整的项目级申请窗口请前往网站查看。
 
-状态日期：**2026-08-10**
+状态日期：**2026-08-11**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -39,6 +39,7 @@
 | =162 | Université de Montréal / 蒙特利尔大学 | 1 个当前开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [查看全部项目](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 | =177 | National Yang Ming Chiao Tung University (NYCU Taiwan) / 阳明交通大学 | 1 个当前开放窗口 | 2026-09-30 | 官网核验 | [招生官网](https://oia.nycu.edu.tw/oia/en/app/folder/782) · [查看全部项目](https://gradwindow.com/?q=National%20Yang%20Ming%20Chiao%20Tung%20University%20%28NYCU%20Taiwan%29) |
 | =191 | National Cheng Kung University (NCKU) / 国立成功大学 | 1 个当前开放窗口 | 2026-09-15 | 官网核验 | [招生官网](https://oia.ncku.edu.tw/p/404-1032-229816.php?Lang=en) · [查看全部项目](https://gradwindow.com/?q=National%20Cheng%20Kung%20University%20%28NCKU%29) |
+| — | University of Macau / 澳门大学 | 69 个当前开放窗口 | 2026-12-03 | 官网核验 | [招生官网](https://grs.um.edu.mo/index.php/prospective-students/master-postgraduate-certificate-diploma-programmes/) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Macau) |
 
 ## 30 天内即将开放
 
@@ -53,7 +54,7 @@
 | =20 | University of California, Berkeley (UCB) / 加州大学伯克利分校 | 1 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://grad.berkeley.edu/admissions/) · [查看全部项目](https://gradwindow.com/?q=University%20of%20California%2C%20Berkeley%20%28UCB%29) |
 | 25 | Technical University of Munich / 慕尼黑工业大学 | 1 个即将开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://www.tum.de/en/studies/application/application-info-portal) · [查看全部项目](https://gradwindow.com/?q=Technical%20University%20of%20Munich) |
 | 33 | The Hong Kong University of Science and Technology / 香港科技大学 | 109 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://seng.hkust.edu.hk/academics/taught-postgraduate/msc-it) · [查看全部项目](https://gradwindow.com/?q=The%20Hong%20Kong%20University%20of%20Science%20and%20Technology) |
-| 45 | University of British Columbia / 不列颠哥伦比亚大学 | 14 个即将开放窗口 | 2026-08-15 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
+| 45 | University of British Columbia / 不列颠哥伦比亚大学 | 16 个即将开放窗口 | 2026-08-15 | 官网核验 + 预测参考 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 55 | Carnegie Mellon University / 卡内基梅隆大学 | 1 个即将开放窗口 | 2026-09-09 | 官网核验 | [招生官网](https://www.cmu.edu/graduate/admissions/index.html) · [查看全部项目](https://gradwindow.com/?q=Carnegie%20Mellon%20University) |
 | 65 | KAIST / 韩国科学技术院 | 36 个即将开放窗口 | 2026-08-18 | 官网核验 | [招生官网](https://admission.kaist.ac.kr/intl-graduate/) · [查看全部项目](https://gradwindow.com/?q=KAIST) |
 | 66 | Brown University / 布朗大学 | 1 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://graduateschool.brown.edu/admission) · [查看全部项目](https://gradwindow.com/?q=Brown%20University) |
