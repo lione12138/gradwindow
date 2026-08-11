@@ -343,6 +343,22 @@ const aliasEntries = [
   ["shenzhenuniversity", "shenzhen-university"],
   ["deakinuniversity", "deakin-university"],
   ["swinburneuniversityoftechnology", "swinburne-university-of-technology"],
+  [
+    "huazhonguniversityofscienceandtechnology",
+    "huazhong-university-of-science-and-technology",
+  ],
+  [
+    "theuniversityoftexasmdandersoncancercenter",
+    "university-of-texas-md-anderson-cancer-center",
+  ],
+  [
+    "universityoftexasmdandersoncancercenter",
+    "university-of-texas-md-anderson-cancer-center",
+  ],
+  ["sichuanuniversity", "sichuan-university"],
+  ["xianjiaotonguniversity", "xi-an-jiaotong-university"],
+  ["universityoflausanne", "university-of-lausanne"],
+  ["universitedelausanne", "university-of-lausanne"],
   ["universityofpittsburghpittsburghcampus", "university-of-pittsburgh"],
   ["universityofpittsburgh", "university-of-pittsburgh"],
   ["universityofmarylandcollegepark", "university-of-maryland-college-park"],

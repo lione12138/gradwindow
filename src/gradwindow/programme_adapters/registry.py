@@ -76,6 +76,7 @@ from .hku import HKUAdapter
 from .hkust import HKUSTAdapter
 from .hokkaido import HokkaidoAdapter
 from .humboldt import HumboldtAdapter
+from .hust import HUSTAdapter
 from .icahn import IcahnAdapter
 from .iit_bombay import IITBombayAdapter
 from .iit_delhi import IITDelhiAdapter
@@ -98,6 +99,7 @@ from .ku_leuven import KULeuvenAdapter
 from .kyoto import KyotoAdapter
 from .kyushu import KyushuAdapter
 from .lancaster import LancasterAdapter
+from .lausanne import LausanneAdapter
 from .leeds import LeedsAdapter
 from .leicester import LeicesterAdapter
 from .leiden import LeidenAdapter
@@ -111,6 +113,7 @@ from .macquarie import MacquarieAdapter
 from .manchester import ManchesterAdapter
 from .mcgill import McGillAdapter
 from .mcmaster import McMasterAdapter
+from .md_anderson import MDAndersonAdapter
 from .meduni_vienna import MedUniViennaAdapter
 from .melbourne import MelbourneAdapter
 from .michigan import MichiganAdapter
@@ -168,6 +171,7 @@ from .sapienza import SapienzaAdapter
 from .science_tokyo import ScienceTokyoAdapter
 from .sheffield import SheffieldAdapter
 from .shenzhen import ShenzhenAdapter
+from .sichuan import SichuanAdapter
 from .sjtu import SJTUAdapter
 from .skku import SKKUAdapter
 from .snu import SNUAdapter
@@ -254,6 +258,7 @@ from .western import WesternAdapter
 from .wisconsin import WisconsinAdapter
 from .wuhan import WuhanAdapter
 from .wurzburg import WurzburgAdapter
+from .xjtu import XJTUAdapter
 from .yale import YaleAdapter
 from .yonsei import YonseiAdapter
 from .york import YorkAdapter
@@ -330,6 +335,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "heidelberg": HeidelbergAdapter,
     "helsinki": HelsinkiAdapter,
     "hit": HITAdapter,
+    "hust": HUSTAdapter,
     "hokkaido": HokkaidoAdapter,
     "humboldt": HumboldtAdapter,
     "icahn": IcahnAdapter,
@@ -355,6 +361,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "kyoto": KyotoAdapter,
     "kyushu": KyushuAdapter,
     "lancaster": LancasterAdapter,
+    "lausanne": LausanneAdapter,
     "leeds": LeedsAdapter,
     "leiden": LeidenAdapter,
     "leicester": LeicesterAdapter,
@@ -371,6 +378,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "macau": MacauAdapter,
     "meduni-vienna": MedUniViennaAdapter,
     "mcmaster": McMasterAdapter,
+    "md-anderson": MDAndersonAdapter,
     "michigan": MichiganAdapter,
     "michigan-state": MichiganStateAdapter,
     "minnesota": MinnesotaAdapter,
@@ -426,6 +434,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "sjtu": SJTUAdapter,
     "skku": SKKUAdapter,
     "sheffield": SheffieldAdapter,
+    "sichuan": SichuanAdapter,
     "shenzhen": ShenzhenAdapter,
     "snu": SNUAdapter,
     "southampton": SouthamptonAdapter,
@@ -509,6 +518,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "wisconsin": WisconsinAdapter,
     "wuhan": WuhanAdapter,
     "wurzburg": WurzburgAdapter,
+    "xjtu": XJTUAdapter,
     "yale": YaleAdapter,
     "york": YorkAdapter,
     "yonsei": YonseiAdapter,
