@@ -35,6 +35,7 @@ from .programme_adapters.generic import GenericProgrammeAdapter, GenericProgramm
 from .programme_adapters.registry import PROGRAMME_ADAPTERS
 from .programme_discovery import discover_programmes
 from .readme import generate_readmes
+from .recurring_windows import generate_recurring_windows
 from .review import generate_review_outputs
 from .schemas import export_schemas
 from .site import build_site
@@ -133,6 +134,10 @@ def main() -> None:
         "predictions", help="Generate non-official next-cycle estimates"
     )
     subparsers.add_parser(
+        "recurring-windows",
+        help="Publish official recurring policies with mapped cycle years",
+    )
+    subparsers.add_parser(
         "migrate-intakes", help="Add structured intake details to applications"
     )
     subparsers.add_parser(
@@ -168,6 +173,7 @@ def main() -> None:
         _validate_or_exit()
     elif args.command == "build-site":
         generate_predictions()
+        generate_recurring_windows()
         _validate_or_exit()
         generate_coverage()
         print(f"Wrote site: {build_site(args.output)}")
@@ -185,6 +191,8 @@ def main() -> None:
                 PROGRAMME_ADAPTERS[args.university](),
                 dry_run=args.dry_run,
             )
+        if not args.dry_run:
+            generate_recurring_windows()
         print(json.dumps(report, ensure_ascii=False))
     elif args.command == "discover-generic-programmes":
         university = _university_by_id(args.university)
@@ -224,6 +232,8 @@ def main() -> None:
             replace_existing=args.replace_existing,
             only=set(args.only) if args.only else None,
         )
+        if not args.dry_run:
+            generate_recurring_windows()
         print(json.dumps(report["summary"], ensure_ascii=False))
     elif args.command == "discover-generic-seeds":
         report = run_generic_seed_discovery(
@@ -265,6 +275,9 @@ def main() -> None:
     elif args.command == "predictions":
         predictions = generate_predictions()
         print(f"Wrote {len(predictions['predictions'])} non-official predictions.")
+    elif args.command == "recurring-windows":
+        report = generate_recurring_windows()
+        print(json.dumps(report, ensure_ascii=False))
     elif args.command == "migrate-intakes":
         payload = migrate_application_intakes()
         generate_predictions()
@@ -278,6 +291,7 @@ def main() -> None:
     elif args.command == "approve-window":
         record = approve_window(args.candidate_id, args.reviewer)
         generate_predictions()
+        generate_recurring_windows()
         coverage = generate_coverage()
         generate_readmes()
         print(
@@ -298,18 +312,21 @@ def main() -> None:
             )
         refresh_generic_discovery_report()
         generate_predictions()
+        generate_recurring_windows()
         print(json.dumps(report, ensure_ascii=False))
     elif args.command == "approve-adapter-windows":
         report = approve_official_adapter_window_candidates(
             reviewer=args.reviewer,
         )
         generate_predictions()
+        generate_recurring_windows()
         print(json.dumps(report, ensure_ascii=False))
     elif args.command == "refresh-generic-report":
         report = refresh_generic_discovery_report()
         print(json.dumps(report["summary"], ensure_ascii=False))
     elif args.command == "pipeline":
         generate_predictions()
+        generate_recurring_windows()
         _validate_or_exit()
         if not args.skip_monitor:
             print_summary(monitor_universities(workers=args.workers))
@@ -347,10 +364,12 @@ def main() -> None:
                     ensure_ascii=False,
                 )
             )
+            generate_recurring_windows()
         report = update_deadlines()
         if any(item["status"] == "error" for item in report["results"]):
             raise SystemExit(1)
         generate_predictions()
+        generate_recurring_windows()
         _validate_or_exit()
         coverage = generate_coverage()
         generate_readmes()
@@ -382,6 +401,7 @@ def _validate_or_exit() -> dict[str, int]:
         f"{summary['admissionsCandidates']} admissions candidates "
         f"({summary['curatedAdmissions']} curated), and "
         f"{summary['verifiedWindows']} verified windows with "
+        f"{summary['recurringPolicyWindows']} recurring-policy windows, "
         f"{summary['predictedWindows']} next-cycle predictions and "
         f"{summary['evidenceSnapshots']} evidence snapshots; "
         f"{summary['enabledParsers']} enabled parsers; "

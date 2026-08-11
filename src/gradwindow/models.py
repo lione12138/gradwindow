@@ -169,6 +169,53 @@ class ApplicationWindow(DataModel):
         return self
 
 
+class RecurringWindow(DataModel):
+    id: str = Field(pattern=SLUG_PATTERN)
+    university_id: str = Field(alias="universityId", pattern=SLUG_PATTERN)
+    scope_type: ScopeType = Field(alias="scopeType")
+    scope_id: str = Field(alias="scopeId", pattern=SLUG_PATTERN)
+    intake: str
+    intake_details: IntakeDetails = Field(alias="intakeDetails")
+    round: str = ""
+    applicant_categories: list[str] = Field(alias="applicantCategories")
+    opens_at: date = Field(alias="opensAt")
+    closes_at: date = Field(alias="closesAt")
+    application_url: AnyHttpUrl = Field(alias="applicationUrl")
+    source_url: AnyHttpUrl = Field(alias="sourceUrl")
+    policy_checked_at: date = Field(alias="policyCheckedAt")
+    date_basis: Literal["official-recurring-policy"] = Field(alias="dateBasis")
+    cycle_year_basis: Literal["system-materialized-next-cycle"] = Field(
+        alias="cycleYearBasis"
+    )
+    evidence: str
+
+    @field_validator("id", "university_id", "scope_id", "intake", "evidence")
+    @classmethod
+    def require_non_empty(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("must not be empty")
+        return value
+
+    @field_validator("applicant_categories")
+    @classmethod
+    def validate_categories(cls, value: list[str]) -> list[str]:
+        if not value or any(not item.strip() for item in value):
+            raise ValueError("must contain non-empty categories")
+        if len(set(value)) != len(value):
+            raise ValueError("must contain unique categories")
+        if "all" in value and len(value) != 1:
+            raise ValueError("all cannot be combined with other categories")
+        return value
+
+    @model_validator(mode="after")
+    def validate_window(self) -> RecurringWindow:
+        if self.opens_at > self.closes_at:
+            raise ValueError("opensAt is after closesAt")
+        if self.intake_details.label != self.intake:
+            raise ValueError("intakeDetails.label must match intake")
+        return self
+
+
 class Prediction(DataModel):
     id: str = Field(pattern=SLUG_PATTERN)
     based_on_record_id: str = Field(

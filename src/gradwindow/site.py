@@ -18,6 +18,7 @@ from .paths import (
     PREDICTIONS_PATH,
     PROGRAMME_GROUPS_PATH,
     PROGRAMS_PATH,
+    RECURRING_WINDOWS_PATH,
     ROOT,
     SITE_DIR,
     UNIVERSITIES_PATH,
@@ -44,6 +45,7 @@ PUBLIC_FILES = (
     "intake-filter.js",
     "ranking-filter.js",
     "window-grouping.js",
+    "window-provenance.js",
     "localization.js",
     "i18n.js",
     "dom.js",
@@ -70,6 +72,7 @@ PUBLIC_DATA = (
     UNIVERSITIES_PATH,
     APPLICATIONS_PATH,
     PREDICTIONS_PATH,
+    RECURRING_WINDOWS_PATH,
     MONITOR_STATE_PATH,
     PROGRAMS_PATH,
     PROGRAMME_GROUPS_PATH,
@@ -191,6 +194,7 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
     universities = read_json(UNIVERSITIES_PATH)["universities"]
     applications = read_json(APPLICATIONS_PATH)["applications"]
     predictions = read_json(PREDICTIONS_PATH)["predictions"]
+    recurring_windows = read_json(RECURRING_WINDOWS_PATH)["recurringWindows"]
     programs = read_json(PROGRAMS_PATH)["programs"]
     groups = read_json(PROGRAMME_GROUPS_PATH)["groups"]
     program_names = {item["id"]: item["name"] for item in programs}
@@ -206,6 +210,11 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
         ]
         estimated = [
             item for item in predictions if item["universityId"] == university["id"]
+        ]
+        recurring = [
+            item
+            for item in recurring_windows
+            if item["universityId"] == university["id"]
         ]
         canonical = f"{public_site_url}/university/{university['id']}/"
         ranking_label = (
@@ -231,6 +240,13 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
                 "Verified official windows",
                 program_names,
                 group_names,
+            )
+            + render_window_list(
+                recurring,
+                "Official recurring policies (cycle year mapped by GradWindow)",
+                program_names,
+                group_names,
+                recurring=True,
             )
             + render_window_list(
                 estimated,
@@ -299,11 +315,13 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
         )
         generated_urls.append(canonical)
 
-    by_month: dict[str, list[tuple[dict, bool]]] = {}
+    by_month: dict[str, list[tuple[dict, str]]] = {}
     for item in applications:
-        by_month.setdefault(item["closesAt"][:7], []).append((item, False))
+        by_month.setdefault(item["closesAt"][:7], []).append((item, "official"))
+    for item in recurring_windows:
+        by_month.setdefault(item["closesAt"][:7], []).append((item, "recurring"))
     for item in predictions:
-        by_month.setdefault(item["closesAt"][:7], []).append((item, True))
+        by_month.setdefault(item["closesAt"][:7], []).append((item, "predicted"))
     for month, items in by_month.items():
         month_dir = output_dir / "deadline" / month
         month_dir.mkdir(parents=True, exist_ok=True)
@@ -313,8 +331,9 @@ def generate_index_pages(output_dir: Path, public_site_url: str) -> list[str]:
             f'<a href="../../university/{item["universityId"]}/">'
             f"{html.escape(university_names[item['universityId']])}</a>"
             f" · {html.escape(scope_name(item, program_names, group_names))}"
-            f"{' · unofficial calendar-shift reference' if predicted else ''}</li>"
-            for item, predicted in sorted(
+            f"{' · unofficial calendar-shift reference' if data_status == 'predicted' else ''}"
+            f"{' · official recurring policy; cycle year mapped by GradWindow' if data_status == 'recurring' else ''}</li>"
+            for item, data_status in sorted(
                 items, key=lambda pair: (pair[0]["closesAt"], pair[0]["universityId"])
             )
         )
@@ -362,6 +381,7 @@ def render_window_list(
     program_names: dict[str, str],
     group_names: dict[str, str],
     predicted: bool = False,
+    recurring: bool = False,
 ) -> str:
     if not items:
         return (
@@ -376,7 +396,11 @@ def render_window_list(
         + (
             "<br><small>Shifted by one calendar year; not an official published date.</small>"
             if predicted
-            else ""
+            else (
+                "<br><small>Official recurring day/month policy; the cycle year is mapped by GradWindow.</small>"
+                if recurring
+                else ""
+            )
         )
         + f'<br><a href="{html.escape(item["sourceUrl"], quote=True)}">Official source</a>'
         "</li>"

@@ -1,5 +1,6 @@
 import { t } from "./strings.js";
 import { makeElement, makeLink, parseDate } from "./dom.js";
+import { calendarTitlePrefix, calendarWarning } from "./window-provenance.js";
 
 // Build "add to calendar" links and downloads for a single application window.
 // Pure with respect to page state: everything derives from the record. The
@@ -10,12 +11,10 @@ export function googleCalendarUrl(record) {
   const endDate = parseDate(record.closesAt);
   endDate.setUTCDate(endDate.getUTCDate() + 1);
   const end = endDate.toISOString().slice(0, 10).replaceAll("-", "");
-  const prefix = record.dataStatus === "predicted" ? "[ESTIMATE] " : "";
+  const prefix = calendarTitlePrefix(record);
   const title = `${prefix}${record.school} ${record.program} application deadline`;
   const details = [
-    record.dataStatus === "predicted"
-      ? "Unofficial calendar-date estimate. Confirm on the official website before applying."
-      : "",
+    calendarWarning(record),
     `Application: ${record.applicationUrl}`,
     `Source: ${record.sourceUrl}`,
   ]
@@ -35,12 +34,10 @@ export function outlookCalendarUrl(record) {
   const endDate = parseDate(record.closesAt);
   endDate.setUTCDate(endDate.getUTCDate() + 1);
   const end = `${endDate.toISOString().slice(0, 10)}T00:00:00Z`;
-  const prefix = record.dataStatus === "predicted" ? "[ESTIMATE] " : "";
+  const prefix = calendarTitlePrefix(record);
   const title = `${prefix}${record.school} ${record.program} application deadline`;
   const body = [
-    record.dataStatus === "predicted"
-      ? "Unofficial calendar-date estimate. Confirm on the official website before applying."
-      : "",
+    calendarWarning(record),
     `Application: ${record.applicationUrl}`,
     `Source: ${record.sourceUrl}`,
   ]
@@ -78,8 +75,8 @@ export function icsFileBody(record, now = new Date()) {
     `DTSTAMP:${now.toISOString().replaceAll(/[-:]/g, "").split(".")[0]}Z`,
     `DTSTART;VALUE=DATE:${start}`,
     `DTEND;VALUE=DATE:${end}`,
-    `SUMMARY:${escapeIcs(`${record.dataStatus === "predicted" ? "[ESTIMATE] " : ""}${record.school} ${record.program} application deadline`)}`,
-    `DESCRIPTION:${escapeIcs(`${record.dataStatus === "predicted" ? "Unofficial calendar-date estimate. Confirm on the official website.\n" : ""}Application: ${record.applicationUrl}\nSource: ${record.sourceUrl}`)}`,
+    `SUMMARY:${escapeIcs(`${calendarTitlePrefix(record)}${record.school} ${record.program} application deadline`)}`,
+    `DESCRIPTION:${escapeIcs(`${calendarWarning(record) ? `${calendarWarning(record)}\n` : ""}Application: ${record.applicationUrl}\nSource: ${record.sourceUrl}`)}`,
     `URL:${record.applicationUrl}`,
     "END:VEVENT",
     "END:VCALENDAR",

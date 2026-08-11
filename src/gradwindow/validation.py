@@ -17,6 +17,7 @@ from .models import (
     Prediction,
     Programme,
     ProgrammeGroup,
+    RecurringWindow,
     University,
     WindowPolicy,
 )
@@ -27,6 +28,7 @@ from .paths import (
     PREDICTIONS_PATH,
     PROGRAMME_GROUPS_PATH,
     PROGRAMS_PATH,
+    RECURRING_WINDOWS_PATH,
     SOURCES_PATH,
     UNIVERSITIES_PATH,
     WINDOW_POLICIES_PATH,
@@ -89,6 +91,7 @@ def validate_data(
     evidence_dir: Path = EVIDENCE_DIR,
     programme_groups_path: Path = PROGRAMME_GROUPS_PATH,
     applicant_categories_path: Path = APPLICANT_CATEGORIES_PATH,
+    recurring_windows_path: Path | None = None,
 ) -> tuple[list[str], dict[str, int]]:
     university_payload = read_json(universities_path)
     application_payload = read_json(applications_path)
@@ -101,6 +104,21 @@ def validate_data(
     applicant_categories = read_json(applicant_categories_path).get("categories")
     policies = read_json(policies_path).get("policies")
     predictions = read_json(predictions_path).get("predictions")
+    if recurring_windows_path is None:
+        use_public_recurring_windows = (
+            applications_path == APPLICATIONS_PATH and programs_path == PROGRAMS_PATH
+        )
+        recurring_windows = (
+            read_json(RECURRING_WINDOWS_PATH, {"recurringWindows": []}).get(
+                "recurringWindows"
+            )
+            if use_public_recurring_windows
+            else []
+        )
+    else:
+        recurring_windows = read_json(
+            recurring_windows_path, {"recurringWindows": []}
+        ).get("recurringWindows")
     errors: list[str] = []
 
     if not isinstance(universities, list) or len(universities) < 200:
@@ -127,6 +145,9 @@ def validate_data(
     if not isinstance(predictions, list):
         errors.append("predictions must be a list")
         predictions = []
+    if not isinstance(recurring_windows, list):
+        errors.append("recurring windows must be a list")
+        recurring_windows = []
 
     university_ids: set[str] = set()
     university_domains: dict[str, list[str]] = {}
@@ -248,6 +269,56 @@ def validate_data(
         item["id"]: item for item in applications if APPLICATION_FIELDS <= item.keys()
     }
     official_keys = {official_cycle_key(item) for item in applications}
+    recurring_ids: set[str] = set()
+    recurring_keys: set[tuple] = set()
+    for item in recurring_windows:
+        label = item.get("id", "unknown recurring window")
+        if not validate_model(RecurringWindow, item, label, errors):
+            continue
+        if label in recurring_ids:
+            errors.append(f"{label}: duplicate recurring window id")
+        recurring_ids.add(label)
+        if item["universityId"] not in university_ids:
+            errors.append(f"{label}: unknown universityId")
+        scope_type = item["scopeType"]
+        scope_id = item["scopeId"]
+        if scope_type == "institution" and scope_id != item["universityId"]:
+            errors.append(f"{label}: institution scopeId must match universityId")
+        if scope_type == "programme" and scope_id not in program_ids:
+            errors.append(f"{label}: programme scope references an unknown programme")
+        if scope_type == "programme-group" and scope_id not in group_ids:
+            errors.append(f"{label}: programme-group scope references an unknown group")
+        if (
+            scope_type == "programme"
+            and scope_id in programs_by_id
+            and programs_by_id[scope_id]["universityId"] != item["universityId"]
+        ):
+            errors.append(f"{label}: programme scope belongs to another university")
+        if (
+            scope_type == "programme-group"
+            and scope_id in groups_by_id
+            and groups_by_id[scope_id]["universityId"] != item["universityId"]
+        ):
+            errors.append(
+                f"{label}: programme-group scope belongs to another university"
+            )
+        unknown_categories = sorted(set(item["applicantCategories"]) - category_ids)
+        if unknown_categories:
+            errors.append(
+                f"{label}: unknown applicant categories: "
+                f"{', '.join(unknown_categories)}"
+            )
+        if item["universityId"] in university_domains and not same_official_domain(
+            item["sourceUrl"], university_domains[item["universityId"]]
+        ):
+            errors.append(f"{label}: sourceUrl is outside official domains")
+        recurring_key = official_cycle_key(item)
+        if recurring_key in official_keys:
+            errors.append(f"{label}: an official target-cycle window already exists")
+        if recurring_key in recurring_keys:
+            errors.append(f"{label}: duplicate recurring target window")
+        recurring_keys.add(recurring_key)
+
     prediction_ids: set[str] = set()
     prediction_keys: set[tuple] = set()
     for item in predictions:
@@ -373,6 +444,7 @@ def validate_data(
         "applicantCategories": len(applicant_categories),
         "windowPolicies": len(policies),
         "predictedWindows": len(predictions),
+        "recurringPolicyWindows": len(recurring_windows),
         "evidenceSnapshots": evidence_count,
         "legacyConfiguredOpeningWindows": sum(
             "configured cycle-default opening date" in item.get("evidence", "")

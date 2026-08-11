@@ -11,6 +11,7 @@ from .models import (
     Prediction,
     Programme,
     ProgrammeGroup,
+    RecurringWindow,
     University,
     WindowPolicy,
 )
@@ -24,6 +25,7 @@ SCHEMA_MODELS = {
     "prediction.schema.json": Prediction,
     "programme.schema.json": Programme,
     "programme-group.schema.json": ProgrammeGroup,
+    "recurring-window.schema.json": RecurringWindow,
     "university.schema.json": University,
     "window-policy.schema.json": WindowPolicy,
 }

@@ -2433,12 +2433,25 @@ body.window-detail-open {
   background: #eee6f8;
 }
 
+.source-badge.recurring {
+  color: #76520f;
+  background: #fff0c7;
+}
+
 .application-group[data-status="predicted"] .table-wrap {
   border-color: #d8cae8;
 }
 
 .application-group[data-status="predicted"] tbody tr {
   background: #fdfaff;
+}
+
+.application-group[data-status="recurring"] .table-wrap {
+  border-color: #e6cf97;
+}
+
+.application-group[data-status="recurring"] tbody tr {
+  background: #fffdf6;
 }
 
 .source-badge.homepage {
@@ -3651,6 +3664,11 @@ footer {
 :root[data-theme="dark"] .source-badge.predicted {
   color: #c7ace6;
   background: #302440;
+}
+
+:root[data-theme="dark"] .source-badge.recurring {
+  color: #f3d37d;
+  background: rgba(91, 68, 28, 0.72);
 }
 
 :root[data-theme="dark"] .applicant-category,

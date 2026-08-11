@@ -85,9 +85,12 @@ def build_scope_catalog() -> dict[str, dict[str, str]]:
     }
     applications = read_json(DATA_DIR / "applications.json")["applications"]
     predictions = read_json(DATA_DIR / "predictions.json")["predictions"]
+    recurring_windows = read_json(DATA_DIR / "recurring-windows.json")[
+        "recurringWindows"
+    ]
 
     catalog: dict[str, dict[str, str]] = {}
-    for record in [*applications, *predictions]:
+    for record in [*applications, *predictions, *recurring_windows]:
         scope_id = record["scopeId"]
         university = universities.get(record["universityId"], {})
         if record["scopeType"] == "programme":

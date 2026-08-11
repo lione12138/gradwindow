@@ -44,6 +44,11 @@ import {
 } from "./ranking-filter.js";
 import { groupWindowRecordsForDisplay } from "./window-grouping.js";
 import {
+  calendarTitlePrefix,
+  isPredictedRecord,
+  isRecurringPolicyRecord,
+} from "./window-provenance.js";
+import {
   ensureTurnstileWidget,
   resetTurnstileWidget,
   turnstileToken,
@@ -250,9 +255,10 @@ function recordIntake(record) {
 }
 
 function deadlineNote(record, status) {
-  if (record.dataStatus === "predicted") {
+  if (isPredictedRecord(record)) {
     return `${t("calendarShift")} · ${t("basedOn")} ${record.sourceCycle}`;
   }
+  if (isRecurringPolicyRecord(record)) return t("recurringYearMapped");
   const days = daysUntil(record.closesAt);
   if (status === "closed") return `${Math.abs(days)} ${t("daysAgo")}`;
   if (days === 0) return t("dueToday");
@@ -305,6 +311,32 @@ function sourceMonitorDescription(record) {
   return [t("sourceUnchecked"), "homepage"];
 }
 
+function sourcePresentation(record) {
+  if (isPredictedRecord(record)) {
+    return [t("estimateBadge"), "predicted"];
+  }
+  if (isRecurringPolicyRecord(record)) {
+    return [t("recurringPolicyBadge"), "recurring"];
+  }
+  return sourceMonitorDescription(record);
+}
+
+function sourceEvidenceText(record) {
+  if (isPredictedRecord(record)) {
+    return `${t("reference")} ${record.sourceCycle} · ${predictionConfidenceText(record)}`;
+  }
+  if (isRecurringPolicyRecord(record)) {
+    return `${t("policyCheckedOn")} ${record.policyCheckedAt} · ${t("recurringYearMapped")}`;
+  }
+  return `${t("verifiedOn")} ${record.verifiedAt}`;
+}
+
+function sourceLinkLabel(record) {
+  if (isPredictedRecord(record)) return t("viewReference");
+  if (isRecurringPolicyRecord(record)) return t("viewRecurringPolicy");
+  return t("viewOfficial");
+}
+
 function closeWindowDetail() {
   const panel = document.getElementById("window-detail-panel");
   if (panel) panel.hidden = true;
@@ -335,10 +367,7 @@ function openWindowDetail(record, status = getStatus(record)) {
     record.program,
     state.language,
   );
-  const [sourceStatus, sourceClass] =
-    record.dataStatus === "predicted"
-      ? [t("estimateBadge"), "predicted"]
-      : sourceMonitorDescription(record);
+  const [sourceStatus, sourceClass] = sourcePresentation(record);
 
   const heading = makeElement("section", {
     className: "window-detail-heading",
@@ -411,15 +440,10 @@ function openWindowDetail(record, status = getStatus(record)) {
   source.append(
     sourceHeader,
     makeElement("p", {
-      text:
-        record.dataStatus === "predicted"
-          ? `${t("reference")} ${record.sourceCycle} · ${predictionConfidenceText(record)}`
-          : `${t("verifiedOn")} ${record.verifiedAt}`,
+      text: sourceEvidenceText(record),
     }),
     makeLink(
-      record.dataStatus === "predicted"
-        ? t("viewReference")
-        : t("viewOfficial"),
+      sourceLinkLabel(record),
       record.sourceUrl,
       "primary-button window-detail-source-link",
     ),
@@ -472,7 +496,7 @@ function downloadFavoriteCalendars() {
       `UID:${record.id}@gradwindow`,
       `DTSTART;VALUE=DATE:${start}`,
       `DTEND;VALUE=DATE:${end}`,
-      `SUMMARY:${record.dataStatus === "predicted" ? "[ESTIMATE] " : ""}${record.school} ${record.program} application deadline`,
+      `SUMMARY:${calendarTitlePrefix(record)}${record.school} ${record.program} application deadline`,
       `URL:${record.applicationUrl}`,
       "END:VEVENT",
     ];
@@ -1032,25 +1056,18 @@ function createRow(record, status, windowGroup = null) {
     programme.appendChild(toggle);
   }
   const source = document.createDocumentFragment();
-  const predicted = record.dataStatus === "predicted";
-  const [sourceStatus, sourceClass] = predicted
-    ? [t("estimateBadge"), "predicted"]
-    : sourceMonitorDescription(record);
+  const predicted = isPredictedRecord(record);
+  const recurring = isRecurringPolicyRecord(record);
+  const [sourceStatus, sourceClass] = sourcePresentation(record);
   source.append(
-    makeLink(
-      predicted ? t("viewReference") : t("viewOfficial"),
-      record.sourceUrl,
-      "source-link",
-    ),
+    makeLink(sourceLinkLabel(record), record.sourceUrl, "source-link"),
     makeElement("span", {
       className: `source-badge ${sourceClass}`,
       text: sourceStatus,
     }),
     makeElement("span", {
       className: "date-secondary",
-      text: predicted
-        ? `${t("reference")} ${record.sourceCycle} · ${predictionConfidenceText(record)}`
-        : `${t("verifiedOn")} ${record.verifiedAt}`,
+      text: sourceEvidenceText(record),
     }),
   );
   const deadline = makeResponsiveDeadline(
@@ -1094,7 +1111,11 @@ function createRow(record, status, windowGroup = null) {
       t("opens"),
       makeTextStack(
         formatDate(record.opensAt),
-        predicted ? t("estimatedOpen") : t("applicationsOpen"),
+        predicted
+          ? t("estimatedOpen")
+          : recurring
+            ? t("mappedRecurringOpen")
+            : t("applicationsOpen"),
       ),
     ),
     makeCell(t("deadline"), deadline),
@@ -2170,6 +2191,7 @@ async function init() {
       universityPayload,
       programsPayload,
       predictionsPayload,
+      recurringPayload,
       monitorPayload,
       policiesPayload,
       coveragePayload,
@@ -2183,6 +2205,7 @@ async function init() {
       fetchRequiredJson("./data/universities.json"),
       fetchRequiredJson("./data/programs.json"),
       fetchRequiredJson("./data/predictions.json"),
+      fetchRequiredJson("./data/recurring-windows.json"),
       fetchOptionalJson("./data/monitor-state.json", null),
       fetchOptionalJson("./data/window-policies.json", { policies: [] }),
       fetchOptionalJson("./data/coverage.json", null),
@@ -2263,9 +2286,13 @@ async function init() {
     const predictedRecords = predictionsPayload.predictions.map((record) =>
       enrichRecord({ ...record, dataStatus: "predicted" }),
     );
+    const recurringRecords = recurringPayload.recurringWindows.map((record) =>
+      enrichRecord({ ...record, dataStatus: "recurring" }),
+    );
     state.officialCount = officialRecords.length;
     state.predictionCount = predictedRecords.length;
-    state.data = [...officialRecords, ...predictedRecords];
+    state.recurringCount = recurringRecords.length;
+    state.data = [...officialRecords, ...recurringRecords, ...predictedRecords];
     state.universities.forEach((university) => {
       university.monitor = monitorPayload?.universities?.[university.id] || {};
     });

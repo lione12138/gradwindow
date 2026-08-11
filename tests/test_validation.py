@@ -23,6 +23,7 @@ def test_current_public_data_is_valid() -> None:
     assert summary["applicantCategories"] >= 8
     assert summary["verifiedWindows"] >= 27
     assert summary["predictedWindows"] >= 27
+    assert summary["recurringPolicyWindows"] >= 127
     assert summary["evidenceSnapshots"] >= 27
     assert summary["legacyConfiguredOpeningWindows"] == sum(
         "configured cycle-default opening date" in item.get("evidence", "")

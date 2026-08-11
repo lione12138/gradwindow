@@ -98,6 +98,37 @@ def test_frontend_outlook_calendar_url_is_all_day_event() -> None:
     }
 
 
+def test_frontend_calendar_labels_mapped_recurring_policy_dates() -> None:
+    script = """
+      const { googleCalendarUrl, icsFileBody } = await import(__MODULE__);
+      const record = { ...__RECORD__, dataStatus: "recurring" };
+      const url = new URL(googleCalendarUrl(record));
+      const body = icsFileBody(record, new Date("2026-06-15T12:34:56Z"));
+      console.log(JSON.stringify({
+        title: url.searchParams.get("text"),
+        details: url.searchParams.get("details"),
+        summary: body.split("\\r\\n").find((line) => line.startsWith("SUMMARY:")),
+      }));
+    """.replace("__MODULE__", json.dumps(MODULE_URI)).replace(
+        "__RECORD__", json.dumps(RECORD)
+    )
+    assert run_node(script) == {
+        "title": (
+            "[RECURRING POLICY] Test University Data Science MSc application deadline"
+        ),
+        "details": (
+            "Official recurring day/month policy; GradWindow mapped the cycle year. "
+            "Confirm the year on the official website before applying.\n"
+            "Application: https://apply.example.edu\n"
+            "Source: https://example.edu/deadlines"
+        ),
+        "summary": (
+            "SUMMARY:[RECURRING POLICY] Test University Data Science MSc "
+            "application deadline"
+        ),
+    }
+
+
 def test_frontend_ics_body_escapes_and_spans_deadline_day() -> None:
     script = """
       const { icsFileBody } = await import(__MODULE__);

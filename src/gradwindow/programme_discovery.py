@@ -116,7 +116,10 @@ def discover_programmes(
             candidate_id: item
             for candidate_id, item in existing.items()
             if item.get("universityId") != adapter.university_id
-            or item.get("status", "pending") != "pending"
+            or (
+                item.get("status", "pending") != "pending"
+                and item.get("type") != "known-programme-recurring-policy"
+            )
         }
     if window_candidates_path is None:
         window_candidates_path = (
@@ -197,7 +200,8 @@ def discover_programmes(
             if guidance is not None:
                 previous = existing.get(guidance["id"])
                 if previous is None:
-                    created_guidance_candidates += 1
+                    if guidance["type"] != "known-programme-recurring-policy":
+                        created_guidance_candidates += 1
                 else:
                     guidance["status"] = previous.get("status", "pending")
                     guidance["detectedAt"] = previous.get("detectedAt", checked_at)
@@ -277,8 +281,14 @@ def discover_programmes(
         for programme in catalog.programmes
         for window in programme.windows
     )
+    recurring_policy_window_count = sum(
+        _is_official_recurring_policy_window(adapter, catalog, window)
+        for programme in catalog.programmes
+        for window in programme.windows
+    )
     missing_opening_date_count = sum(
         not _has_official_exact_opening(adapter, catalog, window)
+        and not _is_official_recurring_policy_window(adapter, catalog, window)
         for programme in catalog.programmes
         for window in programme.windows
     )
@@ -314,16 +324,19 @@ def discover_programmes(
         not programme.windows for programme in catalog.programmes
     )
     programmes_needing_review = sum(
-        programme.parse_status != "parsed" for programme in catalog.programmes
+        programme.parse_status not in {"parsed", "recurring-policy"}
+        for programme in catalog.programmes
     )
     window_status = _window_status(
         exact_window_count,
+        recurring_policy_window_count,
         observed_window_count,
         missing_opening_date_count,
         programmes_without_deadlines,
     )
     limitation_reason = _limitation_reason(
         exact_window_count,
+        recurring_policy_window_count,
         observed_window_count,
         missing_opening_date_count,
         programmes_without_deadlines,
@@ -346,6 +359,7 @@ def discover_programmes(
         "windowStatus": window_status,
         "observedWindowCount": observed_window_count,
         "exactWindowCount": exact_window_count,
+        "recurringPolicyWindowCount": recurring_policy_window_count,
         "missingOpeningDateCount": missing_opening_date_count,
         "programmesWithoutDeadlines": programmes_without_deadlines,
         "programmesNeedingReview": programmes_needing_review,
@@ -385,6 +399,12 @@ def discover_programmes(
         "knownProgrammes": len(known_ids),
         "newCandidates": created,
         "newGuidanceCandidates": created_guidance_candidates,
+        "publishedRecurringPolicyRecords": sum(
+            item.get("type") == "known-programme-recurring-policy"
+            and item.get("status") == "published"
+            and item.get("universityId") == adapter.university_id
+            for item in items
+        ),
         "newWindowCandidates": created_window_candidates,
         "changedWindowCandidates": changed_window_candidates,
         "pendingWindowCandidates": sum(
@@ -395,6 +415,7 @@ def discover_programmes(
         "pendingCandidates": sum(
             item.get("status", "pending") == "pending"
             and item.get("universityId") == adapter.university_id
+            and item.get("type") != "known-programme-recurring-policy"
             for item in items
         ),
         "pendingGuidanceCandidates": sum(
@@ -407,6 +428,7 @@ def discover_programmes(
         "windowStatus": window_status,
         "observedWindowCount": observed_window_count,
         "exactWindowCount": exact_window_count,
+        "recurringPolicyWindowCount": recurring_policy_window_count,
         "missingOpeningDateCount": missing_opening_date_count,
         "programmesWithoutDeadlines": programmes_without_deadlines,
         "programmesNeedingReview": programmes_needing_review,
@@ -439,9 +461,21 @@ def _known_programme_guidance_candidate(
     ]
     if candidate["windows"] and not unresolved_windows:
         return None
-    candidate["id"] = f"known-programme-guidance:{programme.id}"
-    candidate["type"] = "known-programme-window-guidance"
     candidate["windows"] = unresolved_windows
+    if unresolved_windows and all(
+        window.get("opensAtBasis") == "official-recurring-policy"
+        for window in unresolved_windows
+    ):
+        candidate["id"] = f"known-programme-recurring:{programme.id}"
+        candidate["type"] = "known-programme-recurring-policy"
+        candidate["status"] = "published"
+        candidate["reviewReason"] = (
+            "Official recurring day/month dates are published separately with a "
+            "GradWindow-mapped cycle year; they are not exact official-cycle records."
+        )
+    else:
+        candidate["id"] = f"known-programme-guidance:{programme.id}"
+        candidate["type"] = "known-programme-window-guidance"
     return candidate
 
 
@@ -570,6 +604,15 @@ def _is_official_exact_window(adapter, catalog, window) -> bool:
     return _has_official_exact_opening(adapter, catalog, window)
 
 
+def _is_official_recurring_policy_window(adapter, catalog, window) -> bool:
+    if not _effective_opening(adapter, catalog, window):
+        return False
+    opening_basis = window.opens_at_basis or (
+        "official" if window.opens_at else adapter.application_opens_at_basis
+    )
+    return opening_basis == "official-recurring-policy"
+
+
 def _has_official_exact_opening(adapter, catalog, window) -> bool:
     if not _effective_opening(adapter, catalog, window):
         return False
@@ -581,6 +624,7 @@ def _has_official_exact_opening(adapter, catalog, window) -> bool:
 
 def _window_status(
     exact_window_count: int,
+    recurring_policy_window_count: int,
     observed_window_count: int,
     missing_opening_date_count: int,
     programmes_without_deadlines: int,
@@ -591,6 +635,18 @@ def _window_status(
         and not programmes_without_deadlines
     ):
         return "exact"
+    accounted_window_count = exact_window_count + recurring_policy_window_count
+    if (
+        recurring_policy_window_count
+        and accounted_window_count == observed_window_count
+    ):
+        if programmes_without_deadlines:
+            return (
+                "mixed-policy-partial"
+                if exact_window_count
+                else "recurring-policy-partial"
+            )
+        return "mixed-policy" if exact_window_count else "recurring-policy"
     if exact_window_count:
         return "partial"
     if observed_window_count or missing_opening_date_count:
@@ -600,6 +656,7 @@ def _window_status(
 
 def _limitation_reason(
     exact_window_count: int,
+    recurring_policy_window_count: int,
     observed_window_count: int,
     missing_opening_date_count: int,
     programmes_without_deadlines: int,
@@ -610,6 +667,21 @@ def _limitation_reason(
         and not programmes_without_deadlines
     ):
         return None
+    if recurring_policy_window_count:
+        parts = [
+            f"{recurring_policy_window_count} window(s) use an official recurring "
+            "day/month policy; GradWindow maps the cycle year."
+        ]
+        if missing_opening_date_count:
+            parts.append(
+                f"{missing_opening_date_count} additional parsed deadline(s) lack "
+                "an official exact opening date."
+            )
+        if programmes_without_deadlines:
+            parts.append(
+                f"{programmes_without_deadlines} programme(s) expose no parsed deadline."
+            )
+        return " ".join(parts)
     if missing_opening_date_count:
         return (
             f"{missing_opening_date_count} parsed deadline(s) lack an official "

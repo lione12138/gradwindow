@@ -207,7 +207,7 @@ def test_tum_adapter_materializes_recurring_yearless_periods_as_guidance() -> No
         window.opens_at_basis == RECURRING_WINDOW_BASIS
         for window in informatics.windows
     )
-    assert informatics.parse_status == "incomplete"
+    assert informatics.parse_status == "recurring-policy"
     assert "cycle year is not written literally" in informatics.deadline_text
 
 

@@ -112,10 +112,19 @@ Do not publish as official windows:
 - `incomplete`: deadline is exact but opening date or applicant scope needs
   review.
 - `no-deadline`: programme exists, but no exact application window was found.
+- `recurring-policy`: the official page publishes exact day/month boundaries
+  without a cycle year. The adapter may map them to the next applicable cycle,
+  but the result is not a cycle-specific official date.
 
 Only `parsed` windows whose `opensAtBasis` is exactly `official` may be
 batch-promoted. A configured or inferred exact-looking date remains a review
 observation and must not cross the publication boundary.
+
+Recurring-policy observations use `opensAtBasis:
+"official-recurring-policy"`. They are automatically exposed in the separate
+`data/recurring-windows.json` dataset with an explicit GradWindow-mapped-year
+label. They never enter `data/applications.json`, do not require manual review,
+and are suppressed when an equivalent cycle-specific official window exists.
 
 ### 7. Promotion rule
 

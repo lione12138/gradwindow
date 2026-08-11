@@ -124,11 +124,15 @@ def test_frontend_english_mode_does_not_show_chinese_school_alias() -> None:
 def test_every_published_scope_has_a_chinese_translation() -> None:
     applications = read_json(ROOT / "data" / "applications.json")["applications"]
     predictions = read_json(ROOT / "data" / "predictions.json")["predictions"]
+    recurring_windows = read_json(ROOT / "data" / "recurring-windows.json")[
+        "recurringWindows"
+    ]
     translations = read_json(ROOT / "data" / "programme-translations.json")[
         "translations"
     ]
     displayed_scope_ids = {
-        record["scopeId"] for record in [*applications, *predictions]
+        record["scopeId"]
+        for record in [*applications, *predictions, *recurring_windows]
     }
     missing = sorted(displayed_scope_ids - translations.keys())
     empty = sorted(

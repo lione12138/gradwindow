@@ -2,6 +2,7 @@ import { translate } from "./i18n.js?v=20260622-i18n";
 import { getApplicationStatus } from "./status.js";
 import { canonicalIntake, intakeLabel } from "./intake-filter.js";
 import { acronym, makeElement, makeLink, parseDate } from "./dom.js";
+import { isRecurringPolicyRecord } from "./window-provenance.js";
 import {
   countryLabel,
   programmeLabel,
@@ -108,7 +109,10 @@ function ensureCalendarMonth(records) {
 
 function eventLabel(event) {
   const school = schoolLabels(event.record, state.language).primary;
-  return `${event.type === "open" ? t("calendarEventOpen") : t("calendarEventDeadline")} · ${school}`;
+  const provenance = isRecurringPolicyRecord(event.record)
+    ? ` · ${t("recurringPolicyShort")}`
+    : "";
+  return `${event.type === "open" ? t("calendarEventOpen") : t("calendarEventDeadline")} · ${school}${provenance}`;
 }
 
 function makeCalendarEvent(event) {
@@ -363,6 +367,7 @@ async function init() {
   const [
     applications,
     predictions,
+    recurringWindows,
     universities,
     programs,
     groups,
@@ -370,6 +375,7 @@ async function init() {
   ] = await Promise.all([
     fetchJson("./data/applications.json"),
     fetchJson("./data/predictions.json"),
+    fetchJson("./data/recurring-windows.json"),
     fetchJson("./data/universities.json"),
     fetchJson("./data/programs.json"),
     fetchJson("./data/programme-groups.json"),
@@ -406,6 +412,9 @@ async function init() {
   };
   state.records = [
     ...applications.applications.map((record) => enrich(record, "official")),
+    ...recurringWindows.recurringWindows.map((record) =>
+      enrich(record, "recurring"),
+    ),
     ...predictions.predictions.map((record) => enrich(record, "predicted")),
   ];
   bindEvents();

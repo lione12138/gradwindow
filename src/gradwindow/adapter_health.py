@@ -267,6 +267,7 @@ def _successful_entry(
         "observedWindowCount": int(report.get("observedWindowCount", 0)),
         "baselineObservedWindowCount": baseline_observed,
         "exactWindowCount": current_exact,
+        "recurringPolicyWindowCount": int(report.get("recurringPolicyWindowCount", 0)),
         "baselineExactWindowCount": baseline_exact,
         "missingOpeningDateCount": int(report.get("missingOpeningDateCount", 0)),
         "programmesWithoutDeadlines": int(report.get("programmesWithoutDeadlines", 0)),

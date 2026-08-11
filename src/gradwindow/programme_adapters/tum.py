@@ -271,7 +271,7 @@ def _parse_detail(
             "The next cycle was deterministically materialized for monitoring: "
             f"{materialized}. The cycle year is not written literally on the page."
         )
-        parse_status = "incomplete"
+        parse_status = "recurring-policy"
     elif exact_windows:
         deadline_text = deadline
         parse_status = "parsed"

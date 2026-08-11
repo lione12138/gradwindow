@@ -286,7 +286,9 @@ def test_discovery_creates_candidates_without_mutating_programmes(
     assert repeated["pendingWindowCandidates"] == 1
 
 
-def test_recurring_policy_dates_remain_guidance_not_exact_windows(tmp_path) -> None:
+def test_recurring_policy_dates_publish_separately_not_as_exact_windows(
+    tmp_path,
+) -> None:
     class RecurringPolicyAdapter(BaseProgrammeAdapter):
         university_id = "example-university"
         catalog_url = "https://example.edu/programmes"
@@ -354,13 +356,18 @@ def test_recurring_policy_dates_remain_guidance_not_exact_windows(tmp_path) -> N
 
     assert report["observedWindowCount"] == 1
     assert report["exactWindowCount"] == 0
-    assert report["missingOpeningDateCount"] == 1
-    assert report["windowStatus"] == "needs-opening-date"
+    assert report["recurringPolicyWindowCount"] == 1
+    assert report["missingOpeningDateCount"] == 0
+    assert report["windowStatus"] == "recurring-policy"
+    assert report["publishedRecurringPolicyRecords"] == 1
+    assert report["pendingCandidates"] == 0
+    assert report["pendingGuidanceCandidates"] == 0
     assert not window_candidates_path.exists()
     guidance = json.loads(candidates_path.read_text(encoding="utf-8"))["items"][0]
-    assert guidance["type"] == "known-programme-window-guidance"
+    assert guidance["type"] == "known-programme-recurring-policy"
+    assert guidance["status"] == "published"
     assert guidance["windows"][0]["opensAtBasis"] == "official-recurring-policy"
-    assert "not eligible for automatic publication" in guidance["reviewReason"]
+    assert "published separately" in guidance["reviewReason"]
 
 
 def test_dedicated_adapter_can_replace_stale_pending_candidates(tmp_path) -> None:

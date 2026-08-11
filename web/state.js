@@ -15,6 +15,7 @@ export const state = {
   ranking: "qs",
   officialCount: 0,
   predictionCount: 0,
+  recurringCount: 0,
   meta: {},
   search: "",
   region: "all",
