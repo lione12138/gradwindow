@@ -18,6 +18,15 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from gradwindow.io import read_json, write_json
+from gradwindow.programme_adapters.macau import (
+    CATALOG_URL as MACAU_ENGLISH_CATALOG_URL,
+)
+from gradwindow.programme_adapters.macau import (
+    CHINESE_CATALOG_URL as MACAU_CHINESE_CATALOG_URL,
+)
+from gradwindow.programme_adapters.macau import (
+    parse_official_chinese_translations as parse_macau_chinese_translations,
+)
 from gradwindow.programme_adapters.ntu_taiwan import (
     CATALOG_URL as NTU_ENGLISH_CATALOG_URL,
 )
@@ -127,27 +136,48 @@ def needs_translation(
 def fetch_official_translations(
     catalog: dict[str, dict[str, str]],
 ) -> dict[str, str]:
-    target_ids = {
+    ntu_target_ids = {
         scope_id
         for scope_id in catalog
         if scope_id == NTU_EXISTING_CS_ID
         or scope_id.startswith("ntu-international-master-")
     }
-    if not target_ids:
-        return {}
-    with httpx.Client(follow_redirects=True, timeout=60) as client:
-        english_response = client.get(NTU_ENGLISH_CATALOG_URL)
-        english_response.raise_for_status()
-        chinese_response = client.get(NTU_CHINESE_CATALOG_URL)
-        chinese_response.raise_for_status()
-    translations = parse_official_chinese_translations(
-        english_response.text, chinese_response.text
-    )
-    return {
-        scope_id: value
-        for scope_id, value in translations.items()
-        if scope_id in target_ids
+    macau_target_ids = {
+        scope_id for scope_id in catalog if scope_id.startswith("macau-")
     }
+    if not ntu_target_ids and not macau_target_ids:
+        return {}
+    translations: dict[str, str] = {}
+    with httpx.Client(follow_redirects=True, timeout=60) as client:
+        if ntu_target_ids:
+            english_response = client.get(NTU_ENGLISH_CATALOG_URL)
+            english_response.raise_for_status()
+            chinese_response = client.get(NTU_CHINESE_CATALOG_URL)
+            chinese_response.raise_for_status()
+            translations.update(
+                {
+                    scope_id: value
+                    for scope_id, value in parse_official_chinese_translations(
+                        english_response.text, chinese_response.text
+                    ).items()
+                    if scope_id in ntu_target_ids
+                }
+            )
+        if macau_target_ids:
+            english_response = client.get(MACAU_ENGLISH_CATALOG_URL)
+            english_response.raise_for_status()
+            chinese_response = client.get(MACAU_CHINESE_CATALOG_URL)
+            chinese_response.raise_for_status()
+            translations.update(
+                {
+                    scope_id: value
+                    for scope_id, value in parse_macau_chinese_translations(
+                        english_response.text, chinese_response.text
+                    ).items()
+                    if scope_id in macau_target_ids
+                }
+            )
+    return translations
 
 
 def strip_json_fence(text: str) -> str:
@@ -420,7 +450,11 @@ def update_translations(
             translations[scope_id] = {
                 "zh": value,
                 "source": "official",
-                "sourceUrl": NTU_CHINESE_CATALOG_URL,
+                "sourceUrl": (
+                    MACAU_CHINESE_CATALOG_URL
+                    if scope_id.startswith("macau-")
+                    else NTU_CHINESE_CATALOG_URL
+                ),
                 "updatedAt": date.today().isoformat(),
             }
             official_count += 1
