@@ -1,18 +1,17 @@
 {
   "meta": {
-    "updatedAt": "2026-08-10T08:03:46.471794+00:00",
+    "updatedAt": "2026-08-11T08:30:05.482568+00:00",
     "dryRun": false,
     "replaceExisting": false,
-    "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed.",
-    "classificationRefreshedFromCandidates": true
+    "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
   },
   "summary": {
     "schoolsConfigured": 9,
     "schoolsSucceeded": 1,
-    "schoolsErrored": 1,
-    "schoolsSkipped": 7,
-    "schoolsSkippedByDedicated": 7,
-    "schoolsAssisted": 1,
+    "schoolsErrored": 2,
+    "schoolsSkipped": 6,
+    "schoolsSkippedByDedicated": 6,
+    "schoolsAssisted": 2,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
     "needsOpeningDate": 639,
@@ -27,14 +26,6 @@
       "skipReason": "dedicated-primary-succeeded",
       "universityId": "the-university-of-melbourne",
       "sourceUrl": "https://study.unimelb.edu.au/find/courses/graduate/",
-      "dryRun": false
-    },
-    {
-      "batchStatus": "skipped",
-      "status": "skipped",
-      "skipReason": "dedicated-primary-succeeded",
-      "universityId": "monash-university",
-      "sourceUrl": "https://www.monash.edu/study/courses/find-a-course",
       "dryRun": false
     },
     {
@@ -92,12 +83,13 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-10T06:37:52.821373+00:00",
+      "checkedAt": "2026-08-11T08:30:19.767714+00:00",
       "catalogProgrammes": 3,
-      "previousCatalogProgrammes": 1,
+      "previousCatalogProgrammes": 3,
       "knownProgrammes": 1,
       "newCandidates": 0,
       "newGuidanceCandidates": 0,
+      "publishedRecurringPolicyRecords": 0,
       "newWindowCandidates": 0,
       "changedWindowCandidates": 0,
       "pendingWindowCandidates": 0,
@@ -107,15 +99,27 @@
       "windowStatus": "needs-opening-date",
       "observedWindowCount": 1,
       "exactWindowCount": 0,
+      "recurringPolicyWindowCount": 0,
       "missingOpeningDateCount": 1,
       "programmesWithoutDeadlines": 2,
       "programmesNeedingReview": 3,
       "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "windowFingerprint": "44e69c3a5fb7a5efb682a2db8d1f24fcb3373009d1d74ce568f6e0efaf022036",
+      "windowFingerprint": "f0dab70f2e2f8908e8607513efa2d0fdb47064db21c86b2a923daa6bd00d957f",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "dryRun": false,
       "batchStatus": "ok"
+    },
+    {
+      "status": "error",
+      "universityId": "monash-university",
+      "sourceUrl": "https://www.monash.edu/study/courses/find-a-course",
+      "assistedDiscovery": true,
+      "stage": "extraction",
+      "errorType": "HTTPStatusError",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-v4-pro or deepseek-v4-flash, but you passed .\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "dryRun": false,
+      "batchStatus": "error"
     }
   ],
   "classification": {

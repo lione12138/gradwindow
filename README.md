@@ -9,7 +9,7 @@
 
 A QS Top 200 master's application tracker using official university sources. The tables below summarize each university once; full programme-level windows remain available on the website.
 
-Status date: **2026-08-10**
+Status date: **2026-08-11**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -39,6 +39,7 @@ Status date: **2026-08-10**
 | =162 | Université de Montréal | 1 open window | 2026-09-01 | Official | [Admissions](https://admission.umontreal.ca/programmes/maitrise-en-informatique/) · [All programme details](https://gradwindow.com/?q=Universit%C3%A9%20de%20Montr%C3%A9al) |
 | =177 | National Yang Ming Chiao Tung University (NYCU Taiwan) | 1 open window | 2026-09-30 | Official | [Admissions](https://oia.nycu.edu.tw/oia/en/app/folder/782) · [All programme details](https://gradwindow.com/?q=National%20Yang%20Ming%20Chiao%20Tung%20University%20%28NYCU%20Taiwan%29) |
 | =191 | National Cheng Kung University (NCKU) | 1 open window | 2026-09-15 | Official | [Admissions](https://oia.ncku.edu.tw/p/404-1032-229816.php?Lang=en) · [All programme details](https://gradwindow.com/?q=National%20Cheng%20Kung%20University%20%28NCKU%29) |
+| — | University of Macau | 69 open windows | 2026-12-03 | Official | [Admissions](https://grs.um.edu.mo/index.php/prospective-students/master-postgraduate-certificate-diploma-programmes/) · [All programme details](https://gradwindow.com/?q=University%20of%20Macau) |
 
 ## Opening Within 30 Days
 
@@ -53,7 +54,7 @@ Status date: **2026-08-10**
 | =20 | University of California, Berkeley (UCB) | 1 upcoming window | 2026-09-01 | Estimate | [Admissions](https://grad.berkeley.edu/admissions/) · [All programme details](https://gradwindow.com/?q=University%20of%20California%2C%20Berkeley%20%28UCB%29) |
 | 25 | Technical University of Munich | 1 upcoming window | 2026-09-01 | Official | [Admissions](https://www.tum.de/en/studies/application/application-info-portal) · [All programme details](https://gradwindow.com/?q=Technical%20University%20of%20Munich) |
 | 33 | The Hong Kong University of Science and Technology | 109 upcoming windows | 2026-09-01 | Estimate | [Admissions](https://seng.hkust.edu.hk/academics/taught-postgraduate/msc-it) · [All programme details](https://gradwindow.com/?q=The%20Hong%20Kong%20University%20of%20Science%20and%20Technology) |
-| 45 | University of British Columbia | 14 upcoming windows | 2026-08-15 | Official | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
+| 45 | University of British Columbia | 16 upcoming windows | 2026-08-15 | Official + Estimate | [Admissions](https://www.grad.ubc.ca/prospective-students/application-admission) · [All programme details](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 55 | Carnegie Mellon University | 1 upcoming window | 2026-09-09 | Official | [Admissions](https://www.cmu.edu/graduate/admissions/index.html) · [All programme details](https://gradwindow.com/?q=Carnegie%20Mellon%20University) |
 | 65 | KAIST | 36 upcoming windows | 2026-08-18 | Official | [Admissions](https://admission.kaist.ac.kr/intl-graduate/) · [All programme details](https://gradwindow.com/?q=KAIST) |
 | 66 | Brown University | 1 upcoming window | 2026-09-01 | Estimate | [Admissions](https://graduateschool.brown.edu/admission) · [All programme details](https://gradwindow.com/?q=Brown%20University) |
