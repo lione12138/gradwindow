@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-11",
+    "generatedAt": "2026-08-12",
     "selectionPolicy": "All institutions whose published rank starts at 200 or above are retained; tied and banded ranks are preserved.",
     "note": "All ranking views resolve through the shared canonical university table. Ranking-only rows remain visible until their institution is added to monitored admissions coverage."
   },
@@ -1942,16 +1942,20 @@
           "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/scuola-normale-superiore-di-pisa"
         },
         {
-          "id": "the-university-of-arizona",
-          "universityId": null,
+          "id": "university-of-arizona",
+          "universityId": "university-of-arizona",
           "school": "University of Arizona",
           "schoolZh": "亚利桑那大学",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 138,
           "rankDisplay": "=138",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-arizona"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.timeshighereducation.com/world-university-rankings/university-arizona",
+          "schoolAliasesZh": [
+            "亚利桑那大学",
+            "Arizona"
+          ]
         },
         {
           "id": "university-of-freiburg",
@@ -4430,15 +4434,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-mayo-clinic-college-of-medicine-and-science-minnesota",
-          "universityId": null,
+          "id": "mayo-clinic-college-of-medicine-and-science",
+          "universityId": "mayo-clinic-college-of-medicine-and-science",
           "school": "Mayo Clinic College of Medicine and Science, Minnesota",
           "schoolZh": "梅奥诊所医学院",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 101,
           "rankDisplay": "101-150",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
@@ -4481,15 +4485,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-northwestern-polytechnical-university",
-          "universityId": null,
+          "id": "northwestern-polytechnical-university",
+          "universityId": "northwestern-polytechnical-university",
           "school": "Northwestern Polytechnical University",
           "schoolZh": "西北工业大学",
           "country": "China",
           "region": "Asia",
           "rankPosition": 101,
           "rankDisplay": "101-150",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025",
           "schoolAliasesZh": [
             "西工大"
@@ -4681,15 +4685,15 @@
           ]
         },
         {
-          "id": "arwu-tianjin-university",
-          "universityId": null,
+          "id": "tianjin-university",
+          "universityId": "tianjin-university",
           "school": "Tianjin University",
           "schoolZh": "天津大学",
           "country": "China",
           "region": "Asia",
           "rankPosition": 101,
           "rankDisplay": "101-150",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
@@ -4705,15 +4709,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-universite-libre-de-bruxelles-ulb",
-          "universityId": null,
+          "id": "universite-libre-de-bruxelles-ulb",
+          "universityId": "universite-libre-de-bruxelles-ulb",
           "school": "Université libre de Bruxelles (ULB)",
           "schoolZh": "布鲁塞尔自由大学",
           "country": "Belgium",
           "region": "Europe",
           "rankPosition": 101,
           "rankDisplay": "101-150",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025",
           "schoolAliasesZh": [
             "ULB"
@@ -5160,15 +5164,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-university-of-arizona",
-          "universityId": null,
+          "id": "university-of-arizona",
+          "universityId": "university-of-arizona",
           "school": "University of Arizona",
           "schoolZh": "亚利桑那大学",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 151,
           "rankDisplay": "151-200",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
@@ -6953,16 +6957,20 @@
           ]
         },
         {
-          "id": "usnews-university-of-arizona",
-          "universityId": null,
+          "id": "university-of-arizona",
+          "universityId": "university-of-arizona",
           "school": "University of Arizona",
           "schoolZh": "亚利桑那大学",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 102,
           "rankDisplay": "102",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.usnews.com/education/best-global-universities/university-of-arizona-104179"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.usnews.com/education/best-global-universities/university-of-arizona-104179",
+          "schoolAliasesZh": [
+            "亚利桑那大学",
+            "Arizona"
+          ]
         },
         {
           "id": "king-abdullah-university-of-science-and-technology",
@@ -7825,16 +7833,21 @@
           ]
         },
         {
-          "id": "usnews-tianjin-university",
-          "universityId": null,
+          "id": "tianjin-university",
+          "universityId": "tianjin-university",
           "school": "Tianjin University",
           "schoolZh": "天津大学",
           "country": "China",
           "region": "Asia",
           "rankPosition": 166,
           "rankDisplay": "=166",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.usnews.com/education/best-global-universities/tianjin-university-503557"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.usnews.com/education/best-global-universities/tianjin-university-503557",
+          "schoolAliasesZh": [
+            "天津大学",
+            "天大",
+            "TJU"
+          ]
         },
         {
           "id": "university-of-leicester",
@@ -8030,18 +8043,20 @@
           ]
         },
         {
-          "id": "usnews-northwestern-polytechnical-university",
-          "universityId": null,
+          "id": "northwestern-polytechnical-university",
+          "universityId": "northwestern-polytechnical-university",
           "school": "Northwestern Polytechnical University",
           "schoolZh": "西北工业大学",
           "country": "China",
           "region": "Asia",
           "rankPosition": 182,
           "rankDisplay": "182",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.usnews.com/education/best-global-universities/northwestern-polytechnical-university-504154",
           "schoolAliasesZh": [
-            "西工大"
+            "西北工业大学",
+            "西工大",
+            "NPU"
           ]
         },
         {
