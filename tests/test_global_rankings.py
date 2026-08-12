@@ -47,6 +47,12 @@ ARWU_SHARED_UNIVERSITIES = {
     "Purdue University, West Lafayette": "purdue-university",
     "University of Sao Paulo": "universidade-de-s-o-paulo-usp",
     "University of Barcelona": "university-of-barcelona",
+    "Nankai University": "nankai-university",
+    "Shandong University": "shandong-university",
+    "Indiana University, Bloomington": "indiana-university-bloomington",
+    "Technion-Israel Institute of Technology": (
+        "technion-israel-institute-of-technology"
+    ),
     "University of Montreal": "university-of-montreal",
 }
 
@@ -74,6 +80,8 @@ THE_SHARED_UNIVERSITIES = {
     "King Fahd University of Petroleum and Minerals": (
         "king-fahd-university-of-petroleum-and-minerals"
     ),
+    "Universitat Autònoma de Barcelona (UAB)": ("universitat-autonoma-de-barcelona"),
+    "Indiana University": "indiana-university-bloomington",
 }
 
 

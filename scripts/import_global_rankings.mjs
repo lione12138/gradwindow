@@ -431,6 +431,13 @@ const aliasEntries = [
   ["pennstatemaincampus", "pennsylvania-state-university"],
   ["technicaluniversityofberlin", "technische-universit-t-berlin"],
   ["karlsruheinstituteoftechnology", "karlsruhe-institute-of-technology-kit"],
+  ["nankaiuniversity", "nankai-university"],
+  ["shandonguniversity", "shandong-university"],
+  ["indianauniversity", "indiana-university-bloomington"],
+  ["indianauniversitybloomington", "indiana-university-bloomington"],
+  ["autonomousuniversityofbarcelona", "universitat-autonoma-de-barcelona"],
+  ["universitatautonomadebarcelonauab", "universitat-autonoma-de-barcelona"],
+  ["technionisraelinstituteoftechnology", "technion-israel-institute-of-technology"],
   [
     "kingfahduniversityofpetroleumandminerals",
     "king-fahd-university-of-petroleum-and-minerals",

@@ -86,6 +86,7 @@ from .iit_bombay import IITBombayAdapter
 from .iit_delhi import IITDelhiAdapter
 from .iit_madras import IITMadrasAdapter
 from .imperial import ImperialAdapter
+from .indiana_bloomington import IndianaBloomingtonAdapter
 from .ip_paris import IPParisAdapter
 from .jhu import JHUAdapter
 from .jilin import JilinAdapter
@@ -132,6 +133,7 @@ from .msu import MSUAdapter
 from .munster import MunsterAdapter
 from .nagoya import NagoyaAdapter
 from .nanjing import NanjingAdapter
+from .nankai import NankaiAdapter
 from .ncku import NCKUAdapter
 from .newcastle import NewcastleAdapter
 from .northwestern import NorthwesternAdapter
@@ -176,6 +178,7 @@ from .rockefeller import RockefellerAdapter
 from .rwth import RWTHAdapter
 from .sapienza import SapienzaAdapter
 from .science_tokyo import ScienceTokyoAdapter
+from .shandong import ShandongAdapter
 from .sheffield import SheffieldAdapter
 from .shenzhen import ShenzhenAdapter
 from .sichuan import SichuanAdapter
@@ -194,6 +197,7 @@ from .swinburne import SwinburneAdapter
 from .sydney import SydneyAdapter
 from .tamu import TAMUAdapter
 from .tec_monterrey import TecMonterreyAdapter
+from .technion import TechnionAdapter
 from .tel_aviv import TelAvivAdapter
 from .tianjin import TianjinAdapter
 from .tohoku import TohokuAdapter
@@ -211,6 +215,7 @@ from .tufts import TuftsAdapter
 from .tum import TUMAdapter
 from .twente import TwenteAdapter
 from .uab import UABAdapter
+from .uab_barcelona import UABBarcelonaAdapter
 from .uba import UBAAdapter
 from .ubc import UBCAdapter
 from .uc_davis import UCDavisAdapter
@@ -359,6 +364,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "hku": HKUAdapter,
     "hkust": HKUSTAdapter,
     "imperial": ImperialAdapter,
+    "indiana-bloomington": IndianaBloomingtonAdapter,
     "ip-paris": IPParisAdapter,
     "jhu": JHUAdapter,
     "jilin": JilinAdapter,
@@ -404,6 +410,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "monash": MonashAdapter,
     "nagoya": NagoyaAdapter,
     "nanjing": NanjingAdapter,
+    "nankai": NankaiAdapter,
     "ncku": NCKUAdapter,
     "nottingham": NottinghamAdapter,
     "notre-dame": NotreDameAdapter,
@@ -451,6 +458,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "sjtu": SJTUAdapter,
     "skku": SKKUAdapter,
     "sheffield": SheffieldAdapter,
+    "shandong": ShandongAdapter,
     "sichuan": SichuanAdapter,
     "shenzhen": ShenzhenAdapter,
     "snu": SNUAdapter,
@@ -467,6 +475,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "tamu": TAMUAdapter,
     "tec-monterrey": TecMonterreyAdapter,
     "tel-aviv": TelAvivAdapter,
+    "technion": TechnionAdapter,
     "tianjin": TianjinAdapter,
     "toronto": TorontoAdapter,
     "tohoku": TohokuAdapter,
@@ -480,6 +489,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "tufts": TuftsAdapter,
     "twente": TwenteAdapter,
     "uab": UABAdapter,
+    "uab-barcelona": UABBarcelonaAdapter,
     "tu-wien": TUWienAdapter,
     "tu-berlin": TUBerlinAdapter,
     "tu-dresden": TUDresdenAdapter,
