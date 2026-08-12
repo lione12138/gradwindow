@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-11T08:30:05.482568+00:00",
+    "updatedAt": "2026-08-12T06:44:36.691796+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -8,16 +8,16 @@
   "summary": {
     "schoolsConfigured": 9,
     "schoolsSucceeded": 1,
-    "schoolsErrored": 2,
-    "schoolsSkipped": 6,
-    "schoolsSkippedByDedicated": 6,
-    "schoolsAssisted": 2,
+    "schoolsErrored": 1,
+    "schoolsSkipped": 7,
+    "schoolsSkippedByDedicated": 7,
+    "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 639,
+    "needsOpeningDate": 638,
     "needsAdapter": 422,
     "comingSoonMonitor": 2,
-    "deadlineUnavailableMonitor": 1
+    "deadlineUnavailableMonitor": 2
   },
   "results": [
     {
@@ -26,6 +26,14 @@
       "skipReason": "dedicated-primary-succeeded",
       "universityId": "the-university-of-melbourne",
       "sourceUrl": "https://study.unimelb.edu.au/find/courses/graduate/",
+      "dryRun": false
+    },
+    {
+      "batchStatus": "skipped",
+      "status": "skipped",
+      "skipReason": "dedicated-primary-succeeded",
+      "universityId": "monash-university",
+      "sourceUrl": "https://www.monash.edu/study/courses/find-a-course",
       "dryRun": false
     },
     {
@@ -83,7 +91,7 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-11T08:30:19.767714+00:00",
+      "checkedAt": "2026-08-12T06:44:50.828320+00:00",
       "catalogProgrammes": 3,
       "previousCatalogProgrammes": 3,
       "knownProgrammes": 1,
@@ -109,17 +117,6 @@
       "watchedWindowSourceFingerprintVersion": null,
       "dryRun": false,
       "batchStatus": "ok"
-    },
-    {
-      "status": "error",
-      "universityId": "monash-university",
-      "sourceUrl": "https://www.monash.edu/study/courses/find-a-course",
-      "assistedDiscovery": true,
-      "stage": "extraction",
-      "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-v4-pro or deepseek-v4-flash, but you passed .\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-      "dryRun": false,
-      "batchStatus": "error"
     }
   ],
   "classification": {
@@ -4811,15 +4808,6 @@
         "universityId": "university-of-southampton",
         "programmeName": "Environmental Consultancy (MSc)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/environmental-consultancy-masters-msc",
-        "windowCount": 2,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "known-programme-guidance:southampton-environmental-management-and-sustainability-msc",
-        "universityId": "university-of-southampton",
-        "programmeName": "Environmental Management and Sustainability (MSc)",
-        "sourceUrl": "https://www.southampton.ac.uk/courses/environmental-management-sustainability-masters-msc",
         "windowCount": 2,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
@@ -9699,6 +9687,15 @@
       }
     ],
     "deadlineUnavailableMonitor": [
+      {
+        "id": "new-programme:nottingham-business-analytics-and-ai-msc",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Business Analytics And Ai MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/business-analytics-and-ai-msc",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
       {
         "id": "new-programme:oxford-mphil-in-english-studies-medieval-period",
         "universityId": "university-of-oxford",
