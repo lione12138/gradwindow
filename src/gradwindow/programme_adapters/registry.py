@@ -33,6 +33,8 @@ from .cambridge import CambridgeAdapter
 from .cape_town import CapeTownAdapter
 from .cardiff import CardiffAdapter
 from .case_western import CaseWesternAdapter
+from .cau import CAUAdapter
+from .central_south import CentralSouthAdapter
 from .chalmers import ChalmersAdapter
 from .charite import ChariteAdapter
 from .cityu import CityUAdapter
@@ -48,10 +50,12 @@ from .cuhk import CUHKAdapter
 from .curtin import CurtinAdapter
 from .dartmouth import DartmouthAdapter
 from .deakin import DeakinAdapter
+from .dlut import DLUTAdapter
 from .dtu import DTUAdapter
 from .duke import DukeAdapter
 from .durham import DurhamAdapter
 from .edinburgh import EdinburghAdapter
+from .eduhk import EdUHKAdapter
 from .emory import EmoryAdapter
 from .epfl import EPFLAdapter
 from .erasmus import ErasmusAdapter
@@ -178,6 +182,7 @@ from .rockefeller import RockefellerAdapter
 from .rwth import RWTHAdapter
 from .sapienza import SapienzaAdapter
 from .science_tokyo import ScienceTokyoAdapter
+from .seu import SEUAdapter
 from .shandong import ShandongAdapter
 from .sheffield import SheffieldAdapter
 from .shenzhen import ShenzhenAdapter
@@ -311,6 +316,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "calgary": CalgaryAdapter,
     "cambridge": CambridgeAdapter,
     "case-western": CaseWesternAdapter,
+    "cau": CAUAdapter,
     "charite": ChariteAdapter,
     "chalmers": ChalmersAdapter,
     "cologne": CologneAdapter,
@@ -324,13 +330,16 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "curtin": CurtinAdapter,
     "dartmouth": DartmouthAdapter,
     "deakin": DeakinAdapter,
+    "dlut": DLUTAdapter,
     "cityu": CityUAdapter,
+    "central-south": CentralSouthAdapter,
     "cmu": CMUAdapter,
     "duke": DukeAdapter,
     "dtu": DTUAdapter,
     "durham": DurhamAdapter,
     "edinburgh": EdinburghAdapter,
     "emory": EmoryAdapter,
+    "eduhk": EdUHKAdapter,
     "epfl": EPFLAdapter,
     "erasmus": ErasmusAdapter,
     "eth": ETHAdapter,
@@ -455,6 +464,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "rwth": RWTHAdapter,
     "sapienza": SapienzaAdapter,
     "science-tokyo": ScienceTokyoAdapter,
+    "seu": SEUAdapter,
     "sjtu": SJTUAdapter,
     "skku": SKKUAdapter,
     "sheffield": SheffieldAdapter,

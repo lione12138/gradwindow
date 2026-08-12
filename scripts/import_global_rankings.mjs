@@ -438,6 +438,12 @@ const aliasEntries = [
   ["autonomousuniversityofbarcelona", "universitat-autonoma-de-barcelona"],
   ["universitatautonomadebarcelonauab", "universitat-autonoma-de-barcelona"],
   ["technionisraelinstituteoftechnology", "technion-israel-institute-of-technology"],
+  ["centralsouthuniversity", "central-south-university"],
+  ["chinaagriculturaluniversity", "china-agricultural-university"],
+  ["southeastuniversity", "southeast-university"],
+  ["dalianuniversityoftechnology", "dalian-university-of-technology"],
+  ["theeducationuniversityofhongkong", "education-university-of-hong-kong"],
+  ["educationuniversityofhongkong", "education-university-of-hong-kong"],
   [
     "kingfahduniversityofpetroleumandminerals",
     "king-fahd-university-of-petroleum-and-minerals",
