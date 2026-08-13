@@ -235,17 +235,62 @@ jobs:
           --squash
           --delete-branch
 
-      - name: Start production test and deployment
+      - name: Test and deploy refreshed production site
         if: >-
           github.event_name != 'push' &&
           !inputs.translation_only &&
           steps.data-pr.outputs.pull-request-number
         env:
           GH_TOKEN: ${{ github.token }}
-        run: >-
-          gh workflow run tests.yml
-          --repo "$GITHUB_REPOSITORY"
-          --ref main
+        shell: bash
+        run: |
+          head_sha="$(gh api "repos/$GITHUB_REPOSITORY/commits/main" --jq .sha)"
+          tests_started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          gh workflow run tests.yml --repo "$GITHUB_REPOSITORY" --ref main
+
+          tests_run_id=""
+          for _ in $(seq 1 30); do
+            tests_run_id="$(
+              gh run list --repo "$GITHUB_REPOSITORY" --workflow tests.yml \
+                --event workflow_dispatch --limit 10 \
+                --json databaseId,headSha,createdAt \
+                --jq ".[] | select(.headSha == \"$head_sha\" and .createdAt >= \"$tests_started_at\") | .databaseId" \
+                | head -n 1
+            )"
+            if [ -n "$tests_run_id" ]; then
+              break
+            fi
+            sleep 5
+          done
+          if [ -z "$tests_run_id" ]; then
+            echo "Unable to locate the dispatched Tests run." >&2
+            exit 1
+          fi
+          gh run watch "$tests_run_id" --repo "$GITHUB_REPOSITORY" --exit-status
+
+          pages_started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main \
+            -f "tests_run_id=$tests_run_id"
+
+          pages_run_id=""
+          for _ in $(seq 1 30); do
+            pages_run_id="$(
+              gh run list --repo "$GITHUB_REPOSITORY" --workflow pages.yml \
+                --event workflow_dispatch --limit 10 \
+                --json databaseId,headSha,createdAt \
+                --jq ".[] | select(.headSha == \"$head_sha\" and .createdAt >= \"$pages_started_at\") | .databaseId" \
+                | head -n 1
+            )"
+            if [ -n "$pages_run_id" ]; then
+              break
+            fi
+            sleep 5
+          done
+          if [ -z "$pages_run_id" ]; then
+            echo "Unable to locate the dispatched Pages deployment." >&2
+            exit 1
+          fi
+          gh run watch "$pages_run_id" --repo "$GITHUB_REPOSITORY" --exit-status
 
       - name: Maintain update workflow failure issue
         if: >-

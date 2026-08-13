@@ -21,6 +21,21 @@ def test_monitor_status_workflow_deploys_the_status_it_publishes() -> None:
     assert "gh workflow run tests.yml" not in workflow
 
 
+def test_daily_refresh_waits_for_tests_and_pages_deployment() -> None:
+    update_workflow = Path(".github/workflows/update-data.yml").read_text(
+        encoding="utf-8"
+    )
+    pages_workflow = Path(".github/workflows/pages.yml").read_text(encoding="utf-8")
+
+    assert "Test and deploy refreshed production site" in update_workflow
+    assert 'gh run watch "$tests_run_id"' in update_workflow
+    assert "gh workflow run pages.yml" in update_workflow
+    assert 'gh run watch "$pages_run_id"' in update_workflow
+    assert "workflow_dispatch:" in pages_workflow
+    assert "tests_run_id:" in pages_workflow
+    assert "github.event.workflow_run.id || inputs.tests_run_id" in pages_workflow
+
+
 def test_adapter_health_issue_is_updated_before_data_pr_cleans_worktree() -> None:
     workflow = Path(".github/workflows/update-data.yml").read_text(encoding="utf-8")
 
