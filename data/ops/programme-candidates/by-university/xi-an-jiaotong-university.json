@@ -1,6 +1,59 @@
 {
   "items": [
     {
+      "id": "known-programme-guidance:xjtu-international-graduate-admissions",
+      "type": "known-programme-window-guidance",
+      "status": "pending",
+      "universityId": "xi-an-jiaotong-university",
+      "detectedAt": "2026-08-13T11:16:31.638861+00:00",
+      "sourceUrl": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf",
+      "programme": {
+        "id": "xjtu-international-graduate-admissions",
+        "universityId": "xi-an-jiaotong-university",
+        "name": "International graduate admissions",
+        "degreeType": "Master/Doctoral",
+        "faculty": "School of International Education | School of International Education",
+        "applicationUrl": "http://isso.xjtu.edu.cn/recruit/login",
+        "sourceUrl": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf"
+      },
+      "windows": [
+        {
+          "intake": "Autumn 2026",
+          "round": "Scholarship programme",
+          "applicantCategories": [
+            "international-students"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-03-31",
+          "sourceUrl": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf",
+          "scopeType": "programme-group",
+          "scopeId": "xjtu-international-graduate-admissions"
+        },
+        {
+          "intake": "Autumn 2026",
+          "round": "Self-funded programme",
+          "applicantCategories": [
+            "international-students"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-05-15",
+          "sourceUrl": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf",
+          "scopeType": "programme-group",
+          "scopeId": "xjtu-international-graduate-admissions"
+        }
+      ],
+      "parseStatus": "incomplete",
+      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
+      "evidenceExcerpt": "XJTU's official 2026 guide says applications run 'from now' to exact closing dates. Because it gives no exact opening date, these remain review guidance rather than publishable exact windows.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-international-admissions-guide-pdf",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    },
+    {
       "id": "new-programme:xjtu-faculty-of-electronic-and-information-engineering-school-of-automation-science-and-engineering-control-science-and-engineering-master-of-engineering",
       "type": "new-programme",
       "status": "approved",
@@ -1707,60 +1760,6 @@
       },
       "reviewedBy": "automated-official-source-policy",
       "reviewedAt": "2026-08-12T06:48:20.208263+00:00"
-    },
-    {
-      "id": "new-programme:xjtu-international-graduate-admissions",
-      "type": "new-programme",
-      "status": "pending",
-      "universityId": "xi-an-jiaotong-university",
-      "detectedAt": "2026-08-12T06:43:25.755625+00:00",
-      "sourceUrl": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf",
-      "programme": {
-        "id": "xjtu-international-graduate-admissions",
-        "universityId": "xi-an-jiaotong-university",
-        "name": "International graduate admissions",
-        "degreeType": "Master/Doctoral",
-        "faculty": "School of International Education | School of International Education",
-        "applicationUrl": "http://isso.xjtu.edu.cn/recruit/login",
-        "sourceUrl": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf"
-      },
-      "windows": [
-        {
-          "intake": "Autumn 2026",
-          "round": "Scholarship programme",
-          "applicantCategories": [
-            "international-students"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-03-31",
-          "sourceUrl": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf",
-          "scopeType": "programme-group",
-          "scopeId": "xjtu-international-graduate-admissions"
-        },
-        {
-          "intake": "Autumn 2026",
-          "round": "Self-funded programme",
-          "applicantCategories": [
-            "international-students"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-05-15",
-          "sourceUrl": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf",
-          "scopeType": "programme-group",
-          "scopeId": "xjtu-international-graduate-admissions"
-        }
-      ],
-      "parseStatus": "incomplete",
-      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
-      "evidenceExcerpt": "XJTU's official 2026 guide says applications run 'from now' to exact closing dates. Because it gives no exact opening date, these remain review guidance rather than publishable exact windows.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-international-admissions-guide-pdf",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
     },
     {
       "id": "new-programme:xjtu-school-of-aerospace-engineering-aeronautical-and-astronautical-science-and-technology-master-of-engineering",

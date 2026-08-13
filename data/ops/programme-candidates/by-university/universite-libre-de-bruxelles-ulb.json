@@ -1,6 +1,60 @@
 {
   "items": [
     {
+      "id": "known-programme-recurring:ulb-standard-master-admissions",
+      "type": "known-programme-recurring-policy",
+      "status": "published",
+      "universityId": "universite-libre-de-bruxelles-ulb",
+      "detectedAt": "2026-08-13T11:11:50.628272+00:00",
+      "sourceUrl": "https://www.ulb.be/en/prepare-your-application/submission-deadlines",
+      "programme": {
+        "id": "ulb-standard-master-admissions",
+        "universityId": "universite-libre-de-bruxelles-ulb",
+        "name": "Standard master's admissions",
+        "degreeType": "Master",
+        "faculty": "Université Libre de Bruxelles | Enrolment Service",
+        "applicationUrl": "https://www.ulb.be/en/enrolment",
+        "sourceUrl": "https://www.ulb.be/en/prepare-your-application/submission-deadlines"
+      },
+      "windows": [
+        {
+          "intake": "2026-2027 academic year",
+          "round": "Belgian, European, EU-resident and Swiss applicants",
+          "applicantCategories": [
+            "domestic-students",
+            "eu-efta"
+          ],
+          "opensAt": "2026-04-01",
+          "opensAtBasis": "official-recurring-policy",
+          "closesAt": "2026-09-30",
+          "sourceUrl": "https://www.ulb.be/en/prepare-your-application/submission-deadlines",
+          "scopeType": "programme-group",
+          "scopeId": "ulb-standard-master-admissions"
+        },
+        {
+          "intake": "2026-2027 academic year",
+          "round": "Non-European applicants",
+          "applicantCategories": [
+            "international-students"
+          ],
+          "opensAt": "2026-02-16",
+          "opensAtBasis": "official-recurring-policy",
+          "closesAt": "2026-03-31",
+          "sourceUrl": "https://www.ulb.be/en/prepare-your-application/submission-deadlines",
+          "scopeType": "programme-group",
+          "scopeId": "ulb-standard-master-admissions"
+        }
+      ],
+      "parseStatus": "recurring-policy",
+      "reviewReason": "Official recurring day/month dates are published separately with a GradWindow-mapped cycle year; they are not exact official-cycle records.",
+      "evidenceExcerpt": "ULB's official 2026-2027 enrolment page and recurring submission policy publish these applicant-category periods. Specialised master's exceptions must be checked with the faculty.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-enrolment-and-recurring-deadline-policy",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    },
+    {
       "id": "new-programme:ulb-ma-actu",
       "type": "new-programme",
       "status": "approved",
@@ -3499,61 +3553,6 @@
       },
       "reviewedBy": "automated-official-source-policy",
       "reviewedAt": "2026-08-12T06:47:17.715836+00:00"
-    },
-    {
-      "id": "new-programme:ulb-standard-master-admissions",
-      "type": "new-programme",
-      "status": "pending",
-      "universityId": "universite-libre-de-bruxelles-ulb",
-      "detectedAt": "2026-08-12T06:38:59.729821+00:00",
-      "sourceUrl": "https://www.ulb.be/en/prepare-your-application/submission-deadlines",
-      "programme": {
-        "id": "ulb-standard-master-admissions",
-        "universityId": "universite-libre-de-bruxelles-ulb",
-        "name": "Standard master's admissions",
-        "degreeType": "Master",
-        "faculty": "Université Libre de Bruxelles | Enrolment Service",
-        "applicationUrl": "https://www.ulb.be/en/enrolment",
-        "sourceUrl": "https://www.ulb.be/en/prepare-your-application/submission-deadlines"
-      },
-      "windows": [
-        {
-          "intake": "2026-2027 academic year",
-          "round": "Belgian, European, EU-resident and Swiss applicants",
-          "applicantCategories": [
-            "domestic",
-            "eu-eea"
-          ],
-          "opensAt": "2026-04-01",
-          "opensAtBasis": "official-recurring-policy",
-          "closesAt": "2026-09-30",
-          "sourceUrl": "https://www.ulb.be/en/prepare-your-application/submission-deadlines",
-          "scopeType": "programme-group",
-          "scopeId": "ulb-standard-master-admissions"
-        },
-        {
-          "intake": "2026-2027 academic year",
-          "round": "Non-European applicants",
-          "applicantCategories": [
-            "international-students"
-          ],
-          "opensAt": "2026-02-16",
-          "opensAtBasis": "official-recurring-policy",
-          "closesAt": "2026-03-31",
-          "sourceUrl": "https://www.ulb.be/en/prepare-your-application/submission-deadlines",
-          "scopeType": "programme-group",
-          "scopeId": "ulb-standard-master-admissions"
-        }
-      ],
-      "parseStatus": "recurring-policy",
-      "reviewReason": "Dates were materialized from an official recurring schedule; the cycle year is derived and is not eligible for automatic publication.",
-      "evidenceExcerpt": "ULB's official 2026-2027 enrolment page and recurring submission policy publish these applicant-category periods. Specialised master's exceptions must be checked with the faculty.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-enrolment-and-recurring-deadline-policy",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
     }
   ]
 }

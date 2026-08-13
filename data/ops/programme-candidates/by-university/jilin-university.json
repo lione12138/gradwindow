@@ -1,6 +1,46 @@
 {
   "items": [
     {
+      "id": "known-programme-guidance:jilin-international-graduate-admissions",
+      "type": "known-programme-window-guidance",
+      "status": "pending",
+      "universityId": "jilin-university",
+      "detectedAt": "2026-08-13T10:45:53.791278+00:00",
+      "sourceUrl": "https://cie.jlu.edu.cn/info/1079/3656.htm",
+      "programme": {
+        "id": "jilin-international-graduate-admissions",
+        "universityId": "jilin-university",
+        "name": "International graduate admissions",
+        "degreeType": "Master/Doctoral",
+        "faculty": "College of International Education | College of International Education",
+        "applicationUrl": "http://apply.jlu.edu.cn/member/login.do",
+        "sourceUrl": "https://cie.jlu.edu.cn/info/1079/3656.htm"
+      },
+      "windows": [
+        {
+          "intake": "Autumn 2026",
+          "round": "International graduate admissions",
+          "applicantCategories": [
+            "international-students"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-06-30",
+          "sourceUrl": "https://cie.jlu.edu.cn/info/1079/3656.htm",
+          "scopeType": "programme-group",
+          "scopeId": "jilin-international-graduate-admissions"
+        }
+      ],
+      "parseStatus": "incomplete",
+      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
+      "evidenceExcerpt": "Jilin's official 2026-2027 graduate guide publishes an exact closing date but no exact opening date. This remains review guidance rather than a publishable exact window.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-international-programme-catalogue-pdf",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    },
+    {
       "id": "new-programme:jilin-art-college-art-master",
       "type": "new-programme",
       "status": "approved",
@@ -1511,47 +1551,6 @@
       },
       "reviewedBy": "automated-official-source-policy",
       "reviewedAt": "2026-08-12T06:45:34.657344+00:00"
-    },
-    {
-      "id": "new-programme:jilin-international-graduate-admissions",
-      "type": "new-programme",
-      "status": "pending",
-      "universityId": "jilin-university",
-      "detectedAt": "2026-08-12T06:13:25.392039+00:00",
-      "sourceUrl": "https://cie.jlu.edu.cn/info/1079/3656.htm",
-      "programme": {
-        "id": "jilin-international-graduate-admissions",
-        "universityId": "jilin-university",
-        "name": "International graduate admissions",
-        "degreeType": "Master/Doctoral",
-        "faculty": "College of International Education | College of International Education",
-        "applicationUrl": "http://apply.jlu.edu.cn/member/login.do",
-        "sourceUrl": "https://cie.jlu.edu.cn/info/1079/3656.htm"
-      },
-      "windows": [
-        {
-          "intake": "Autumn 2026",
-          "round": "International graduate admissions",
-          "applicantCategories": [
-            "international-students"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-06-30",
-          "sourceUrl": "https://cie.jlu.edu.cn/info/1079/3656.htm",
-          "scopeType": "programme-group",
-          "scopeId": "jilin-international-graduate-admissions"
-        }
-      ],
-      "parseStatus": "incomplete",
-      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
-      "evidenceExcerpt": "Jilin's official 2026-2027 graduate guide publishes an exact closing date but no exact opening date. This remains review guidance rather than a publishable exact window.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-international-programme-catalogue-pdf",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
     },
     {
       "id": "new-programme:jilin-northeast-asian-studies-college-area-studies-in-economics-of-northeast-asia-master",
