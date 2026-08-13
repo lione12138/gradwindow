@@ -1,6 +1,59 @@
 {
   "items": [
     {
+      "id": "known-programme-guidance:lausanne-master-admissions",
+      "type": "known-programme-window-guidance",
+      "status": "pending",
+      "universityId": "university-of-lausanne",
+      "detectedAt": "2026-08-13T10:47:56.433441+00:00",
+      "sourceUrl": "https://candidature.unil.ch/",
+      "programme": {
+        "id": "lausanne-master-admissions",
+        "universityId": "university-of-lausanne",
+        "name": "Master admissions",
+        "degreeType": "Master",
+        "faculty": "University of Lausanne | Admissions Office",
+        "applicationUrl": "https://candidature.unil.ch/",
+        "sourceUrl": "https://candidature.unil.ch/"
+      },
+      "windows": [
+        {
+          "intake": "Spring 2027",
+          "round": "General application deadline",
+          "applicantCategories": [
+            "all"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-11-30",
+          "sourceUrl": "https://candidature.unil.ch/",
+          "scopeType": "programme-group",
+          "scopeId": "lausanne-master-admissions"
+        },
+        {
+          "intake": "Spring 2027",
+          "round": "Study-visa application deadline",
+          "applicantCategories": [
+            "international-students"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-09-30",
+          "sourceUrl": "https://candidature.unil.ch/",
+          "scopeType": "programme-group",
+          "scopeId": "lausanne-master-admissions"
+        }
+      ],
+      "parseStatus": "incomplete",
+      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
+      "evidenceExcerpt": "UNIL's official application portal publishes exact closing dates but no exact opening date. These remain review guidance rather than publishable exact windows.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-master-catalogue-and-application-portal",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    },
+    {
       "id": "new-programme:lausanne-analyse-criminelle-et-tracologie-html-master",
       "type": "new-programme",
       "status": "approved",
@@ -699,60 +752,6 @@
       },
       "reviewedBy": "automated-official-source-policy",
       "reviewedAt": "2026-08-12T06:47:49.761324+00:00"
-    },
-    {
-      "id": "new-programme:lausanne-master-admissions",
-      "type": "new-programme",
-      "status": "pending",
-      "universityId": "university-of-lausanne",
-      "detectedAt": "2026-08-12T06:18:06.067618+00:00",
-      "sourceUrl": "https://candidature.unil.ch/",
-      "programme": {
-        "id": "lausanne-master-admissions",
-        "universityId": "university-of-lausanne",
-        "name": "Master admissions",
-        "degreeType": "Master",
-        "faculty": "University of Lausanne | Admissions Office",
-        "applicationUrl": "https://candidature.unil.ch/",
-        "sourceUrl": "https://candidature.unil.ch/"
-      },
-      "windows": [
-        {
-          "intake": "Spring 2027",
-          "round": "General application deadline",
-          "applicantCategories": [
-            "all"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-11-30",
-          "sourceUrl": "https://candidature.unil.ch/",
-          "scopeType": "programme-group",
-          "scopeId": "lausanne-master-admissions"
-        },
-        {
-          "intake": "Spring 2027",
-          "round": "Study-visa application deadline",
-          "applicantCategories": [
-            "international-students"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-09-30",
-          "sourceUrl": "https://candidature.unil.ch/",
-          "scopeType": "programme-group",
-          "scopeId": "lausanne-master-admissions"
-        }
-      ],
-      "parseStatus": "incomplete",
-      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
-      "evidenceExcerpt": "UNIL's official application portal publishes exact closing dates but no exact opening date. These remain review guidance rather than publishable exact windows.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-master-catalogue-and-application-portal",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
     },
     {
       "id": "new-programme:lausanne-medecine-html-master",
