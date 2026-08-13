@@ -29,8 +29,12 @@ def test_extended_rankings_keep_admissions_scope_separate() -> None:
         assert len(rows) == expected_count
         assert len({row["id"] for row in rows}) == expected_count
         assert all(row["rankPosition"] <= 200 for row in rows)
-        assert any(row["rankingOnly"] for row in rows)
         assert any(not row["rankingOnly"] for row in rows)
+
+    for ranking_id in ("the", "arwu", "usnews"):
+        assert not any(
+            row["rankingOnly"] for row in payload["rankings"][ranking_id]["rows"]
+        ), ranking_id
 
 
 ARWU_SHARED_UNIVERSITIES = {
@@ -73,6 +77,9 @@ ARWU_SHARED_UNIVERSITIES = {
     "University of Milan": "university-of-milan",
     "Zhengzhou University": "zhengzhou-university",
     "Peking Union Medical College": "peking-union-medical-college",
+    "University of Massachusetts Chan Medical School": (
+        "university-of-massachusetts-chan-medical-school"
+    ),
 }
 
 THE_SHARED_UNIVERSITIES = {
@@ -104,6 +111,7 @@ THE_SHARED_UNIVERSITIES = {
     "University of Massachusetts": "university-of-massachusetts-amherst",
     "Scuola Normale Superiore di Pisa": "scuola-normale-superiore",
     "University of Virginia (Main campus)": "university-of-virginia",
+    "Pompeu Fabra University": "pompeu-fabra-university",
 }
 
 USNEWS_SHARED_UNIVERSITIES = {

@@ -412,6 +412,16 @@ const aliasEntries = [
     "chineseacademyofmedicalsciencespekingunionmedicalcollege",
     "peking-union-medical-college",
   ],
+  ["pompeufabrauniversity", "pompeu-fabra-university"],
+  ["universitatpompeufabra", "pompeu-fabra-university"],
+  [
+    "universityofmassachusettschanmedicalschool",
+    "university-of-massachusetts-chan-medical-school",
+  ],
+  [
+    "umasschanmedicalschool",
+    "university-of-massachusetts-chan-medical-school",
+  ],
   ["universityofnottinghamming", "university-of-nottingham"],
   ["universitatmunchen", "ludwig-maximilians-universit-t-m-nchen"],
   ["katholiekeuniversiteitleuven", "ku-leuven"],

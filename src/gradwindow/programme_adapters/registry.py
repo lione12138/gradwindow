@@ -175,6 +175,7 @@ from .penn_state import PennStateAdapter
 from .pittsburgh import PittsburghAdapter
 from .polimi import PolimiAdapter
 from .polyu import PolyUAdapter
+from .pompeu_fabra import PompeuFabraAdapter
 from .postech import POSTECHAdapter
 from .princeton import PrincetonAdapter
 from .psl import PSLAdapter
@@ -258,6 +259,7 @@ from .ukm import UKMAdapter
 from .ulb import ULBAdapter
 from .um import UMAdapter
 from .umass_amherst import UMassAmherstAdapter
+from .umass_chan import UMassChanAdapter
 from .umd import UMDAdapter
 from .unam import UNAMAdapter
 from .unc import UNCAdapter
@@ -477,6 +479,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "paris-cite": ParisCiteAdapter,
     "polimi": PolimiAdapter,
     "polyu": PolyUAdapter,
+    "pompeu-fabra": PompeuFabraAdapter,
     "puc-chile": PUCChileAdapter,
     "postech": POSTECHAdapter,
     "princeton": PrincetonAdapter,
@@ -566,6 +569,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "ut-austin": UTAustinAdapter,
     "umd": UMDAdapter,
     "umass-amherst": UMassAmherstAdapter,
+    "umass-chan": UMassChanAdapter,
     "um": UMAdapter,
     "unam": UNAMAdapter,
     "unc": UNCAdapter,
