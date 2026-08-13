@@ -54,6 +54,12 @@ ARWU_SHARED_UNIVERSITIES = {
         "technion-israel-institute-of-technology"
     ),
     "University of Montreal": "university-of-montreal",
+    "Hunan University": "hunan-university",
+    "Université Grenoble Alpes": "universite-grenoble-alpes",
+    "University of Electronic Science and Technology of China": (
+        "university-of-electronic-science-and-technology-of-china"
+    ),
+    "University of Mainz": "johannes-gutenberg-university-mainz",
 }
 
 THE_SHARED_UNIVERSITIES = {
@@ -82,6 +88,7 @@ THE_SHARED_UNIVERSITIES = {
     ),
     "Universitat Autònoma de Barcelona (UAB)": ("universitat-autonoma-de-barcelona"),
     "Indiana University": "indiana-university-bloomington",
+    "University of Massachusetts": "university-of-massachusetts-amherst",
 }
 
 
