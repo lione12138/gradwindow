@@ -42,6 +42,10 @@ import {
   createRankingIndex,
   filterRecordsToRanking,
 } from "./ranking-filter.js";
+import {
+  searchWithoutDeepLinkAction,
+  universityDeepLink,
+} from "./university-deep-link.js";
 import { groupWindowRecordsForDisplay } from "./window-grouping.js";
 import {
   calendarTitlePrefix,
@@ -615,6 +619,18 @@ function selectedRankingDefinition() {
   return selectedRankingContext().definition;
 }
 
+function rankingForUniversity(universityId) {
+  if (!universityId) return "qs";
+  if (state.universityById.get(universityId)?.qsPosition != null) return "qs";
+  return (
+    Object.entries(state.rankingPayload.rankings || {}).find(
+      ([, ranking]) =>
+        ranking?.available !== false &&
+        ranking?.rows?.some((row) => row.universityId === universityId),
+    )?.[0] || "qs"
+  );
+}
+
 function selectedRankingRows() {
   return selectedRankingContext().index.rows;
 }
@@ -756,11 +772,14 @@ function filteredRecords() {
   const query = state.search.trim().toLocaleLowerCase("zh-CN");
   return recordsInSelectedRanking().filter((record) => {
     return (
+      (!state.selectedUniversityId ||
+        record.universityId === state.selectedUniversityId) &&
       (!query || recordSearchText(record).includes(query)) &&
       (state.region === "all" || record.region === state.region) &&
       (state.intake === "all" || recordIntake(record).key === state.intake) &&
-      (selectedRankForUniversity(record.universityId)?.rankPosition || 999) <=
-        Number(state.rankLimit) &&
+      (state.selectedUniversityId ||
+        (selectedRankForUniversity(record.universityId)?.rankPosition || 999) <=
+          Number(state.rankLimit)) &&
       (!state.favoritesOnly ||
         state.favorites.has(favoriteKey("window", record.id)))
     );
@@ -783,9 +802,12 @@ function filteredUniversities() {
       .join(" ")
       .toLocaleLowerCase("zh-CN");
     return (
+      (!state.selectedUniversityId ||
+        university.id === state.selectedUniversityId) &&
       (!query || searchable.includes(query)) &&
       (state.region === "all" || university.region === state.region) &&
-      university.rankPosition <= Number(state.rankLimit) &&
+      (state.selectedUniversityId ||
+        university.rankPosition <= Number(state.rankLimit)) &&
       (!state.favoritesOnly ||
         state.favorites.has(favoriteKey("university", university.id)))
     );
@@ -815,7 +837,7 @@ function compareRecords(a, b) {
 }
 
 function hasActiveSearch() {
-  return state.search.trim().length > 0;
+  return Boolean(state.selectedUniversityId || state.search.trim());
 }
 
 function activeNonStatusFilter() {
@@ -846,6 +868,7 @@ function syncFilterInputs() {
 
 function resetFilter(filter) {
   if (filter === "search") state.search = "";
+  if (filter === "university") state.selectedUniversityId = "";
   if (filter === "ranking") {
     state.ranking = "qs";
     state.region = "all";
@@ -863,6 +886,7 @@ function resetFilter(filter) {
 
 function clearFilters() {
   state.search = "";
+  state.selectedUniversityId = "";
   state.ranking = "qs";
   state.region = "all";
   state.intake = "all";
@@ -876,6 +900,14 @@ function clearFilters() {
 
 function activeFilterItems() {
   const items = [];
+  if (state.selectedUniversityId) {
+    items.push({
+      key: "university",
+      label:
+        state.universityById.get(state.selectedUniversityId)?.school ||
+        state.selectedUniversityId,
+    });
+  }
   if (state.search.trim()) {
     items.push({
       key: "search",
@@ -1708,7 +1740,11 @@ function render() {
 
 function syncUrl() {
   const params = new URLSearchParams();
-  if (state.search) params.set("q", state.search);
+  if (state.selectedUniversityId) {
+    params.set("university", state.selectedUniversityId);
+  } else if (state.search) {
+    params.set("q", state.search);
+  }
   if (state.ranking !== "qs") params.set("ranking", state.ranking);
   if (state.region !== "all") params.set("region", state.region);
   if (state.intake !== "all") params.set("intake", state.intake);
@@ -1724,8 +1760,14 @@ function syncUrl() {
 
 function loadUrlState() {
   const params = new URLSearchParams(location.search);
-  state.search = params.get("q") || "";
-  state.ranking = params.get("ranking") || "qs";
+  const deepLink = universityDeepLink(
+    location.search,
+    new Set(state.universityById.keys()),
+  );
+  state.selectedUniversityId = deepLink.universityId;
+  state.search = state.selectedUniversityId ? "" : params.get("q") || "";
+  state.ranking =
+    params.get("ranking") || rankingForUniversity(state.selectedUniversityId);
   state.region = params.get("region") || "all";
   state.intake = params.get("intake") || "all";
   state.status = params.get("status") || "open";
@@ -1739,6 +1781,24 @@ function loadUrlState() {
     : params.get("top") === "100"
       ? "100"
       : "200";
+}
+
+function applyUrlAction() {
+  const deepLink = universityDeepLink(
+    location.search,
+    new Set(state.universityById.keys()),
+  );
+  if (deepLink.action !== "save" || !deepLink.universityId) return;
+  const key = favoriteKey("university", deepLink.universityId);
+  if (!state.favorites.has(key)) {
+    state.favorites.add(key);
+    persistFavorites();
+  }
+  history.replaceState(
+    null,
+    "",
+    `${location.pathname}${searchWithoutDeepLinkAction(location.search)}${location.hash}`,
+  );
 }
 
 function updateFavoriteControls() {
@@ -2035,6 +2095,7 @@ function bindEvents() {
       updateMobileFilterToggle();
     });
   document.getElementById("search-input").addEventListener("input", (event) => {
+    state.selectedUniversityId = "";
     state.search = event.target.value;
     resetPages();
     syncUrl();
@@ -2142,6 +2203,7 @@ function bindEvents() {
       setMobileNavActive(destination);
       if (destination === "home") {
         state.search = "";
+        state.selectedUniversityId = "";
         state.favoritesOnly = false;
         state.status = "open";
         document.getElementById("search-input").value = "";
@@ -2382,6 +2444,7 @@ async function init() {
     setupAuthPanel();
     setupReviewPanel();
     setupWindowDetailPanel();
+    applyUrlAction();
     render();
   } catch (error) {
     const errorState = makeElement("div", { className: "empty-state" });

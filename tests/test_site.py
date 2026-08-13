@@ -81,6 +81,7 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     assert (tmp_path / "status.js").exists()
     assert (tmp_path / "intake-filter.js").exists()
     assert (tmp_path / "ranking-filter.js").exists()
+    assert (tmp_path / "university-deep-link.js").exists()
     assert (tmp_path / "window-grouping.js").exists()
     assert (tmp_path / "window-provenance.js").exists()
     assert (tmp_path / "localization.js").exists()
@@ -350,6 +351,12 @@ def test_search_landing_pages_and_thin_university_indexing(tmp_path) -> None:
     nus_html = (
         tmp_path / "university" / "national-university-of-singapore-nus" / "index.html"
     ).read_text(encoding="utf-8")
+    nus_calendar = (
+        tmp_path
+        / "university"
+        / "national-university-of-singapore-nus"
+        / "deadlines.ics"
+    ).read_text(encoding="utf-8")
     stanford_html = (
         tmp_path / "university" / "stanford-university" / "index.html"
     ).read_text(encoding="utf-8")
@@ -372,6 +379,27 @@ def test_search_landing_pages_and_thin_university_indexing(tmp_path) -> None:
     assert "Last checked or verified" in nus_html
     assert "Applicants:" in nus_html
     assert "Round:" in nus_html
+    assert "View National University of Singapore (NUS) in GradWindow" in nus_html
+    assert (
+        'href="../../?university=national-university-of-singapore-nus#application-board"'
+        in nus_html
+    )
+    assert 'href="deadlines.ics" download>Add deadlines to calendar</a>' in nus_html
+    assert (
+        'href="../../?university=national-university-of-singapore-nus&amp;action=save#application-board"'
+        in nus_html
+    )
+    assert (
+        'href="../../?university=national-university-of-singapore-nus#subscribe"'
+        in nus_html
+    )
+    assert 'class="static-header"' in nus_html
+    assert "PRODID:-//GradWindow//University Application Deadlines//EN" in nus_calendar
+    assert "BEGIN:VEVENT" in nus_calendar
+    assert "DTSTART;VALUE=DATE:" in nus_calendar
+    assert "Verified official application deadline." in nus_calendar
+    assert "unofficial calendar-shift" not in nus_calendar
+    assert "DTSTART;VALUE=DATE:20251015" not in nus_calendar
     assert 'content="index, follow, max-image-preview:large"' in nus_html
     assert (
         "https://gradwindow.com/university/national-university-of-singapore-nus/"

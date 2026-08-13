@@ -24,6 +24,12 @@ APPLICATION_URL = (
     "https://www.ntu.edu.sg/admissions/graduate/cwadmissionguide/apply-now"
 )
 SITE_ROOT = "https://www.ntu.edu.sg"
+APPLICATION_PROGRAMME_ALIASES = {
+    "master of public administration chinese": "executive mpa march intake",
+    "msc managerial economics chinese": (
+        "managerial economics executive mme march intake"
+    ),
+}
 
 
 def catalog_page_url(page: int) -> str:
@@ -166,7 +172,7 @@ def _application_windows(
             if len(cells) < 5:
                 continue
             period, admission_date, programme_name, opens, closes = cells[:5]
-            key = _catalog_key(programme_name)
+            key = _application_catalog_key(programme_name)
             window = DiscoveredWindow(
                 round=_round_name(period),
                 intake=_intake(admission_date),
@@ -253,6 +259,14 @@ def _catalog_key(value: str) -> str:
     clean = re.sub(r"\bprogramme\b", " ", clean)
     clean = re.sub(r"\b(?:in|the)\b", " ", clean)
     return " ".join(re.findall(r"[a-z0-9]+", clean))
+
+
+def _application_catalog_key(value: str) -> str:
+    ascii_value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore")
+    clean = ascii_value.decode()
+    clean = re.sub(r"^\s*\d+\s*-\s*", "", clean).lower()
+    exact_label = " ".join(re.findall(r"[a-z0-9]+", clean))
+    return APPLICATION_PROGRAMME_ALIASES.get(exact_label, _catalog_key(value))
 
 
 def _slug(value: str) -> str:

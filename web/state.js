@@ -18,6 +18,7 @@ export const state = {
   recurringCount: 0,
   meta: {},
   search: "",
+  selectedUniversityId: "",
   region: "all",
   intake: "all",
   status: "open",

@@ -6,7 +6,7 @@ import os
 import re
 import shutil
 from collections import Counter, defaultdict
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 from .io import read_json
@@ -47,6 +47,7 @@ PUBLIC_FILES = (
     "status.js",
     "intake-filter.js",
     "ranking-filter.js",
+    "university-deep-link.js",
     "window-grouping.js",
     "window-provenance.js",
     "localization.js",
@@ -583,6 +584,22 @@ def generate_index_pages(
         estimated = predicted_by_university[university_id]
         recurring = recurring_by_university[university_id]
         all_records = [*official, *recurring, *estimated]
+        calendar_records = [
+            item
+            for item in [*official, *recurring]
+            if date.fromisoformat(item["closesAt"]) >= today
+        ]
+        if calendar_records:
+            (university_dir / "deadlines.ics").write_text(
+                render_university_calendar(
+                    university["school"],
+                    calendar_records,
+                    program_names,
+                    group_names,
+                ),
+                encoding="utf-8",
+                newline="",
+            )
         indexable = bool(all_records)
         canonical = f"{public_site_url}/university/{university['id']}/"
         ranking_label = (
@@ -610,6 +627,11 @@ def generate_index_pages(
                 else ""
             )
             + "</p>"
+            + render_university_product_actions(
+                university_id,
+                university["school"],
+                has_calendar=bool(calendar_records),
+            )
             + render_university_summary(
                 official,
                 recurring,
@@ -872,6 +894,95 @@ def university_page_title(school: str, target_cycle_year: int) -> str:
     if len(f"{title} · GradWindow") <= 100:
         return title
     return f"{school} Master's Deadlines {target_cycle_year}"
+
+
+def render_university_product_actions(
+    university_id: str,
+    school: str,
+    *,
+    has_calendar: bool,
+) -> str:
+    escaped_id = html.escape(university_id, quote=True)
+    escaped_school = html.escape(school)
+    calendar_action = (
+        '<a href="deadlines.ics" download>Add deadlines to calendar</a>'
+        if has_calendar
+        else (
+            f'<a href="../../calendar.html?university={escaped_id}">'
+            "View dates in calendar</a>"
+        )
+    )
+    return (
+        '<section class="product-actions" aria-label="GradWindow actions">'
+        '<p class="product-actions-kicker">Continue in GradWindow</p>'
+        f'<a class="primary-action" href="../../?university={escaped_id}#application-board">'
+        f'View {escaped_school} in GradWindow <span aria-hidden="true">→</span></a>'
+        '<div class="secondary-actions">'
+        f"{calendar_action}"
+        f'<a href="../../?university={escaped_id}&amp;action=save#application-board">Save university</a>'
+        f'<a href="../../?university={escaped_id}#subscribe">Get opening alerts</a>'
+        "</div></section>"
+    )
+
+
+def render_university_calendar(
+    school: str,
+    records: list[dict],
+    program_names: dict[str, str],
+    group_names: dict[str, str],
+) -> str:
+    events = []
+    for item in sorted(records, key=lambda value: (value["closesAt"], value["id"])):
+        closes_at = date.fromisoformat(item["closesAt"])
+        end_at = closes_at + timedelta(days=1)
+        recurring = bool(item.get("recurrence"))
+        scope = scope_name(item, program_names, group_names)
+        provenance = " (recurring policy)" if recurring else ""
+        evidence_note = (
+            "Official recurring day/month policy mapped to this cycle by GradWindow."
+            if recurring
+            else "Verified official application deadline."
+        )
+        verified_at = iso_date(item.get("verifiedAt")) or item["closesAt"]
+        events.extend(
+            [
+                "BEGIN:VEVENT",
+                f"UID:{_ics_escape(item['id'])}-deadline@gradwindow.com",
+                f"DTSTAMP:{verified_at.replace('-', '')}T000000Z",
+                f"DTSTART;VALUE=DATE:{closes_at.strftime('%Y%m%d')}",
+                f"DTEND;VALUE=DATE:{end_at.strftime('%Y%m%d')}",
+                f"SUMMARY:{_ics_escape(f'{school}: {scope} application deadline{provenance}')}",
+                "DESCRIPTION:"
+                + _ics_escape(
+                    f"{evidence_note}\nApplication: {item['applicationUrl']}\n"
+                    f"Official source: {item['sourceUrl']}"
+                ),
+                f"URL:{_ics_escape(item['applicationUrl'])}",
+                "END:VEVENT",
+            ]
+        )
+    lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//GradWindow//University Application Deadlines//EN",
+        "CALSCALE:GREGORIAN",
+        f"X-WR-CALNAME:{_ics_escape(f'{school} application deadlines')}",
+        *events,
+        "END:VCALENDAR",
+    ]
+    return "\r\n".join(lines) + "\r\n"
+
+
+def _ics_escape(value: str) -> str:
+    return (
+        str(value)
+        .replace("\\", "\\\\")
+        .replace("\r\n", "\n")
+        .replace("\r", "\n")
+        .replace("\n", "\\n")
+        .replace(",", "\\,")
+        .replace(";", "\\;")
+    )
 
 
 def render_university_summary(
@@ -1183,7 +1294,11 @@ def render_static_page(
   <script type="application/ld+json">{structured_data}</script>
   <style>
     body {{ margin: 0; background: #f7f5ef; color: #17231d; font: 16px/1.65 system-ui, sans-serif; }}
-    main {{ width: min(820px, calc(100% - 32px)); margin: 48px auto; }}
+    .static-header {{ display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 16px max(16px, calc((100% - 820px) / 2)); border-bottom: 1px solid #d9ddd7; background: #fffef9; }}
+    .brand {{ display: inline-flex; gap: 10px; align-items: center; color: #17231d; font-weight: 750; text-decoration: none; }}
+    .brand-mark {{ display: grid; width: 32px; height: 32px; place-items: center; border-radius: 10px; background: #1e6548; color: white; }}
+    .header-links {{ display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; }}
+    main {{ width: min(820px, calc(100% - 32px)); margin: 32px auto 48px; }}
     h1 {{ line-height: 1.2; }}
     h2 {{ margin-top: 36px; }}
     li {{ margin: 12px 0; }}
@@ -1192,6 +1307,11 @@ def render_static_page(
     .back {{ margin-bottom: 28px; }}
     .record-summary, .trust-note {{ padding: 18px 22px; border: 1px solid #d9ddd7; border-radius: 12px; background: #fffef9; }}
     .record-summary h2 {{ margin-top: 0; }}
+    .product-actions {{ margin: 28px 0; padding: 22px; border-radius: 16px; background: #173f31; color: #f8fbf8; box-shadow: 0 14px 34px rgba(23, 63, 49, .16); }}
+    .product-actions-kicker {{ margin: 0 0 10px; color: #bbd9cb; font-size: 13px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }}
+    .primary-action {{ display: inline-block; color: white; font-size: 20px; font-weight: 750; text-underline-offset: 4px; }}
+    .secondary-actions {{ display: flex; gap: 10px 18px; flex-wrap: wrap; margin-top: 16px; }}
+    .secondary-actions a {{ color: #dff2e8; }}
     .intake-links {{ display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }}
     .landing-grid {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 24px; }}
     .landing-card {{ padding: 18px 20px; border: 1px solid #d9ddd7; border-radius: 12px; background: #fffef9; }}
@@ -1199,10 +1319,17 @@ def render_static_page(
     .landing-card p {{ margin: 8px 0; }}
     .breadcrumbs {{ display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; color: #68736d; font-size: 14px; }}
     .site-links {{ display: flex; gap: 18px; flex-wrap: wrap; padding-top: 28px; margin-top: 42px; border-top: 1px solid #d9ddd7; font-size: 14px; }}
-    @media (max-width: 680px) {{ .landing-grid {{ grid-template-columns: 1fr; }} }}
+    @media (max-width: 680px) {{ .static-header {{ align-items: flex-start; flex-direction: column; }} .landing-grid {{ grid-template-columns: 1fr; }} }}
   </style>
 </head>
-<body><main>
+<body><header class="static-header">
+  <a class="brand" href="{public_site_url}/"><span class="brand-mark" aria-hidden="true">G</span><span>GradWindow</span></a>
+  <nav class="header-links" aria-label="Main navigation">
+    <a href="{public_site_url}/#application-board">Tracker</a>
+    <a href="{public_site_url}/calendar.html">Calendar</a>
+    <a href="{public_site_url}/#subscribe">Alerts</a>
+  </nav>
+</header><main>
   <nav class="breadcrumbs" aria-label="Breadcrumb">{breadcrumb_links}</nav>
   <h1>{escaped_title}</h1>{body}
   <nav class="site-links" aria-label="GradWindow pages">

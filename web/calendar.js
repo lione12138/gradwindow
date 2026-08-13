@@ -3,6 +3,7 @@ import { getApplicationStatus } from "./status.js";
 import { canonicalIntake, intakeLabel } from "./intake-filter.js";
 import { acronym, makeElement, makeLink, parseDate } from "./dom.js";
 import { isRecurringPolicyRecord } from "./window-provenance.js";
+import { universityDeepLink } from "./university-deep-link.js";
 import {
   countryLabel,
   programmeLabel,
@@ -15,6 +16,7 @@ import {
 const state = {
   records: [],
   search: "",
+  universityId: "",
   qsLimit: 200,
   status: "all",
   month: null,
@@ -89,7 +91,8 @@ function filteredRecords() {
       .join(" ")
       .toLocaleLowerCase("zh-CN");
     return (
-      record.qsRank <= state.qsLimit &&
+      (!state.universityId || record.universityId === state.universityId) &&
+      (state.universityId || record.qsRank <= state.qsLimit) &&
       (state.status === "all" ||
         getApplicationStatus(record) === state.status) &&
       (!query || searchable.includes(query))
@@ -307,6 +310,7 @@ function bindEvents() {
   document
     .getElementById("calendar-search")
     .addEventListener("input", (event) => {
+      state.universityId = "";
       state.search = event.target.value;
       state.month = null;
       render();
@@ -387,6 +391,15 @@ async function init() {
   const universityById = new Map(
     universities.universities.map((item) => [item.id, item]),
   );
+  const deepLink = universityDeepLink(
+    window.location.search,
+    new Set(universityById.keys()),
+  );
+  state.universityId = deepLink.universityId;
+  if (state.universityId) {
+    state.search = universityById.get(state.universityId).school;
+    document.getElementById("calendar-search").value = state.search;
+  }
   const programById = new Map(programs.programs.map((item) => [item.id, item]));
   const groupById = new Map(groups.groups.map((item) => [item.id, item]));
   const enrich = (record, dataStatus) => {
