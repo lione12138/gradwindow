@@ -1899,10 +1899,19 @@ function setupSubscription() {
 }
 
 function updateDataNotes() {
-  const checkedAt = state.monitorPayload?.meta?.checkedAt;
-  document.getElementById("updated-at").textContent = checkedAt
-    ? `${t("checkedAt")} ${formatDate(checkedAt.slice(0, 10))}`
-    : `${t("dataUpdatedAt")} ${formatDate(state.meta.updatedAt.slice(0, 10))}`;
+  const dataRefreshedAt =
+    state.refreshStatus?.dataRefreshedAt || state.meta.updatedAt;
+  const pageCheckedAt =
+    state.refreshStatus?.pageCheckedAt || state.monitorPayload?.meta?.checkedAt;
+  const monitoringRunAt = state.refreshStatus?.lastSuccessfulMonitoringRun;
+  document.getElementById("data-refreshed-at").textContent =
+    `${t("dataRefreshedAt")} ${formatDate(dataRefreshedAt.slice(0, 10))}`;
+  document.getElementById("page-checked-at").textContent = pageCheckedAt
+    ? `${t("pageCheckedAt")} ${formatDate(pageCheckedAt.slice(0, 10))}`
+    : `${t("pageCheckedAt")} ${t("freshnessUnavailable")}`;
+  document.getElementById("monitoring-run-at").textContent = monitoringRunAt
+    ? `${t("monitoringRunAt")} ${formatDate(monitoringRunAt.slice(0, 10))}`
+    : `${t("monitoringRunAt")} ${t("freshnessUnavailable")}`;
   const monitorSummary = state.monitorPayload?.meta?.summary;
   document.getElementById("monitor-summary").textContent = monitorSummary
     ? ` ${monitorSummary.ok}/${monitorSummary.total} ${t("pagesAccessible")}, ${monitorSummary.blocked} ${t("pagesBlocked")}.`
@@ -2193,6 +2202,7 @@ async function init() {
       predictionsPayload,
       recurringPayload,
       monitorPayload,
+      refreshStatusPayload,
       policiesPayload,
       coveragePayload,
       sourceMonitorPayload,
@@ -2207,6 +2217,7 @@ async function init() {
       fetchRequiredJson("./data/predictions.json"),
       fetchRequiredJson("./data/recurring-windows.json"),
       fetchOptionalJson("./data/monitor-state.json", null),
+      fetchOptionalJson("./data/refresh-status.json", null),
       fetchOptionalJson("./data/window-policies.json", { policies: [] }),
       fetchOptionalJson("./data/coverage.json", null),
       fetchOptionalJson("./data/application-source-state.json", {
@@ -2224,6 +2235,7 @@ async function init() {
     setProgrammeTranslations(programmeTranslationsPayload);
     state.coverage = coveragePayload;
     state.monitorPayload = monitorPayload;
+    state.refreshStatus = refreshStatusPayload;
     state.optionalFailureCount = optionalFailures.length;
     state.sourceMonitor = sourceMonitorPayload.applications || {};
     state.universities = universityPayload.universities;

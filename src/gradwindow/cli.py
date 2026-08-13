@@ -36,6 +36,7 @@ from .programme_adapters.registry import PROGRAMME_ADAPTERS
 from .programme_discovery import discover_programmes
 from .readme import generate_readmes
 from .recurring_windows import generate_recurring_windows
+from .refresh_status import generate_refresh_status
 from .review import generate_review_outputs
 from .schemas import export_schemas
 from .site import build_site
@@ -385,6 +386,12 @@ def main() -> None:
             f"Wrote review report: {review_report} "
             f"({review_summary['pendingReview']} pending)"
         )
+        if not args.skip_monitor:
+            refresh_status = generate_refresh_status()
+            print(
+                "Recorded successful monitoring run: "
+                f"{refresh_status['lastSuccessfulMonitoringRun']}"
+            )
         if not args.skip_build:
             print(f"Wrote site: {build_site()}")
 

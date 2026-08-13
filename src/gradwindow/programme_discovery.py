@@ -15,6 +15,7 @@ from .http_client import DEFAULT_USER_AGENT, fetch_page
 from .io import read_json, write_json
 from .monitor import extract_fetched_text
 from .paths import (
+    APPLICANT_CATEGORIES_PATH,
     APPLICATIONS_PATH,
     PROGRAMME_CANDIDATES_PATH,
     PROGRAMME_CATALOG_STATE_PATH,
@@ -77,6 +78,7 @@ def discover_programmes(
     candidates_path: Path = PROGRAMME_CANDIDATES_PATH,
     window_candidates_path: Path | None = None,
     state_path: Path = PROGRAMME_CATALOG_STATE_PATH,
+    applicant_categories_path: Path = APPLICANT_CATEGORIES_PATH,
     fetcher: Callable[[str], str] = fetch_catalog,
     dry_run: bool = False,
 ) -> dict:
@@ -91,6 +93,7 @@ def discover_programmes(
         return content
 
     catalog = adapter.parse_catalog_from_fetcher(tracking_fetcher)
+    _validate_recurring_applicant_categories(catalog, applicant_categories_path)
     programs_payload = read_json(programs_path)
     known_programmes = {
         item["id"]: item
@@ -438,6 +441,27 @@ def discover_programmes(
         "watchedWindowSourceFingerprintVersion": (watched_source_fingerprint_version),
         "dryRun": dry_run,
     }
+
+
+def _validate_recurring_applicant_categories(
+    catalog,
+    applicant_categories_path: Path,
+) -> None:
+    allowed = {
+        item["id"]
+        for item in read_json(applicant_categories_path).get("categories", [])
+        if item.get("id")
+    }
+    for programme in catalog.programmes:
+        for window in programme.windows:
+            if window.opens_at_basis != "official-recurring-policy":
+                continue
+            unknown = sorted(set(window.applicant_categories) - allowed)
+            if unknown:
+                raise ValueError(
+                    f"{programme.id}: unknown recurring-policy applicant "
+                    f"categories: {', '.join(unknown)}"
+                )
 
 
 def _known_programme_guidance_candidate(

@@ -18,6 +18,59 @@ from gradwindow.programme_adapters.cuhk import CUHKAdapter
 from gradwindow.programme_discovery import discover_programmes
 
 
+def test_recurring_policy_rejects_unknown_applicant_categories(tmp_path) -> None:
+    class InvalidRecurringAdapter(BaseProgrammeAdapter):
+        university_id = "example-university"
+        catalog_url = "https://example.edu/programmes"
+
+        def parse_catalog(self, _html):
+            return DiscoveredCatalog(
+                application_opens_at=None,
+                programmes=[
+                    DiscoveredProgramme(
+                        id="example-msc",
+                        name="Example MSc",
+                        degree_type="MSc",
+                        faculty="Example faculty",
+                        department="Example department",
+                        source_url="https://example.edu/programmes/example",
+                        application_url="https://example.edu/apply",
+                        windows=[
+                            DiscoveredWindow(
+                                round="Main",
+                                applicant_categories=["invented-category"],
+                                opens_at="2026-09-01",
+                                closes_at="2027-01-15",
+                                opens_at_basis="official-recurring-policy",
+                            )
+                        ],
+                        deadline_text="Official recurring dates.",
+                        parse_status="recurring-policy",
+                    )
+                ],
+            )
+
+    programmes = tmp_path / "programs.json"
+    applications = tmp_path / "applications.json"
+    candidates = tmp_path / "programme-candidates.json"
+    state = tmp_path / "programme-catalog-state.json"
+    programmes.write_text('{"programs": []}', encoding="utf-8")
+    applications.write_text('{"applications": []}', encoding="utf-8")
+
+    with pytest.raises(ValueError, match="invented-category"):
+        discover_programmes(
+            InvalidRecurringAdapter(),
+            programs_path=programmes,
+            applications_path=applications,
+            candidates_path=candidates,
+            state_path=state,
+            fetcher=lambda _url: "<html></html>",
+        )
+
+    assert not candidates.exists()
+    assert not state.exists()
+
+
 def test_fetch_catalog_extracts_pdf_text(monkeypatch) -> None:
     page = FetchedPage(
         body="%PDF binary text",

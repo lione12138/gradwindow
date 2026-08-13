@@ -28,6 +28,7 @@ export const state = {
   language: "en",
   theme: "light",
   monitorPayload: null,
+  refreshStatus: null,
   optionalFailureCount: 0,
   pages: {},
   expandedWindowGroups: new Set(),

@@ -21,6 +21,7 @@ from .paths import (
     PROGRAMME_GROUPS_PATH,
     PROGRAMS_PATH,
     RECURRING_WINDOWS_PATH,
+    REFRESH_STATUS_PATH,
     ROOT,
     SITE_DIR,
     UNIVERSITIES_PATH,
@@ -92,6 +93,7 @@ PUBLIC_DATA = (
     APPLICATIONS_PATH,
     PREDICTIONS_PATH,
     RECURRING_WINDOWS_PATH,
+    REFRESH_STATUS_PATH,
     MONITOR_STATE_PATH,
     PROGRAMS_PATH,
     PROGRAMME_GROUPS_PATH,
@@ -371,6 +373,7 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     policies = read_json(WINDOW_POLICIES_PATH)["policies"]
     coverage = read_json(COVERAGE_PATH)["universities"]
     monitor = read_json(MONITOR_STATE_PATH, {})
+    refresh_status = read_json(REFRESH_STATUS_PATH, {})
 
     qs_universities = [
         item for item in universities if item.get("qsPosition") is not None
@@ -447,19 +450,28 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
         deadline_url = "#application-groups"
         deadline_note = ""
 
-    checked_at = monitor.get("meta", {}).get("checkedAt")
-    updated_at = checked_at or application_payload["meta"]["updatedAt"]
-    updated_date = date.fromisoformat(updated_at[:10])
-    updated_label = "Official pages checked" if checked_at else "Official data updated"
-    updated_month = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()[
-        updated_date.month - 1
-    ]
+    data_refreshed_at = (
+        refresh_status.get("dataRefreshedAt")
+        or application_payload["meta"]["updatedAt"]
+    )
+    page_checked_at = refresh_status.get("pageCheckedAt") or monitor.get(
+        "meta", {}
+    ).get("checkedAt")
+    monitoring_run_at = refresh_status.get("lastSuccessfulMonitoringRun")
     official_start = min(item["opensAt"] for item in applications)
     official_end = max(item["closesAt"] for item in applications)
 
     return {
-        "updated_at": (
-            f"{updated_label} {updated_date.day} {updated_month} {updated_date.year}"
+        "data_refreshed_at": f"Data refreshed: {human_date(data_refreshed_at)}",
+        "page_checked_at": (
+            f"Page checked: {human_date(page_checked_at)}"
+            if page_checked_at
+            else "Page checked: unavailable"
+        ),
+        "monitoring_run_at": (
+            f"Last successful monitoring run: {human_date(monitoring_run_at)}"
+            if monitoring_run_at
+            else "Last successful monitoring run: unavailable"
         ),
         "deadline_day": deadline_day,
         "deadline_month": deadline_month,

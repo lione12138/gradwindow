@@ -113,6 +113,7 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     assert (tmp_path / "data" / "roadmap-proposals.json").exists()
     assert (tmp_path / "data" / "predictions.json").exists()
     assert (tmp_path / "data" / "recurring-windows.json").exists()
+    assert (tmp_path / "data" / "refresh-status.json").exists()
     assert not (tmp_path / "scripts").exists()
     assert not (tmp_path / "data" / "ror-cache.json").exists()
     assert not (tmp_path / "data" / "admissions-overrides.json").exists()
@@ -262,7 +263,10 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     )
     assert snapshot["deadline_school"] in index_html
     assert snapshot["deadline_mobile_date"] in index_html
-    assert snapshot["updated_at"] in index_html
+    assert snapshot["data_refreshed_at"] in index_html
+    assert snapshot["page_checked_at"] in index_html
+    assert snapshot["monitoring_run_at"] in index_html
+    assert "Updated daily at 8:00 AM Beijing time" not in index_html
     app_js = (tmp_path / "app.js").read_text(encoding="utf-8")
     i18n_js = (tmp_path / "i18n.js").read_text(encoding="utf-8")
     styles_css = (tmp_path / "styles.css").read_text(encoding="utf-8")

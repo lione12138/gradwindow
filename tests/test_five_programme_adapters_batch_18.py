@@ -166,6 +166,7 @@ def test_ulb_crawls_filtered_pages_and_keeps_recurring_policy_separate() -> None
         "official-recurring-policy",
         "official-recurring-policy",
     ]
+    assert windows[0].applicant_categories == ["domestic-students", "eu-efta"]
     assert windows[1].closes_at == "2026-03-31"
 
 

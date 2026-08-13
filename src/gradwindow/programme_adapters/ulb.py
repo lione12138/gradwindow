@@ -175,7 +175,7 @@ def _application_windows(
     definitions = (
         (
             "Belgian, European, EU-resident and Swiss applicants",
-            ["domestic", "eu-eea"],
+            ["domestic-students", "eu-efta"],
             "2026-04-01",
             "2026-09-30",
         ),

@@ -223,8 +223,11 @@
                 <span data-i18n="browseWindows">Browse application windows</span>
                 <span aria-hidden="true">↓</span>
               </a>
-              <span class="update-note update-schedule" data-i18n="updateSchedule">Updated daily at 8:00 AM Beijing time</span>
-              <span class="update-note" id="updated-at">{{GRADWINDOW_UPDATED_AT}}</span>
+              <div class="update-notes">
+                <span class="update-note" id="data-refreshed-at">{{GRADWINDOW_DATA_REFRESHED_AT}}</span>
+                <span class="update-note" id="page-checked-at">{{GRADWINDOW_PAGE_CHECKED_AT}}</span>
+                <span class="update-note" id="monitoring-run-at">{{GRADWINDOW_MONITORING_RUN_AT}}</span>
+              </div>
             </div>
             <div class="hero-disclaimer">
               <strong data-i18n="heroDisclaimerTitle">Before you apply</strong>
