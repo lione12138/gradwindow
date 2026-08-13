@@ -67,6 +67,9 @@ ARWU_SHARED_UNIVERSITIES = {
     "Rutgers, The State University of New Jersey - New Brunswick": (
         "rutgers-university-new-brunswick"
     ),
+    "Soochow University (China)": "soochow-university-china",
+    "Aix Marseille University": "aix-marseille-university",
+    "University of Montpellier": "university-of-montpellier",
 }
 
 THE_SHARED_UNIVERSITIES = {
@@ -96,6 +99,15 @@ THE_SHARED_UNIVERSITIES = {
     "Universitat Autònoma de Barcelona (UAB)": ("universitat-autonoma-de-barcelona"),
     "Indiana University": "indiana-university-bloomington",
     "University of Massachusetts": "university-of-massachusetts-amherst",
+    "Scuola Normale Superiore di Pisa": "scuola-normale-superiore",
+    "University of Virginia (Main campus)": "university-of-virginia",
+}
+
+USNEWS_SHARED_UNIVERSITIES = {
+    "University of Texas Southwestern Medical Center--Dallas": (
+        "university-of-texas-southwestern-medical-center"
+    ),
+    "University of Virginia": "university-of-virginia",
 }
 
 
@@ -131,6 +143,23 @@ def test_the_shared_schools_reuse_canonical_universities() -> None:
         )
         assert row["universityId"] == university_id, the_name
         assert row["rankingOnly"] is False, the_name
+
+
+def test_usnews_shared_schools_reuse_canonical_universities() -> None:
+    payload = json.loads(
+        (ROOT / "data" / "global-rankings.json").read_text(encoding="utf-8")
+    )
+    rows = payload["rankings"]["usnews"]["rows"]
+
+    for usnews_name, university_id in USNEWS_SHARED_UNIVERSITIES.items():
+        row = next(
+            item
+            for item in rows
+            if item["school"] in {usnews_name, university_id}
+            or item.get("universityId") == university_id
+        )
+        assert row["universityId"] == university_id, usnews_name
+        assert row["rankingOnly"] is False, usnews_name
 
 
 def test_ranking_importer_maps_shared_schools_to_canonical_universities(

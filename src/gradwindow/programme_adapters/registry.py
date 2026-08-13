@@ -5,6 +5,7 @@ from collections.abc import Callable
 from .aalto import AaltoAdapter
 from .aarhus import AarhusAdapter
 from .adelaide import AdelaideAdapter
+from .aix_marseille import AixMarseilleAdapter
 from .alberta import AlbertaAdapter
 from .antwerp import AntwerpAdapter
 from .anu import ANUAdapter
@@ -137,6 +138,7 @@ from .michigan_state import MichiganStateAdapter
 from .minnesota import MinnesotaAdapter
 from .mit import MITAdapter
 from .monash import MonashAdapter
+from .montpellier import MontpellierAdapter
 from .montreal import MontrealAdapter
 from .msu import MSUAdapter
 from .munster import MunsterAdapter
@@ -145,6 +147,7 @@ from .nanjing import NanjingAdapter
 from .nankai import NankaiAdapter
 from .ncku import NCKUAdapter
 from .newcastle import NewcastleAdapter
+from .normale_superiore import NormaleSuperioreAdapter
 from .northwestern import NorthwesternAdapter
 from .notre_dame import NotreDameAdapter
 from .nottingham import NottinghamAdapter
@@ -198,6 +201,7 @@ from .sichuan import SichuanAdapter
 from .sjtu import SJTUAdapter
 from .skku import SKKUAdapter
 from .snu import SNUAdapter
+from .soochow_china import SoochowChinaAdapter
 from .sorbonne import SorbonneAdapter
 from .southampton import SouthamptonAdapter
 from .st_andrews import StAndrewsAdapter
@@ -276,6 +280,7 @@ from .uwa import UWAAdapter
 from .uzh import UZHAdapter
 from .vanderbilt import VanderbiltAdapter
 from .vienna import ViennaAdapter
+from .virginia import VirginiaAdapter
 from .vu_amsterdam import VUAmsterdamAdapter
 from .wageningen import WageningenAdapter
 from .warwick import WarwickAdapter
@@ -300,6 +305,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "adelaide": AdelaideAdapter,
     "aalto": AaltoAdapter,
     "aarhus": AarhusAdapter,
+    "aix-marseille": AixMarseilleAdapter,
     "anu": ANUAdapter,
     "antwerp": AntwerpAdapter,
     "arizona": ArizonaAdapter,
@@ -430,6 +436,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "minnesota": MinnesotaAdapter,
     "mit": MITAdapter,
     "montreal": MontrealAdapter,
+    "montpellier": MontpellierAdapter,
     "munster": MunsterAdapter,
     "monash": MonashAdapter,
     "nagoya": NagoyaAdapter,
@@ -442,6 +449,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "northwestern": NorthwesternAdapter,
     "nwpu": NPUAdapter,
     "ntu": NTUAdapter,
+    "normale-superiore": NormaleSuperioreAdapter,
     "ntu-taiwan": NTUTaiwanAdapter,
     "nthu": NTHUAdapter,
     "ntnu": NTNUAdapter,
@@ -490,6 +498,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "sichuan": SichuanAdapter,
     "shenzhen": ShenzhenAdapter,
     "snu": SNUAdapter,
+    "soochow-china": SoochowChinaAdapter,
     "southampton": SouthamptonAdapter,
     "st-andrews": StAndrewsAdapter,
     "sorbonne": SorbonneAdapter,
@@ -586,5 +595,6 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "alberta": AlbertaAdapter,
     "ksu": KSUAdapter,
     "vienna": ViennaAdapter,
+    "virginia": VirginiaAdapter,
     "vu-amsterdam": VUAmsterdamAdapter,
 }
