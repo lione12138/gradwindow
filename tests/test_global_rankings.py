@@ -60,6 +60,13 @@ ARWU_SHARED_UNIVERSITIES = {
         "university-of-electronic-science-and-technology-of-china"
     ),
     "University of Mainz": "johannes-gutenberg-university-mainz",
+    "South China University of Technology": ("south-china-university-of-technology"),
+    "Chongqing University": "chongqing-university",
+    "University of Padua": "university-of-padua",
+    "Goethe University Frankfurt": "goethe-university-frankfurt",
+    "Rutgers, The State University of New Jersey - New Brunswick": (
+        "rutgers-university-new-brunswick"
+    ),
 }
 
 THE_SHARED_UNIVERSITIES = {

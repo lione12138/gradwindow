@@ -450,6 +450,18 @@ const aliasEntries = [
   ["universityofmainz", "johannes-gutenberg-university-mainz"],
   ["johannesgutenberguniversitymainz", "johannes-gutenberg-university-mainz"],
   ["universitegrenoblealpes", "universite-grenoble-alpes"],
+  [
+    "southchinauniversityoftechnology",
+    "south-china-university-of-technology",
+  ],
+  ["chongqinguniversity", "chongqing-university"],
+  ["universityofpadua", "university-of-padua"],
+  ["goetheuniversityfrankfurt", "goethe-university-frankfurt"],
+  ["universityoffrankfurt", "goethe-university-frankfurt"],
+  [
+    "rutgersthestateuniversityofnewjerseynewbrunswick",
+    "rutgers-university-new-brunswick",
+  ],
   ["universityofmassachusetts", "university-of-massachusetts-amherst"],
   ["universityofmassachusettsamherst", "university-of-massachusetts-amherst"],
   ["theeducationuniversityofhongkong", "education-university-of-hong-kong"],

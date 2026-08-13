@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-08-12",
+    "generatedAt": "2026-08-13",
     "selectionPolicy": "All institutions whose published rank starts at 200 or above are retained; tied and banded ranks are preserved.",
     "note": "All ranking views resolve through the shared canonical university table. Ranking-only rows remain visible until their institution is added to monitored admissions coverage."
   },
@@ -4604,15 +4604,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-south-china-university-of-technology",
-          "universityId": null,
+          "id": "south-china-university-of-technology",
+          "universityId": "south-china-university-of-technology",
           "school": "South China University of Technology",
           "schoolZh": "华南理工大学",
           "country": "China",
           "region": "Asia",
           "rankPosition": 101,
           "rankDisplay": "101-150",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025",
           "schoolAliasesZh": [
             "华工"
@@ -4936,15 +4936,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-chongqing-university",
-          "universityId": null,
+          "id": "chongqing-university",
+          "universityId": "chongqing-university",
           "school": "Chongqing University",
           "schoolZh": "重庆大学",
           "country": "China",
           "region": "Asia",
           "rankPosition": 151,
           "rankDisplay": "151-200",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
@@ -4987,15 +4987,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-goethe-university-frankfurt",
-          "universityId": null,
+          "id": "goethe-university-frankfurt",
+          "universityId": "goethe-university-frankfurt",
           "school": "Goethe University Frankfurt",
-          "schoolZh": "法兰克福大学",
+          "schoolZh": "法兰克福歌德大学",
           "country": "Germany",
           "region": "Europe",
           "rankPosition": 151,
           "rankDisplay": "151-200",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
@@ -5062,15 +5062,15 @@
           ]
         },
         {
-          "id": "arwu-rutgers-the-state-university-of-new-jersey-new-brunswick",
-          "universityId": null,
-          "school": "Rutgers, The State University of New Jersey - New Brunswick",
+          "id": "rutgers-university-new-brunswick",
+          "universityId": "rutgers-university-new-brunswick",
+          "school": "Rutgers University–New Brunswick",
           "schoolZh": "罗格斯大学新布朗斯维克分校",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 151,
           "rankDisplay": "151-200",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025",
           "schoolAliasesZh": [
             "罗格斯"
@@ -5407,15 +5407,15 @@
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
-          "id": "arwu-university-of-padua",
-          "universityId": null,
+          "id": "university-of-padua",
+          "universityId": "university-of-padua",
           "school": "University of Padua",
           "schoolZh": "帕多瓦大学",
           "country": "Italy",
           "region": "Europe",
           "rankPosition": 151,
           "rankDisplay": "151-200",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.shanghairanking.com/rankings/arwu/2025"
         },
         {
@@ -7744,18 +7744,20 @@
           ]
         },
         {
-          "id": "usnews-rutgers-the-state-university-of-new-jersey-new-brunswick",
-          "universityId": null,
-          "school": "Rutgers, The State University of New Jersey--New Brunswick",
+          "id": "rutgers-university-new-brunswick",
+          "universityId": "rutgers-university-new-brunswick",
+          "school": "Rutgers University–New Brunswick",
           "schoolZh": "罗格斯大学新布朗斯维克分校",
           "country": "United States",
           "region": "Americas",
           "rankPosition": 155,
           "rankDisplay": "=155",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.usnews.com/education/best-global-universities/rutgers-the-state-university-of-new-jersey-new-brunswick-186380",
           "schoolAliasesZh": [
-            "罗格斯"
+            "罗格斯大学新布朗斯维克分校",
+            "罗格斯",
+            "Rutgers–New Brunswick"
           ]
         },
         {
@@ -7827,18 +7829,20 @@
           ]
         },
         {
-          "id": "usnews-south-china-university-of-technology",
-          "universityId": null,
+          "id": "south-china-university-of-technology",
+          "universityId": "south-china-university-of-technology",
           "school": "South China University of Technology",
           "schoolZh": "华南理工大学",
           "country": "China",
           "region": "Asia",
           "rankPosition": 162,
           "rankDisplay": "=162",
-          "rankingOnly": true,
+          "rankingOnly": false,
           "sourceUrl": "https://www.usnews.com/education/best-global-universities/south-china-university-of-technology-505115",
           "schoolAliasesZh": [
-            "华工"
+            "华南理工大学",
+            "华工",
+            "SCUT"
           ]
         },
         {
@@ -7995,16 +7999,20 @@
           "sourceUrl": "https://www.usnews.com/education/best-global-universities/rmit-university-503858"
         },
         {
-          "id": "usnews-university-of-padua",
-          "universityId": null,
+          "id": "university-of-padua",
+          "universityId": "university-of-padua",
           "school": "University of Padua",
           "schoolZh": "帕多瓦大学",
           "country": "Italy",
           "region": "Europe",
           "rankPosition": 175,
           "rankDisplay": "175",
-          "rankingOnly": true,
-          "sourceUrl": "https://www.usnews.com/education/best-global-universities/university-of-padua-502381"
+          "rankingOnly": false,
+          "sourceUrl": "https://www.usnews.com/education/best-global-universities/university-of-padua-502381",
+          "schoolAliasesZh": [
+            "帕多瓦大学",
+            "UniPD"
+          ]
         },
         {
           "id": "xiamen-university",

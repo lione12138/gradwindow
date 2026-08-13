@@ -37,6 +37,7 @@ from .cau import CAUAdapter
 from .central_south import CentralSouthAdapter
 from .chalmers import ChalmersAdapter
 from .charite import ChariteAdapter
+from .chongqing import ChongqingAdapter
 from .cityu import CityUAdapter
 from .cmu import CMUAdapter
 from .cologne import CologneAdapter
@@ -70,6 +71,7 @@ from .geneva import GenevaAdapter
 from .georgia_tech import GeorgiaTechAdapter
 from .ghent import GhentAdapter
 from .glasgow import GlasgowAdapter
+from .goethe_frankfurt import GoetheFrankfurtAdapter
 from .gothenburg import GothenburgAdapter
 from .gottingen import GottingenAdapter
 from .grenoble_alpes import GrenobleAlpesAdapter
@@ -160,6 +162,7 @@ from .oslo import OsloAdapter
 from .otago import OtagoAdapter
 from .ottawa import OttawaAdapter
 from .oxford import OxfordAdapter
+from .padua import PaduaAdapter
 from .paris_cite import ParisCiteAdapter
 from .paris_saclay import ParisSaclayAdapter
 from .peking import PekingAdapter
@@ -182,9 +185,11 @@ from .rice import RiceAdapter
 from .rmit import RMITAdapter
 from .rochester import RochesterAdapter
 from .rockefeller import RockefellerAdapter
+from .rutgers_nb import RutgersNBAdapter
 from .rwth import RWTHAdapter
 from .sapienza import SapienzaAdapter
 from .science_tokyo import ScienceTokyoAdapter
+from .scut import SCUTAdapter
 from .seu import SEUAdapter
 from .shandong import ShandongAdapter
 from .sheffield import SheffieldAdapter
@@ -324,6 +329,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "cau": CAUAdapter,
     "charite": ChariteAdapter,
     "chalmers": ChalmersAdapter,
+    "chongqing": ChongqingAdapter,
     "cologne": CologneAdapter,
     "columbia": ColumbiaAdapter,
     "complutense": ComplutenseAdapter,
@@ -355,6 +361,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "freiburg": FreiburgAdapter,
     "fu-berlin": FUBerlinAdapter,
     "glasgow": GlasgowAdapter,
+    "goethe-frankfurt": GoetheFrankfurtAdapter,
     "gottingen": GottingenAdapter,
     "gothenburg": GothenburgAdapter,
     "ghent": GhentAdapter,
@@ -443,6 +450,7 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "nycu": NYCUAdapter,
     "ohio-state": OhioStateAdapter,
     "oxford": OxfordAdapter,
+    "padua": PaduaAdapter,
     "oslo": OsloAdapter,
     "osaka": OsakaAdapter,
     "otago": OtagoAdapter,
@@ -469,9 +477,11 @@ PROGRAMME_ADAPTERS: dict[str, AdapterFactory] = {
     "rmit": RMITAdapter,
     "rockefeller": RockefellerAdapter,
     "rochester": RochesterAdapter,
+    "rutgers-nb": RutgersNBAdapter,
     "rwth": RWTHAdapter,
     "sapienza": SapienzaAdapter,
     "science-tokyo": ScienceTokyoAdapter,
+    "scut": SCUTAdapter,
     "seu": SEUAdapter,
     "sjtu": SJTUAdapter,
     "skku": SKKUAdapter,
