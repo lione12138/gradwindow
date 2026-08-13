@@ -70,6 +70,9 @@ ARWU_SHARED_UNIVERSITIES = {
     "Soochow University (China)": "soochow-university-china",
     "Aix Marseille University": "aix-marseille-university",
     "University of Montpellier": "university-of-montpellier",
+    "University of Milan": "university-of-milan",
+    "Zhengzhou University": "zhengzhou-university",
+    "Peking Union Medical College": "peking-union-medical-college",
 }
 
 THE_SHARED_UNIVERSITIES = {
@@ -108,6 +111,11 @@ USNEWS_SHARED_UNIVERSITIES = {
         "university-of-texas-southwestern-medical-center"
     ),
     "University of Virginia": "university-of-virginia",
+    "London School of Hygiene and Tropical Medicine": (
+        "london-school-of-hygiene-and-tropical-medicine"
+    ),
+    "University of Milan": "university-of-milan",
+    "Queensland University of Technology": ("queensland-university-of-technology"),
 }
 
 

@@ -1,0 +1,83 @@
+{
+  "items": [
+    {
+      "id": "new-programme:pumc-2026-master-catalogue",
+      "type": "new-programme",
+      "status": "pending",
+      "universityId": "peking-union-medical-college",
+      "detectedAt": "2026-08-13T07:43:19.754958+00:00",
+      "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1013/2124.htm",
+      "programme": {
+        "id": "pumc-2026-master-catalogue",
+        "universityId": "peking-union-medical-college",
+        "name": "2026 master's programme catalogue",
+        "degreeType": "Master",
+        "faculty": "Graduate School | Graduate Admissions Office",
+        "applicationUrl": "https://yz.chsi.com.cn/",
+        "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1013/2124.htm"
+      },
+      "windows": [],
+      "parseStatus": "no-deadline",
+      "reviewReason": "No application deadline was parsed.",
+      "evidenceExcerpt": "The official 2026 master's catalogue attachment requires human verification. This monitor does not invent programme titles or dates.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-captcha-protected-catalogue-monitor",
+        "evidenceQuality": "official-access-limitation",
+        "documentHash": null
+      }
+    },
+    {
+      "id": "new-programme:pumc-national-master-admissions",
+      "type": "new-programme",
+      "status": "pending",
+      "universityId": "peking-union-medical-college",
+      "detectedAt": "2026-08-13T07:43:19.754958+00:00",
+      "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1003/2117.htm",
+      "programme": {
+        "id": "pumc-national-master-admissions",
+        "universityId": "peking-union-medical-college",
+        "name": "National master's admissions",
+        "degreeType": "Master",
+        "faculty": "Graduate School | Graduate Admissions Office",
+        "applicationUrl": "https://yz.chsi.com.cn/",
+        "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1003/2117.htm"
+      },
+      "windows": [
+        {
+          "intake": "Autumn 2026",
+          "round": "National master's pre-registration",
+          "applicantCategories": [
+            "domestic-students"
+          ],
+          "opensAt": "2025-10-10",
+          "opensAtBasis": "official",
+          "closesAt": "2025-10-13",
+          "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1003/2117.htm",
+          "scopeType": "institution",
+          "scopeId": "peking-union-medical-college"
+        },
+        {
+          "intake": "Autumn 2026",
+          "round": "National master's formal registration",
+          "applicantCategories": [
+            "domestic-students"
+          ],
+          "opensAt": "2025-10-16",
+          "opensAtBasis": "official",
+          "closesAt": "2025-10-27",
+          "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1003/2117.htm",
+          "scopeType": "institution",
+          "scopeId": "peking-union-medical-college"
+        }
+      ],
+      "parseStatus": "parsed",
+      "reviewReason": "Review the automatically discovered programme and application rounds.",
+      "evidenceExcerpt": "Peking Union Medical College's official 2026 guide publishes the exact national pre-registration and formal registration periods.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-2026-masters-guide-html",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    }
+  ]
+}

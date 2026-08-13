@@ -137,10 +137,15 @@ def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
         "scut",
         "aix-marseille",
         "montpellier",
+        "milan",
+        "lshtm",
         "normale-superiore",
+        "pumc",
+        "qut",
         "soochow-china",
         "utsw",
         "virginia",
+        "zhengzhou",
     }
     university_ids = [factory.university_id for factory in PROGRAMME_ADAPTERS.values()]
     assert len(university_ids) == len(set(university_ids))

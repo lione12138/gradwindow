@@ -1,0 +1,83 @@
+{
+  "items": [
+    {
+      "id": "new-programme:zhengzhou-2026-master-catalogue",
+      "type": "new-programme",
+      "status": "pending",
+      "universityId": "zhengzhou-university",
+      "detectedAt": "2026-08-13T07:43:13.245956+00:00",
+      "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13630.htm",
+      "programme": {
+        "id": "zhengzhou-2026-master-catalogue",
+        "universityId": "zhengzhou-university",
+        "name": "2026 master's programme catalogue",
+        "degreeType": "Master",
+        "faculty": "Graduate School | Graduate Admissions Office",
+        "applicationUrl": "https://yz.chsi.com.cn/",
+        "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13630.htm"
+      },
+      "windows": [],
+      "parseStatus": "no-deadline",
+      "reviewReason": "No application deadline was parsed.",
+      "evidenceExcerpt": "The official index publishes faculty-level 2026 catalogue PDFs, but their downloads require human verification. This monitor does not invent programme titles or deadlines.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-captcha-protected-catalogue-monitor",
+        "evidenceQuality": "official-access-limitation",
+        "documentHash": null
+      }
+    },
+    {
+      "id": "new-programme:zhengzhou-national-master-admissions",
+      "type": "new-programme",
+      "status": "pending",
+      "universityId": "zhengzhou-university",
+      "detectedAt": "2026-08-13T07:43:13.245956+00:00",
+      "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13629.htm",
+      "programme": {
+        "id": "zhengzhou-national-master-admissions",
+        "universityId": "zhengzhou-university",
+        "name": "National master's admissions",
+        "degreeType": "Master",
+        "faculty": "Graduate School | Graduate Admissions Office",
+        "applicationUrl": "https://yz.chsi.com.cn/",
+        "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13629.htm"
+      },
+      "windows": [
+        {
+          "intake": "Autumn 2026",
+          "round": "National master's pre-registration",
+          "applicantCategories": [
+            "domestic-students"
+          ],
+          "opensAt": "2025-10-10",
+          "opensAtBasis": "official",
+          "closesAt": "2025-10-13",
+          "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13629.htm",
+          "scopeType": "institution",
+          "scopeId": "zhengzhou-university"
+        },
+        {
+          "intake": "Autumn 2026",
+          "round": "National master's formal registration",
+          "applicantCategories": [
+            "domestic-students"
+          ],
+          "opensAt": "2025-10-16",
+          "opensAtBasis": "official",
+          "closesAt": "2025-10-27",
+          "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13629.htm",
+          "scopeType": "institution",
+          "scopeId": "zhengzhou-university"
+        }
+      ],
+      "parseStatus": "parsed",
+      "reviewReason": "Review the automatically discovered programme and application rounds.",
+      "evidenceExcerpt": "Zhengzhou University's official 2026 guide publishes the exact national pre-registration and formal registration periods.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-2026-masters-guide-html",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    }
+  ]
+}

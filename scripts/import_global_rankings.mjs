@@ -396,6 +396,22 @@ const aliasEntries = [
   ],
   ["universityofvirginiamaincampus", "university-of-virginia"],
   ["universityofvirginia", "university-of-virginia"],
+  ["universityofmilan", "university-of-milan"],
+  ["universitadeglistudidimilano", "university-of-milan"],
+  [
+    "londonschoolofhygieneandtropicalmedicine",
+    "london-school-of-hygiene-and-tropical-medicine",
+  ],
+  [
+    "queenslanduniversityoftechnology",
+    "queensland-university-of-technology",
+  ],
+  ["zhengzhouuniversity", "zhengzhou-university"],
+  ["pekingunionmedicalcollege", "peking-union-medical-college"],
+  [
+    "chineseacademyofmedicalsciencespekingunionmedicalcollege",
+    "peking-union-medical-college",
+  ],
   ["universityofnottinghamming", "university-of-nottingham"],
   ["universitatmunchen", "ludwig-maximilians-universit-t-m-nchen"],
   ["katholiekeuniversiteitleuven", "ku-leuven"],
