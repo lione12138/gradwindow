@@ -7,6 +7,18 @@ from typing import Protocol, runtime_checkable
 Fetcher = Callable[[str], str]
 
 
+class ProgrammeAdapterError(ValueError):
+    reason = "ADAPTER_ERROR"
+
+
+class ParserZeroResultError(ProgrammeAdapterError):
+    reason = "PARSER_ZERO_RESULT"
+
+
+class OfficialSourceTransportError(ProgrammeAdapterError):
+    reason = "TRANSPORT_ERROR"
+
+
 @dataclass(slots=True)
 class DiscoveredWindow:
     round: str
@@ -39,6 +51,7 @@ class DiscoveredProgramme:
 class DiscoveredCatalog:
     application_opens_at: str | None
     programmes: list[DiscoveredProgramme]
+    warnings: list[dict[str, object]] = field(default_factory=list)
 
 
 @runtime_checkable

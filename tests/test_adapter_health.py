@@ -84,6 +84,50 @@ def test_monitoring_without_exact_windows_is_healthy(tmp_path) -> None:
     assert payload["meta"]["summary"]["needsMaintenance"] == 0
 
 
+def test_identity_mismatch_warning_preserves_partial_success_and_alerts(
+    tmp_path,
+) -> None:
+    now = datetime(2026, 8, 14, tzinfo=timezone.utc)
+    warning = {
+        "reason": "PROGRAMME_ID_MISMATCH",
+        "message": "One official application row needs identity review.",
+        "sourceUrl": "https://example.edu/apply",
+        "programmeKeys": ["new programme"],
+    }
+
+    payload = _update(
+        tmp_path,
+        [_success(now, adapterWarnings=[warning])],
+        now,
+    )
+
+    entry = payload["universities"]["example-university"]
+    assert entry["catalogueStatus"] == "ok"
+    assert entry["reasonCategories"] == ["PROGRAMME_ID_MISMATCH"]
+    assert [alert["type"] for alert in entry["alerts"]] == ["programme-id-mismatch"]
+    assert entry["alerts"][0]["category"] == "data-integrity"
+
+
+def test_failure_reason_is_preserved_for_transport_diagnosis(tmp_path) -> None:
+    now = datetime(2026, 8, 14, tzinfo=timezone.utc)
+    failure = {
+        "status": "error",
+        "adapter": "example",
+        "universityId": "example-university",
+        "sourceUrl": "https://example.edu/programmes",
+        "errorType": "OfficialSourceTransportError",
+        "reason": "TRANSPORT_ERROR",
+        "message": "Official page returned HTTP 403",
+        "checkedAt": now.isoformat(),
+    }
+
+    payload = _update(tmp_path, [failure], now)
+
+    entry = payload["universities"]["example-university"]
+    assert entry["lastError"]["reason"] == "TRANSPORT_ERROR"
+    assert entry["reasonCategories"] == ["TRANSPORT_ERROR"]
+
+
 def test_two_failures_and_stale_success_create_one_school_level_alert_set(
     tmp_path,
 ) -> None:
@@ -269,6 +313,12 @@ def test_exact_window_drop_remains_alerted_against_healthy_baseline(tmp_path) ->
                 observedWindowCount=4,
                 exactWindowCount=3,
                 missingOpeningDateCount=1,
+                recordDiff={
+                    "previous": {"programmes": 100, "windows": 4},
+                    "current": {"programmes": 100, "windows": 3},
+                    "disappearedProgrammeIds": [],
+                    "disappearedWindowIds": ["example-msc::Fall 2027::Final::all"],
+                },
             )
         ],
         health_path=health_path,
@@ -281,6 +331,10 @@ def test_exact_window_drop_remains_alerted_against_healthy_baseline(tmp_path) ->
     alerts = payload["universities"]["example-university"]["alerts"]
     assert [item["type"] for item in alerts] == ["exact-window-drop"]
     assert alerts[0]["category"] == "data-integrity"
+    assert alerts[0]["reason"] == "SOURCE_RECORD_REMOVED"
+    assert alerts[0]["details"]["disappearedWindowIds"] == [
+        "example-msc::Fall 2027::Final::all"
+    ]
     assert payload["meta"]["summary"]["dataIntegrityRisks"] == 1
 
 
@@ -392,6 +446,83 @@ def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
     assert report["missingOpeningDateCount"] == 1
     assert report["windowStatus"] == "partial"
     assert report["watchedWindowSourceFingerprintVersion"] == 2
+
+
+def test_discovery_reports_record_level_window_removals(tmp_path) -> None:
+    class ChangingAdapter(BaseProgrammeAdapter):
+        university_id = "example-university"
+        catalog_url = "https://example.edu/programmes"
+        intake = "September 2027"
+        include_final_round = True
+
+        def parse_catalog_from_fetcher(self, _fetcher):
+            windows = [
+                DiscoveredWindow(
+                    round="First",
+                    opens_at="2026-09-01",
+                    closes_at="2026-12-01",
+                    intake=self.intake,
+                )
+            ]
+            if self.include_final_round:
+                windows.append(
+                    DiscoveredWindow(
+                        round="Final",
+                        opens_at="2026-09-01",
+                        closes_at="2027-02-01",
+                        intake=self.intake,
+                    )
+                )
+            return DiscoveredCatalog(
+                application_opens_at=None,
+                programmes=[
+                    DiscoveredProgramme(
+                        id="example-msc",
+                        name="Example MSc",
+                        degree_type="MSc",
+                        faculty="Example Faculty",
+                        department="Example Department",
+                        source_url=self.catalog_url,
+                        application_url="https://example.edu/apply",
+                        windows=windows,
+                        deadline_text="Official dates",
+                        parse_status="parsed",
+                    )
+                ],
+            )
+
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "programme-candidates.json"
+    window_candidates_path = tmp_path / "window-candidates.json"
+    state_path = tmp_path / "programme-catalog-state.json"
+    programs_path.write_text(json.dumps({"programs": []}), encoding="utf-8")
+    applications_path.write_text(json.dumps({"applications": []}), encoding="utf-8")
+    adapter = ChangingAdapter()
+    kwargs = {
+        "programs_path": programs_path,
+        "applications_path": applications_path,
+        "candidates_path": candidates_path,
+        "window_candidates_path": window_candidates_path,
+        "state_path": state_path,
+        "fetcher": lambda _url: "",
+    }
+
+    first = discover_programmes(adapter, **kwargs)
+    adapter.include_final_round = False
+    second = discover_programmes(adapter, **kwargs)
+
+    assert first["recordDiff"]["disappearedWindowIds"] == []
+    assert second["recordDiff"] == {
+        "previous": {"programmes": 1, "windows": 2},
+        "current": {"programmes": 1, "windows": 1},
+        "disappearedProgrammeIds": [],
+        "addedProgrammeIds": [],
+        "changedProgrammeIds": ["example-msc"],
+        "disappearedWindowIds": ["example-msc::September 2027::Final::all"],
+        "addedWindowIds": [],
+        "changedWindowIds": [],
+    }
 
 
 def test_window_watch_fingerprint_ignores_non_deadline_page_changes(tmp_path) -> None:

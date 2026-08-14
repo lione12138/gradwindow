@@ -116,6 +116,31 @@ def test_ubc_adapter_does_not_create_windows_without_an_exact_pair() -> None:
     assert all(item.parse_status == "no-deadline" for item in unavailable)
 
 
+def test_ubc_adapter_reports_partial_detail_transport_failures() -> None:
+    def fetcher(url: str) -> str:
+        if url.endswith("master-of-education-example"):
+            raise RuntimeError("HTTP 503")
+        return _fetcher(url)
+
+    catalog = UBCAdapter(
+        minimum_expected_programmes=3,
+        detail_workers=1,
+        maximum_detail_failures=1,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    assert len(catalog.programmes) == 3
+    assert catalog.warnings == [
+        {
+            "reason": "TRANSPORT_ERROR",
+            "message": (
+                "UBC detail discovery could not retrieve 1 official programme page."
+            ),
+            "sourceUrl": CATALOG_URL,
+            "programmeIds": ["ubc-master-of-education-in-example-med"],
+        }
+    ]
+
+
 def test_ubc_adapter_rejects_a_truncated_catalogue() -> None:
     with pytest.raises(ValueError, match="only contained 3 master's programmes"):
         UBCAdapter(

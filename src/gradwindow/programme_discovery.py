@@ -148,6 +148,7 @@ def discover_programmes(
     existing_window_candidates = {
         item["id"]: item for item in window_candidates_payload.get("items", [])
     }
+    original_window_candidate_items = window_candidates_payload.get("items", [])
     if adapter.replace_pending_candidates:
         existing_window_candidates = {
             candidate_id: item
@@ -272,10 +273,95 @@ def discover_programmes(
         }
         for programme in catalog.programmes
     }
+    window_snapshot_items: dict[str, dict] = {}
+    for programme in catalog.programmes:
+        identities: dict[str, int] = {}
+        for window in sorted(
+            programme.windows,
+            key=lambda item: (
+                item.intake or adapter.intake,
+                item.round,
+                ",".join(sorted(item.applicant_categories)),
+                item.opens_at or "",
+                item.closes_at,
+            ),
+        ):
+            base_identity = "::".join(
+                (
+                    programme.id,
+                    window.intake or adapter.intake,
+                    window.round,
+                    ",".join(sorted(window.applicant_categories)) or "all",
+                )
+            )
+            identities[base_identity] = identities.get(base_identity, 0) + 1
+            identity = base_identity
+            if identities[base_identity] > 1:
+                identity = f"{base_identity}::{identities[base_identity]}"
+            window_snapshot_items[identity] = {
+                "programmeId": programme.id,
+                "opensAt": window.opens_at,
+                "closesAt": window.closes_at,
+                "sourceUrl": window.source_url or programme.source_url,
+                "opensAtBasis": window.opens_at_basis,
+            }
     state_payload = read_json(state_path, {"meta": {}, "universities": {}})
     previous_state = state_payload.get("universities", {}).get(
         adapter.university_id, {}
     )
+    previous_programmes = previous_state.get("programmes")
+    previous_windows = previous_state.get("windows")
+    has_record_baseline = isinstance(previous_programmes, dict) and isinstance(
+        previous_windows, dict
+    )
+    if has_record_baseline:
+        previous_programme_ids = set(previous_programmes)
+        current_programme_ids = set(snapshot_items)
+        previous_window_ids = set(previous_windows)
+        current_window_ids = set(window_snapshot_items)
+        record_diff = {
+            "previous": {
+                "programmes": len(previous_programmes),
+                "windows": len(previous_windows),
+            },
+            "current": {
+                "programmes": len(snapshot_items),
+                "windows": len(window_snapshot_items),
+            },
+            "disappearedProgrammeIds": sorted(
+                previous_programme_ids - current_programme_ids
+            ),
+            "addedProgrammeIds": sorted(current_programme_ids - previous_programme_ids),
+            "changedProgrammeIds": sorted(
+                programme_id
+                for programme_id in previous_programme_ids & current_programme_ids
+                if previous_programmes[programme_id] != snapshot_items[programme_id]
+            ),
+            "disappearedWindowIds": sorted(previous_window_ids - current_window_ids),
+            "addedWindowIds": sorted(current_window_ids - previous_window_ids),
+            "changedWindowIds": sorted(
+                window_id
+                for window_id in previous_window_ids & current_window_ids
+                if previous_windows[window_id] != window_snapshot_items[window_id]
+            ),
+        }
+    else:
+        record_diff = {
+            "previous": {
+                "programmes": int(previous_state.get("itemCount", 0)),
+                "windows": int(previous_state.get("observedWindowCount", 0)),
+            },
+            "current": {
+                "programmes": len(snapshot_items),
+                "windows": len(window_snapshot_items),
+            },
+            "disappearedProgrammeIds": [],
+            "addedProgrammeIds": [],
+            "changedProgrammeIds": [],
+            "disappearedWindowIds": [],
+            "addedWindowIds": [],
+            "changedWindowIds": [],
+        }
     observed_window_count = sum(
         len(programme.windows) for programme in catalog.programmes
     )
@@ -372,6 +458,8 @@ def discover_programmes(
         "watchedWindowSourceHash": watched_source_fingerprint,
         "watchedWindowSourceFingerprintVersion": (watched_source_fingerprint_version),
         "programmes": snapshot_items,
+        "windows": window_snapshot_items,
+        "adapterWarnings": catalog.warnings,
     }
     state_payload["meta"] = {
         "updatedAt": checked_at,
@@ -382,9 +470,22 @@ def discover_programmes(
         candidates_payload["items"] = items
         candidates_payload.setdefault("meta", {})["updatedAt"] = checked_at
         write_json(candidates_path, candidates_payload)
-        window_candidate_items = sorted(
-            existing_window_candidates.values(),
+        unrelated_window_candidate_items = [
+            existing_window_candidates[item["id"]]
+            for item in original_window_candidate_items
+            if item.get("universityId") != adapter.university_id
+            and item["id"] in existing_window_candidates
+        ]
+        target_window_candidate_items = sorted(
+            (
+                item
+                for item in existing_window_candidates.values()
+                if item.get("universityId") == adapter.university_id
+            ),
             key=lambda item: (item.get("status") != "pending", item["id"]),
+        )
+        window_candidate_items = (
+            unrelated_window_candidate_items + target_window_candidate_items
         )
         if existing_window_candidates != original_window_candidates_by_id:
             window_candidates_payload["items"] = window_candidate_items
@@ -436,6 +537,8 @@ def discover_programmes(
         "programmesWithoutDeadlines": programmes_without_deadlines,
         "programmesNeedingReview": programmes_needing_review,
         "limitationReason": limitation_reason,
+        "adapterWarnings": catalog.warnings,
+        "recordDiff": record_diff,
         "windowFingerprint": window_fingerprint,
         "watchedWindowSourceHash": watched_source_fingerprint,
         "watchedWindowSourceFingerprintVersion": (watched_source_fingerprint_version),

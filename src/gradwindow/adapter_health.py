@@ -21,7 +21,14 @@ DATA_INTEGRITY_ALERT_TYPES = {
     "catalogue-drop",
     "observed-window-drop",
     "exact-window-drop",
+    "programme-id-mismatch",
+    "source-cycle-transition",
     "unparsed-source-change",
+}
+WARNING_ALERT_TYPES = {
+    "PROGRAMME_ID_MISMATCH": "programme-id-mismatch",
+    "SOURCE_CYCLE_TRANSITION": "source-cycle-transition",
+    "TRANSPORT_ERROR": "partial-transport-error",
 }
 
 
@@ -254,6 +261,20 @@ def _successful_entry(
             "windowFingerprint": window_fingerprint,
         }
 
+    adapter_warnings = list(report.get("adapterWarnings") or [])
+    reason_categories = {
+        str(warning.get("reason"))
+        for warning in adapter_warnings
+        if warning.get("reason")
+    }
+    if int(report.get("missingOpeningDateCount", 0)):
+        reason_categories.add("MISSING_OPENING_DATE")
+    record_diff = dict(report.get("recordDiff") or {})
+    if record_diff.get("disappearedWindowIds") or record_diff.get(
+        "disappearedProgrammeIds"
+    ):
+        reason_categories.add("SOURCE_RECORD_REMOVED")
+
     entry = {
         "adapter": report.get("adapter"),
         "sourceUrl": report.get("sourceUrl"),
@@ -273,6 +294,9 @@ def _successful_entry(
         "programmesWithoutDeadlines": int(report.get("programmesWithoutDeadlines", 0)),
         "programmesNeedingReview": int(report.get("programmesNeedingReview", 0)),
         "limitationReason": report.get("limitationReason"),
+        "adapterWarnings": adapter_warnings,
+        "reasonCategories": sorted(reason_categories),
+        "recordDiff": record_diff,
         "windowFingerprint": window_fingerprint,
         "stableWatchedWindowSourceHash": stable_source_hash,
         "watchedWindowSourceFingerprintVersion": current_source_version,
@@ -315,9 +339,11 @@ def _failed_entry(
             "windowStatus": previous.get("windowStatus", "unknown"),
             "lastError": {
                 "errorType": report.get("errorType", "Error"),
+                "reason": report.get("reason"),
                 "message": report.get("message", "Adapter failed"),
                 "detectedAt": report.get("checkedAt", checked_at.isoformat()),
             },
+            "reasonCategories": ([report["reason"]] if report.get("reason") else []),
         }
     )
     return entry
@@ -329,6 +355,28 @@ def _entry_alerts(
     checked_at: datetime,
 ) -> list[dict]:
     alerts = []
+    for warning in entry.get("adapterWarnings") or []:
+        reason = warning.get("reason")
+        alert_type = WARNING_ALERT_TYPES.get(reason)
+        if not alert_type:
+            continue
+        warning_alert = _alert(
+            university_id,
+            alert_type,
+            str(warning.get("message") or reason),
+            entry,
+        )
+        warning_alert["reason"] = reason
+        warning_alert["sourceUrl"] = warning.get("sourceUrl") or warning_alert.get(
+            "sourceUrl"
+        )
+        warning_alert["details"] = {
+            key: value
+            for key, value in warning.items()
+            if key not in {"reason", "message", "sourceUrl"}
+        }
+        alerts.append(warning_alert)
+
     failures = int(entry.get("consecutiveFailures", 0))
     if failures >= FAILURE_ALERT_THRESHOLD:
         message = entry.get("lastError", {}).get("message", "Adapter failed")
@@ -358,39 +406,39 @@ def _entry_alerts(
     baseline_count = int(entry.get("baselineCatalogProgrammes", 0))
     current_count = int(entry.get("catalogProgrammes", 0))
     if baseline_count and current_count < baseline_count * CATALOGUE_DROP_RATIO:
-        alerts.append(
-            _alert(
-                university_id,
-                "catalogue-drop",
-                f"Catalogue count fell from baseline {baseline_count} to {current_count}.",
-                entry,
-            )
+        alert = _alert(
+            university_id,
+            "catalogue-drop",
+            f"Catalogue count fell from baseline {baseline_count} to {current_count}.",
+            entry,
         )
+        _attach_record_removal_details(alert, entry)
+        alerts.append(alert)
 
     baseline_exact = int(entry.get("baselineExactWindowCount", 0))
     current_exact = int(entry.get("exactWindowCount", 0))
     if baseline_exact and current_exact < baseline_exact:
-        alerts.append(
-            _alert(
-                university_id,
-                "exact-window-drop",
-                f"Exact window count fell from baseline {baseline_exact} to {current_exact}.",
-                entry,
-            )
+        alert = _alert(
+            university_id,
+            "exact-window-drop",
+            f"Exact window count fell from baseline {baseline_exact} to {current_exact}.",
+            entry,
         )
+        _attach_record_removal_details(alert, entry)
+        alerts.append(alert)
 
     baseline_observed = int(entry.get("baselineObservedWindowCount", 0))
     current_observed = int(entry.get("observedWindowCount", 0))
     if baseline_observed and current_observed < baseline_observed:
-        alerts.append(
-            _alert(
-                university_id,
-                "observed-window-drop",
-                "Observed window count fell from baseline "
-                f"{baseline_observed} to {current_observed}.",
-                entry,
-            )
+        alert = _alert(
+            university_id,
+            "observed-window-drop",
+            "Observed window count fell from baseline "
+            f"{baseline_observed} to {current_observed}.",
+            entry,
         )
+        _attach_record_removal_details(alert, entry)
+        alerts.append(alert)
 
     if entry.get("unparsedSourceChange"):
         alerts.append(
@@ -405,6 +453,21 @@ def _entry_alerts(
             )
         )
     return alerts
+
+
+def _attach_record_removal_details(alert: dict, entry: dict) -> None:
+    record_diff = entry.get("recordDiff") or {}
+    disappeared_windows = record_diff.get("disappearedWindowIds") or []
+    disappeared_programmes = record_diff.get("disappearedProgrammeIds") or []
+    if not disappeared_windows and not disappeared_programmes:
+        return
+    alert["reason"] = "SOURCE_RECORD_REMOVED"
+    alert["details"] = {
+        "disappearedWindowIds": disappeared_windows,
+        "disappearedProgrammeIds": disappeared_programmes,
+        "previous": record_diff.get("previous"),
+        "current": record_diff.get("current"),
+    }
 
 
 def _alert(university_id: str, alert_type: str, message: str, entry: dict) -> dict:

@@ -8,16 +8,20 @@ from collections import Counter
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
-from functools import partial
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 
+from ..browser_rendering import (
+    browser_content_fetcher_from_environment,
+    browser_markdown_fetcher_from_environment,
+)
 from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
     DiscoveredProgramme,
     DiscoveredWindow,
+    OfficialSourceTransportError,
 )
 
 UNIVERSITY_ID = "mcgill-university"
@@ -75,23 +79,56 @@ class McGillAdapter(BaseProgrammeAdapter):
         self,
         minimum_expected_programmes: int = 155,
         workers: int = 8,
+        maximum_detail_failures: int = 3,
+        browser_content_fetcher: Callable[[str], str] | None = None,
+        browser_markdown_fetcher: Callable[[str], str] | None = None,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.workers = workers
+        self.maximum_detail_failures = maximum_detail_failures
+        self.browser_content_fetcher = (
+            browser_content_fetcher or browser_content_fetcher_from_environment()
+        )
+        self.browser_markdown_fetcher = (
+            browser_markdown_fetcher or browser_markdown_fetcher_from_environment()
+        )
 
     def parse_catalog_from_fetcher(
         self,
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
-        intake_year, cycle_opens_at = _fall_cycle(_fetch_with_retry(fetcher, CYCLE_URL))
-        candidate_urls = _candidate_urls(_fetch_with_retry(fetcher, SITEMAP_URL))
+        cycle_html = self._fetch_central_page(
+            CYCLE_URL,
+            fetcher,
+            browser_fetcher=self.browser_markdown_fetcher,
+        )
+        sitemap_xml = self._fetch_central_page(
+            SITEMAP_URL,
+            fetcher,
+            browser_fetcher=self.browser_content_fetcher,
+        )
+        intake_year, cycle_opens_at = _fall_cycle(cycle_html)
+        candidate_urls = _candidate_urls(sitemap_xml)
+
+        def fetch_detail(url: str) -> tuple[str, str | None, str | None]:
+            try:
+                return url, _fetch_with_retry(fetcher, url), None
+            except Exception as exc:
+                return url, None, f"{type(exc).__name__}: {str(exc)[:180]}"
+
         with ThreadPoolExecutor(max_workers=self.workers) as executor:
-            pages = list(
-                executor.map(partial(_fetch_with_retry, fetcher), candidate_urls)
+            detail_results = list(executor.map(fetch_detail, candidate_urls))
+        failures = [item for item in detail_results if item[2] is not None]
+        if len(failures) > self.maximum_detail_failures:
+            sample = "; ".join(f"{url}: {error}" for url, _, error in failures[:3])
+            raise OfficialSourceTransportError(
+                "McGill detail discovery could not retrieve "
+                f"{len(failures)} official programme pages: {sample}"
             )
         records = [
             record
-            for url, html in zip(candidate_urls, pages, strict=True)
+            for url, html, error in detail_results
+            if error is None and html is not None
             if (record := _programme_record(url, html)) is not None
         ]
         title_counts = Counter(record["title"] for record in records)
@@ -116,10 +153,54 @@ class McGillAdapter(BaseProgrammeAdapter):
                 f"{self.minimum_expected_programmes}"
             )
         self.intake = f"Fall {intake_year}"
+        warnings = []
+        if failures:
+            count = len(failures)
+            warnings.append(
+                {
+                    "reason": "TRANSPORT_ERROR",
+                    "message": (
+                        "McGill detail discovery could not retrieve "
+                        f"{count} official programme {'page' if count == 1 else 'pages'}."
+                    ),
+                    "sourceUrl": self.catalog_url,
+                    "sourceUrls": sorted(item[0] for item in failures),
+                }
+            )
         return DiscoveredCatalog(
             application_opens_at=cycle_opens_at,
             programmes=programmes,
+            warnings=warnings,
         )
+
+    @staticmethod
+    def _fetch_central_page(
+        url: str,
+        fetcher: Callable[[str], str],
+        *,
+        browser_fetcher: Callable[[str], str] | None,
+    ) -> str:
+        try:
+            return _fetch_with_retry(fetcher, url)
+        except Exception as direct_error:
+            if browser_fetcher is not None:
+                try:
+                    rendered = browser_fetcher(url)
+                except Exception as browser_error:
+                    detail = (
+                        f"direct={type(direct_error).__name__}: {str(direct_error)[:120]}; "
+                        "browser-rendering="
+                        f"{type(browser_error).__name__}: {str(browser_error)[:120]}"
+                    )
+                else:
+                    if rendered:
+                        return rendered
+                    detail = "browser-rendering returned an empty response"
+            else:
+                detail = "browser-rendering is not configured"
+            raise OfficialSourceTransportError(
+                f"McGill official source could not be retrieved ({url}); {detail}"
+            ) from direct_error
 
 
 def _fetch_with_retry(

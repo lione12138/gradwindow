@@ -76,9 +76,29 @@ class CUHKAdapter(BaseProgrammeAdapter):
                 f"{len(programmes)} master's programmes; expected at least "
                 f"{self.minimum_expected_programmes}"
             )
+        deadlines = [
+            window.closes_at for programme in programmes for window in programme.windows
+        ]
+        warnings = []
+        if deadlines and max(deadlines) < opens_at:
+            latest_deadline = max(deadlines)
+            warnings.append(
+                {
+                    "reason": "SOURCE_CYCLE_TRANSITION",
+                    "message": (
+                        f"CUHK has published a {opens_at} application commencement "
+                        "date, but the latest programme deadline still belongs to "
+                        f"the previous cycle ({latest_deadline})."
+                    ),
+                    "sourceUrl": self.catalog_url,
+                    "applicationOpensAt": opens_at,
+                    "latestPublishedDeadline": latest_deadline,
+                }
+            )
         return DiscoveredCatalog(
             application_opens_at=opens_at,
             programmes=programmes,
+            warnings=warnings,
         )
 
     def _parse_department(

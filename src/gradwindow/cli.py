@@ -430,7 +430,7 @@ def _pipeline_discovery_report(
         report.setdefault("adapter", name)
         return report
     except Exception as exc:
-        return {
+        report = {
             "status": "error",
             "adapter": name,
             "universityId": getattr(
@@ -448,6 +448,9 @@ def _pipeline_discovery_report(
             "checkedAt": datetime.now(timezone.utc).isoformat(),
             "dryRun": dry_run,
         }
+        if reason := getattr(exc, "reason", None):
+            report["reason"] = reason
+        return report
 
 
 def _run_dedicated_discovery(

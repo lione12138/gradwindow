@@ -10,11 +10,13 @@ from urllib.parse import urlencode
 
 from bs4 import BeautifulSoup
 
+from ..browser_rendering import browser_markdown_fetcher_from_environment
 from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
     DiscoveredProgramme,
     DiscoveredWindow,
+    ParserZeroResultError,
 )
 
 UNIVERSITY_ID = "national-university-of-singapore-nus"
@@ -98,10 +100,14 @@ class NUSAdapter(BaseProgrammeAdapter):
         minimum_expected_programmes: int = 150,
         *,
         target_intake_year: int | None = None,
+        browser_fetcher: Callable[[str], str] | None = None,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.target_intake_year = target_intake_year or _target_intake_year(
             date.today()
+        )
+        self.browser_fetcher = (
+            browser_fetcher or browser_markdown_fetcher_from_environment()
         )
 
     def parse_catalog_from_fetcher(
@@ -128,6 +134,7 @@ class NUSAdapter(BaseProgrammeAdapter):
             programmes,
             fetcher,
             target_intake_year=self.target_intake_year,
+            browser_fetcher=self.browser_fetcher,
         )
         return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
 
@@ -137,8 +144,14 @@ def _apply_deadline_sources(
     fetcher: Callable[[str], str],
     *,
     target_intake_year: int,
+    browser_fetcher: Callable[[str], str] | None = None,
 ) -> list[DiscoveredProgramme]:
-    cde_text, cde_method = _load_official_text(fetcher, CDE_DEADLINES_URL)
+    cde_text, cde_method = _load_official_text(
+        fetcher,
+        CDE_DEADLINES_URL,
+        preserve_html=True,
+        browser_fetcher=browser_fetcher,
+    )
     fass_text, fass_method = _load_official_text(fetcher, FASS_DEADLINES_URL)
     science_text, science_method = _load_official_text(
         fetcher, SCIENCE_RESEARCH_DEADLINES_URL
@@ -162,6 +175,11 @@ def _apply_deadline_sources(
         fetcher, PUBLIC_POLICY_DEADLINES_URL
     )
     cde_rules = _parse_cde_rules(cde_text, cde_method)
+    if not cde_rules and _has_cde_exact_window_signals(cde_text):
+        raise ParserZeroResultError(
+            "NUS CDE official page contains exact application dates but the "
+            "parser produced zero programme rules"
+        )
     fass_rules = _parse_fass_rules(fass_text, fass_method, target_intake_year)
     science_rule = _parse_science_research_rule(
         science_text, science_method, target_intake_year
@@ -226,14 +244,25 @@ def _apply_deadline_sources(
 
 
 def _load_official_text(
-    fetcher: Callable[[str], str], source_url: str
+    fetcher: Callable[[str], str],
+    source_url: str,
+    *,
+    preserve_html: bool = False,
+    browser_fetcher: Callable[[str], str] | None = None,
 ) -> tuple[str, str]:
     try:
         direct = fetcher(source_url)
     except Exception:
         direct = ""
     if direct and not _is_access_challenge(direct):
-        return _document_text(direct), "official-page"
+        return direct if preserve_html else _document_text(direct), "official-page"
+    if browser_fetcher is not None:
+        try:
+            rendered = browser_fetcher(source_url)
+        except Exception:
+            rendered = ""
+        if rendered and not _is_access_challenge(rendered):
+            return rendered, "cloudflare-browser-rendering"
     try:
         proxied = fetcher(_reader_url(source_url))
     except Exception:
@@ -257,6 +286,9 @@ def _document_text(value: str) -> str:
 
 
 def _parse_cde_rules(text: str, retrieval_method: str) -> dict[str, DeadlineRule]:
+    if "<table" in text.lower():
+        return _parse_cde_html_rules(text, retrieval_method)
+
     header = re.search(
         r"August\s+(?P<august>20\d{2})\s+intake.*?"
         r"January\s+(?P<january>20\d{2})\s+intake",
@@ -270,11 +302,16 @@ def _parse_cde_rules(text: str, retrieval_method: str) -> dict[str, DeadlineRule
         f"January {header.group('january')}",
     )
     rules = {}
-    for raw_line in text.splitlines():
-        line = _text(raw_line)
-        title_match = re.match(r"^\[(?P<title>[^]]*Master[^]]*)\]\([^)]+\)", line, re.I)
-        if title_match is None:
-            continue
+    title_matches = list(
+        re.finditer(r"\[(?P<title>[^]]*Master[^]]*)\]\([^)]+\)", text, re.I)
+    )
+    for index, title_match in enumerate(title_matches):
+        end = (
+            title_matches[index + 1].start()
+            if index + 1 < len(title_matches)
+            else len(text)
+        )
+        line = _text(text[title_match.start() : min(end, title_match.start() + 600)])
         ranges = list(DATE_RANGE_RE.finditer(line))
         if not ranges:
             continue
@@ -297,6 +334,66 @@ def _parse_cde_rules(text: str, retrieval_method: str) -> dict[str, DeadlineRule
             complete=True,
         )
     return rules
+
+
+def _parse_cde_html_rules(html: str, retrieval_method: str) -> dict[str, DeadlineRule]:
+    soup = BeautifulSoup(html, "html.parser")
+    header = re.search(
+        r"August\s+(?P<august>20\d{2})\s+intake.*?"
+        r"January\s+(?P<january>20\d{2})\s+intake",
+        soup.get_text(" ", strip=True),
+        re.I | re.S,
+    )
+    if header is None:
+        return {}
+    intake_labels = (
+        f"August {header.group('august')}",
+        f"January {header.group('january')}",
+    )
+    rules = {}
+    for row in soup.select("table tr"):
+        cells = row.find_all(["th", "td"], recursive=False)
+        if len(cells) < 2:
+            continue
+        title = _text(cells[0].get_text(" ", strip=True))
+        if not re.search(r"\bMasters?\b", title, re.I):
+            continue
+        windows = []
+        for index, cell in enumerate(cells[1:3]):
+            match = DATE_RANGE_RE.search(_text(cell.get_text(" ", strip=True)))
+            if match is None:
+                continue
+            windows.append(
+                DiscoveredWindow(
+                    round="Main",
+                    opens_at=_short_date(match.group("opens")),
+                    closes_at=_short_date(match.group("closes")),
+                    intake=intake_labels[index],
+                    source_url=CDE_DEADLINES_URL,
+                )
+            )
+        if not windows:
+            continue
+        title = re.sub(r"\^$", "", title).strip()
+        excerpt = " | ".join(
+            _text(cell.get_text(" ", strip=True)) for cell in cells[:3]
+        )
+        rules[_canonical_title(title)] = DeadlineRule(
+            windows=tuple(windows),
+            excerpt=excerpt,
+            retrieval_method=retrieval_method,
+            complete=True,
+        )
+    return rules
+
+
+def _has_cde_exact_window_signals(value: str) -> bool:
+    text = _document_text(value)
+    return (
+        re.search(r"August\s+20\d{2}\s+intake", text, re.I) is not None
+        and re.search(r"January\s+20\d{2}\s+intake", text, re.I) is not None
+        and len(DATE_RANGE_RE.findall(text)) >= 2
+    )
 
 
 def _parse_fass_rules(

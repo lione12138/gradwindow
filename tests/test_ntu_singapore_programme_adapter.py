@@ -55,3 +55,74 @@ def test_ntu_matches_official_chinese_intake_names_to_catalogue_programmes() -> 
         for programme in catalog.programmes
         for window in programme.windows
     } == {("2026-08-03", "2026-09-30", "March 2027")}
+
+
+def test_ntu_keeps_matched_windows_and_reports_unmatched_application_rows() -> None:
+    items = [
+        {
+            "title": "Master of Science in Data Science",
+            "url": "/education/graduate-programme/msc-data-science",
+            "tag": "College of Computing and Data Science",
+        }
+    ]
+    catalogue = json.dumps({"totalPages": 1, "totalItems": 1, "items": items})
+    application_table = """
+    <table>
+      <tr><th>Period</th><th>Admission</th><th>Programme</th><th>Open</th><th>Close</th></tr>
+      <tr><td>AY2026 / Semester 2</td><td>11-Jan-27</td>
+        <td>277 - MSC(DATA SCIENCE)</td><td>1-Jul-26</td><td>31-Aug-26</td></tr>
+      <tr><td>AY2026 / Semester 2</td><td>11-Jan-27</td>
+        <td>999 - MSC(NEW OFFICIAL PROGRAMME)</td><td>1-Jul-26</td><td>31-Aug-26</td></tr>
+    </table>
+    """
+    pages = {
+        catalog_page_url(1): catalogue,
+        APPLICATION_URL: application_table,
+    }
+
+    catalog = NTUAdapter(minimum_expected_programmes=1).parse_catalog_from_fetcher(
+        pages.__getitem__
+    )
+
+    assert catalog.programmes[0].parse_status == "parsed"
+    assert len(catalog.programmes[0].windows) == 1
+    assert catalog.warnings == [
+        {
+            "reason": "PROGRAMME_ID_MISMATCH",
+            "message": (
+                "NTU's official application table contains 1 row that could not "
+                "be matched to the official coursework catalogue."
+            ),
+            "sourceUrl": APPLICATION_URL,
+            "programmeKeys": ["new official"],
+        }
+    ]
+
+
+def test_ntu_programme_ids_treat_ampersand_as_and() -> None:
+    items = [
+        {
+            "title": "Master of Science in Integrated Circuits & Microelectronics",
+            "url": "/education/graduate-programme/msc-integrated-circuits",
+            "tag": "School of Electrical and Electronic Engineering",
+        },
+        {
+            "title": "Master of Science in Asset & Wealth Management",
+            "url": "/education/graduate-programme/msc-asset-wealth-management",
+            "tag": "Nanyang Business School",
+        },
+    ]
+    catalogue = json.dumps({"totalPages": 1, "totalItems": 2, "items": items})
+    pages = {
+        catalog_page_url(1): catalogue,
+        APPLICATION_URL: "<table></table>",
+    }
+
+    catalog = NTUAdapter(minimum_expected_programmes=2).parse_catalog_from_fetcher(
+        pages.__getitem__
+    )
+
+    assert {programme.id for programme in catalog.programmes} == {
+        "ntu-asset-wealth-management-msc",
+        "ntu-integrated-circuits-and-microelectronics-msc",
+    }

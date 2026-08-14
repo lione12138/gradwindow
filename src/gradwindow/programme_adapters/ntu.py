@@ -30,6 +30,14 @@ APPLICATION_PROGRAMME_ALIASES = {
         "managerial economics executive mme march intake"
     ),
 }
+PROGRAMME_ID_ALIASES = {
+    "ntu-integrated-circuits-microelectronics-msc": (
+        "ntu-integrated-circuits-and-microelectronics-msc"
+    ),
+    "ntu-signal-processing-machine-learning-msc": (
+        "ntu-signal-processing-and-machine-learning-msc"
+    ),
+}
 
 
 def catalog_page_url(page: int) -> str:
@@ -86,10 +94,20 @@ class NTUAdapter(BaseProgrammeAdapter):
         unmatched = set(windows_by_key).difference(
             _catalog_key(programme.name) for programme in programmes.values()
         )
+        warnings = []
         if unmatched:
-            raise ValueError(
-                "NTU live application table contained programmes missing from the "
-                f"official coursework catalogue: {', '.join(sorted(unmatched))}"
+            count = len(unmatched)
+            warnings.append(
+                {
+                    "reason": "PROGRAMME_ID_MISMATCH",
+                    "message": (
+                        "NTU's official application table contains "
+                        f"{count} {'row' if count == 1 else 'rows'} that could not "
+                        "be matched to the official coursework catalogue."
+                    ),
+                    "sourceUrl": self.application_url,
+                    "programmeKeys": sorted(unmatched),
+                }
             )
 
         discovered = []
@@ -102,7 +120,11 @@ class NTUAdapter(BaseProgrammeAdapter):
                 programme.deadline_text = evidence_by_key[key]
             discovered.append(programme)
         discovered.sort(key=lambda item: item.id)
-        return DiscoveredCatalog(application_opens_at=None, programmes=discovered)
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=discovered,
+            warnings=warnings,
+        )
 
 
 def _catalog_payload(value: str) -> dict:
@@ -234,7 +256,8 @@ def _degree_and_core_title(title: str) -> tuple[str, str]:
 
 
 def _programme_id(core_title: str, degree_type: str) -> str:
-    return f"ntu-{_slug(core_title)}-{_slug(degree_type)}"
+    programme_id = f"ntu-{_slug(core_title)}-{_slug(degree_type)}"
+    return PROGRAMME_ID_ALIASES.get(programme_id, programme_id)
 
 
 def _catalog_key(value: str) -> str:

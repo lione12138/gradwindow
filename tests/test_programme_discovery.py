@@ -8,6 +8,7 @@ from openpyxl import Workbook
 
 from gradwindow import programme_discovery
 from gradwindow.http_client import FetchedPage
+from gradwindow.io import partition_json_file
 from gradwindow.programme_adapters.base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
@@ -213,6 +214,27 @@ def test_cuhk_adapter_extracts_only_masters_and_deadline_rounds() -> None:
     accountancy = next(item for item in catalog.programmes if "accountancy" in item.id)
     assert accountancy.windows == []
     assert accountancy.parse_status == "no-deadline"
+
+
+def test_cuhk_adapter_classifies_source_cycle_transition() -> None:
+    html = CUHK_HTML.replace("1 September 2025", "1 September 2026")
+
+    catalog = CUHKAdapter(minimum_expected_programmes=1).parse_catalog(html)
+
+    assert catalog.application_opens_at == "2026-09-01"
+    assert catalog.warnings == [
+        {
+            "reason": "SOURCE_CYCLE_TRANSITION",
+            "message": (
+                "CUHK has published a 2026-09-01 application commencement date, "
+                "but the latest programme deadline still belongs to the previous "
+                "cycle (2026-02-26)."
+            ),
+            "sourceUrl": "https://www.gs.cuhk.edu.hk/admissions/application-deadline",
+            "applicationOpensAt": "2026-09-01",
+            "latestPublishedDeadline": "2026-02-26",
+        }
+    ]
 
 
 def test_cuhk_adapter_rejects_implausibly_small_catalog() -> None:
@@ -841,6 +863,95 @@ def test_unrelated_discovery_does_not_reorder_window_candidates(tmp_path) -> Non
     )
 
     assert json.loads(window_candidates_path.read_text(encoding="utf-8")) == original
+
+
+def test_target_discovery_does_not_rewrite_unrelated_window_shard(tmp_path) -> None:
+    class ExactAdapter(BaseProgrammeAdapter):
+        university_id = "example-university"
+        catalog_url = "https://example.edu/programmes"
+        intake = "Fall 2027"
+
+        def parse_catalog(self, _html):
+            return DiscoveredCatalog(
+                application_opens_at=None,
+                programmes=[
+                    DiscoveredProgramme(
+                        id="example-msc",
+                        name="Example MSc",
+                        degree_type="MSc",
+                        faculty="Example faculty",
+                        department="Example department",
+                        source_url=self.catalog_url,
+                        application_url="https://example.edu/apply",
+                        windows=[
+                            DiscoveredWindow(
+                                round="Main",
+                                opens_at="2026-09-01",
+                                closes_at="2027-01-01",
+                                intake=self.intake,
+                            )
+                        ],
+                        deadline_text="Official dates",
+                        parse_status="parsed",
+                    )
+                ],
+            )
+
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "programme-candidates.json"
+    window_candidates_path = tmp_path / "window-candidates.json"
+    state_path = tmp_path / "programme-catalog-state.json"
+    programs_path.write_text(
+        json.dumps(
+            {
+                "programs": [
+                    {
+                        "id": "example-msc",
+                        "universityId": "example-university",
+                        "name": "Example MSc",
+                        "degreeType": "MSc",
+                        "faculty": "Example faculty",
+                        "applicationUrl": "https://example.edu/apply",
+                        "sourceUrl": "https://example.edu/programmes",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    applications_path.write_text(json.dumps({"applications": []}), encoding="utf-8")
+    window_candidates_path.write_text(
+        json.dumps(
+            {
+                "meta": {},
+                "items": [
+                    {"id": "z-candidate", "universityId": "other"},
+                    {"id": "a-candidate", "universityId": "other"},
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    partition_json_file(
+        window_candidates_path,
+        collection_key="items",
+        group_key="universityId",
+    )
+    other_shard = tmp_path / "window-candidates/by-university/other.json"
+    before = other_shard.read_bytes()
+
+    discover_programmes(
+        ExactAdapter(),
+        programs_path=programs_path,
+        applications_path=applications_path,
+        candidates_path=candidates_path,
+        window_candidates_path=window_candidates_path,
+        state_path=state_path,
+        fetcher=lambda url: "<html></html>",
+    )
+
+    assert other_shard.read_bytes() == before
 
 
 def test_unrelated_discovery_does_not_reorder_programme_candidates(tmp_path) -> None:

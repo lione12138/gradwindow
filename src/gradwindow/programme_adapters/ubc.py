@@ -113,7 +113,25 @@ class UBCAdapter(BaseProgrammeAdapter):
             raise ValueError(
                 f"UBC detail discovery failed for {len(failures)} programmes: {sample}"
             )
-        return DiscoveredCatalog(application_opens_at=None, programmes=detailed)
+        warnings = []
+        if failures:
+            count = len(failures)
+            warnings.append(
+                {
+                    "reason": "TRANSPORT_ERROR",
+                    "message": (
+                        "UBC detail discovery could not retrieve "
+                        f"{count} official programme {'page' if count == 1 else 'pages'}."
+                    ),
+                    "sourceUrl": self.catalog_url,
+                    "programmeIds": sorted(item[0] for item in failures),
+                }
+            )
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=detailed,
+            warnings=warnings,
+        )
 
 
 def _catalogue_programmes(html: str) -> list[DiscoveredProgramme]:

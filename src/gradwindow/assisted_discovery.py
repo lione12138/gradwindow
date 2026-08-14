@@ -12,6 +12,7 @@ from typing import Any
 import httpx
 from bs4 import BeautifulSoup
 
+from .browser_rendering import CloudflareBrowserClient
 from .discovery import same_official_domain
 from .http_client import DEFAULT_USER_AGENT, FetchFailure, fetch_page
 from .programme_adapters.base import (
@@ -29,7 +30,6 @@ from .search_providers import (
 )
 
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
-CLOUDFLARE_API_BASE = "https://api.cloudflare.com/client/v4"
 DEFAULT_DEEPSEEK_MODEL = "deepseek-v4-flash"
 MAX_SEARCH_RESULTS = 12
 MAX_DOCUMENT_CHARS = 12_000
@@ -230,47 +230,6 @@ def run_assisted_discovery(
         }
     )
     return report
-
-
-class CloudflareBrowserClient:
-    def __init__(
-        self,
-        account_id: str,
-        api_token: str,
-        *,
-        timeout: float = 60,
-    ) -> None:
-        self.account_id = account_id
-        self.api_token = api_token
-        self.timeout = timeout
-
-    @classmethod
-    def from_environment(cls) -> CloudflareBrowserClient | None:
-        account_id = os.environ.get("CLOUDFLARE_ACCOUNT_ID")
-        api_token = os.environ.get("CLOUDFLARE_BROWSER_API_TOKEN") or os.environ.get(
-            "CLOUDFLARE_API_TOKEN"
-        )
-        if not account_id or not api_token:
-            return None
-        return cls(account_id, api_token)
-
-    def markdown(self, url: str) -> str:
-        response = httpx.post(
-            f"{CLOUDFLARE_API_BASE}/accounts/{self.account_id}/"
-            "browser-rendering/markdown",
-            headers={
-                "Authorization": f"Bearer {self.api_token}",
-                "Content-Type": "application/json",
-            },
-            json={"url": url},
-            timeout=self.timeout,
-        )
-        response.raise_for_status()
-        payload = response.json()
-        if not payload.get("success") or not isinstance(payload.get("result"), str):
-            errors = payload.get("errors") or []
-            raise RuntimeError(f"Cloudflare Browser Rendering failed: {errors}")
-        return payload["result"]
 
 
 class AssistedPageLoader:

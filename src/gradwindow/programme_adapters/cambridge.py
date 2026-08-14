@@ -10,16 +10,22 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
+from ..browser_rendering import (
+    browser_content_fetcher_from_environment,
+    browser_markdown_fetcher_from_environment,
+)
 from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
     DiscoveredProgramme,
     DiscoveredWindow,
+    OfficialSourceTransportError,
 )
 
 CATALOG_URL = "https://www.postgraduate.study.cam.ac.uk/courses/directory"
 APPLICATION_URL = "https://apply.postgraduate.study.cam.ac.uk/applicant/login"
 UNIVERSITY_ID = "university-of-cambridge"
+READER_PREFIX = "https://r.jina.ai/http://"
 COURSE_DATES_RE = re.compile(
     r"Applications open\s+(?P<opens>[A-Z][a-z]{2,}\.?\s+\d{1,2},\s+20\d{2})"
     r"\s+Application deadline\s+"
@@ -40,20 +46,28 @@ class CambridgeAdapter(BaseProgrammeAdapter):
         self,
         minimum_expected_programmes: int = 100,
         detail_workers: int = 8,
+        browser_content_fetcher: Callable[[str], str] | None = None,
+        browser_markdown_fetcher: Callable[[str], str] | None = None,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.detail_workers = detail_workers
+        self.browser_content_fetcher = (
+            browser_content_fetcher or browser_content_fetcher_from_environment()
+        )
+        self.browser_markdown_fetcher = (
+            browser_markdown_fetcher or browser_markdown_fetcher_from_environment()
+        )
 
     def parse_catalog_from_fetcher(
         self,
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
-        first_html = fetcher(self.catalog_url)
+        first_html = self._fetch_catalog_page(self.catalog_url, fetcher)
         soup = BeautifulSoup(first_html, "html.parser")
         last_page = _last_page_number(soup)
         html_pages = [first_html]
         html_pages.extend(
-            fetcher(f"{self.catalog_url}?page={page}")
+            self._fetch_catalog_page(f"{self.catalog_url}?page={page}", fetcher)
             for page in range(1, last_page + 1)
         )
         programmes = [
@@ -66,14 +80,41 @@ class CambridgeAdapter(BaseProgrammeAdapter):
         ) as executor:
             programmes = list(
                 executor.map(
-                    lambda programme: self._parse_detail(
-                        programme,
-                        fetcher(programme.source_url),
+                    lambda programme: self._parse_detail_from_fetcher(
+                        programme, fetcher
                     ),
                     programmes,
                 )
             )
         return self._catalog_from_programmes(programmes)
+
+    def _fetch_catalog_page(
+        self,
+        url: str,
+        fetcher: Callable[[str], str],
+    ) -> str:
+        try:
+            html = fetcher(url)
+            if html and not _is_access_challenge(html):
+                return html
+            direct_error = "access challenge or empty response"
+        except Exception as exc:
+            direct_error = f"{type(exc).__name__}: {str(exc)[:180]}"
+        if self.browser_content_fetcher is not None:
+            try:
+                rendered = self.browser_content_fetcher(url)
+            except Exception as exc:
+                browser_error = f"{type(exc).__name__}: {str(exc)[:180]}"
+            else:
+                if rendered and not _is_access_challenge(rendered):
+                    return rendered
+                browser_error = "access challenge or empty response"
+        else:
+            browser_error = "not configured"
+        raise OfficialSourceTransportError(
+            "Cambridge official course directory could not be retrieved; "
+            f"direct={direct_error}; browser-rendering={browser_error}"
+        )
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:
         return self._catalog_from_programmes(self._parse_programmes(html))
@@ -144,6 +185,9 @@ class CambridgeAdapter(BaseProgrammeAdapter):
         self,
         programme: DiscoveredProgramme,
         html: str,
+        *,
+        source_url: str | None = None,
+        retrieval_method: str | None = None,
     ) -> DiscoveredProgramme:
         soup = BeautifulSoup(html, "html.parser")
         text = _normalise_text(soup.get_text(" ", strip=True))
@@ -161,10 +205,88 @@ class CambridgeAdapter(BaseProgrammeAdapter):
                     opens_at=opens_at,
                     closes_at=closes_at,
                     intake=_cambridge_intake(starts_at),
+                    source_url=source_url or programme.source_url,
                 )
             ],
             deadline_text=_normalise_text(match.group(0)),
             parse_status="parsed",
+            retrieval_method=retrieval_method,
+            evidence_quality="official-full-text",
+        )
+
+    def _parse_detail_from_fetcher(
+        self,
+        programme: DiscoveredProgramme,
+        fetcher: Callable[[str], str],
+    ) -> DiscoveredProgramme:
+        apply_url = f"{programme.source_url.rstrip('/')}/apply"
+        attempts = (
+            (programme.source_url, "official-course-page"),
+            (apply_url, "official-course-apply-page"),
+        )
+        errors = []
+        apply_page_retrieved = False
+        for source_url, retrieval_method in attempts:
+            try:
+                html = fetcher(source_url)
+            except Exception as exc:
+                errors.append(f"{source_url}: {type(exc).__name__}: {str(exc)[:120]}")
+                continue
+            if _is_access_challenge(html):
+                errors.append(f"{source_url}: access challenge")
+                continue
+            if source_url == apply_url:
+                apply_page_retrieved = True
+            parsed = self._parse_detail(
+                programme,
+                html,
+                source_url=source_url,
+                retrieval_method=retrieval_method,
+            )
+            if parsed.parse_status == "parsed":
+                return parsed
+
+        if apply_page_retrieved:
+            return programme
+
+        if self.browser_markdown_fetcher is not None:
+            try:
+                rendered_text = self.browser_markdown_fetcher(apply_url)
+            except Exception as exc:
+                errors.append(
+                    "cloudflare-browser-rendering: "
+                    f"{type(exc).__name__}: {str(exc)[:120]}"
+                )
+            else:
+                if rendered_text and not _is_access_challenge(rendered_text):
+                    return self._parse_detail(
+                        programme,
+                        rendered_text,
+                        source_url=apply_url,
+                        retrieval_method="cloudflare-browser-rendering",
+                    )
+                errors.append(
+                    "cloudflare-browser-rendering: access challenge or empty response"
+                )
+
+        reader_url = _reader_url(apply_url)
+        try:
+            reader_text = fetcher(reader_url)
+        except Exception as exc:
+            errors.append(f"{reader_url}: {type(exc).__name__}: {str(exc)[:120]}")
+        else:
+            if reader_text and not _is_access_challenge(reader_text):
+                return self._parse_detail(
+                    programme,
+                    reader_text,
+                    source_url=apply_url,
+                    retrieval_method="official-course-apply-page-via-reader",
+                )
+            errors.append(f"{reader_url}: access challenge or empty response")
+
+        raise OfficialSourceTransportError(
+            "Cambridge official course and apply pages could not be retrieved; "
+            + "; ".join(errors)
         )
 
 
@@ -219,3 +341,16 @@ def _slug(value: str) -> str:
 
 def _normalise_text(value: str) -> str:
     return " ".join(value.replace("\u00a0", " ").split())
+
+
+def _reader_url(source_url: str) -> str:
+    return READER_PREFIX + re.sub(r"^https?://", "", source_url)
+
+
+def _is_access_challenge(value: str) -> bool:
+    lowered = value.lower()
+    return (
+        "request unsuccessful" in lowered
+        or "access denied" in lowered
+        or "cf-chl-" in lowered
+    )

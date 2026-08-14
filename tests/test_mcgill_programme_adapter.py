@@ -261,6 +261,47 @@ def test_mcgill_adapter_retries_a_transient_detail_failure() -> None:
     assert attempts == 2
 
 
+def test_mcgill_adapter_reports_partial_detail_transport_failures() -> None:
+    def fetcher(url: str) -> str:
+        if url == NURSE_URL:
+            raise RuntimeError("HTTP 503")
+        return _fetcher(url)
+
+    catalog = McGillAdapter(
+        minimum_expected_programmes=3,
+        workers=2,
+        maximum_detail_failures=1,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    assert len(catalog.programmes) == 3
+    assert catalog.warnings == [
+        {
+            "reason": "TRANSPORT_ERROR",
+            "message": (
+                "McGill detail discovery could not retrieve 1 official programme page."
+            ),
+            "sourceUrl": SITEMAP_URL,
+            "sourceUrls": [NURSE_URL],
+        }
+    ]
+
+
+def test_mcgill_adapter_uses_browser_rendering_for_blocked_cycle_page() -> None:
+    def fetcher(url: str) -> str:
+        if url == CYCLE_URL:
+            raise RuntimeError("HTTP 403")
+        return _fetcher(url)
+
+    catalog = McGillAdapter(
+        minimum_expected_programmes=4,
+        workers=2,
+        browser_markdown_fetcher=lambda url: CYCLE_HTML if url == CYCLE_URL else "",
+    ).parse_catalog_from_fetcher(fetcher)
+
+    assert catalog.application_opens_at == "2026-09-15"
+    assert len(catalog.programmes) == 4
+
+
 def test_mcgill_adapter_requires_the_official_fall_cycle() -> None:
     def fetcher(url: str) -> str:
         if url == CYCLE_URL:

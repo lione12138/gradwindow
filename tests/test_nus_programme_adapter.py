@@ -94,6 +94,129 @@ def test_nus_adapter_rejects_implausibly_small_catalogue() -> None:
         adapter.parse_catalog_from_fetcher(lambda url: _payload())
 
 
+def test_nus_adapter_parses_direct_cde_html_table() -> None:
+    payload = json.dumps(
+        {
+            "returnValue": [
+                _item(
+                    "DESIGN & ENGINEERING",
+                    "MSc (Biomedical Engineering)",
+                    "Coursework",
+                )
+            ]
+        }
+    )
+    cde_html = """
+    <html><body><table>
+      <thead><tr>
+        <th>Programmes</th>
+        <th>Application Period (August 2026 intake)</th>
+        <th>Application Period (January 2027 intake)</th>
+      </tr></thead>
+      <tbody><tr>
+        <td><a href="/graduate/biomedical-engineering/">
+          Master of Science (Biomedical Engineering)
+        </a></td>
+        <td>1 Oct 2025 - 28 Feb 2026</td>
+        <td>27 Jul 2026 - 31 Aug 2026</td>
+      </tr></tbody>
+    </table></body></html>
+    """
+
+    def fetcher(url: str) -> str:
+        if url == API_URL:
+            return payload
+        if url == CDE_DEADLINES_URL:
+            return cde_html
+        raise AssertionError(url)
+
+    catalog = NUSAdapter(minimum_expected_programmes=1).parse_catalog_from_fetcher(
+        fetcher
+    )
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "official-page"
+    assert [
+        (window.intake, window.opens_at, window.closes_at)
+        for window in programme.windows
+    ] == [
+        ("August 2026", "2025-10-01", "2026-02-28"),
+        ("January 2027", "2026-07-27", "2026-08-31"),
+    ]
+
+
+def test_nus_adapter_rejects_zero_cde_rules_when_exact_dates_are_visible() -> None:
+    payload = json.dumps(
+        {
+            "returnValue": [
+                _item(
+                    "DESIGN & ENGINEERING",
+                    "MSc (Biomedical Engineering)",
+                    "Coursework",
+                )
+            ]
+        }
+    )
+    changed_cde_html = """
+    <html><body>
+      <h2>Application Period (August 2026 intake)</h2>
+      <h2>Application Period (January 2027 intake)</h2>
+      <div data-programme="changed markup">
+        Biomedical Engineering: 1 Oct 2025 - 28 Feb 2026;
+        27 Jul 2026 - 31 Aug 2026
+      </div>
+    </body></html>
+    """
+
+    def fetcher(url: str) -> str:
+        if url == API_URL:
+            return payload
+        if url == CDE_DEADLINES_URL:
+            return changed_cde_html
+        raise AssertionError(url)
+
+    with pytest.raises(ValueError, match="NUS CDE.*zero programme rules"):
+        NUSAdapter(minimum_expected_programmes=1).parse_catalog_from_fetcher(fetcher)
+
+
+def test_nus_adapter_uses_browser_rendering_for_blocked_cde_page() -> None:
+    payload = json.dumps(
+        {
+            "returnValue": [
+                _item(
+                    "DESIGN & ENGINEERING",
+                    "MSc (Biomedical Engineering)",
+                    "Coursework",
+                )
+            ]
+        }
+    )
+    cde_markdown = """
+    **Programmes** **Application Period (August 2026 intake)**
+    **Application Period (January 2027 intake)**
+    [Master of Science (Biomedical Engineering)](https://cde.nus.edu.sg/bme/)
+    1 Oct 2025 - 28 Feb 2026 27 Jul 2026 - 31 Aug 2026
+    """
+
+    def fetcher(url: str) -> str:
+        if url == API_URL:
+            return payload
+        if url == CDE_DEADLINES_URL:
+            return '<script src="/_Incapsula_Resource"></script>'
+        raise AssertionError(url)
+
+    catalog = NUSAdapter(
+        minimum_expected_programmes=1,
+        browser_fetcher=lambda url: cde_markdown if url == CDE_DEADLINES_URL else "",
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "cloudflare-browser-rendering"
+    assert len(programme.windows) == 2
+
+
 def test_nus_adapter_applies_faculty_deadlines_from_reader_fallback() -> None:
     payload = json.dumps(
         {

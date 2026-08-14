@@ -1,6 +1,9 @@
 from __future__ import annotations
 
-from gradwindow.programme_adapters.cambridge import CambridgeAdapter
+import pytest
+
+from gradwindow.programme_adapters.base import OfficialSourceTransportError
+from gradwindow.programme_adapters.cambridge import CambridgeAdapter, _reader_url
 
 CAMBRIDGE_HTML = """
 <html><body><table>
@@ -61,3 +64,115 @@ def test_cambridge_adapter_can_fetch_paginated_directory() -> None:
     assert catalog.programmes[0].windows[0].opens_at == "2025-09-03"
     assert catalog.programmes[0].windows[0].closes_at == "2026-02-26"
     assert catalog.programmes[0].windows[0].intake == "Michaelmas 2026"
+
+
+def test_cambridge_adapter_uses_official_apply_subpage_after_course_page_403() -> None:
+    source_url = "https://www.postgraduate.study.cam.ac.uk/courses/directory/egcempace"
+    apply_url = f"{source_url}/apply"
+
+    def fetcher(url: str) -> str:
+        if url == "https://www.postgraduate.study.cam.ac.uk/courses/directory":
+            return CAMBRIDGE_HTML
+        if url == source_url:
+            raise RuntimeError("HTTP 403")
+        if url == apply_url:
+            return CAMBRIDGE_DETAIL
+        raise AssertionError(url)
+
+    catalog = CambridgeAdapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "official-course-apply-page"
+    assert programme.windows[0].source_url == apply_url
+
+
+def test_cambridge_adapter_uses_reader_only_after_official_transport_failures() -> None:
+    source_url = "https://www.postgraduate.study.cam.ac.uk/courses/directory/egcempace"
+    apply_url = f"{source_url}/apply"
+
+    def fetcher(url: str) -> str:
+        if url == "https://www.postgraduate.study.cam.ac.uk/courses/directory":
+            return CAMBRIDGE_HTML
+        if url in {source_url, apply_url}:
+            raise RuntimeError("HTTP 403")
+        if url == _reader_url(apply_url):
+            return CAMBRIDGE_DETAIL
+        raise AssertionError(url)
+
+    catalog = CambridgeAdapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "official-course-apply-page-via-reader"
+    assert programme.windows[0].source_url == apply_url
+
+
+def test_cambridge_adapter_uses_browser_rendering_before_reader_fallback() -> None:
+    source_url = "https://www.postgraduate.study.cam.ac.uk/courses/directory/egcempace"
+    apply_url = f"{source_url}/apply"
+
+    def fetcher(url: str) -> str:
+        if url == "https://www.postgraduate.study.cam.ac.uk/courses/directory":
+            return CAMBRIDGE_HTML
+        if url in {source_url, apply_url}:
+            raise RuntimeError("HTTP 403")
+        raise AssertionError("reader fallback should not run")
+
+    catalog = CambridgeAdapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+        browser_markdown_fetcher=lambda url: (
+            CAMBRIDGE_DETAIL if url == apply_url else ""
+        ),
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "cloudflare-browser-rendering"
+    assert programme.windows[0].source_url == apply_url
+
+
+def test_cambridge_adapter_renders_apply_page_when_course_page_has_no_dates() -> None:
+    source_url = "https://www.postgraduate.study.cam.ac.uk/courses/directory/egcempace"
+    apply_url = f"{source_url}/apply"
+
+    def fetcher(url: str) -> str:
+        if url == "https://www.postgraduate.study.cam.ac.uk/courses/directory":
+            return CAMBRIDGE_HTML
+        if url == source_url:
+            return "<main>Course overview without application dates.</main>"
+        if url == apply_url:
+            raise RuntimeError("HTTP 403")
+        raise AssertionError("reader fallback should not run")
+
+    catalog = CambridgeAdapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+        browser_markdown_fetcher=lambda url: (
+            CAMBRIDGE_DETAIL if url == apply_url else ""
+        ),
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "cloudflare-browser-rendering"
+
+
+def test_cambridge_adapter_classifies_complete_source_access_failure() -> None:
+    def fetcher(url: str) -> str:
+        if url == "https://www.postgraduate.study.cam.ac.uk/courses/directory":
+            return CAMBRIDGE_HTML
+        raise RuntimeError("HTTP 403")
+
+    with pytest.raises(OfficialSourceTransportError, match="Cambridge official"):
+        CambridgeAdapter(
+            minimum_expected_programmes=1,
+            detail_workers=1,
+        ).parse_catalog_from_fetcher(fetcher)
