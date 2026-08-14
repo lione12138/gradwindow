@@ -52,6 +52,7 @@ import {
   isPredictedRecord,
   isRecurringPolicyRecord,
 } from "./window-provenance.js";
+import { decodeRecordBundle } from "./frontend-data.js";
 import {
   ensureTurnstileWidget,
   resetTurnstileWidget,
@@ -64,6 +65,61 @@ const deadlineDatePartsFormatters = new Map();
 const recordSearchTextCache = new WeakMap();
 const recordIntakeCache = new WeakMap();
 let selectedRankingCache = null;
+let programmeTranslationsPromise = null;
+const recordDetailPromises = new Map();
+const LIVE_RANKINGS = new Set(["qs", "the", "arwu"]);
+
+async function fetchRequiredJson(path) {
+  const response = await fetch(path);
+  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  return response.json();
+}
+
+async function ensureProgrammeTranslations() {
+  if (!programmeTranslationsPromise) {
+    programmeTranslationsPromise = fetchRequiredJson(
+      "./data/programme-translations.json",
+    )
+      .then((payload) => setProgrammeTranslations(payload))
+      .catch((error) => {
+        programmeTranslationsPromise = null;
+        console.warn("Programme translations unavailable", error);
+      });
+  }
+  await programmeTranslationsPromise;
+}
+
+async function ensureClosedRecords() {
+  if (state.closedLoaded) return;
+  const payload = await fetchRequiredJson("./data/frontend-closed.json");
+  state.data = [
+    ...state.data,
+    ...decodeRecordBundle(payload.records, state.universities),
+  ];
+  state.closedLoaded = true;
+  selectedRankingCache = null;
+}
+
+async function hydrateRecordDetails(record) {
+  if (record.detailsLoaded) return;
+  const universityId = record.universityId;
+  if (!recordDetailPromises.has(universityId)) {
+    recordDetailPromises.set(
+      universityId,
+      fetchRequiredJson(`./data/university/${universityId}.json`).catch(
+        (error) => {
+          recordDetailPromises.delete(universityId);
+          console.warn(`Record details unavailable for ${universityId}`, error);
+          return { records: [] };
+        },
+      ),
+    );
+  }
+  const payload = await recordDetailPromises.get(universityId);
+  const details = (payload.records || []).find((item) => item.id === record.id);
+  if (details) Object.assign(record, details);
+  record.detailsLoaded = true;
+}
 
 function statusLabels() {
   return {
@@ -368,7 +424,8 @@ function detailField(label, value) {
   return row;
 }
 
-function openWindowDetail(record, status = getStatus(record)) {
+async function openWindowDetail(record, status = getStatus(record)) {
+  await hydrateRecordDetails(record);
   const panel = document.getElementById("window-detail-panel");
   const body = document.getElementById("window-detail-body");
   const actions = document.getElementById("window-detail-header-actions");
@@ -463,6 +520,15 @@ function openWindowDetail(record, status = getStatus(record)) {
       "primary-button window-detail-source-link",
     ),
   );
+  const evidenceText = record.evidence || record.confidenceReason;
+  if (evidenceText) {
+    source.append(
+      makeElement("p", {
+        className: "window-detail-evidence",
+        text: `${t("evidenceNote")}: ${evidenceText}`,
+      }),
+    );
+  }
 
   body.replaceChildren(heading, deadline, info, source);
 
@@ -588,7 +654,7 @@ function buildSelectedRankingDefinition() {
     };
   }
   const ranking = state.rankingPayload.rankings?.[state.ranking];
-  if (!ranking) {
+  if (!LIVE_RANKINGS.has(state.ranking) || !ranking) {
     return { id: state.ranking, available: false, rows: [] };
   }
   return { id: state.ranking, available: true, rows: [], ...ranking };
@@ -623,7 +689,8 @@ function rankingForUniversity(universityId) {
   if (state.universityById.get(universityId)?.qsPosition != null) return "qs";
   return (
     Object.entries(state.rankingPayload.rankings || {}).find(
-      ([, ranking]) =>
+      ([rankingId, ranking]) =>
+        LIVE_RANKINGS.has(rankingId) &&
         ranking?.available !== false &&
         ranking?.rows?.some((row) => row.universityId === universityId),
     )?.[0] || "qs"
@@ -727,7 +794,10 @@ function updateRankingAvailability() {
     if (option.value === "qs") return;
     const ranking = state.rankingPayload.rankings?.[option.value];
     option.disabled =
-      !ranking || ranking.available === false || !ranking.rows?.length;
+      !LIVE_RANKINGS.has(option.value) ||
+      !ranking ||
+      ranking.available === false ||
+      !ranking.rows?.length;
   });
 }
 
@@ -1138,7 +1208,6 @@ function createRow(record, status, windowGroup = null) {
   cardActions.appendChild(favorite);
 
   const openDetails = (event) => {
-    if (!window.matchMedia("(max-width: 720px)").matches) return;
     if (event.target.closest("a, button, details, input, select")) return;
     openWindowDetail(record, status);
   };
@@ -1697,6 +1766,9 @@ function renderCounts(records, universities) {
     exception: universities.filter(isExceptionUniversity).length,
     unknown: universities.length,
   };
+  if (!state.closedLoaded && !activeNonStatusFilter()) {
+    counts.closed = state.closedQsUniversityCount;
+  }
   Object.entries(counts).forEach(([status, count]) => {
     const node = document.getElementById(`count-${status}`);
     if (node) node.textContent = count;
@@ -1928,8 +2000,8 @@ function applyStaticTranslations() {
   updateFavoriteControls();
   document.title =
     state.language === "zh"
-      ? "GradWindow · QS 200 硕士申请时间表"
-      : "GradWindow · QS Top 200 Master's Applications";
+      ? "GradWindow · 全球主流排名前 200 硕士申请时间表"
+      : "GradWindow · Global Top-200 Master's Applications";
 }
 
 function applyTheme() {
@@ -2055,8 +2127,9 @@ function updateDataNotes() {
   }
 }
 
-function refreshLanguage() {
+async function refreshLanguage() {
   localStorage.setItem("gradwindow:language", state.language);
+  if (state.language === "zh") await ensureProgrammeTranslations();
   applyStaticTranslations();
   refreshFilterOptions();
   updateDataNotes();
@@ -2161,7 +2234,8 @@ function updateMobileFilterToggle() {
   }
 }
 
-function showSavedApplications() {
+async function showSavedApplications() {
+  await ensureClosedRecords();
   state.favoritesOnly = true;
   state.selectedUniversityId = "";
   resetPages();
@@ -2172,11 +2246,22 @@ function showSavedApplications() {
     .scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+async function activateStatus(status, focusStatus = "") {
+  if (status === "closed") await ensureClosedRecords();
+  state.status = status;
+  resetPages();
+  syncUrl();
+  updateStatusTabs(focusStatus);
+  render();
+}
+
 function bindEvents() {
-  document.getElementById("language-toggle").addEventListener("click", () => {
-    state.language = state.language === "en" ? "zh" : "en";
-    refreshLanguage();
-  });
+  document
+    .getElementById("language-toggle")
+    .addEventListener("click", async () => {
+      state.language = state.language === "en" ? "zh" : "en";
+      await refreshLanguage();
+    });
   document.getElementById("theme-toggle").addEventListener("click", () => {
     state.theme = state.theme === "dark" ? "light" : "dark";
     applyTheme();
@@ -2202,7 +2287,7 @@ function bindEvents() {
     });
   document
     .getElementById("hero-search-form")
-    .addEventListener("submit", (event) => {
+    .addEventListener("submit", async (event) => {
       event.preventDefault();
       state.selectedUniversityId = "";
       state.search = document.getElementById("hero-search-input").value.trim();
@@ -2210,17 +2295,28 @@ function bindEvents() {
       resetPages();
       syncUrl();
       render();
+      if (state.search) {
+        await ensureClosedRecords();
+        render();
+      }
       document
         .getElementById("application-board")
         .scrollIntoView({ behavior: "smooth", block: "start" });
     });
-  document.getElementById("search-input").addEventListener("input", (event) => {
-    state.selectedUniversityId = "";
-    state.search = event.target.value;
-    resetPages();
-    syncUrl();
-    render();
-  });
+  document
+    .getElementById("search-input")
+    .addEventListener("input", async (event) => {
+      state.selectedUniversityId = "";
+      state.search = event.target.value;
+      const searchAtStart = state.search;
+      resetPages();
+      syncUrl();
+      render();
+      if (searchAtStart) {
+        await ensureClosedRecords();
+        if (state.search === searchAtStart) render();
+      }
+    });
   document
     .getElementById("ranking-filter")
     .addEventListener("change", (event) => {
@@ -2260,14 +2356,10 @@ function bindEvents() {
       render();
     });
   document.querySelectorAll(".status-tab").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.status = button.dataset.status;
-      resetPages();
-      syncUrl();
-      updateStatusTabs();
-      render();
+    button.addEventListener("click", async () => {
+      await activateStatus(button.dataset.status);
     });
-    button.addEventListener("keydown", (event) => {
+    button.addEventListener("keydown", async (event) => {
       if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
         return;
       }
@@ -2285,22 +2377,17 @@ function bindEvents() {
                 (event.key === "ArrowRight" ? 1 : -1) +
                 tabs.length) %
               tabs.length;
-      state.status = tabs[nextIndex].dataset.status;
-      resetPages();
-      syncUrl();
-      render();
-      updateStatusTabs(state.status);
+      await activateStatus(
+        tabs[nextIndex].dataset.status,
+        tabs[nextIndex].dataset.status,
+      );
     });
   });
   document
     .querySelectorAll(".route-filter-button[data-status]")
     .forEach((button) => {
-      button.addEventListener("click", () => {
-        state.status = button.dataset.status;
-        resetPages();
-        syncUrl();
-        updateStatusTabs();
-        render();
+      button.addEventListener("click", async () => {
+        await activateStatus(button.dataset.status);
       });
     });
   document
@@ -2349,7 +2436,7 @@ function bindEvents() {
   });
 
   document.querySelectorAll("[data-mobile-nav]").forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", async () => {
       const destination = button.dataset.mobileNav;
       setMobileNavActive(destination);
       if (destination === "home") {
@@ -2366,6 +2453,7 @@ function bindEvents() {
           .getElementById("application-board")
           .scrollIntoView({ behavior: "smooth" });
       } else if (destination === "favorites") {
+        await ensureClosedRecords();
         state.favoritesOnly = true;
         resetPages();
         syncUrl();
@@ -2392,153 +2480,33 @@ async function init() {
         : "light";
     applyTheme();
     applyStaticTranslations();
-    const fetchRequiredJson = async (path) => {
-      const response = await fetch(path);
-      if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
-      return response.json();
-    };
-    const optionalFailures = [];
-    const fetchOptionalJson = async (path, fallback) => {
-      try {
-        return await fetchRequiredJson(path);
-      } catch (error) {
-        optionalFailures.push(path);
-        console.warn(`Optional data unavailable: ${path}`, error);
-        return fallback;
-      }
-    };
-
-    const [
-      payload,
-      universityPayload,
-      programsPayload,
-      predictionsPayload,
-      recurringPayload,
-      monitorPayload,
-      refreshStatusPayload,
-      policiesPayload,
-      coveragePayload,
-      sourceMonitorPayload,
-      programmeGroupsPayload,
-      applicantCategoriesPayload,
-      rankingsPayload,
-      programmeTranslationsPayload,
-    ] = await Promise.all([
-      fetchRequiredJson("./data/applications.json"),
-      fetchRequiredJson("./data/universities.json"),
-      fetchRequiredJson("./data/programs.json"),
-      fetchRequiredJson("./data/predictions.json"),
-      fetchRequiredJson("./data/recurring-windows.json"),
-      fetchOptionalJson("./data/monitor-state.json", null),
-      fetchOptionalJson("./data/refresh-status.json", null),
-      fetchOptionalJson("./data/window-policies.json", { policies: [] }),
-      fetchOptionalJson("./data/coverage.json", null),
-      fetchOptionalJson("./data/application-source-state.json", {
-        applications: {},
-      }),
-      fetchOptionalJson("./data/programme-groups.json", { groups: [] }),
-      fetchOptionalJson("./data/applicant-categories.json", {
-        categories: [],
-      }),
-      fetchOptionalJson("./data/global-rankings.json", { rankings: {} }),
-      fetchOptionalJson("./data/programme-translations.json", {
-        translations: {},
-      }),
-    ]);
-    setProgrammeTranslations(programmeTranslationsPayload);
-    state.coverage = coveragePayload;
-    state.monitorPayload = monitorPayload;
-    state.refreshStatus = refreshStatusPayload;
-    state.optionalFailureCount = optionalFailures.length;
-    state.sourceMonitor = sourceMonitorPayload.applications || {};
-    state.universities = universityPayload.universities;
+    const payload = await fetchRequiredJson("./data/frontend-index.json");
+    state.universities = payload.universities || [];
     state.universityById = new Map(
       state.universities.map((university) => [university.id, university]),
     );
-    state.rankingPayload = rankingsPayload;
-    state.programs = programsPayload.programs;
-    state.programmeGroups = programmeGroupsPayload.groups || [];
-    state.applicantCategoryLabels = Object.fromEntries(
-      (applicantCategoriesPayload.categories || []).map((category) => [
-        category.id,
-        {
-          en: category.labelEn || category.id,
-          zh: category.labelZh || category.labelEn || category.id,
-        },
-      ]),
-    );
-    state.policies = policiesPayload.policies || [];
-    const universityById = state.universityById;
-    const programById = new Map(
-      state.programs.map((program) => [program.id, program]),
-    );
-    const groupById = new Map(
-      state.programmeGroups.map((group) => [group.id, group]),
-    );
-    const enrichRecord = (record) => {
-      const university = universityById.get(record.universityId) || {};
-      const program =
-        record.scopeType === "programme"
-          ? programById.get(record.scopeId) || {}
-          : {};
-      const programmeGroup =
-        record.scopeType === "programme-group"
-          ? groupById.get(record.scopeId) || {}
-          : {};
-      return {
-        ...record,
-        sourceMonitor:
-          state.sourceMonitor[record.basedOnRecordId || record.id] || {},
-        school: university.school || record.school || "",
-        schoolZh: university.schoolZh || record.schoolZh || "",
-        schoolAliasesZh:
-          university.schoolAliasesZh || record.schoolAliasesZh || [],
-        qsRank: university.qsRank || record.qsRank || 999,
-        country: university.country || record.country || "",
-        region: university.region || record.region || "",
-        program:
-          program.name ||
-          programmeGroup.name ||
-          record.program ||
-          (record.scopeType === "institution"
-            ? t("institutionWindow")
-            : record.scopeId),
-      };
-    };
-    const officialRecords = payload.applications.map((record) =>
-      enrichRecord({ ...record, dataStatus: "official" }),
-    );
-    const predictedRecords = predictionsPayload.predictions.map((record) =>
-      enrichRecord({ ...record, dataStatus: "predicted" }),
-    );
-    const recurringRecords = recurringPayload.recurringWindows.map((record) =>
-      enrichRecord({ ...record, dataStatus: "recurring" }),
-    );
-    state.officialCount = officialRecords.length;
-    state.predictionCount = predictedRecords.length;
-    state.recurringCount = recurringRecords.length;
-    state.data = [...officialRecords, ...recurringRecords, ...predictedRecords];
-    state.universities.forEach((university) => {
-      university.monitor = monitorPayload?.universities?.[university.id] || {};
-    });
-    const policyByUniversity = new Map(
-      state.policies.map((policy) => [policy.universityId, policy]),
-    );
-    const coverageByUniversity = new Map(
-      (state.coverage?.universities || []).map((item) => [
-        item.universityId,
-        item,
-      ]),
-    );
-    state.universities.forEach((university) => {
-      university.windowPolicy = policyByUniversity.get(university.id) || null;
-      university.coverage = coverageByUniversity.get(university.id) || null;
-    });
-    state.meta = { ...payload.meta, ...universityPayload.meta };
+    state.rankingPayload = payload.rankings || { rankings: {} };
+    state.applicantCategoryLabels = payload.applicantCategoryLabels || {};
+    state.meta = payload.meta || {};
+    state.monitorPayload = state.meta.monitor || null;
+    state.refreshStatus = state.meta.refreshStatus || null;
+    state.optionalFailureCount = 0;
+    state.officialCount = state.meta.officialCount || 0;
+    state.predictionCount = state.meta.predictionCount || 0;
+    state.recurringCount = state.meta.recurringCount || 0;
+    state.closedQsUniversityCount = state.meta.closedQsUniversityCount || 0;
+    state.data = decodeRecordBundle(payload.records, state.universities);
+    if (state.language === "zh") {
+      await ensureProgrammeTranslations();
+      applyStaticTranslations();
+    }
     state.favorites = loadInitialFavorites();
     loadUrlState();
     if (selectedRankingDefinition().available === false) state.ranking = "qs";
     updateRankingAvailability();
+    if (state.status === "closed" || hasActiveSearch() || state.favoritesOnly) {
+      await ensureClosedRecords();
+    }
 
     refreshFilterOptions();
     const legacyIntake = state.intake;

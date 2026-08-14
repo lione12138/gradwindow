@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -78,6 +79,7 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     index = build_site(tmp_path)
     assert index.exists()
     assert (tmp_path / "app.js").exists()
+    assert (tmp_path / "frontend-data.js").exists()
     assert (tmp_path / "status.js").exists()
     assert (tmp_path / "intake-filter.js").exists()
     assert (tmp_path / "ranking-filter.js").exists()
@@ -94,7 +96,7 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     assert (tmp_path / "admin.html").exists()
     assert (tmp_path / "admin.js").exists()
     assert (tmp_path / "styles.css").exists()
-    assert (tmp_path / "og-image.png").exists()
+    assert (tmp_path / "og-image-multiranking.png").exists()
     assert (tmp_path / "favicon.svg").exists()
     assert (tmp_path / "CNAME").read_text(encoding="utf-8").strip() == "gradwindow.com"
     indexnow_key = "ffcdfa5871ff4d52aed733120c248bf8"
@@ -115,6 +117,11 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     assert (tmp_path / "data" / "predictions.json").exists()
     assert (tmp_path / "data" / "recurring-windows.json").exists()
     assert (tmp_path / "data" / "refresh-status.json").exists()
+    assert (tmp_path / "data" / "frontend-index.json").exists()
+    assert (tmp_path / "data" / "frontend-closed.json").exists()
+    assert (
+        tmp_path / "data" / "university" / "national-university-of-singapore-nus.json"
+    ).exists()
     assert not (tmp_path / "scripts").exists()
     assert not (tmp_path / "data" / "ror-cache.json").exists()
     assert not (tmp_path / "data" / "admissions-overrides.json").exists()
@@ -130,6 +137,12 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     assert (tmp_path / "opening" / "2026-09" / "index.html").exists()
     assert (tmp_path / "intake" / "2027-fall" / "index.html").exists()
     assert (tmp_path / "intake" / "2027-spring" / "index.html").exists()
+    index_html = index.read_text(encoding="utf-8")
+    app_source = (tmp_path / "app.js").read_text(encoding="utf-8")
+    assert re.search(r"\./app\.js\?v=[0-9a-f]{12}", index_html)
+    assert re.search(r"\./styles\.css\?v=[0-9a-f]{12}", index_html)
+    assert re.search(r"\./frontend-data\.js\?v=[0-9a-f]{12}", app_source)
+    assert "202606" not in index_html
 
 
 def test_indexable_pages_have_substantial_unique_meta_descriptions(tmp_path) -> None:
@@ -230,7 +243,7 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'id="coverage-batches"' not in index_html
     assert 'lang="en"' in index_html
     assert 'property="og:image"' in index_html
-    assert "og-image.png" in index_html
+    assert "og-image-multiranking.png" in index_html
     assert (
         'name="robots" content="index, follow, max-image-preview:large"' in index_html
     )

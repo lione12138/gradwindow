@@ -4,9 +4,10 @@ Instructions for AI coding agents working on GradWindow.
 
 ## Project purpose
 
-GradWindow is a transparent graduate application-window tracker for QS top-200
-universities. The site publishes official, reviewable application windows and
-separates them from generated predictions and unreviewed candidates.
+GradWindow is a transparent graduate application-window tracker for top-200
+universities across supported major global rankings. QS is the default view;
+THE and ARWU are also live. The site publishes official, reviewable application
+windows and separates them from generated predictions and unreviewed candidates.
 
 Correctness matters more than volume. Never turn a weak scrape result into a
 published deadline.
@@ -389,6 +390,10 @@ fixes:
   user explicitly asks.
 - Keep generated timestamp-only changes out of commits unless they are expected
   outputs of the task.
+- Do not describe the whole product as QS-only or cap the canonical university
+  directory at 200. Keep ranking-specific labels where a view or metric really
+  is QS-only, and do not call a future ranking live until its provenance and UI
+  view are ready.
 - Use `rg` for search.
 - Use `apply_patch` for file edits.
 - Add or update tests for behavioural changes.

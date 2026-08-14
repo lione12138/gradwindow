@@ -6,7 +6,7 @@ GradWindow is a Python data pipeline that publishes a zero-backend static site.
 
 ```text
 data/
-  universities.json          QS top-200 institution directory
+  universities.json          shared multi-ranking institution directory
   programs.json              programme directory and inheritance targets
   programme-groups.json      validated programme-group scope registry
   programme-translations.json cached Chinese programme/scope labels
@@ -49,6 +49,20 @@ scripts/
 tests/                        offline behavioural and contract tests
 site/                         generated deployment artifact
 ```
+
+## Ranking coverage
+
+The canonical university table is shared across ranking views; there is no
+separate admissions database per publisher. QS is the default monitored view,
+while THE and ARWU are live alternative top-200 views. Ranking-specific metrics
+such as `coverage.json` keep their QS label because they currently measure the
+QS 2027 cohort only. U.S. News records are not presented as a live selector
+until that view's provenance and product coverage are ready.
+
+The browser does not download the large normalized source datasets on startup.
+`build-site` derives a compact `frontend-index.json`, a lazy Closed-history
+bundle, and small per-university detail files. The original public JSON remains
+available as the auditable source dataset.
 
 ## Pipeline
 

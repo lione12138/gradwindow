@@ -531,10 +531,24 @@ h1 em::after {
 }
 
 .mini-card-rank {
+  min-width: 164px;
   bottom: 12%;
   left: 2%;
   background: var(--lime);
   transform: rotate(4deg);
+}
+
+.mini-card-rank strong {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.window-detail-evidence {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .trust-strip {

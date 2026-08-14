@@ -1,4 +1,4 @@
-import { translate } from "./i18n.js?v=20260626-calendar-menu";
+import { translate } from "./i18n.js";
 import { state } from "./state.js";
 
 // Translate a UI key against the tracker page's current language, falling back

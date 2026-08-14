@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import os
@@ -9,6 +10,7 @@ from collections import Counter, defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
+from .frontend import build_frontend_payloads, write_compact_json
 from .io import read_json
 from .paths import (
     APPLICANT_CATEGORIES_PATH,
@@ -44,6 +46,7 @@ PUBLIC_FILES = (
     "roadmap.js",
     "admin.js",
     "exception-status.js",
+    "frontend-data.js",
     "status.js",
     "intake-filter.js",
     "ranking-filter.js",
@@ -60,7 +63,7 @@ PUBLIC_FILES = (
     "auth.js",
     "review.js",
     "styles.css",
-    "og-image.png",
+    "og-image-multiranking.png",
     "favicon.svg",
     "cat-avatar.svg",
 )
@@ -188,6 +191,14 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     data_dir.mkdir()
     for source in PUBLIC_DATA:
         shutil.copy2(source, data_dir / source.name)
+    frontend_index, frontend_closed, university_details = build_frontend_payloads(
+        build_date
+    )
+    write_compact_json(data_dir / "frontend-index.json", frontend_index)
+    write_compact_json(data_dir / "frontend-closed.json", frontend_closed)
+    university_data_dir = data_dir / "university"
+    for university_id, details in university_details.items():
+        write_compact_json(university_data_dir / f"{university_id}.json", details)
 
     (output_dir / ".nojekyll").write_text("", encoding="utf-8")
     (output_dir / "sources.html").write_text(
@@ -211,7 +222,36 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
         f"User-agent: *\nAllow: /\nSitemap: {public_site_url}/sitemap.xml\n",
         encoding="utf-8",
     )
+    version_public_assets(output_dir)
     return output_dir / "index.html"
+
+
+def version_public_assets(output_dir: Path) -> str:
+    assets = sorted(
+        path
+        for path in output_dir.iterdir()
+        if path.is_file() and path.suffix in {".js", ".css"}
+    )
+    digest = hashlib.sha256()
+    for asset in assets:
+        digest.update(asset.name.encode("utf-8"))
+        digest.update(asset.read_bytes())
+    version = digest.hexdigest()[:12]
+    pattern = re.compile(
+        r'(?P<quote>["\'])(?P<path>\./[^"\'?#]+\.(?:js|css))'
+        r'(?:\?v=[^"\']*)?(?P=quote)'
+    )
+    for path in [*output_dir.glob("*.html"), *output_dir.glob("*.js")]:
+        source = path.read_text(encoding="utf-8")
+        versioned = pattern.sub(
+            lambda match: (
+                f"{match.group('quote')}{match.group('path')}?v={version}"
+                f"{match.group('quote')}"
+            ),
+            source,
+        )
+        path.write_text(versioned, encoding="utf-8")
+    return version
 
 
 def application_status(item: dict, today: date) -> str:
@@ -1250,7 +1290,7 @@ def render_static_page(
     escaped_canonical = html.escape(canonical, quote=True)
     public_site_url = canonical.split("/", 3)[:3]
     public_site_url = "/".join(public_site_url)
-    social_image = f"{public_site_url}/og-image.png"
+    social_image = f"{public_site_url}/og-image-multiranking.png"
     breadcrumb_schema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -1302,8 +1342,8 @@ def render_static_page(
   <meta property="og:site_name" content="GradWindow">
   <meta property="og:url" content="{escaped_canonical}">
   <meta property="og:image" content="{social_image}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1731">
+  <meta property="og:image:height" content="909">
   <meta property="og:image:alt" content="GradWindow master's application deadline tracker">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{escaped_title} · GradWindow">
@@ -1512,11 +1552,11 @@ def render_sources_page(public_site_url: str) -> str:
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="GradWindow">
   <meta property="og:url" content="{canonical}">
-  <meta property="og:image" content="{public_site_url}/og-image.png">
+  <meta property="og:image" content="{public_site_url}/og-image-multiranking.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{html.escape(description, quote=True)}">
-  <meta name="twitter:image" content="{public_site_url}/og-image.png">
+  <meta name="twitter:image" content="{public_site_url}/og-image-multiranking.png">
   <script type="application/ld+json">{structured_data}</script>
   <style>
     body {{ margin: 0; background: #f7f5ef; color: #17231d; font: 14px/1.6 system-ui, sans-serif; }}

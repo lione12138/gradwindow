@@ -1,4 +1,4 @@
-import { translate } from "./i18n.js?v=20260622-i18n";
+import { translate } from "./i18n.js";
 import { getApplicationStatus } from "./status.js";
 import { canonicalIntake, intakeLabel } from "./intake-filter.js";
 import { acronym, makeElement, makeLink, parseDate } from "./dom.js";
@@ -12,6 +12,7 @@ import {
   schoolLabels,
   setProgrammeTranslations,
 } from "./localization.js";
+import { decodeRecordBundle } from "./frontend-data.js";
 
 const state = {
   records: [],
@@ -23,6 +24,7 @@ const state = {
   language: "en",
   theme: "light",
 };
+let programmeTranslationsPromise = null;
 
 function t(key) {
   return translate(state.language, key);
@@ -297,12 +299,15 @@ function applyTheme() {
 }
 
 function bindEvents() {
-  document.getElementById("language-toggle").addEventListener("click", () => {
-    state.language = state.language === "en" ? "zh" : "en";
-    localStorage.setItem("gradwindow:language", state.language);
-    applyStaticTranslations();
-    render();
-  });
+  document
+    .getElementById("language-toggle")
+    .addEventListener("click", async () => {
+      state.language = state.language === "en" ? "zh" : "en";
+      if (state.language === "zh") await ensureProgrammeTranslations();
+      localStorage.setItem("gradwindow:language", state.language);
+      applyStaticTranslations();
+      render();
+    });
   document.getElementById("theme-toggle").addEventListener("click", () => {
     state.theme = state.theme === "dark" ? "light" : "dark";
     applyTheme();
@@ -356,6 +361,16 @@ async function fetchOptionalJson(path, fallback) {
   }
 }
 
+async function ensureProgrammeTranslations() {
+  if (!programmeTranslationsPromise) {
+    programmeTranslationsPromise = fetchOptionalJson(
+      "./data/programme-translations.json",
+      { translations: {} },
+    ).then((payload) => setProgrammeTranslations(payload));
+  }
+  await programmeTranslationsPromise;
+}
+
 async function init() {
   state.language =
     localStorage.getItem("gradwindow:language") === "zh" ? "zh" : "en";
@@ -368,28 +383,13 @@ async function init() {
   applyTheme();
   applyStaticTranslations();
 
-  const [
-    applications,
-    predictions,
-    recurringWindows,
-    universities,
-    programs,
-    groups,
-    programmeTranslations,
-  ] = await Promise.all([
-    fetchJson("./data/applications.json"),
-    fetchJson("./data/predictions.json"),
-    fetchJson("./data/recurring-windows.json"),
-    fetchJson("./data/universities.json"),
-    fetchJson("./data/programs.json"),
-    fetchJson("./data/programme-groups.json"),
-    fetchOptionalJson("./data/programme-translations.json", {
-      translations: {},
-    }),
+  const [frontend, closed] = await Promise.all([
+    fetchJson("./data/frontend-index.json"),
+    fetchJson("./data/frontend-closed.json"),
   ]);
-  setProgrammeTranslations(programmeTranslations);
+  if (state.language === "zh") await ensureProgrammeTranslations();
   const universityById = new Map(
-    universities.universities.map((item) => [item.id, item]),
+    frontend.universities.map((item) => [item.id, item]),
   );
   const deepLink = universityDeepLink(
     window.location.search,
@@ -400,35 +400,9 @@ async function init() {
     state.search = universityById.get(state.universityId).school;
     document.getElementById("calendar-search").value = state.search;
   }
-  const programById = new Map(programs.programs.map((item) => [item.id, item]));
-  const groupById = new Map(groups.groups.map((item) => [item.id, item]));
-  const enrich = (record, dataStatus) => {
-    const university = universityById.get(record.universityId) || {};
-    const program =
-      record.scopeType === "programme"
-        ? programById.get(record.scopeId) || {}
-        : {};
-    const group =
-      record.scopeType === "programme-group"
-        ? groupById.get(record.scopeId) || {}
-        : {};
-    return {
-      ...record,
-      dataStatus,
-      school: university.school || record.school || "",
-      schoolZh: university.schoolZh || record.schoolZh || "",
-      qsRank: university.qsRank || record.qsRank || 999,
-      country: university.country || record.country || "",
-      region: university.region || record.region || "",
-      program: program.name || group.name || record.program || record.scopeId,
-    };
-  };
   state.records = [
-    ...applications.applications.map((record) => enrich(record, "official")),
-    ...recurringWindows.recurringWindows.map((record) =>
-      enrich(record, "recurring"),
-    ),
-    ...predictions.predictions.map((record) => enrich(record, "predicted")),
+    ...decodeRecordBundle(frontend.records, frontend.universities),
+    ...decodeRecordBundle(closed.records, frontend.universities),
   ];
   bindEvents();
   render();

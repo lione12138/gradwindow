@@ -26,8 +26,8 @@
 
     <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin />
     <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
-    <link rel="modulepreload" href="./app.js?v=20260630-shared-rankings" />
-    <link rel="modulepreload" href="./i18n.js?v=20260622-i18n" />
+    <link rel="modulepreload" href="./app.js" />
+    <link rel="modulepreload" href="./i18n.js" />
     <link rel="modulepreload" href="./status.js" />
     <link rel="modulepreload" href="./intake-filter.js" />
     <link rel="modulepreload" href="./localization.js" />
@@ -47,10 +47,10 @@
     />
     <meta
       property="og:image"
-      content="https://gradwindow.com/og-image.png"
+      content="https://gradwindow.com/og-image-multiranking.png"
     />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:height" content="909" />
     <meta
       property="og:image:alt"
       content="GradWindow master's application deadlines and opening dates tracker"
@@ -63,7 +63,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://gradwindow.com/og-image.png"
+      content="https://gradwindow.com/og-image-multiranking.png"
     />
 
     <script type="application/ld+json">
@@ -121,7 +121,7 @@
 
     <script>window.GRADWINDOW_CONFIG = {};</script>
     <title>{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines & Opening Dates | GradWindow</title>
-    <link rel="stylesheet" href="./styles.css?v=20260626-density" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="page-shell">
@@ -214,11 +214,11 @@
           <div class="hero-copy">
             <div class="eyebrow">
               <span class="live-dot"></span>
-              <span data-i18n="eyebrow">Daily monitoring of global university application windows</span>
+              <span data-i18n="eyebrow">Official sources · major rankings · daily monitoring</span>
             </div>
             <h1 data-i18n-html="heroTitle">{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines<br /><em>& Opening Dates</em></h1>
             <p data-i18n="heroDescription">
-              Master's application windows, clear at a glance. Filter by university, country, intake, application status, and deadline.
+              Master's application windows across top-200 universities in major global rankings. Filter by university, country, intake, status, and deadline.
             </p>
             <form class="hero-search" id="hero-search-form" role="search">
               <label class="sr-only" for="hero-search-input" data-i18n="heroSearchLabel">Search application windows</label>
@@ -268,8 +268,8 @@
               <strong id="hero-open-count">{{GRADWINDOW_OPEN_UNIVERSITIES}}</strong>
             </div>
             <div class="mini-card mini-card-rank">
-              <span data-i18n="qsRankLabel">QS RANK</span>
-              <strong>TOP 200</strong>
+              <span data-i18n="rankingScopeLabel">GLOBAL TOP 200</span>
+              <strong data-i18n="rankingScopeValue">QS · THE · ARWU</strong>
             </div>
           </div>
         </section>
@@ -377,7 +377,7 @@
                           <option value="qs" data-i18n="rankingQs">QS World University Rankings 2027</option>
                           <option value="the" data-i18n="rankingThe">THE World University Rankings 2026</option>
                           <option value="arwu" data-i18n="rankingArwu">ARWU 2025</option>
-                          <option value="usnews" disabled data-i18n="rankingUsnews">U.S. News Best Global Universities 2026–2027</option>
+                          <option value="usnews" disabled data-i18n="rankingUsnews">U.S. News (coverage expanding)</option>
                         </select>
                       </label>
                       <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" aria-expanded="false" aria-controls="advanced-filter-panel">
@@ -490,7 +490,7 @@
           <div><span>01</span> <span data-i18n="featureOfficial">Official sources</span></div>
           <div><span>02</span> <span data-i18n="featureDaily">Daily checks</span></div>
           <div><span>03</span> <span data-i18n="featureCalendar">Add to calendar</span></div>
-          <div><span>04</span> <span data-i18n="featureRanked">QS-ranked</span></div>
+          <div><span>04</span> <span data-i18n="featureRanked">Multi-ranking coverage</span></div>
         </section>
 
         <div class="review-panel" id="review-panel" hidden>
@@ -689,7 +689,7 @@
       </nav>
     </div>
 
-    <script src="./app.js?v=20260630-shared-rankings" type="module"></script>
+    <script src="./app.js" type="module"></script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"02939949076c423f953d11db0caade78"}'></script>
   </body>
 </html>

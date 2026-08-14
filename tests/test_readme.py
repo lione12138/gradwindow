@@ -26,11 +26,12 @@ def test_generate_bilingual_result_readmes(monkeypatch, tmp_path) -> None:
     assert "[English](README.md)" in chinese_text
     assert "[代码](LICENSE)" in chinese_text
     assert "[数据](DATA_LICENSE.md)" in chinese_text
-    assert "QS Top 200" in english_text
-    assert (
-        "full programme-level windows remain available on the website" in english_text
-    )
-    assert "完整的项目级申请窗口请前往网站查看" in chinese_text
+    assert "top-200 universities across major global rankings" in english_text
+    assert "THE and ARWU top-200 views are live" in english_text
+    assert "U.S. News coverage is not presented as live yet" in english_text
+    assert "全球主流排名前 200 大学" in chinese_text
+    assert "U.S. News 暂不标为已上线" in chinese_text
+    assert "web/og-image-multiranking.png" in english_text
 
 
 def test_readme_table_groups_programme_windows_by_university() -> None:

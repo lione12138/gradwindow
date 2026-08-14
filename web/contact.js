@@ -1,4 +1,4 @@
-import { translate } from "./i18n.js?v=20260622-i18n";
+import { translate } from "./i18n.js";
 
 const state = {
   language: "en",

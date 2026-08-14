@@ -16,6 +16,8 @@ export const state = {
   officialCount: 0,
   predictionCount: 0,
   recurringCount: 0,
+  closedLoaded: false,
+  closedQsUniversityCount: 0,
   meta: {},
   search: "",
   selectedUniversityId: "",
