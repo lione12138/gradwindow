@@ -2,7 +2,7 @@
   "universities": {
     "johannes-gutenberg-university-mainz": {
       "sourceUrl": "https://www.studium.uni-mainz.de/en/wp-json/jgu-study-finder/v1/courses-of-study?lang=en",
-      "checkedAt": "2026-08-13T10:50:32.882496+00:00",
+      "checkedAt": "2026-08-14T12:43:26.893858+00:00",
       "itemCount": 135,
       "applicationOpensAt": "2026-11-09",
       "catalogHash": "166aeb7633a313f740291d9cae47f1c246f9901185d2e70f651243f99a0e260d",
@@ -15,7 +15,7 @@
       "programmesWithoutDeadlines": 133,
       "programmesNeedingReview": 133,
       "limitationReason": "JGU's official API enumerates master's programmes. Its exact summer 2027 periods differ by restricted and unrestricted routes; other cycles and programme exceptions remain route-specific. Observed dates are incomplete or not safe for automatic publication. 133 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-13T10:50:32.882496+00:00",
+      "lastSuccessfulAt": "2026-08-14T12:43:26.893858+00:00",
       "windowFingerprint": "e14b046f9100bc329b9d27793aee4e241d3288dea8f9fa1e72c4bccaa6e89c78",
       "watchedWindowSourceHash": "057a806efb58d9f93cc30a6c2701da4adeec2864c49f15dc357caae186feaaf0",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -1100,7 +1100,24 @@
           "parseStatus": "parsed",
           "deadlineHash": "c9fafdb1ddfee42905dbc60b25347098b53faa145840e6c5192a59f977975d66"
         }
-      }
+      },
+      "windows": {
+        "mainz-summer-2027-restricted-master-admissions::Summer 2027::Restricted admission (including aptitude test or interview)::all": {
+          "programmeId": "mainz-summer-2027-restricted-master-admissions",
+          "opensAt": "2026-11-09",
+          "closesAt": "2026-12-04",
+          "sourceUrl": "https://www.studium.uni-mainz.de/en/your-application/masters-degrees/",
+          "opensAtBasis": "official"
+        },
+        "mainz-summer-2027-unrestricted-master-admissions::Summer 2027::Without admission restrictions::all": {
+          "programmeId": "mainz-summer-2027-unrestricted-master-admissions",
+          "opensAt": "2026-11-09",
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://www.studium.uni-mainz.de/en/your-application/masters-degrees/",
+          "opensAtBasis": "official"
+        }
+      },
+      "adapterWarnings": []
     }
   }
 }

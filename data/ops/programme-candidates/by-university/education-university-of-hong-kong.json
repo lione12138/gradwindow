@@ -1,6 +1,86 @@
 {
   "items": [
     {
+      "id": "known-programme-guidance:eduhk-taught-postgraduate-local-admissions",
+      "type": "known-programme-window-guidance",
+      "status": "pending",
+      "universityId": "education-university-of-hong-kong",
+      "detectedAt": "2026-08-14T12:25:55.122241+00:00",
+      "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
+      "programme": {
+        "id": "eduhk-taught-postgraduate-local-admissions",
+        "universityId": "education-university-of-hong-kong",
+        "name": "Taught postgraduate local admissions",
+        "degreeType": "Master",
+        "faculty": "Registry | Registry",
+        "applicationUrl": "https://www.eduhk.hk/onlineappl/",
+        "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf"
+      },
+      "windows": [
+        {
+          "intake": "September 2026",
+          "round": "Local applicant deadline",
+          "applicantCategories": [
+            "domestic-students"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-05-31",
+          "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
+          "scopeType": "programme-group",
+          "scopeId": "eduhk-taught-postgraduate-local-admissions"
+        }
+      ],
+      "parseStatus": "incomplete",
+      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
+      "evidenceExcerpt": "EdUHK's official 2026/27 schedule gives this exact closing date but only says applications opened in October 2025. Programme exceptions also apply, so this remains review guidance.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-2026-taught-postgraduate-schedule-pdf",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    },
+    {
+      "id": "known-programme-guidance:eduhk-taught-postgraduate-non-local-admissions",
+      "type": "known-programme-window-guidance",
+      "status": "pending",
+      "universityId": "education-university-of-hong-kong",
+      "detectedAt": "2026-08-14T12:25:55.122241+00:00",
+      "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
+      "programme": {
+        "id": "eduhk-taught-postgraduate-non-local-admissions",
+        "universityId": "education-university-of-hong-kong",
+        "name": "Taught postgraduate non-local admissions",
+        "degreeType": "Master",
+        "faculty": "Registry | Registry",
+        "applicationUrl": "https://www.eduhk.hk/onlineappl/",
+        "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf"
+      },
+      "windows": [
+        {
+          "intake": "September 2026",
+          "round": "Non-local applicant deadline",
+          "applicantCategories": [
+            "international-students"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-05-10",
+          "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
+          "scopeType": "programme-group",
+          "scopeId": "eduhk-taught-postgraduate-non-local-admissions"
+        }
+      ],
+      "parseStatus": "incomplete",
+      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
+      "evidenceExcerpt": "EdUHK's official 2026/27 schedule gives this exact closing date but only says applications opened in October 2025. Programme exceptions also apply, so this remains review guidance.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-2026-taught-postgraduate-schedule-pdf",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    },
+    {
       "id": "new-programme:eduhk-executive-master-of-public-administration-and-leadership-empal",
       "type": "new-programme",
       "status": "approved",
@@ -1427,88 +1507,6 @@
       },
       "reviewedBy": "automated-official-source-policy",
       "reviewedAt": "2026-08-13T11:18:57.467065+00:00"
-    },
-    {
-      "id": "new-programme:eduhk-taught-postgraduate-local-admissions",
-      "type": "new-programme",
-      "status": "pending",
-      "universityId": "education-university-of-hong-kong",
-      "detectedAt": "2026-08-13T10:35:27.395892+00:00",
-      "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
-      "programme": {
-        "id": "eduhk-taught-postgraduate-local-admissions",
-        "universityId": "education-university-of-hong-kong",
-        "name": "Taught postgraduate local admissions",
-        "degreeType": "Master",
-        "faculty": "Registry | Registry",
-        "applicationUrl": "https://www.eduhk.hk/onlineappl/",
-        "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf"
-      },
-      "windows": [
-        {
-          "intake": "September 2026",
-          "round": "Local applicant deadline",
-          "applicantCategories": [
-            "domestic-students"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-05-31",
-          "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
-          "scopeType": "programme-group",
-          "scopeId": "eduhk-taught-postgraduate-local-admissions"
-        }
-      ],
-      "parseStatus": "incomplete",
-      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
-      "evidenceExcerpt": "EdUHK's official 2026/27 schedule gives this exact closing date but only says applications opened in October 2025. Programme exceptions also apply, so this remains review guidance.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-2026-taught-postgraduate-schedule-pdf",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
-    },
-    {
-      "id": "new-programme:eduhk-taught-postgraduate-non-local-admissions",
-      "type": "new-programme",
-      "status": "pending",
-      "universityId": "education-university-of-hong-kong",
-      "detectedAt": "2026-08-13T10:35:27.395892+00:00",
-      "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
-      "programme": {
-        "id": "eduhk-taught-postgraduate-non-local-admissions",
-        "universityId": "education-university-of-hong-kong",
-        "name": "Taught postgraduate non-local admissions",
-        "degreeType": "Master",
-        "faculty": "Registry | Registry",
-        "applicationUrl": "https://www.eduhk.hk/onlineappl/",
-        "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf"
-      },
-      "windows": [
-        {
-          "intake": "September 2026",
-          "round": "Non-local applicant deadline",
-          "applicantCategories": [
-            "international-students"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-05-10",
-          "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
-          "scopeType": "programme-group",
-          "scopeId": "eduhk-taught-postgraduate-non-local-admissions"
-        }
-      ],
-      "parseStatus": "incomplete",
-      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
-      "evidenceExcerpt": "EdUHK's official 2026/27 schedule gives this exact closing date but only says applications opened in October 2025. Programme exceptions also apply, so this remains review guidance.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-2026-taught-postgraduate-schedule-pdf",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
     }
   ]
 }
