@@ -20,7 +20,7 @@ class CloudflareBrowserClient:
         *,
         timeout: float = 60,
         minimum_interval: float = 10,
-        max_rate_limit_retries: int = 2,
+        max_retries: int = 2,
         sleep: Callable[[float], None] = time.sleep,
         monotonic: Callable[[], float] = time.monotonic,
     ) -> None:
@@ -28,7 +28,7 @@ class CloudflareBrowserClient:
         self.api_token = api_token
         self.timeout = timeout
         self.minimum_interval = max(0, minimum_interval)
-        self.max_rate_limit_retries = max(0, max_rate_limit_retries)
+        self.max_retries = max(0, max_retries)
         self._sleep = sleep
         self._monotonic = monotonic
         self._request_lock = threading.Lock()
@@ -58,7 +58,7 @@ class CloudflareBrowserClient:
 
     def _render(self, endpoint: str, url: str) -> str:
         with self._request_lock:
-            for attempt in range(self.max_rate_limit_retries + 1):
+            for attempt in range(self.max_retries + 1):
                 self._wait_for_request_slot()
                 self._last_request_started_at = self._monotonic()
                 response = httpx.post(
@@ -68,17 +68,24 @@ class CloudflareBrowserClient:
                         "Authorization": f"Bearer {self.api_token}",
                         "Content-Type": "application/json",
                     },
-                    json={"url": url},
+                    json={
+                        "url": url,
+                        "rejectResourceTypes": [
+                            "image",
+                            "media",
+                            "font",
+                            "stylesheet",
+                        ],
+                    },
                     timeout=self.timeout,
                 )
-                if response.status_code != 429:
+                if not _is_retryable(response):
                     break
-                if attempt == self.max_rate_limit_retries or _daily_limit_exceeded(
-                    response
-                ):
+                if attempt == self.max_retries:
                     break
                 self._sleep(_retry_after_seconds(response, self.minimum_interval))
-        response.raise_for_status()
+        if response.is_error:
+            raise RuntimeError(_error_message(response))
         payload = response.json()
         if isinstance(payload, str):
             return payload
@@ -112,6 +119,28 @@ def _daily_limit_exceeded(response: httpx.Response) -> bool:
     return (
         "browser time limit exceeded" in lowered
         or "time limit exceeded for today" in lowered
+    )
+
+
+def _is_retryable(response: httpx.Response) -> bool:
+    if response.status_code == 429:
+        return not _daily_limit_exceeded(response)
+    return response.status_code == 422 or response.status_code >= 500
+
+
+def _error_message(response: httpx.Response) -> str:
+    try:
+        payload = response.json()
+    except ValueError:
+        detail = response.text
+    else:
+        if isinstance(payload, dict):
+            detail = str(payload.get("errors") or payload.get("messages") or payload)
+        else:
+            detail = str(payload)
+    detail = " ".join(detail.split())[:300]
+    return (
+        f"Cloudflare Browser Rendering returned HTTP {response.status_code}: {detail}"
     )
 
 
