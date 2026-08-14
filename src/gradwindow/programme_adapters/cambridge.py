@@ -191,24 +191,43 @@ class CambridgeAdapter(BaseProgrammeAdapter):
     ) -> DiscoveredProgramme:
         soup = BeautifulSoup(html, "html.parser")
         text = _normalise_text(soup.get_text(" ", strip=True))
-        match = COURSE_DATES_RE.search(text)
-        if match is None:
+        matches = list(COURSE_DATES_RE.finditer(text))
+        if not matches:
             return programme
-        opens_at = _parse_cambridge_date(match.group("opens"))
-        closes_at = _parse_cambridge_date(match.group("closes"))
-        starts_at = _parse_cambridge_date(match.group("starts"))
+        target_intakes = _target_cambridge_intakes(self.intake)
+        parsed_windows: list[tuple[str, DiscoveredWindow, str]] = []
+        seen_windows: set[tuple[str, str, str]] = set()
+        for match in matches:
+            opens_at = _parse_cambridge_date(match.group("opens"))
+            closes_at = _parse_cambridge_date(match.group("closes"))
+            starts_at = _parse_cambridge_date(match.group("starts"))
+            intake = _cambridge_intake(starts_at)
+            if intake not in target_intakes:
+                continue
+            identity = (intake, opens_at, closes_at)
+            if identity in seen_windows:
+                continue
+            seen_windows.add(identity)
+            parsed_windows.append(
+                (
+                    starts_at,
+                    DiscoveredWindow(
+                        round="Main deadline",
+                        opens_at=opens_at,
+                        closes_at=closes_at,
+                        intake=intake,
+                        source_url=source_url or programme.source_url,
+                    ),
+                    _normalise_text(match.group(0)),
+                )
+            )
+        if not parsed_windows:
+            return programme
+        parsed_windows.sort(key=lambda item: (item[0], item[1].closes_at))
         return replace(
             programme,
-            windows=[
-                DiscoveredWindow(
-                    round="Main deadline",
-                    opens_at=opens_at,
-                    closes_at=closes_at,
-                    intake=_cambridge_intake(starts_at),
-                    source_url=source_url or programme.source_url,
-                )
-            ],
-            deadline_text=_normalise_text(match.group(0)),
+            windows=[item[1] for item in parsed_windows],
+            deadline_text=" | ".join(item[2] for item in parsed_windows),
             parse_status="parsed",
             retrieval_method=retrieval_method,
             evidence_quality="official-full-text",
@@ -324,6 +343,20 @@ def _cambridge_intake(course_starts_at: str) -> str:
     if parsed.month in {4, 5, 6}:
         return f"Easter {parsed.year}"
     return f"{parsed.strftime('%B')} {parsed.year}"
+
+
+def _target_cambridge_intakes(anchor_intake: str) -> set[str]:
+    match = re.fullmatch(r"Michaelmas\s+(20\d{2})", anchor_intake)
+    if match is None:
+        raise ValueError(
+            "Cambridge target intake must use the 'Michaelmas YYYY' format"
+        )
+    academic_year = int(match.group(1))
+    return {
+        f"Michaelmas {academic_year}",
+        f"Lent {academic_year + 1}",
+        f"Easter {academic_year + 1}",
+    }
 
 
 def _programme_id(title: str, degree_type: str) -> str:

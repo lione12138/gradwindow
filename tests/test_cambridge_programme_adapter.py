@@ -23,6 +23,23 @@ CAMBRIDGE_DETAIL = """
 </body></html>
 """
 
+CAMBRIDGE_MULTI_INTAKE_DETAIL = """
+<html><body>
+  <h1>MPhil in Medical Science (Medicine)</h1>
+  <div>Dates and deadlines:</div>
+  <div>Lent 2026 (Closed)</div>
+  <div>Applications open Sep. 4, 2024 Application deadline Oct. 2, 2025 Course starts Jan. 5, 2026</div>
+  <div>Easter 2026 (Closed)</div>
+  <div>Applications open Sep. 4, 2024 Application deadline Jan. 14, 2026 Course starts Apr. 17, 2026</div>
+  <div>Michaelmas 2026 (Closed)</div>
+  <div>Applications open Sep. 3, 2025 Application deadline May. 14, 2026 Course starts Oct. 1, 2026</div>
+  <div>Lent 2027</div>
+  <div>Applications open Sep. 3, 2025 Application deadline Oct. 1, 2026 Course starts Jan. 5, 2027</div>
+  <div>Easter 2027</div>
+  <div>Applications open Sep. 3, 2025 Application deadline Jan. 14, 2027 Course starts Apr. 17, 2027</div>
+</body></html>
+"""
+
 
 def test_cambridge_adapter_extracts_taught_master_rows() -> None:
     catalog = CambridgeAdapter(minimum_expected_programmes=1).parse_catalog(
@@ -64,6 +81,34 @@ def test_cambridge_adapter_can_fetch_paginated_directory() -> None:
     assert catalog.programmes[0].windows[0].opens_at == "2025-09-03"
     assert catalog.programmes[0].windows[0].closes_at == "2026-02-26"
     assert catalog.programmes[0].windows[0].intake == "Michaelmas 2026"
+
+
+def test_cambridge_adapter_extracts_all_target_academic_year_intakes() -> None:
+    source_url = "https://www.postgraduate.study.cam.ac.uk/courses/directory/egcempace"
+
+    def fetcher(url: str) -> str:
+        if url == "https://www.postgraduate.study.cam.ac.uk/courses/directory":
+            return CAMBRIDGE_HTML
+        if url == source_url:
+            return CAMBRIDGE_MULTI_INTAKE_DETAIL
+        raise AssertionError(url)
+
+    catalog = CambridgeAdapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert [window.intake for window in programme.windows] == [
+        "Michaelmas 2026",
+        "Lent 2027",
+        "Easter 2027",
+    ]
+    assert [window.closes_at for window in programme.windows] == [
+        "2026-05-14",
+        "2026-10-01",
+        "2027-01-14",
+    ]
 
 
 def test_cambridge_adapter_uses_official_apply_subpage_after_course_page_403() -> None:
