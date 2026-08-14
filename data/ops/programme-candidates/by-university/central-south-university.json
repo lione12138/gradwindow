@@ -1,6 +1,86 @@
 {
   "items": [
     {
+      "id": "known-programme-guidance:central-south-cgs-high-level-graduate-admissions",
+      "type": "known-programme-window-guidance",
+      "status": "pending",
+      "universityId": "central-south-university",
+      "detectedAt": "2026-08-14T12:25:14.552805+00:00",
+      "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm",
+      "programme": {
+        "id": "central-south-cgs-high-level-graduate-admissions",
+        "universityId": "central-south-university",
+        "name": "Chinese Government Scholarship high-level graduate admissions",
+        "degreeType": "Master/Doctoral",
+        "faculty": "School of International Education | School of International Education",
+        "applicationUrl": "https://csu.17gz.org/",
+        "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm"
+      },
+      "windows": [
+        {
+          "intake": "Autumn 2026",
+          "round": "Chinese Government Scholarship high-level graduate round",
+          "applicantCategories": [
+            "chinese-government-scholarship"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-02-15",
+          "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm",
+          "scopeType": "programme-group",
+          "scopeId": "central-south-cgs-high-level-graduate-admissions"
+        }
+      ],
+      "parseStatus": "incomplete",
+      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
+      "evidenceExcerpt": "The official 2026 guide gives this exact closing date but describes the opening only as 'from now', so it remains review guidance and cannot be published as an exact window.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-2026-international-graduate-guide-html",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    },
+    {
+      "id": "known-programme-guidance:central-south-scholarship-self-sponsored-admissions",
+      "type": "known-programme-window-guidance",
+      "status": "pending",
+      "universityId": "central-south-university",
+      "detectedAt": "2026-08-14T12:25:14.552805+00:00",
+      "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm",
+      "programme": {
+        "id": "central-south-scholarship-self-sponsored-admissions",
+        "universityId": "central-south-university",
+        "name": "University scholarship and self-sponsored admissions",
+        "degreeType": "Master/Doctoral",
+        "faculty": "School of International Education | School of International Education",
+        "applicationUrl": "https://csu.17gz.org/",
+        "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm"
+      },
+      "windows": [
+        {
+          "intake": "Autumn 2026",
+          "round": "University scholarship and self-sponsored round",
+          "applicantCategories": [
+            "international-students"
+          ],
+          "opensAt": null,
+          "opensAtBasis": "missing",
+          "closesAt": "2026-05-31",
+          "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm",
+          "scopeType": "programme-group",
+          "scopeId": "central-south-scholarship-self-sponsored-admissions"
+        }
+      ],
+      "parseStatus": "incomplete",
+      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
+      "evidenceExcerpt": "The official 2026 guide gives this exact closing date but describes the opening only as 'from now', so it remains review guidance and cannot be published as an exact window.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-2026-international-graduate-guide-html",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      }
+    },
+    {
       "id": "new-programme:central-south-business-school-applied-economics-chinese",
       "type": "new-programme",
       "status": "approved",
@@ -83,47 +163,6 @@
       },
       "reviewedBy": "automated-official-source-policy",
       "reviewedAt": "2026-08-13T11:18:36.657690+00:00"
-    },
-    {
-      "id": "new-programme:central-south-cgs-high-level-graduate-admissions",
-      "type": "new-programme",
-      "status": "pending",
-      "universityId": "central-south-university",
-      "detectedAt": "2026-08-13T10:34:50.771637+00:00",
-      "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm",
-      "programme": {
-        "id": "central-south-cgs-high-level-graduate-admissions",
-        "universityId": "central-south-university",
-        "name": "Chinese Government Scholarship high-level graduate admissions",
-        "degreeType": "Master/Doctoral",
-        "faculty": "School of International Education | School of International Education",
-        "applicationUrl": "https://csu.17gz.org/",
-        "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm"
-      },
-      "windows": [
-        {
-          "intake": "Autumn 2026",
-          "round": "Chinese Government Scholarship high-level graduate round",
-          "applicantCategories": [
-            "chinese-government-scholarship"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-02-15",
-          "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm",
-          "scopeType": "programme-group",
-          "scopeId": "central-south-cgs-high-level-graduate-admissions"
-        }
-      ],
-      "parseStatus": "incomplete",
-      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
-      "evidenceExcerpt": "The official 2026 guide gives this exact closing date but describes the opening only as 'from now', so it remains review guidance and cannot be published as an exact window.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-2026-international-graduate-guide-html",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
     },
     {
       "id": "new-programme:central-south-department-of-physical-education-sport-chinese",
@@ -320,47 +359,6 @@
       },
       "reviewedBy": "automated-official-source-policy",
       "reviewedAt": "2026-08-13T11:18:36.657690+00:00"
-    },
-    {
-      "id": "new-programme:central-south-scholarship-self-sponsored-admissions",
-      "type": "new-programme",
-      "status": "pending",
-      "universityId": "central-south-university",
-      "detectedAt": "2026-08-13T10:34:50.771637+00:00",
-      "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm",
-      "programme": {
-        "id": "central-south-scholarship-self-sponsored-admissions",
-        "universityId": "central-south-university",
-        "name": "University scholarship and self-sponsored admissions",
-        "degreeType": "Master/Doctoral",
-        "faculty": "School of International Education | School of International Education",
-        "applicationUrl": "https://csu.17gz.org/",
-        "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm"
-      },
-      "windows": [
-        {
-          "intake": "Autumn 2026",
-          "round": "University scholarship and self-sponsored round",
-          "applicantCategories": [
-            "international-students"
-          ],
-          "opensAt": null,
-          "opensAtBasis": "missing",
-          "closesAt": "2026-05-31",
-          "sourceUrl": "https://intl.csu.edu.cn/info/1140/3776.htm",
-          "scopeType": "programme-group",
-          "scopeId": "central-south-scholarship-self-sponsored-admissions"
-        }
-      ],
-      "parseStatus": "incomplete",
-      "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page.",
-      "evidenceExcerpt": "The official 2026 guide gives this exact closing date but describes the opening only as 'from now', so it remains review guidance and cannot be published as an exact window.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-2026-international-graduate-guide-html",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
     },
     {
       "id": "new-programme:central-south-school-of-architecture-art-architecture-chinese",

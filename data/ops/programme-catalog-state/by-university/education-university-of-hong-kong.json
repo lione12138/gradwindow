@@ -2,7 +2,7 @@
   "universities": {
     "education-university-of-hong-kong": {
       "sourceUrl": "https://www.eduhk.hk/acadprog/postgrad/",
-      "checkedAt": "2026-08-13T10:35:27.395892+00:00",
+      "checkedAt": "2026-08-14T12:25:55.122241+00:00",
       "itemCount": 53,
       "applicationOpensAt": null,
       "catalogHash": "80f43b66291bb0af3ae04ecd16e2d5299496aa3cf5937881cf3d4a659571b912",
@@ -15,7 +15,7 @@
       "programmesWithoutDeadlines": 51,
       "programmesNeedingReview": 53,
       "limitationReason": "EdUHK's official 2026/27 schedule says applications opened in October 2025 without an exact day. Its exact closing dates remain review guidance rather than publishable exact windows. 2 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-13T10:35:27.395892+00:00",
+      "lastSuccessfulAt": "2026-08-14T12:25:55.122241+00:00",
       "windowFingerprint": "5c80daed2ae48f53d375e5383cb21d86c5685300f203c9ecd578d0e5aa9cd1b7",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -444,7 +444,24 @@
           "parseStatus": "incomplete",
           "deadlineHash": "a4b7c6c17090453bc010ecb32dad558ca6e1ed914eaca605e765798f75fc25af"
         }
-      }
+      },
+      "windows": {
+        "eduhk-taught-postgraduate-non-local-admissions::September 2026::Non-local applicant deadline::international-students": {
+          "programmeId": "eduhk-taught-postgraduate-non-local-admissions",
+          "opensAt": null,
+          "closesAt": "2026-05-10",
+          "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
+          "opensAtBasis": "missing"
+        },
+        "eduhk-taught-postgraduate-local-admissions::September 2026::Local applicant deadline::domestic-students": {
+          "programmeId": "eduhk-taught-postgraduate-local-admissions",
+          "opensAt": null,
+          "closesAt": "2026-05-31",
+          "sourceUrl": "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf",
+          "opensAtBasis": "missing"
+        }
+      },
+      "adapterWarnings": []
     }
   }
 }
