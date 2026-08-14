@@ -14,6 +14,7 @@ from ..browser_rendering import (
     browser_content_fetcher_from_environment,
     browser_markdown_fetcher_from_environment,
 )
+from ..reader import fetch_reader_page
 from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
@@ -34,6 +35,12 @@ COURSE_DATES_RE = re.compile(
     r"(?P<starts>[A-Z][a-z]{2,}\.?\s+\d{1,2},\s+20\d{2})",
     flags=re.IGNORECASE,
 )
+MARKDOWN_COURSE_ROW_RE = re.compile(
+    r"^\|\s*Course\[(?P<title>.+?)\]\((?P<url>https?://[^)]+)\)"
+    r"(?P<suffix>.*?)\|\s*Course Level\s+(?P<level>[^|]+)"
+    r"\|\s*Taught/Research\s*(?P<taught>[^|]*)\|",
+    flags=re.MULTILINE,
+)
 
 
 class CambridgeAdapter(BaseProgrammeAdapter):
@@ -48,6 +55,7 @@ class CambridgeAdapter(BaseProgrammeAdapter):
         detail_workers: int = 8,
         browser_content_fetcher: Callable[[str], str] | None = None,
         browser_markdown_fetcher: Callable[[str], str] | None = None,
+        reader_fetcher: Callable[[str], str] | None = None,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.detail_workers = detail_workers
@@ -57,23 +65,21 @@ class CambridgeAdapter(BaseProgrammeAdapter):
         self.browser_markdown_fetcher = (
             browser_markdown_fetcher or browser_markdown_fetcher_from_environment()
         )
+        self.reader_fetcher = reader_fetcher or fetch_reader_page
 
     def parse_catalog_from_fetcher(
         self,
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
-        first_html = self._fetch_catalog_page(self.catalog_url, fetcher)
-        soup = BeautifulSoup(first_html, "html.parser")
-        last_page = _last_page_number(soup)
-        html_pages = [first_html]
-        html_pages.extend(
+        first_page = self._fetch_catalog_page(self.catalog_url, fetcher)
+        last_page = _last_page_number_from_document(first_page)
+        pages = [first_page]
+        pages.extend(
             self._fetch_catalog_page(f"{self.catalog_url}?page={page}", fetcher)
             for page in range(1, last_page + 1)
         )
         programmes = [
-            programme
-            for html in html_pages
-            for programme in self._parse_programmes(html)
+            programme for page in pages for programme in self._parse_programmes(page)
         ]
         with concurrent.futures.ThreadPoolExecutor(
             max_workers=self.detail_workers
@@ -100,6 +106,10 @@ class CambridgeAdapter(BaseProgrammeAdapter):
             direct_error = "access challenge or empty response"
         except Exception as exc:
             direct_error = f"{type(exc).__name__}: {str(exc)[:180]}"
+        reader_url = _reader_catalog_url(url)
+        reader_text, reader_error = self._fetch_reader_transport(reader_url, fetcher)
+        if _is_markdown_course_directory(reader_text):
+            return reader_text
         if self.browser_content_fetcher is not None:
             try:
                 rendered = self.browser_content_fetcher(url)
@@ -113,13 +123,36 @@ class CambridgeAdapter(BaseProgrammeAdapter):
             browser_error = "not configured"
         raise OfficialSourceTransportError(
             "Cambridge official course directory could not be retrieved; "
-            f"direct={direct_error}; browser-rendering={browser_error}"
+            f"direct={direct_error}; reader={reader_error}; "
+            f"browser-rendering={browser_error}"
         )
+
+    def _fetch_reader_transport(
+        self,
+        reader_url: str,
+        fetcher: Callable[[str], str],
+    ) -> tuple[str, str]:
+        errors = []
+        transports = [fetcher]
+        if self.reader_fetcher is not fetcher:
+            transports.append(self.reader_fetcher)
+        for transport in transports:
+            try:
+                text = transport(reader_url)
+            except Exception as exc:
+                errors.append(f"{type(exc).__name__}: {str(exc)[:180]}")
+                continue
+            if text and not _is_access_challenge(text):
+                return text, ""
+            errors.append("access challenge or empty response")
+        return "", "; ".join(errors)
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:
         return self._catalog_from_programmes(self._parse_programmes(html))
 
     def _parse_programmes(self, html: str) -> list[DiscoveredProgramme]:
+        if _is_markdown_course_directory(html):
+            return self._parse_markdown_programmes(html)
         soup = BeautifulSoup(html, "html.parser")
         table = soup.find("table")
         if table is None:
@@ -129,6 +162,33 @@ class CambridgeAdapter(BaseProgrammeAdapter):
             for row in table.select("tbody tr")
             if (programme := self._parse_row(row)) is not None
         ]
+
+    def _parse_markdown_programmes(
+        self,
+        markdown: str,
+    ) -> list[DiscoveredProgramme]:
+        programmes = []
+        for match in MARKDOWN_COURSE_ROW_RE.finditer(markdown):
+            course_level = _normalise_text(match.group("level"))
+            taught_or_research = _normalise_text(match.group("taught"))
+            if course_level != "Master's" or taught_or_research != "Taught":
+                continue
+            title = _normalise_text(match.group("title"))
+            course_text = _normalise_text(title + match.group("suffix")).replace(
+                " - Closed this cycle", ""
+            )
+            degree_type = _degree_type(course_text, title)
+            if degree_type is None:
+                continue
+            source_url = re.sub(r"^http://", "https://", match.group("url"))
+            programmes.append(
+                self._new_programme(
+                    title=title,
+                    degree_type=degree_type,
+                    source_url=source_url,
+                )
+            )
+        return programmes
 
     def _catalog_from_programmes(
         self,
@@ -165,6 +225,19 @@ class CambridgeAdapter(BaseProgrammeAdapter):
         if degree_type is None:
             return None
         source_url = urljoin(self.catalog_url, link["href"])
+        return self._new_programme(
+            title=title,
+            degree_type=degree_type,
+            source_url=source_url,
+        )
+
+    def _new_programme(
+        self,
+        *,
+        title: str,
+        degree_type: str,
+        source_url: str,
+    ) -> DiscoveredProgramme:
         return DiscoveredProgramme(
             id=_programme_id(title, degree_type),
             name=f"{degree_type} in {title}",
@@ -269,19 +342,15 @@ class CambridgeAdapter(BaseProgrammeAdapter):
             return programme
 
         reader_url = _reader_url(apply_url)
-        try:
-            reader_text = fetcher(reader_url)
-        except Exception as exc:
-            errors.append(f"{reader_url}: {type(exc).__name__}: {str(exc)[:120]}")
-        else:
-            if reader_text and not _is_access_challenge(reader_text):
-                return self._parse_detail(
-                    programme,
-                    reader_text,
-                    source_url=apply_url,
-                    retrieval_method="official-course-apply-page-via-reader",
-                )
-            errors.append(f"{reader_url}: access challenge or empty response")
+        reader_text, reader_error = self._fetch_reader_transport(reader_url, fetcher)
+        if reader_text:
+            return self._parse_detail(
+                programme,
+                reader_text,
+                source_url=apply_url,
+                retrieval_method="official-course-apply-page-via-reader",
+            )
+        errors.append(f"{reader_url}: {reader_error}")
 
         if self.browser_markdown_fetcher is not None:
             try:
@@ -322,6 +391,15 @@ def _last_page_number(soup: BeautifulSoup) -> int:
         if match:
             last = max(last, int(match.group(1)))
     return last
+
+
+def _last_page_number_from_document(document: str) -> int:
+    if _is_markdown_course_directory(document):
+        return max(
+            (int(match.group(1)) for match in re.finditer(r"[?&]page=(\d+)", document)),
+            default=0,
+        )
+    return _last_page_number(BeautifulSoup(document, "html.parser"))
 
 
 def _parse_cambridge_date(value: str) -> str:
@@ -378,6 +456,14 @@ def _normalise_text(value: str) -> str:
 
 def _reader_url(source_url: str) -> str:
     return READER_PREFIX + re.sub(r"^https?://", "", source_url)
+
+
+def _reader_catalog_url(source_url: str) -> str:
+    return _reader_url(source_url).replace("?", "%3F", 1)
+
+
+def _is_markdown_course_directory(value: str) -> bool:
+    return "| Course[" in value and "| Course Level" in value
 
 
 def _is_access_challenge(value: str) -> bool:
