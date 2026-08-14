@@ -209,6 +209,7 @@ def test_nus_adapter_uses_browser_rendering_for_blocked_cde_page() -> None:
     catalog = NUSAdapter(
         minimum_expected_programmes=1,
         browser_fetcher=lambda url: cde_markdown if url == CDE_DEADLINES_URL else "",
+        reader_fetcher=lambda url: "",
     ).parse_catalog_from_fetcher(fetcher)
 
     programme = catalog.programmes[0]

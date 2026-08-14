@@ -11,6 +11,8 @@ from urllib.parse import urlencode
 from bs4 import BeautifulSoup
 
 from ..browser_rendering import browser_markdown_fetcher_from_environment
+from ..http_client import FetchFailure
+from ..reader import fetch_reader_page
 from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
@@ -101,6 +103,7 @@ class NUSAdapter(BaseProgrammeAdapter):
         *,
         target_intake_year: int | None = None,
         browser_fetcher: Callable[[str], str] | None = None,
+        reader_fetcher: Callable[[str], str] | None = None,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.target_intake_year = target_intake_year or _target_intake_year(
@@ -109,6 +112,7 @@ class NUSAdapter(BaseProgrammeAdapter):
         self.browser_fetcher = (
             browser_fetcher or browser_markdown_fetcher_from_environment()
         )
+        self.reader_fetcher = reader_fetcher or fetch_reader_page
 
     def parse_catalog_from_fetcher(
         self,
@@ -135,6 +139,7 @@ class NUSAdapter(BaseProgrammeAdapter):
             fetcher,
             target_intake_year=self.target_intake_year,
             browser_fetcher=self.browser_fetcher,
+            reader_fetcher=self.reader_fetcher,
         )
         return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
 
@@ -145,34 +150,44 @@ def _apply_deadline_sources(
     *,
     target_intake_year: int,
     browser_fetcher: Callable[[str], str] | None = None,
+    reader_fetcher: Callable[[str], str] | None = None,
 ) -> list[DiscoveredProgramme]:
     cde_text, cde_method = _load_official_text(
         fetcher,
         CDE_DEADLINES_URL,
         preserve_html=True,
         browser_fetcher=browser_fetcher,
+        reader_fetcher=reader_fetcher,
     )
-    fass_text, fass_method = _load_official_text(fetcher, FASS_DEADLINES_URL)
+    fass_text, fass_method = _load_official_text(
+        fetcher, FASS_DEADLINES_URL, reader_fetcher=reader_fetcher
+    )
     science_text, science_method = _load_official_text(
-        fetcher, SCIENCE_RESEARCH_DEADLINES_URL
+        fetcher, SCIENCE_RESEARCH_DEADLINES_URL, reader_fetcher=reader_fetcher
     )
     medicine_text, medicine_method = _load_official_text(
-        fetcher, MEDICINE_RESEARCH_DEADLINES_URL
+        fetcher, MEDICINE_RESEARCH_DEADLINES_URL, reader_fetcher=reader_fetcher
     )
-    law_text, law_method = _load_official_text(fetcher, LAW_DEADLINES_URL)
+    law_text, law_method = _load_official_text(
+        fetcher, LAW_DEADLINES_URL, reader_fetcher=reader_fetcher
+    )
     computing_text, computing_method = _load_official_text(
-        fetcher, COMPUTING_DEADLINES_URL
+        fetcher, COMPUTING_DEADLINES_URL, reader_fetcher=reader_fetcher
     )
-    mph_text, mph_method = _load_official_text(fetcher, PUBLIC_HEALTH_MPH_URL)
-    dsml_text, dsml_method = _load_official_text(fetcher, DSML_DEADLINES_URL)
+    mph_text, mph_method = _load_official_text(
+        fetcher, PUBLIC_HEALTH_MPH_URL, reader_fetcher=reader_fetcher
+    )
+    dsml_text, dsml_method = _load_official_text(
+        fetcher, DSML_DEADLINES_URL, reader_fetcher=reader_fetcher
+    )
     global_sociology_text, global_sociology_method = _load_official_text(
-        fetcher, GLOBAL_SOCIOLOGY_DEADLINES_URL
+        fetcher, GLOBAL_SOCIOLOGY_DEADLINES_URL, reader_fetcher=reader_fetcher
     )
     biomedical_informatics_text, biomedical_informatics_method = _load_official_text(
-        fetcher, BIOMEDICAL_INFORMATICS_DEADLINES_URL
+        fetcher, BIOMEDICAL_INFORMATICS_DEADLINES_URL, reader_fetcher=reader_fetcher
     )
     public_policy_text, public_policy_method = _load_official_text(
-        fetcher, PUBLIC_POLICY_DEADLINES_URL
+        fetcher, PUBLIC_POLICY_DEADLINES_URL, reader_fetcher=reader_fetcher
     )
     cde_rules = _parse_cde_rules(cde_text, cde_method)
     if not cde_rules and _has_cde_exact_window_signals(cde_text):
@@ -249,6 +264,7 @@ def _load_official_text(
     *,
     preserve_html: bool = False,
     browser_fetcher: Callable[[str], str] | None = None,
+    reader_fetcher: Callable[[str], str] | None = None,
 ) -> tuple[str, str]:
     try:
         direct = fetcher(source_url)
@@ -256,6 +272,24 @@ def _load_official_text(
         direct = ""
     if direct and not _is_access_challenge(direct):
         return direct if preserve_html else _document_text(direct), "official-page"
+    reader_url = _reader_url(source_url)
+    use_dedicated_reader = False
+    try:
+        proxied = fetcher(reader_url)
+    except FetchFailure:
+        proxied = ""
+        use_dedicated_reader = True
+    except Exception:
+        proxied = ""
+    else:
+        use_dedicated_reader = bool(proxied and _is_access_challenge(proxied))
+    if use_dedicated_reader and reader_fetcher is not None:
+        try:
+            proxied = reader_fetcher(reader_url)
+        except Exception:
+            proxied = ""
+    if proxied and not _is_access_challenge(proxied):
+        return proxied, "official-page-via-reader"
     if browser_fetcher is not None:
         try:
             rendered = browser_fetcher(source_url)
@@ -263,11 +297,7 @@ def _load_official_text(
             rendered = ""
         if rendered and not _is_access_challenge(rendered):
             return rendered, "cloudflare-browser-rendering"
-    try:
-        proxied = fetcher(_reader_url(source_url))
-    except Exception:
-        return "", "unavailable"
-    return proxied, "official-page-via-reader"
+    return "", "unavailable"
 
 
 def _reader_url(source_url: str) -> str:

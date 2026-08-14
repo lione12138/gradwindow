@@ -3,7 +3,11 @@ from __future__ import annotations
 import pytest
 
 from gradwindow.programme_adapters.base import OfficialSourceTransportError
-from gradwindow.programme_adapters.cambridge import CambridgeAdapter, _reader_url
+from gradwindow.programme_adapters.cambridge import (
+    CambridgeAdapter,
+    _reader_catalog_url,
+    _reader_url,
+)
 
 CAMBRIDGE_HTML = """
 <html><body><table>
@@ -38,6 +42,19 @@ CAMBRIDGE_MULTI_INTAKE_DETAIL = """
   <div>Easter 2027</div>
   <div>Applications open Sep. 3, 2025 Application deadline Jan. 14, 2027 Course starts Apr. 17, 2027</div>
 </body></html>
+"""
+
+CAMBRIDGE_MARKDOWN_PAGE = """
+| Course Course | Course Level Course Level | Taught/Research Taught/Research | Course Length Course Length |
+| --- | --- | --- | --- |
+| Course[Advanced Chemical Engineering](http://www.postgraduate.study.cam.ac.uk/courses/directory/egcempace) - Closed this cycle MPhil | Course Level Master's | Taught/Research Taught | Course Length 11 months full-time |
+* [Last page Last »](http://www.postgraduate.study.cam.ac.uk/courses?page=1 "Go to last page")
+"""
+
+CAMBRIDGE_MARKDOWN_PAGE_TWO = """
+| Course Course | Course Level Course Level | Taught/Research Taught/Research | Course Length Course Length |
+| --- | --- | --- | --- |
+| Course[Advanced Computer Science](http://www.postgraduate.study.cam.ac.uk/courses/directory/cscsmpacs) - Closed this cycle MPhil | Course Level Master's | Taught/Research Taught | Course Length 9 months full-time |
 """
 
 
@@ -81,6 +98,40 @@ def test_cambridge_adapter_can_fetch_paginated_directory() -> None:
     assert catalog.programmes[0].windows[0].opens_at == "2025-09-03"
     assert catalog.programmes[0].windows[0].closes_at == "2026-02-26"
     assert catalog.programmes[0].windows[0].intake == "Michaelmas 2026"
+
+
+def test_cambridge_adapter_uses_reader_for_blocked_paginated_directory() -> None:
+    catalog_url = CambridgeAdapter.catalog_url
+    second_page_url = f"{catalog_url}?page=1"
+
+    def fetcher(url: str) -> str:
+        if url in {catalog_url, second_page_url}:
+            raise RuntimeError("HTTP 403")
+        if url == _reader_catalog_url(catalog_url):
+            return CAMBRIDGE_MARKDOWN_PAGE
+        if url == _reader_catalog_url(second_page_url):
+            return CAMBRIDGE_MARKDOWN_PAGE_TWO
+        if "/courses/directory/" in url:
+            return CAMBRIDGE_DETAIL
+        raise AssertionError(url)
+
+    catalog = CambridgeAdapter(
+        minimum_expected_programmes=2,
+        detail_workers=1,
+        browser_content_fetcher=lambda url: (_ for _ in ()).throw(
+            AssertionError("browser fallback should not run")
+        ),
+    ).parse_catalog_from_fetcher(fetcher)
+
+    assert {programme.name for programme in catalog.programmes} == {
+        "MPhil in Advanced Chemical Engineering",
+        "MPhil in Advanced Computer Science",
+    }
+    assert all(programme.parse_status == "parsed" for programme in catalog.programmes)
+    assert all(
+        programme.source_url.startswith("https://www.postgraduate.study.cam.ac.uk/")
+        for programme in catalog.programmes
+    )
 
 
 def test_cambridge_adapter_extracts_all_target_academic_year_intakes() -> None:
@@ -176,6 +227,7 @@ def test_cambridge_adapter_uses_browser_rendering_after_reader_fallback() -> Non
         browser_markdown_fetcher=lambda url: (
             CAMBRIDGE_DETAIL if url == apply_url else ""
         ),
+        reader_fetcher=lambda url: "",
     ).parse_catalog_from_fetcher(fetcher)
 
     programme = catalog.programmes[0]
@@ -205,6 +257,7 @@ def test_cambridge_adapter_renders_apply_page_when_course_page_has_no_dates() ->
         browser_markdown_fetcher=lambda url: (
             CAMBRIDGE_DETAIL if url == apply_url else ""
         ),
+        reader_fetcher=lambda url: "",
     ).parse_catalog_from_fetcher(fetcher)
 
     programme = catalog.programmes[0]
@@ -222,4 +275,5 @@ def test_cambridge_adapter_classifies_complete_source_access_failure() -> None:
         CambridgeAdapter(
             minimum_expected_programmes=1,
             detail_workers=1,
+            reader_fetcher=lambda url: "",
         ).parse_catalog_from_fetcher(fetcher)
