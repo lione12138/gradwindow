@@ -268,6 +268,21 @@ class CambridgeAdapter(BaseProgrammeAdapter):
         if apply_page_retrieved:
             return programme
 
+        reader_url = _reader_url(apply_url)
+        try:
+            reader_text = fetcher(reader_url)
+        except Exception as exc:
+            errors.append(f"{reader_url}: {type(exc).__name__}: {str(exc)[:120]}")
+        else:
+            if reader_text and not _is_access_challenge(reader_text):
+                return self._parse_detail(
+                    programme,
+                    reader_text,
+                    source_url=apply_url,
+                    retrieval_method="official-course-apply-page-via-reader",
+                )
+            errors.append(f"{reader_url}: access challenge or empty response")
+
         if self.browser_markdown_fetcher is not None:
             try:
                 rendered_text = self.browser_markdown_fetcher(apply_url)
@@ -287,21 +302,6 @@ class CambridgeAdapter(BaseProgrammeAdapter):
                 errors.append(
                     "cloudflare-browser-rendering: access challenge or empty response"
                 )
-
-        reader_url = _reader_url(apply_url)
-        try:
-            reader_text = fetcher(reader_url)
-        except Exception as exc:
-            errors.append(f"{reader_url}: {type(exc).__name__}: {str(exc)[:120]}")
-        else:
-            if reader_text and not _is_access_challenge(reader_text):
-                return self._parse_detail(
-                    programme,
-                    reader_text,
-                    source_url=apply_url,
-                    retrieval_method="official-course-apply-page-via-reader",
-                )
-            errors.append(f"{reader_url}: access challenge or empty response")
 
         raise OfficialSourceTransportError(
             "Cambridge official course and apply pages could not be retrieved; "
