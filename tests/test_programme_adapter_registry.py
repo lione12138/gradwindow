@@ -171,6 +171,18 @@ def test_manual_discovery_workflow_delegates_adapter_validation_to_registry() ->
     assert "options:" not in university_input
 
 
+def test_manual_discovery_workflow_passes_browser_rendering_secrets() -> None:
+    workflow = Path(".github/workflows/discover-programmes.yml").read_text(
+        encoding="utf-8"
+    )
+    selected_adapter_step = workflow.split(
+        "- name: Run selected programme adapter", 1
+    )[1].split("- name: Run Oxford assisted official-domain discovery", 1)[0]
+
+    assert "CLOUDFLARE_ACCOUNT_ID" in selected_adapter_step
+    assert "CLOUDFLARE_BROWSER_API_TOKEN" in selected_adapter_step
+
+
 def test_every_registered_adapter_satisfies_the_discovery_contract() -> None:
     for name, factory in PROGRAMME_ADAPTERS.items():
         adapter = factory()
