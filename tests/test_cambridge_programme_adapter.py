@@ -159,16 +159,16 @@ def test_cambridge_adapter_uses_reader_only_after_official_transport_failures() 
     assert programme.windows[0].source_url == apply_url
 
 
-def test_cambridge_adapter_uses_browser_rendering_before_reader_fallback() -> None:
+def test_cambridge_adapter_uses_browser_rendering_after_reader_fallback() -> None:
     source_url = "https://www.postgraduate.study.cam.ac.uk/courses/directory/egcempace"
     apply_url = f"{source_url}/apply"
 
     def fetcher(url: str) -> str:
         if url == "https://www.postgraduate.study.cam.ac.uk/courses/directory":
             return CAMBRIDGE_HTML
-        if url in {source_url, apply_url}:
+        if url in {source_url, apply_url, _reader_url(apply_url)}:
             raise RuntimeError("HTTP 403")
-        raise AssertionError("reader fallback should not run")
+        raise AssertionError(url)
 
     catalog = CambridgeAdapter(
         minimum_expected_programmes=1,
@@ -195,7 +195,9 @@ def test_cambridge_adapter_renders_apply_page_when_course_page_has_no_dates() ->
             return "<main>Course overview without application dates.</main>"
         if url == apply_url:
             raise RuntimeError("HTTP 403")
-        raise AssertionError("reader fallback should not run")
+        if url == _reader_url(apply_url):
+            raise RuntimeError("reader unavailable")
+        raise AssertionError(url)
 
     catalog = CambridgeAdapter(
         minimum_expected_programmes=1,
