@@ -259,16 +259,28 @@ function recordIntake(record) {
 }
 
 function deadlineNote(record, status) {
-  if (isPredictedRecord(record)) {
-    return `${t("calendarShift")} · ${t("basedOn")} ${record.sourceCycle}`;
+  if (status === "upcoming" || status === "future") {
+    const openingDays = daysUntil(record.opensAt);
+    if (openingDays === 0) return t("opensToday");
+    if (openingDays === 1) return t("opensTomorrow");
+    if (openingDays > 1) return `${t("opensIn")} ${openingDays} ${t("days")}`;
   }
-  if (isRecurringPolicyRecord(record)) return t("recurringYearMapped");
   const days = daysUntil(record.closesAt);
   if (status === "closed") return `${Math.abs(days)} ${t("daysAgo")}`;
   if (days === 0) return t("dueToday");
   if (days === 1) return t("dueTomorrow");
-  if (days > 1 && days <= 30) return `${days} ${t("daysLeft")}`;
+  if (days > 1) return `${days} ${t("daysLeft")}`;
   return intakeLabel(recordIntake(record), state.language);
+}
+
+function actionSummary(record, status) {
+  const statusLabel = statusLabels()[status]?.title || status;
+  const intake = intakeLabel(recordIntake(record), state.language);
+  const milestone =
+    status === "upcoming" || status === "future"
+      ? `${t("opens")} ${formatDate(record.opensAt)}`
+      : `${t("deadline")} ${formatDate(record.closesAt)}`;
+  return `${statusLabel} · ${intake} · ${milestone} · ${deadlineNote(record, status)}`;
 }
 
 const APPLICANT_CATEGORY_LABELS = {
@@ -360,7 +372,6 @@ function openWindowDetail(record, status = getStatus(record)) {
   const panel = document.getElementById("window-detail-panel");
   const body = document.getElementById("window-detail-body");
   const actions = document.getElementById("window-detail-header-actions");
-  const university = state.universityById.get(record.universityId);
   if (!panel || !body || !actions) return;
 
   const schoolText = schoolLabels(record, state.language);
@@ -453,19 +464,7 @@ function openWindowDetail(record, status = getStatus(record)) {
     ),
   );
 
-  if (university) {
-    const reviews = makeElement("section", {
-      className: "window-detail-section window-detail-reviews",
-    });
-    reviews.append(
-      makeElement("h3", { text: t("schoolReviewsTitle") }),
-      makeElement("p", { text: t("reviewPublicNote") }),
-      makeReviewButton(university),
-    );
-    body.replaceChildren(heading, deadline, info, source, reviews);
-  } else {
-    body.replaceChildren(heading, deadline, info, source);
-  }
+  body.replaceChildren(heading, deadline, info, source);
 
   actions.replaceChildren(
     makeCalendarMenu(record),
@@ -781,7 +780,9 @@ function filteredRecords() {
         (selectedRankForUniversity(record.universityId)?.rankPosition || 999) <=
           Number(state.rankLimit)) &&
       (!state.favoritesOnly ||
-        state.favorites.has(favoriteKey("window", record.id)))
+        state.favorites.has(favoriteKey("window", record.id)) ||
+        state.favorites.has(favoriteKey("university", record.universityId))) &&
+      (!state.officialOnly || !isPredictedRecord(record))
     );
   });
 }
@@ -847,7 +848,8 @@ function activeNonStatusFilter() {
     state.region !== "all" ||
     state.intake !== "all" ||
     state.rankLimit !== "200" ||
-    state.favoritesOnly
+    state.favoritesOnly ||
+    state.officialOnly
   );
 }
 
@@ -863,6 +865,7 @@ function syncFilterInputs() {
   refreshFilterOptions();
   document.getElementById("region-filter").value = state.region;
   document.getElementById("intake-filter").value = state.intake;
+  document.getElementById("official-only-toggle").checked = state.officialOnly;
   updateRankRangeOptions();
 }
 
@@ -878,6 +881,7 @@ function resetFilter(filter) {
   if (filter === "intake") state.intake = "all";
   if (filter === "rankLimit") state.rankLimit = "200";
   if (filter === "favorites") state.favoritesOnly = false;
+  if (filter === "official") state.officialOnly = false;
   syncFilterInputs();
   resetPages();
   syncUrl();
@@ -892,6 +896,7 @@ function clearFilters() {
   state.intake = "all";
   state.rankLimit = "200";
   state.favoritesOnly = false;
+  state.officialOnly = false;
   syncFilterInputs();
   resetPages();
   syncUrl();
@@ -942,6 +947,9 @@ function activeFilterItems() {
   if (state.favoritesOnly) {
     items.push({ key: "favorites", label: t("favoritesOnly") });
   }
+  if (state.officialOnly) {
+    items.push({ key: "official", label: t("officialOnly") });
+  }
   return items;
 }
 
@@ -971,10 +979,12 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
   if (state.status === "unknown" || hasActiveSearch()) {
     universities.forEach((university) => universityIds.add(university.id));
   }
-  document.getElementById("results-school-count").textContent = localizedCount(
+  const resultCount = document.getElementById("results-school-count");
+  resultCount.textContent = localizedCount(
     universityIds.size,
     "universitiesShown",
   );
+  resultCount.dataset.count = String(universityIds.size);
   document.getElementById("results-window-count").textContent = windowCountText(
     records.length,
   );
@@ -1022,11 +1032,13 @@ function setVisibleUniversityGroups(expanded) {
 }
 
 function updateStatusTabs(focusStatus = "") {
-  document.querySelectorAll(".status-tab").forEach((tab) => {
+  document.querySelectorAll("[data-status]").forEach((tab) => {
     const active = tab.dataset.status === state.status;
     tab.classList.toggle("active", active);
-    tab.setAttribute("aria-selected", String(active));
-    tab.tabIndex = active ? 0 : -1;
+    if (tab.matches('[role="tab"]')) {
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+    }
     if (focusStatus && tab.dataset.status === focusStatus) {
       tab.focus();
       tab.scrollIntoView({ block: "nearest", inline: "center" });
@@ -1064,6 +1076,12 @@ function createRow(record, status, windowGroup = null) {
     `${intake}${localizedRound ? ` · ${localizedRound}` : ""}`,
     "program-link date-primary",
   );
+  programme.prepend(
+    makeElement("span", {
+      className: "application-action-summary",
+      text: actionSummary(record, status),
+    }),
+  );
   if (windowGroup?.collapsible) {
     row.classList.add("window-group-parent");
     const expanded = state.expandedWindowGroups.has(windowGroup.key);
@@ -1091,6 +1109,12 @@ function createRow(record, status, windowGroup = null) {
   const predicted = isPredictedRecord(record);
   const recurring = isRecurringPolicyRecord(record);
   const [sourceStatus, sourceClass] = sourcePresentation(record);
+  programme.appendChild(
+    makeElement("span", {
+      className: "application-trust-summary",
+      text: `${sourceStatus} · ${sourceEvidenceText(record)}`,
+    }),
+  );
   source.append(
     makeLink(sourceLinkLabel(record), record.sourceUrl, "source-link"),
     makeElement("span", {
@@ -1110,10 +1134,8 @@ function createRow(record, status, windowGroup = null) {
   );
   const calendar = makeCalendarMenu(record);
   const favorite = makeFavoriteButton(favoriteKey("window", record.id));
-  const university = state.universityById.get(record.universityId);
   const cardActions = makeElement("div", { className: "mobile-card-actions" });
   cardActions.appendChild(favorite);
-  if (university) cardActions.appendChild(makeReviewButton(university));
 
   const openDetails = (event) => {
     if (!window.matchMedia("(max-width: 720px)").matches) return;
@@ -1736,6 +1758,7 @@ function render() {
   updateStatusTabs();
   updateMobileFilterToggle();
   updateFavoriteControls();
+  updateApplicationTimeline();
 }
 
 function syncUrl() {
@@ -1751,6 +1774,8 @@ function syncUrl() {
   if (state.status !== "open") params.set("status", state.status);
   if (state.sort !== "rank") params.set("sort", state.sort);
   if (state.rankLimit !== "200") params.set("rank", state.rankLimit);
+  if (state.favoritesOnly) params.set("saved", "1");
+  if (state.officialOnly) params.set("official", "1");
   history.replaceState(
     null,
     "",
@@ -1781,6 +1806,8 @@ function loadUrlState() {
     : params.get("top") === "100"
       ? "100"
       : "200";
+  state.favoritesOnly = params.get("saved") === "1";
+  state.officialOnly = params.get("official") === "1";
 }
 
 function applyUrlAction() {
@@ -1838,6 +1865,31 @@ function updateFavoriteControls() {
   } else {
     message.textContent = t("favoritesSynced").replace("{count}", count);
   }
+}
+
+function updateApplicationTimeline() {
+  const summary = document.getElementById("timeline-summary");
+  if (!summary) return;
+  const savedRecords = state.data.filter(
+    (record) =>
+      state.favorites.has(favoriteKey("window", record.id)) ||
+      state.favorites.has(favoriteKey("university", record.universityId)),
+  );
+  if (!savedRecords.length) {
+    summary.textContent = t("timelineEmpty");
+    return;
+  }
+  const openingSoon = savedRecords.filter((record) => {
+    const days = daysUntil(record.opensAt);
+    return days >= 0 && days <= 30;
+  }).length;
+  const deadlinesSoon = savedRecords.filter((record) => {
+    const days = daysUntil(record.closesAt);
+    return days >= 0 && days <= 30;
+  }).length;
+  summary.textContent = t("timelineSummary")
+    .replace("{openings}", openingSoon)
+    .replace("{deadlines}", deadlinesSoon);
 }
 
 function applyStaticTranslations() {
@@ -1972,6 +2024,27 @@ function updateDataNotes() {
   document.getElementById("monitoring-run-at").textContent = monitoringRunAt
     ? `${t("monitoringRunAt")} ${formatDate(monitoringRunAt.slice(0, 10))}`
     : `${t("monitoringRunAt")} ${t("freshnessUnavailable")}`;
+  const refreshedAt = new Date(dataRefreshedAt);
+  const ageHours = Math.max(
+    0,
+    Math.floor((Date.now() - refreshedAt.getTime()) / 3_600_000),
+  );
+  document.getElementById("refresh-relative").textContent =
+    ageHours < 24
+      ? t("updatedHoursAgo").replace("{hours}", Math.max(ageHours, 1))
+      : t("updatedDaysAgo").replace("{days}", Math.floor(ageHours / 24));
+  const monitoringAgeHours = monitoringRunAt
+    ? Math.max(
+        0,
+        Math.floor(
+          (Date.now() - new Date(monitoringRunAt).getTime()) / 3_600_000,
+        ),
+      )
+    : Number.POSITIVE_INFINITY;
+  const healthy = monitoringAgeHours <= 48;
+  const health = document.getElementById("monitoring-health");
+  health.textContent = t(healthy ? "monitoringHealthy" : "monitoringDelayed");
+  health.classList.toggle("delayed", !healthy);
   const monitorSummary = state.monitorPayload?.meta?.summary;
   document.getElementById("monitor-summary").textContent = monitorSummary
     ? ` ${monitorSummary.ok}/${monitorSummary.total} ${t("pagesAccessible")}, ${monitorSummary.blocked} ${t("pagesBlocked")}.`
@@ -2071,10 +2144,32 @@ function updateMobileFilterToggle() {
     state.ranking !== "qs" ||
     state.region !== "all" ||
     state.intake !== "all" ||
-    state.rankLimit !== "200";
+    state.rankLimit !== "200" ||
+    state.officialOnly ||
+    state.favoritesOnly;
   button.setAttribute("aria-expanded", String(expanded));
   button.classList.toggle("active", expanded || hasAdvancedFilters);
   label.textContent = t(expanded ? "hideFilters" : "showFilters");
+  const applyButton = document.getElementById("mobile-filter-apply");
+  const resultCount =
+    document.getElementById("results-school-count")?.dataset.count || "0";
+  if (applyButton) {
+    applyButton.textContent = t("showUniversities").replace(
+      "{count}",
+      resultCount,
+    );
+  }
+}
+
+function showSavedApplications() {
+  state.favoritesOnly = true;
+  state.selectedUniversityId = "";
+  resetPages();
+  syncUrl();
+  render();
+  document
+    .getElementById("application-groups")
+    .scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function bindEvents() {
@@ -2093,6 +2188,31 @@ function bindEvents() {
         .querySelector(".quick-filter-panel .toolbar")
         .classList.toggle("mobile-filters-open");
       updateMobileFilterToggle();
+    });
+  document
+    .getElementById("mobile-filter-apply")
+    .addEventListener("click", () => {
+      document
+        .querySelector(".quick-filter-panel .toolbar")
+        .classList.remove("mobile-filters-open");
+      updateMobileFilterToggle();
+      document
+        .getElementById("application-groups")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  document
+    .getElementById("hero-search-form")
+    .addEventListener("submit", (event) => {
+      event.preventDefault();
+      state.selectedUniversityId = "";
+      state.search = document.getElementById("hero-search-input").value.trim();
+      document.getElementById("search-input").value = state.search;
+      resetPages();
+      syncUrl();
+      render();
+      document
+        .getElementById("application-board")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
     });
   document.getElementById("search-input").addEventListener("input", (event) => {
     state.selectedUniversityId = "";
@@ -2152,7 +2272,9 @@ function bindEvents() {
         return;
       }
       event.preventDefault();
-      const tabs = [...document.querySelectorAll(".status-tab")];
+      const tabs = [
+        ...document.querySelectorAll(".primary-status-tabs .status-tab"),
+      ];
       const currentIndex = tabs.indexOf(button);
       const nextIndex =
         event.key === "Home"
@@ -2171,6 +2293,17 @@ function bindEvents() {
     });
   });
   document
+    .querySelectorAll(".route-filter-button[data-status]")
+    .forEach((button) => {
+      button.addEventListener("click", () => {
+        state.status = button.dataset.status;
+        resetPages();
+        syncUrl();
+        updateStatusTabs();
+        render();
+      });
+    });
+  document
     .getElementById("expand-visible-groups")
     .addEventListener("click", () => setVisibleUniversityGroups(true));
   document
@@ -2179,8 +2312,26 @@ function bindEvents() {
   document.getElementById("favorites-toggle").addEventListener("click", () => {
     state.favoritesOnly = !state.favoritesOnly;
     resetPages();
+    syncUrl();
     render();
   });
+  document
+    .getElementById("official-only-toggle")
+    .addEventListener("change", (event) => {
+      state.officialOnly = event.target.checked;
+      resetPages();
+      syncUrl();
+      render();
+    });
+  document
+    .getElementById("saved-nav-link")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+      showSavedApplications();
+    });
+  document
+    .getElementById("timeline-saved")
+    .addEventListener("click", showSavedApplications);
   document.getElementById("favorites-sign-in").addEventListener("click", () => {
     openAuthPanel(t("favoritesSignInPrompt"));
   });
@@ -2424,9 +2575,12 @@ async function init() {
       state.intake = "all";
     }
     document.getElementById("search-input").value = state.search;
+    document.getElementById("hero-search-input").value = state.search;
     document.getElementById("region-filter").value = state.region;
     document.getElementById("intake-filter").value = state.intake;
     document.getElementById("ranking-filter").value = state.ranking;
+    document.getElementById("official-only-toggle").checked =
+      state.officialOnly;
     updateRankRangeOptions();
     updateStatusTabs();
     const schoolCount = state.universities.length;

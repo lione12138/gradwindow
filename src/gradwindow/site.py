@@ -459,6 +459,18 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
         "meta", {}
     ).get("checkedAt")
     monitoring_run_at = refresh_status.get("lastSuccessfulMonitoringRun")
+    refreshed_date = date.fromisoformat(data_refreshed_at[:10])
+    refresh_age_days = max((today - refreshed_date).days, 0)
+    refresh_summary = (
+        "Updated today"
+        if refresh_age_days == 0
+        else f"Updated {refresh_age_days} day{'s' if refresh_age_days != 1 else ''} ago"
+    )
+    monitoring_age_days = (
+        max((today - date.fromisoformat(monitoring_run_at[:10])).days, 0)
+        if monitoring_run_at
+        else None
+    )
     official_start = min(item["opensAt"] for item in applications)
     official_end = max(item["closesAt"] for item in applications)
 
@@ -473,6 +485,12 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
             f"Last successful monitoring run: {human_date(monitoring_run_at)}"
             if monitoring_run_at
             else "Last successful monitoring run: unavailable"
+        ),
+        "refresh_summary": refresh_summary,
+        "monitoring_health": (
+            "Monitoring healthy"
+            if monitoring_age_days is not None and monitoring_age_days <= 2
+            else "Monitoring delayed"
         ),
         "deadline_day": deadline_day,
         "deadline_month": deadline_month,

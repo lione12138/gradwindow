@@ -130,26 +130,28 @@
           <span class="brand-mark">G</span>
           <span>GradWindow</span>
         </a>
-        <nav class="header-nav" aria-label="Main navigation">
-          <a href="#application-board" data-i18n="navTracker">Application tracker</a>
-          <a class="calendar-nav" href="./calendar.html" data-i18n="navCalendar">Calendar</a>
-          <a class="roadmap-nav" href="./roadmap.html" data-i18n="navRoadmap">Feature voting</a>
-          <a class="subscribe-link" href="#subscribe" data-i18n="navSubscribe">Subscribe</a>
-          <a href="./contact.html" data-i18n="navContact">Contact</a>
-          <a href="#methodology" data-i18n="navMethod">Methodology</a>
-          <a
-            class="github-link"
-            href="./sources.html"
-            data-i18n="navSources"
-          >
-            Sources
-          </a>
+        <div class="header-actions">
+          <nav class="header-nav" aria-label="Main navigation">
+            <a href="#application-board" data-i18n="navTrackerShort">Tracker</a>
+            <a class="calendar-nav" href="./calendar.html" data-i18n="navCalendar">Calendar</a>
+            <a href="#application-board" id="saved-nav-link" data-i18n="navSaved">Saved</a>
+            <a class="subscribe-link" href="#subscribe" data-i18n="navAlerts">Alerts</a>
+            <details class="nav-more-menu">
+              <summary data-i18n="navMore">More</summary>
+              <div class="nav-more-popover">
+                <a href="#methodology" data-i18n="navMethod">Methodology</a>
+                <a href="./sources.html" data-i18n="navSources">Sources</a>
+                <a href="./roadmap.html" data-i18n="navRoadmap">Feature voting</a>
+                <a href="./contact.html" data-i18n="navContact">Contact</a>
+              </div>
+            </details>
+          </nav>
           <div class="header-controls">
             <button class="header-control auth-control" id="auth-toggle" type="button" data-i18n="signIn">Sign in</button>
             <button class="header-control" id="language-toggle" type="button" aria-label="Switch language">中文</button>
             <button class="header-control icon-only-control" id="theme-toggle" type="button" aria-label="Switch color theme">◐</button>
           </div>
-        </nav>
+        </div>
       </header>
 
       <div class="auth-panel" id="auth-panel" hidden>
@@ -164,7 +166,7 @@
           </div>
 
           <div class="auth-signed-out" id="auth-signed-out">
-            <p data-i18n="accountIntro">Sign in with an email code to sync favourites, keep a personal calendar, and comment on schools.</p>
+            <p data-i18n="accountIntro">Sign in with an email code to sync saved universities, opening alerts, and your personal application calendar.</p>
             <form class="auth-form" id="auth-request-form">
               <label for="auth-email" data-i18n="authEmailLabel">Email address</label>
               <input id="auth-email" type="email" autocomplete="email" required data-i18n-placeholder="emailPlaceholder" placeholder="you@example.com" />
@@ -194,7 +196,7 @@
             </p>
             <form class="auth-form" id="profile-form">
               <label for="profile-name" data-i18n="profileNameLabel">Display name</label>
-              <input id="profile-name" maxlength="60" data-i18n-placeholder="profileNamePlaceholder" placeholder="Shown on school comments" />
+              <input id="profile-name" maxlength="60" data-i18n-placeholder="profileNamePlaceholder" placeholder="Your display name" />
               <label for="profile-country" data-i18n="profileCountryLabel">Country / region</label>
               <input id="profile-country" maxlength="80" data-i18n-placeholder="profileCountryPlaceholder" placeholder="Optional" />
               <label for="profile-intake" data-i18n="profileIntakeLabel">Target intake</label>
@@ -218,16 +220,31 @@
             <p data-i18n="heroDescription">
               Master's application windows, clear at a glance. Filter by university, country, intake, application status, and deadline.
             </p>
+            <form class="hero-search" id="hero-search-form" role="search">
+              <label class="sr-only" for="hero-search-input" data-i18n="heroSearchLabel">Search application windows</label>
+              <span aria-hidden="true">⌕</span>
+              <input
+                id="hero-search-input"
+                type="search"
+                autocomplete="off"
+                placeholder="Search NUS, KAIST, Electrical Engineering…"
+                data-i18n-placeholder="heroSearchPlaceholder"
+              />
+              <button type="submit" data-i18n="heroSearchButton">Search</button>
+            </form>
             <div class="hero-actions">
               <a class="primary-button" href="#application-board">
                 <span data-i18n="browseWindows">Browse application windows</span>
                 <span aria-hidden="true">↓</span>
               </a>
-              <div class="update-notes">
-                <span class="update-note" id="data-refreshed-at">{{GRADWINDOW_DATA_REFRESHED_AT}}</span>
-                <span class="update-note" id="page-checked-at">{{GRADWINDOW_PAGE_CHECKED_AT}}</span>
-                <span class="update-note" id="monitoring-run-at">{{GRADWINDOW_MONITORING_RUN_AT}}</span>
-              </div>
+              <details class="refresh-summary" id="refresh-summary">
+                <summary><span id="refresh-relative">{{GRADWINDOW_REFRESH_SUMMARY}}</span> <span aria-hidden="true">·</span> <span id="monitoring-health">{{GRADWINDOW_MONITORING_HEALTH}}</span></summary>
+                <div class="update-notes">
+                  <span class="update-note" id="data-refreshed-at">{{GRADWINDOW_DATA_REFRESHED_AT}}</span>
+                  <span class="update-note" id="page-checked-at">{{GRADWINDOW_PAGE_CHECKED_AT}}</span>
+                  <span class="update-note" id="monitoring-run-at">{{GRADWINDOW_MONITORING_RUN_AT}}</span>
+                </div>
+              </details>
             </div>
             <div class="hero-disclaimer">
               <strong data-i18n="heroDisclaimerTitle">Before you apply</strong>
@@ -254,33 +271,6 @@
               <span data-i18n="qsRankLabel">QS RANK</span>
               <strong>TOP 200</strong>
             </div>
-          </div>
-        </section>
-
-        <section class="trust-strip" aria-label="Product features" data-i18n-aria-label="productFeaturesLabel">
-          <div><span>01</span> <span data-i18n="featureOfficial">Official sources</span></div>
-          <div><span>02</span> <span data-i18n="featureDaily">Daily checks</span></div>
-          <div><span>03</span> <span data-i18n="featureCalendar">Add to calendar</span></div>
-          <div><span>04</span> <span data-i18n="featureRanked">QS-ranked</span></div>
-        </section>
-
-        <section class="seo-discovery" aria-labelledby="seo-discovery-title">
-          <div class="seo-discovery-heading">
-            <span class="section-kicker">{{GRADWINDOW_TARGET_CYCLE_YEAR}} APPLICATION TIMELINES</span>
-            <h2 id="seo-discovery-title" data-i18n="seoDiscoveryTitle">Explore master's application timelines</h2>
-            <p data-i18n="seoDiscoveryDescription">Browse universities accepting applications now, opening soon, or grouped by opening month and intake.</p>
-          </div>
-          <div class="seo-discovery-columns">
-            <section>
-              <h3 data-i18n="seoOpenNowTitle">Open now</h3>
-              <ul>{{GRADWINDOW_FEATURED_OPEN_LINKS}}</ul>
-            </section>
-            <section>
-              <h3 data-i18n="seoOpeningSoonTitle">Opening soon</h3>
-              <ul>{{GRADWINDOW_FEATURED_UPCOMING_LINKS}}</ul>
-            </section>
-            <nav class="seo-landing-links" aria-label="Browse application timelines">{{GRADWINDOW_SEARCH_LANDING_LINKS}}</nav>
-            <p class="seo-discovery-note" data-i18n="seoDiscoveryNote">Verified dates, official recurring policies, and unofficial estimates remain clearly labelled on every linked page.</p>
           </div>
         </section>
 
@@ -328,100 +318,124 @@
             <span id="monitor-summary"></span>
           </div>
 
+          <section class="application-workflow" id="my-application-timeline" aria-labelledby="timeline-title">
+            <div class="timeline-copy">
+              <span class="section-kicker" data-i18n="timelineKicker">YOUR WORKFLOW</span>
+              <h3 id="timeline-title" data-i18n="timelineTitle">My application timeline</h3>
+              <p id="timeline-summary" data-i18n="timelineEmpty">Save universities or deadlines to build your personal timeline.</p>
+            </div>
+            <div class="workflow-steps" aria-label="Application workflow" data-i18n-aria-label="workflowLabel">
+              <a href="#application-groups"><span>1</span><b data-i18n="workflowDiscover">Discover</b></a>
+              <button id="timeline-saved" type="button"><span>2</span><b data-i18n="workflowSave">Save</b></button>
+              <a href="#subscribe"><span>3</span><b data-i18n="workflowAlert">Alert me</b></a>
+              <a href="./calendar.html"><span>4</span><b data-i18n="workflowCalendar">Calendar</b></a>
+            </div>
+          </section>
+
           <div class="tracker-workspace">
             <aside class="tracker-sidebar" aria-label="Filters and sorting">
-          <div class="quick-filter-panel">
-            <div class="quick-filter-heading">
-              <strong data-i18n="quickView">Quick view</strong>
-              <span data-i18n="quickViewDescription">Start with what is open or closing soon, then refine by ranking, region, and intake.</span>
-            </div>
-            <div class="quick-filter-controls">
-              <div class="toolbar">
-                <label class="search-box">
-                  <span aria-hidden="true">⌕</span>
-                  <input
-                    id="search-input"
-                    type="search"
-                    placeholder="Search university, programme, or country"
-                    data-i18n-placeholder="searchPlaceholder"
-                  />
-                </label>
-                <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" aria-expanded="false">
-                  <span aria-hidden="true">☷</span>
-                  <span id="mobile-filter-toggle-label" data-i18n="showFilters">Filters</span>
-                </button>
-                <label class="select-wrap advanced-filter-control">
-                  <span class="sr-only" data-i18n="rankingFilter">Ranking</span>
-                  <select id="ranking-filter">
-                    <option value="qs" data-i18n="rankingQs">QS World University Rankings 2027</option>
-                    <option value="the" data-i18n="rankingThe">THE World University Rankings 2026</option>
-                    <option value="arwu" data-i18n="rankingArwu">ARWU 2025</option>
-                    <option value="usnews" disabled data-i18n="rankingUsnews">U.S. News Best Global Universities 2026–2027</option>
-                  </select>
-                </label>
-                <label class="select-wrap advanced-filter-control">
-                  <span class="sr-only" data-i18n="regionFilterLabel">Region</span>
-                  <select id="region-filter">
-                    <option value="all" data-i18n="allRegions">All regions</option>
-                  </select>
-                </label>
-                <label class="select-wrap advanced-filter-control">
-                  <span class="sr-only" data-i18n="intakeFilterLabel">Intake</span>
-                  <select id="intake-filter">
-                    <option value="all" data-i18n="allIntakes">All intakes</option>
-                  </select>
-                </label>
-                <label class="select-wrap advanced-filter-control">
-                  <span class="sr-only" data-i18n="rankRangeFilter">Rank range</span>
-                  <select id="rank-range-filter">
-                    <option value="30">QS Top 30</option>
-                    <option value="50">QS Top 50</option>
-                    <option value="100">QS Top 100</option>
-                    <option value="150">QS Top 150</option>
-                    <option value="200">QS Top 200</option>
-                  </select>
-                </label>
-                <button class="toolbar-button" id="favorites-toggle" type="button">
-                  <span data-i18n="favoritesOnly">Favourites only</span> <span id="favorite-count">0</span>
-                </button>
-                <button class="toolbar-button" id="export-favorites" type="button">
-                  <span data-i18n="exportFavorites">Export favourite deadlines</span>
-                </button>
+              <div class="quick-filter-panel">
+                <div class="quick-filter-heading">
+                  <strong data-i18n="quickView">Find your next application</strong>
+                  <span data-i18n="quickViewDescription">Search first, then refine only when you need to.</span>
+                </div>
+                <div class="quick-filter-controls">
+                  <div class="toolbar">
+                    <div class="primary-filter-row">
+                      <label class="search-box">
+                        <span aria-hidden="true">⌕</span>
+                        <input
+                          id="search-input"
+                          type="search"
+                          placeholder="Search university, programme, or country"
+                          data-i18n-placeholder="searchPlaceholder"
+                        />
+                      </label>
+                      <div class="status-tabs primary-status-tabs" role="tablist" aria-label="Application status" data-i18n-aria-label="statusTabsLabel">
+                        <button class="status-tab active" data-status="open" role="tab">
+                          <span data-i18n="statusOpen">Open now</span> <span id="count-open">{{GRADWINDOW_OPEN_UNIVERSITIES}}</span>
+                        </button>
+                        <button class="status-tab" data-status="upcoming" role="tab">
+                          <span data-i18n="statusUpcoming">Opening soon</span> <span id="count-upcoming">{{GRADWINDOW_UPCOMING_UNIVERSITIES}}</span>
+                        </button>
+                        <button class="status-tab secondary-status-tab" data-status="future" role="tab">
+                          <span data-i18n="statusFuture">Future</span> <span id="count-future">{{GRADWINDOW_FUTURE_UNIVERSITIES}}</span>
+                        </button>
+                        <button class="status-tab secondary-status-tab" data-status="closed" role="tab">
+                          <span data-i18n="statusClosed">Closed</span> <span id="count-closed">{{GRADWINDOW_CLOSED_UNIVERSITIES}}</span>
+                        </button>
+                      </div>
+                      <label class="select-wrap primary-select">
+                        <span class="sr-only" data-i18n="intakeFilterLabel">Intake</span>
+                        <select id="intake-filter">
+                          <option value="all" data-i18n="allIntakes">All intakes</option>
+                        </select>
+                      </label>
+                      <label class="select-wrap primary-select">
+                        <span class="sr-only" data-i18n="rankingFilter">Ranking</span>
+                        <select id="ranking-filter">
+                          <option value="qs" data-i18n="rankingQs">QS World University Rankings 2027</option>
+                          <option value="the" data-i18n="rankingThe">THE World University Rankings 2026</option>
+                          <option value="arwu" data-i18n="rankingArwu">ARWU 2025</option>
+                          <option value="usnews" disabled data-i18n="rankingUsnews">U.S. News Best Global Universities 2026–2027</option>
+                        </select>
+                      </label>
+                      <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" aria-expanded="false" aria-controls="advanced-filter-panel">
+                        <span aria-hidden="true">☷</span>
+                        <span id="mobile-filter-toggle-label" data-i18n="showFilters">Filters</span>
+                      </button>
+                    </div>
+
+                    <div class="advanced-filter-panel" id="advanced-filter-panel">
+                      <label class="select-wrap advanced-filter-control">
+                        <span class="sr-only" data-i18n="regionFilterLabel">Region</span>
+                        <select id="region-filter">
+                          <option value="all" data-i18n="allRegions">All regions</option>
+                        </select>
+                      </label>
+                      <label class="select-wrap advanced-filter-control">
+                        <span class="sr-only" data-i18n="rankRangeFilter">Rank range</span>
+                        <select id="rank-range-filter">
+                          <option value="30">QS Top 30</option>
+                          <option value="50">QS Top 50</option>
+                          <option value="100">QS Top 100</option>
+                          <option value="150">QS Top 150</option>
+                          <option value="200">QS Top 200</option>
+                        </select>
+                      </label>
+                      <label class="filter-check">
+                        <input id="official-only-toggle" type="checkbox" />
+                        <span data-i18n="officialOnly">Official only</span>
+                      </label>
+                      <button class="toolbar-button" id="favorites-toggle" type="button">
+                        <span data-i18n="favoritesOnly">Saved only</span> <span id="favorite-count">0</span>
+                      </button>
+                      <div class="mobile-sort-controls" aria-label="Sort application windows" data-i18n-aria-label="mobileSortLabel">
+                        <span data-i18n="mobileSortLabel">Sort</span>
+                        <button class="active" type="button" data-mobile-sort="rank" data-i18n="rank">Rank</button>
+                        <button type="button" data-mobile-sort="opens" data-i18n="opens">Opening date</button>
+                        <button type="button" data-mobile-sort="deadline" data-i18n="deadline">Deadline</button>
+                      </div>
+                      <button class="toolbar-button" id="export-favorites" type="button">
+                        <span data-i18n="exportFavorites">Export saved deadlines</span>
+                      </button>
+                    </div>
+
+                    <div class="tracker-route-actions">
+                      <button class="route-filter-button" id="data-quality-filter" data-status="exception" type="button">
+                        <span data-i18n="dataQualityFilter">Data quality</span> <span id="count-exception">{{GRADWINDOW_MANUAL_CHECK_UNIVERSITIES}}</span>
+                      </button>
+                      <button class="route-filter-button" id="browse-universities" data-status="unknown" type="button">
+                        <span data-i18n="browseUniversities">Browse universities</span> <span id="count-unknown">{{GRADWINDOW_DIRECTORY_UNIVERSITIES}}</span>
+                      </button>
+                    </div>
+                    <button class="mobile-filter-apply" id="mobile-filter-apply" type="button">Show {{GRADWINDOW_OPEN_UNIVERSITIES}} universities</button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
             </aside>
 
             <div class="tracker-results">
-
-          <div class="mobile-sort-controls" aria-label="Sort application windows" data-i18n-aria-label="mobileSortLabel">
-            <span data-i18n="mobileSortLabel">Sort</span>
-            <button class="active" type="button" data-mobile-sort="rank" data-i18n="rank">Rank</button>
-            <button type="button" data-mobile-sort="opens" data-i18n="opens">Opening date</button>
-            <button type="button" data-mobile-sort="deadline" data-i18n="deadline">Deadline</button>
-          </div>
-
-          <div class="status-tabs" role="tablist" aria-label="Application status" data-i18n-aria-label="statusTabsLabel">
-            <button class="status-tab active" data-status="open" role="tab">
-              <span data-i18n="statusOpen">Open now</span> <span id="count-open">{{GRADWINDOW_OPEN_UNIVERSITIES}}</span>
-            </button>
-            <button class="status-tab" data-status="upcoming" role="tab">
-              <span data-i18n="statusUpcoming">Opening soon</span> <span id="count-upcoming">{{GRADWINDOW_UPCOMING_UNIVERSITIES}}</span>
-            </button>
-            <button class="status-tab" data-status="future" role="tab">
-              <span data-i18n="statusFuture">Future</span> <span id="count-future">{{GRADWINDOW_FUTURE_UNIVERSITIES}}</span>
-            </button>
-            <button class="status-tab" data-status="closed" role="tab">
-              <span data-i18n="statusClosed">Closed</span> <span id="count-closed">{{GRADWINDOW_CLOSED_UNIVERSITIES}}</span>
-            </button>
-            <button class="status-tab" data-status="exception" role="tab">
-              <span data-i18n="statusException">Needs manual check</span> <span id="count-exception">{{GRADWINDOW_MANUAL_CHECK_UNIVERSITIES}}</span>
-            </button>
-            <button class="status-tab" data-status="unknown" role="tab">
-              <span data-i18n="statusDirectory">University directory</span> <span id="count-unknown">{{GRADWINDOW_DIRECTORY_UNIVERSITIES}}</span>
-            </button>
-          </div>
-
           <div class="results-toolbar" id="results-toolbar" aria-live="polite">
             <div class="results-context">
               <div class="results-counts">
@@ -450,6 +464,33 @@
           </div>
             </div>
           </div>
+        </section>
+
+        <section class="seo-discovery" aria-labelledby="seo-discovery-title">
+          <div class="seo-discovery-heading">
+            <span class="section-kicker">{{GRADWINDOW_TARGET_CYCLE_YEAR}} APPLICATION TIMELINES</span>
+            <h2 id="seo-discovery-title" data-i18n="seoDiscoveryTitle">Browse by intake and opening month</h2>
+            <p data-i18n="seoDiscoveryDescription">Browse universities accepting applications now, opening soon, or grouped by opening month and intake.</p>
+          </div>
+          <div class="seo-discovery-columns">
+            <section>
+              <h3 data-i18n="seoOpenNowTitle">Open now</h3>
+              <ul>{{GRADWINDOW_FEATURED_OPEN_LINKS}}</ul>
+            </section>
+            <section>
+              <h3 data-i18n="seoOpeningSoonTitle">Opening soon</h3>
+              <ul>{{GRADWINDOW_FEATURED_UPCOMING_LINKS}}</ul>
+            </section>
+            <nav class="seo-landing-links" aria-label="Browse application timelines">{{GRADWINDOW_SEARCH_LANDING_LINKS}}</nav>
+            <p class="seo-discovery-note" data-i18n="seoDiscoveryNote">Verified dates, official recurring policies, and unofficial estimates remain clearly labelled on every linked page.</p>
+          </div>
+        </section>
+
+        <section class="trust-strip" aria-label="Product features" data-i18n-aria-label="productFeaturesLabel">
+          <div><span>01</span> <span data-i18n="featureOfficial">Official sources</span></div>
+          <div><span>02</span> <span data-i18n="featureDaily">Daily checks</span></div>
+          <div><span>03</span> <span data-i18n="featureCalendar">Add to calendar</span></div>
+          <div><span>04</span> <span data-i18n="featureRanked">QS-ranked</span></div>
         </section>
 
         <div class="review-panel" id="review-panel" hidden>

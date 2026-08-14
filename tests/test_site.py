@@ -210,6 +210,14 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'id="hero-deadline-day"' in index_html
     assert 'id="hero-deadline-month"' in index_html
     assert 'id="mobile-filter-toggle"' in index_html
+    assert 'id="hero-search-form"' in index_html
+    assert 'id="hero-search-input"' in index_html
+    assert 'id="refresh-summary"' in index_html
+    assert 'id="my-application-timeline"' in index_html
+    assert 'id="official-only-toggle"' in index_html
+    assert 'id="data-quality-filter"' in index_html
+    assert 'id="browse-universities"' in index_html
+    assert 'id="mobile-filter-apply"' in index_html
     assert 'id="window-detail-panel"' in index_html
     assert 'class="mobile-bottom-nav"' in index_html
     assert 'id="auth-turnstile"' in index_html
@@ -253,6 +261,21 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
         "<em>& Opening Dates</em>"
     ) in index_html
     assert 'class="seo-discovery"' in index_html
+    assert index_html.index('id="application-board"') < index_html.index(
+        'class="seo-discovery"'
+    )
+    assert index_html.index('class="seo-discovery"') < index_html.index(
+        'id="methodology"'
+    )
+    assert "Feature voting" in index_html[index_html.index("nav-more-popover") :]
+    assert (
+        "Feature voting"
+        not in index_html[
+            index_html.index('<nav class="header-nav"') : index_html.index(
+                '<details class="nav-more-menu"'
+            )
+        ]
+    )
     assert index_html.count('href="./university/') >= 10
     assert f'id="total-schools">{snapshot["total_universities"]}</strong>' in index_html
     assert f'id="total-records">{snapshot["official_windows"]}</strong>' in index_html
@@ -267,6 +290,8 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert snapshot["data_refreshed_at"] in index_html
     assert snapshot["page_checked_at"] in index_html
     assert snapshot["monitoring_run_at"] in index_html
+    assert snapshot["refresh_summary"] in index_html
+    assert snapshot["monitoring_health"] in index_html
     assert "Updated daily at 8:00 AM Beijing time" not in index_html
     app_js = (tmp_path / "app.js").read_text(encoding="utf-8")
     i18n_js = (tmp_path / "i18n.js").read_text(encoding="utf-8")
@@ -274,6 +299,11 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'reviewAnonymousMode: "Post anonymously"' in i18n_js
     assert "Post anonymously as good people" not in i18n_js
     assert "openWindowDetail(record" in app_js
+    assert "function updateApplicationTimeline" in app_js
+    assert "function showSavedApplications" in app_js
+    assert 'className: "application-action-summary"' in app_js
+    assert 'params.set("official", "1")' in app_js
+    assert "Show {count} universities" in i18n_js
     assert 'id="hero-deadline-countdown"' not in index_html
     assert "data-mobile-sort" in index_html
     assert ".window-card-row" in styles_css

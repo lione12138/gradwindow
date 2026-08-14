@@ -26,6 +26,7 @@ export const state = {
   rankLimit: "200",
   favorites: new Set(),
   favoritesOnly: false,
+  officialOnly: false,
   language: "en",
   theme: "light",
   monitorPayload: null,
