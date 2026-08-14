@@ -10,9 +10,11 @@ from gradwindow import http_client
 
 class FakeClient:
     response: httpx.Response
+    last_kwargs: dict
 
     def __init__(self, **kwargs) -> None:
         self.kwargs = kwargs
+        type(self).last_kwargs = kwargs
 
     def __enter__(self) -> FakeClient:
         return self
@@ -72,6 +74,26 @@ def test_fetch_page_returns_response_metadata(monkeypatch) -> None:
     assert page.body == "<main>Applications open</main>"
     assert page.content_type.startswith("text/html")
     assert page.truncated is False
+
+
+def test_fetch_page_merges_extra_headers(monkeypatch) -> None:
+    FakeClient.response = httpx.Response(
+        200,
+        content=b"reader",
+        request=httpx.Request("GET", "https://example.edu"),
+    )
+    monkeypatch.setattr(http_client.httpx, "Client", FakeClient)
+    monkeypatch.setattr(http_client, "MIN_HOST_INTERVAL", 0)
+
+    http_client.fetch_page(
+        "https://example.edu",
+        user_agent="test",
+        attempts=1,
+        extra_headers={"X-Respond-With": "html", "X-No-Cache": "true"},
+    )
+
+    assert FakeClient.last_kwargs["headers"]["X-Respond-With"] == "html"
+    assert FakeClient.last_kwargs["headers"]["X-No-Cache"] == "true"
 
 
 def test_fetch_page_stops_at_byte_limit(monkeypatch) -> None:

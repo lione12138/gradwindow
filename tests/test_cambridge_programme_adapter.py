@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pytest
 
+from gradwindow.http_client import FetchFailure
 from gradwindow.programme_adapters.base import OfficialSourceTransportError
 from gradwindow.programme_adapters.cambridge import (
     CambridgeAdapter,
@@ -202,6 +203,38 @@ def test_cambridge_adapter_uses_reader_only_after_official_transport_failures() 
     catalog = CambridgeAdapter(
         minimum_expected_programmes=1,
         detail_workers=1,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "official-course-apply-page-via-reader"
+    assert programme.windows[0].source_url == apply_url
+
+
+def test_cambridge_adapter_uses_dedicated_reader_transport_after_reader_403() -> None:
+    source_url = "https://www.postgraduate.study.cam.ac.uk/courses/directory/egcempace"
+    apply_url = f"{source_url}/apply"
+
+    def fetcher(url: str) -> str:
+        if url == "https://www.postgraduate.study.cam.ac.uk/courses/directory":
+            return CAMBRIDGE_HTML
+        if url in {source_url, apply_url}:
+            raise RuntimeError("HTTP 403")
+        if url == _reader_url(apply_url):
+            raise FetchFailure("HTTP 403", kind="blocked", status_code=403)
+        raise AssertionError(url)
+
+    catalog = CambridgeAdapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+        reader_fetcher=lambda url: (
+            CAMBRIDGE_DETAIL
+            if url == _reader_url(apply_url)
+            else (_ for _ in ()).throw(AssertionError(url))
+        ),
+        browser_markdown_fetcher=lambda url: (_ for _ in ()).throw(
+            AssertionError("browser fallback should not run")
+        ),
     ).parse_catalog_from_fetcher(fetcher)
 
     programme = catalog.programmes[0]

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import threading
 import time
+from collections.abc import Mapping
 from dataclasses import dataclass
 from urllib.parse import urlparse
 
@@ -74,19 +75,22 @@ def _fetch_once(
     timeout: float,
     max_bytes: int,
     accept: str,
+    extra_headers: Mapping[str, str] | None,
 ) -> FetchedPage:
     _wait_for_host(url)
     try:
+        request_headers = {
+            "User-Agent": user_agent,
+            "Accept": accept,
+            "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
+            "Cache-Control": "no-cache",
+            "Pragma": "no-cache",
+        }
+        request_headers.update(extra_headers or {})
         with httpx.Client(
             follow_redirects=True,
             timeout=httpx.Timeout(timeout),
-            headers={
-                "User-Agent": user_agent,
-                "Accept": accept,
-                "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
-                "Cache-Control": "no-cache",
-                "Pragma": "no-cache",
-            },
+            headers=request_headers,
         ) as client:
             with client.stream("GET", url) as response:
                 status = response.status_code
@@ -161,6 +165,7 @@ def fetch_page(
     max_bytes: int = DEFAULT_MAX_BYTES,
     attempts: int = 3,
     accept: str = "text/html,application/xhtml+xml",
+    extra_headers: Mapping[str, str] | None = None,
 ) -> FetchedPage:
     retrying = Retrying(
         retry=retry_if_exception(_retryable),
@@ -175,4 +180,5 @@ def fetch_page(
         timeout=timeout,
         max_bytes=max_bytes,
         accept=accept,
+        extra_headers=extra_headers,
     )
