@@ -14,7 +14,7 @@ from ..browser_rendering import (
     browser_content_fetcher_from_environment,
     browser_markdown_fetcher_from_environment,
 )
-from ..reader import fetch_reader_page
+from ..reader import fetch_reader_html_page
 from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
@@ -65,7 +65,7 @@ class CambridgeAdapter(BaseProgrammeAdapter):
         self.browser_markdown_fetcher = (
             browser_markdown_fetcher or browser_markdown_fetcher_from_environment()
         )
-        self.reader_fetcher = reader_fetcher or fetch_reader_page
+        self.reader_fetcher = reader_fetcher or fetch_reader_html_page
 
     def parse_catalog_from_fetcher(
         self,
@@ -108,7 +108,7 @@ class CambridgeAdapter(BaseProgrammeAdapter):
             direct_error = f"{type(exc).__name__}: {str(exc)[:180]}"
         reader_url = _reader_catalog_url(url)
         reader_text, reader_error = self._fetch_reader_transport(reader_url, fetcher)
-        if _is_markdown_course_directory(reader_text):
+        if _is_course_directory_document(reader_text):
             return reader_text
         if self.browser_content_fetcher is not None:
             try:
@@ -464,6 +464,13 @@ def _reader_catalog_url(source_url: str) -> str:
 
 def _is_markdown_course_directory(value: str) -> bool:
     return "| Course[" in value and "| Course Level" in value
+
+
+def _is_course_directory_document(value: str) -> bool:
+    if _is_markdown_course_directory(value):
+        return True
+    lowered = value.lower()
+    return "<table" in lowered and "taught/research" in lowered
 
 
 def _is_access_challenge(value: str) -> bool:

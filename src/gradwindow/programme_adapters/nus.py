@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 from ..browser_rendering import browser_markdown_fetcher_from_environment
 from ..http_client import FetchFailure
-from ..reader import fetch_reader_page
+from ..reader import fetch_reader_html_page
 from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
@@ -112,7 +112,7 @@ class NUSAdapter(BaseProgrammeAdapter):
         self.browser_fetcher = (
             browser_fetcher or browser_markdown_fetcher_from_environment()
         )
-        self.reader_fetcher = reader_fetcher or fetch_reader_page
+        self.reader_fetcher = reader_fetcher or fetch_reader_html_page
 
     def parse_catalog_from_fetcher(
         self,
@@ -289,7 +289,10 @@ def _load_official_text(
         except Exception:
             proxied = ""
     if proxied and not _is_access_challenge(proxied):
-        return proxied, "official-page-via-reader"
+        return (
+            proxied if preserve_html else _document_text(proxied),
+            "official-page-via-reader",
+        )
     if browser_fetcher is not None:
         try:
             rendered = browser_fetcher(source_url)

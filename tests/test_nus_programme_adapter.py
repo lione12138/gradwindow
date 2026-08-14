@@ -4,6 +4,7 @@ import json
 
 import pytest
 
+from gradwindow.http_client import FetchFailure
 from gradwindow.programme_adapters.nus import (
     API_URL,
     BIOMEDICAL_INFORMATICS_DEADLINES_URL,
@@ -215,6 +216,50 @@ def test_nus_adapter_uses_browser_rendering_for_blocked_cde_page() -> None:
     programme = catalog.programmes[0]
     assert programme.parse_status == "parsed"
     assert programme.retrieval_method == "cloudflare-browser-rendering"
+    assert len(programme.windows) == 2
+
+
+def test_nus_adapter_uses_dedicated_reader_transport_after_reader_403() -> None:
+    payload = json.dumps(
+        {
+            "returnValue": [
+                _item(
+                    "DESIGN & ENGINEERING",
+                    "MSc (Biomedical Engineering)",
+                    "Coursework",
+                )
+            ]
+        }
+    )
+    cde_html = """
+    <table>
+      <tr><th>Programmes</th><th>Application Period (August 2026 intake)</th><th>Application Period (January 2027 intake)</th></tr>
+      <tr><td>Master of Science (Biomedical Engineering)</td><td>1 Oct 2025 - 28 Feb 2026</td><td>27 Jul 2026 - 31 Aug 2026</td></tr>
+    </table>
+    """
+
+    def fetcher(url: str) -> str:
+        if url == API_URL:
+            return payload
+        if url == CDE_DEADLINES_URL:
+            return '<script src="/_Incapsula_Resource"></script>'
+        if url == _reader_url(CDE_DEADLINES_URL):
+            raise FetchFailure("HTTP 403", kind="blocked", status_code=403)
+        raise AssertionError(url)
+
+    catalog = NUSAdapter(
+        minimum_expected_programmes=1,
+        reader_fetcher=lambda url: (
+            cde_html if url == _reader_url(CDE_DEADLINES_URL) else ""
+        ),
+        browser_fetcher=lambda url: (_ for _ in ()).throw(
+            AssertionError("browser fallback should not run")
+        ),
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "official-page-via-reader"
     assert len(programme.windows) == 2
 
 
