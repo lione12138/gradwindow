@@ -69,6 +69,40 @@ def test_browser_client_retries_429_after_server_delay(monkeypatch) -> None:
     assert sleeps == [3]
 
 
+def test_browser_client_retries_transient_422_and_blocks_heavy_assets(
+    monkeypatch,
+) -> None:
+    responses = iter(
+        [
+            _response(422, payload={"errors": [{"message": "navigation timeout"}]}),
+            _response(200, payload="rendered"),
+        ]
+    )
+    requests = []
+    sleeps: list[float] = []
+
+    def post(*args, **kwargs) -> httpx.Response:
+        requests.append(kwargs)
+        return next(responses)
+
+    monkeypatch.setattr(browser_rendering.httpx, "post", post)
+    client = CloudflareBrowserClient(
+        "account",
+        "token",
+        minimum_interval=0,
+        sleep=sleeps.append,
+    )
+
+    assert client.content("https://example.com") == "rendered"
+    assert sleeps == [1]
+    assert requests[0]["json"]["rejectResourceTypes"] == [
+        "image",
+        "media",
+        "font",
+        "stylesheet",
+    ]
+
+
 def test_browser_client_does_not_retry_exhausted_daily_quota(monkeypatch) -> None:
     attempts = 0
 
@@ -91,8 +125,8 @@ def test_browser_client_does_not_retry_exhausted_daily_quota(monkeypatch) -> Non
 
     try:
         client.content("https://example.com")
-    except httpx.HTTPStatusError:
-        pass
+    except RuntimeError as exc:
+        assert "Browser time limit exceeded for today" in str(exc)
     else:
         raise AssertionError("daily quota exhaustion should remain a hard failure")
     assert attempts == 1
