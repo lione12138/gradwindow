@@ -16,9 +16,9 @@
 - 搜索、状态筛选、收藏、提醒和日历导出组成完整申请流程。
 - QS 是默认视图，THE 与软科前 200 视图已经上线；U.S. News 暂不标为已上线。
 
-**当前覆盖：**302 所标准化大学 · 28,827 个项目 · 5,131 条官网精确窗口
+**当前覆盖：**302 所标准化大学 · 28,827 个项目 · 5,138 条官网精确窗口
 
-状态日期：**2026-08-15**
+状态日期：**2026-08-16**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -38,7 +38,7 @@
 
 | QS | 大学 | 覆盖范围 | 最近开放 | 数据类型 | 链接 |
 |---:|---|---|---|---|---|
-| 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 12 个即将开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 19 个即将开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
 | =2 | Imperial College London / 帝国理工学院 | 13 个即将开放窗口 | 2026-08-18 | 预测参考 | [招生官网](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [查看全部项目](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 6 | University of Cambridge / 剑桥大学 | 156 个即将开放窗口 | 2026-09-03 | 预测参考 | [招生官网](https://www.postgraduate.study.cam.ac.uk/application-process) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | 10 | National University of Singapore (NUS) / 新加坡国立大学 | 9 个即将开放窗口 | 2026-09-01 | 官网核验 + 预测参考 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
