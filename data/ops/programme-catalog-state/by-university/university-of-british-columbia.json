@@ -2,21 +2,21 @@
   "universities": {
     "university-of-british-columbia": {
       "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs",
-      "checkedAt": "2026-08-15T05:46:24.617943+00:00",
+      "checkedAt": "2026-08-16T05:51:51.774128+00:00",
       "itemCount": 228,
       "applicationOpensAt": null,
-      "catalogHash": "06d7a6bd6fc8fa82ef0364d75dee9134cc36f6b411fc5d31b0ba6f8f1c031a66",
+      "catalogHash": "77589f3f1c82c5c5b79e4ac0a81cd63e4e3d5442e1295e25a026d2a759712288",
       "catalogueStatus": "ok",
       "windowStatus": "partial",
-      "observedWindowCount": 150,
-      "exactWindowCount": 149,
+      "observedWindowCount": 157,
+      "exactWindowCount": 156,
       "recurringPolicyWindowCount": 0,
       "missingOpeningDateCount": 1,
-      "programmesWithoutDeadlines": 134,
-      "programmesNeedingReview": 134,
+      "programmesWithoutDeadlines": 132,
+      "programmesNeedingReview": 132,
       "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-15T05:46:24.617943+00:00",
-      "windowFingerprint": "a18f25348cf3b9cb5ae18b187c7ba812f0c89bdf9f5e5683809ecffb5c507880",
+      "lastSuccessfulAt": "2026-08-16T05:51:51.774128+00:00",
+      "windowFingerprint": "529f18914d5d81c40667953885a33c984e7ef39828e4f0b0f538f0b3f2df93a6",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -1457,8 +1457,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Science",
           "department": "Chemistry",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "parsed",
+          "deadlineHash": "dffd38c2e6ff8dac31cf6a0f4d53513a4a6dc2a027c4dcc4a4be3e932b2bca29"
         },
         "ubc-master-of-science-in-craniofacial-science-and-diploma-in-endodontics-msc-dip-endodontics": {
           "name": "Master of Science in Craniofacial Science and Diploma in Endodontics (MSc/Dip. Endodontics)",
@@ -1713,8 +1713,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Medicine",
           "department": "Pharmacology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "parsed",
+          "deadlineHash": "ce73988f931f6e8a318c5cbc4e53b2cf564a4a84264b3c3180f7d9c2a614e9f4"
         },
         "ubc-master-of-science-in-physics-msc": {
           "name": "Master of Science in Physics (MSc)",
@@ -2476,6 +2476,13 @@
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-chemical-biological-engineering",
           "opensAtBasis": null
         },
+        "ubc-master-of-science-in-chemistry-msc::September 2027::Application deadline::all": {
+          "programmeId": "ubc-master-of-science-in-chemistry-msc",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-chemistry",
+          "opensAtBasis": null
+        },
         "ubc-master-of-science-in-craniofacial-science-and-diploma-in-pediatric-dentristy-msc-dip-pediatric-dentistry::July 2027::Application deadline::all": {
           "programmeId": "ubc-master-of-science-in-craniofacial-science-and-diploma-in-pediatric-dentristy-msc-dip-pediatric-dentistry",
           "opensAt": "2025-12-12",
@@ -2761,6 +2768,48 @@
           "opensAt": "2026-09-01",
           "closesAt": "2027-01-03",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pathology-laboratory-medicine",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-pharmacology-msc::July 2027::Canadian applicant deadline::domestic-students": {
+          "programmeId": "ubc-master-of-science-in-pharmacology-msc",
+          "opensAt": "2026-08-14",
+          "closesAt": "2027-01-31",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pharmacology",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-pharmacology-msc::July 2027::International applicant deadline::international-students": {
+          "programmeId": "ubc-master-of-science-in-pharmacology-msc",
+          "opensAt": "2026-08-14",
+          "closesAt": "2027-01-03",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pharmacology",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-pharmacology-msc::May 2027::Canadian applicant deadline::domestic-students": {
+          "programmeId": "ubc-master-of-science-in-pharmacology-msc",
+          "opensAt": "2026-08-14",
+          "closesAt": "2026-11-30",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pharmacology",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-pharmacology-msc::May 2027::International applicant deadline::international-students": {
+          "programmeId": "ubc-master-of-science-in-pharmacology-msc",
+          "opensAt": "2026-08-14",
+          "closesAt": "2026-10-31",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pharmacology",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-pharmacology-msc::September 2027::Canadian applicant deadline::domestic-students": {
+          "programmeId": "ubc-master-of-science-in-pharmacology-msc",
+          "opensAt": "2026-08-14",
+          "closesAt": "2027-03-31",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pharmacology",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-pharmacology-msc::September 2027::International applicant deadline::international-students": {
+          "programmeId": "ubc-master-of-science-in-pharmacology-msc",
+          "opensAt": "2026-08-14",
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-pharmacology",
           "opensAtBasis": null
         },
         "ubc-master-of-science-in-plant-science-msc::May 2027::Application deadline::all": {
