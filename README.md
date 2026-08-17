@@ -18,7 +18,7 @@
 
 **Coverage:** 302 canonical universities · 28,827 programmes · 5,138 verified exact windows
 
-Status date: **2026-08-16**
+Status date: **2026-08-17**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
