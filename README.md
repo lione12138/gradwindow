@@ -16,9 +16,9 @@
 - Search, status filters, saved universities, alerts, and calendar export form one application workflow.
 - QS is the default view; THE and ARWU top-200 views are live. U.S. News coverage is not presented as live yet.
 
-**Coverage:** 302 canonical universities · 28,827 programmes · 5,138 verified exact windows
+**Coverage:** 302 canonical universities · 28,829 programmes · 5,228 verified exact windows
 
-Status date: **2026-08-17**
+Status date: **2026-08-18**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -27,7 +27,7 @@ Status date: **2026-08-17**
 | QS | University | Coverage | Next deadline | Data | Links |
 |---:|---|---|---|---|---|
 | 1 | Massachusetts Institute of Technology (MIT) | 1 open window | 2026-10-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
-| =2 | Imperial College London | 64 open windows | 2026-08-20 | Official | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
+| =2 | Imperial College London | 77 open windows | 2026-08-20 | Official + Estimate | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 6 | University of Cambridge | 1 open window | 2027-05-14 | Estimate | [Admissions](https://www.postgraduate.study.cam.ac.uk/application-process) · [All programme details](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | =8 | UCL | 10 open windows | 2026-08-28 | Official | [Admissions](https://www.ucl.ac.uk/prospective-students/graduate/applying-graduate-study) · [All programme details](https://gradwindow.com/?q=UCL) |
 | 10 | National University of Singapore (NUS) | 18 open windows | 2026-08-31 | Official | [Admissions](https://nusgs.nus.edu.sg/admissions/) · [All programme details](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
@@ -39,10 +39,10 @@ Status date: **2026-08-17**
 | QS | University | Coverage | Next opening | Data | Links |
 |---:|---|---|---|---|---|
 | 1 | Massachusetts Institute of Technology (MIT) | 19 upcoming windows | 2026-09-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
-| =2 | Imperial College London | 13 upcoming windows | 2026-08-18 | Estimate | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 6 | University of Cambridge | 156 upcoming windows | 2026-09-03 | Estimate | [Admissions](https://www.postgraduate.study.cam.ac.uk/application-process) · [All programme details](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | 10 | National University of Singapore (NUS) | 9 upcoming windows | 2026-09-01 | Official + Estimate | [Admissions](https://nusgs.nus.edu.sg/admissions/) · [All programme details](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
 | 11 | The University of Hong Kong | 89 upcoming windows | 2026-09-01 | Estimate | [Admissions](https://admissions.hku.hk/tpg/) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Hong%20Kong) |
+| 15 | University of Pennsylvania | 16 upcoming windows | 2026-09-15 | Estimate | [Admissions](https://www.upenn.edu/academics/graduate) · [All programme details](https://gradwindow.com/?q=University%20of%20Pennsylvania) |
 
 [View every upcoming window on GradWindow →](https://gradwindow.com/?status=upcoming)
 
