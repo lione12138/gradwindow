@@ -8,6 +8,10 @@ from gradwindow.programme_adapters.bologna import BolognaAdapter
 from gradwindow.programme_adapters.chalmers import ChalmersAdapter
 from gradwindow.programme_adapters.kit import KITAdapter
 from gradwindow.programme_adapters.ucd import UCDAdapter
+from gradwindow.programme_adapters.vu_amsterdam import (
+    APPLICATION_URL as VU_APPLICATION_URL,
+)
+from gradwindow.programme_adapters.vu_amsterdam import CATALOG_URL as VU_CATALOG_URL
 from gradwindow.programme_adapters.vu_amsterdam import VUAmsterdamAdapter
 
 
@@ -127,3 +131,91 @@ def test_batch_three_official_catalogue_parsers(
     assert programmes[0].windows == []
     assert programmes[0].parse_status == "no-deadline"
     assert programmes[0].source_url.startswith("https://")
+
+
+def test_vu_uses_search_api_first_and_parses_february_deadlines() -> None:
+    api_payload = json.dumps(
+        {
+            "value": [
+                {
+                    "ItemType": ["Study", "Master"],
+                    "ContentType": "programme_page",
+                    "Title": "Mathematics",
+                    "Url": "/en/education/master/mathematics",
+                },
+                {
+                    "ItemType": ["Study", "Master"],
+                    "ContentType": "programme_page",
+                    "Title": "Law",
+                    "Url": "/en/education/master/law",
+                },
+            ]
+        }
+    )
+    fetched = []
+
+    def fetcher(url: str) -> str:
+        fetched.append(url)
+        if url == VU_APPLICATION_URL:
+            return _vu_february_deadlines()
+        raise AssertionError(url)
+
+    catalog = VUAmsterdamAdapter(
+        minimum_expected_programmes=2,
+        search_api_fetcher=lambda: api_payload,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    assert fetched == [VU_APPLICATION_URL]
+    mathematics = next(
+        item for item in catalog.programmes if item.name == "Mathematics"
+    )
+    law = next(item for item in catalog.programmes if item.name == "Law")
+    assert [
+        (item.applicant_categories, item.closes_at) for item in mathematics.windows
+    ] == [
+        (["eu-efta"], "2026-12-01"),
+        (["non-eu-efta"], "2026-11-01"),
+    ]
+    assert [(item.applicant_categories, item.closes_at) for item in law.windows] == [
+        (["eu-efta"], "2027-01-01"),
+        (["non-eu-efta"], "2026-11-01"),
+    ]
+    assert all(
+        window.opens_at is None
+        for item in catalog.programmes
+        for window in item.windows
+    )
+
+
+def test_vu_uses_static_catalogue_when_search_api_fails() -> None:
+    wrapper = """
+      <main><a href="/en/education/master/mathematics">Mathematics</a>
+      <a href="/en/education/master/law">Law</a></main>
+    """
+    pages = {
+        VU_CATALOG_URL: wrapper,
+        VU_APPLICATION_URL: _vu_february_deadlines(),
+    }
+
+    def failed_api() -> str:
+        raise RuntimeError("search unavailable")
+
+    catalog = VUAmsterdamAdapter(
+        minimum_expected_programmes=2,
+        search_api_fetcher=failed_api,
+    ).parse_catalog_from_fetcher(pages.__getitem__)
+
+    assert [item.name for item in catalog.programmes] == ["Law", "Mathematics"]
+    assert catalog.warnings[0]["reason"] == "TRANSPORT_ERROR"
+    assert catalog.warnings[0]["fallback"] == "official-static-catalogue"
+
+
+def _vu_february_deadlines() -> str:
+    return """
+      <h4>Application deadlines</h4>
+      <p>The application deadlines for international students wishing to start in February 2027 are as follows:</p>
+      <ul><li>1 November 2026 for non-EU citizens/students who need a study visa.</li>
+      <li>1 December 2026 for EU citizens for the Master programmes in Mathematics</li>
+      <li>1 January 2027 for EU citizens for the Master in Law</li></ul>
+      <h4>Start date: 1 February 2027</h4>
+    """

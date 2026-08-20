@@ -73,6 +73,7 @@ class BaseProgrammeAdapter:
     application_opens_at_basis = "official"
     replace_pending_candidates = False
     window_watch_urls: tuple[str, ...] = ()
+    catalogue_granularity = "programme-level"
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
         return self.parse_catalog(fetcher(self.catalog_url))

@@ -17,6 +17,7 @@ from .base import (
     DiscoveredCatalog,
     DiscoveredProgramme,
     DiscoveredWindow,
+    OfficialSourceTransportError,
 )
 
 UNIVERSITY_ID = "king-s-college-london-kcl"
@@ -89,10 +90,12 @@ class KCLAdapter(BaseProgrammeAdapter):
                 f"Sitemap diagnostics: {self.sitemap_diagnostics}"
             )
 
-        def parse_one(course_url: str) -> DiscoveredProgramme | None:
+        def parse_one(
+            course_url: str,
+        ) -> tuple[DiscoveredProgramme | None, dict | None]:
             requirements_url = f"{course_url.rstrip('/')}/requirements"
             try:
-                return _parse_programme(
+                programme = _parse_programme(
                     course_url,
                     requirements_url,
                     fetcher(requirements_url),
@@ -104,8 +107,12 @@ class KCLAdapter(BaseProgrammeAdapter):
                     catalogue_title=self.catalogue_titles.get(course_url, ""),
                 )
                 if fallback is None:
-                    return None
-                return replace(
+                    return None, {
+                        "programmeId": course_url,
+                        "sourceUrl": requirements_url,
+                        "error": f"{type(exc).__name__}: {str(exc)[:180]}",
+                    }
+                programme = replace(
                     fallback,
                     deadline_text=(
                         "Course found in the official KCL sitemap, but its "
@@ -113,15 +120,25 @@ class KCLAdapter(BaseProgrammeAdapter):
                         f"{type(exc).__name__}: {str(exc)[:180]}"
                     ),
                 )
+                return programme, {
+                    "programmeId": programme.id,
+                    "sourceUrl": requirements_url,
+                    "error": f"{type(exc).__name__}: {str(exc)[:180]}",
+                }
+            return programme, None
 
         with concurrent.futures.ThreadPoolExecutor(
             max_workers=self.detail_workers
         ) as executor:
-            programmes = [
-                programme
-                for programme in executor.map(parse_one, course_urls)
-                if programme is not None
-            ]
+            outcomes = list(executor.map(parse_one, course_urls))
+        programmes = [programme for programme, _failure in outcomes if programme]
+        detail_failures = [failure for _programme, failure in outcomes if failure]
+        if len(detail_failures) * 10 > len(course_urls):
+            raise OfficialSourceTransportError(
+                f"{len(detail_failures)} of {len(course_urls)} KCL programme "
+                "requirements pages failed during discovery, exceeding the "
+                "10% critical-detail threshold."
+            )
         programmes = sorted(
             {programme.id: programme for programme in programmes}.values(),
             key=lambda item: item.id,
@@ -132,7 +149,30 @@ class KCLAdapter(BaseProgrammeAdapter):
                 f"{len(programmes)} master's programmes; expected at least "
                 f"{self.minimum_expected_programmes}"
             )
-        return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
+        warnings = []
+        if detail_failures:
+            failed_programme_ids = sorted(
+                str(failure["programmeId"]) for failure in detail_failures
+            )
+            warnings.append(
+                {
+                    "reason": "TRANSPORT_ERROR",
+                    "message": (
+                        f"{len(detail_failures)} of {len(course_urls)} KCL "
+                        "programme requirements pages failed during discovery; "
+                        "affected programmes were retained without deadlines."
+                    ),
+                    "sourceUrl": detail_failures[0]["sourceUrl"],
+                    "detailFailures": len(detail_failures),
+                    "totalDetailPages": len(course_urls),
+                    "failedProgrammeIds": failed_programme_ids,
+                }
+            )
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=programmes,
+            warnings=warnings,
+        )
 
     def _course_urls(self, fetcher: Callable[[str], str]) -> list[str]:
         root_xml = fetcher(SITEMAP_URL)

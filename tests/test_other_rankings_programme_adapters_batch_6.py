@@ -35,11 +35,11 @@ def test_twente_reads_top_level_msc_cards_only() -> None:
             + _twente_card("Joint Programme", "MSc", "https://joint.example/programme")
             + _twente_card("Responsible Futures", "Certificate", "/insert/")
         ),
-        TWENTE_APPLICATION_URL: "Apply in Studielink before the application deadline.",
+        TWENTE_APPLICATION_URL: _twente_deadlines(),
     }
 
     rows = (
-        TwenteAdapter(minimum_expected_programmes=1)
+        TwenteAdapter(minimum_expected_programmes=1, target_cycle_year=2027)
         .parse_catalog_from_fetcher(pages.__getitem__)
         .programmes
     )
@@ -51,6 +51,45 @@ def test_twente_reads_top_level_msc_cards_only() -> None:
             "https://www.utwente.nl/applied-mathematics/",
         ),
         ("Joint Programme", "MSc", TWENTE_CATALOG_URL),
+    ]
+    assert [
+        (
+            window.intake,
+            window.applicant_categories,
+            window.opens_at,
+            window.closes_at,
+            window.opens_at_basis,
+        )
+        for window in rows[0].windows
+    ] == [
+        (
+            "February 2027",
+            ["eu-efta"],
+            "2026-03-01",
+            "2026-12-01",
+            "official-recurring-policy",
+        ),
+        (
+            "February 2027",
+            ["non-eu-efta"],
+            "2026-03-01",
+            "2026-10-01",
+            "official-recurring-policy",
+        ),
+        (
+            "September 2027",
+            ["eu-efta"],
+            "2026-10-01",
+            "2027-07-01",
+            "official-recurring-policy",
+        ),
+        (
+            "September 2027",
+            ["non-eu-efta"],
+            "2026-10-01",
+            "2027-05-01",
+            "official-recurring-policy",
+        ),
     ]
 
 
@@ -141,6 +180,27 @@ def _twente_card(name: str, degree: str, href: str) -> str:
         <span class="studyfinder__programme__title__text">{name}</span>
         <div class="studyfinder__programme__metadata"><span class="degree">{degree}</span></div>
       </a>
+    """
+
+
+def _twente_deadlines() -> str:
+    return """
+    <main><h1>What deadline applies to me?</h1>
+      <section class="wh-form__richtext">
+        <b>Students with an EEA nationality (non-Dutch)</b>
+        <table><tr><td></td><td>September intake</td><td>February intake</td></tr>
+          <tr><td>You can start your application from</td><td>1 October</td><td>1 March</td></tr>
+          <tr><td>Deadline completed application with all required uploads</td><td>before 1 July</td><td>before 1 December</td></tr>
+        </table>
+      </section>
+      <section class="wh-form__richtext">
+        <b>Students with a non-EEA (visa) nationality</b>
+        <table><tr><td></td><td>September intake</td><td>February intake</td></tr>
+          <tr><td>You can start your application from</td><td>1 October</td><td>1 March</td></tr>
+          <tr><td>Deadline completed application with all required uploads</td><td>before 1 May</td><td>before 1 October</td></tr>
+        </table>
+      </section>
+    </main>
     """
 
 

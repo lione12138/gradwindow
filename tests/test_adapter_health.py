@@ -380,6 +380,166 @@ def test_observed_window_drop_is_reported_even_when_exact_count_is_stable(
     assert alerts[0]["category"] == "data-integrity"
 
 
+def test_previous_success_replaces_peak_baseline_but_keeps_historical_max(
+    tmp_path,
+) -> None:
+    start = datetime(2026, 8, 10, tzinfo=timezone.utc)
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    kwargs = {
+        "health_path": health_path,
+        "report_path": report_path,
+        "catalog_state_path": catalog_path,
+        "universities_path": universities_path,
+    }
+    update_adapter_health(
+        [_success(start, observedWindowCount=52, exactWindowCount=52)],
+        now=start,
+        **kwargs,
+    )
+    second = update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=1),
+                observedWindowCount=42,
+                exactWindowCount=42,
+            )
+        ],
+        now=start + timedelta(days=1),
+        **kwargs,
+    )
+    third = update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=2),
+                observedWindowCount=42,
+                exactWindowCount=42,
+            )
+        ],
+        now=start + timedelta(days=2),
+        **kwargs,
+    )
+
+    assert (
+        second["universities"]["example-university"]["baselineExactWindowCount"] == 52
+    )
+    entry = third["universities"]["example-university"]
+    assert entry["baselineExactWindowCount"] == 42
+    assert entry["historicalMaxExactWindowCount"] == 52
+    assert entry["alerts"] == []
+
+
+def test_cycle_transition_does_not_compare_new_intake_to_old_intake_peak(
+    tmp_path,
+) -> None:
+    start = datetime(2026, 8, 10, tzinfo=timezone.utc)
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    kwargs = {
+        "health_path": health_path,
+        "report_path": report_path,
+        "catalog_state_path": catalog_path,
+        "universities_path": universities_path,
+    }
+    fall_2026 = {
+        "2026:fall:09": {
+            "intakes": ["Fall 2026"],
+            "observedWindowCount": 52,
+            "exactWindowCount": 52,
+            "recurringPolicyWindowCount": 0,
+        }
+    }
+    fall_2027 = {
+        "2027:fall:09": {
+            "intakes": ["Fall 2027"],
+            "observedWindowCount": 42,
+            "exactWindowCount": 42,
+            "recurringPolicyWindowCount": 0,
+        }
+    }
+    update_adapter_health(
+        [
+            _success(
+                start,
+                observedWindowCount=52,
+                exactWindowCount=52,
+                windowCountsByCycle=fall_2026,
+            )
+        ],
+        now=start,
+        **kwargs,
+    )
+    payload = update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=1),
+                observedWindowCount=42,
+                exactWindowCount=42,
+                windowCountsByCycle=fall_2027,
+            )
+        ],
+        now=start + timedelta(days=1),
+        **kwargs,
+    )
+
+    entry = payload["universities"]["example-university"]
+    assert entry["alerts"] == []
+    assert entry["baselineWindowCountsByCycle"] == fall_2026
+    assert set(entry["historicalMaxWindowCountsByCycle"]) == {
+        "2026:fall:09",
+        "2027:fall:09",
+    }
+
+
+def test_expired_window_removal_does_not_create_published_data_risk(tmp_path) -> None:
+    now = datetime(2026, 8, 20, tzinfo=timezone.utc)
+    report = _success(
+        now,
+        observedWindowCount=3,
+        exactWindowCount=3,
+        previousCatalogProgrammes=100,
+        disappearedWindowDetails={
+            "example-msc::Fall 2026::Final::all": {
+                "programmeId": "example-msc",
+                "opensAt": "2025-09-01",
+                "closesAt": "2026-08-19",
+                "sourceUrl": "https://example.edu/msc",
+            }
+        },
+    )
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    health_path.write_text(
+        json.dumps(
+            {
+                "meta": {},
+                "universities": {
+                    "example-university": {
+                        "catalogProgrammes": 100,
+                        "observedWindowCount": 4,
+                        "exactWindowCount": 4,
+                        "baselineObservedWindowCount": 4,
+                        "baselineExactWindowCount": 4,
+                    }
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = update_adapter_health(
+        [report],
+        health_path=health_path,
+        report_path=report_path,
+        catalog_state_path=catalog_path,
+        universities_path=universities_path,
+        now=now,
+    )
+
+    entry = payload["universities"]["example-university"]
+    assert entry["expiredDisappearedWindowIds"] == [
+        "example-msc::Fall 2026::Final::all"
+    ]
+    assert entry["alerts"] == []
+
+
 def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
     tmp_path,
 ) -> None:
@@ -513,6 +673,12 @@ def test_discovery_reports_record_level_window_removals(tmp_path) -> None:
     second = discover_programmes(adapter, **kwargs)
 
     assert first["recordDiff"]["disappearedWindowIds"] == []
+    assert first["windowCountsByCycle"]["2027:fall:09"] == {
+        "intakes": ["September 2027"],
+        "observedWindowCount": 2,
+        "exactWindowCount": 2,
+        "recurringPolicyWindowCount": 0,
+    }
     assert second["recordDiff"] == {
         "previous": {"programmes": 1, "windows": 2},
         "current": {"programmes": 1, "windows": 1},
@@ -522,6 +688,17 @@ def test_discovery_reports_record_level_window_removals(tmp_path) -> None:
         "disappearedWindowIds": ["example-msc::September 2027::Final::all"],
         "addedWindowIds": [],
         "changedWindowIds": [],
+    }
+    assert second["windowRemovalAssessmentAvailable"] is True
+    assert second["disappearedWindowDetails"] == {
+        "example-msc::September 2027::Final::all": {
+            "programmeId": "example-msc",
+            "intake": "September 2027",
+            "opensAt": "2026-09-01",
+            "closesAt": "2027-02-01",
+            "sourceUrl": "https://example.edu/programmes",
+            "opensAtBasis": None,
+        }
     }
 
 
