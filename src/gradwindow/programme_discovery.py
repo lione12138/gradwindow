@@ -439,6 +439,11 @@ def discover_programmes(
         programmes_without_deadlines,
     )
     catalogue_status = getattr(adapter, "catalogue_status", "ok")
+    catalogue_granularity = getattr(
+        adapter,
+        "catalogue_granularity",
+        "programme-level",
+    )
     catalogue_limitation_reason = getattr(adapter, "catalogue_limitation_reason", None)
     if catalogue_limitation_reason:
         limitation_reason = " ".join(
@@ -453,6 +458,7 @@ def discover_programmes(
         "applicationOpensAt": catalog.application_opens_at,
         "catalogHash": _hash(json.dumps(snapshot_items, sort_keys=True)),
         "catalogueStatus": catalogue_status,
+        "catalogueGranularity": catalogue_granularity,
         "windowStatus": window_status,
         "observedWindowCount": observed_window_count,
         "exactWindowCount": exact_window_count,
@@ -538,6 +544,7 @@ def discover_programmes(
             for item in items
         ),
         "catalogueStatus": catalogue_status,
+        "catalogueGranularity": catalogue_granularity,
         "windowStatus": window_status,
         "observedWindowCount": observed_window_count,
         "exactWindowCount": exact_window_count,

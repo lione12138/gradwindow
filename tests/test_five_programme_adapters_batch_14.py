@@ -31,11 +31,35 @@ def test_cardiff_records_cloudflare_catalogue_limitation() -> None:
     assert row.parse_status == "no-deadline"
 
 
-def test_michigan_state_records_client_rendered_directory() -> None:
-    html = '<title>Majors, degrees and programs</title>{"ProgramList": {}}'
-    row = MichiganStateAdapter().parse_catalog(html).programmes[0]
-    assert row.id == "msu-graduate-programmes"
-    assert row.parse_status == "no-deadline"
+def test_michigan_state_reads_registrar_master_degree_catalogue() -> None:
+    html = """
+    <h2>Graduate Degrees</h2>
+    <h3>College of Engineering</h3>
+    <h4>Computer Science and Engineering</h4>
+    <a href="ProgramDetail.aspx?PType=GRADLAWM&amp;Program=COMPSC_MS">
+      Computer Science - Master of Science (MS)
+    </a>
+    <a href="ProgramDetail.aspx?PType=GRADLAWM&amp;Program=COMPSC_PHD">
+      Computer Science - Doctor of Philosophy (PHD)
+    </a>
+    <h3>Eli Broad College of Business</h3>
+    <h4>Accounting and Information Systems</h4>
+    <a href="ProgramDetail.aspx?PType=GRADLAWM&amp;Program=ACCOUNT_MS">
+      Accounting - Master of Science (MS)
+    </a>
+    """
+    adapter = MichiganStateAdapter(minimum_expected_programmes=2)
+    rows = adapter.parse_catalog(html).programmes
+
+    assert [(row.name, row.degree_type) for row in rows] == [
+        ("Accounting", "MS"),
+        ("Computer Science", "MS"),
+    ]
+    assert rows[0].faculty == "Eli Broad College of Business"
+    assert rows[0].department == "Accounting and Information Systems"
+    assert "Program=ACCOUNT_MS" in rows[0].source_url
+    assert all(row.parse_status == "no-deadline" for row in rows)
+    assert adapter.catalogue_granularity == "programme-level"
 
 
 def test_cape_town_reads_official_faculty_handbook_programmes() -> None:

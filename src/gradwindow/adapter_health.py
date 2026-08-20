@@ -310,6 +310,10 @@ def _successful_entry(
         "lastSuccessfulAt": report.get("checkedAt", checked_at.isoformat()),
         "consecutiveFailures": 0,
         "catalogueStatus": report.get("catalogueStatus", "ok"),
+        "catalogueGranularity": report.get(
+            "catalogueGranularity",
+            previous.get("catalogueGranularity", "programme-level"),
+        ),
         "windowStatus": report.get("windowStatus", "monitoring"),
         "catalogProgrammes": current_count,
         "baselineCatalogProgrammes": baseline_count,
