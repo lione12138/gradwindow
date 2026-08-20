@@ -12,6 +12,7 @@ from openpyxl import load_workbook
 
 from .content import deadline_signal_text
 from .http_client import DEFAULT_USER_AGENT, fetch_page
+from .intakes import parse_intake_details
 from .io import read_json, write_json
 from .monitor import extract_fetched_text
 from .paths import (
@@ -300,6 +301,7 @@ def discover_programmes(
                 identity = f"{base_identity}::{identities[base_identity]}"
             window_snapshot_items[identity] = {
                 "programmeId": programme.id,
+                "intake": window.intake or adapter.intake,
                 "opensAt": window.opens_at,
                 "closesAt": window.closes_at,
                 "sourceUrl": window.source_url or programme.source_url,
@@ -345,6 +347,10 @@ def discover_programmes(
                 if previous_windows[window_id] != window_snapshot_items[window_id]
             ),
         }
+        disappeared_window_details = {
+            window_id: previous_windows[window_id]
+            for window_id in record_diff["disappearedWindowIds"]
+        }
     else:
         record_diff = {
             "previous": {
@@ -362,6 +368,7 @@ def discover_programmes(
             "addedWindowIds": [],
             "changedWindowIds": [],
         }
+        disappeared_window_details = {}
     observed_window_count = sum(
         len(programme.windows) for programme in catalog.programmes
     )
@@ -375,6 +382,7 @@ def discover_programmes(
         for programme in catalog.programmes
         for window in programme.windows
     )
+    window_counts_by_cycle = _window_counts_by_cycle(adapter, catalog)
     missing_opening_date_count = sum(
         not _has_official_exact_opening(adapter, catalog, window)
         and not _is_official_recurring_policy_window(adapter, catalog, window)
@@ -449,6 +457,7 @@ def discover_programmes(
         "observedWindowCount": observed_window_count,
         "exactWindowCount": exact_window_count,
         "recurringPolicyWindowCount": recurring_policy_window_count,
+        "windowCountsByCycle": window_counts_by_cycle,
         "missingOpeningDateCount": missing_opening_date_count,
         "programmesWithoutDeadlines": programmes_without_deadlines,
         "programmesNeedingReview": programmes_needing_review,
@@ -533,17 +542,64 @@ def discover_programmes(
         "observedWindowCount": observed_window_count,
         "exactWindowCount": exact_window_count,
         "recurringPolicyWindowCount": recurring_policy_window_count,
+        "windowCountsByCycle": window_counts_by_cycle,
         "missingOpeningDateCount": missing_opening_date_count,
         "programmesWithoutDeadlines": programmes_without_deadlines,
         "programmesNeedingReview": programmes_needing_review,
         "limitationReason": limitation_reason,
         "adapterWarnings": catalog.warnings,
         "recordDiff": record_diff,
+        "windowRemovalAssessmentAvailable": has_record_baseline,
+        "disappearedWindowDetails": disappeared_window_details,
         "windowFingerprint": window_fingerprint,
         "watchedWindowSourceHash": watched_source_fingerprint,
         "watchedWindowSourceFingerprintVersion": (watched_source_fingerprint_version),
         "dryRun": dry_run,
     }
+
+
+def _window_counts_by_cycle(adapter, catalog) -> dict[str, dict]:
+    counts: dict[str, dict] = {}
+    for programme in catalog.programmes:
+        for window in programme.windows:
+            intake = window.intake or adapter.intake
+            cycle_key = _intake_cycle_key(intake)
+            entry = counts.setdefault(
+                cycle_key,
+                {
+                    "intakes": set(),
+                    "observedWindowCount": 0,
+                    "exactWindowCount": 0,
+                    "recurringPolicyWindowCount": 0,
+                },
+            )
+            entry["intakes"].add(intake)
+            entry["observedWindowCount"] += 1
+            entry["exactWindowCount"] += int(
+                _is_official_exact_window(adapter, catalog, window)
+            )
+            entry["recurringPolicyWindowCount"] += int(
+                _is_official_recurring_policy_window(adapter, catalog, window)
+            )
+    return {
+        cycle_key: {**entry, "intakes": sorted(entry["intakes"])}
+        for cycle_key, entry in sorted(counts.items())
+    }
+
+
+def _intake_cycle_key(intake: str) -> str:
+    try:
+        details = parse_intake_details(intake)
+    except ValueError:
+        normalised = re.sub(r"[^a-z0-9]+", "-", intake.lower()).strip("-")
+        return f"label:{normalised or 'unknown'}"
+    academic_year = (
+        f"{details['cycleYear']}-{details['academicYearEnd']}"
+        if details.get("academicYearEnd")
+        else str(details["cycleYear"])
+    )
+    month = details.get("startMonth")
+    return f"{academic_year}:{details['term']}:{month or 0:02d}"
 
 
 def _validate_recurring_applicant_categories(
