@@ -62,7 +62,6 @@ class ProgrammeAdapter(Protocol):
     application_opens_at_basis: str
     replace_pending_candidates: bool
     window_watch_urls: tuple[str, ...]
-    catalogue_granularity: str
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog: ...
 
