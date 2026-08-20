@@ -23,6 +23,17 @@ def test_programme_window_record_ids_include_applicant_scope() -> None:
         window,
         existing_ids={record_id},
     ).startswith(f"{record_id}-")
+    on_collision = programme_window_record_id(
+        "example-msc",
+        window,
+        existing_ids={record_id},
+    )
+    before_collision = programme_window_record_id(
+        "example-msc",
+        {**window, "deadlineSemantics": "before"},
+        existing_ids={record_id},
+    )
+    assert on_collision != before_collision
 
 
 def test_official_exact_window_requires_explicit_official_basis() -> None:

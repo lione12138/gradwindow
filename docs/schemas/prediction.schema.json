@@ -123,6 +123,15 @@
       "title": "Closesat",
       "type": "string"
     },
+    "deadlineSemantics": {
+      "default": "on",
+      "enum": [
+        "on",
+        "before"
+      ],
+      "title": "Deadlinesemantics",
+      "type": "string"
+    },
     "applicationUrl": {
       "format": "uri",
       "minLength": 1,

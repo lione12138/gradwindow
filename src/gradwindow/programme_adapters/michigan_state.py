@@ -5,7 +5,14 @@ from urllib.parse import parse_qs, urljoin, urlsplit
 
 from bs4 import BeautifulSoup
 
-from .base import BaseProgrammeAdapter, DiscoveredCatalog, DiscoveredProgramme
+from ..browser_rendering import browser_content_fetcher_from_environment
+from .base import (
+    BaseProgrammeAdapter,
+    DiscoveredCatalog,
+    DiscoveredProgramme,
+    Fetcher,
+    OfficialSourceTransportError,
+)
 from .official_catalog import normalise, slug
 
 CATALOG_URL = (
@@ -16,6 +23,7 @@ APPLICATION_URL = "https://grad.msu.edu/admissions/apply"
 MASTER_DEGREE_CODES = {
     "LLM",
     "MA",
+    "MAT",
     "MBA",
     "MFA",
     "MHRL",
@@ -29,6 +37,17 @@ MASTER_DEGREE_CODES = {
     "MSN",
     "MSW",
     "MURP",
+}
+NON_MASTER_DEGREE_CODES = {
+    "DDS",
+    "DMA",
+    "DNP",
+    "DO",
+    "DVM",
+    "EDD",
+    "JD",
+    "MD",
+    "PHD",
 }
 
 
@@ -52,16 +71,56 @@ class MichiganStateAdapter(BaseProgrammeAdapter):
         "opening or closing date is inferred from the catalogue."
     )
 
-    def __init__(self, minimum_expected_programmes: int = 120) -> None:
+    def __init__(
+        self,
+        minimum_expected_programmes: int = 120,
+        browser_content_fetcher: Fetcher | None = None,
+    ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
+        self.browser_content_fetcher = (
+            browser_content_fetcher or browser_content_fetcher_from_environment()
+        )
+        self.current_retrieval_method = self.retrieval_method
+
+    def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
+        html = fetcher(self.catalog_url)
+        self.current_retrieval_method = self.retrieval_method
+        if _is_access_challenge(html):
+            if self.browser_content_fetcher is None:
+                raise OfficialSourceTransportError(
+                    "Michigan State's Registrar catalogue returned an access "
+                    "challenge and Browser Rendering is not configured"
+                )
+            try:
+                html = self.browser_content_fetcher(self.catalog_url)
+            except Exception as exc:
+                raise OfficialSourceTransportError(
+                    "Michigan State's Registrar catalogue remained unavailable "
+                    "through Browser Rendering"
+                ) from exc
+            if _is_access_challenge(html):
+                raise OfficialSourceTransportError(
+                    "Michigan State's Registrar catalogue returned an access "
+                    "challenge through Browser Rendering"
+                )
+            self.current_retrieval_method = "cloudflare-browser-rendering"
+        return self.parse_catalog(html)
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:
         soup = BeautifulSoup(html, "html.parser")
         programmes: dict[str, DiscoveredProgramme] = {}
+        observed_degree_codes: set[str] = set()
+        unknown_degree_codes: set[str] = set()
         for link in soup.select('a[href*="ProgramDetail.aspx"]'):
             label = normalise(link.get_text(" ", strip=True))
-            degree_code = _degree_code(label)
+            degree_code = _raw_degree_code(label)
             if degree_code is None:
+                continue
+            observed_degree_codes.add(degree_code)
+            if degree_code in NON_MASTER_DEGREE_CODES:
+                continue
+            if degree_code not in MASTER_DEGREE_CODES:
+                unknown_degree_codes.add(degree_code)
                 continue
             source_url = urljoin(CATALOG_URL, str(link.get("href", "")))
             plan_code = _plan_code(source_url)
@@ -85,7 +144,7 @@ class MichiganStateAdapter(BaseProgrammeAdapter):
                     "are programme-specific, so no exact dates are inferred."
                 ),
                 parse_status="no-deadline",
-                retrieval_method=self.retrieval_method,
+                retrieval_method=self.current_retrieval_method,
                 evidence_quality="official-full-text",
             )
 
@@ -96,17 +155,47 @@ class MichiganStateAdapter(BaseProgrammeAdapter):
                 f"{len(result)} master's routes; expected at least "
                 f"{self.minimum_expected_programmes}"
             )
-        return DiscoveredCatalog(application_opens_at=None, programmes=result)
+        warnings = []
+        if unknown_degree_codes:
+            warnings.append(
+                {
+                    "reason": "UNKNOWN_DEGREE_CODE",
+                    "message": (
+                        "Michigan State's official graduate catalogue exposed "
+                        "unclassified degree codes; those routes were not ingested."
+                    ),
+                    "sourceUrl": CATALOG_URL,
+                    "unknownDegreeCodes": sorted(unknown_degree_codes),
+                }
+            )
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=result,
+            warnings=warnings,
+            diagnostics={
+                "observedGraduateDegreeCodes": sorted(observed_degree_codes),
+                "unknownGraduateDegreeCodes": sorted(unknown_degree_codes),
+            },
+        )
 
 
-def _degree_code(label: str) -> str | None:
+def _raw_degree_code(label: str) -> str | None:
     match = re.search(r"\(([A-Z.]+)\)\s*$", label)
     if match is None:
         return None
-    code = match.group(1).replace(".", "").upper()
-    if code not in MASTER_DEGREE_CODES:
-        return None
-    return code
+    return match.group(1).replace(".", "").upper()
+
+
+def _is_access_challenge(html: str) -> bool:
+    lowered = html.casefold()
+    return any(
+        marker in lowered
+        for marker in (
+            "_incapsula_resource",
+            "incapsula incident id",
+            "request unsuccessful",
+        )
+    )
 
 
 def _programme_name(label: str) -> str:

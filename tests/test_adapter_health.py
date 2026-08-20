@@ -108,6 +108,33 @@ def test_identity_mismatch_warning_preserves_partial_success_and_alerts(
     assert entry["alerts"][0]["category"] == "data-integrity"
 
 
+def test_parser_and_unknown_degree_warnings_are_data_integrity_alerts(tmp_path) -> None:
+    now = datetime(2026, 8, 20, tzinfo=timezone.utc)
+    warnings = [
+        {
+            "reason": "PARSER_ERROR",
+            "message": "One official detail page no longer matches the parser.",
+        },
+        {
+            "reason": "UNKNOWN_DEGREE_CODE",
+            "message": "An official graduate degree code is unclassified.",
+        },
+    ]
+
+    payload = _update(
+        tmp_path,
+        [_success(now, adapterWarnings=warnings)],
+        now,
+    )
+
+    alerts = payload["universities"]["example-university"]["alerts"]
+    assert [alert["type"] for alert in alerts] == [
+        "partial-parser-error",
+        "unknown-degree-code",
+    ]
+    assert all(alert["category"] == "data-integrity" for alert in alerts)
+
+
 def test_failure_reason_is_preserved_for_transport_diagnosis(tmp_path) -> None:
     now = datetime(2026, 8, 14, tzinfo=timezone.utc)
     failure = {
@@ -540,6 +567,168 @@ def test_expired_window_removal_does_not_create_published_data_risk(tmp_path) ->
     assert entry["alerts"] == []
 
 
+def test_expired_programme_removal_does_not_create_published_data_risk(
+    tmp_path,
+) -> None:
+    now = datetime(2026, 8, 20, tzinfo=timezone.utc)
+    report = _success(
+        now,
+        catalogProgrammes=99,
+        observedWindowCount=3,
+        exactWindowCount=3,
+        recordDiff={
+            "previous": {"programmes": 100, "windows": 4},
+            "current": {"programmes": 99, "windows": 3},
+            "disappearedProgrammeIds": ["expired-msc"],
+            "disappearedWindowIds": ["expired-msc::Fall 2026::Main::all"],
+        },
+        windowRemovalAssessmentAvailable=True,
+        disappearedWindowDetails={
+            "expired-msc::Fall 2026::Main::all": {
+                "programmeId": "expired-msc",
+                "closesAt": "2026-08-19",
+            }
+        },
+        disappearedProgrammeDetails={
+            "expired-msc": {
+                "name": "Expired MSc",
+                "windowCount": 1,
+                "latestClosesAt": "2026-08-19",
+            }
+        },
+    )
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    health_path.write_text(
+        json.dumps(
+            {
+                "meta": {},
+                "universities": {
+                    "example-university": {
+                        "catalogProgrammes": 100,
+                        "observedWindowCount": 4,
+                        "exactWindowCount": 4,
+                        "baselineObservedWindowCount": 4,
+                        "baselineExactWindowCount": 4,
+                    }
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = update_adapter_health(
+        [report],
+        health_path=health_path,
+        report_path=report_path,
+        catalog_state_path=catalog_path,
+        universities_path=universities_path,
+        now=now,
+    )
+
+    entry = payload["universities"]["example-university"]
+    assert entry["expiredDisappearedProgrammeIds"] == ["expired-msc"]
+    assert entry["futureDisappearedProgrammeIds"] == []
+    assert entry["unknownDisappearedProgrammeIds"] == []
+    assert entry["alerts"] == []
+
+
+def test_future_programme_removal_remains_a_published_data_risk(tmp_path) -> None:
+    now = datetime(2026, 8, 20, tzinfo=timezone.utc)
+    report = _success(
+        now,
+        catalogProgrammes=99,
+        observedWindowCount=3,
+        exactWindowCount=3,
+        recordDiff={
+            "previous": {"programmes": 100, "windows": 4},
+            "current": {"programmes": 99, "windows": 3},
+            "disappearedProgrammeIds": ["future-msc"],
+            "disappearedWindowIds": ["future-msc::Fall 2027::Main::all"],
+        },
+        windowRemovalAssessmentAvailable=True,
+        disappearedWindowDetails={
+            "future-msc::Fall 2027::Main::all": {
+                "programmeId": "future-msc",
+                "closesAt": "2027-01-15",
+            }
+        },
+        disappearedProgrammeDetails={
+            "future-msc": {
+                "name": "Future MSc",
+                "windowCount": 1,
+                "latestClosesAt": "2027-01-15",
+            }
+        },
+    )
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    health_path.write_text(
+        json.dumps(
+            {
+                "meta": {},
+                "universities": {
+                    "example-university": {
+                        "catalogProgrammes": 100,
+                        "observedWindowCount": 4,
+                        "exactWindowCount": 4,
+                        "baselineObservedWindowCount": 4,
+                        "baselineExactWindowCount": 4,
+                    }
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = update_adapter_health(
+        [report],
+        health_path=health_path,
+        report_path=report_path,
+        catalog_state_path=catalog_path,
+        universities_path=universities_path,
+        now=now,
+    )
+
+    entry = payload["universities"]["example-university"]
+    assert entry["futureDisappearedProgrammeIds"] == ["future-msc"]
+    assert [alert["type"] for alert in entry["alerts"]] == [
+        "exact-window-drop",
+        "observed-window-drop",
+        "programme-record-removed",
+    ]
+    assert entry["alerts"][0]["details"]["futureDisappearedProgrammeIds"] == [
+        "future-msc"
+    ]
+
+
+def test_unknown_programme_removal_requires_review(tmp_path) -> None:
+    now = datetime(2026, 8, 20, tzinfo=timezone.utc)
+    report = _success(
+        now,
+        catalogProgrammes=99,
+        recordDiff={
+            "previous": {"programmes": 100, "windows": 0},
+            "current": {"programmes": 99, "windows": 0},
+            "disappearedProgrammeIds": ["unknown-msc"],
+            "disappearedWindowIds": [],
+        },
+        windowRemovalAssessmentAvailable=True,
+        disappearedProgrammeDetails={
+            "unknown-msc": {
+                "name": "Unknown MSc",
+                "windowCount": 0,
+                "latestClosesAt": None,
+            }
+        },
+    )
+
+    payload = _update(tmp_path, [report], now)
+
+    entry = payload["universities"]["example-university"]
+    assert entry["unknownDisappearedProgrammeIds"] == ["unknown-msc"]
+    assert [alert["type"] for alert in entry["alerts"]] == ["programme-record-removed"]
+    assert entry["alerts"][0]["category"] == "data-integrity"
+
+
 def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
     tmp_path,
 ) -> None:
@@ -698,6 +887,74 @@ def test_discovery_reports_record_level_window_removals(tmp_path) -> None:
             "closesAt": "2027-02-01",
             "sourceUrl": "https://example.edu/programmes",
             "opensAtBasis": None,
+        }
+    }
+
+
+def test_discovery_reports_programme_removal_lifecycle_details(tmp_path) -> None:
+    class ChangingAdapter(BaseProgrammeAdapter):
+        university_id = "example-university"
+        catalog_url = "https://example.edu/programmes"
+        intake = "September 2027"
+        include_programme = True
+
+        def parse_catalog_from_fetcher(self, _fetcher):
+            programmes = []
+            if self.include_programme:
+                programmes.append(
+                    DiscoveredProgramme(
+                        id="example-msc",
+                        name="Example MSc",
+                        degree_type="MSc",
+                        faculty="Example Faculty",
+                        department="Example Department",
+                        source_url=self.catalog_url,
+                        application_url="https://example.edu/apply",
+                        windows=[
+                            DiscoveredWindow(
+                                round="Main",
+                                opens_at="2026-09-01",
+                                closes_at="2027-02-01",
+                                intake=self.intake,
+                            )
+                        ],
+                        deadline_text="Official dates",
+                        parse_status="parsed",
+                    )
+                )
+            return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
+
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    state_path = tmp_path / "programme-catalog-state.json"
+    programs_path.write_text(json.dumps({"programs": []}), encoding="utf-8")
+    applications_path.write_text(json.dumps({"applications": []}), encoding="utf-8")
+    adapter = ChangingAdapter()
+    kwargs = {
+        "programs_path": programs_path,
+        "applications_path": applications_path,
+        "candidates_path": tmp_path / "programme-candidates.json",
+        "window_candidates_path": tmp_path / "window-candidates.json",
+        "state_path": state_path,
+        "fetcher": lambda _url: "",
+    }
+
+    discover_programmes(adapter, **kwargs)
+    adapter.include_programme = False
+    report = discover_programmes(adapter, **kwargs)
+
+    assert report["disappearedProgrammeDetails"] == {
+        "example-msc": {
+            "name": "Example MSc",
+            "degreeType": "MSc",
+            "faculty": "Example Faculty",
+            "department": "Example Department",
+            "parseStatus": "parsed",
+            "windowCount": 1,
+            "latestClosesAt": "2027-02-01",
+            "deadlineHash": report["disappearedProgrammeDetails"]["example-msc"][
+                "deadlineHash"
+            ],
         }
     }
 

@@ -80,6 +80,7 @@ def test_build_site_only_publishes_public_assets(tmp_path) -> None:
     assert index.exists()
     assert (tmp_path / "app.js").exists()
     assert (tmp_path / "frontend-data.js").exists()
+    assert (tmp_path / "deadline-semantics.js").exists()
     assert (tmp_path / "status.js").exists()
     assert (tmp_path / "intake-filter.js").exists()
     assert (tmp_path / "ranking-filter.js").exists()

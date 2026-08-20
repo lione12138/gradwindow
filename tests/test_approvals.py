@@ -151,6 +151,7 @@ def test_approve_programme_candidates_promotes_parsed_windows(tmp_path) -> None:
                 "opensAt": "2025-09-29",
                 "opensAtBasis": "official",
                 "closesAt": "2026-01-07",
+                "deadlineSemantics": "before",
                 "scopeType": "institution",
                 "scopeId": "imperial-college-london",
             }
@@ -186,6 +187,8 @@ def test_approve_programme_candidates_promotes_parsed_windows(tmp_path) -> None:
     assert window["scopeType"] == "institution"
     assert window["scopeId"] == "imperial-college-london"
     assert window["intakeDetails"]["cycleYear"] == 2026
+    assert window["deadlineSemantics"] == "before"
+    assert "requiring submission before 2026-01-07" in window["evidence"]
     candidates = json.loads(candidates_path.read_text(encoding="utf-8"))["items"]
     assert candidates[0]["status"] == "approved"
 

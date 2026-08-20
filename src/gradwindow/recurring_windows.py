@@ -104,6 +104,8 @@ def generate_recurring_windows(
                     "evidence": candidate.get("evidenceExcerpt") or PUBLIC_DISCLAIMER,
                 }
             )
+            if window.get("deadlineSemantics") == "before":
+                record["deadlineSemantics"] = "before"
             key = official_cycle_key(record)
             if key in official_keys:
                 suppressed += 1

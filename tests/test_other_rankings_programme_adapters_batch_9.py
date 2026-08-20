@@ -101,15 +101,17 @@ def test_weizmann_reads_the_five_named_msc_fields() -> None:
 
 
 def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
+    assert MOLECULAR_PRECISION_MEDICINE_URL.startswith("https://www.meduniwien.ac.at/")
     pages = {
         MEDICAL_INFORMATICS_URL: """
           <h1>Master’s Programme in Medical Informatics at MedUni Vienna</h1>
           <h2>Online Application</h2>
         """,
         MOLECULAR_PRECISION_MEDICINE_URL: """
+          <nav>Application &amp; Admission Student Exchange Campus</nav>
           <h1>The Molecular Precision Medicine Master’s Programme</h1>
           <p>Application &amp; Admission</p>
-          <p>1<sup>st</sup> March - 31<sup>st</sup> March 2026</p>
+          <p>Application 1 <sup>st</sup> March - 31 <sup>st</sup> March 2026</p>
           <p>Start in winter semester</p>
         """,
         PSYCHOTHERAPY_URL: """
@@ -169,6 +171,34 @@ def test_meduni_vienna_fails_when_a_canonical_catalogue_source_is_unavailable() 
 
     with pytest.raises(OfficialSourceTransportError, match="Psychotherapy"):
         MedUniViennaAdapter().parse_catalog_from_fetcher(pages.__getitem__)
+
+
+def test_meduni_vienna_ignores_unrelated_page_dates_outside_application_section() -> (
+    None
+):
+    pages = {
+        MEDICAL_INFORMATICS_URL: "Master’s Programme in Medical Informatics",
+        MOLECULAR_PRECISION_MEDICINE_URL: """
+          <h1>The Molecular Precision Medicine Master’s Programme</h1>
+          <p>Application &amp; Admission</p><p>Application details will follow.</p>
+          <h2>Language of Instruction</h2><p>English B2</p>
+          <h2>Legal basis</h2><a>Curriculum revision 5 December 2025</a>
+        """,
+        PSYCHOTHERAPY_URL: """
+          <h1>Masterstudium Psychotherapie</h1>
+          <p>Antragsfrist für das Studienjahr 2026/27:
+             2. März bis 7. April 2026</p>
+        """,
+    }
+
+    catalog = MedUniViennaAdapter().parse_catalog_from_fetcher(pages.__getitem__)
+
+    precision = next(
+        item
+        for item in catalog.programmes
+        if item.name == "Molecular Precision Medicine"
+    )
+    assert precision.windows == []
 
 
 def test_charite_excludes_programmes_closed_to_enrolment() -> None:

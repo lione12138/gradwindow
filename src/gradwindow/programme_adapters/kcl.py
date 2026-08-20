@@ -18,6 +18,7 @@ from .base import (
     DiscoveredProgramme,
     DiscoveredWindow,
     OfficialSourceTransportError,
+    ParserError,
 )
 
 UNIVERSITY_ID = "king-s-college-london-kcl"
@@ -95,12 +96,7 @@ class KCLAdapter(BaseProgrammeAdapter):
         ) -> tuple[DiscoveredProgramme | None, dict | None]:
             requirements_url = f"{course_url.rstrip('/')}/requirements"
             try:
-                programme = _parse_programme(
-                    course_url,
-                    requirements_url,
-                    fetcher(requirements_url),
-                    catalogue_title=self.catalogue_titles.get(course_url, ""),
-                )
+                html = fetcher(requirements_url)
             except Exception as exc:
                 fallback = _programme_from_slug(
                     course_url,
@@ -108,6 +104,7 @@ class KCLAdapter(BaseProgrammeAdapter):
                 )
                 if fallback is None:
                     return None, {
+                        "failureType": "transport",
                         "programmeId": course_url,
                         "sourceUrl": requirements_url,
                         "error": f"{type(exc).__name__}: {str(exc)[:180]}",
@@ -121,6 +118,40 @@ class KCLAdapter(BaseProgrammeAdapter):
                     ),
                 )
                 return programme, {
+                    "failureType": "transport",
+                    "programmeId": programme.id,
+                    "sourceUrl": requirements_url,
+                    "error": f"{type(exc).__name__}: {str(exc)[:180]}",
+                }
+            try:
+                programme = _parse_programme(
+                    course_url,
+                    requirements_url,
+                    html,
+                    catalogue_title=self.catalogue_titles.get(course_url, ""),
+                )
+            except Exception as exc:
+                fallback = _programme_from_slug(
+                    course_url,
+                    catalogue_title=self.catalogue_titles.get(course_url, ""),
+                )
+                if fallback is None:
+                    return None, {
+                        "failureType": "parser",
+                        "programmeId": course_url,
+                        "sourceUrl": requirements_url,
+                        "error": f"{type(exc).__name__}: {str(exc)[:180]}",
+                    }
+                programme = replace(
+                    fallback,
+                    deadline_text=(
+                        "Course found in the official KCL sitemap, but its "
+                        "requirements page could not be parsed during discovery: "
+                        f"{type(exc).__name__}: {str(exc)[:180]}"
+                    ),
+                )
+                return programme, {
+                    "failureType": "parser",
                     "programmeId": programme.id,
                     "sourceUrl": requirements_url,
                     "error": f"{type(exc).__name__}: {str(exc)[:180]}",
@@ -133,11 +164,27 @@ class KCLAdapter(BaseProgrammeAdapter):
             outcomes = list(executor.map(parse_one, course_urls))
         programmes = [programme for programme, _failure in outcomes if programme]
         detail_failures = [failure for _programme, failure in outcomes if failure]
-        if len(detail_failures) * 10 > len(course_urls):
+        transport_failures = [
+            failure
+            for failure in detail_failures
+            if failure.get("failureType") == "transport"
+        ]
+        parser_failures = [
+            failure
+            for failure in detail_failures
+            if failure.get("failureType") == "parser"
+        ]
+        if len(transport_failures) * 10 > len(course_urls):
             raise OfficialSourceTransportError(
-                f"{len(detail_failures)} of {len(course_urls)} KCL programme "
+                f"{len(transport_failures)} of {len(course_urls)} KCL programme "
                 "requirements pages failed during discovery, exceeding the "
                 "10% critical-detail threshold."
+            )
+        if len(parser_failures) * 10 > len(course_urls):
+            raise ParserError(
+                f"{len(parser_failures)} of {len(course_urls)} KCL programme "
+                "requirements pages failed parsing during discovery, exceeding "
+                "the 10% critical-detail threshold."
             )
         programmes = sorted(
             {programme.id: programme for programme in programmes}.values(),
@@ -150,20 +197,38 @@ class KCLAdapter(BaseProgrammeAdapter):
                 f"{self.minimum_expected_programmes}"
             )
         warnings = []
-        if detail_failures:
+        if transport_failures:
             failed_programme_ids = sorted(
-                str(failure["programmeId"]) for failure in detail_failures
+                str(failure["programmeId"]) for failure in transport_failures
             )
             warnings.append(
                 {
                     "reason": "TRANSPORT_ERROR",
                     "message": (
-                        f"{len(detail_failures)} of {len(course_urls)} KCL "
+                        f"{len(transport_failures)} of {len(course_urls)} KCL "
                         "programme requirements pages failed during discovery; "
                         "affected programmes were retained without deadlines."
                     ),
-                    "sourceUrl": detail_failures[0]["sourceUrl"],
-                    "detailFailures": len(detail_failures),
+                    "sourceUrl": transport_failures[0]["sourceUrl"],
+                    "detailFailures": len(transport_failures),
+                    "totalDetailPages": len(course_urls),
+                    "failedProgrammeIds": failed_programme_ids,
+                }
+            )
+        if parser_failures:
+            failed_programme_ids = sorted(
+                str(failure["programmeId"]) for failure in parser_failures
+            )
+            warnings.append(
+                {
+                    "reason": "PARSER_ERROR",
+                    "message": (
+                        f"{len(parser_failures)} of {len(course_urls)} KCL "
+                        "programme requirements pages failed parsing; affected "
+                        "programmes were retained without deadlines."
+                    ),
+                    "sourceUrl": parser_failures[0]["sourceUrl"],
+                    "parserFailures": len(parser_failures),
                     "totalDetailPages": len(course_urls),
                     "failedProgrammeIds": failed_programme_ids,
                 }
@@ -172,6 +237,11 @@ class KCLAdapter(BaseProgrammeAdapter):
             application_opens_at=None,
             programmes=programmes,
             warnings=warnings,
+            diagnostics={
+                "detailFailures": len(detail_failures),
+                "transportFailures": len(transport_failures),
+                "parserFailures": len(parser_failures),
+            },
         )
 
     def _course_urls(self, fetcher: Callable[[str], str]) -> list[str]:

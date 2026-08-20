@@ -24,7 +24,7 @@ MEDICAL_INFORMATICS_URL = (
     "application-admission/masters-programme-in-medical-informatics/"
 )
 MOLECULAR_PRECISION_MEDICINE_URL = (
-    "https://t310-web.meduniwien.ac.at/web/en/studies-further-education/"
+    "https://www.meduniwien.ac.at/web/en/studies-further-education/"
     "the-molecular-precision-medicine-masters-programme/"
 )
 PSYCHOTHERAPY_URL = (
@@ -114,7 +114,7 @@ class MedUniViennaAdapter(OfficialCatalogAdapter):
         precision_window = _molecular_precision_medicine_window(
             pages["Molecular Precision Medicine"]
         )
-        if precision_window is None and _has_date_signal(
+        if precision_window is None and _has_precision_application_date_signal(
             pages["Molecular Precision Medicine"]
         ):
             raise ParserZeroResultError(
@@ -122,7 +122,9 @@ class MedUniViennaAdapter(OfficialCatalogAdapter):
                 "its advertised application period"
             )
         psychotherapy_window = _psychotherapy_window(pages["Psychotherapy"])
-        if psychotherapy_window is None and _has_date_signal(pages["Psychotherapy"]):
+        if psychotherapy_window is None and _has_psychotherapy_application_date_signal(
+            pages["Psychotherapy"]
+        ):
             raise ParserZeroResultError(
                 "MedUni Vienna's Psychotherapy page did not produce its advertised "
                 "application period"
@@ -160,12 +162,13 @@ def _molecular_precision_medicine_window(html: str) -> DiscoveredWindow | None:
     text = _page_text(html)
     if "start in winter semester" not in text.casefold():
         return None
+    application_section = _precision_application_section(html)
     match = re.search(
         r"(?P<open_day>\d{1,2})(?:\s*(?:st|nd|rd|th))?\s+"
         r"(?P<open_month>[A-Za-z]+)\s*[-–—]\s*"
         r"(?P<close_day>\d{1,2})(?:\s*(?:st|nd|rd|th))?\s+"
         r"(?P<close_month>[A-Za-z]+)\s+(?P<year>20\d{2})",
-        text,
+        application_section,
         re.I,
     )
     if match is None:
@@ -219,11 +222,62 @@ def _page_text(html: str) -> str:
     return normalise(BeautifulSoup(html, "html.parser").get_text(" ", strip=True))
 
 
-def _has_date_signal(html: str) -> bool:
+def _application_section(text: str) -> str:
+    lower = text.casefold()
+    # The global navigation repeats this label before the programme content.
+    # The final occurrence is the programme-specific application section.
+    start = lower.rfind("application & admission")
+    if start < 0:
+        return ""
+    end_candidates = [
+        position
+        for heading in (
+            "language of instruction",
+            "admission requirements",
+            "tuition fees",
+            "curriculum",
+            "contact",
+        )
+        if (position := lower.find(heading, start + 24)) >= 0
+    ]
+    end = min(end_candidates) if end_candidates else min(len(text), start + 1600)
+    return text[start:end]
+
+
+def _has_precision_application_date_signal(html: str) -> bool:
+    section = _precision_application_section(html)
     return bool(
         re.search(
             r"\b\d{1,2}(?:\s*(?:st|nd|rd|th)|\.)?\s+"
             r"[A-Za-zÀ-ſ]+\s+20\d{2}\b",
+            section,
+            re.I,
+        )
+    )
+
+
+def _precision_application_section(html: str) -> str:
+    soup = BeautifulSoup(html, "html.parser")
+    heading = next(
+        (
+            item
+            for item in soup.select(".program__title")
+            if normalise(item.get_text(" ", strip=True)).casefold()
+            == "application & admission"
+        ),
+        None,
+    )
+    if heading is not None:
+        container = heading.find_parent(class_="program__item")
+        if container is not None:
+            return normalise(container.get_text(" ", strip=True))
+    return _application_section(_page_text(html))
+
+
+def _has_psychotherapy_application_date_signal(html: str) -> bool:
+    return bool(
+        re.search(
+            r"Antragsfrist\s+für\s+das\s+Studienjahr\s+20\d{2}/\d{2}",
             _page_text(html),
             re.I,
         )

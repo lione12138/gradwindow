@@ -4,6 +4,7 @@ import json
 
 import pytest
 
+import gradwindow.programme_adapters.kcl as kcl_module
 from gradwindow.programme_adapters.base import OfficialSourceTransportError
 from gradwindow.programme_adapters.kcl import CATALOG_URL, SITEMAP_URL, KCLAdapter
 
@@ -167,6 +168,49 @@ def test_kcl_adapter_warns_and_lists_small_detail_failure_set() -> None:
             "failedProgrammeIds": ["kcl-example-course-0-msc"],
         }
     ]
+
+
+def test_kcl_adapter_classifies_parser_failures_separately(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    adapter = KCLAdapter(minimum_expected_programmes=10, detail_workers=1)
+    urls = [
+        "https://www.kcl.ac.uk/study/postgraduate-taught/courses/"
+        f"example-course-{index}-msc"
+        for index in range(10)
+    ]
+    sitemap = (
+        "<urlset>"
+        + "".join(f"<url><loc>{url}</loc></url>" for url in urls)
+        + "</urlset>"
+    )
+    original_parser = kcl_module._parse_programme
+
+    def parser_with_one_dom_failure(course_url: str, *args, **kwargs):
+        if course_url == urls[0]:
+            raise ValueError("KCL requirements DOM changed")
+        return original_parser(course_url, *args, **kwargs)
+
+    monkeypatch.setattr(kcl_module, "_parse_programme", parser_with_one_dom_failure)
+
+    def fetcher(url: str) -> str:
+        if url == SITEMAP_URL:
+            return sitemap
+        if url.endswith("/requirements"):
+            number = url.split("example-course-", 1)[1].split("-msc", 1)[0]
+            return f"<title>Example Course {number} MSc | King's</title>"
+        raise AssertionError(url)
+
+    catalogue = adapter.parse_catalog_from_fetcher(fetcher)
+
+    warning = next(
+        item for item in catalogue.warnings if item["reason"] == "PARSER_ERROR"
+    )
+    assert warning["parserFailures"] == 1
+    assert warning["failedProgrammeIds"] == ["kcl-example-course-0-msc"]
+    assert catalogue.diagnostics["detailFailures"] == 1
+    assert catalogue.diagnostics["transportFailures"] == 0
+    assert catalogue.diagnostics["parserFailures"] == 1
 
 
 def test_kcl_adapter_uses_dynamic_delivery_catalogue_when_sitemap_is_stale() -> None:

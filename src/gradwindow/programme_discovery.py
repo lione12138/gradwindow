@@ -265,11 +265,21 @@ def discover_programmes(
                             "applicantCategories": window.applicant_categories,
                             "sourceUrl": window.source_url,
                             "opensAtBasis": window.opens_at_basis,
+                            **(
+                                {"deadlineSemantics": window.deadline_semantics}
+                                if window.deadline_semantics != "on"
+                                else {}
+                            ),
                         }
                         for window in programme.windows
                     ],
                     sort_keys=True,
                 )
+            ),
+            "windowCount": len(programme.windows),
+            "latestClosesAt": max(
+                (window.closes_at for window in programme.windows),
+                default=None,
             ),
         }
         for programme in catalog.programmes
@@ -306,6 +316,11 @@ def discover_programmes(
                 "closesAt": window.closes_at,
                 "sourceUrl": window.source_url or programme.source_url,
                 "opensAtBasis": window.opens_at_basis,
+                **(
+                    {"deadlineSemantics": window.deadline_semantics}
+                    if window.deadline_semantics != "on"
+                    else {}
+                ),
             }
     state_payload = read_json(state_path, {"meta": {}, "universities": {}})
     previous_state = state_payload.get("universities", {}).get(
@@ -351,6 +366,10 @@ def discover_programmes(
             window_id: previous_windows[window_id]
             for window_id in record_diff["disappearedWindowIds"]
         }
+        disappeared_programme_details = {
+            programme_id: previous_programmes[programme_id]
+            for programme_id in record_diff["disappearedProgrammeIds"]
+        }
     else:
         record_diff = {
             "previous": {
@@ -369,6 +388,7 @@ def discover_programmes(
             "changedWindowIds": [],
         }
         disappeared_window_details = {}
+        disappeared_programme_details = {}
     observed_window_count = sum(
         len(programme.windows) for programme in catalog.programmes
     )
@@ -401,6 +421,11 @@ def discover_programmes(
                         "applicantCategories": window.applicant_categories,
                         "sourceUrl": window.source_url,
                         "opensAtBasis": window.opens_at_basis,
+                        **(
+                            {"deadlineSemantics": window.deadline_semantics}
+                            if window.deadline_semantics != "on"
+                            else {}
+                        ),
                     }
                     for window in programme.windows
                 ]
@@ -475,6 +500,7 @@ def discover_programmes(
         "programmes": snapshot_items,
         "windows": window_snapshot_items,
         "adapterWarnings": catalog.warnings,
+        "adapterDiagnostics": catalog.diagnostics,
     }
     state_payload["meta"] = {
         "updatedAt": checked_at,
@@ -555,9 +581,11 @@ def discover_programmes(
         "programmesNeedingReview": programmes_needing_review,
         "limitationReason": limitation_reason,
         "adapterWarnings": catalog.warnings,
+        "adapterDiagnostics": catalog.diagnostics,
         "recordDiff": record_diff,
         "windowRemovalAssessmentAvailable": has_record_baseline,
         "disappearedWindowDetails": disappeared_window_details,
+        "disappearedProgrammeDetails": disappeared_programme_details,
         "windowFingerprint": window_fingerprint,
         "watchedWindowSourceHash": watched_source_fingerprint,
         "watchedWindowSourceFingerprintVersion": (watched_source_fingerprint_version),
@@ -699,6 +727,8 @@ def _candidate_record(
             "closesAt": window.closes_at,
             "sourceUrl": window.source_url or programme.source_url,
         }
+        if window.deadline_semantics != "on":
+            window_record["deadlineSemantics"] = window.deadline_semantics
         if scope_type != "programme" or scope_id != programme.id:
             window_record.update({"scopeType": scope_type, "scopeId": scope_id})
         windows.append(window_record)

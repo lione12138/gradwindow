@@ -15,14 +15,12 @@ import {
   setupReviewPanel,
   updateReviewAuthState,
 } from "./review.js";
+import { acronym, makeElement, makeLink, parseDate, safeUrl } from "./dom.js";
 import {
-  acronym,
-  formatDateRange,
-  makeElement,
-  makeLink,
-  parseDate,
-  safeUrl,
-} from "./dom.js";
+  deadlineDaysRemaining,
+  formatDeadlineDate,
+  formatDeadlineRange,
+} from "./deadline-semantics.js";
 import {
   canonicalIntake,
   compareIntakes,
@@ -260,6 +258,14 @@ function formatDate(value) {
   return dateFormatter().format(parseDate(value));
 }
 
+function formatRecordDeadline(record) {
+  return formatDeadlineDate(
+    record,
+    formatDate(record.closesAt),
+    state.language,
+  );
+}
+
 function makeSchoolDisplay(record) {
   const school = document.createDocumentFragment();
   const schoolText = schoolLabels(record, state.language);
@@ -285,8 +291,7 @@ function makeSchoolDisplay(record) {
 }
 
 function makeResponsiveDeadline(
-  opensAt,
-  closesAt,
+  record,
   secondary,
   primaryClass = "date-primary",
 ) {
@@ -295,13 +300,18 @@ function makeResponsiveDeadline(
     className: "desktop-deadline-stack",
   });
   desktop.appendChild(
-    makeTextStack(formatDate(closesAt), secondary, primaryClass),
+    makeTextStack(formatRecordDeadline(record), secondary, primaryClass),
   );
   deadline.append(
     desktop,
     makeElement("span", {
       className: `mobile-date-range ${primaryClass}`,
-      text: formatDateRange(opensAt, closesAt),
+      text: formatDeadlineRange(
+        record,
+        formatDate(record.opensAt),
+        formatDate(record.closesAt),
+        state.language,
+      ),
     }),
   );
   return deadline;
@@ -321,7 +331,7 @@ function deadlineNote(record, status) {
     if (openingDays === 1) return t("opensTomorrow");
     if (openingDays > 1) return `${t("opensIn")} ${openingDays} ${t("days")}`;
   }
-  const days = daysUntil(record.closesAt);
+  const days = deadlineDaysRemaining(record, daysUntil(record.closesAt));
   if (status === "closed") return `${Math.abs(days)} ${t("daysAgo")}`;
   if (days === 0) return t("dueToday");
   if (days === 1) return t("dueTomorrow");
@@ -335,7 +345,7 @@ function actionSummary(record, status) {
   const milestone =
     status === "upcoming" || status === "future"
       ? `${t("opens")} ${formatDate(record.opensAt)}`
-      : `${t("deadline")} ${formatDate(record.closesAt)}`;
+      : `${t("deadline")} ${formatRecordDeadline(record)}`;
   return `${statusLabel} · ${intake} · ${milestone} · ${deadlineNote(record, status)}`;
 }
 
@@ -477,7 +487,7 @@ async function openWindowDetail(record, status = getStatus(record)) {
   });
   deadline.append(
     makeElement("span", { text: t("deadline") }),
-    makeElement("strong", { text: formatDate(record.closesAt) }),
+    makeElement("strong", { text: formatRecordDeadline(record) }),
     makeElement("small", { text: deadlineNote(record, status) }),
   );
 
@@ -1126,7 +1136,7 @@ function createRow(record, status, windowGroup = null) {
   row.className = "window-card-row";
   row.tabIndex = 0;
   row.dataset.detailHint = t("mobileCardHint");
-  const days = daysUntil(record.closesAt);
+  const days = deadlineDaysRemaining(record, daysUntil(record.closesAt));
   const deadlineClass =
     status === "open" && days >= 0 && days <= 14 ? "deadline-soon" : "";
 
@@ -1197,8 +1207,7 @@ function createRow(record, status, windowGroup = null) {
     }),
   );
   const deadline = makeResponsiveDeadline(
-    record.opensAt,
-    record.closesAt,
+    record,
     deadlineNote(record, status),
     `date-primary ${deadlineClass}`.trim(),
   );
@@ -1372,8 +1381,7 @@ function createUniversityGroupRow(universityGroup, status) {
     makeCell(
       t("deadline"),
       makeResponsiveDeadline(
-        earliestOpen,
-        nearestDeadline.closesAt,
+        nearestDeadline,
         `${t("nextDeadlineLabel")} · ${deadlineNote(nearestDeadline, status)}`,
       ),
     ),
@@ -1956,7 +1964,7 @@ function updateApplicationTimeline() {
     return days >= 0 && days <= 30;
   }).length;
   const deadlinesSoon = savedRecords.filter((record) => {
-    const days = daysUntil(record.closesAt);
+    const days = deadlineDaysRemaining(record, daysUntil(record.closesAt));
     return days >= 0 && days <= 30;
   }).length;
   summary.textContent = t("timelineSummary")
@@ -2193,7 +2201,7 @@ function setupHero() {
       futureDeadline,
       state.language,
     ).primary;
-  if (mobileDate) mobileDate.textContent = formatDate(futureDeadline.closesAt);
+  if (mobileDate) mobileDate.textContent = formatRecordDeadline(futureDeadline);
   if (mobileNote)
     mobileNote.textContent = deadlineNote(
       futureDeadline,
