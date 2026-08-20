@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from gradwindow.programme_adapters.cmu import CMUAdapter
 from gradwindow.programme_adapters.michigan import MichiganAdapter
+from gradwindow.programme_adapters.nyu import CATALOG_URL as NYU_CATALOG_URL
 from gradwindow.programme_adapters.nyu import NYUAdapter
 from gradwindow.programme_adapters.trinity import TrinityAdapter
 from gradwindow.programme_adapters.uba import UBAAdapter
@@ -43,6 +44,28 @@ def test_nyu_keeps_graduate_masters_cards() -> None:
     assert [(item.name, item.degree_type, item.faculty) for item in rows] == [
         ("Computer Science (MS)", "MS", "Tandon")
     ]
+
+
+def test_nyu_discovery_does_not_depend_on_unused_admissions_page() -> None:
+    adapter = NYUAdapter()
+    adapter.minimum_expected_programmes = 1
+    fetched: list[str] = []
+
+    def fetcher(url: str) -> str:
+        fetched.append(url)
+        if url != NYU_CATALOG_URL:
+            raise RuntimeError("the non-critical admissions page returned HTTP 405")
+        return """<ul><li class="item"><a href="/graduate/data-ms/">
+          <div class="item-container"><span class="title">Data Science (MS)</span>
+          <span class="keyword">MS</span><span class="keyword">Masters</span>
+          <span class="keyword">Graduate</span><span class="keyword">GSAS</span>
+          </div></a></li></ul>"""
+
+    catalog = adapter.parse_catalog_from_fetcher(fetcher)
+
+    assert fetched == [NYU_CATALOG_URL]
+    assert adapter.window_watch_urls == (NYU_CATALOG_URL,)
+    assert [programme.name for programme in catalog.programmes] == ["Data Science (MS)"]
 
 
 def test_cmu_uses_explicit_materials_ms_links_only() -> None:

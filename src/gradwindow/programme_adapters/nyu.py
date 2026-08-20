@@ -8,7 +8,6 @@ from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
     DiscoveredProgramme,
-    Fetcher,
 )
 from .official_catalog import normalise, slug
 
@@ -23,13 +22,8 @@ class NYUAdapter(BaseProgrammeAdapter):
     intake = "Varies by programme"
     application_opens_at_basis = "missing"
     replace_pending_candidates = True
-    window_watch_urls = (CATALOG_URL, APPLICATION_URL)
+    window_watch_urls = (CATALOG_URL,)
     minimum_expected_programmes = 225
-
-    def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
-        catalog = self.parse_catalog(fetcher(CATALOG_URL))
-        fetcher(APPLICATION_URL)
-        return catalog
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:
         soup = BeautifulSoup(html, "html.parser")
