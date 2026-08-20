@@ -2,6 +2,9 @@ from __future__ import annotations
 
 import json
 
+import pytest
+
+from gradwindow.programme_adapters.base import OfficialSourceTransportError
 from gradwindow.programme_adapters.kcl import CATALOG_URL, SITEMAP_URL, KCLAdapter
 
 SITEMAP_INDEX = """<?xml version="1.0" encoding="UTF-8"?>
@@ -112,7 +115,7 @@ def test_kcl_adapter_reads_sitemap_and_course_specific_deadlines() -> None:
     ]
 
 
-def test_kcl_adapter_keeps_failed_detail_pages_as_no_deadline_candidates() -> None:
+def test_kcl_adapter_fails_when_detail_transport_errors_exceed_ten_percent() -> None:
     adapter = KCLAdapter(minimum_expected_programmes=1, detail_workers=1)
     sitemap = """<urlset><url><loc>https://www.kcl.ac.uk/study/postgraduate-taught/courses/artificial-intelligence-msc</loc></url></urlset>"""
 
@@ -121,12 +124,49 @@ def test_kcl_adapter_keeps_failed_detail_pages_as_no_deadline_candidates() -> No
             return sitemap
         raise RuntimeError("temporary block")
 
+    with pytest.raises(OfficialSourceTransportError, match="1 of 1.*10%"):
+        adapter.parse_catalog_from_fetcher(fetcher)
+
+
+def test_kcl_adapter_warns_and_lists_small_detail_failure_set() -> None:
+    adapter = KCLAdapter(minimum_expected_programmes=10, detail_workers=1)
+    urls = [
+        "https://www.kcl.ac.uk/study/postgraduate-taught/courses/"
+        f"example-course-{index}-msc"
+        for index in range(10)
+    ]
+    sitemap = (
+        "<urlset>"
+        + "".join(f"<url><loc>{url}</loc></url>" for url in urls)
+        + "</urlset>"
+    )
+
+    def fetcher(url: str) -> str:
+        if url == SITEMAP_URL:
+            return sitemap
+        if url == f"{urls[0]}/requirements":
+            raise RuntimeError("temporary block")
+        if url.endswith("/requirements"):
+            number = url.split("example-course-", 1)[1].split("-msc", 1)[0]
+            return f"<title>Example Course {number} MSc | King's</title>"
+        raise AssertionError(url)
+
     catalogue = adapter.parse_catalog_from_fetcher(fetcher)
-    programme = catalogue.programmes[0]
-    assert programme.id == "kcl-artificial-intelligence-msc"
-    assert programme.parse_status == "no-deadline"
-    assert programme.windows == []
-    assert "temporary block" in programme.deadline_text
+
+    assert len(catalogue.programmes) == 10
+    assert catalogue.warnings == [
+        {
+            "reason": "TRANSPORT_ERROR",
+            "message": (
+                "1 of 10 KCL programme requirements pages failed during "
+                "discovery; affected programmes were retained without deadlines."
+            ),
+            "sourceUrl": f"{urls[0]}/requirements",
+            "detailFailures": 1,
+            "totalDetailPages": 10,
+            "failedProgrammeIds": ["kcl-example-course-0-msc"],
+        }
+    ]
 
 
 def test_kcl_adapter_uses_dynamic_delivery_catalogue_when_sitemap_is_stale() -> None:
@@ -176,7 +216,7 @@ def test_kcl_adapter_uses_dynamic_delivery_catalogue_when_sitemap_is_stale() -> 
         if "clinical-pharmacology-msc/requirements" in url:
             return CLINICAL_PHARMACOLOGY
         if "artificial-intelligence-msc/requirements" in url:
-            raise RuntimeError("not available")
+            return "<title>Artificial Intelligence MSc | King's</title>"
         raise AssertionError(url)
 
     catalogue = adapter.parse_catalog_from_fetcher(fetcher)
