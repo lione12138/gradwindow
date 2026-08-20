@@ -174,6 +174,11 @@ def _application_windows(html: str, cycle_year: int) -> list[DiscoveredWindow]:
                     intake=f"{intake_month} {cycle_year}",
                     source_url=APPLICATION_URL,
                     opens_at_basis="official-recurring-policy",
+                    deadline_semantics=(
+                        "before"
+                        if deadline_row[index].casefold().startswith("before ")
+                        else "on"
+                    ),
                 )
             )
     return sorted(

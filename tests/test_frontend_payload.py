@@ -60,9 +60,9 @@ def test_frontend_decoder_restores_record_fields() -> None:
           rounds: ["Round 1"], categorySets: [["all"]],
           urls: ["https://apply.example", "https://source.example"],
           statuses: ["official"], sourceCycles: [], confidences: [],
-          monitors: [{{ status: "ok" }}]
+          monitors: [{{ status: "ok" }}], deadlineSemantics: ["before"]
         }},
-        rows: [["window-1", 0, 0, 0, 0, 0, "2026-09-01", "2026-12-01", 0, 1, "2026-08-14", null, 0, -1, -1, null, 0]]
+        rows: [["window-1", 0, 0, 0, 0, 0, "2026-09-01", "2026-12-01", 0, 1, "2026-08-14", null, 0, -1, -1, null, 0, 0]]
       }};
       console.log(JSON.stringify(decodeRecordBundle(bundle, universities)[0]));
     """
@@ -79,3 +79,4 @@ def test_frontend_decoder_restores_record_fields() -> None:
     assert record["applicationUrl"] == "https://apply.example"
     assert record["sourceUrl"] == "https://source.example"
     assert record["sourceMonitor"] == {"status": "ok"}
+    assert record["deadlineSemantics"] == "before"

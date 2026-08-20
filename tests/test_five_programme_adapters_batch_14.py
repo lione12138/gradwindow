@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import pytest
+
+from gradwindow.programme_adapters.base import OfficialSourceTransportError
 from gradwindow.programme_adapters.cape_town import CapeTownAdapter
 from gradwindow.programme_adapters.cardiff import CardiffAdapter
 from gradwindow.programme_adapters.michigan_state import MichiganStateAdapter
@@ -42,24 +45,71 @@ def test_michigan_state_reads_registrar_master_degree_catalogue() -> None:
     <a href="ProgramDetail.aspx?PType=GRADLAWM&amp;Program=COMPSC_PHD">
       Computer Science - Doctor of Philosophy (PHD)
     </a>
+    <a href="ProgramDetail.aspx?PType=GRADLAWM&amp;Program=EDUC_MAT">
+      Teaching and Curriculum - Master of Arts for Teachers (M.A.T.)
+    </a>
+    <a href="ProgramDetail.aspx?PType=GRADLAWM&amp;Program=FUTURE_XYZ">
+      Future Graduate Route (XYZ)
+    </a>
     <h3>Eli Broad College of Business</h3>
     <h4>Accounting and Information Systems</h4>
     <a href="ProgramDetail.aspx?PType=GRADLAWM&amp;Program=ACCOUNT_MS">
       Accounting - Master of Science (MS)
     </a>
     """
-    adapter = MichiganStateAdapter(minimum_expected_programmes=2)
-    rows = adapter.parse_catalog(html).programmes
+    adapter = MichiganStateAdapter(minimum_expected_programmes=3)
+    catalog = adapter.parse_catalog(html)
+    rows = catalog.programmes
 
     assert [(row.name, row.degree_type) for row in rows] == [
         ("Accounting", "MS"),
         ("Computer Science", "MS"),
+        ("Teaching and Curriculum", "MAT"),
     ]
     assert rows[0].faculty == "Eli Broad College of Business"
     assert rows[0].department == "Accounting and Information Systems"
     assert "Program=ACCOUNT_MS" in rows[0].source_url
     assert all(row.parse_status == "no-deadline" for row in rows)
     assert adapter.catalogue_granularity == "programme-level"
+    assert catalog.diagnostics == {
+        "observedGraduateDegreeCodes": ["MAT", "MS", "PHD", "XYZ"],
+        "unknownGraduateDegreeCodes": ["XYZ"],
+    }
+    assert catalog.warnings[0]["reason"] == "UNKNOWN_DEGREE_CODE"
+    assert catalog.warnings[0]["unknownDegreeCodes"] == ["XYZ"]
+
+
+def test_michigan_state_classifies_incapsula_as_transport_failure() -> None:
+    adapter = MichiganStateAdapter(
+        minimum_expected_programmes=1,
+        browser_content_fetcher=lambda _url: (_ for _ in ()).throw(
+            RuntimeError("browser quota unavailable")
+        ),
+    )
+
+    with pytest.raises(OfficialSourceTransportError, match="Browser Rendering"):
+        adapter.parse_catalog_from_fetcher(
+            lambda _url: '<script src="/_Incapsula_Resource"></script>'
+        )
+
+
+def test_michigan_state_uses_browser_rendering_for_access_challenge() -> None:
+    catalogue = """
+      <a href="ProgramDetail.aspx?PType=GRADLAWM&amp;Program=EDUC_MAT">
+        Teaching and Curriculum - Master of Arts for Teachers (M.A.T.)
+      </a>
+    """
+    adapter = MichiganStateAdapter(
+        minimum_expected_programmes=1,
+        browser_content_fetcher=lambda _url: catalogue,
+    )
+
+    result = adapter.parse_catalog_from_fetcher(
+        lambda _url: "Request unsuccessful. Incapsula incident ID."
+    )
+
+    assert [item.degree_type for item in result.programmes] == ["MAT"]
+    assert result.programmes[0].retrieval_method == "cloudflare-browser-rendering"
 
 
 def test_cape_town_reads_official_faculty_handbook_programmes() -> None:

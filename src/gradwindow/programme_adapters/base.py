@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Protocol, runtime_checkable
+from typing import Literal, Protocol, runtime_checkable
 
 Fetcher = Callable[[str], str]
 
@@ -19,6 +19,10 @@ class OfficialSourceTransportError(ProgrammeAdapterError):
     reason = "TRANSPORT_ERROR"
 
 
+class ParserError(ProgrammeAdapterError):
+    reason = "PARSER_ERROR"
+
+
 @dataclass(slots=True)
 class DiscoveredWindow:
     round: str
@@ -28,6 +32,7 @@ class DiscoveredWindow:
     intake: str | None = None
     source_url: str | None = None
     opens_at_basis: str | None = None
+    deadline_semantics: Literal["on", "before"] = "on"
 
 
 @dataclass(slots=True)
@@ -52,6 +57,7 @@ class DiscoveredCatalog:
     application_opens_at: str | None
     programmes: list[DiscoveredProgramme]
     warnings: list[dict[str, object]] = field(default_factory=list)
+    diagnostics: dict[str, object] = field(default_factory=dict)
 
 
 @runtime_checkable

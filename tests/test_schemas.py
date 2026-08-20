@@ -13,6 +13,7 @@ def test_export_schemas_uses_public_aliases(tmp_path) -> None:
     )
     assert "universityId" in application["properties"]
     assert "intakeDetails" in application["properties"]
+    assert application["properties"]["deadlineSemantics"]["default"] == "on"
     assert (tmp_path / "programme-group.schema.json").exists()
     assert (tmp_path / "applicant-category.schema.json").exists()
     recurring = json.loads(
@@ -20,3 +21,4 @@ def test_export_schemas_uses_public_aliases(tmp_path) -> None:
     )
     assert "dateBasis" in recurring["properties"]
     assert "cycleYearBasis" in recurring["properties"]
+    assert recurring["properties"]["deadlineSemantics"]["default"] == "on"

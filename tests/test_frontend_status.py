@@ -22,6 +22,11 @@ def test_frontend_upcoming_window_has_thirty_day_boundary() -> None:
         snuSpring2027: status("2026-07-06", "2026-07-09"),
         alreadyOpen: status("2026-06-01"),
         closed: status("2026-01-01", "2026-06-13"),
+        beforeThreshold: getApplicationStatus({{
+          opensAt: "2026-01-01",
+          closesAt: "2026-06-14",
+          deadlineSemantics: "before"
+        }}, today),
         predictedWithin30: getApplicationStatus({{
           opensAt: "2026-07-01",
           closesAt: "2026-12-01",
@@ -47,6 +52,7 @@ def test_frontend_upcoming_window_has_thirty_day_boundary() -> None:
         "snuSpring2027": "upcoming",
         "alreadyOpen": "open",
         "closed": "closed",
+        "beforeThreshold": "closed",
         "predictedWithin30": "upcoming",
         "predictedFuture": "future",
     }

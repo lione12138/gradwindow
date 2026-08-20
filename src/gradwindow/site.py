@@ -47,6 +47,7 @@ PUBLIC_FILES = (
     "admin.js",
     "exception-status.js",
     "frontend-data.js",
+    "deadline-semantics.js",
     "status.js",
     "intake-filter.js",
     "ranking-filter.js",
@@ -257,7 +258,9 @@ def version_public_assets(output_dir: Path) -> str:
 def application_status(item: dict, today: date) -> str:
     opens_at = date.fromisoformat(item["opensAt"])
     closes_at = date.fromisoformat(item["closesAt"])
-    if today > closes_at:
+    if today > closes_at or (
+        item.get("deadlineSemantics") == "before" and today >= closes_at
+    ):
         return "closed"
     if today >= opens_at:
         return "open"
@@ -310,6 +313,11 @@ def public_data_lastmod() -> str:
 def human_date(value: str) -> str:
     parsed = date.fromisoformat(value[:10])
     return f"{MONTH_NAMES[parsed.month - 1]} {parsed.day}, {parsed.year}"
+
+
+def deadline_text(item: dict, *, human: bool = False) -> str:
+    value = human_date(item["closesAt"]) if human else item["closesAt"]
+    return f"Before {value}" if item.get("deadlineSemantics") == "before" else value
 
 
 def month_label(value: str) -> str:
@@ -813,7 +821,7 @@ def generate_index_pages(
         month_dir.mkdir(parents=True, exist_ok=True)
         rows = "".join(
             "<li>"
-            f"<strong>{html.escape(item['closesAt'])}</strong> "
+            f"<strong>{html.escape(deadline_text(item))}</strong> "
             f'<a href="../../university/{item["universityId"]}/">'
             f"{html.escape(university_names[item['universityId']])}</a>"
             f" · {html.escape(scope_name(item, program_names, group_names))}"
@@ -996,6 +1004,9 @@ def render_university_calendar(
         recurring = bool(item.get("recurrence"))
         scope = scope_name(item, program_names, group_names)
         provenance = " (recurring policy)" if recurring else ""
+        deadline_wording = (
+            "submit before" if item.get("deadlineSemantics") == "before" else "deadline"
+        )
         evidence_note = (
             "Official recurring day/month policy mapped to this cycle by GradWindow."
             if recurring
@@ -1009,7 +1020,7 @@ def render_university_calendar(
                 f"DTSTAMP:{verified_at.replace('-', '')}T000000Z",
                 f"DTSTART;VALUE=DATE:{closes_at.strftime('%Y%m%d')}",
                 f"DTEND;VALUE=DATE:{end_at.strftime('%Y%m%d')}",
-                f"SUMMARY:{_ics_escape(f'{school}: {scope} application deadline{provenance}')}",
+                f"SUMMARY:{_ics_escape(f'{school}: {scope} application {deadline_wording}{provenance}')}",
                 "DESCRIPTION:"
                 + _ics_escape(
                     f"{evidence_note}\nApplication: {item['applicationUrl']}\n"
@@ -1125,7 +1136,7 @@ def render_university_summary(
     if next_deadline:
         facts.append(
             "<li>Next official or recurring-policy deadline: "
-            f"<strong>{human_date(next_deadline['closesAt'])}</strong>.</li>"
+            f"<strong>{html.escape(deadline_text(next_deadline, human=True))}</strong>.</li>"
         )
     if next_opening:
         facts.append(
@@ -1161,17 +1172,22 @@ def render_landing_summary(
         status_counts = Counter(data_status for _, data_status in records)
         opening_start = min(item["opensAt"] for item in rows)
         opening_end = max(item["opensAt"] for item in rows)
-        deadline_start = min(item["closesAt"] for item in rows)
-        deadline_end = max(item["closesAt"] for item in rows)
+        deadline_start_item = min(rows, key=lambda item: item["closesAt"])
+        deadline_end_item = max(rows, key=lambda item: item["closesAt"])
+        deadline_start = deadline_start_item["closesAt"]
+        deadline_end = deadline_end_item["closesAt"]
         openings = (
             human_date(opening_start)
             if opening_start == opening_end
             else f"{human_date(opening_start)} to {human_date(opening_end)}"
         )
         deadlines = (
-            human_date(deadline_start)
+            deadline_text(deadline_start_item, human=True)
             if deadline_start == deadline_end
-            else f"{human_date(deadline_start)} to {human_date(deadline_end)}"
+            else (
+                f"{deadline_text(deadline_start_item, human=True)} to "
+                f"{deadline_text(deadline_end_item, human=True)}"
+            )
         )
         intake_labels = sorted({item["intake"] for item in rows})
         visible_intakes = ", ".join(intake_labels[:4])
@@ -1242,7 +1258,7 @@ def render_window_list(
         "<li>"
         f'<strong><a href="../../deadline/{html.escape(item["closesAt"][:7])}/">'
         f"{html.escape(item['opensAt'])} to "
-        f"{html.escape(item['closesAt'])}</a></strong><br>"
+        f"{html.escape(deadline_text(item))}</a></strong><br>"
         f"{html.escape(scope_name(item, program_names, group_names))} · "
         + (
             f'<a href="../../intake/{slug}/">{html.escape(item["intake"])}</a>'

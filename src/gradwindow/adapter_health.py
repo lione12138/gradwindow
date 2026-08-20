@@ -24,11 +24,16 @@ DATA_INTEGRITY_ALERT_TYPES = {
     "programme-id-mismatch",
     "source-cycle-transition",
     "unparsed-source-change",
+    "partial-parser-error",
+    "unknown-degree-code",
+    "programme-record-removed",
 }
 WARNING_ALERT_TYPES = {
     "PROGRAMME_ID_MISMATCH": "programme-id-mismatch",
     "SOURCE_CYCLE_TRANSITION": "source-cycle-transition",
     "TRANSPORT_ERROR": "partial-transport-error",
+    "PARSER_ERROR": "partial-parser-error",
+    "UNKNOWN_DEGREE_CODE": "unknown-degree-code",
 }
 
 
@@ -300,7 +305,23 @@ def _successful_entry(
         _classify_disappeared_windows(disappeared_window_details, checked_at)
     )
     disappeared_programme_ids = record_diff.get("disappearedProgrammeIds") or []
-    if future_disappeared_window_ids or disappeared_programme_ids:
+    disappeared_programme_details = dict(
+        report.get("disappearedProgrammeDetails") or {}
+    )
+    (
+        expired_disappeared_programme_ids,
+        future_disappeared_programme_ids,
+        unknown_disappeared_programme_ids,
+    ) = _classify_disappeared_programmes(
+        disappeared_programme_ids,
+        disappeared_programme_details,
+        checked_at,
+    )
+    if (
+        future_disappeared_window_ids
+        or future_disappeared_programme_ids
+        or unknown_disappeared_programme_ids
+    ):
         reason_categories.add("SOURCE_RECORD_REMOVED")
 
     entry = {
@@ -333,12 +354,17 @@ def _successful_entry(
         "programmesNeedingReview": int(report.get("programmesNeedingReview", 0)),
         "limitationReason": report.get("limitationReason"),
         "adapterWarnings": adapter_warnings,
+        "adapterDiagnostics": dict(report.get("adapterDiagnostics") or {}),
         "reasonCategories": sorted(reason_categories),
         "recordDiff": record_diff,
         "windowRemovalAssessmentAvailable": removal_assessment_available,
         "disappearedWindowDetails": disappeared_window_details,
         "expiredDisappearedWindowIds": expired_disappeared_window_ids,
         "futureDisappearedWindowIds": future_disappeared_window_ids,
+        "disappearedProgrammeDetails": disappeared_programme_details,
+        "expiredDisappearedProgrammeIds": expired_disappeared_programme_ids,
+        "futureDisappearedProgrammeIds": future_disappeared_programme_ids,
+        "unknownDisappearedProgrammeIds": unknown_disappeared_programme_ids,
         "windowFingerprint": window_fingerprint,
         "stableWatchedWindowSourceHash": stable_source_hash,
         "watchedWindowSourceFingerprintVersion": current_source_version,
@@ -497,6 +523,23 @@ def _entry_alerts(
         _attach_record_removal_details(alert, entry)
         alerts.append(alert)
 
+    risky_disappeared_programmes = [
+        *entry.get("futureDisappearedProgrammeIds", []),
+        *entry.get("unknownDisappearedProgrammeIds", []),
+    ]
+    if risky_disappeared_programmes:
+        alert = _alert(
+            university_id,
+            "programme-record-removed",
+            (
+                f"{len(risky_disappeared_programmes)} programme record(s) "
+                "disappeared before their lifecycle could be treated as expired."
+            ),
+            entry,
+        )
+        _attach_record_removal_details(alert, entry)
+        alerts.append(alert)
+
     if entry.get("unparsedSourceChange"):
         alerts.append(
             _alert(
@@ -528,13 +571,34 @@ def _classify_disappeared_windows(
     return expired, future_or_unknown
 
 
+def _classify_disappeared_programmes(
+    programme_ids: list[str],
+    details: dict[str, dict],
+    checked_at: datetime,
+) -> tuple[list[str], list[str], list[str]]:
+    expired = []
+    future = []
+    unknown = []
+    today = checked_at.date().isoformat()
+    for programme_id in sorted(programme_ids):
+        detail = details.get(programme_id) or {}
+        latest_closes_at = str(detail.get("latestClosesAt") or "")
+        if not latest_closes_at:
+            unknown.append(programme_id)
+        elif latest_closes_at < today:
+            expired.append(programme_id)
+        else:
+            future.append(programme_id)
+    return expired, future, unknown
+
+
 def _window_drop_requires_alert(entry: dict) -> bool:
     if not entry.get("windowRemovalAssessmentAvailable"):
         return True
-    record_diff = entry.get("recordDiff") or {}
     return bool(
         entry.get("futureDisappearedWindowIds")
-        or record_diff.get("disappearedProgrammeIds")
+        or entry.get("futureDisappearedProgrammeIds")
+        or entry.get("unknownDisappearedProgrammeIds")
     )
 
 
@@ -565,7 +629,11 @@ def _cycle_window_drop_requires_alert(
     # A lower total caused only by replacing one intake cycle with another is
     # a cycle transition, not evidence that the current cycle parser regressed.
     # Record-level future removals still override that safe transition rule.
-    return bool(entry.get("futureDisappearedWindowIds"))
+    return bool(
+        entry.get("futureDisappearedWindowIds")
+        or entry.get("futureDisappearedProgrammeIds")
+        or entry.get("unknownDisappearedProgrammeIds")
+    )
 
 
 def _normalise_cycle_counts(value) -> dict[str, dict]:
@@ -621,6 +689,14 @@ def _attach_record_removal_details(alert: dict, entry: dict) -> None:
         "disappearedProgrammeIds": disappeared_programmes,
         "previous": record_diff.get("previous"),
         "current": record_diff.get("current"),
+        "expiredDisappearedProgrammeIds": entry.get(
+            "expiredDisappearedProgrammeIds", []
+        ),
+        "futureDisappearedProgrammeIds": entry.get("futureDisappearedProgrammeIds", []),
+        "unknownDisappearedProgrammeIds": entry.get(
+            "unknownDisappearedProgrammeIds", []
+        ),
+        "disappearedProgrammeDetails": entry.get("disappearedProgrammeDetails", {}),
     }
 
 

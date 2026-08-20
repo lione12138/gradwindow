@@ -20,7 +20,11 @@ export function getApplicationStatus(
 
   const opens = parseUtcDate(record.opensAt);
   const closes = parseUtcDate(record.closesAt);
-  if (today > closes) return "closed";
+  if (
+    today > closes ||
+    (record.deadlineSemantics === "before" && today >= closes)
+  )
+    return "closed";
   if (today >= opens) return "open";
 
   const daysToOpen = Math.ceil((opens - today) / DAY_MS);

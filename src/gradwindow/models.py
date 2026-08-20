@@ -16,6 +16,7 @@ from pydantic import (
 ScopeType = Literal["institution", "programme-group", "programme"]
 Confidence = Literal["low", "medium", "high"]
 Term = Literal["fall", "spring", "summer", "winter", "michaelmas", "other"]
+DeadlineSemantics = Literal["on", "before"]
 SLUG_PATTERN = r"^[a-z0-9][a-z0-9-]*$"
 DiscoveryState = Literal[
     "curated",
@@ -137,6 +138,9 @@ class ApplicationWindow(DataModel):
     applicant_categories: list[str] = Field(alias="applicantCategories")
     opens_at: date = Field(alias="opensAt")
     closes_at: date = Field(alias="closesAt")
+    deadline_semantics: DeadlineSemantics = Field(
+        default="on", alias="deadlineSemantics"
+    )
     application_url: AnyHttpUrl = Field(alias="applicationUrl")
     source_url: AnyHttpUrl = Field(alias="sourceUrl")
     verified_at: date = Field(alias="verifiedAt")
@@ -180,6 +184,9 @@ class RecurringWindow(DataModel):
     applicant_categories: list[str] = Field(alias="applicantCategories")
     opens_at: date = Field(alias="opensAt")
     closes_at: date = Field(alias="closesAt")
+    deadline_semantics: DeadlineSemantics = Field(
+        default="on", alias="deadlineSemantics"
+    )
     application_url: AnyHttpUrl = Field(alias="applicationUrl")
     source_url: AnyHttpUrl = Field(alias="sourceUrl")
     policy_checked_at: date = Field(alias="policyCheckedAt")
@@ -231,6 +238,9 @@ class Prediction(DataModel):
     applicant_categories: list[str] = Field(alias="applicantCategories")
     opens_at: date = Field(alias="opensAt")
     closes_at: date = Field(alias="closesAt")
+    deadline_semantics: DeadlineSemantics = Field(
+        default="on", alias="deadlineSemantics"
+    )
     application_url: AnyHttpUrl = Field(alias="applicationUrl")
     source_url: AnyHttpUrl = Field(alias="sourceUrl")
     source_cycle: str = Field(alias="sourceCycle")

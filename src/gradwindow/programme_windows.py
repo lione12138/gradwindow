@@ -43,6 +43,7 @@ def programme_window_record_id(
             ",".join(categories),
             str(window.get("opensAt", "")),
             closes_at,
+            str(window.get("deadlineSemantics", "on")),
         )
     )
     suffix = hashlib.sha256(identity.encode("utf-8")).hexdigest()[:8]
@@ -74,45 +75,49 @@ def known_programme_window_candidates(
         if not opens_at or opens_at > window.closes_at or opening_basis != "official":
             continue
         source_url = window.source_url or programme.source_url
-        record = with_intake_details(
-            {
-                "id": programme_window_record_id(
-                    programme.id,
-                    {
-                        "intake": window.intake or adapter.intake,
-                        "round": window.round,
-                        "applicantCategories": window.applicant_categories,
-                        "opensAt": opens_at,
-                        "closesAt": window.closes_at,
-                    },
-                    existing_ids=application_ids,
-                ),
-                "universityId": adapter.university_id,
-                "scopeType": scope_type,
-                "scopeId": scope_id,
-                "intake": window.intake or adapter.intake,
-                "round": window.round,
-                "applicantCategories": window.applicant_categories,
-                "opensAt": opens_at,
-                "closesAt": window.closes_at,
-                "applicationUrl": (
-                    programme.application_url or known_programme["applicationUrl"]
-                ),
-                "sourceUrl": source_url,
-                "verifiedAt": detected_at[:10],
-                "evidence": (
-                    f"The official programme adapter observed {programme.name} "
-                    f"opening on {opens_at} and closing on {window.closes_at}. "
-                    f"Source: {source_url}"
-                ),
-            }
-        )
+        record_payload = {
+            "id": programme_window_record_id(
+                programme.id,
+                {
+                    "intake": window.intake or adapter.intake,
+                    "round": window.round,
+                    "applicantCategories": window.applicant_categories,
+                    "opensAt": opens_at,
+                    "closesAt": window.closes_at,
+                    "deadlineSemantics": window.deadline_semantics,
+                },
+                existing_ids=application_ids,
+            ),
+            "universityId": adapter.university_id,
+            "scopeType": scope_type,
+            "scopeId": scope_id,
+            "intake": window.intake or adapter.intake,
+            "round": window.round,
+            "applicantCategories": window.applicant_categories,
+            "opensAt": opens_at,
+            "closesAt": window.closes_at,
+            "applicationUrl": (
+                programme.application_url or known_programme["applicationUrl"]
+            ),
+            "sourceUrl": source_url,
+            "verifiedAt": detected_at[:10],
+            "evidence": (
+                f"The official programme adapter observed {programme.name} "
+                f"opening on {opens_at} and "
+                f"{'requiring submission before' if window.deadline_semantics == 'before' else 'closing on'} "
+                f"{window.closes_at}. "
+                f"Source: {source_url}"
+            ),
+        }
+        if window.deadline_semantics != "on":
+            record_payload["deadlineSemantics"] = window.deadline_semantics
+        record = with_intake_details(record_payload)
         existing = applications_by_cycle.get(official_cycle_key(record))
         if existing is not None:
             record["id"] = existing["id"]
             changed_fields = {
                 field: {"previous": existing.get(field), "observed": record.get(field)}
-                for field in ("opensAt", "closesAt")
+                for field in ("opensAt", "closesAt", "deadlineSemantics")
                 if existing.get(field) != record.get(field)
             }
             if not changed_fields:

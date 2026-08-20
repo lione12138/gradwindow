@@ -13,6 +13,7 @@ import {
   setProgrammeTranslations,
 } from "./localization.js";
 import { decodeRecordBundle } from "./frontend-data.js";
+import { formatDeadlineDate } from "./deadline-semantics.js";
 
 const state = {
   records: [],
@@ -52,6 +53,13 @@ function formatDate(value) {
     day: "numeric",
     timeZone: "UTC",
   }).format(parseDate(value));
+}
+
+function formatEventDate(event) {
+  const formatted = formatDate(event.date);
+  return event.type === "deadline"
+    ? formatDeadlineDate(event.record, formatted, state.language)
+    : formatted;
 }
 
 function formatMonth(value) {
@@ -232,7 +240,7 @@ function renderList(records) {
       card.append(
         makeElement("span", {
           className: "date-secondary",
-          text: `${formatDate(event.date)} · QS #${event.record.qsRank}`,
+          text: `${formatEventDate(event)} · QS #${event.record.qsRank}`,
         }),
         makeLink(eventLabel(event), event.record.applicationUrl, "school-link"),
         makeElement("span", {

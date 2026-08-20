@@ -59,6 +59,7 @@ def test_twente_reads_top_level_msc_cards_only() -> None:
             window.opens_at,
             window.closes_at,
             window.opens_at_basis,
+            window.deadline_semantics,
         )
         for window in rows[0].windows
     ] == [
@@ -68,6 +69,7 @@ def test_twente_reads_top_level_msc_cards_only() -> None:
             "2026-03-01",
             "2026-12-01",
             "official-recurring-policy",
+            "before",
         ),
         (
             "February 2027",
@@ -75,6 +77,7 @@ def test_twente_reads_top_level_msc_cards_only() -> None:
             "2026-03-01",
             "2026-10-01",
             "official-recurring-policy",
+            "before",
         ),
         (
             "September 2027",
@@ -82,6 +85,7 @@ def test_twente_reads_top_level_msc_cards_only() -> None:
             "2026-10-01",
             "2027-07-01",
             "official-recurring-policy",
+            "before",
         ),
         (
             "September 2027",
@@ -89,6 +93,7 @@ def test_twente_reads_top_level_msc_cards_only() -> None:
             "2026-10-01",
             "2027-05-01",
             "official-recurring-policy",
+            "before",
         ),
     ]
 

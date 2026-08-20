@@ -45,7 +45,9 @@ class _Dictionary:
 def _application_status(record: dict, today: date) -> str:
     opens_at = date.fromisoformat(record["opensAt"])
     closes_at = date.fromisoformat(record["closesAt"])
-    if today > closes_at:
+    if today > closes_at or (
+        record.get("deadlineSemantics") == "before" and today >= closes_at
+    ):
         return "closed"
     if today >= opens_at:
         return "open"
@@ -131,6 +133,7 @@ def _compact_records(records: list[dict], university_indexes: dict[str, int]) ->
     source_cycles = _Dictionary()
     confidences = _Dictionary()
     monitors = _Dictionary()
+    deadline_semantics = _Dictionary()
     rows: list[list[Any]] = []
 
     for record in records:
@@ -159,11 +162,12 @@ def _compact_records(records: list[dict], university_indexes: dict[str, int]) ->
                 confidences.add(record.get("confidence")),
                 record.get("evidenceCycleCount"),
                 monitors.add(record.get("sourceMonitor") or {}),
+                deadline_semantics.add(record.get("deadlineSemantics") or "on"),
             ]
         )
 
     return {
-        "version": 1,
+        "version": 2,
         "dictionaries": {
             "scopes": scopes.values,
             "intakes": intakes.values,
@@ -174,6 +178,7 @@ def _compact_records(records: list[dict], university_indexes: dict[str, int]) ->
             "sourceCycles": source_cycles.values,
             "confidences": confidences.values,
             "monitors": monitors.values,
+            "deadlineSemantics": deadline_semantics.values,
         },
         "rows": rows,
     }

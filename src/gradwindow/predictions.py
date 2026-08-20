@@ -143,6 +143,8 @@ def generate_predictions(
             "methodology": PREDICTION_METHOD,
             "disclaimer": PREDICTION_DISCLAIMER,
         }
+        if source.get("deadlineSemantics") == "before":
+            prediction["deadlineSemantics"] = "before"
         predictions.append(prediction)
 
     predictions.sort(

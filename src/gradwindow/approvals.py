@@ -273,27 +273,28 @@ def approve_programme_candidates(
             )
             if record_id in known_application_ids:
                 continue
-            record = with_intake_details(
-                {
-                    "id": record_id,
-                    "universityId": university_id,
-                    "scopeType": window.get("scopeType", "programme"),
-                    "scopeId": window.get("scopeId") or programme_id,
-                    "intake": window["intake"],
-                    "round": window.get("round", ""),
-                    "applicantCategories": window.get("applicantCategories", ["all"]),
-                    "opensAt": window["opensAt"],
-                    "closesAt": window["closesAt"],
-                    "applicationUrl": programme["applicationUrl"],
-                    "sourceUrl": window.get("sourceUrl") or programme["sourceUrl"],
-                    "verifiedAt": verified_at,
-                    "evidence": _programme_window_evidence(
-                        programme["name"],
-                        window,
-                        window.get("sourceUrl") or programme["sourceUrl"],
-                    ),
-                }
-            )
+            record_payload = {
+                "id": record_id,
+                "universityId": university_id,
+                "scopeType": window.get("scopeType", "programme"),
+                "scopeId": window.get("scopeId") or programme_id,
+                "intake": window["intake"],
+                "round": window.get("round", ""),
+                "applicantCategories": window.get("applicantCategories", ["all"]),
+                "opensAt": window["opensAt"],
+                "closesAt": window["closesAt"],
+                "applicationUrl": programme["applicationUrl"],
+                "sourceUrl": window.get("sourceUrl") or programme["sourceUrl"],
+                "verifiedAt": verified_at,
+                "evidence": _programme_window_evidence(
+                    programme["name"],
+                    window,
+                    window.get("sourceUrl") or programme["sourceUrl"],
+                ),
+            }
+            if window.get("deadlineSemantics") == "before":
+                record_payload["deadlineSemantics"] = "before"
+            record = with_intake_details(record_payload)
             applications_payload.setdefault("applications", []).append(record)
             if applications_path == APPLICATIONS_PATH:
                 evidence_records.append((record, candidate))
@@ -409,9 +410,14 @@ def _programme_window_evidence(
         )
     else:
         opening_text = f"lists {round_label} opening on {window['opensAt']}"
+    closing_text = (
+        f"requiring submission before {window['closesAt']}"
+        if window.get("deadlineSemantics") == "before"
+        else f"closing on {window['closesAt']}"
+    )
     return (
         f"The official programme page for {programme_name} lists {round_label} "
-        f"closing on {window['closesAt']} and {opening_text}. "
+        f"{closing_text} and {opening_text}. "
         f"Source: {source_url}"
     )
 

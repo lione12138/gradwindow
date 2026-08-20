@@ -13,6 +13,7 @@ export function decodeRecordBundle(bundle, universities) {
   const sourceCycles = dictionaries.sourceCycles || [];
   const confidences = dictionaries.confidences || [];
   const monitors = dictionaries.monitors || [];
+  const deadlineSemantics = dictionaries.deadlineSemantics || [];
 
   return (bundle?.rows || []).map((row) => {
     const university = universities[row[1]] || {};
@@ -40,6 +41,7 @@ export function decodeRecordBundle(bundle, universities) {
       confidence: valueAt(confidences, row[14], ""),
       evidenceCycleCount: row[15] ?? undefined,
       sourceMonitor: valueAt(monitors, row[16], {}),
+      deadlineSemantics: valueAt(deadlineSemantics, row[17], "on"),
       school: university.school || "",
       schoolZh: university.schoolZh || "",
       schoolAliasesZh: university.schoolAliasesZh || [],
