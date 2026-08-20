@@ -1,14 +1,14 @@
 {
   "meta": {
-    "updatedAt": "2026-08-19T06:01:23.039350+00:00",
+    "updatedAt": "2026-08-20T06:08:06.473670+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
   },
   "summary": {
     "schoolsConfigured": 9,
-    "schoolsSucceeded": 0,
-    "schoolsErrored": 2,
+    "schoolsSucceeded": 1,
+    "schoolsErrored": 1,
     "schoolsSkipped": 7,
     "schoolsSkippedByDedicated": 7,
     "schoolsAssisted": 1,
@@ -88,13 +88,52 @@
       "batchStatus": "error"
     },
     {
-      "batchStatus": "error",
-      "status": "error",
+      "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "errorType": "FetchFailure",
-      "message": "[Errno -3] Temporary failure in name resolution",
-      "dryRun": false
+      "checkedAt": "2026-08-20T06:12:03.777255+00:00",
+      "catalogProgrammes": 3,
+      "previousCatalogProgrammes": 3,
+      "knownProgrammes": 1,
+      "newCandidates": 0,
+      "newGuidanceCandidates": 0,
+      "publishedRecurringPolicyRecords": 0,
+      "newWindowCandidates": 0,
+      "changedWindowCandidates": 0,
+      "pendingWindowCandidates": 0,
+      "pendingCandidates": 43,
+      "pendingGuidanceCandidates": 1,
+      "catalogueStatus": "ok",
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 1,
+      "exactWindowCount": 0,
+      "recurringPolicyWindowCount": 0,
+      "missingOpeningDateCount": 1,
+      "programmesWithoutDeadlines": 2,
+      "programmesNeedingReview": 3,
+      "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
+      "adapterWarnings": [],
+      "recordDiff": {
+        "previous": {
+          "programmes": 3,
+          "windows": 1
+        },
+        "current": {
+          "programmes": 3,
+          "windows": 1
+        },
+        "disappearedProgrammeIds": [],
+        "addedProgrammeIds": [],
+        "changedProgrammeIds": [],
+        "disappearedWindowIds": [],
+        "addedWindowIds": [],
+        "changedWindowIds": []
+      },
+      "windowFingerprint": "f0dab70f2e2f8908e8607513efa2d0fdb47064db21c86b2a923daa6bd00d957f",
+      "watchedWindowSourceHash": null,
+      "watchedWindowSourceFingerprintVersion": null,
+      "dryRun": false,
+      "batchStatus": "ok"
     }
   ],
   "classification": {

@@ -2,10 +2,10 @@
   "universities": {
     "university-of-bristol": {
       "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/search/",
-      "checkedAt": "2026-08-19T05:05:33.190650+00:00",
+      "checkedAt": "2026-08-20T05:09:02.079142+00:00",
       "itemCount": 146,
       "applicationOpensAt": null,
-      "catalogHash": "cfaaba6479f1460261782f96d49c2410c29fbfbde9d957dba5f60faa77894150",
+      "catalogHash": "5db1d87234d68350a9d9c85f8fb0e7ac91e00879e14c9228816a69beacbe228a",
       "catalogueStatus": "ok",
       "windowStatus": "needs-opening-date",
       "observedWindowCount": 275,
@@ -15,8 +15,8 @@
       "programmesWithoutDeadlines": 7,
       "programmesNeedingReview": 146,
       "limitationReason": "275 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-19T05:05:33.190650+00:00",
-      "windowFingerprint": "a1159671e13689c9671db92ffa50960b03f30f3b0451dbfca9328736113d62d2",
+      "lastSuccessfulAt": "2026-08-20T05:09:02.079142+00:00",
+      "windowFingerprint": "191e50ad94f5f1dd421c3aa7c0ac77b3bcf7fbc731c92cd7e5d12cb5ea8963f8",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -815,10 +815,10 @@
         "bristol-msc-interpreting": {
           "name": "MSc Interpreting",
           "degreeType": "MSc",
-          "faculty": "Arts Law and Social Sciences",
-          "department": "School of Modern Languages",
-          "parseStatus": "incomplete",
-          "deadlineHash": "3602b1e671fea66fc972df42b51b4766e1b29273cca1a91c8a5597f3fa7bccd8"
+          "faculty": "",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
         },
         "bristol-msc-leading-strategic-change": {
           "name": "MSc Leading Strategic Change",
@@ -903,10 +903,10 @@
         "bristol-msc-mathematical-sciences": {
           "name": "MSc Mathematical Sciences",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Science and Engineering",
+          "department": "School of Mathematics",
+          "parseStatus": "incomplete",
+          "deadlineHash": "a8b7e4b7bfb6b84fe46b19d635bbe64467d7e0a74e787fcce83dfd613f9eb566"
         },
         "bristol-msc-medical-statistics-and-health-data-science": {
           "name": "MSc Medical Statistics and Health Data Science",
@@ -2548,20 +2548,6 @@
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-internet-of-things-with-ai/",
           "opensAtBasis": null
         },
-        "bristol-msc-interpreting::September 2026::Home applicants::home": {
-          "programmeId": "bristol-msc-interpreting",
-          "opensAt": null,
-          "closesAt": "2026-09-10",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-interpreting/",
-          "opensAtBasis": null
-        },
-        "bristol-msc-interpreting::September 2026::Overseas applicants::international": {
-          "programmeId": "bristol-msc-interpreting",
-          "opensAt": null,
-          "closesAt": "2026-08-13",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-interpreting/",
-          "opensAtBasis": null
-        },
         "bristol-msc-management::September 2026::Home applicants::home": {
           "programmeId": "bristol-msc-management",
           "opensAt": null,
@@ -2672,6 +2658,20 @@
           "opensAt": null,
           "closesAt": "2026-08-13",
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-marketing/",
+          "opensAtBasis": null
+        },
+        "bristol-msc-mathematical-sciences::September 2026::Home applicants::home": {
+          "programmeId": "bristol-msc-mathematical-sciences",
+          "opensAt": null,
+          "closesAt": "2026-09-10",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-mathematical-sciences/",
+          "opensAtBasis": null
+        },
+        "bristol-msc-mathematical-sciences::September 2026::Overseas applicants::international": {
+          "programmeId": "bristol-msc-mathematical-sciences",
+          "opensAt": null,
+          "closesAt": "2026-08-13",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-mathematical-sciences/",
           "opensAtBasis": null
         },
         "bristol-msc-medical-statistics-and-health-data-science::September 2026::Home applicants::home": {
