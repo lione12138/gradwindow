@@ -1,7 +1,11 @@
 import json
 
+import pytest
+
+from gradwindow.programme_adapters.base import ParserZeroResultError
 from gradwindow.programme_adapters.ntu import (
     APPLICATION_URL,
+    WINDOW_URL,
     NTUAdapter,
     catalog_page_url,
 )
@@ -40,7 +44,7 @@ def test_ntu_matches_official_chinese_intake_names_to_catalogue_programmes() -> 
     """
     pages = {
         catalog_page_url(1): catalogue,
-        APPLICATION_URL: application_table,
+        WINDOW_URL: application_table,
     }
 
     catalog = NTUAdapter(minimum_expected_programmes=2).parse_catalog_from_fetcher(
@@ -77,7 +81,7 @@ def test_ntu_keeps_matched_windows_and_reports_unmatched_application_rows() -> N
     """
     pages = {
         catalog_page_url(1): catalogue,
-        APPLICATION_URL: application_table,
+        WINDOW_URL: application_table,
     }
 
     catalog = NTUAdapter(minimum_expected_programmes=1).parse_catalog_from_fetcher(
@@ -115,7 +119,7 @@ def test_ntu_programme_ids_treat_ampersand_as_and() -> None:
     catalogue = json.dumps({"totalPages": 1, "totalItems": 2, "items": items})
     pages = {
         catalog_page_url(1): catalogue,
-        APPLICATION_URL: "<table></table>",
+        WINDOW_URL: "<p>No programs for entered Year, Sem and Term Type</p>",
     }
 
     catalog = NTUAdapter(minimum_expected_programmes=2).parse_catalog_from_fetcher(
@@ -126,3 +130,70 @@ def test_ntu_programme_ids_treat_ampersand_as_and() -> None:
         "ntu-asset-wealth-management-msc",
         "ntu-integrated-circuits-and-microelectronics-msc",
     }
+
+
+def test_ntu_uses_browser_rendering_when_live_table_parse_returns_zero() -> None:
+    items = [
+        {
+            "title": "Master of Science in Data Science",
+            "url": "/education/graduate-programme/msc-data-science",
+            "tag": "College of Computing and Data Science",
+        }
+    ]
+    catalogue = json.dumps({"totalPages": 1, "totalItems": 1, "items": items})
+    direct_shell = """
+    <h2>The following programme(s) are open for application</h2>
+    <div>Opening Date</div><div>Closing Date</div>
+    """
+    rendered_table = """
+    <h2>The following programme(s) are open for application:</h2>
+    <div class="table-grid">
+      <div class="mainContainer">AY2026 / Semester 2</div>
+      <div class="mainContainer">Admission Date: 11-Jan-2027</div>
+      <div>Programme Name</div><div>Application Period</div>
+      <div class="table-cell">
+        <div class="innerList">277 - MSC(DATA SCIENCE)</div>
+        <div class="innerList">01-Jul-2026 - 31-Aug-2026</div>
+      </div>
+    </div>
+    """
+    pages = {catalog_page_url(1): catalogue, WINDOW_URL: direct_shell}
+
+    catalog = NTUAdapter(
+        minimum_expected_programmes=1,
+        browser_content_fetcher=lambda url: (
+            rendered_table
+            if url == WINDOW_URL
+            else (_ for _ in ()).throw(AssertionError(url))
+        ),
+    ).parse_catalog_from_fetcher(pages.__getitem__)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "cloudflare-browser-rendering"
+    assert len(programme.windows) == 1
+
+
+def test_ntu_rejects_zero_windows_when_official_page_contains_date_signals() -> None:
+    items = [
+        {
+            "title": "Master of Science in Data Science",
+            "url": "/education/graduate-programme/msc-data-science",
+            "tag": "College of Computing and Data Science",
+        }
+    ]
+    catalogue = json.dumps({"totalPages": 1, "totalItems": 1, "items": items})
+    malformed_table = """
+    <h2>The following programme(s) are open for application</h2>
+    <table>
+      <tr><th>Programme</th><th>Opening Date</th><th>Closing Date</th></tr>
+      <tr><td>MSC(DATA SCIENCE)</td><td>1-Jul-26</td><td>31-Aug-26</td></tr>
+    </table>
+    """
+    pages = {catalog_page_url(1): catalogue, WINDOW_URL: malformed_table}
+
+    with pytest.raises(ParserZeroResultError, match="date signals.*zero windows"):
+        NTUAdapter(
+            minimum_expected_programmes=1,
+            browser_content_fetcher=lambda _url: malformed_table,
+        ).parse_catalog_from_fetcher(pages.__getitem__)
