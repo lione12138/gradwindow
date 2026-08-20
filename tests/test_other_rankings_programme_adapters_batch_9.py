@@ -1,11 +1,19 @@
 from __future__ import annotations
 
+import pytest
+
+from gradwindow.programme_adapters.base import OfficialSourceTransportError
 from gradwindow.programme_adapters.charite import ChariteAdapter
 from gradwindow.programme_adapters.macau import (
     MacauAdapter,
     parse_official_chinese_translations,
 )
-from gradwindow.programme_adapters.meduni_vienna import MedUniViennaAdapter
+from gradwindow.programme_adapters.meduni_vienna import (
+    MEDICAL_INFORMATICS_URL,
+    MOLECULAR_PRECISION_MEDICINE_URL,
+    PSYCHOTHERAPY_URL,
+    MedUniViennaAdapter,
+)
 from gradwindow.programme_adapters.uab import UABAdapter
 from gradwindow.programme_adapters.weizmann import WeizmannAdapter
 
@@ -92,19 +100,75 @@ def test_weizmann_reads_the_five_named_msc_fields() -> None:
     assert rows[0].degree_type == "MSc"
 
 
-def test_meduni_vienna_prefers_current_medical_informatics_link() -> None:
-    html = """
-      <a href="/old/">Medical Informatics Master - old</a>
-      <a href="/new/">Medical Informatics Master - new</a>
-      <a href="/precision/">Molecular Precision Medicine Master’s Programme</a>
-      <a href="/psychotherapy/">Masterstudium Psychotherapie</a>
-    """
+def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
+    pages = {
+        MEDICAL_INFORMATICS_URL: """
+          <h1>Master’s Programme in Medical Informatics at MedUni Vienna</h1>
+          <h2>Online Application</h2>
+        """,
+        MOLECULAR_PRECISION_MEDICINE_URL: """
+          <h1>The Molecular Precision Medicine Master’s Programme</h1>
+          <p>Application &amp; Admission</p>
+          <p>1<sup>st</sup> March - 31<sup>st</sup> March 2026</p>
+          <p>Start in winter semester</p>
+        """,
+        PSYCHOTHERAPY_URL: """
+          <h1>Masterstudium Psychotherapie</h1>
+          <p>Im Oktober 2026 startet das neue Masterstudium Psychotherapie.</p>
+          <p>Antragsfrist für das Studienjahr 2026/27:
+             2. März bis 7. April 2026</p>
+        """,
+    }
+    fetched: list[str] = []
 
-    rows = MedUniViennaAdapter().parse_catalog(html).programmes
+    def fetcher(url: str) -> str:
+        fetched.append(url)
+        return pages[url]
 
-    assert len(rows) == 3
-    medical_informatics = next(row for row in rows if row.name == "Medical Informatics")
-    assert medical_informatics.source_url.endswith("/new/")
+    rows = MedUniViennaAdapter().parse_catalog_from_fetcher(fetcher).programmes
+
+    assert fetched == [
+        MEDICAL_INFORMATICS_URL,
+        MOLECULAR_PRECISION_MEDICINE_URL,
+        PSYCHOTHERAPY_URL,
+    ]
+    assert [row.name for row in rows] == [
+        "Medical Informatics",
+        "Molecular Precision Medicine",
+        "Psychotherapy",
+    ]
+    medical_informatics, precision_medicine, psychotherapy = rows
+    assert medical_informatics.windows == []
+    assert [
+        (
+            window.intake,
+            window.opens_at,
+            window.closes_at,
+            window.opens_at_basis,
+        )
+        for window in precision_medicine.windows
+    ] == [("Winter semester 2026", "2026-03-01", "2026-03-31", "official")]
+    assert [
+        (
+            window.intake,
+            window.opens_at,
+            window.closes_at,
+            window.opens_at_basis,
+        )
+        for window in psychotherapy.windows
+    ] == [("Academic year 2026/27", "2026-03-02", "2026-04-07", "official")]
+
+
+def test_meduni_vienna_fails_when_a_canonical_catalogue_source_is_unavailable() -> None:
+    pages = {
+        MEDICAL_INFORMATICS_URL: "Master’s Programme in Medical Informatics",
+        MOLECULAR_PRECISION_MEDICINE_URL: (
+            "Molecular Precision Medicine 1 March - 31 March 2026"
+        ),
+    }
+
+    with pytest.raises(OfficialSourceTransportError, match="Psychotherapy"):
+        MedUniViennaAdapter().parse_catalog_from_fetcher(pages.__getitem__)
 
 
 def test_charite_excludes_programmes_closed_to_enrolment() -> None:
