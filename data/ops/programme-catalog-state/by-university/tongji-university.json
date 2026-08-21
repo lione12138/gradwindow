@@ -2,20 +2,31 @@
   "universities": {
     "tongji-university": {
       "sourceUrl": "https://study.tongji.edu.cn/en/info/1014/1044.htm",
-      "checkedAt": "2026-08-20T05:51:19.245328+00:00",
+      "checkedAt": "2026-08-21T05:59:14.467459+00:00",
       "itemCount": 1,
       "applicationOpensAt": "2025-10-25",
-      "catalogHash": "bfec6708368938132cfd06bb4467f2b5d7a2b5cdf21121043a3e5a80d6f52ba6",
+      "catalogHash": "a28aa79363c5ef8767390d57fde7ad2e67d35dc8984af3a68c92f808d5189509",
       "catalogueStatus": "ok",
+      "catalogueGranularity": "programme-level",
       "windowStatus": "exact",
       "observedWindowCount": 2,
       "exactWindowCount": 2,
       "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "2026:fall:09": {
+          "intakes": [
+            "Fall 2026"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 2,
+          "recurringPolicyWindowCount": 0
+        }
+      },
       "missingOpeningDateCount": 0,
       "programmesWithoutDeadlines": 0,
       "programmesNeedingReview": 0,
       "limitationReason": null,
-      "lastSuccessfulAt": "2026-08-20T05:51:19.245328+00:00",
+      "lastSuccessfulAt": "2026-08-21T05:59:14.467459+00:00",
       "windowFingerprint": "92c7317f376d3d1155d85405c295ea5cd725819f7c39031272518c6890218859",
       "watchedWindowSourceHash": "4b2feb6ca6eb84873b4a61641748b29ed4303214aef2b69b268ba69a97f19dfb",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -26,12 +37,15 @@
           "faculty": "International Students Office",
           "department": "English-taught master's programmes",
           "parseStatus": "parsed",
-          "deadlineHash": "6c05f1bc703fd65f307c73778abd26af667aabc99a3b53939ba70214371b18c3"
+          "deadlineHash": "6c05f1bc703fd65f307c73778abd26af667aabc99a3b53939ba70214371b18c3",
+          "windowCount": 2,
+          "latestClosesAt": "2026-03-20"
         }
       },
       "windows": {
         "tongji-international-masters-admissions::Fall 2026::Chinese Government Scholarship and first self-funded round::international-students": {
           "programmeId": "tongji-international-masters-admissions",
+          "intake": "Fall 2026",
           "opensAt": "2025-10-25",
           "closesAt": "2025-12-20",
           "sourceUrl": "https://study.tongji.edu.cn/en/info/1014/1044.htm",
@@ -39,13 +53,15 @@
         },
         "tongji-international-masters-admissions::Fall 2026::Shanghai Municipal Scholarship and self-funded round::international-students": {
           "programmeId": "tongji-international-masters-admissions",
+          "intake": "Fall 2026",
           "opensAt": "2026-01-10",
           "closesAt": "2026-03-20",
           "sourceUrl": "https://study.tongji.edu.cn/en/info/1014/1044.htm",
           "opensAtBasis": null
         }
       },
-      "adapterWarnings": []
+      "adapterWarnings": [],
+      "adapterDiagnostics": {}
     }
   }
 }

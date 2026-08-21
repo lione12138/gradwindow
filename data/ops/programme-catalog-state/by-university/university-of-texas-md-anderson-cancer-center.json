@@ -2,20 +2,47 @@
   "universities": {
     "university-of-texas-md-anderson-cancer-center": {
       "sourceUrl": "https://www.mdanderson.org/education-training/degree-granting-schools.html",
-      "checkedAt": "2026-08-20T05:39:14.551452+00:00",
+      "checkedAt": "2026-08-21T05:43:46.889854+00:00",
       "itemCount": 6,
       "applicationOpensAt": null,
-      "catalogHash": "d5acee54b6886dea09e45c9fe5d3c6d61c66cc7e475bae5da8d55cc55dd1520d",
+      "catalogHash": "c0be0aee45b5df846d982903030aac1e63e8194b2142ae2b07cfbbc7e79efbee",
       "catalogueStatus": "ok",
+      "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
       "observedWindowCount": 4,
       "exactWindowCount": 4,
       "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "2026:fall:09": {
+          "intakes": [
+            "Fall 2026"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 2,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:fall:09": {
+          "intakes": [
+            "Fall 2027"
+          ],
+          "observedWindowCount": 1,
+          "exactWindowCount": 1,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:spring:01": {
+          "intakes": [
+            "Spring 2027"
+          ],
+          "observedWindowCount": 1,
+          "exactWindowCount": 1,
+          "recurringPolicyWindowCount": 0
+        }
+      },
       "missingOpeningDateCount": 0,
       "programmesWithoutDeadlines": 3,
       "programmesNeedingReview": 3,
       "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 3 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-20T05:39:14.551452+00:00",
+      "lastSuccessfulAt": "2026-08-21T05:43:46.889854+00:00",
       "windowFingerprint": "45d0867de823a7a7c844101b64708d3ae530309e759f2adf549acd5f1c96f19e",
       "watchedWindowSourceHash": "af8385180ad2e86e5a47d3dbee2d049e161b6939d6c9741352503564abd1caf9",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -26,7 +53,9 @@
           "faculty": "School of Health Professions",
           "department": "Diagnostic Genetics and Genomics",
           "parseStatus": "parsed",
-          "deadlineHash": "7c759f1da6652d49d46b27f3ea46ca07de2d61ab648f14d6a0932e684b0f061c"
+          "deadlineHash": "7c759f1da6652d49d46b27f3ea46ca07de2d61ab648f14d6a0932e684b0f061c",
+          "windowCount": 2,
+          "latestClosesAt": "2026-05-30"
         },
         "md-anderson-genetic-counseling-master": {
           "name": "Genetic Counseling",
@@ -34,7 +63,9 @@
           "faculty": "MD Anderson UTHealth Houston Graduate School",
           "department": "Genetic Counseling",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "md-anderson-individualized-ms-program-in-biomedical-sciences-master": {
           "name": "Individualized MS Program in Biomedical Sciences",
@@ -42,7 +73,9 @@
           "faculty": "MD Anderson UTHealth Houston Graduate School",
           "department": "Individualized MS Program in Biomedical Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "md-anderson-m-s-in-medical-dosimetry-master": {
           "name": "M.S. in Medical Dosimetry",
@@ -50,7 +83,9 @@
           "faculty": "School of Health Professions",
           "department": "M.S. in Medical Dosimetry",
           "parseStatus": "parsed",
-          "deadlineHash": "d4bb910cede19a5e9babf9c46825360c8f1d9093ad8f111ca8737d26a2253efc"
+          "deadlineHash": "d4bb910cede19a5e9babf9c46825360c8f1d9093ad8f111ca8737d26a2253efc",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-15"
         },
         "md-anderson-medical-physics-master": {
           "name": "Medical Physics",
@@ -58,7 +93,9 @@
           "faculty": "MD Anderson UTHealth Houston Graduate School",
           "department": "Medical Physics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "md-anderson-radiologic-sciences-master": {
           "name": "Radiologic Sciences",
@@ -66,12 +103,15 @@
           "faculty": "School of Health Professions",
           "department": "Radiologic Sciences",
           "parseStatus": "parsed",
-          "deadlineHash": "5c030f34a427ea8049ec9340653552ca7b3606a9fe1809a52cdbe337c87f57c0"
+          "deadlineHash": "5c030f34a427ea8049ec9340653552ca7b3606a9fe1809a52cdbe337c87f57c0",
+          "windowCount": 1,
+          "latestClosesAt": "2026-09-30"
         }
       },
       "windows": {
         "md-anderson-diagnostic-genetics-and-genomics-master::Fall 2026::Final deadline::all": {
           "programmeId": "md-anderson-diagnostic-genetics-and-genomics-master",
+          "intake": "Fall 2026",
           "opensAt": "2025-09-15",
           "closesAt": "2026-05-30",
           "sourceUrl": "https://www.mdanderson.org/education-training/degree-granting-schools/school-of-health-professions/prospective-students/diagnostic-genetics-application.html",
@@ -79,6 +119,7 @@
         },
         "md-anderson-diagnostic-genetics-and-genomics-master::Fall 2026::Priority deadline::all": {
           "programmeId": "md-anderson-diagnostic-genetics-and-genomics-master",
+          "intake": "Fall 2026",
           "opensAt": "2025-09-15",
           "closesAt": "2026-04-30",
           "sourceUrl": "https://www.mdanderson.org/education-training/degree-granting-schools/school-of-health-professions/prospective-students/diagnostic-genetics-application.html",
@@ -86,6 +127,7 @@
         },
         "md-anderson-m-s-in-medical-dosimetry-master::Fall 2027::Fall admission::all": {
           "programmeId": "md-anderson-m-s-in-medical-dosimetry-master",
+          "intake": "Fall 2027",
           "opensAt": "2026-12-01",
           "closesAt": "2027-03-15",
           "sourceUrl": "https://www.mdanderson.org/education-training/degree-granting-schools/school-of-health-professions/prospective-students/medical-dosimetry-application.html",
@@ -93,13 +135,15 @@
         },
         "md-anderson-radiologic-sciences-master::Spring 2027::Spring admission::all": {
           "programmeId": "md-anderson-radiologic-sciences-master",
+          "intake": "Spring 2027",
           "opensAt": "2026-05-01",
           "closesAt": "2026-09-30",
           "sourceUrl": "https://www.mdanderson.org/education-training/degree-granting-schools/school-of-health-professions/prospective-students/radiologic-sciences-application.html",
           "opensAtBasis": "official"
         }
       },
-      "adapterWarnings": []
+      "adapterWarnings": [],
+      "adapterDiagnostics": {}
     }
   }
 }

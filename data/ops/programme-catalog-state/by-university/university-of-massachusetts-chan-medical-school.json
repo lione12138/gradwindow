@@ -2,20 +2,22 @@
   "universities": {
     "university-of-massachusetts-chan-medical-school": {
       "sourceUrl": "https://connect.umassmed.edu/apply/",
-      "checkedAt": "2026-08-20T06:03:52.171156+00:00",
+      "checkedAt": "2026-08-21T06:14:30.363502+00:00",
       "itemCount": 1,
       "applicationOpensAt": null,
-      "catalogHash": "e96309998123f4f86e0f9e5a8cd1d34266d7cc90dbce51510d9c47a5554a7625",
+      "catalogHash": "e44ee9f635d21c5439d448d69f29d411a82273b437aa112f6841c63f72a9d4db",
       "catalogueStatus": "blocked",
+      "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
       "observedWindowCount": 0,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
       "programmesWithoutDeadlines": 1,
       "programmesNeedingReview": 1,
       "limitationReason": "UMass Chan's official GSBS catalogue and admissions pages return a Cloudflare access-denied response to unattended clients. Its official application-management page is monitored as a first-party availability heartbeat; programme names and dates are not copied from search snippets. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-20T06:03:52.171156+00:00",
+      "lastSuccessfulAt": "2026-08-21T06:14:30.363502+00:00",
       "windowFingerprint": "dda52c31eab1a73874175ee5d724a51337227d31d35654707ecb7897967ea02b",
       "watchedWindowSourceHash": "9c657d64f2c6c0b957e6da58be0c64172bed55df24640deb2053190fad59b597",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -26,11 +28,14 @@
           "faculty": "Morningside Graduate School of Biomedical Sciences",
           "department": "Graduate Admissions",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         }
       },
       "windows": {},
-      "adapterWarnings": []
+      "adapterWarnings": [],
+      "adapterDiagnostics": {}
     }
   }
 }

@@ -2,22 +2,41 @@
   "universities": {
     "university-of-twente": {
       "sourceUrl": "https://www.utwente.nl/en/education/master/programmes/",
-      "checkedAt": "2026-08-12T06:34:37.145203+00:00",
+      "checkedAt": "2026-08-21T06:03:41.656127+00:00",
       "itemCount": 37,
       "applicationOpensAt": null,
-      "catalogHash": "afe4f6b09c692c1eb2e8306536f85f73a7c93d2e98a37c0d0aa245c616368ba1",
+      "catalogHash": "40b63b2987558ad124ec5d36ca55191c1ccfed5caf0266275e34112f917f83a4",
       "catalogueStatus": "ok",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "catalogueGranularity": "programme-level",
+      "windowStatus": "recurring-policy-partial",
+      "observedWindowCount": 144,
       "exactWindowCount": 0,
-      "recurringPolicyWindowCount": 0,
+      "recurringPolicyWindowCount": 144,
+      "windowCountsByCycle": {
+        "2027:fall:09": {
+          "intakes": [
+            "September 2027"
+          ],
+          "observedWindowCount": 72,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 72
+        },
+        "2027:other:02": {
+          "intakes": [
+            "February 2027"
+          ],
+          "observedWindowCount": 72,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 72
+        }
+      },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 37,
-      "programmesNeedingReview": 37,
-      "limitationReason": "Twente's official study finder provides a complete master's catalogue. Application deadlines vary by programme, nationality, prior education, and intake, so exact window discovery remains programme-specific. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-12T06:34:37.145203+00:00",
-      "windowFingerprint": "f2efb5cbf4b0c597eb8b11b880db68d62126e1bded80f1bc62ad21e8dca43221",
-      "watchedWindowSourceHash": "61907569dc9464c81b9caba55dcaee8b7a770a258e4d9a47b0d3ed744d24c775",
+      "programmesWithoutDeadlines": 1,
+      "programmesNeedingReview": 1,
+      "limitationReason": "Twente's official study finder provides the master's catalogue. The standard EEA and non-EEA application periods are published as annual rules; programmes explicitly listed with deviating deadlines are kept in monitoring until their separate rules are parsed. 144 window(s) use an official recurring day/month policy; GradWindow maps the cycle year. 1 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-08-21T06:03:41.656127+00:00",
+      "windowFingerprint": "b77924001609945e6909adce483fd26cb8d44be300046e0ef185c217d6f29eeb",
+      "watchedWindowSourceHash": "0745ed637d07df061ed0a8e871a2d74423ebb3d32ae44ad979d628b8a1277916",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
         "twente-applied-mathematics-msc": {
@@ -25,224 +44,280 @@
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-applied-physics-msc": {
           "name": "Applied Physics",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-biomedical-engineering-msc": {
           "name": "Biomedical Engineering",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-business-administration-msc": {
           "name": "Business Administration",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-business-information-technology-msc": {
           "name": "Business Information Technology",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-chemical-science-engineering-msc": {
           "name": "Chemical Science & Engineering",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-civil-engineering-management-msc": {
           "name": "Civil Engineering & Management",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-communication-science-msc": {
           "name": "Communication Science",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-computer-science-msc": {
           "name": "Computer Science",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-construction-management-engineering-msc": {
           "name": "Construction Management & Engineering",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-educational-science-technology-msc": {
           "name": "Educational Science & Technology",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-electrical-engineering-msc": {
           "name": "Electrical Engineering",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-embedded-systems-msc": {
           "name": "Embedded Systems",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-environmental-energy-management-msc": {
           "name": "Environmental & Energy Management",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-european-studies-msc": {
           "name": "European Studies",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-geo-information-science-earth-observation-msc": {
           "name": "Geo-information Science & Earth Observation",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc": {
           "name": "Geo-information Science & Earth Observation for Environmental Modelling and Management",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-geographical-information-management-applications-joint-degree-msc": {
           "name": "Geographical Information Management & Applications (joint degree)",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-health-sciences-msc": {
           "name": "Health Sciences",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-humanitarian-engineering-msc": {
           "name": "Humanitarian Engineering",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-industrial-design-engineering-msc": {
           "name": "Industrial Design Engineering",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-industrial-engineering-management-msc": {
           "name": "Industrial Engineering & Management",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-interaction-technology-msc": {
           "name": "Interaction Technology",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-mechanical-engineering-msc": {
           "name": "Mechanical Engineering",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-medical-imaging-interventions-msc": {
           "name": "Medical Imaging & Interventions",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-medical-sensing-stimulation-msc": {
           "name": "Medical Sensing & Stimulation",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-nanotechnology-msc": {
           "name": "Nanotechnology",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-philosophy-of-science-technology-society-msc": {
           "name": "Philosophy of Science, Technology & Society",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-psychology-msc": {
           "name": "Psychology",
@@ -250,73 +325,1391 @@
           "faculty": "University of Twente",
           "department": "University of Twente",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "twente-public-administration-msc": {
           "name": "Public Administration",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-robotics-msc": {
           "name": "Robotics",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-science-education-msc": {
           "name": "Science Education",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-spatial-systems-society-msc": {
           "name": "Spatial Systems & Society",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-sustainable-computing-msc": {
           "name": "Sustainable Computing",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-sustainable-energy-technology-msc": {
           "name": "Sustainable Energy Technology",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-technical-medicine-msc": {
           "name": "Technical Medicine",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         },
         "twente-water-technology-msc": {
           "name": "Water Technology",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
         }
-      }
+      },
+      "windows": {
+        "twente-applied-mathematics-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-applied-mathematics-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-applied-mathematics-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-applied-mathematics-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-applied-mathematics-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-applied-mathematics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-applied-mathematics-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-applied-mathematics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-applied-physics-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-applied-physics-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-applied-physics-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-applied-physics-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-applied-physics-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-applied-physics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-applied-physics-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-applied-physics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-biomedical-engineering-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-biomedical-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-biomedical-engineering-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-biomedical-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-biomedical-engineering-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-biomedical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-biomedical-engineering-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-biomedical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-business-administration-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-business-administration-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-business-administration-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-business-administration-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-business-administration-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-business-administration-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-business-administration-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-business-administration-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-business-information-technology-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-business-information-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-business-information-technology-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-business-information-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-business-information-technology-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-business-information-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-business-information-technology-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-business-information-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-chemical-science-engineering-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-chemical-science-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-chemical-science-engineering-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-chemical-science-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-chemical-science-engineering-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-chemical-science-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-chemical-science-engineering-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-chemical-science-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-civil-engineering-management-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-civil-engineering-management-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-civil-engineering-management-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-civil-engineering-management-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-civil-engineering-management-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-civil-engineering-management-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-civil-engineering-management-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-civil-engineering-management-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-communication-science-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-communication-science-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-communication-science-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-communication-science-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-communication-science-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-communication-science-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-communication-science-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-communication-science-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-computer-science-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-computer-science-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-computer-science-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-computer-science-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-computer-science-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-computer-science-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-computer-science-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-computer-science-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-construction-management-engineering-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-construction-management-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-construction-management-engineering-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-construction-management-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-construction-management-engineering-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-construction-management-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-construction-management-engineering-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-construction-management-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-educational-science-technology-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-educational-science-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-educational-science-technology-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-educational-science-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-educational-science-technology-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-educational-science-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-educational-science-technology-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-educational-science-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-electrical-engineering-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-electrical-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-electrical-engineering-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-electrical-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-electrical-engineering-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-electrical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-electrical-engineering-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-electrical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-embedded-systems-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-embedded-systems-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-embedded-systems-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-embedded-systems-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-embedded-systems-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-embedded-systems-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-embedded-systems-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-embedded-systems-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-environmental-energy-management-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-environmental-energy-management-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-environmental-energy-management-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-environmental-energy-management-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-environmental-energy-management-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-environmental-energy-management-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-environmental-energy-management-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-environmental-energy-management-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-european-studies-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-european-studies-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-european-studies-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-european-studies-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-european-studies-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-european-studies-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-european-studies-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-european-studies-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geo-information-science-earth-observation-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-geo-information-science-earth-observation-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geo-information-science-earth-observation-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-geo-information-science-earth-observation-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geo-information-science-earth-observation-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-geo-information-science-earth-observation-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geo-information-science-earth-observation-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-geo-information-science-earth-observation-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-geo-information-science-earth-observation-for-environmental-modelling-and-management-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geographical-information-management-applications-joint-degree-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-geographical-information-management-applications-joint-degree-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geographical-information-management-applications-joint-degree-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-geographical-information-management-applications-joint-degree-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geographical-information-management-applications-joint-degree-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-geographical-information-management-applications-joint-degree-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-geographical-information-management-applications-joint-degree-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-geographical-information-management-applications-joint-degree-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-health-sciences-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-health-sciences-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-health-sciences-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-health-sciences-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-health-sciences-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-health-sciences-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-health-sciences-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-health-sciences-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-humanitarian-engineering-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-humanitarian-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-humanitarian-engineering-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-humanitarian-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-humanitarian-engineering-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-humanitarian-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-humanitarian-engineering-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-humanitarian-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-industrial-design-engineering-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-industrial-design-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-industrial-design-engineering-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-industrial-design-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-industrial-design-engineering-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-industrial-design-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-industrial-design-engineering-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-industrial-design-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-industrial-engineering-management-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-industrial-engineering-management-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-industrial-engineering-management-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-industrial-engineering-management-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-industrial-engineering-management-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-industrial-engineering-management-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-industrial-engineering-management-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-industrial-engineering-management-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-interaction-technology-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-interaction-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-interaction-technology-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-interaction-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-interaction-technology-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-interaction-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-interaction-technology-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-interaction-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-mechanical-engineering-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-mechanical-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-mechanical-engineering-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-mechanical-engineering-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-mechanical-engineering-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-mechanical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-mechanical-engineering-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-mechanical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-medical-imaging-interventions-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-medical-imaging-interventions-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-medical-imaging-interventions-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-medical-imaging-interventions-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-medical-imaging-interventions-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-medical-imaging-interventions-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-medical-imaging-interventions-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-medical-imaging-interventions-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-medical-sensing-stimulation-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-medical-sensing-stimulation-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-medical-sensing-stimulation-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-medical-sensing-stimulation-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-medical-sensing-stimulation-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-medical-sensing-stimulation-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-medical-sensing-stimulation-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-medical-sensing-stimulation-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-nanotechnology-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-nanotechnology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-nanotechnology-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-nanotechnology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-nanotechnology-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-nanotechnology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-nanotechnology-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-nanotechnology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-philosophy-of-science-technology-society-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-philosophy-of-science-technology-society-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-philosophy-of-science-technology-society-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-philosophy-of-science-technology-society-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-philosophy-of-science-technology-society-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-philosophy-of-science-technology-society-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-philosophy-of-science-technology-society-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-philosophy-of-science-technology-society-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-public-administration-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-public-administration-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-public-administration-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-public-administration-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-public-administration-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-public-administration-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-public-administration-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-public-administration-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-robotics-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-robotics-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-robotics-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-robotics-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-robotics-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-robotics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-robotics-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-robotics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-science-education-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-science-education-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-science-education-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-science-education-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-science-education-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-science-education-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-science-education-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-science-education-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-spatial-systems-society-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-spatial-systems-society-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-spatial-systems-society-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-spatial-systems-society-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-spatial-systems-society-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-spatial-systems-society-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-spatial-systems-society-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-spatial-systems-society-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-sustainable-computing-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-sustainable-computing-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-sustainable-computing-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-sustainable-computing-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-sustainable-computing-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-sustainable-computing-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-sustainable-computing-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-sustainable-computing-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-sustainable-energy-technology-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-sustainable-energy-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-sustainable-energy-technology-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-sustainable-energy-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-sustainable-energy-technology-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-sustainable-energy-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-sustainable-energy-technology-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-sustainable-energy-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-technical-medicine-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-technical-medicine-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-technical-medicine-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-technical-medicine-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-technical-medicine-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-technical-medicine-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-technical-medicine-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-technical-medicine-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-water-technology-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-water-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-water-technology-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-water-technology-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-water-technology-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-water-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-water-technology-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-water-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        }
+      },
+      "adapterWarnings": [],
+      "adapterDiagnostics": {}
     }
   }
 }
