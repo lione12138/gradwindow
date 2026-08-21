@@ -2,21 +2,32 @@
   "universities": {
     "vrije-universiteit-amsterdam": {
       "sourceUrl": "https://vu.nl/en/education/master/programmes",
-      "checkedAt": "2026-08-15T05:57:02.247007+00:00",
+      "checkedAt": "2026-08-21T06:19:35.957126+00:00",
       "itemCount": 114,
       "applicationOpensAt": null,
-      "catalogHash": "bbe64c4c898f19c1bf5acfca699f122806e33cecae3d531967fc6597f2593679",
+      "catalogHash": "8ad159983aa0a77ed3f53a2bb7d8f315437779c66c1725aebaceb00febdc93a4",
       "catalogueStatus": "ok",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "catalogueGranularity": "programme-level",
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 4,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 114,
+      "windowCountsByCycle": {
+        "2027:other:02": {
+          "intakes": [
+            "February 2027"
+          ],
+          "observedWindowCount": 4,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 4,
+      "programmesWithoutDeadlines": 112,
       "programmesNeedingReview": 114,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-15T05:57:02.247007+00:00",
-      "windowFingerprint": "9225b4864bf8a730310f5d78b13485181da3e767ab5eb45304e4099e871a5081",
+      "limitationReason": "4 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-08-21T06:19:35.957126+00:00",
+      "windowFingerprint": "89eb208b8b05feb8458832aeeacde9bba0049cd0b2f75938807725ff0580d450",
       "watchedWindowSourceHash": "e4f64abca6b0acace26b412bb8025b7be0215082e88cfde4c1ac33a7e759627c",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
@@ -26,7 +37,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-archaeology-master": {
           "name": "Archaeology",
@@ -34,7 +47,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-architecture-cities-landscapes-history-and-heritage-master": {
           "name": "Architecture, Cities, Landscapes: History and Heritage",
@@ -42,7 +57,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-artificial-intelligence-master": {
           "name": "Artificial Intelligence",
@@ -50,7 +67,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-arts-culture-comparative-arts-and-media-studies-master": {
           "name": "Arts & Culture: Comparative Arts and Media Studies",
@@ -58,7 +77,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-arts-culture-contemporary-art-history-master": {
           "name": "Arts & Culture: Contemporary Art History",
@@ -66,7 +87,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-arts-culture-design-cultures-master": {
           "name": "Arts & Culture: Design Cultures",
@@ -74,7 +97,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-arts-and-culture-master": {
           "name": "Arts and Culture",
@@ -82,7 +107,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-bioinformatics-and-systems-biology-joint-degree-vu-uva-master": {
           "name": "Bioinformatics and Systems Biology (joint degree VU/UvA)",
@@ -90,7 +117,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-biomedical-sciences-master": {
           "name": "Biomedical Sciences",
@@ -98,7 +127,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-biomedical-technology-and-physics-master": {
           "name": "Biomedical Technology and Physics",
@@ -106,7 +137,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-biomolecular-sciences-master": {
           "name": "Biomolecular Sciences",
@@ -114,7 +147,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-business-administration-master": {
           "name": "Business Administration",
@@ -122,7 +157,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-business-analytics-master": {
           "name": "Business Analytics",
@@ -130,7 +167,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-chemistry-master": {
           "name": "Chemistry",
@@ -138,7 +177,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-cis-dialogue-health-and-society-master": {
           "name": "CIS: Dialogue, Health and Society",
@@ -146,7 +187,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-cis-multimodal-communication-master": {
           "name": "CIS: Multimodal Communication",
@@ -154,7 +197,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-classics-and-ancient-civilizations-master": {
           "name": "Classics and Ancient Civilizations",
@@ -162,7 +207,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-classics-and-ancient-civilizations-research-master": {
           "name": "Classics and Ancient Civilizations: Research",
@@ -170,7 +217,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-clinical-and-developmental-psychopathology-research-master-master": {
           "name": "Clinical and Developmental Psychopathology (research master)",
@@ -178,7 +227,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-cognitive-neuropsychology-research-master-master": {
           "name": "Cognitive Neuropsychology (research master)",
@@ -186,7 +237,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-communication-and-information-studies-master": {
           "name": "Communication and Information Studies",
@@ -194,7 +247,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-communication-science-master": {
           "name": "Communication Science",
@@ -202,7 +257,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-communication-science-marketing-communication-master": {
           "name": "Communication Science: Marketing Communication",
@@ -210,7 +267,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-communication-science-media-and-democracy-master": {
           "name": "Communication Science: Media and Democracy",
@@ -218,7 +277,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-communication-science-media-psychology-master": {
           "name": "Communication Science: Media Psychology",
@@ -226,7 +287,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-computational-science-master": {
           "name": "Computational Science",
@@ -234,7 +297,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-computer-science-joint-degree-vu-uva-master": {
           "name": "Computer Science (joint degree VU/UvA)",
@@ -242,7 +307,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-computer-security-master": {
           "name": "Computer Security",
@@ -250,7 +317,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-culture-organization-and-management-master": {
           "name": "Culture, Organization and Management",
@@ -258,7 +327,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-curating-art-and-cultures-master": {
           "name": "Curating Art and Cultures",
@@ -266,7 +337,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-development-economics-and-globalisation-spatial-and-applied-economics-master": {
           "name": "Development Economics and Globalisation (Spatial and Applied Economics)",
@@ -274,7 +347,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-digital-business-and-innovation-master": {
           "name": "Digital Business and Innovation",
@@ -282,7 +357,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-drug-discovery-sciences-master": {
           "name": "Drug Discovery Sciences",
@@ -290,7 +367,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-earth-sciences-master": {
           "name": "Earth Sciences",
@@ -298,7 +377,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-ecology-and-evolution-master": {
           "name": "Ecology and Evolution",
@@ -306,7 +387,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-econometrics-and-operations-research-master": {
           "name": "Econometrics and Operations Research",
@@ -314,7 +397,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-economics-master": {
           "name": "Economics",
@@ -322,7 +407,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-english-literature-writing-the-21st-century-master": {
           "name": "English Literature: Writing the 21st Century",
@@ -330,7 +417,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-entrepreneurship-master": {
           "name": "Entrepreneurship",
@@ -338,7 +427,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-environment-and-resource-management-master": {
           "name": "Environment and Resource Management",
@@ -346,7 +437,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-environmental-economics-spatial-and-applied-economics-master": {
           "name": "Environmental Economics (Spatial and Applied Economics)",
@@ -354,7 +447,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-ethics-economics-and-policy-master": {
           "name": "Ethics, Economics, and Policy",
@@ -362,7 +457,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-finance-climate-and-sustainable-finance-master": {
           "name": "Finance: Climate and Sustainable Finance",
@@ -370,7 +467,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-finance-finance-master": {
           "name": "Finance: Finance",
@@ -378,7 +477,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-finance-financial-management-master": {
           "name": "Finance: Financial Management",
@@ -386,7 +487,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-finance-honours-programme-in-corporate-finance-master": {
           "name": "Finance: Honours Programme in Corporate Finance",
@@ -394,7 +497,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-finance-honours-programme-in-finance-and-technology-master": {
           "name": "Finance: Honours Programme in Finance and Technology",
@@ -402,7 +507,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-finance-honours-programme-in-quantitative-finance-master": {
           "name": "Finance: Honours Programme in Quantitative Finance",
@@ -410,7 +517,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-genes-in-behaviour-and-health-research-master-master": {
           "name": "Genes in Behaviour and Health (research master)",
@@ -418,7 +527,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-geographical-information-sciences-unigis-master": {
           "name": "Geographical Information Sciences (UNIGIS)",
@@ -426,7 +537,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-global-health-research-master": {
           "name": "Global Health (Research)",
@@ -434,7 +547,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-health-economics-and-management-spatial-and-applied-economics-master": {
           "name": "Health Economics and Management (Spatial and Applied Economics)",
@@ -442,7 +557,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-health-sciences-master": {
           "name": "Health Sciences",
@@ -450,7 +567,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-history-master": {
           "name": "History",
@@ -458,7 +577,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-human-movement-sciences-master": {
           "name": "Human Movement Sciences",
@@ -466,7 +587,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-human-movement-sciences-research-master-master": {
           "name": "Human Movement Sciences Research Master",
@@ -474,7 +597,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-humanities-research-master": {
           "name": "Humanities Research",
@@ -482,7 +607,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-humanities-research-critical-studies-in-art-and-culture-master": {
           "name": "Humanities Research: Critical Studies in Art and Culture",
@@ -490,7 +617,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-humanities-research-environmental-humanities-master": {
           "name": "Humanities Research: Environmental Humanities",
@@ -498,7 +627,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-humanities-research-global-history-master": {
           "name": "Humanities Research: Global History",
@@ -506,7 +637,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-humanities-research-linguistics-master": {
           "name": "Humanities Research: Linguistics",
@@ -514,7 +647,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-humanities-research-philosophy-master": {
           "name": "Humanities Research: Philosophy",
@@ -522,7 +657,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-hydrology-master": {
           "name": "Hydrology",
@@ -530,7 +667,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-information-sciences-master": {
           "name": "Information Sciences",
@@ -538,7 +677,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-international-business-law-master": {
           "name": "International Business Law",
@@ -546,7 +687,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-international-business-law-climate-change-and-corporations-master": {
           "name": "International Business Law: Climate Change and Corporations",
@@ -554,7 +697,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-international-business-law-trade-investment-master": {
           "name": "International Business Law: Trade & Investment",
@@ -562,7 +707,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-international-crimes-conflict-and-criminology-master": {
           "name": "International Crimes, Conflict and Criminology",
@@ -570,15 +717,19 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-law-master": {
           "name": "Law",
           "degreeType": "Master",
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "e7218d0d872a146bb96b9545421bbacde7cc3c081a8cb20bb428663684ce2c5f",
+          "windowCount": 2,
+          "latestClosesAt": "2027-01-01"
         },
         "vu-amsterdam-law-and-politics-of-international-security-master": {
           "name": "Law and Politics of International Security",
@@ -586,7 +737,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-law-european-and-international-law-master": {
           "name": "Law: European and International Law",
@@ -594,7 +747,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-law-international-migration-and-refugee-law-master": {
           "name": "Law: International Migration and Refugee Law",
@@ -602,7 +757,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-law-international-technology-law-master": {
           "name": "Law: International Technology Law",
@@ -610,7 +767,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-linguistics-master": {
           "name": "Linguistics",
@@ -618,7 +777,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-linguistics-language-and-ai-master": {
           "name": "Linguistics: Language and AI",
@@ -626,7 +787,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-literary-studies-master": {
           "name": "Literary Studies",
@@ -634,7 +797,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-management-policy-analysis-and-entrepreneurship-in-health-life-sciences-master": {
           "name": "Management, Policy Analysis and Entrepreneurship in Health & Life Sciences",
@@ -642,7 +807,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-marketing-master": {
           "name": "Marketing",
@@ -650,15 +817,19 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-mathematics-master": {
           "name": "Mathematics",
           "degreeType": "Master",
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "50233804409210dd61163281ac4d2b6b36b698d49da401148ec52d5ecbf10650",
+          "windowCount": 2,
+          "latestClosesAt": "2026-12-01"
         },
         "vu-amsterdam-musculoskeletal-physiotherapy-sciences-master": {
           "name": "Musculoskeletal Physiotherapy Sciences",
@@ -666,7 +837,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-neurosciences-master": {
           "name": "Neurosciences",
@@ -674,7 +847,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-oncology-master": {
           "name": "Oncology",
@@ -682,7 +857,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-personalized-medicine-master": {
           "name": "Personalized Medicine",
@@ -690,7 +867,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-philosophy-master": {
           "name": "Philosophy",
@@ -698,7 +877,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-philosophy-of-law-and-governance-master": {
           "name": "Philosophy of Law and Governance",
@@ -706,7 +887,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-philosophy-bioethics-and-health-master": {
           "name": "Philosophy, Bioethics and Health",
@@ -714,7 +897,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-physics-and-astronomy-master": {
           "name": "Physics and Astronomy",
@@ -722,7 +907,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-political-science-master": {
           "name": "Political Science",
@@ -730,7 +917,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-political-science-democracy-power-and-inequality-master": {
           "name": "Political Science: Democracy, Power and Inequality",
@@ -738,7 +927,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-political-science-global-environmental-politics-master": {
           "name": "Political Science: Global Environmental Politics",
@@ -746,7 +937,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-political-science-international-relations-geopolitics-and-global-political-economy-master": {
           "name": "Political Science: International Relations: Geopolitics and Global Political Economy",
@@ -754,7 +947,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-political-science-international-relations-peace-and-security-master": {
           "name": "Political Science: International Relations: Peace and Security",
@@ -762,7 +957,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-psychology-master": {
           "name": "Psychology",
@@ -770,7 +967,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-psychology-work-and-organisational-psychology-master": {
           "name": "Psychology: Work and Organisational Psychology",
@@ -778,7 +977,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-public-administration-master": {
           "name": "Public Administration",
@@ -786,7 +987,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-public-administration-artificial-intelligence-and-governance-master": {
           "name": "Public Administration: Artificial Intelligence and Governance",
@@ -794,7 +997,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-public-economics-and-policy-spatial-and-applied-economics-master": {
           "name": "Public Economics and Policy (Spatial and Applied Economics)",
@@ -802,7 +1007,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-real-estate-and-housing-economics-spatial-and-applied-economics-master": {
           "name": "Real Estate and Housing Economics (Spatial and Applied Economics)",
@@ -810,7 +1017,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-regional-and-urban-economics-spatial-and-applied-economics-master": {
           "name": "Regional and Urban Economics (Spatial and Applied Economics)",
@@ -818,7 +1027,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-research-master-business-data-science-tinbergen-institute-master": {
           "name": "Research Master Business Data Science (Tinbergen Institute)",
@@ -826,7 +1037,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-research-master-in-economics-tinbergen-institute-master": {
           "name": "Research Master in Economics (Tinbergen Institute)",
@@ -834,7 +1047,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-science-business-and-innovation-master": {
           "name": "Science, Business and Innovation",
@@ -842,7 +1057,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-social-and-cultural-anthropology-master": {
           "name": "Social and Cultural Anthropology",
@@ -850,7 +1067,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-social-psychology-research-master-master": {
           "name": "Social Psychology (research master)",
@@ -858,7 +1077,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-social-sciences-for-a-digital-society-master": {
           "name": "Social Sciences for a Digital Society",
@@ -866,7 +1087,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-spatial-and-applied-economics-master": {
           "name": "Spatial and Applied Economics",
@@ -874,7 +1097,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-theology-and-religious-studies-master": {
           "name": "Theology and Religious Studies",
@@ -882,7 +1107,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-theology-and-religious-studies-exploring-a-discipline-master": {
           "name": "Theology and Religious Studies: Exploring a Discipline",
@@ -890,7 +1117,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-theology-and-religious-studies-peace-trauma-and-religion-master": {
           "name": "Theology and Religious Studies: Peace, Trauma and Religion",
@@ -898,7 +1127,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-theology-and-religious-studies-research-master": {
           "name": "Theology and Religious Studies: Research",
@@ -906,7 +1137,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-theology-and-religious-studies-spiritual-care-master": {
           "name": "Theology and Religious Studies: Spiritual Care",
@@ -914,7 +1147,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-transport-and-network-economics-spatial-and-applied-economics-master": {
           "name": "Transport and Network Economics (Spatial and Applied Economics)",
@@ -922,7 +1157,9 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "vu-amsterdam-transport-and-supply-chain-management-master": {
           "name": "Transport and Supply Chain Management",
@@ -930,11 +1167,47 @@
           "faculty": "Vrije Universiteit Amsterdam",
           "department": "Vrije Universiteit Amsterdam",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         }
       },
-      "windows": {},
-      "adapterWarnings": []
+      "windows": {
+        "vu-amsterdam-law-master::February 2027::February intake application deadline::eu-efta": {
+          "programmeId": "vu-amsterdam-law-master",
+          "intake": "February 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-01",
+          "sourceUrl": "https://vu.nl/en/education/more-about/apply-masters-programme",
+          "opensAtBasis": null
+        },
+        "vu-amsterdam-law-master::February 2027::February intake application deadline::non-eu-efta": {
+          "programmeId": "vu-amsterdam-law-master",
+          "intake": "February 2027",
+          "opensAt": null,
+          "closesAt": "2026-11-01",
+          "sourceUrl": "https://vu.nl/en/education/more-about/apply-masters-programme",
+          "opensAtBasis": null
+        },
+        "vu-amsterdam-mathematics-master::February 2027::February intake application deadline::eu-efta": {
+          "programmeId": "vu-amsterdam-mathematics-master",
+          "intake": "February 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://vu.nl/en/education/more-about/apply-masters-programme",
+          "opensAtBasis": null
+        },
+        "vu-amsterdam-mathematics-master::February 2027::February intake application deadline::non-eu-efta": {
+          "programmeId": "vu-amsterdam-mathematics-master",
+          "intake": "February 2027",
+          "opensAt": null,
+          "closesAt": "2026-11-01",
+          "sourceUrl": "https://vu.nl/en/education/more-about/apply-masters-programme",
+          "opensAtBasis": null
+        }
+      },
+      "adapterWarnings": [],
+      "adapterDiagnostics": {}
     }
   }
 }

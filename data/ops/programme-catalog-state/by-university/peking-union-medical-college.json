@@ -2,20 +2,31 @@
   "universities": {
     "peking-union-medical-college": {
       "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1013/2124.htm",
-      "checkedAt": "2026-08-20T05:44:34.876003+00:00",
+      "checkedAt": "2026-08-21T05:50:56.634696+00:00",
       "itemCount": 2,
       "applicationOpensAt": "2025-10-10",
-      "catalogHash": "ddded3bad76fcdb0195e8235e7e5d26cb52f744bc0a04a6de9ee1e272fe452cf",
+      "catalogHash": "adafd16c8a13580145564e2e0a045f60d2e31f947a02c574523f02780157c1bc",
       "catalogueStatus": "blocked",
+      "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
       "observedWindowCount": 2,
       "exactWindowCount": 2,
       "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "2026:fall:09": {
+          "intakes": [
+            "Autumn 2026"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 2,
+          "recurringPolicyWindowCount": 0
+        }
+      },
       "missingOpeningDateCount": 0,
       "programmesWithoutDeadlines": 1,
       "programmesNeedingReview": 1,
       "limitationReason": "Peking Union Medical College's official 2026 master's directory is a PDF attachment whose unattended download requires a human verification code. Programme titles are therefore not inferred from snippets. Observed dates are incomplete or not safe for automatic publication. 1 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-20T05:44:34.876003+00:00",
+      "lastSuccessfulAt": "2026-08-21T05:50:56.634696+00:00",
       "windowFingerprint": "18f022b4a024569b648bb644b69ab344a004d7a09d3cdf5e010ea9e59f3bde7d",
       "watchedWindowSourceHash": "5cea7dfea56c813e62260eb54879b317307dacd7e548dfb8282191f1a3c88de6",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -26,7 +37,9 @@
           "faculty": "Graduate School",
           "department": "Graduate Admissions Office",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "pumc-national-master-admissions": {
           "name": "National master's admissions",
@@ -34,12 +47,15 @@
           "faculty": "Graduate School",
           "department": "Graduate Admissions Office",
           "parseStatus": "parsed",
-          "deadlineHash": "4493760d5371743a66b6a7199dd490a3c334cb9270b7b1fac2a424d658d4f47e"
+          "deadlineHash": "4493760d5371743a66b6a7199dd490a3c334cb9270b7b1fac2a424d658d4f47e",
+          "windowCount": 2,
+          "latestClosesAt": "2025-10-27"
         }
       },
       "windows": {
         "pumc-national-master-admissions::Autumn 2026::National master's formal registration::domestic-students": {
           "programmeId": "pumc-national-master-admissions",
+          "intake": "Autumn 2026",
           "opensAt": "2025-10-16",
           "closesAt": "2025-10-27",
           "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1003/2117.htm",
@@ -47,13 +63,15 @@
         },
         "pumc-national-master-admissions::Autumn 2026::National master's pre-registration::domestic-students": {
           "programmeId": "pumc-national-master-admissions",
+          "intake": "Autumn 2026",
           "opensAt": "2025-10-10",
           "closesAt": "2025-10-13",
           "sourceUrl": "https://graduate.pumc.edu.cn/zsw/info/1003/2117.htm",
           "opensAtBasis": "official"
         }
       },
-      "adapterWarnings": []
+      "adapterWarnings": [],
+      "adapterDiagnostics": {}
     }
   }
 }

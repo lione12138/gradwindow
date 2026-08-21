@@ -2,20 +2,47 @@
   "universities": {
     "technical-university-of-munich": {
       "sourceUrl": "https://www.tum.de/en/studies/degree-programs?tx_solr%5Bq%5D=&graduation=Master",
-      "checkedAt": "2026-08-20T05:52:57.165074+00:00",
+      "checkedAt": "2026-08-21T06:01:07.187978+00:00",
       "itemCount": 115,
       "applicationOpensAt": null,
-      "catalogHash": "63e70595d529acaac143180b4e242844e52982cb3ce6d406d5ff46f139894ea8",
+      "catalogHash": "f354dbe990955740fe1d55082eb3b59d623eaa223624ce79474aacb499a40b72",
       "catalogueStatus": "ok",
+      "catalogueGranularity": "programme-level",
       "windowStatus": "mixed-policy-partial",
       "observedWindowCount": 129,
       "exactWindowCount": 2,
       "recurringPolicyWindowCount": 127,
+      "windowCountsByCycle": {
+        "2026-2027:winter:01": {
+          "intakes": [
+            "Winter semester 2026/27"
+          ],
+          "observedWindowCount": 1,
+          "exactWindowCount": 1,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027-2028:winter:01": {
+          "intakes": [
+            "Winter semester 2027/28"
+          ],
+          "observedWindowCount": 85,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 85
+        },
+        "2027:summer:06": {
+          "intakes": [
+            "Summer semester 2027"
+          ],
+          "observedWindowCount": 43,
+          "exactWindowCount": 1,
+          "recurringPolicyWindowCount": 42
+        }
+      },
       "missingOpeningDateCount": 0,
       "programmesWithoutDeadlines": 28,
       "programmesNeedingReview": 28,
       "limitationReason": "127 window(s) use an official recurring day/month policy; GradWindow maps the cycle year. 28 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-20T05:52:57.165074+00:00",
+      "lastSuccessfulAt": "2026-08-21T06:01:07.187978+00:00",
       "windowFingerprint": "9c54bc9be6d792833c19b7e2828490b802b8ff66ee7215cecba3b47df17eab6a",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -26,7 +53,9 @@
           "faculty": "TUM Asia",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-aerospace-master-of-science-msc": {
           "name": "MSc Aerospace",
@@ -34,7 +63,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "5c665159ae279eef06de620c410bd7e38f2f6a76e261e373b2692c8811ffd894"
+          "deadlineHash": "5c665159ae279eef06de620c410bd7e38f2f6a76e261e373b2692c8811ffd894",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-agricultural-biosciences-master-of-science-msc": {
           "name": "MSc Agricultural Biosciences",
@@ -42,7 +73,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "699df6f37870a6b4ee9a2fa9e0fff10baea33df38f7f2dfe5852551731049d35"
+          "deadlineHash": "699df6f37870a6b4ee9a2fa9e0fff10baea33df38f7f2dfe5852551731049d35",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-agrifood-economics-policy-and-regulation": {
           "name": "MSc AgriFood Economics, Policy and Regulation",
@@ -50,7 +83,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "0979c4042c5e759fb83fdf234e2b591ed3f0f8a1db0beb1924ef0172f004421a"
+          "deadlineHash": "0979c4042c5e759fb83fdf234e2b591ed3f0f8a1db0beb1924ef0172f004421a",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-agrosystem-sciences-master-of-science-msc": {
           "name": "MSc Agrosystem Sciences",
@@ -58,7 +93,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "8c3095eda7165a6838ea7818504e349c94f64bb4e551112768d409e99df215eb"
+          "deadlineHash": "8c3095eda7165a6838ea7818504e349c94f64bb4e551112768d409e99df215eb",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-ai-in-biomedicine-master-of-science-msc": {
           "name": "MSc AI in Biomedicine",
@@ -66,7 +103,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "996cd5296ccbfb25e972f9838d9d0823dde4b564e0c2381db83272aa006a2aea"
+          "deadlineHash": "996cd5296ccbfb25e972f9838d9d0823dde4b564e0c2381db83272aa006a2aea",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-ai-in-society": {
           "name": "MSc AI in Society",
@@ -74,7 +113,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "0850ae4b13c02c777903c4cbd53e2609718c4dc8e70b7aa6914f25982e05fecb"
+          "deadlineHash": "0850ae4b13c02c777903c4cbd53e2609718c4dc8e70b7aa6914f25982e05fecb",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-architecture-master-of-arts-ma": {
           "name": "MA Architecture",
@@ -82,7 +123,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "82bf3a52ac14bb2b18b200dbba70831f8095f4347e4e45594285dcd90d520083"
+          "deadlineHash": "82bf3a52ac14bb2b18b200dbba70831f8095f4347e4e45594285dcd90d520083",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-automotive-engineering-master-of-science-msc": {
           "name": "MSc Automotive Engineering",
@@ -90,7 +133,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "e4581ac3c7fab4585f5f80b43ba73c6b99ab83db87f375a2f823183dc933efb1"
+          "deadlineHash": "e4581ac3c7fab4585f5f80b43ba73c6b99ab83db87f375a2f823183dc933efb1",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-biochemistry-master-of-science-msc": {
           "name": "MSc Biochemistry",
@@ -98,7 +143,9 @@
           "faculty": "TUM School of Natural Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "af317834be27211f9a8e882900f45e724136f2a1a416530ea30bb0b97042a09a"
+          "deadlineHash": "af317834be27211f9a8e882900f45e724136f2a1a416530ea30bb0b97042a09a",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-bioeconomy-master-of-science-msc": {
           "name": "MSc Bioeconomy",
@@ -106,7 +153,9 @@
           "faculty": "TUM Campus Straubing for Biotechnology and Sustainability",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "e90772766d87ed0946be283c63ce290ef980ec85e665a8a896fc9991fa7e21e9"
+          "deadlineHash": "e90772766d87ed0946be283c63ce290ef980ec85e665a8a896fc9991fa7e21e9",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-bioinformatics-master-of-science-msc-1": {
           "name": "MSc Bioinformatics",
@@ -114,7 +163,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-biology-master-of-science-msc": {
           "name": "MSc Biology",
@@ -122,7 +173,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "62cb289561153ac41a5b76a4e6e3ecd33e4c5bb763931bcf9d12e93acd0497db"
+          "deadlineHash": "62cb289561153ac41a5b76a4e6e3ecd33e4c5bb763931bcf9d12e93acd0497db",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-biomass-technology-master-of-science-msc": {
           "name": "MSc Biomass Technology",
@@ -130,7 +183,9 @@
           "faculty": "TUM Campus Straubing for Biotechnology and Sustainability",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "527054f751ff1bc5f5a102098b3ec04686f6988829ef1b0e4d7b2e70434bba76"
+          "deadlineHash": "527054f751ff1bc5f5a102098b3ec04686f6988829ef1b0e4d7b2e70434bba76",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-biomedical-engineering-and-medical-physics-master-of-science-msc": {
           "name": "MSc Biomedical Engineering and Medical Physics",
@@ -138,7 +193,9 @@
           "faculty": "TUM School of Natural Sciences",
           "department": "",
           "parseStatus": "parsed",
-          "deadlineHash": "8defc131ba7bc54f3bd7792eaed28f6882f6408330601333d49ad315bbc1fafe"
+          "deadlineHash": "8defc131ba7bc54f3bd7792eaed28f6882f6408330601333d49ad315bbc1fafe",
+          "windowCount": 2,
+          "latestClosesAt": "2026-11-30"
         },
         "tum-biomedical-neuroscience-master-of-science-msc": {
           "name": "MSc Biomedical Neuroscience",
@@ -146,7 +203,9 @@
           "faculty": "TUM School of Medicine and Health",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "57c9c651cf53750d956992c302d0103d7d3c9471484f2c9b6dae37406f1de8b6"
+          "deadlineHash": "57c9c651cf53750d956992c302d0103d7d3c9471484f2c9b6dae37406f1de8b6",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-brewing-and-beverage-technology-master-of-science-msc": {
           "name": "MSc Brewing and Beverage Technology",
@@ -154,7 +213,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "f25611d5c7317d4cf5166a2f99e7155a95ab057b9192e1847890108ba256b52d"
+          "deadlineHash": "f25611d5c7317d4cf5166a2f99e7155a95ab057b9192e1847890108ba256b52d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-business-education-i-master-of-science-msc": {
           "name": "MSc Business Education I",
@@ -162,7 +223,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "c88a4d8aa75e1392c23192ba4740362e0ab53cece8b0aad874e99b20a2ea2c44"
+          "deadlineHash": "c88a4d8aa75e1392c23192ba4740362e0ab53cece8b0aad874e99b20a2ea2c44",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-business-education-ii-with-second-teaching-subject-master-of-science-msc": {
           "name": "MSc Business Education II with second teaching subject",
@@ -170,7 +233,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "485cd045b0553b26475d3cd4d18775d7dda43cc5684aeef4471976a453adba50"
+          "deadlineHash": "485cd045b0553b26475d3cd4d18775d7dda43cc5684aeef4471976a453adba50",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-cartography-master-of-science-msc": {
           "name": "MSc Cartography",
@@ -178,7 +243,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "9dd8d9a6b25697b71f8cbf9e795dda02d2efcf4d061548fd1c318070e840f646"
+          "deadlineHash": "9dd8d9a6b25697b71f8cbf9e795dda02d2efcf4d061548fd1c318070e840f646",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-chemical-biotechnology-master-of-science-msc": {
           "name": "MSc Chemical Biotechnology",
@@ -186,7 +253,9 @@
           "faculty": "TUM Campus Straubing for Biotechnology and Sustainability",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "5550927e705ee1f9bf13bd2e1a8cf1c98225762b3849bb9bf70985d576f23713"
+          "deadlineHash": "5550927e705ee1f9bf13bd2e1a8cf1c98225762b3849bb9bf70985d576f23713",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-chemical-engineering-master-of-science-msc": {
           "name": "MSc Chemical Engineering",
@@ -194,7 +263,9 @@
           "faculty": "TUM School of Natural Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "dbb33f3366d0d429aee40bee95bdb6b2862243563bb37d8883450566f9cdfc36"
+          "deadlineHash": "dbb33f3366d0d429aee40bee95bdb6b2862243563bb37d8883450566f9cdfc36",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-chemistry-master-of-science-msc": {
           "name": "MSc Chemistry",
@@ -202,7 +273,9 @@
           "faculty": "TUM School of Natural Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "379e8f9f8deac4eea318bde924802ee1387e5a960f52837fcf5e78d161de1102"
+          "deadlineHash": "379e8f9f8deac4eea318bde924802ee1387e5a960f52837fcf5e78d161de1102",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-civil-engineering-master-of-science-msc": {
           "name": "MSc Civil Engineering",
@@ -210,7 +283,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "e7274ed26fb16395ed5bcf45e319a8c40554ee84c2a8eb3ecfe8b78dfff8268b"
+          "deadlineHash": "e7274ed26fb16395ed5bcf45e319a8c40554ee84c2a8eb3ecfe8b78dfff8268b",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-communications-engineering-master-of-science-msc": {
           "name": "MSc Communications and Electronics Engineering",
@@ -218,7 +293,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "ba14866e15333ba787be9b293175c3b8bd1790ffcb55842f890134c4be689685"
+          "deadlineHash": "ba14866e15333ba787be9b293175c3b8bd1790ffcb55842f890134c4be689685",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-computational-mechanics-master-of-science-msc": {
           "name": "MSc Computational Mechanics",
@@ -226,7 +303,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "58263cabd48a7021576db910093290743ccab86044a868f46e4e10ee7f3c158d"
+          "deadlineHash": "58263cabd48a7021576db910093290743ccab86044a868f46e4e10ee7f3c158d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-computational-science-and-engineering-cse-master-of-science-msc": {
           "name": "MSc Computational Science and Engineering (CSE)",
@@ -234,7 +313,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "141b30b9590a3d34e95c7fa15c15dc026b29ad32d9e4cb2cb4aaf74ca776d91b"
+          "deadlineHash": "141b30b9590a3d34e95c7fa15c15dc026b29ad32d9e4cb2cb4aaf74ca776d91b",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-conservation-and-landscape-planning-master-of-science-msc": {
           "name": "MSc Conservation and Landscape Planning",
@@ -242,7 +323,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "3758239044f50e3c124c7f520566c7ed7ac6d190e429d9f55dcf7280782436cb"
+          "deadlineHash": "3758239044f50e3c124c7f520566c7ed7ac6d190e429d9f55dcf7280782436cb",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-consumer-science-master-of-science-msc": {
           "name": "MSc Consumer Science",
@@ -250,7 +333,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "adc50888ec0d409af8cc6ebd3b7f108a56bf31db317e749c1e05187125eb074d"
+          "deadlineHash": "adc50888ec0d409af8cc6ebd3b7f108a56bf31db317e749c1e05187125eb074d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-data-and-society-master-of-science-msc": {
           "name": "MSc Data & Society",
@@ -258,7 +343,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "af2ae2e54ecec74e2b227ca944cf65b83f6b3fc9511154da5c56e633047b696b"
+          "deadlineHash": "af2ae2e54ecec74e2b227ca944cf65b83f6b3fc9511154da5c56e633047b696b",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-data-engineering-and-analytics-master-of-science-msc": {
           "name": "MSc Data Engineering and Analytics",
@@ -266,7 +353,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "9a8bd7768131ca3db08919bf4be894f216add2f9457a89e356ad3d6a1ebac262"
+          "deadlineHash": "9a8bd7768131ca3db08919bf4be894f216add2f9457a89e356ad3d6a1ebac262",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-development-production-and-management-in-mechanical-engineering-master-of-science-msc": {
           "name": "MSc Development, Production and Management in Mechanical Engineering",
@@ -274,7 +363,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "1077b017433bb4641ca76d109a74233ed8dc0a8b443dc977b105fe1f579c5c88"
+          "deadlineHash": "1077b017433bb4641ca76d109a74233ed8dc0a8b443dc977b105fe1f579c5c88",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-ecological-engineering-master-of-science-msc": {
           "name": "MSc Ecological Engineering",
@@ -282,7 +373,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "1f7678b7c0d89aef9ca1d6d3eb60a3a0c3f5887533f835c9fc13b9ea57480148"
+          "deadlineHash": "1f7678b7c0d89aef9ca1d6d3eb60a3a0c3f5887533f835c9fc13b9ea57480148",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-electrical-engineering-and-information-technology-master-of-science-msc": {
           "name": "MSc Electrical Engineering and Information Technology",
@@ -290,7 +383,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "30bcb35db37c4548a4db4a3c0706c5e4ca3385e0453abbe6b50514a5dc7cc7a0"
+          "deadlineHash": "30bcb35db37c4548a4db4a3c0706c5e4ca3385e0453abbe6b50514a5dc7cc7a0",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-energy-and-process-engineering-master-of-science-msc": {
           "name": "MSc Energy and Process Engineering",
@@ -298,7 +393,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "26bcc7a06066b036bcbfae17db61207cdf6598372094f37afaa53a697f9c7520"
+          "deadlineHash": "26bcc7a06066b036bcbfae17db61207cdf6598372094f37afaa53a697f9c7520",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-engineering-geology-and-hydrogeology-master-of-science-msc": {
           "name": "MSc Engineering Geology and Hydrogeology",
@@ -306,7 +403,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "337a49889686c9a8cb8ee92330296560fd90cbf2a89fddb16d7c93eebb47ecd4"
+          "deadlineHash": "337a49889686c9a8cb8ee92330296560fd90cbf2a89fddb16d7c93eebb47ecd4",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-environmental-engineering-master-of-science-msc": {
           "name": "MSc Environmental Engineering",
@@ -314,7 +413,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "ea3dd8db2adc0da2bfc7ba24c37ca6b2a3c6172fb5bcb861e6870b0794034806"
+          "deadlineHash": "ea3dd8db2adc0da2bfc7ba24c37ca6b2a3c6172fb5bcb861e6870b0794034806",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-ergonomics-human-factors-engineering-master-of-science-msc": {
           "name": "MSc Human Factors Engineering",
@@ -322,7 +423,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "432fd82d93bc5e670812760630000fbe304c6a52c0a7580143a479b18451681d"
+          "deadlineHash": "432fd82d93bc5e670812760630000fbe304c6a52c0a7580143a479b18451681d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "tum-espace-earth-oriented-space-science-and-technology-master-of-science-msc": {
           "name": "MSc ESPACE – Earth Oriented Space Science and Technology",
@@ -330,7 +433,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "11aac7b9c87e4a47fe3ff6a2002db3cbae1ca6dffd02b8f2d183d7e23288496c"
+          "deadlineHash": "11aac7b9c87e4a47fe3ff6a2002db3cbae1ca6dffd02b8f2d183d7e23288496c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-executive-mba-in-business-it-master-of-business-administration-mba": {
           "name": "MBA Executive MBA in Business & IT",
@@ -338,7 +443,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-executive-mba-in-general-management-master-of-business-administration-mba": {
           "name": "MBA Executive MBA in General Management",
@@ -346,7 +453,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-executive-mba-in-innovation-and-business-creation-master-of-business-administration-mba": {
           "name": "MBA Executive MBA in Innovation and Business Creation",
@@ -354,7 +463,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-finance-and-information-management-fim-master-of-science-msc": {
           "name": "MSc Finance and Information Management (FIM)",
@@ -362,7 +473,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "9584c684d6eabb3f1c988c176172c6ad63e2909527ced111aef078351ca2dc7b"
+          "deadlineHash": "9584c684d6eabb3f1c988c176172c6ad63e2909527ced111aef078351ca2dc7b",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-food-chemistry-master-of-science-msc": {
           "name": "MSc Food Chemistry",
@@ -370,7 +483,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "9e97c888a3b1cec78d6051d804eee2170eaf5c936903cc9e20cf5ed538afaf81"
+          "deadlineHash": "9e97c888a3b1cec78d6051d804eee2170eaf5c936903cc9e20cf5ed538afaf81",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-food-technology-and-biotechnology-master-of-science-msc": {
           "name": "MSc Food Technology",
@@ -378,7 +493,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "b707dd980d166917a95e6f8fd2359bd77e85e7591dc7028f7eb2868e0e76024c"
+          "deadlineHash": "b707dd980d166917a95e6f8fd2359bd77e85e7591dc7028f7eb2868e0e76024c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-forest-and-wood-science-master-of-science-msc": {
           "name": "MSc Forest and Wood Science",
@@ -386,7 +503,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-geodesy-and-geoinformation-master-of-science-msc": {
           "name": "MSc Geodesy and Geoinformation",
@@ -394,7 +513,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "d034faeed63b9b84a6a1430cb0fac7a69700c9142e5c1fe5a4f8adddb511688d"
+          "deadlineHash": "d034faeed63b9b84a6a1430cb0fac7a69700c9142e5c1fe5a4f8adddb511688d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-geomaterials-and-geochemistry-master-of-science-msc": {
           "name": "MSc Geomaterials and Geochemistry",
@@ -402,7 +523,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-geophysics": {
           "name": "MSc Geophysics",
@@ -410,7 +533,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-geothermie-geoenergie-master-of-science-msc": {
           "name": "MSc GeoThermie / GeoEnergie",
@@ -418,7 +543,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-green-electronics-master-of-science-msc": {
           "name": "MSc Green Electronics",
@@ -426,7 +553,9 @@
           "faculty": "TUM Asia",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-health-science-prevention-and-health-promotion-master-of-science-msc": {
           "name": "MSc Health Science – Prevention and Health Promotion",
@@ -434,7 +563,9 @@
           "faculty": "TUM School of Medicine and Health",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "afe9e75ac924f6c963b7270876bb37ddfed28cf1ed6f71748656524ffda3e6eb"
+          "deadlineHash": "afe9e75ac924f6c963b7270876bb37ddfed28cf1ed6f71748656524ffda3e6eb",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-industrial-biotechnology-master-of-science-msc": {
           "name": "MSc Industrial Biotechnology",
@@ -442,7 +573,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "3118c4af1343f527cd72616fe66b0fca4c7646764d1e3d8ce02220a4b8f379ce"
+          "deadlineHash": "3118c4af1343f527cd72616fe66b0fca4c7646764d1e3d8ce02220a4b8f379ce",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-industrial-chemistry-master-of-science-msc": {
           "name": "MSc Industrial Chemistry",
@@ -450,7 +583,9 @@
           "faculty": "TUM Asia",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-informatics-games-engineering-master-of-science-msc": {
           "name": "MSc Informatics: Games Engineering",
@@ -458,7 +593,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "caa2086f191f1abae34c107edf625b9f851d63322784615f3f6a16700dd0a3fc"
+          "deadlineHash": "caa2086f191f1abae34c107edf625b9f851d63322784615f3f6a16700dd0a3fc",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-informatics-msc": {
           "name": "MSc Informatics",
@@ -466,7 +603,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "6d703704dcf4442a9b72edaa1e819e3f7f5599163563377da0b9ee82fbf8f78e"
+          "deadlineHash": "6d703704dcf4442a9b72edaa1e819e3f7f5599163563377da0b9ee82fbf8f78e",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-information-engineering-master-of-science-msc": {
           "name": "MSc Information Engineering (at TUM Campus Heilbronn)",
@@ -474,7 +613,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "955de6662faae5eb149346402b5622f91fc0c4d6134e0d3d35d03b0d56aef0e5"
+          "deadlineHash": "955de6662faae5eb149346402b5622f91fc0c4d6134e0d3d35d03b0d56aef0e5",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-information-systems-master-of-science-msc": {
           "name": "MSc Information Systems",
@@ -482,7 +623,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "51bc6357b4163e08214555f54c38204b08543c5caf356540e04cff71dd5d904a"
+          "deadlineHash": "51bc6357b4163e08214555f54c38204b08543c5caf356540e04cff71dd5d904a",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-information-technologies-for-the-built-environment-master-of-science-msc": {
           "name": "MSc Information Technologies for the Built Environment",
@@ -490,7 +633,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "965e20c9fb695c66d41836e77c65fac577a11f3ae8f393306b9067f67addbd7e"
+          "deadlineHash": "965e20c9fb695c66d41836e77c65fac577a11f3ae8f393306b9067f67addbd7e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-integrated-circuit-design-master-of-science-msc": {
           "name": "MSc Integrated Circuit Design",
@@ -498,7 +643,9 @@
           "faculty": "TUM Asia",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-land-management-and-geospatial-science-master-of-science-msc": {
           "name": "MSc Land Management and Geospatial Science",
@@ -506,7 +653,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "a46892de5a287c40b1bda521df3a45a1675e1b845990b03a60175882d4a60fce"
+          "deadlineHash": "a46892de5a287c40b1bda521df3a45a1675e1b845990b03a60175882d4a60fce",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-landscape-architecture-master-of-arts-ma": {
           "name": "MA Landscape Architecture",
@@ -514,7 +663,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "865f00997028c99025946b09e4446186f7c398f38bf0e89df055b78d7f84b750"
+          "deadlineHash": "865f00997028c99025946b09e4446186f7c398f38bf0e89df055b78d7f84b750",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-lehramt-an-beruflichen-schulen-masterstudiengang-berufliche-bildung-integriert-master-of-education-med": {
           "name": "MEd Lehramt an beruflichen Schulen – Masterstudiengang Berufliche Bildung Integriert",
@@ -522,7 +673,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-logistics-engineering-and-management-master-of-science-msc": {
           "name": "MSc Logistics Engineering and Management",
@@ -530,7 +683,9 @@
           "faculty": "TUM Asia",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-management-and-digital-technology": {
           "name": "MSc Management and Digital Technology",
@@ -538,7 +693,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "7b77b988cc88275f6ce56299230c186602887a1ad47a889f4acbfd2057365474"
+          "deadlineHash": "7b77b988cc88275f6ce56299230c186602887a1ad47a889f4acbfd2057365474",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-management-and-innovation-master-of-science-msc": {
           "name": "MSc Management and Innovation",
@@ -546,7 +703,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-management-and-technology-tum-bwl-master-of-science-msc": {
           "name": "MSc Management and Technology",
@@ -554,7 +713,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "8e1cd42c93d82268a1ac690d462cd233b0e317f6578fc1a2a57163e233597ed3"
+          "deadlineHash": "8e1cd42c93d82268a1ac690d462cd233b0e317f6578fc1a2a57163e233597ed3",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-management-main-location-heilbronn-master-of-science-msc": {
           "name": "MSc Management (am Campus Heilbronn)",
@@ -562,7 +723,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "b426bdca2ba2434eee238d4e9b6315793eadb691e9c2ab742827a3ecb6a2d386"
+          "deadlineHash": "b426bdca2ba2434eee238d4e9b6315793eadb691e9c2ab742827a3ecb6a2d386",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-management-main-location-munich-master-of-science-msc": {
           "name": "MSc Management (Main Location: Munich)",
@@ -570,7 +733,9 @@
           "faculty": "TUM School of Management",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "ce598786870fd41b4b30511c32a5539b422a857f27cd0e1ca47b797d653df412"
+          "deadlineHash": "ce598786870fd41b4b30511c32a5539b422a857f27cd0e1ca47b797d653df412",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-materials-science-and-engineering-master-of-science-msc": {
           "name": "MSc Materials Science and Engineering",
@@ -578,7 +743,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "0f78358c8eabf1746f13574d7518b8df2a34b6ebc587b089aa11ef61fe890f65"
+          "deadlineHash": "0f78358c8eabf1746f13574d7518b8df2a34b6ebc587b089aa11ef61fe890f65",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-mathematical-finance-and-actuarial-science-master-of-science-msc": {
           "name": "MSc Mathematical Finance and Actuarial Science",
@@ -586,7 +753,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "e74c82716868e144050b1f657d06ecbb3407a6a2d7fb9a446074f9fd004cf2a6"
+          "deadlineHash": "e74c82716868e144050b1f657d06ecbb3407a6a2d7fb9a446074f9fd004cf2a6",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-mathematics-in-data-science-master-of-science-msc": {
           "name": "MSc Mathematics in Data Science",
@@ -594,7 +763,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "1cac5d1ef32bee01f2e82cf044e83db8cb4f919177e7b1d47f655e3ec92f4994"
+          "deadlineHash": "1cac5d1ef32bee01f2e82cf044e83db8cb4f919177e7b1d47f655e3ec92f4994",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-mathematics-in-science-and-engineering-master-of-science-msc": {
           "name": "MSc Mathematics in Science and Engineering",
@@ -602,7 +773,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "d89334837ce6e051b66711446fd80ffc54f36cd07954254c38d4e89013b23d4c"
+          "deadlineHash": "d89334837ce6e051b66711446fd80ffc54f36cd07954254c38d4e89013b23d4c",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-mathematics-master-of-science-msc": {
           "name": "MSc Mathematics",
@@ -610,7 +783,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "15f6b10593b643782e370d156897733b75b33c540727c1f228acd92ff1913107"
+          "deadlineHash": "15f6b10593b643782e370d156897733b75b33c540727c1f228acd92ff1913107",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-mechanical-engineering-master-of-science-msc": {
           "name": "MSc Mechanical Engineering",
@@ -618,7 +793,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "772cb851538e25dde407541e82c6cfb294e0cd659294fdddb3d16d5402d3650c"
+          "deadlineHash": "772cb851538e25dde407541e82c6cfb294e0cd659294fdddb3d16d5402d3650c",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-mechatronics-robotics-and-biomechanical-engineering": {
           "name": "MSc Mechatronics, Robotics and Biomechanical Engineering",
@@ -626,7 +803,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "000811c1aa6ef42dfdab7d44b5d553575ad10a21b7258b4253563d6ebc6035db"
+          "deadlineHash": "000811c1aa6ef42dfdab7d44b5d553575ad10a21b7258b4253563d6ebc6035db",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-medical-engineering-master-of-science-msc": {
           "name": "MSc Medical Engineering",
@@ -634,7 +813,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "b272cd53a3af8ab4a70ae7ce93cd549bb9397c59076cc55932c45dc13b26760e"
+          "deadlineHash": "b272cd53a3af8ab4a70ae7ce93cd549bb9397c59076cc55932c45dc13b26760e",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-microelectronics-and-chip-design-master-of-science-msc": {
           "name": "MSc Microelectronics and Chip Design",
@@ -642,7 +823,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "0de0318afa76c41b03da3e853bea3645da72310f996d85571299416564c1b1e8"
+          "deadlineHash": "0de0318afa76c41b03da3e853bea3645da72310f996d85571299416564c1b1e8",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-molecular-biotechnology-master-of-science-msc": {
           "name": "MSc Molecular Biotechnology",
@@ -650,7 +833,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "83aab89765367d5f2b062713c536bd1267e4b31b373b939df10a65761254840a"
+          "deadlineHash": "83aab89765367d5f2b062713c536bd1267e4b31b373b939df10a65761254840a",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-neuroengineering-master-of-science-msc": {
           "name": "MSc Neuroengineering",
@@ -658,7 +843,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "40a9cf84d95377f40f30cf39bc42bc795719e2a31391ad39236da77fbeb90c23"
+          "deadlineHash": "40a9cf84d95377f40f30cf39bc42bc795719e2a31391ad39236da77fbeb90c23",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-nutrition-and-biomedicine-master-of-science-msc": {
           "name": "MSc Nutrition and Biomedicine",
@@ -666,7 +853,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "3441773f43a617c88bc1a1f53ca31f0c6770b0b9c9c5142773a488ec765b0bd1"
+          "deadlineHash": "3441773f43a617c88bc1a1f53ca31f0c6770b0b9c9c5142773a488ec765b0bd1",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-pharmaceutical-bioprocess-engineering-master-of-science-msc": {
           "name": "MSc Pharmaceutical Bioprocess Engineering",
@@ -674,7 +863,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "a20184c5b893fdb5cf143842499358148cbcc3ba9a849fc88d39202170ebdc07"
+          "deadlineHash": "a20184c5b893fdb5cf143842499358148cbcc3ba9a849fc88d39202170ebdc07",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-physics-applied-and-engineering-physics-master-of-science-msc": {
           "name": "MSc Physics (Applied and Engineering Physics)",
@@ -682,7 +873,9 @@
           "faculty": "TUM School of Natural Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "22304f125aa75004c23adad2035c92d652ccb93004c83d612ea8d007dfee7bf5"
+          "deadlineHash": "22304f125aa75004c23adad2035c92d652ccb93004c83d612ea8d007dfee7bf5",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-physics-biophysics-master-of-science-msc": {
           "name": "MSc Physics (Biophysics)",
@@ -690,7 +883,9 @@
           "faculty": "TUM School of Natural Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "b9dc90320858ead28975e7046e685f891a79000be6dce8cfae2b341931300d43"
+          "deadlineHash": "b9dc90320858ead28975e7046e685f891a79000be6dce8cfae2b341931300d43",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-physics-condensed-matter-physics-master-of-science-msc": {
           "name": "MSc Physics (Condensed Matter Physics)",
@@ -698,7 +893,9 @@
           "faculty": "TUM School of Natural Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "eeac4eb924b67fea98ccf197c7c74878400152c90d873b222ecb40ff05899269"
+          "deadlineHash": "eeac4eb924b67fea98ccf197c7c74878400152c90d873b222ecb40ff05899269",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-physics-nuclear-particle-and-astrophysics-master-of-science-msc": {
           "name": "MSc Physics (Nuclear, Particle and Astrophysics)",
@@ -706,7 +903,9 @@
           "faculty": "TUM School of Natural Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "c01fcb79115e0c9d843a73b10aed52090be7050e5a23d48c8e1086dabf137e29"
+          "deadlineHash": "c01fcb79115e0c9d843a73b10aed52090be7050e5a23d48c8e1086dabf137e29",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-politics-technology-master-of-science-msc": {
           "name": "MSc Politics & Technology",
@@ -714,7 +913,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "d4c7fa8048e321a7f2726b7fd71033a60fd05f38b88dcca879aea01ec3b42b94"
+          "deadlineHash": "d4c7fa8048e321a7f2726b7fd71033a60fd05f38b88dcca879aea01ec3b42b94",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-power-engineering-master-of-science-msc": {
           "name": "MSc Power Engineering",
@@ -722,7 +923,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "1f8877afabfa49f36c75aaaa0366e5e924a095add618c789cdad5d88bca6df21"
+          "deadlineHash": "1f8877afabfa49f36c75aaaa0366e5e924a095add618c789cdad5d88bca6df21",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-quantum-science-technology-master-of-science-msc": {
           "name": "MSc Quantum Science & Technology",
@@ -730,7 +933,9 @@
           "faculty": "Department of Physics",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "3b3a508cf8f9c7fbc72e5f5cce580bb08735a9f4462601f1ab46fdace6f6b2db"
+          "deadlineHash": "3b3a508cf8f9c7fbc72e5f5cce580bb08735a9f4462601f1ab46fdace6f6b2db",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-radiation-biology-master-of-science-msc": {
           "name": "MSc Radiation Biology",
@@ -738,7 +943,9 @@
           "faculty": "TUM School of Medicine and Health",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "88184d3d0331a2a2d78985ef614c7377ee776a805e9a4185a0b25ebd4ed957fb"
+          "deadlineHash": "88184d3d0331a2a2d78985ef614c7377ee776a805e9a4185a0b25ebd4ed957fb",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-rail-and-urban-transport-master-of-science-msc": {
           "name": "MSc Rail and Urban Transport",
@@ -746,7 +953,9 @@
           "faculty": "TUM Asia",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-resource-efficient-and-sustainable-building-master-of-science-msc": {
           "name": "MSc Resource Efficient and Sustainable Building",
@@ -754,7 +963,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "10d4018505eabb21eda42d240467bc2b2e736aac693ff7a356c2d9334de5dd5d"
+          "deadlineHash": "10d4018505eabb21eda42d240467bc2b2e736aac693ff7a356c2d9334de5dd5d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-responsibility-in-science-engineering-and-technology-reset-master-of-arts-ma": {
           "name": "MA Responsibility in Science, Engineering and Technology (RESET)",
@@ -762,7 +973,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "6028cf8ed4a1ecd0cfddb3f11f10b7c332c7b7189833d7aad8817a03a91ccb83"
+          "deadlineHash": "6028cf8ed4a1ecd0cfddb3f11f10b7c332c7b7189833d7aad8817a03a91ccb83",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-risk-and-safety": {
           "name": "MSc Risk and Safety",
@@ -770,7 +983,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "0ade01b9a0c7c021b5258f658a583016e6c89a3e226b1eddd40955c50faf576b"
+          "deadlineHash": "0ade01b9a0c7c021b5258f658a583016e6c89a3e226b1eddd40955c50faf576b",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-robotics-cognition-intelligence-master-of-science-msc": {
           "name": "MSc Robotics, Cognition, Intelligence",
@@ -778,7 +993,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "a74b92acc52940956fcab0366219afee5f0b2b7bdb461a8eba7e6114cbc1ec1f"
+          "deadlineHash": "a74b92acc52940956fcab0366219afee5f0b2b7bdb461a8eba7e6114cbc1ec1f",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-science-and-technology-of-materials-stm-1": {
           "name": "MSc Science and Technology of Materials (STM)",
@@ -786,7 +1003,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-science-and-technology-studies-sts-master-of-arts-ma": {
           "name": "MA Science and Technology Studies (STS)",
@@ -794,7 +1013,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "5d73e4ddd64431bee7fa81060a2323d45d102a3592a2cd897a204c1e2778800a"
+          "deadlineHash": "5d73e4ddd64431bee7fa81060a2323d45d102a3592a2cd897a204c1e2778800a",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-software-engineering-master-of-science-msc": {
           "name": "MSc Software Engineering",
@@ -802,7 +1023,9 @@
           "faculty": "TUM School of Computation, Information and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-sport-and-exercise-science-master-of-science-msc": {
           "name": "MSc Sport and Exercise Science",
@@ -810,7 +1033,9 @@
           "faculty": "TUM School of Medicine and Health",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "635bd186b33dbff7586a7ac09420d86830bc7a52571818b82816d391c2dfd006"
+          "deadlineHash": "635bd186b33dbff7586a7ac09420d86830bc7a52571818b82816d391c2dfd006",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-sustainable-energy-and-processes-master-of-science-msc": {
           "name": "MSc Sustainable Energy and Processes",
@@ -818,7 +1043,9 @@
           "faculty": "TUM Campus Straubing for Biotechnology and Sustainability",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "d84b317e5dc5d914711a3d197c950ba24b7c0148bb021a3d99704691ca86e81b"
+          "deadlineHash": "d84b317e5dc5d914711a3d197c950ba24b7c0148bb021a3d99704691ca86e81b",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-sustainable-food": {
           "name": "MSc Sustainable Food",
@@ -826,7 +1053,9 @@
           "faculty": "TUM Asia",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-sustainable-management-and-technology-master-of-science-msc": {
           "name": "MSc Sustainable Management and Technology",
@@ -834,7 +1063,9 @@
           "faculty": "TUM Campus Straubing for Biotechnology and Sustainability",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "4175d834ac402b2452ceab333be821146ff6a7c0a7ce9761e8328258b2bb251a"
+          "deadlineHash": "4175d834ac402b2452ceab333be821146ff6a7c0a7ce9761e8328258b2bb251a",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-sustainable-real-estate-master-of-advanced-studies-mas": {
           "name": "MAS Sustainable Real Estate",
@@ -842,7 +1073,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-sustainable-resource-management-master-of-science-msc": {
           "name": "MSc Sustainable Resource Management",
@@ -850,7 +1083,9 @@
           "faculty": "TUM School of Life Sciences",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "e55f16d843c64e11cee16cd203e3dd71195ba40c89d6991d042850e1bf60690a"
+          "deadlineHash": "e55f16d843c64e11cee16cd203e3dd71195ba40c89d6991d042850e1bf60690a",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-teaching-at-academic-secondary-schools-scientific-education-master-of-education-med": {
           "name": "MEd Teaching at Academic Secondary Schools – Scientific Education",
@@ -858,7 +1093,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-technology-of-biogenic-resources-master-of-science-msc": {
           "name": "MSc Technology of Biogenic Resources",
@@ -866,7 +1103,9 @@
           "faculty": "TUM Campus Straubing for Biotechnology and Sustainability",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "8ddccc2a2addc4ca060420ccc33f2c68d45d9e5b37f895dba2593af2dca0101e"
+          "deadlineHash": "8ddccc2a2addc4ca060420ccc33f2c68d45d9e5b37f895dba2593af2dca0101e",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-transportation-systems-master-of-science-msc": {
           "name": "MSc Transportation Systems",
@@ -874,7 +1113,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "829e10c1cac0161f63083e8be871ec78dfe7f95946d2d37d431b44f008420782"
+          "deadlineHash": "829e10c1cac0161f63083e8be871ec78dfe7f95946d2d37d431b44f008420782",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-urbanism-urban-and-landscape-studies-and-design-master-of-science-msc": {
           "name": "MSc Urbanism – Urban and Landscape Studies and Design",
@@ -882,7 +1123,9 @@
           "faculty": "TUM School of Engineering and Design",
           "department": "",
           "parseStatus": "recurring-policy",
-          "deadlineHash": "909d0d852d1c0ba9cbd229fd4a51f04e75a4940ed50f8b8e543b78503dbc7101"
+          "deadlineHash": "909d0d852d1c0ba9cbd229fd4a51f04e75a4940ed50f8b8e543b78503dbc7101",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
         "tum-vocational-education-agriculture-teaching-at-vocational-schools-master-of-education-med": {
           "name": "MEd Vocational Education Agriculture (Teaching at Vocational Schools)",
@@ -890,7 +1133,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-vocational-education-and-innovation-master-of-science-msc": {
           "name": "MSc Vocational Education and Innovation",
@@ -898,7 +1143,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-vocational-education-electrical-engineering-and-information-technology-teaching-at-vocational-schools-master-of-education-med": {
           "name": "MEd Vocational Education Electrical Engineering and Information Technology (Teaching at Vocational Schools)",
@@ -906,7 +1153,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-vocational-education-health-and-health-care-science-teaching-at-vocational-schools-master-of-education-med": {
           "name": "MEd Vocational Education Health and Health Care Science (Teaching at Vocational Schools)",
@@ -914,7 +1163,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-vocational-education-metal-engineering-teaching-at-vocational-schools-master-of-education-med": {
           "name": "MEd Vocational Education Metal Engineering (Teaching at Vocational Schools)",
@@ -922,7 +1173,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-vocational-education-nutrition-and-home-economics-teaching-at-vocational-schools-master-of-education-med": {
           "name": "MEd Vocational Education Nutrition and Home Economics (Teaching at Vocational Schools)",
@@ -930,7 +1183,9 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tum-vocational-education-structural-engineering-teaching-at-vocational-schools-master-of-education-med": {
           "name": "MEd Vocational Education Structural Engineering (Teaching at Vocational Schools)",
@@ -938,12 +1193,15 @@
           "faculty": "TUM School of Social Sciences and Technology",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         }
       },
       "windows": {
         "tum-aerospace-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-aerospace-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/aerospace-master-of-science-msc",
@@ -951,6 +1209,7 @@
         },
         "tum-aerospace-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-aerospace-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/aerospace-master-of-science-msc",
@@ -958,6 +1217,7 @@
         },
         "tum-agricultural-biosciences-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-agricultural-biosciences-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/agricultural-biosciences-master-of-science-msc",
@@ -965,6 +1225,7 @@
         },
         "tum-agrifood-economics-policy-and-regulation::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-agrifood-economics-policy-and-regulation",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/agrifood-economics-policy-and-regulation",
@@ -972,6 +1233,7 @@
         },
         "tum-agrosystem-sciences-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-agrosystem-sciences-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/agrosystem-sciences-master-of-science-msc",
@@ -979,6 +1241,7 @@
         },
         "tum-ai-in-biomedicine-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-ai-in-biomedicine-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/ai-in-biomedicine-master-of-science-msc",
@@ -986,6 +1249,7 @@
         },
         "tum-ai-in-society::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-ai-in-society",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/ai-in-society",
@@ -993,6 +1257,7 @@
         },
         "tum-architecture-master-of-arts-ma::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-architecture-master-of-arts-ma",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/architecture-master-of-arts-ma",
@@ -1000,6 +1265,7 @@
         },
         "tum-automotive-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-automotive-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/automotive-engineering-master-of-science-msc",
@@ -1007,6 +1273,7 @@
         },
         "tum-automotive-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-automotive-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/automotive-engineering-master-of-science-msc",
@@ -1014,6 +1281,7 @@
         },
         "tum-biochemistry-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-biochemistry-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/biochemistry-master-of-science-msc",
@@ -1021,6 +1289,7 @@
         },
         "tum-biochemistry-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-biochemistry-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/biochemistry-master-of-science-msc",
@@ -1028,6 +1297,7 @@
         },
         "tum-bioeconomy-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-bioeconomy-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/bioeconomy-master-of-science-msc",
@@ -1035,6 +1305,7 @@
         },
         "tum-bioeconomy-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-bioeconomy-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/bioeconomy-master-of-science-msc",
@@ -1042,6 +1313,7 @@
         },
         "tum-biology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-biology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/biology-master-of-science-msc",
@@ -1049,6 +1321,7 @@
         },
         "tum-biomass-technology-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-biomass-technology-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/biomass-technology-master-of-science-msc",
@@ -1056,6 +1329,7 @@
         },
         "tum-biomass-technology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-biomass-technology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/biomass-technology-master-of-science-msc",
@@ -1063,6 +1337,7 @@
         },
         "tum-biomedical-engineering-and-medical-physics-master-of-science-msc::Summer semester 2027::Application period::all": {
           "programmeId": "tum-biomedical-engineering-and-medical-physics-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-09-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/biomedical-engineering-and-medical-physics-master-of-science-msc",
@@ -1070,6 +1345,7 @@
         },
         "tum-biomedical-engineering-and-medical-physics-master-of-science-msc::Winter semester 2026/27::Application period::all": {
           "programmeId": "tum-biomedical-engineering-and-medical-physics-master-of-science-msc",
+          "intake": "Winter semester 2026/27",
           "opensAt": "2026-04-15",
           "closesAt": "2026-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/biomedical-engineering-and-medical-physics-master-of-science-msc",
@@ -1077,6 +1353,7 @@
         },
         "tum-biomedical-neuroscience-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-biomedical-neuroscience-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/biomedical-neuroscience-master-of-science-msc",
@@ -1084,6 +1361,7 @@
         },
         "tum-brewing-and-beverage-technology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-brewing-and-beverage-technology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/brewing-and-beverage-technology-master-of-science-msc",
@@ -1091,6 +1369,7 @@
         },
         "tum-business-education-i-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-business-education-i-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/business-education-i-master-of-science-msc",
@@ -1098,6 +1377,7 @@
         },
         "tum-business-education-i-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-business-education-i-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/business-education-i-master-of-science-msc",
@@ -1105,6 +1385,7 @@
         },
         "tum-business-education-ii-with-second-teaching-subject-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-business-education-ii-with-second-teaching-subject-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/business-education-ii-with-second-teaching-subject-master-of-science-msc",
@@ -1112,6 +1393,7 @@
         },
         "tum-business-education-ii-with-second-teaching-subject-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-business-education-ii-with-second-teaching-subject-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/business-education-ii-with-second-teaching-subject-master-of-science-msc",
@@ -1119,6 +1401,7 @@
         },
         "tum-cartography-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-cartography-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/cartography-master-of-science-msc",
@@ -1126,6 +1409,7 @@
         },
         "tum-chemical-biotechnology-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-chemical-biotechnology-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/chemical-biotechnology-master-of-science-msc",
@@ -1133,6 +1417,7 @@
         },
         "tum-chemical-biotechnology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-chemical-biotechnology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/chemical-biotechnology-master-of-science-msc",
@@ -1140,6 +1425,7 @@
         },
         "tum-chemical-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-chemical-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/chemical-engineering-master-of-science-msc",
@@ -1147,6 +1433,7 @@
         },
         "tum-chemical-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-chemical-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/chemical-engineering-master-of-science-msc",
@@ -1154,6 +1441,7 @@
         },
         "tum-chemistry-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-chemistry-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/chemistry-master-of-science-msc",
@@ -1161,6 +1449,7 @@
         },
         "tum-chemistry-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-chemistry-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/chemistry-master-of-science-msc",
@@ -1168,6 +1457,7 @@
         },
         "tum-civil-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-civil-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-11-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/civil-engineering-master-of-science-msc",
@@ -1175,6 +1465,7 @@
         },
         "tum-civil-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-civil-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/civil-engineering-master-of-science-msc",
@@ -1182,6 +1473,7 @@
         },
         "tum-communications-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-communications-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/communications-engineering-master-of-science-msc",
@@ -1189,6 +1481,7 @@
         },
         "tum-computational-mechanics-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-computational-mechanics-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/computational-mechanics-master-of-science-msc",
@@ -1196,6 +1489,7 @@
         },
         "tum-computational-science-and-engineering-cse-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-computational-science-and-engineering-cse-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/computational-science-and-engineering-cse-master-of-science-msc",
@@ -1203,6 +1497,7 @@
         },
         "tum-conservation-and-landscape-planning-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-conservation-and-landscape-planning-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/conservation-and-landscape-planning-master-of-science-msc",
@@ -1210,6 +1505,7 @@
         },
         "tum-consumer-science-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-consumer-science-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/consumer-science-master-of-science-msc",
@@ -1217,6 +1513,7 @@
         },
         "tum-data-and-society-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-data-and-society-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/data-and-society-master-of-science-msc",
@@ -1224,6 +1521,7 @@
         },
         "tum-data-and-society-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-data-and-society-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/data-and-society-master-of-science-msc",
@@ -1231,6 +1529,7 @@
         },
         "tum-data-engineering-and-analytics-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-data-engineering-and-analytics-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/data-engineering-and-analytics-master-of-science-msc",
@@ -1238,6 +1537,7 @@
         },
         "tum-data-engineering-and-analytics-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-data-engineering-and-analytics-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/data-engineering-and-analytics-master-of-science-msc",
@@ -1245,6 +1545,7 @@
         },
         "tum-development-production-and-management-in-mechanical-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-development-production-and-management-in-mechanical-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/development-production-and-management-in-mechanical-engineering-master-of-science-msc",
@@ -1252,6 +1553,7 @@
         },
         "tum-development-production-and-management-in-mechanical-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-development-production-and-management-in-mechanical-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/development-production-and-management-in-mechanical-engineering-master-of-science-msc",
@@ -1259,6 +1561,7 @@
         },
         "tum-ecological-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-ecological-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/ecological-engineering-master-of-science-msc",
@@ -1266,6 +1569,7 @@
         },
         "tum-electrical-engineering-and-information-technology-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-electrical-engineering-and-information-technology-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/electrical-engineering-and-information-technology-master-of-science-msc",
@@ -1273,6 +1577,7 @@
         },
         "tum-electrical-engineering-and-information-technology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-electrical-engineering-and-information-technology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/electrical-engineering-and-information-technology-master-of-science-msc",
@@ -1280,6 +1585,7 @@
         },
         "tum-energy-and-process-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-energy-and-process-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/energy-and-process-engineering-master-of-science-msc",
@@ -1287,6 +1593,7 @@
         },
         "tum-energy-and-process-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-energy-and-process-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/energy-and-process-engineering-master-of-science-msc",
@@ -1294,6 +1601,7 @@
         },
         "tum-engineering-geology-and-hydrogeology-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-engineering-geology-and-hydrogeology-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-11-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/engineering-geology-and-hydrogeology-master-of-science-msc",
@@ -1301,6 +1609,7 @@
         },
         "tum-engineering-geology-and-hydrogeology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-engineering-geology-and-hydrogeology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/engineering-geology-and-hydrogeology-master-of-science-msc",
@@ -1308,6 +1617,7 @@
         },
         "tum-environmental-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-environmental-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-09-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/environmental-engineering-master-of-science-msc",
@@ -1315,6 +1625,7 @@
         },
         "tum-environmental-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-environmental-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/environmental-engineering-master-of-science-msc",
@@ -1322,6 +1633,7 @@
         },
         "tum-ergonomics-human-factors-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-ergonomics-human-factors-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-11-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/ergonomics-human-factors-engineering-master-of-science-msc",
@@ -1329,6 +1641,7 @@
         },
         "tum-espace-earth-oriented-space-science-and-technology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-espace-earth-oriented-space-science-and-technology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/espace-earth-oriented-space-science-and-technology-master-of-science-msc",
@@ -1336,6 +1649,7 @@
         },
         "tum-finance-and-information-management-fim-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-finance-and-information-management-fim-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/finance-and-information-management-fim-master-of-science-msc",
@@ -1343,6 +1657,7 @@
         },
         "tum-food-chemistry-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-food-chemistry-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/food-chemistry-master-of-science-msc",
@@ -1350,6 +1665,7 @@
         },
         "tum-food-technology-and-biotechnology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-food-technology-and-biotechnology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/food-technology-and-biotechnology-master-of-science-msc",
@@ -1357,6 +1673,7 @@
         },
         "tum-geodesy-and-geoinformation-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-geodesy-and-geoinformation-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/geodesy-and-geoinformation-master-of-science-msc",
@@ -1364,6 +1681,7 @@
         },
         "tum-health-science-prevention-and-health-promotion-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-health-science-prevention-and-health-promotion-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/health-science-prevention-and-health-promotion-master-of-science-msc",
@@ -1371,6 +1689,7 @@
         },
         "tum-industrial-biotechnology-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-industrial-biotechnology-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-11-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/industrial-biotechnology-master-of-science-msc",
@@ -1378,6 +1697,7 @@
         },
         "tum-industrial-biotechnology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-industrial-biotechnology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/industrial-biotechnology-master-of-science-msc",
@@ -1385,6 +1705,7 @@
         },
         "tum-informatics-games-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-informatics-games-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/informatics-games-engineering-master-of-science-msc",
@@ -1392,6 +1713,7 @@
         },
         "tum-informatics-games-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-informatics-games-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/informatics-games-engineering-master-of-science-msc",
@@ -1399,6 +1721,7 @@
         },
         "tum-informatics-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-informatics-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/informatics-master-of-science-msc",
@@ -1406,6 +1729,7 @@
         },
         "tum-informatics-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-informatics-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/informatics-master-of-science-msc",
@@ -1413,6 +1737,7 @@
         },
         "tum-information-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-information-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/information-engineering-master-of-science-msc",
@@ -1420,6 +1745,7 @@
         },
         "tum-information-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-information-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/information-engineering-master-of-science-msc",
@@ -1427,6 +1753,7 @@
         },
         "tum-information-systems-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-information-systems-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/information-systems-master-of-science-msc",
@@ -1434,6 +1761,7 @@
         },
         "tum-information-systems-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-information-systems-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/information-systems-master-of-science-msc",
@@ -1441,6 +1769,7 @@
         },
         "tum-information-technologies-for-the-built-environment-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-information-technologies-for-the-built-environment-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/information-technologies-for-the-built-environment-master-of-science-msc",
@@ -1448,6 +1777,7 @@
         },
         "tum-land-management-and-geospatial-science-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-land-management-and-geospatial-science-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/land-management-and-geospatial-science-master-of-science-msc",
@@ -1455,6 +1785,7 @@
         },
         "tum-landscape-architecture-master-of-arts-ma::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-landscape-architecture-master-of-arts-ma",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/landscape-architecture-master-of-arts-ma",
@@ -1462,6 +1793,7 @@
         },
         "tum-landscape-architecture-master-of-arts-ma::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-landscape-architecture-master-of-arts-ma",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/landscape-architecture-master-of-arts-ma",
@@ -1469,6 +1801,7 @@
         },
         "tum-management-and-digital-technology::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-management-and-digital-technology",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-11-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/management-and-digital-technology",
@@ -1476,6 +1809,7 @@
         },
         "tum-management-and-digital-technology::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-management-and-digital-technology",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/management-and-digital-technology",
@@ -1483,6 +1817,7 @@
         },
         "tum-management-and-technology-tum-bwl-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-management-and-technology-tum-bwl-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-11-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/management-and-technology-tum-bwl-master-of-science-msc",
@@ -1490,6 +1825,7 @@
         },
         "tum-management-and-technology-tum-bwl-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-management-and-technology-tum-bwl-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/management-and-technology-tum-bwl-master-of-science-msc",
@@ -1497,6 +1833,7 @@
         },
         "tum-management-main-location-heilbronn-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-management-main-location-heilbronn-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/management-main-location-heilbronn-master-of-science-msc",
@@ -1504,6 +1841,7 @@
         },
         "tum-management-main-location-munich-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-management-main-location-munich-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/management-main-location-munich-master-of-science-msc",
@@ -1511,6 +1849,7 @@
         },
         "tum-materials-science-and-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-materials-science-and-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/materials-science-and-engineering-master-of-science-msc",
@@ -1518,6 +1857,7 @@
         },
         "tum-mathematical-finance-and-actuarial-science-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-mathematical-finance-and-actuarial-science-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mathematical-finance-and-actuarial-science-master-of-science-msc",
@@ -1525,6 +1865,7 @@
         },
         "tum-mathematical-finance-and-actuarial-science-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-mathematical-finance-and-actuarial-science-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mathematical-finance-and-actuarial-science-master-of-science-msc",
@@ -1532,6 +1873,7 @@
         },
         "tum-mathematics-in-data-science-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-mathematics-in-data-science-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mathematics-in-data-science-master-of-science-msc",
@@ -1539,6 +1881,7 @@
         },
         "tum-mathematics-in-data-science-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-mathematics-in-data-science-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mathematics-in-data-science-master-of-science-msc",
@@ -1546,6 +1889,7 @@
         },
         "tum-mathematics-in-science-and-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-mathematics-in-science-and-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mathematics-in-science-and-engineering-master-of-science-msc",
@@ -1553,6 +1897,7 @@
         },
         "tum-mathematics-in-science-and-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-mathematics-in-science-and-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mathematics-in-science-and-engineering-master-of-science-msc",
@@ -1560,6 +1905,7 @@
         },
         "tum-mathematics-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-mathematics-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mathematics-master-of-science-msc",
@@ -1567,6 +1913,7 @@
         },
         "tum-mathematics-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-mathematics-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mathematics-master-of-science-msc",
@@ -1574,6 +1921,7 @@
         },
         "tum-mechanical-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-mechanical-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mechanical-engineering-master-of-science-msc",
@@ -1581,6 +1929,7 @@
         },
         "tum-mechanical-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-mechanical-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mechanical-engineering-master-of-science-msc",
@@ -1588,6 +1937,7 @@
         },
         "tum-mechatronics-robotics-and-biomechanical-engineering::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-mechatronics-robotics-and-biomechanical-engineering",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mechatronics-robotics-and-biomechanical-engineering",
@@ -1595,6 +1945,7 @@
         },
         "tum-mechatronics-robotics-and-biomechanical-engineering::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-mechatronics-robotics-and-biomechanical-engineering",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/mechatronics-robotics-and-biomechanical-engineering",
@@ -1602,6 +1953,7 @@
         },
         "tum-medical-engineering-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-medical-engineering-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/medical-engineering-master-of-science-msc",
@@ -1609,6 +1961,7 @@
         },
         "tum-medical-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-medical-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/medical-engineering-master-of-science-msc",
@@ -1616,6 +1969,7 @@
         },
         "tum-microelectronics-and-chip-design-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-microelectronics-and-chip-design-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/microelectronics-and-chip-design-master-of-science-msc",
@@ -1623,6 +1977,7 @@
         },
         "tum-molecular-biotechnology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-molecular-biotechnology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/molecular-biotechnology-master-of-science-msc",
@@ -1630,6 +1985,7 @@
         },
         "tum-neuroengineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-neuroengineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/neuroengineering-master-of-science-msc",
@@ -1637,6 +1993,7 @@
         },
         "tum-nutrition-and-biomedicine-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-nutrition-and-biomedicine-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/nutrition-and-biomedicine-master-of-science-msc",
@@ -1644,6 +2001,7 @@
         },
         "tum-pharmaceutical-bioprocess-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-pharmaceutical-bioprocess-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/pharmaceutical-bioprocess-engineering-master-of-science-msc",
@@ -1651,6 +2009,7 @@
         },
         "tum-physics-applied-and-engineering-physics-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-physics-applied-and-engineering-physics-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-09-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/physics-applied-and-engineering-physics-master-of-science-msc",
@@ -1658,6 +2017,7 @@
         },
         "tum-physics-applied-and-engineering-physics-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-physics-applied-and-engineering-physics-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/physics-applied-and-engineering-physics-master-of-science-msc",
@@ -1665,6 +2025,7 @@
         },
         "tum-physics-biophysics-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-physics-biophysics-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-09-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/physics-biophysics-master-of-science-msc",
@@ -1672,6 +2033,7 @@
         },
         "tum-physics-biophysics-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-physics-biophysics-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/physics-biophysics-master-of-science-msc",
@@ -1679,6 +2041,7 @@
         },
         "tum-physics-condensed-matter-physics-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-physics-condensed-matter-physics-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-09-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/physics-condensed-matter-physics-master-of-science-msc",
@@ -1686,6 +2049,7 @@
         },
         "tum-physics-condensed-matter-physics-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-physics-condensed-matter-physics-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/physics-condensed-matter-physics-master-of-science-msc",
@@ -1693,6 +2057,7 @@
         },
         "tum-physics-nuclear-particle-and-astrophysics-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-physics-nuclear-particle-and-astrophysics-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-09-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/physics-nuclear-particle-and-astrophysics-master-of-science-msc",
@@ -1700,6 +2065,7 @@
         },
         "tum-physics-nuclear-particle-and-astrophysics-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-physics-nuclear-particle-and-astrophysics-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/physics-nuclear-particle-and-astrophysics-master-of-science-msc",
@@ -1707,6 +2073,7 @@
         },
         "tum-politics-technology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-politics-technology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/politics-technology-master-of-science-msc",
@@ -1714,6 +2081,7 @@
         },
         "tum-power-engineering-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-power-engineering-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/power-engineering-master-of-science-msc",
@@ -1721,6 +2089,7 @@
         },
         "tum-quantum-science-technology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-quantum-science-technology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/quantum-science-technology-master-of-science-msc",
@@ -1728,6 +2097,7 @@
         },
         "tum-radiation-biology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-radiation-biology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/radiation-biology-master-of-science-msc",
@@ -1735,6 +2105,7 @@
         },
         "tum-resource-efficient-and-sustainable-building-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-resource-efficient-and-sustainable-building-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/resource-efficient-and-sustainable-building-master-of-science-msc",
@@ -1742,6 +2113,7 @@
         },
         "tum-responsibility-in-science-engineering-and-technology-reset-master-of-arts-ma::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-responsibility-in-science-engineering-and-technology-reset-master-of-arts-ma",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/responsibility-in-science-engineering-and-technology-reset-master-of-arts-ma",
@@ -1749,6 +2121,7 @@
         },
         "tum-risk-and-safety::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-risk-and-safety",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/risk-and-safety",
@@ -1756,6 +2129,7 @@
         },
         "tum-robotics-cognition-intelligence-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-robotics-cognition-intelligence-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/robotics-cognition-intelligence-master-of-science-msc",
@@ -1763,6 +2137,7 @@
         },
         "tum-robotics-cognition-intelligence-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-robotics-cognition-intelligence-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/robotics-cognition-intelligence-master-of-science-msc",
@@ -1770,6 +2145,7 @@
         },
         "tum-science-and-technology-studies-sts-master-of-arts-ma::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-science-and-technology-studies-sts-master-of-arts-ma",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/science-and-technology-studies-sts-master-of-arts-ma",
@@ -1777,6 +2153,7 @@
         },
         "tum-sport-and-exercise-science-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-sport-and-exercise-science-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/sport-and-exercise-science-master-of-science-msc",
@@ -1784,6 +2161,7 @@
         },
         "tum-sustainable-energy-and-processes-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-sustainable-energy-and-processes-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/sustainable-energy-and-processes-master-of-science-msc",
@@ -1791,6 +2169,7 @@
         },
         "tum-sustainable-energy-and-processes-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-sustainable-energy-and-processes-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-02-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/sustainable-energy-and-processes-master-of-science-msc",
@@ -1798,6 +2177,7 @@
         },
         "tum-sustainable-management-and-technology-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-sustainable-management-and-technology-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-11-01",
           "closesAt": "2026-11-30",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/sustainable-management-and-technology-master-of-science-msc",
@@ -1805,6 +2185,7 @@
         },
         "tum-sustainable-management-and-technology-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-sustainable-management-and-technology-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/sustainable-management-and-technology-master-of-science-msc",
@@ -1812,6 +2193,7 @@
         },
         "tum-sustainable-resource-management-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-sustainable-resource-management-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/sustainable-resource-management-master-of-science-msc",
@@ -1819,6 +2201,7 @@
         },
         "tum-technology-of-biogenic-resources-master-of-science-msc::Summer semester 2027::Recurring application period::all": {
           "programmeId": "tum-technology-of-biogenic-resources-master-of-science-msc",
+          "intake": "Summer semester 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/technology-of-biogenic-resources-master-of-science-msc",
@@ -1826,6 +2209,7 @@
         },
         "tum-technology-of-biogenic-resources-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-technology-of-biogenic-resources-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/technology-of-biogenic-resources-master-of-science-msc",
@@ -1833,6 +2217,7 @@
         },
         "tum-transportation-systems-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-transportation-systems-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-01-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/transportation-systems-master-of-science-msc",
@@ -1840,13 +2225,15 @@
         },
         "tum-urbanism-urban-and-landscape-studies-and-design-master-of-science-msc::Winter semester 2027/28::Recurring application period::all": {
           "programmeId": "tum-urbanism-urban-and-landscape-studies-and-design-master-of-science-msc",
+          "intake": "Winter semester 2027/28",
           "opensAt": "2027-04-01",
           "closesAt": "2027-05-31",
           "sourceUrl": "https://www.tum.de/en/studies/degree-programs/detail/urbanism-urban-and-landscape-studies-and-design-master-of-science-msc",
           "opensAtBasis": "official-recurring-policy"
         }
       },
-      "adapterWarnings": []
+      "adapterWarnings": [],
+      "adapterDiagnostics": {}
     }
   }
 }

@@ -2,20 +2,31 @@
   "universities": {
     "zhengzhou-university": {
       "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13630.htm",
-      "checkedAt": "2026-08-20T06:07:51.881378+00:00",
+      "checkedAt": "2026-08-21T06:19:20.142894+00:00",
       "itemCount": 2,
       "applicationOpensAt": "2025-10-10",
-      "catalogHash": "6f6d17f92cdbef86a2997953aa64fee991fd3fd57fe03a902f3b15e7dfbc5987",
+      "catalogHash": "948415509b4d47969044986b69e39c3c471eb4345713181306f43c0329bb5175",
       "catalogueStatus": "blocked",
+      "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
       "observedWindowCount": 2,
       "exactWindowCount": 2,
       "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "2026:fall:09": {
+          "intakes": [
+            "Autumn 2026"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 2,
+          "recurringPolicyWindowCount": 0
+        }
+      },
       "missingOpeningDateCount": 0,
       "programmesWithoutDeadlines": 1,
       "programmesNeedingReview": 1,
       "limitationReason": "Zhengzhou University's official 2026 directory index lists one PDF per faculty, but unattended attachment downloads require a human verification code. Programme titles are therefore not inferred from filenames or snippets. Observed dates are incomplete or not safe for automatic publication. 1 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-20T06:07:51.881378+00:00",
+      "lastSuccessfulAt": "2026-08-21T06:19:20.142894+00:00",
       "windowFingerprint": "b7b8367721b68f0a9e5546cb57a2a9fec5e861e8203868d1f83d733b1d78dab2",
       "watchedWindowSourceHash": "e0ca8ce6b58c41b5c5125060b37d1d8e7280a528d0a97d150a1a5fa563c44313",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -26,7 +37,9 @@
           "faculty": "Graduate School",
           "department": "Graduate Admissions Office",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "zhengzhou-national-master-admissions": {
           "name": "National master's admissions",
@@ -34,12 +47,15 @@
           "faculty": "Graduate School",
           "department": "Graduate Admissions Office",
           "parseStatus": "parsed",
-          "deadlineHash": "82644a5b1d274b3515aa19493976f04da8f54b07429a465d736cab84a8ec3f3b"
+          "deadlineHash": "82644a5b1d274b3515aa19493976f04da8f54b07429a465d736cab84a8ec3f3b",
+          "windowCount": 2,
+          "latestClosesAt": "2025-10-27"
         }
       },
       "windows": {
         "zhengzhou-national-master-admissions::Autumn 2026::National master's formal registration::domestic-students": {
           "programmeId": "zhengzhou-national-master-admissions",
+          "intake": "Autumn 2026",
           "opensAt": "2025-10-16",
           "closesAt": "2025-10-27",
           "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13629.htm",
@@ -47,13 +63,15 @@
         },
         "zhengzhou-national-master-admissions::Autumn 2026::National master's pre-registration::domestic-students": {
           "programmeId": "zhengzhou-national-master-admissions",
+          "intake": "Autumn 2026",
           "opensAt": "2025-10-10",
           "closesAt": "2025-10-13",
           "sourceUrl": "https://gs.zzu.edu.cn/info/1025/13629.htm",
           "opensAtBasis": "official"
         }
       },
-      "adapterWarnings": []
+      "adapterWarnings": [],
+      "adapterDiagnostics": {}
     }
   }
 }
