@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-21T06:19:39.092144+00:00",
+    "updatedAt": "2026-08-22T06:07:27.565197+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -83,7 +83,7 @@
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-v4-pro or deepseek-v4-flash, but you passed .\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-v4-pro, deepseek-v4-flash, and deepseek-v4-flash-vision-exp, but you passed .\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "dryRun": false,
       "batchStatus": "error"
     },
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "university-of-chicago",
       "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-21T06:23:24.362414+00:00",
+      "checkedAt": "2026-08-22T06:11:22.529431+00:00",
       "catalogProgrammes": 3,
       "previousCatalogProgrammes": 3,
       "knownProgrammes": 1,
@@ -136,16 +136,10 @@
         },
         "disappearedProgrammeIds": [],
         "addedProgrammeIds": [],
-        "changedProgrammeIds": [
-          "uchicago-meng-jiang-notre-dame-schmidt-ai-in-science-speaker-series",
-          "uchicago-ms-in-applied-data-science",
-          "uchicago-ms-in-data-science"
-        ],
+        "changedProgrammeIds": [],
         "disappearedWindowIds": [],
         "addedWindowIds": [],
-        "changedWindowIds": [
-          "uchicago-ms-in-data-science::Autumn 2027::Application deadline::all"
-        ]
+        "changedWindowIds": []
       },
       "windowRemovalAssessmentAvailable": true,
       "disappearedWindowDetails": {},
