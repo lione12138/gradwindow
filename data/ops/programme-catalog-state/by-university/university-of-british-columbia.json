@@ -2,23 +2,23 @@
   "universities": {
     "university-of-british-columbia": {
       "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs",
-      "checkedAt": "2026-08-21T06:04:15.063536+00:00",
+      "checkedAt": "2026-08-22T05:53:30.800675+00:00",
       "itemCount": 228,
       "applicationOpensAt": null,
-      "catalogHash": "03ea6335c1fcf66c1765f400db9d2397a09cf05b188945c909c35323cc6ec8dc",
+      "catalogHash": "2650062531f93a283fb675fc3e090dcd64e4947fb1849dbf8c3e5736af551f05",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
-      "observedWindowCount": 157,
-      "exactWindowCount": 156,
+      "observedWindowCount": 158,
+      "exactWindowCount": 157,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 87,
-          "exactWindowCount": 86,
+          "observedWindowCount": 88,
+          "exactWindowCount": 87,
           "recurringPolicyWindowCount": 0
         },
         "2027:other:01": {
@@ -71,11 +71,11 @@
         }
       },
       "missingOpeningDateCount": 1,
-      "programmesWithoutDeadlines": 130,
-      "programmesNeedingReview": 130,
+      "programmesWithoutDeadlines": 129,
+      "programmesNeedingReview": 129,
       "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-21T06:04:15.063536+00:00",
-      "windowFingerprint": "c89d30255deb9908ae2ab3302920aef8839ef2d7f4bbfe91ffd3bc81f7a130e1",
+      "lastSuccessfulAt": "2026-08-22T05:53:30.800675+00:00",
+      "windowFingerprint": "8095f381564bb43b6d8d360ea790439a6f8a07ca199dfce68f3f41e6c0c4818d",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -464,10 +464,10 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "Gender, Race, Sexuality and Social Justice",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "ee6bb672d4a84fdabdb49706ef981d7c66281b0da2628821ed2c52beb90b4702",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "ubc-master-of-arts-in-geography-ma": {
           "name": "Master of Arts in Geography (MA)",
@@ -575,9 +575,9 @@
           "faculty": "Faculty of Education",
           "department": "Literacy Education",
           "parseStatus": "parsed",
-          "deadlineHash": "f5f2a45c0c751f4b73503010822a752936ab94843c793f7354b94dbb2c28b6e9",
+          "deadlineHash": "902ca71deab38f75600a14304b44e033b2465fe9b121efbe3f0b742df0eee038",
           "windowCount": 2,
-          "latestClosesAt": "2027-02-02"
+          "latestClosesAt": "2027-01-25"
         },
         "ubc-master-of-arts-in-mathematics-education-ma": {
           "name": "Master of Arts in Mathematics Education (MA)",
@@ -615,9 +615,9 @@
           "faculty": "Faculty of Education",
           "department": "Modern Languages Education",
           "parseStatus": "parsed",
-          "deadlineHash": "9a26751bb509d882d0ef39152e9fb8920bef4576f4853ef6c10be4bcc2330588",
+          "deadlineHash": "3d679e66a79d06f9490ae4cdcf94e8ee896d75acdc0df87bb85e81f9602317a4",
           "windowCount": 2,
-          "latestClosesAt": "2027-02-01"
+          "latestClosesAt": "2027-01-25"
         },
         "ubc-master-of-arts-in-music-education-ma": {
           "name": "Master of Arts in Music Education (MA)",
@@ -785,9 +785,9 @@
           "faculty": "Faculty of Education",
           "department": "Teaching English as a Second Language",
           "parseStatus": "parsed",
-          "deadlineHash": "6b764007b545040247f82a2a4f1568c6bb84d13c4c6c235d3f62d29616a2a714",
+          "deadlineHash": "25c3950467bfacdebd0aaf1f60ccf6bcc74195d9267b7ea043a46fed3d51bd58",
           "windowCount": 2,
-          "latestClosesAt": "2027-02-01"
+          "latestClosesAt": "2027-01-25"
         },
         "ubc-master-of-arts-in-theatre-ma": {
           "name": "Master of Arts in Theatre (MA)",
@@ -2617,6 +2617,14 @@
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-french",
           "opensAtBasis": null
         },
+        "ubc-master-of-arts-in-gender-race-sexuality-and-social-justice-ma::September 2027::Application deadline::all": {
+          "programmeId": "ubc-master-of-arts-in-gender-race-sexuality-and-social-justice-ma",
+          "intake": "September 2027",
+          "opensAt": "2026-09-20",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-gender-race-sexuality-social-justice",
+          "opensAtBasis": null
+        },
         "ubc-master-of-arts-in-geography-ma::September 2027::Application deadline::all": {
           "programmeId": "ubc-master-of-arts-in-geography-ma",
           "intake": "September 2027",
@@ -2661,7 +2669,7 @@
           "programmeId": "ubc-master-of-arts-in-literacy-education-ma",
           "intake": "September 2027",
           "opensAt": "2026-08-03",
-          "closesAt": "2027-02-02",
+          "closesAt": "2027-01-25",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-literacy-education",
           "opensAtBasis": null
         },
@@ -2669,7 +2677,7 @@
           "programmeId": "ubc-master-of-arts-in-literacy-education-ma",
           "intake": "September 2027",
           "opensAt": "2026-08-03",
-          "closesAt": "2027-01-01",
+          "closesAt": "2027-01-04",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-literacy-education",
           "opensAtBasis": null
         },
@@ -2685,7 +2693,7 @@
           "programmeId": "ubc-master-of-arts-in-modern-languages-education-ma",
           "intake": "September 2027",
           "opensAt": "2026-08-03",
-          "closesAt": "2027-02-01",
+          "closesAt": "2027-01-25",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-modern-languages-education",
           "opensAtBasis": null
         },
@@ -2693,7 +2701,7 @@
           "programmeId": "ubc-master-of-arts-in-modern-languages-education-ma",
           "intake": "September 2027",
           "opensAt": "2026-08-03",
-          "closesAt": "2027-01-01",
+          "closesAt": "2027-01-04",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-modern-languages-education",
           "opensAtBasis": null
         },
@@ -2733,7 +2741,7 @@
           "programmeId": "ubc-master-of-arts-in-teaching-english-as-a-second-language-ma",
           "intake": "September 2027",
           "opensAt": "2026-08-03",
-          "closesAt": "2027-02-01",
+          "closesAt": "2027-01-25",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-teaching-english-second-language",
           "opensAtBasis": null
         },
