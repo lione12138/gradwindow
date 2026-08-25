@@ -20,6 +20,8 @@ from .paths import (
     GLOBAL_RANKINGS_PATH,
     MONITOR_STATE_PATH,
     PREDICTIONS_PATH,
+    PROGRAMME_ADAPTER_HEALTH_PATH,
+    PROGRAMME_CATALOG_STATE_PATH,
     PROGRAMME_GROUPS_PATH,
     PROGRAMS_PATH,
     RECURRING_WINDOWS_PATH,
@@ -30,6 +32,7 @@ from .paths import (
     WEB_DIR,
     WINDOW_POLICIES_PATH,
 )
+from .published_data_audit import audit_published_data
 
 PUBLIC_FILES = (
     "CNAME",
@@ -205,7 +208,24 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     (output_dir / "sources.html").write_text(
         render_sources_page(public_site_url), encoding="utf-8"
     )
-    generated_urls = generate_index_pages(output_dir, public_site_url, build_date)
+    published_audit = audit_published_data(
+        read_json(APPLICATIONS_PATH)["applications"],
+        catalog_state=read_json(
+            PROGRAMME_CATALOG_STATE_PATH,
+            {"universities": {}},
+        ).get("universities", {}),
+        adapter_health=read_json(
+            PROGRAMME_ADAPTER_HEALTH_PATH,
+            {"universities": {}},
+        ).get("universities", {}),
+        today=build_date,
+    )
+    generated_urls = generate_index_pages(
+        output_dir,
+        public_site_url,
+        build_date,
+        quarantined_record_ids=set(published_audit["quarantinedRecordIds"]),
+    )
     data_lastmod = public_data_lastmod()
     sitemap_urls: list[str | tuple[str, str | None]] = [
         (public_site_url, data_lastmod),
@@ -600,11 +620,18 @@ def generate_index_pages(
     output_dir: Path,
     public_site_url: str,
     today: date | None = None,
+    *,
+    quarantined_record_ids: set[str] | None = None,
 ) -> list[tuple[str, str | None]]:
     today = today or date.today()
     universities = read_json(UNIVERSITIES_PATH)["universities"]
     applications = read_json(APPLICATIONS_PATH)["applications"]
     predictions = read_json(PREDICTIONS_PATH)["predictions"]
+    aggregate_applications, aggregate_predictions = filter_seo_aggregate_records(
+        applications,
+        predictions,
+        quarantined_record_ids or set(),
+    )
     recurring_windows = read_json(RECURRING_WINDOWS_PATH)["recurringWindows"]
     monitor_entries = read_json(MONITOR_STATE_PATH, {"universities": {}}).get(
         "universities", {}
@@ -623,7 +650,11 @@ def generate_index_pages(
     }
     target_cycle_year = primary_cycle_year(predictions, today)
     generated_urls: list[tuple[str, str | None]] = []
-    all_records = [*applications, *recurring_windows, *predictions]
+    all_records = [
+        *aggregate_applications,
+        *recurring_windows,
+        *aggregate_predictions,
+    ]
     intake_counts = Counter(
         slug for item in all_records if (slug := intake_slug(item)) is not None
     )
@@ -810,11 +841,11 @@ def generate_index_pages(
         )
 
     by_month: dict[str, list[tuple[dict, str]]] = {}
-    for item in applications:
+    for item in aggregate_applications:
         by_month.setdefault(item["closesAt"][:7], []).append((item, "official"))
     for item in recurring_windows:
         by_month.setdefault(item["closesAt"][:7], []).append((item, "recurring"))
-    for item in predictions:
+    for item in aggregate_predictions:
         by_month.setdefault(item["closesAt"][:7], []).append((item, "predicted"))
     for month, items in by_month.items():
         month_dir = output_dir / "deadline" / month
@@ -859,9 +890,9 @@ def generate_index_pages(
     by_opening_month: dict[str, list[tuple[dict, str]]] = defaultdict(list)
     by_intake: dict[str, list[tuple[dict, str]]] = defaultdict(list)
     for data_status, records in (
-        ("official", applications),
+        ("official", aggregate_applications),
         ("recurring", recurring_windows),
-        ("predicted", predictions),
+        ("predicted", aggregate_predictions),
     ):
         for item in records:
             by_opening_month[item["opensAt"][:7]].append((item, data_status))
@@ -932,6 +963,21 @@ def generate_index_pages(
         )
         generated_urls.append((canonical, records_lastmod([item for item, _ in items])))
     return generated_urls
+
+
+def filter_seo_aggregate_records(
+    applications: list[dict],
+    predictions: list[dict],
+    quarantined_record_ids: set[str],
+) -> tuple[list[dict], list[dict]]:
+    return (
+        [item for item in applications if item["id"] not in quarantined_record_ids],
+        [
+            item
+            for item in predictions
+            if item.get("basedOnRecordId") not in quarantined_record_ids
+        ],
+    )
 
 
 def trim_description(value: str, limit: int = 180) -> str:

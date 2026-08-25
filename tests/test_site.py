@@ -66,6 +66,28 @@ def test_build_site_accepts_default_site_directory() -> None:
     assert site._safe_build_output_dir(SITE_DIR) == SITE_DIR.resolve()
 
 
+def test_seo_aggregate_filter_removes_quarantined_official_and_predictions() -> None:
+    official = [
+        {"id": "safe"},
+        {"id": "suspicious"},
+    ]
+    predictions = [
+        {"id": "prediction-safe", "basedOnRecordId": "safe"},
+        {"id": "prediction-suspicious", "basedOnRecordId": "suspicious"},
+    ]
+
+    filtered_official, filtered_predictions = site.filter_seo_aggregate_records(
+        official,
+        predictions,
+        {"suspicious"},
+    )
+
+    assert filtered_official == [{"id": "safe"}]
+    assert filtered_predictions == [
+        {"id": "prediction-safe", "basedOnRecordId": "safe"}
+    ]
+
+
 def test_frontend_sources_are_grouped_outside_repository_root() -> None:
     assert (WEB_DIR / "index.html").exists()
     assert (WEB_DIR / "app.js").exists()

@@ -22,6 +22,13 @@ def test_autumn_and_fall_have_the_same_identity() -> None:
     )
 
 
+def test_winter_semester_uses_the_autumn_start_month() -> None:
+    details = parse_intake_details("Winter semester 2026/27")
+
+    assert details["term"] == "winter"
+    assert details["startMonth"] == 10
+
+
 def test_intake_requires_a_year() -> None:
     with pytest.raises(ValueError, match="cycle year"):
         parse_intake_details("following fall")

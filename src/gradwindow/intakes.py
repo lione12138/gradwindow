@@ -73,11 +73,12 @@ def parse_intake_details(label: str) -> dict:
             start=1,
         )
     }
-    start_month = (
-        month_names[month_match.group(1)]
-        if month_match
-        else TERM_START_MONTHS.get(term)
-    )
+    if month_match:
+        start_month = month_names[month_match.group(1)]
+    elif re.search(r"\bwinter\s*semester\b|\bwintersemester\b", lowered):
+        start_month = 10
+    else:
+        start_month = TERM_START_MONTHS.get(term)
     return {
         "label": label,
         "cycleYear": cycle_year,
