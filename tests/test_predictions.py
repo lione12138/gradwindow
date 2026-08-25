@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import json
 
+from gradwindow.intakes import intake_identity
 from gradwindow.paths import APPLICATIONS_PATH
 from gradwindow.predictions import (
     generate_predictions,
@@ -42,7 +43,15 @@ def test_current_windows_generate_next_cycle_predictions(tmp_path) -> None:
     expected_sources = {
         item["id"]
         for signature, item in latest_by_signature.items()
-        if (*signature, shift_intake_one_year(item["intake"])) not in official_keys
+        if (
+            *signature,
+            intake_identity(
+                {
+                    "intake": shift_intake_one_year(item["intake"]),
+                }
+            ),
+        )
+        not in official_keys
     }
     assert {item["basedOnRecordId"] for item in payload["predictions"]} == (
         expected_sources
@@ -123,6 +132,56 @@ def test_official_target_cycle_replaces_the_matching_prediction(tmp_path) -> Non
         item["basedOnRecordId"] == official["id"] and item["intake"] == "Fall 2028"
         for item in payload["predictions"]
     )
+
+
+def test_official_target_cycle_is_not_predicted_when_prior_deadline_is_later(
+    tmp_path,
+) -> None:
+    applications = json.loads(APPLICATIONS_PATH.read_text(encoding="utf-8"))
+    source = copy.deepcopy(applications["applications"][0])
+    source.update(
+        {
+            "id": "canonical-key-fall-2026",
+            "intake": "Fall 2026",
+            "intakeDetails": {
+                "label": "Fall 2026",
+                "cycleYear": 2026,
+                "academicYearEnd": None,
+                "term": "fall",
+                "startMonth": 9,
+            },
+            "opensAt": "2025-09-01",
+            "closesAt": "2027-01-15",
+            "verifiedAt": "2026-08-01",
+        }
+    )
+    official = copy.deepcopy(source)
+    official.update(
+        {
+            "id": "canonical-key-fall-2027",
+            "intake": "Fall 2027",
+            "intakeDetails": {
+                "label": "Fall 2027",
+                "cycleYear": 2027,
+                "academicYearEnd": None,
+                "term": "fall",
+                "startMonth": 9,
+            },
+            "opensAt": "2026-09-01",
+            "closesAt": "2026-12-01",
+            "verifiedAt": "2026-08-02",
+        }
+    )
+    applications["applications"] = [source, official]
+    applications_path = tmp_path / "applications.json"
+    applications_path.write_text(json.dumps(applications), encoding="utf-8")
+
+    payload = generate_predictions(
+        output_path=tmp_path / "predictions.json",
+        applications_path=applications_path,
+    )
+
+    assert not any(item["intake"] == "Fall 2027" for item in payload["predictions"])
 
 
 def test_repeated_historical_cycles_raise_prediction_confidence(tmp_path) -> None:

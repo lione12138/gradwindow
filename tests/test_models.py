@@ -43,6 +43,20 @@ def test_application_model_rejects_path_like_id() -> None:
         ApplicationWindow.model_validate(invalid)
 
 
+def test_application_model_rejects_stale_intake_details() -> None:
+    record = json.loads(APPLICATIONS_PATH.read_text(encoding="utf-8"))["applications"][
+        0
+    ]
+    invalid = copy.deepcopy(record)
+    invalid["intakeDetails"]["cycleYear"] -= 1
+
+    with pytest.raises(
+        ValidationError,
+        match="intakeDetails must match the canonical details parsed from intake",
+    ):
+        ApplicationWindow.model_validate(invalid)
+
+
 def test_evidence_snapshot_accepts_current_record() -> None:
     bundle_path = next(EVIDENCE_DIR.glob("*.json"))
     bundle = json.loads(bundle_path.read_text(encoding="utf-8"))

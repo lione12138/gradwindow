@@ -13,6 +13,8 @@ from pydantic import (
     model_validator,
 )
 
+from .intakes import parse_intake_details
+
 ScopeType = Literal["institution", "programme-group", "programme"]
 Confidence = Literal["low", "medium", "high"]
 Term = Literal["fall", "spring", "summer", "winter", "michaelmas", "other"]
@@ -54,6 +56,16 @@ class IntakeDetails(DataModel):
                 "academicYearEnd must be between cycleYear and cycleYear + 2"
             )
         return self
+
+
+def require_canonical_intake_details(
+    intake: str,
+    intake_details: IntakeDetails,
+) -> None:
+    if intake_details.model_dump(by_alias=True) != parse_intake_details(intake):
+        raise ValueError(
+            "intakeDetails must match the canonical details parsed from intake"
+        )
 
 
 class University(DataModel):
@@ -168,8 +180,7 @@ class ApplicationWindow(DataModel):
     def validate_window(self) -> ApplicationWindow:
         if self.opens_at > self.closes_at:
             raise ValueError("opensAt is after closesAt")
-        if self.intake_details.label != self.intake:
-            raise ValueError("intakeDetails.label must match intake")
+        require_canonical_intake_details(self.intake, self.intake_details)
         return self
 
 
@@ -218,8 +229,7 @@ class RecurringWindow(DataModel):
     def validate_window(self) -> RecurringWindow:
         if self.opens_at > self.closes_at:
             raise ValueError("opensAt is after closesAt")
-        if self.intake_details.label != self.intake:
-            raise ValueError("intakeDetails.label must match intake")
+        require_canonical_intake_details(self.intake, self.intake_details)
         return self
 
 
@@ -271,8 +281,7 @@ class Prediction(DataModel):
     def validate_prediction(self) -> Prediction:
         if self.opens_at > self.closes_at:
             raise ValueError("opensAt is after closesAt")
-        if self.intake_details.label != self.intake:
-            raise ValueError("intakeDetails.label must match intake")
+        require_canonical_intake_details(self.intake, self.intake_details)
         return self
 
 
