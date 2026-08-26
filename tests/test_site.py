@@ -267,6 +267,13 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'lang="en"' in index_html
     assert 'property="og:image"' in index_html
     assert "og-image-multiranking.png" in index_html
+    assert 'rel="canonical"\n      href="https://gradwindow.com/"' in index_html
+    assert "250+ leading universities" not in index_html
+    assert (
+        "universities ranked in the global Top 200 by major world rankings"
+        in index_html
+    )
+    assert 'href="./index.html' not in index_html
     assert (
         'name="robots" content="index, follow, max-image-preview:large"' in index_html
     )
@@ -397,6 +404,9 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert "university-of-cambridge" in (tmp_path / "sitemap.xml").read_text(
         encoding="utf-8"
     )
+    assert "/index.html</loc>" not in (tmp_path / "sitemap.xml").read_text(
+        encoding="utf-8"
+    )
     assert "roadmap.html" in (tmp_path / "sitemap.xml").read_text(encoding="utf-8")
     contact_html = (tmp_path / "contact.html").read_text(encoding="utf-8")
     assert 'action="mailto:' not in contact_html
@@ -491,6 +501,11 @@ def test_search_landing_pages_and_thin_university_indexing(tmp_path) -> None:
     assert "https://gradwindow.com/opening/2026-09/" in sitemap
     assert "https://gradwindow.com/intake/2027-fall/" in sitemap
     assert "<lastmod>" in sitemap
+    assert 'href="../../">Back to tracker</a>' in nus_html
+    assert "Source used for estimate" in aalto_html
+    assert "Official source" in aalto_html
+    assert "Source used for estimate" in fall_html
+    assert "Official policy source" in fall_html
 
 
 def test_build_site_uses_configured_public_url(tmp_path, monkeypatch) -> None:

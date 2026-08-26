@@ -733,7 +733,7 @@ def generate_index_pages(
             )
         monitor_item = monitor_entries.get(university_id, {})
         body = (
-            f'<p class="back"><a href="../../index.html">Back to tracker</a></p>'
+            f'<p class="back"><a href="../../">Back to tracker</a></p>'
             f"<p>{html.escape(ranking_label)} · "
             f"{country_label}</p>"
             f'<p><a href="{html.escape(university["homepageUrl"], quote=True)}">'
@@ -834,7 +834,7 @@ def generate_index_pages(
         )
         canonical = f"{public_site_url}/country/{country_slug}/"
         body = (
-            '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
+            '<p class="back"><a href="../../">Back to tracker</a></p>'
             f"<p>{len(items)} QS Top 200 universities.</p><ul>{rows}</ul>"
         )
         (country_dir / "index.html").write_text(
@@ -886,8 +886,7 @@ def generate_index_pages(
         )
         canonical = f"{public_site_url}/deadline/{month}/"
         body = (
-            '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
-            f"<ul>{rows}</ul>"
+            f'<p class="back"><a href="../../">Back to tracker</a></p><ul>{rows}</ul>'
         )
         (month_dir / "index.html").write_text(
             render_static_page(
@@ -941,8 +940,7 @@ def generate_index_pages(
             render_static_page(
                 f"{label} Master's Applications Opening Dates",
                 description,
-                '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
-                + body,
+                '<p class="back"><a href="../../">Back to tracker</a></p>' + body,
                 canonical,
                 [
                     ("GradWindow", f"{public_site_url}/"),
@@ -971,8 +969,7 @@ def generate_index_pages(
             render_static_page(
                 f"{label} Master's Application Deadlines",
                 description,
-                '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
-                + body,
+                '<p class="back"><a href="../../">Back to tracker</a></p>' + body,
                 canonical,
                 [
                     ("GradWindow", f"{public_site_url}/"),
@@ -1260,10 +1257,16 @@ def render_landing_summary(
         visible_intakes = ", ".join(intake_labels[:4])
         if len(intake_labels) > 4:
             visible_intakes += f", and {len(intake_labels) - 4} more"
-        source = next(
-            (item["sourceUrl"] for item, status in records if status != "predicted"),
-            rows[0]["sourceUrl"],
+        source_item, source_status = min(
+            records,
+            key=lambda pair: {"official": 0, "recurring": 1, "predicted": 2}[pair[1]],
         )
+        source = source_item["sourceUrl"]
+        source_label = {
+            "official": "Official source",
+            "recurring": "Official policy source",
+            "predicted": "Source used for estimate",
+        }[source_status]
         status_parts = []
         if status_counts["official"]:
             status_parts.append(f"{status_counts['official']} verified")
@@ -1283,7 +1286,7 @@ def render_landing_summary(
             f"<p>{lead}: {html.escape(openings)}<br>"
             f"Deadlines: {html.escape(deadlines)}</p>"
             f"<p>Intakes: {html.escape(visible_intakes)}</p>"
-            f'<p><a href="{html.escape(source, quote=True)}">Official source</a></p>'
+            f'<p><a href="{html.escape(source, quote=True)}">{source_label}</a></p>'
             "</article>"
         )
     trust_note = (
@@ -1321,6 +1324,13 @@ def render_window_list(
 ) -> str:
     if not items:
         return ""
+    source_label = (
+        "Source used for estimate"
+        if predicted
+        else "Official policy source"
+        if recurring
+        else "Official source"
+    )
     rows = "".join(
         "<li>"
         f'<strong><a href="../../deadline/{html.escape(item["closesAt"][:7])}/">'
@@ -1351,7 +1361,7 @@ def render_window_list(
         )
         + f'<br><a href="{html.escape(item["applicationUrl"], quote=True)}">Application page</a>'
         + " · "
-        + f'<a href="{html.escape(item["sourceUrl"], quote=True)}">Official source</a>'
+        + f'<a href="{html.escape(item["sourceUrl"], quote=True)}">{source_label}</a>'
         "</li>"
         for item in sorted(items, key=lambda value: value["closesAt"])
     )
@@ -1663,7 +1673,7 @@ def render_sources_page(public_site_url: str) -> str:
 <body>
   <main>
     <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="index.html">GradWindow</a><span aria-hidden="true">/</span><span>Sources and coverage</span>
+      <a href="./">GradWindow</a><span aria-hidden="true">/</span><span>Sources and coverage</span>
     </nav>
     <h1>Sources and coverage</h1>
     <p>Public list of {len(universities)} monitored universities, official websites, admissions-entry discovery status, and latest monitoring result.</p>
