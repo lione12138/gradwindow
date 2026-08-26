@@ -407,7 +407,7 @@ def test_observed_window_drop_is_reported_even_when_exact_count_is_stable(
     assert alerts[0]["category"] == "data-integrity"
 
 
-def test_previous_success_replaces_peak_baseline_but_keeps_historical_max(
+def test_active_incident_keeps_last_good_baseline_until_recovery(
     tmp_path,
 ) -> None:
     start = datetime(2026, 8, 10, tzinfo=timezone.utc)
@@ -445,14 +445,165 @@ def test_previous_success_replaces_peak_baseline_but_keeps_historical_max(
         now=start + timedelta(days=2),
         **kwargs,
     )
-
-    assert (
-        second["universities"]["example-university"]["baselineExactWindowCount"] == 52
+    recovered = update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=3),
+                observedWindowCount=52,
+                exactWindowCount=52,
+            )
+        ],
+        now=start + timedelta(days=3),
+        **kwargs,
     )
+
+    second_entry = second["universities"]["example-university"]
+    assert second_entry["baselineExactWindowCount"] == 52
+    assert second_entry["activeIncidentBaseline"]["exactWindowCount"] == 52
+    assert second_entry["lastKnownGoodWindowCount"] == 52
     entry = third["universities"]["example-university"]
-    assert entry["baselineExactWindowCount"] == 42
+    assert entry["baselineExactWindowCount"] == 52
     assert entry["historicalMaxExactWindowCount"] == 52
+    assert entry["incidentOpenedAt"] == (start + timedelta(days=1)).isoformat()
+    assert [alert["type"] for alert in entry["alerts"]] == [
+        "exact-window-drop",
+        "observed-window-drop",
+    ]
+    recovered_entry = recovered["universities"]["example-university"]
+    assert recovered_entry["baselineExactWindowCount"] == 52
+    assert recovered_entry["activeIncidentBaseline"] is None
+    assert recovered_entry["incidentOpenedAt"] is None
+    assert recovered_entry["alerts"] == []
+
+
+def test_active_incident_can_be_explicitly_acknowledged(tmp_path) -> None:
+    start = datetime(2026, 8, 10, tzinfo=timezone.utc)
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    kwargs = {
+        "health_path": health_path,
+        "report_path": report_path,
+        "catalog_state_path": catalog_path,
+        "universities_path": universities_path,
+    }
+    update_adapter_health(
+        [_success(start, observedWindowCount=52, exactWindowCount=52)],
+        now=start,
+        **kwargs,
+    )
+    update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=1),
+                observedWindowCount=42,
+                exactWindowCount=42,
+            )
+        ],
+        now=start + timedelta(days=1),
+        **kwargs,
+    )
+
+    payload = update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=2),
+                observedWindowCount=42,
+                exactWindowCount=42,
+                incidentResolution="manual-acknowledgement",
+            )
+        ],
+        now=start + timedelta(days=2),
+        **kwargs,
+    )
+
+    entry = payload["universities"]["example-university"]
+    assert entry["baselineExactWindowCount"] == 42
+    assert entry["activeIncidentBaseline"] is None
+    assert entry["incidentOpenedAt"] is None
+    assert entry["lastIncidentResolution"] == {
+        "type": "manual-acknowledgement",
+        "resolvedAt": (start + timedelta(days=2)).isoformat(),
+    }
     assert entry["alerts"] == []
+
+
+def test_active_incident_survives_when_later_record_diff_is_empty(tmp_path) -> None:
+    start = datetime(2026, 8, 10, tzinfo=timezone.utc)
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    kwargs = {
+        "health_path": health_path,
+        "report_path": report_path,
+        "catalog_state_path": catalog_path,
+        "universities_path": universities_path,
+    }
+    cycle = {
+        "2027:fall:09": {
+            "intakes": ["Fall 2027"],
+            "observedWindowCount": 4,
+            "exactWindowCount": 4,
+            "recurringPolicyWindowCount": 0,
+        }
+    }
+    update_adapter_health(
+        [
+            _success(
+                start,
+                observedWindowCount=4,
+                exactWindowCount=4,
+                windowCountsByCycle=cycle,
+            )
+        ],
+        now=start,
+        **kwargs,
+    )
+    degraded_cycle = {
+        "2027:fall:09": {
+            "intakes": ["Fall 2027"],
+            "observedWindowCount": 3,
+            "exactWindowCount": 3,
+            "recurringPolicyWindowCount": 0,
+        }
+    }
+    update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=1),
+                observedWindowCount=3,
+                exactWindowCount=3,
+                windowCountsByCycle=degraded_cycle,
+                disappearedWindowDetails={
+                    "example-msc::Fall 2027::Final::all": {
+                        "programmeId": "example-msc",
+                        "closesAt": "2027-08-31",
+                    }
+                },
+            )
+        ],
+        now=start + timedelta(days=1),
+        **kwargs,
+    )
+
+    payload = update_adapter_health(
+        [
+            _success(
+                start + timedelta(days=2),
+                observedWindowCount=3,
+                exactWindowCount=3,
+                windowCountsByCycle=degraded_cycle,
+                windowRemovalAssessmentAvailable=True,
+                disappearedWindowDetails={},
+            )
+        ],
+        now=start + timedelta(days=2),
+        **kwargs,
+    )
+
+    entry = payload["universities"]["example-university"]
+    assert entry["baselineExactWindowCount"] == 4
+    assert entry["activeIncidentBaseline"]["exactWindowCount"] == 4
+    assert [alert["type"] for alert in entry["alerts"]] == [
+        "exact-window-drop",
+        "observed-window-drop",
+    ]
 
 
 def test_cycle_transition_does_not_compare_new_intake_to_old_intake_peak(
@@ -509,7 +660,8 @@ def test_cycle_transition_does_not_compare_new_intake_to_old_intake_peak(
 
     entry = payload["universities"]["example-university"]
     assert entry["alerts"] == []
-    assert entry["baselineWindowCountsByCycle"] == fall_2026
+    assert entry["activeIncidentBaseline"] is None
+    assert entry["baselineWindowCountsByCycle"] == fall_2027
     assert set(entry["historicalMaxWindowCountsByCycle"]) == {
         "2026:fall:09",
         "2027:fall:09",
