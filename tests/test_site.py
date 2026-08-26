@@ -328,6 +328,8 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert snapshot["monitoring_run_at"] in index_html
     assert snapshot["refresh_summary"] in index_html
     assert snapshot["monitoring_health"] in index_html
+    assert "Monitoring healthy" not in index_html
+    assert "Needs verification in results" in index_html
     assert "Updated daily at 8:00 AM Beijing time" not in index_html
     app_js = (tmp_path / "app.js").read_text(encoding="utf-8")
     i18n_js = (tmp_path / "i18n.js").read_text(encoding="utf-8")
@@ -340,6 +342,7 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'className: "application-action-summary"' in app_js
     assert 'params.set("official", "1")' in app_js
     assert "Show {count} universities" in i18n_js
+    assert "Monitoring current · {healthy}/{total} adapters healthy" in i18n_js
     assert 'id="hero-deadline-countdown"' not in index_html
     assert "data-mobile-sort" in index_html
     assert ".window-card-row" in styles_css

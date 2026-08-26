@@ -30,6 +30,10 @@ def test_frontend_payload_is_compact_complete_and_trust_preserving() -> None:
     assert frontend["rankings"]["rankings"]["arwu"]["available"] is True
     assert frontend["rankings"]["rankings"]["usnews"]["available"] is False
     assert frontend["rankings"]["rankings"]["usnews"]["rows"] == []
+    adapter_health = frontend["meta"]["adapterHealth"]
+    assert adapter_health["updatedAt"]
+    assert adapter_health["summary"]["totalAdapters"] == 302
+    assert 0 <= adapter_health["summary"]["healthyAdapters"] <= 302
     assert details
     assert any(
         item.get("evidence")

@@ -2121,10 +2121,29 @@ function updateDataNotes() {
         ),
       )
     : Number.POSITIVE_INFINITY;
-  const healthy = monitoringAgeHours <= 48;
+  const adapterHealth = state.meta.adapterHealth || {};
+  const adapterHealthUpdatedAt = adapterHealth.updatedAt;
+  const adapterHealthAgeHours = adapterHealthUpdatedAt
+    ? Math.max(
+        0,
+        Math.floor(
+          (Date.now() - new Date(adapterHealthUpdatedAt).getTime()) / 3_600_000,
+        ),
+      )
+    : Number.POSITIVE_INFINITY;
+  const monitoringCurrent =
+    monitoringAgeHours <= 48 && adapterHealthAgeHours <= 48;
   const health = document.getElementById("monitoring-health");
-  health.textContent = t(healthy ? "monitoringHealthy" : "monitoringDelayed");
-  health.classList.toggle("delayed", !healthy);
+  const adapterSummary = adapterHealth.summary || {};
+  const totalAdapters = Number(adapterSummary.totalAdapters || 0);
+  const healthyAdapters = Number(adapterSummary.healthyAdapters || 0);
+  health.textContent =
+    monitoringCurrent && totalAdapters
+      ? t("monitoringCurrent")
+          .replace("{healthy}", healthyAdapters)
+          .replace("{total}", totalAdapters)
+      : t("monitoringDelayed");
+  health.classList.toggle("delayed", !monitoringCurrent);
   const monitorSummary = state.monitorPayload?.meta?.summary;
   document.getElementById("monitor-summary").textContent = monitorSummary
     ? ` ${monitorSummary.ok}/${monitorSummary.total} ${t("pagesAccessible")}, ${monitorSummary.blocked} ${t("pagesBlocked")}.`

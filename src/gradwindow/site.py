@@ -443,6 +443,7 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     coverage = read_json(COVERAGE_PATH)["universities"]
     monitor = read_json(MONITOR_STATE_PATH, {})
     refresh_status = read_json(REFRESH_STATUS_PATH, {})
+    adapter_health = read_json(PROGRAMME_ADAPTER_HEALTH_PATH, {"meta": {}})
 
     qs_universities = [
         item for item in universities if item.get("qsPosition") is not None
@@ -539,6 +540,30 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
         if monitoring_run_at
         else None
     )
+    adapter_health_meta = adapter_health.get("meta", {})
+    adapter_health_updated_at = adapter_health_meta.get("updatedAt")
+    adapter_health_age_days = (
+        max((today - date.fromisoformat(adapter_health_updated_at[:10])).days, 0)
+        if adapter_health_updated_at
+        else None
+    )
+    adapter_health_summary = adapter_health_meta.get("summary", {})
+    total_adapters = int(adapter_health_summary.get("totalAdapters", 0))
+    healthy_adapters = int(adapter_health_summary.get("healthyAdapters", 0))
+    monitoring_current = (
+        monitoring_age_days is not None
+        and monitoring_age_days <= 2
+        and adapter_health_age_days is not None
+        and adapter_health_age_days <= 2
+    )
+    if monitoring_current and total_adapters:
+        monitoring_health = (
+            f"Monitoring current · {healthy_adapters}/{total_adapters} adapters healthy"
+        )
+    elif monitoring_current:
+        monitoring_health = "Monitoring current"
+    else:
+        monitoring_health = "Monitoring delayed"
     official_start = min(item["opensAt"] for item in applications)
     official_end = max(item["closesAt"] for item in applications)
 
@@ -555,11 +580,7 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
             else "Last successful monitoring run: unavailable"
         ),
         "refresh_summary": refresh_summary,
-        "monitoring_health": (
-            "Monitoring healthy"
-            if monitoring_age_days is not None and monitoring_age_days <= 2
-            else "Monitoring delayed"
-        ),
+        "monitoring_health": monitoring_health,
         "deadline_day": deadline_day,
         "deadline_month": deadline_month,
         "deadline_school": deadline_school,

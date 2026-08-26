@@ -15,6 +15,7 @@ from .paths import (
     GLOBAL_RANKINGS_PATH,
     MONITOR_STATE_PATH,
     PREDICTIONS_PATH,
+    PROGRAMME_ADAPTER_HEALTH_PATH,
     PROGRAMME_GROUPS_PATH,
     PROGRAMS_PATH,
     RECURRING_WINDOWS_PATH,
@@ -197,6 +198,10 @@ def build_frontend_payloads(
     policies_payload = read_json(WINDOW_POLICIES_PATH)
     coverage_payload = read_json(COVERAGE_PATH)
     monitor_payload = read_json(MONITOR_STATE_PATH)
+    adapter_health_payload = read_json(
+        PROGRAMME_ADAPTER_HEALTH_PATH,
+        {"meta": {}},
+    )
     source_monitor_payload = read_json(APPLICATION_SOURCE_STATE_PATH)
     refresh_payload = read_json(REFRESH_STATUS_PATH)
     rankings_payload = read_json(GLOBAL_RANKINGS_PATH)
@@ -311,6 +316,10 @@ def build_frontend_payloads(
         "closedQsUniversityCount": closed_qs_universities,
         "refreshStatus": refresh_payload,
         "monitor": {"meta": monitor_payload.get("meta", {})},
+        "adapterHealth": {
+            "updatedAt": adapter_health_payload.get("meta", {}).get("updatedAt"),
+            "summary": adapter_health_payload.get("meta", {}).get("summary", {}),
+        },
     }
     category_labels = {
         item["id"]: {
