@@ -5,7 +5,9 @@ import re
 import unicodedata
 from collections.abc import Callable
 from datetime import datetime
-from urllib.parse import urlencode, urljoin
+from http.cookiejar import CookieJar
+from urllib.parse import quote, urlencode, urljoin
+from urllib.request import HTTPCookieProcessor, Request, build_opener
 
 from bs4 import BeautifulSoup
 
@@ -27,6 +29,12 @@ APPLICATION_URL = (
     "https://www.ntu.edu.sg/admissions/graduate/cwadmissionguide/apply-now"
 )
 WINDOW_URL = "https://apps.ntu.edu.sg/COAL/ListProgrammeIframe"
+WINDOW_ROOT = "https://apps.ntu.edu.sg"
+WINDOW_API_PATH = (
+    "/COAL/screenservices/COAL/MainFlow/ProgramList/DataActionGetAdmControlList"
+)
+PROGRAM_LIST_SCRIPT_PATH = "/COAL/scripts/COAL.MainFlow.ProgramList.mvc.js"
+OUTSYSTEMS_SCRIPT_PATH = "/COAL/scripts/OutSystems.js"
 SITE_ROOT = "https://www.ntu.edu.sg"
 APPLICATION_PROGRAMME_ALIASES = {
     "master of public administration chinese": "executive mpa march intake",
@@ -53,6 +61,118 @@ def catalog_page_url(page: int) -> str:
 CATALOG_URL = catalog_page_url(1)
 
 
+def _fetch_application_windows_api() -> str:
+    opener = build_opener(HTTPCookieProcessor(CookieJar()))
+    headers = {
+        "Accept": "application/json, text/plain, */*",
+        "OutSystems-client-env": "browser",
+        "User-Agent": (
+            "Mozilla/5.0 (compatible; GradWindow/1.0; "
+            "+https://gradwindow.com/methodology/)"
+        ),
+    }
+
+    shell = _open_text(opener, Request(WINDOW_URL, headers=headers))
+    index_version = _required_match(
+        shell,
+        r'OSManifestLoader\.indexVersionToken\s*=\s*"([^"]+)"',
+        "index version token",
+    )
+    manifest_url = (
+        urljoin(WINDOW_URL, "moduleservices/moduleinfo?")
+        + "?"
+        + quote(index_version, safe="")
+    )
+    manifest = _json_object(
+        _open_text(opener, Request(manifest_url, headers=headers)),
+        "module manifest",
+    )
+    manifest_data = manifest.get("manifest")
+    if not isinstance(manifest_data, dict):
+        raise ValueError("NTU OutSystems manifest is missing manifest metadata")
+    module_version = str(manifest_data.get("versionToken") or "").strip()
+    url_versions = manifest_data.get("urlVersions")
+    if not module_version or not isinstance(url_versions, dict):
+        raise ValueError("NTU OutSystems manifest is missing version metadata")
+
+    program_version = str(url_versions.get(PROGRAM_LIST_SCRIPT_PATH) or "")
+    runtime_version = str(url_versions.get(OUTSYSTEMS_SCRIPT_PATH) or "")
+    if not program_version or not runtime_version:
+        raise ValueError("NTU OutSystems manifest is missing required scripts")
+    controller = _open_text(
+        opener,
+        Request(
+            urljoin(WINDOW_ROOT, PROGRAM_LIST_SCRIPT_PATH) + program_version,
+            headers=headers,
+        ),
+    )
+    runtime = _open_text(
+        opener,
+        Request(
+            urljoin(WINDOW_ROOT, OUTSYSTEMS_SCRIPT_PATH) + runtime_version,
+            headers=headers,
+        ),
+    )
+    api_version = _required_match(
+        controller,
+        (
+            r'DataActionGetAdmControlList"\s*,\s*"'
+            r"screenservices/COAL/MainFlow/ProgramList/"
+            r'DataActionGetAdmControlList"\s*,\s*"([^"]+)"'
+        ),
+        "application service API version",
+    )
+    csrf_token = _required_match(
+        runtime,
+        r'AnonymousCSRFToken\s*=\s*"([^"]+)"',
+        "anonymous CSRF token",
+    )
+    body = json.dumps(
+        {
+            "versionInfo": {
+                "moduleVersion": module_version,
+                "apiVersion": api_version,
+            },
+            "viewName": "MainFlow.ListProgrammeIframe",
+            "screenData": {"variables": {}},
+        },
+        separators=(",", ":"),
+    ).encode("utf-8")
+    request = Request(
+        urljoin(WINDOW_ROOT, WINDOW_API_PATH),
+        data=body,
+        method="POST",
+        headers={
+            **headers,
+            "Content-Type": "application/json; charset=UTF-8",
+            "X-CSRFToken": csrf_token,
+        },
+    )
+    return _open_text(opener, request)
+
+
+def _open_text(opener, request: Request) -> str:
+    with opener.open(request, timeout=45) as response:
+        return response.read().decode("utf-8-sig", errors="replace")
+
+
+def _required_match(value: str, pattern: str, label: str) -> str:
+    match = re.search(pattern, value)
+    if not match:
+        raise ValueError(f"NTU OutSystems source is missing {label}")
+    return match.group(1)
+
+
+def _json_object(value: str, label: str) -> dict:
+    try:
+        payload = json.loads(value)
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"NTU {label} did not return JSON") from exc
+    if not isinstance(payload, dict):
+        raise ValueError(f"NTU {label} returned an invalid payload")
+    return payload
+
+
 class NTUAdapter(BaseProgrammeAdapter):
     university_id = UNIVERSITY_ID
     catalog_url = CATALOG_URL
@@ -66,9 +186,11 @@ class NTUAdapter(BaseProgrammeAdapter):
         self,
         minimum_expected_programmes: int = 100,
         *,
+        window_api_fetcher: Callable[[], str] | None = _fetch_application_windows_api,
         browser_content_fetcher: Callable[[str], str] | None = None,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
+        self.window_api_fetcher = window_api_fetcher
         self.browser_content_fetcher = (
             browser_content_fetcher or browser_content_fetcher_from_environment()
         )
@@ -146,6 +268,20 @@ class NTUAdapter(BaseProgrammeAdapter):
     ) -> tuple[dict[str, list[DiscoveredWindow]], dict[str, str], str]:
         documents: list[str] = []
         errors: list[str] = []
+        if self.window_api_fetcher is not None:
+            try:
+                api_payload = self.window_api_fetcher()
+            except Exception as exc:
+                errors.append(f"application service {type(exc).__name__}: {exc}")
+            else:
+                try:
+                    windows, evidence = _application_windows_from_api(api_payload)
+                except ValueError as exc:
+                    errors.append(f"application service parser: {exc}")
+                else:
+                    if windows:
+                        return windows, evidence, "official-outsystems-api"
+
         try:
             direct = fetcher(self.window_url)
         except Exception as exc:
@@ -279,6 +415,63 @@ def _application_windows(
     if not windows:
         _application_card_windows(soup, windows, evidence)
     return windows, evidence
+
+
+def _application_windows_from_api(
+    value: str,
+) -> tuple[dict[str, list[DiscoveredWindow]], dict[str, str]]:
+    payload = _json_object(value, "application service")
+    data = payload.get("data")
+    outer_list = data.get("List") if isinstance(data, dict) else None
+    groups = outer_list.get("List") if isinstance(outer_list, dict) else None
+    if not isinstance(groups, list):
+        raise ValueError("NTU application service returned an invalid list payload")
+
+    windows: dict[str, list[DiscoveredWindow]] = {}
+    evidence: dict[str, str] = {}
+    for group in groups:
+        if not isinstance(group, dict):
+            continue
+        admission_date = str(group.get("AdmissionDate") or "").strip()
+        rows_wrapper = group.get("AdmControlList")
+        rows = rows_wrapper.get("List") if isinstance(rows_wrapper, dict) else None
+        if not admission_date or not isinstance(rows, list):
+            continue
+        period = _api_round_name(group)
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            programme_name = _normalise(str(row.get("ProgramName") or ""))
+            opens_at = str(row.get("OpenDate") or "").strip()
+            closes_at = str(row.get("CloseDate") or "").strip()
+            if not programme_name or not opens_at or not closes_at:
+                continue
+            key = _application_catalog_key(programme_name)
+            window = DiscoveredWindow(
+                round=period,
+                intake=_intake(admission_date),
+                opens_at=_date(opens_at),
+                closes_at=_date(closes_at),
+                applicant_categories=["all"],
+                source_url=APPLICATION_URL,
+            )
+            windows.setdefault(key, []).append(window)
+            evidence[key] = (
+                "NTU's official live application service lists "
+                f"{programme_name} for {window.intake}: applications open "
+                f"{window.opens_at} and close {window.closes_at}."
+            )
+    return windows, evidence
+
+
+def _api_round_name(group: dict) -> str:
+    semester = str(group.get("Sem") or "").strip()
+    term_type = str(group.get("Term") or "").strip().upper()
+    if term_type == "T" and semester:
+        return f"Trimester {semester}"
+    if term_type == "S" and semester:
+        return f"Semester {semester}"
+    return f"Intake {semester}" if semester else "Main intake"
 
 
 def _application_card_windows(

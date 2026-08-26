@@ -7,8 +7,82 @@ from gradwindow.programme_adapters.ntu import (
     APPLICATION_URL,
     WINDOW_URL,
     NTUAdapter,
+    _application_windows_from_api,
     catalog_page_url,
 )
+
+
+def _window_api_payload() -> str:
+    return json.dumps(
+        {
+            "versionInfo": {
+                "hasModuleVersionChanged": False,
+                "hasApiVersionChanged": False,
+            },
+            "data": {
+                "List": {
+                    "List": [
+                        {
+                            "Year": "2026",
+                            "Sem": "2",
+                            "Term": "S",
+                            "AdmissionDate": "11-01-2027",
+                            "AdmControlList": {
+                                "List": [
+                                    {
+                                        "OpenDate": "2026-07-01",
+                                        "CloseDate": "2026-08-31",
+                                        "CourseCode": "277",
+                                        "ProgramName": "MSC(DATA SCIENCE)",
+                                    }
+                                ]
+                            },
+                        }
+                    ]
+                }
+            },
+        }
+    )
+
+
+def test_ntu_parses_outsystems_application_service_payload() -> None:
+    windows, evidence = _application_windows_from_api(_window_api_payload())
+
+    assert list(windows) == ["data science"]
+    window = windows["data science"][0]
+    assert window.round == "Semester 2"
+    assert window.intake == "January 2027"
+    assert window.opens_at == "2026-07-01"
+    assert window.closes_at == "2026-08-31"
+    assert window.applicant_categories == ["all"]
+    assert window.source_url == APPLICATION_URL
+    assert "official live application service" in evidence["data science"]
+
+
+def test_ntu_prefers_outsystems_application_service_over_html_shell() -> None:
+    items = [
+        {
+            "title": "Master of Science in Data Science",
+            "url": "/education/graduate-programme/msc-data-science",
+            "tag": "College of Computing and Data Science",
+        }
+    ]
+    catalogue = json.dumps({"totalPages": 1, "totalItems": 1, "items": items})
+
+    def fetcher(url: str) -> str:
+        if url == catalog_page_url(1):
+            return catalogue
+        raise AssertionError(f"HTML fallback used for {url}")
+
+    catalog = NTUAdapter(
+        minimum_expected_programmes=1,
+        window_api_fetcher=_window_api_payload,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    programme = catalog.programmes[0]
+    assert programme.parse_status == "parsed"
+    assert programme.retrieval_method == "official-outsystems-api"
+    assert len(programme.windows) == 1
 
 
 def test_ntu_matches_official_chinese_intake_names_to_catalogue_programmes() -> None:
@@ -47,9 +121,10 @@ def test_ntu_matches_official_chinese_intake_names_to_catalogue_programmes() -> 
         WINDOW_URL: application_table,
     }
 
-    catalog = NTUAdapter(minimum_expected_programmes=2).parse_catalog_from_fetcher(
-        pages.__getitem__
-    )
+    catalog = NTUAdapter(
+        minimum_expected_programmes=2,
+        window_api_fetcher=None,
+    ).parse_catalog_from_fetcher(pages.__getitem__)
 
     assert len(catalog.programmes) == 2
     assert all(programme.parse_status == "parsed" for programme in catalog.programmes)
@@ -84,9 +159,10 @@ def test_ntu_keeps_matched_windows_and_reports_unmatched_application_rows() -> N
         WINDOW_URL: application_table,
     }
 
-    catalog = NTUAdapter(minimum_expected_programmes=1).parse_catalog_from_fetcher(
-        pages.__getitem__
-    )
+    catalog = NTUAdapter(
+        minimum_expected_programmes=1,
+        window_api_fetcher=None,
+    ).parse_catalog_from_fetcher(pages.__getitem__)
 
     assert catalog.programmes[0].parse_status == "parsed"
     assert len(catalog.programmes[0].windows) == 1
@@ -122,9 +198,10 @@ def test_ntu_programme_ids_treat_ampersand_as_and() -> None:
         WINDOW_URL: "<p>No programs for entered Year, Sem and Term Type</p>",
     }
 
-    catalog = NTUAdapter(minimum_expected_programmes=2).parse_catalog_from_fetcher(
-        pages.__getitem__
-    )
+    catalog = NTUAdapter(
+        minimum_expected_programmes=2,
+        window_api_fetcher=None,
+    ).parse_catalog_from_fetcher(pages.__getitem__)
 
     assert {programme.id for programme in catalog.programmes} == {
         "ntu-asset-wealth-management-msc",
@@ -161,6 +238,7 @@ def test_ntu_uses_browser_rendering_when_live_table_parse_returns_zero() -> None
 
     catalog = NTUAdapter(
         minimum_expected_programmes=1,
+        window_api_fetcher=None,
         browser_content_fetcher=lambda url: (
             rendered_table
             if url == WINDOW_URL
@@ -195,5 +273,6 @@ def test_ntu_rejects_zero_windows_when_official_page_contains_date_signals() -> 
     with pytest.raises(ParserZeroResultError, match="date signals.*zero windows"):
         NTUAdapter(
             minimum_expected_programmes=1,
+            window_api_fetcher=None,
             browser_content_fetcher=lambda _url: malformed_table,
         ).parse_catalog_from_fetcher(pages.__getitem__)
