@@ -2,10 +2,10 @@
   "universities": {
     "universite-libre-de-bruxelles-ulb": {
       "sourceUrl": "https://www.ulb.be/servlet/search?l=0&beanKey=beanKeyRechercheFormation&types=formation&s=FACULTE_ASC&limit=100&typeFo=MA&typeFo=MA60&page=1",
-      "checkedAt": "2026-08-25T06:01:19.671581+00:00",
-      "itemCount": 126,
+      "checkedAt": "2026-08-26T06:06:47.478956+00:00",
+      "itemCount": 127,
       "applicationOpensAt": null,
-      "catalogHash": "12cdede595ac8cea5e27d783420e572bfbcf1c841dc08225806bc7400ec031f7",
+      "catalogHash": "aa2e8cc319cbd234a566bc3c62586bb9480149f341e46088a8cb3bd3f6e1dfea",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "recurring-policy-partial",
@@ -23,11 +23,11 @@
         }
       },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 125,
-      "programmesNeedingReview": 125,
-      "limitationReason": "ULB notes that some specialised master's programmes use different dates. The shared policy is therefore kept at programme-group scope and marked as an official recurring policy, not an exact literal-year programme window. 2 window(s) use an official recurring day/month policy; GradWindow maps the cycle year. 125 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-25T06:01:19.671581+00:00",
-      "windowFingerprint": "21cc5b0ac18d43521512ec158727a7d518866761660d242ed79443e9a3bfe4a7",
+      "programmesWithoutDeadlines": 126,
+      "programmesNeedingReview": 126,
+      "limitationReason": "ULB notes that some specialised master's programmes use different dates. The shared policy is therefore kept at programme-group scope and marked as an official recurring policy, not an exact literal-year programme window. 2 window(s) use an official recurring day/month policy; GradWindow maps the cycle year. 126 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-08-26T06:06:47.478956+00:00",
+      "windowFingerprint": "db62fc3321d47035eb26a6c2a463fd6edd0df9559b324ba540206c097075c2c5",
       "watchedWindowSourceHash": "c4ea2186fe10cb5d067453da1322756267a54fab56e1bbae1af54f074f04c797",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
@@ -436,6 +436,16 @@
           "degreeType": "Master",
           "faculty": "Solvay Brussels School of Economics and Management",
           "department": "Solvay Brussels School of Economics and Management",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "ulb-ma60-es5th": {
+          "name": "Master en enseignement section 5 : Arts de la parole et du théâtre",
+          "degreeType": "Master",
+          "faculty": "Pôle éducation",
+          "department": "Pôle éducation",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
