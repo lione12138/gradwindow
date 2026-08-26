@@ -2,21 +2,48 @@
   "universities": {
     "king-s-college-london-kcl": {
       "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses",
-      "checkedAt": "2026-08-20T05:32:50.207443+00:00",
+      "checkedAt": "2026-08-26T23:39:51.554149+00:00",
       "itemCount": 173,
       "applicationOpensAt": null,
-      "catalogHash": "58e2a223cfa03c5e63918cd495a245272cdd8e79afa0dac1d4ec56f053610bfd",
+      "catalogHash": "0c6c2613be838275b9fa98d4e86f872d54a04ba63a42668d61c9008be6c6f956",
       "catalogueStatus": "ok",
+      "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 13,
+      "observedWindowCount": 50,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "missingOpeningDateCount": 13,
-      "programmesWithoutDeadlines": 168,
+      "windowCountsByCycle": {
+        "2026:fall:09": {
+          "intakes": [
+            "September 2026"
+          ],
+          "observedWindowCount": 44,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "2026:other:01": {
+          "intakes": [
+            "January 2026"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:other:01": {
+          "intakes": [
+            "January 2027"
+          ],
+          "observedWindowCount": 4,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 50,
+      "programmesWithoutDeadlines": 149,
       "programmesNeedingReview": 173,
-      "limitationReason": "13 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-20T05:32:50.207443+00:00",
-      "windowFingerprint": "ba090391b4f54757d33c0f1592ccecf0327bc36e5cb166e7bc1598b5f8a4dde4",
+      "limitationReason": "50 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-08-26T23:39:51.554149+00:00",
+      "windowFingerprint": "5e2ee5810454b5691bb78fc0908c7812dba8b8b8c94df96d4d73439b659e0ac5",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -26,7 +53,9 @@
           "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-addictions-msc": {
           "name": "Addictions MSc",
@@ -34,15 +63,19 @@
           "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
           "department": "Department of Addictions Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-advanced-clinical-practice-msc-pg-dip": {
-          "name": "Advanced Clinical Practice MSc, PG Dip",
+          "name": "Advanced Clinical Practice MSc",
           "degreeType": "MSc",
           "faculty": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
           "department": "Department of Adult Nursing",
           "parseStatus": "incomplete",
-          "deadlineHash": "70a04b21d37af63e26da509423460d8bfb2600685a8d557fe804ecbd74d46ad5"
+          "deadlineHash": "79b0aeedcda4c33762377315b0529bb044fa85346296527d879266baeb4a6305",
+          "windowCount": 5,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-advanced-computing-msc": {
           "name": "Advanced Computing MSc",
@@ -50,7 +83,9 @@
           "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
           "department": "Department of Informatics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-advanced-software-engineering-msc": {
           "name": "Advanced Software Engineering MSc",
@@ -58,7 +93,9 @@
           "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
           "department": "Department of Informatics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-aerospace-medicine-msc": {
           "name": "Aerospace Medicine MSc",
@@ -66,7 +103,9 @@
           "faculty": "Faculty of Life Sciences & Medicine",
           "department": "Centre for Human & Applied Physiological Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-aesthetic-dentistry-msc": {
           "name": "Aesthetic Dentistry MSc",
@@ -74,7 +113,9 @@
           "faculty": "Faculty of Dentistry, Oral & Craniofacial Sciences",
           "department": "",
           "parseStatus": "incomplete",
-          "deadlineHash": "945428273d0343750dd3cd11ecea855392b8f48c7739b17492afdaea28f65840"
+          "deadlineHash": "c5cc3913cd4685de89a3e59bd200bada53bb9dc138ea8d841a3654ec64d5d864",
+          "windowCount": 2,
+          "latestClosesAt": "2026-11-20"
         },
         "kcl-affective-disorders-msc": {
           "name": "Affective Disorders MSc",
@@ -82,7 +123,9 @@
           "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
           "department": "Department of Psychological Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-analytical-toxicology-msc": {
           "name": "Analytical Toxicology MSc",
@@ -90,7 +133,9 @@
           "faculty": "Faculty of Life Sciences & Medicine",
           "department": "Department of Toxicology & Forensic Science",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-ancient-history-ma": {
           "name": "Ancient History MA",
@@ -98,23 +143,29 @@
           "faculty": "Department of Classics",
           "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-applied-neuroscience-msc-pg-dip-online": {
-          "name": "Applied Neuroscience MSc, PG Dip (online)",
+          "name": "Applied Neuroscience (Online) MSc",
           "degreeType": "MSc",
           "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
           "department": "Department of Basic & Clinical Neuroscience",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-artificial-intelligence-for-science-msc": {
           "name": "Artificial Intelligence for Science MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Faculty of Life Sciences & Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-artificial-intelligence-msc": {
           "name": "Artificial Intelligence MSc",
@@ -122,7 +173,9 @@
           "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
           "department": "Department of Informatics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-arts-cultural-management-ma": {
           "name": "Arts & Cultural Management MA",
@@ -130,7 +183,9 @@
           "faculty": "Department of Culture, Media & Creative Industries",
           "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-banking-finance-msc": {
           "name": "Banking & Finance MSc",
@@ -138,7 +193,9 @@
           "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-big-data-in-culture-society-ma": {
           "name": "Big Data in Culture & Society MA",
@@ -146,7 +203,9 @@
           "faculty": "Department of Digital Humanities",
           "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-biomedical-molecular-sciences-research-msc": {
           "name": "Biomedical & Molecular Sciences Research MSc",
@@ -154,15 +213,19 @@
           "faculty": "Faculty of Life Sciences & Medicine",
           "department": "School of Cancer & Pharmaceutical Sciences",
           "parseStatus": "incomplete",
-          "deadlineHash": "e92fa1baa3da1539e3bcbc63d35e6fa5c07bed2102f12318188a4ea6b2867c95"
+          "deadlineHash": "922de2fbdad4175e8c4d3b5ad02a14968fce234b8a9f9f0c1761baf56148d9bd",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-biotechnology-computational-biology-msc": {
           "name": "Biotechnology & Computational Biology MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Basic & Medical Biosciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-cardiorespiratory-care-msc": {
           "name": "Cardiorespiratory Care MSc",
@@ -170,7 +233,9 @@
           "faculty": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-cardiovascular-sciences-msc": {
           "name": "Cardiovascular Sciences MSc",
@@ -178,7 +243,9 @@
           "faculty": "Faculty of Life Sciences & Medicine",
           "department": "School of Cardiovascular and Metabolic Medicine & Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-child-adolescent-mental-health-msc": {
           "name": "Child & Adolescent Mental Health MSc",
@@ -186,7 +253,9 @@
           "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
           "department": "Department of Child & Adolescent Psychiatry",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-china-globalisation-msc": {
           "name": "China & Globalisation MSc",
@@ -194,7 +263,9 @@
           "faculty": "Faculty of Social Science & Public Policy",
           "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-classical-art-archaeology-ma": {
           "name": "Classical Art & Archaeology MA",
@@ -202,7 +273,9 @@
           "faculty": "Department of Classics",
           "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-climate-change-environment-science-and-policy-msc": {
           "name": "Climate Change: Environment, Science and Policy MSc",
@@ -210,7 +283,9 @@
           "faculty": "Faculty of Social Science & Public Policy",
           "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-clinical-dermatology-msc": {
           "name": "Clinical Dermatology MSc",
@@ -218,7 +293,9 @@
           "faculty": "Faculty of Life Sciences & Medicine",
           "department": "School of Basic & Medical Biosciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-clinical-education-ma": {
           "name": "Clinical Education MA",
@@ -226,7 +303,9 @@
           "faculty": "Faculty of Life Sciences & Medicine",
           "department": "King’s Learning Institute",
           "parseStatus": "incomplete",
-          "deadlineHash": "bc0c0cb0fdeb6c5891ff4eaa9a31addc8163e207a18285f2fe70c61b83395217"
+          "deadlineHash": "e67422b39eb4086243a42861e4b58f01d7e2309861e153177e78b455c8553768",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-clinical-neurodevelopmental-sciences-msc": {
           "name": "Clinical Neurodevelopmental Sciences MSc",
@@ -234,7 +313,9 @@
           "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
           "department": "Department of Forensic and Neurodevelopmental Science",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-clinical-neuropsychiatry-msc": {
           "name": "Clinical Neuropsychiatry MSc",
@@ -242,15 +323,19 @@
           "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
           "department": "Department of Psychological Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-clinical-neuroscience-msc": {
           "name": "Clinical Neuroscience MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Basic & Clinical Neuroscience",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-clinical-nursing-msc": {
           "name": "Clinical Nursing MSc",
@@ -258,527 +343,659 @@
           "faculty": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
           "department": "Department of Adult Nursing",
           "parseStatus": "incomplete",
-          "deadlineHash": "1e0dcf9561294f59543097f63f2b6ee7d5f3b0e654e267362b432f7d08496097"
+          "deadlineHash": "eb594e86a50dbff918851c63bbc70f279d4b71b5a84297b57bfe24d00abe65c4",
+          "windowCount": 3,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-clinical-pharmacology-msc": {
           "name": "Clinical Pharmacology MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Cancer & Pharmaceutical Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0d554425ea5aa827be7e2ed1c3fbd686878d5c738939b9e2c9db7196113c2055",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-clinical-research-delivery-msc": {
           "name": "Clinical Research Delivery MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
+          "department": "Department of Adult Nursing",
+          "parseStatus": "incomplete",
+          "deadlineHash": "462db1a8e9f53f6f650d015c993022984176327949aae5dbf6d90f499bea48ab",
+          "windowCount": 1,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-clinical-research-mres": {
           "name": "Clinical Research MRes",
           "degreeType": "MRes",
-          "faculty": "",
-          "department": "",
+          "faculty": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
+          "department": "Department of Adult Nursing",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-comparative-literature-ma": {
           "name": "Comparative Literature MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Languages, Literatures and Cultures",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-complex-systems-and-data-modelling-msc": {
           "name": "Complex Systems and Data Modelling MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Mathematics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-computational-finance-msc": {
           "name": "Computational Finance MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Informatics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-conflict-resolution-in-divided-societies-ma": {
           "name": "Conflict Resolution in Divided Societies MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-conflict-security-development-ma": {
           "name": "Conflict, Security & Development MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-construction-law-dispute-resolution-msc": {
           "name": "Construction Law & Dispute Resolution MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "The Dickson Poon School of Law",
+          "department": "Centre of Construction Law & Dispute Resolution",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-contemporary-art-and-the-moving-image-ma": {
           "name": "Contemporary Art and the Moving Image MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Arts & Humanities",
+          "department": "Department of Film Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-contemporary-literature-culture-theory-ma": {
           "name": "Contemporary Literature, Culture & Theory MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of English",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-critical-theory-ma": {
           "name": "Critical Theory MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Languages, Literatures and Cultures",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-cultural-creative-industries-ma": {
           "name": "Cultural & Creative Industries MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Culture, Media & Creative Industries",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-cyber-security-msc": {
           "name": "Cyber Security MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Informatics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-data-science-msc": {
           "name": "Data Science MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Informatics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-dental-public-health-msc": {
           "name": "Dental Public Health MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "Faculty of Dentistry, Oral & Craniofacial Sciences",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-development-studies-ma": {
           "name": "Development Studies MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of International Development",
+          "department": "Faculty of Social Science & Public Policy",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-developmental-psychology-psychopathology-msc": {
           "name": "Developmental Psychology & Psychopathology MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Social, Genetic & Developmental Psychiatry Centre",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-digital-asset-media-management-ma": {
           "name": "Digital Asset & Media Management MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Digital Humanities",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-digital-culture-society-ma": {
           "name": "Digital Culture & Society MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Digital Humanities",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-digital-economies-online-msc": {
           "name": "Digital Economies (Online) MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Arts & Humanities",
+          "department": "Department of Digital Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-digital-economies-south-east-asia-msc": {
           "name": "Digital Economies (South East Asia) MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Digital Humanities",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-digital-economy-msc": {
           "name": "Digital Economy MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Digital Humanities",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-digital-futures-online-ma": {
           "name": "Digital Futures (Online) MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Arts & Humanities",
+          "department": "Department of Digital Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-digital-humanities-ma": {
           "name": "Digital Humanities MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Arts & Humanities",
+          "department": "Department of Digital Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-digital-marketing-msc": {
           "name": "Digital Marketing MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-drug-development-science-msc": {
           "name": "Drug Development Science MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Cancer & Pharmaceutical Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "8ceba283369177f46fe154d9361de4cfb74f4f39d84bcb82959045839727d132",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-early-intervention-in-psychosis-msc": {
           "name": "Early Intervention in Psychosis MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Psychosis Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-early-modern-english-literature-books-that-matter-ma": {
           "name": "Early Modern English Literature: Books That Matter MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of English",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-early-modern-history-ma": {
           "name": "Early Modern History MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of History",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-economics-finance-msc": {
           "name": "Economics & Finance MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-economics-for-competition-law-ma": {
           "name": "Economics for Competition Law MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "The Dickson Poon School of Law",
+          "department": "Centre of European Law",
+          "parseStatus": "incomplete",
+          "deadlineHash": "57e53b7729e8f4b41ac1684ec2e4d2995c71526d9aae0001111075183dee6903",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-31"
         },
         "kcl-economics-policy-msc": {
           "name": "Economics & Policy MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "School of Politics & Economics",
+          "department": "Faculty of Social Science & Public Policy",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-education-in-arts-cultural-settings-ma": {
           "name": "Education in Arts & Cultural Settings MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Education, Communication & Society",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-education-ma": {
           "name": "Education MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Education, Communication & Society",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-education-policy-society-ma": {
           "name": "Education, Policy & Society MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Education, Communication & Society",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-educational-leadership-and-management-ma": {
           "name": "Educational Leadership and Management MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Education, Communication & Society",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-electronic-engineering-with-management-msc": {
           "name": "Electronic Engineering with Management MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Engineering",
+          "department": "Faculty of Natural, Mathematical & Engineering Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-emerging-economies-and-international-development-msc": {
           "name": "Emerging Economies and International Development MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-endodontics-msc": {
           "name": "Endodontics MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "Faculty of Dentistry, Oral & Craniofacial Sciences",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "47505e42e41d847a7fe44baf1c68b1283dcc01efff9484f5c05f4af67fef0840",
+          "windowCount": 2,
+          "latestClosesAt": "2026-11-20"
         },
         "kcl-engineering-with-management-msc": {
           "name": "Engineering with Management MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Engineering",
+          "department": "Faculty of Natural, Mathematical & Engineering Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-environment-politics-and-development-msc": {
           "name": "Environment, Politics and Development MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-eu-competition-law-ma": {
           "name": "EU Competition Law MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "The Dickson Poon School of Law",
+          "department": "Centre of European Law",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f013e361678445c7557bb77142b90868f9f69585aba49d767272c479a5fa0ef6",
+          "windowCount": 1,
+          "latestClosesAt": "2026-08-31"
         },
         "kcl-european-studies-ma": {
           "name": "European Studies MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Politics & Economics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-executive-mba": {
           "name": "Executive MBA",
           "degreeType": "MBA",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "c68ede99a69ad4591989ac78f27d673b3bf763505e437d1479d0d438ea195d76",
+          "windowCount": 4,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-family-therapy-msc": {
           "name": "Family Therapy MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Child & Adolescent Psychiatry",
+          "parseStatus": "incomplete",
+          "deadlineHash": "6b25d3fa7bd6ab446155edcfea70ddf0958cbcf76b71a15636042434e40764bb",
+          "windowCount": 1,
+          "latestClosesAt": "2026-03-09"
         },
         "kcl-film-studies-film-philosophy-pathways-available-ma": {
           "name": "Film Studies (Film & Philosophy pathways available) MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Film Studies",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-finance-analytics-msc": {
           "name": "Finance Analytics MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-finance-asset-pricing-msc": {
           "name": "Finance (Asset Pricing) MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-finance-corporate-finance-msc": {
           "name": "Finance (Corporate Finance) MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-financial-mathematics-with-data-science-msc": {
           "name": "Financial Mathematics with Data Science MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Mathematics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-forensic-mental-health-research-msc": {
           "name": "Forensic Mental Health Research MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Forensic and Neurodevelopmental Science",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-forensic-science-msc": {
           "name": "Forensic Science MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "Department of Toxicology & Forensic Science",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-genomic-medicine-msc": {
           "name": "Genomic Medicine MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Basic & Medical Biosciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-geopolitics-resources-and-territory-ma": {
           "name": "Geopolitics, Resources and Territory MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-affairs-msc": {
           "name": "Global Affairs MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-cultures-online-ma": {
           "name": "Global Cultures (online) MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Arts & Humanities",
+          "department": "Department of Languages, Literatures and Cultures",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-finance-analytics-online-msc": {
           "name": "Global Finance Analytics (online) MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-finance-banking-online-msc": {
           "name": "Global Finance & Banking (online) MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-health-msc": {
           "name": "Global Health MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "Department of Population Health Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-health-social-justice-and-public-policy-msc": {
           "name": "Global Health, Social Justice and Public Policy MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-human-resource-management-online-msc": {
           "name": "Global Human Resource Management (online) MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-leadership-and-peacebuilding-msc": {
           "name": "Global Leadership and Peacebuilding MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "African Leadership Centre",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-media-industries-ma": {
           "name": "Global Media Industries MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Culture, Media & Creative Industries",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-mental-health-msc": {
           "name": "Global Mental Health MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Health Service & Population Research",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-political-economy-online-msc": {
           "name": "Global Political Economy (Online) MSc",
@@ -786,95 +1003,119 @@
           "faculty": "",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-global-security-ma-pg-dip-pg-cert-online-ma": {
-          "name": "Global Security MA, PG Dip, PG Cert (online) MA",
+          "name": "Global Security MA, PG Dip, PG Cert (online)",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-health-and-social-care-policy-msc": {
           "name": "Health and Social Care Policy MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School for Government",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-health-psychology-msc": {
           "name": "Health Psychology MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Psychology",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-healthcare-management-msc": {
           "name": "Healthcare Management MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-healthcare-technologies-msc": {
           "name": "Healthcare Technologies MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Biomedical Engineering & Imaging Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-human-applied-physiology-msc": {
           "name": "Human & Applied Physiology MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "Centre for Human & Applied Physiological Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-human-resource-management-organisational-analysis-msc": {
           "name": "Human Resource Management & Organisational Analysis MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-immunology-msc": {
           "name": "Immunology MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Immunology & Microbial Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-intelligence-international-security-ma": {
           "name": "Intelligence & International Security MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-conflict-studies-ma": {
           "name": "International Conflict Studies MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-corporate-commercial-law-online-llm": {
           "name": "International Corporate & Commercial Law (online) LLM",
           "degreeType": "LLM",
-          "faculty": "",
+          "faculty": "The Dickson Poon School of Law",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-development-online-msc": {
           "name": "International Development (Online) MSc",
@@ -882,623 +1123,1073 @@
           "faculty": "",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-financial-commercial-law-llm-online-llm": {
-          "name": "International Financial & Commercial Law LLM (online) LLM",
+          "name": "International Financial & Commercial Law LLM (online)",
           "degreeType": "LLM",
-          "faculty": "",
+          "faculty": "The Dickson Poon School of Law",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-management-msc": {
           "name": "International Management MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-marketing-msc": {
           "name": "International Marketing MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-political-economy-ma": {
           "name": "International Political Economy MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Politics & Economics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-relations-ma": {
           "name": "International Relations MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-international-relations-war-ma": {
           "name": "International Relations & War MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
+          "parseStatus": "incomplete",
+          "deadlineHash": "3e403cbb92283b6a52d0e4d88ae6ace581512172ddc8fc8cbea7f9dc00cfe7c0",
+          "windowCount": 1,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-international-tax-law-online-llm": {
           "name": "International Tax Law Online LLM",
           "degreeType": "LLM",
-          "faculty": "",
+          "faculty": "The Dickson Poon School of Law",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "93f449462eda8173232f60544a22adcd69f6445a3aceaf68baaf091280ffdd86",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-10"
         },
         "kcl-language-and-cultural-diversity-ma": {
           "name": "Language and Cultural Diversity MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "School of Education, Communication & Society",
+          "department": "Faculty of Social Science & Public Policy",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-leadership-and-development-msc": {
           "name": "Leadership and Development MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-marketing-online-msc": {
           "name": "Marketing (online) MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-master-of-arts-in-digital-futures-south-east-asia-ma": {
           "name": "Master of Arts in Digital Futures (South East Asia) MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Department of Digital Humanities",
+          "department": "Faculty of Arts & Humanities",
+          "parseStatus": "incomplete",
+          "deadlineHash": "6bac2c0114e050ec6b75b54fe5f486b38e99954cb53a7717b6a5e46c1366651f",
+          "windowCount": 3,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-master-of-laws-llm": {
           "name": "Master of Laws LLM",
           "degreeType": "LLM",
-          "faculty": "",
+          "faculty": "The Dickson Poon School of Law",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-master-of-science-in-international-addiction-studies-ipas-msc": {
           "name": "Master of Science in International Addiction Studies (IPAS) MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Addictions Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-mathematics-msc": {
           "name": "Mathematics MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Mathematics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-maxillofacial-craniofacial-technology-msc": {
           "name": "Maxillofacial & Craniofacial Technology MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "Faculty of Dentistry, Oral & Craniofacial Sciences",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-medical-affairs-msc": {
           "name": "Medical Affairs MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Cancer & Pharmaceutical Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "d75bfa533299247b7e35888de53b5dbd8e271135a8c664cbb429c1e79ef4efb4",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-medical-ethics-law-medical-law-ma": {
           "name": "Medical Ethics & Law / Medical Law MA",
           "degreeType": "MA",
-          "faculty": "",
+          "faculty": "The Dickson Poon School of Law",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-medieval-studies-ma": {
           "name": "Medieval Studies MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of History",
+          "department": "Department of English",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-mental-health-ethics-law-msc": {
           "name": "Mental Health, Ethics & Law MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "The Dickson Poon School of Law",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-mental-health-studies-msc": {
           "name": "Mental Health Studies MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Psychosis Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-microbiome-in-health-disease-msc": {
           "name": "Microbiome in Health & Disease MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "Faculty of Dentistry, Oral & Craniofacial Sciences",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-mobile-communications-msc": {
           "name": "Mobile Communications MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Engineering",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-modern-literature-culture-ma": {
           "name": "Modern Literature & Culture MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of English",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-music-mmus": {
           "name": "Music MMus",
           "degreeType": "MMus",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Music",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-national-security-studies-ma": {
           "name": "National Security Studies MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-neuroscience-msc": {
           "name": "Neuroscience MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Basic & Clinical Neuroscience",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-nutrition-msc": {
           "name": "Nutrition MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Life Course & Population Health Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-organisational-psychiatry-psychology-msc": {
           "name": "Organisational Psychiatry & Psychology MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "School of Academic Psychiatry",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-orthodontics-msc": {
           "name": "Orthodontics MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "Faculty of Dentistry, Oral & Craniofacial Sciences",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "0cd4278eaa9d80bdf769cf902d8c952d00a47549839b3572747d989d4fa26776",
+          "windowCount": 2,
+          "latestClosesAt": "2026-01-31"
         },
         "kcl-palliative-care-msc": {
           "name": "Palliative Care MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
+          "department": "Cicely Saunders Institute of Palliative Care, Policy & Rehabilitation",
+          "parseStatus": "incomplete",
+          "deadlineHash": "a007ba371dc6d7123995af62d63622520fe6eea71600d0fc0e4a647b7caf386e",
+          "windowCount": 3,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-peace-security-and-international-law-ma": {
           "name": "Peace, Security and International Law MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-pharmaceutical-analysis-technology-and-biopharmaceuticals-msc": {
           "name": "Pharmaceutical Analysis, Technology and Biopharmaceuticals MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Cancer & Pharmaceutical Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-philosophy-ma": {
           "name": "Philosophy MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Philosophy",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-philosophy-of-medicine-psychiatry-ma": {
           "name": "Philosophy of Medicine & Psychiatry MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Philosophy",
+          "department": "Department of Psychological Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-physics-msc": {
           "name": "Physics MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Physics",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b866f1431dea233124e8d020c01c0c7ae7217e196cde1c6a391fcc7a68e148a1",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-physiotherapy-pre-registration-msc": {
           "name": "Physiotherapy (Pre-Registration) MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "Department of Population Health Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "153d6523bcfc12e42a24125e39f3ce260cb35a3f3c2fa561b65ff600a1d2baa7",
+          "windowCount": 1,
+          "latestClosesAt": "2026-01-30"
         },
         "kcl-political-and-strategic-communication-ma": {
           "name": "Political and Strategic Communication MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-political-economy-ma": {
           "name": "Political Economy MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Politics & Economics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-political-economy-of-emerging-markets-msc": {
           "name": "Political Economy of Emerging Markets MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-psychiatric-research-msc": {
           "name": "Psychiatric Research MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Psychosis Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-public-health-mph": {
           "name": "Public Health MPH",
           "degreeType": "MPH",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "Department of Population Health Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-public-health-online-msc": {
           "name": "Public Health (online) MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "Department of Population Health Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-public-policy-ma": {
           "name": "Public Policy MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Politics & Economics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-public-policy-management-msc": {
           "name": "Public Policy & Management MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-regenerative-dentistry-msc": {
           "name": "Regenerative Dentistry MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "Faculty of Dentistry, Oral & Craniofacial Sciences",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-risk-hazards-and-society-msc": {
           "name": "Risk, Hazards and Society MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-robotics-msc": {
           "name": "Robotics MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Engineering",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-shakespeare-studies-ma": {
           "name": "Shakespeare Studies MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of English",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-specialist-community-public-health-nursing-health-visiting-school-nursing-dissertation-only-msc": {
           "name": "Specialist Community Public Health Nursing/Health Visiting/School Nursing (Dissertation only) MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Florence Nightingale Faculty of Nursing, Midwifery & Palliative Care",
+          "department": "Department of Child & Family Health",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-stem-cell-regenerative-therapies-from-bench-to-market-msc": {
           "name": "Stem Cell & Regenerative Therapies: From Bench to Market MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Basic & Medical Biosciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-stem-education-ma": {
           "name": "STEM Education MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Education, Communication & Society",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-strategic-entrepreneurship-innovation-msc": {
           "name": "Strategic Entrepreneurship & Innovation MSc",
           "degreeType": "MSc",
-          "faculty": "",
+          "faculty": "King’s Business School",
           "department": "",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-sustainable-cities-msc": {
           "name": "Sustainable Cities MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Global Affairs",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-teaching-english-to-speakers-of-other-languages-tesol-ma": {
           "name": "Teaching English to Speakers of Other Languages (TESOL) MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Education, Communication & Society",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-terrorism-security-society-ma": {
           "name": "Terrorism, Security & Society MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-theatre-performance-critical-culture-ma": {
           "name": "Theatre, Performance & Critical Culture MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of English",
+          "department": "Faculty of Arts & Humanities",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-theoretical-physics-msc": {
           "name": "Theoretical Physics MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Mathematics",
+          "parseStatus": "incomplete",
+          "deadlineHash": "201d92a719016ca971e2ce95b6d27f0f97266bd82786df692ae0bb4f6c983560",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-tissue-engineering-innovation-technology-mres": {
           "name": "Tissue Engineering & Innovation Technology MRes",
           "degreeType": "MRes",
-          "faculty": "",
+          "faculty": "Faculty of Dentistry, Oral & Craniofacial Sciences",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "b37f2158d7a5386056d32107c7eecc46ff7e891adc146114827fa673d180bc7b",
+          "windowCount": 2,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-translational-cancer-medicine-mres": {
           "name": "Translational Cancer Medicine MRes",
           "degreeType": "MRes",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Cancer & Pharmaceutical Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-translational-cancer-medicine-msc": {
           "name": "Translational Cancer Medicine MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Cancer & Pharmaceutical Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-uk-eu-us-copyright-law-master-of-arts-ma": {
           "name": "UK, EU & US Copyright Law Master of Arts MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "The Dickson Poon School of Law",
+          "department": "Centre of European Law",
+          "parseStatus": "incomplete",
+          "deadlineHash": "6c1b8df043db7cb1678d8b5fe9ed45a5435516d8223065d0f75501a829f7f0fa",
+          "windowCount": 1,
+          "latestClosesAt": "2026-08-25"
         },
         "kcl-urban-informatics-msc": {
           "name": "Urban Informatics MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Natural, Mathematical & Engineering Sciences",
+          "department": "Department of Informatics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-war-psychiatry-msc": {
           "name": "War & Psychiatry MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Institute of Psychiatry, Psychology & Neuroscience",
+          "department": "Department of Psychological Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-war-studies-ma": {
           "name": "War Studies MA",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Social Science & Public Policy",
+          "department": "School of Security Studies",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "kcl-women-children-s-health-msc": {
           "name": "Women & Children's Health MSc",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Faculty of Life Sciences & Medicine",
+          "department": "School of Life Course & Population Health Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         }
       },
       "windows": {
         "kcl-advanced-clinical-practice-msc-pg-dip::January 2026::Final application deadline::home": {
           "programmeId": "kcl-advanced-clinical-practice-msc-pg-dip",
+          "intake": "January 2026",
           "opensAt": null,
           "closesAt": "2025-11-20",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert",
           "opensAtBasis": null
         },
         "kcl-advanced-clinical-practice-msc-pg-dip::January 2026::Final application deadline::international": {
           "programmeId": "kcl-advanced-clinical-practice-msc-pg-dip",
+          "intake": "January 2026",
           "opensAt": null,
           "closesAt": "2025-10-20",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert",
           "opensAtBasis": null
         },
         "kcl-advanced-clinical-practice-msc-pg-dip::September 2026::Final application deadline::home": {
           "programmeId": "kcl-advanced-clinical-practice-msc-pg-dip",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-08-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert",
           "opensAtBasis": null
         },
         "kcl-advanced-clinical-practice-msc-pg-dip::September 2026::Final application deadline::international": {
           "programmeId": "kcl-advanced-clinical-practice-msc-pg-dip",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-07-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert",
           "opensAtBasis": null
         },
         "kcl-advanced-clinical-practice-msc-pg-dip::September 2026::First application deadline::all": {
           "programmeId": "kcl-advanced-clinical-practice-msc-pg-dip",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-03-09",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/advanced-clinical-practice-msc-pg-dip-pg-cert",
           "opensAtBasis": null
         },
-        "kcl-aesthetic-dentistry-msc::September 2026::First application deadline::all": {
+        "kcl-aesthetic-dentistry-msc::January 2027::Final application deadline::all": {
           "programmeId": "kcl-aesthetic-dentistry-msc",
+          "intake": "January 2027",
+          "opensAt": null,
+          "closesAt": "2026-11-20",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/aesthetic-dentistry-msc",
+          "opensAtBasis": null
+        },
+        "kcl-aesthetic-dentistry-msc::January 2027::First application deadline::all": {
+          "programmeId": "kcl-aesthetic-dentistry-msc",
+          "intake": "January 2027",
           "opensAt": null,
           "closesAt": "2026-10-01",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/aesthetic-dentistry-msc/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/aesthetic-dentistry-msc",
           "opensAtBasis": null
         },
         "kcl-biomedical-molecular-sciences-research-msc::September 2026::Final application deadline::home": {
           "programmeId": "kcl-biomedical-molecular-sciences-research-msc",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-08-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/biomedical-and-molecular-sciences-research-msc-mres/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/biomedical-and-molecular-sciences-research-msc-mres",
           "opensAtBasis": null
         },
         "kcl-biomedical-molecular-sciences-research-msc::September 2026::Final application deadline::international": {
           "programmeId": "kcl-biomedical-molecular-sciences-research-msc",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-07-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/biomedical-and-molecular-sciences-research-msc-mres/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/biomedical-and-molecular-sciences-research-msc-mres",
           "opensAtBasis": null
         },
         "kcl-clinical-education-ma::September 2026::Final application deadline::all": {
           "programmeId": "kcl-clinical-education-ma",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-08-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-education-ma-pg-dip-pg-cert/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-education-ma-pg-dip-pg-cert",
           "opensAtBasis": null
         },
         "kcl-clinical-education-ma::September 2026::First application deadline::all": {
           "programmeId": "kcl-clinical-education-ma",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-07-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-education-ma-pg-dip-pg-cert/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-education-ma-pg-dip-pg-cert",
           "opensAtBasis": null
         },
         "kcl-clinical-nursing-msc::September 2026::Final application deadline::all": {
           "programmeId": "kcl-clinical-nursing-msc",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-08-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-nursing-msc/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-nursing-msc",
           "opensAtBasis": null
         },
         "kcl-clinical-nursing-msc::September 2026::Final application deadline::home": {
           "programmeId": "kcl-clinical-nursing-msc",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-08-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-nursing-msc/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-nursing-msc",
           "opensAtBasis": null
         },
         "kcl-clinical-nursing-msc::September 2026::Final application deadline::international": {
           "programmeId": "kcl-clinical-nursing-msc",
+          "intake": "September 2026",
           "opensAt": null,
           "closesAt": "2026-07-25",
-          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-nursing-msc/requirements",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-nursing-msc",
+          "opensAtBasis": null
+        },
+        "kcl-clinical-pharmacology-msc::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-clinical-pharmacology-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-pharmacology-msc",
+          "opensAtBasis": null
+        },
+        "kcl-clinical-pharmacology-msc::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-clinical-pharmacology-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-pharmacology-msc",
+          "opensAtBasis": null
+        },
+        "kcl-clinical-research-delivery-msc::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-clinical-research-delivery-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/clinical-research-delivery-msc-pg-dip",
+          "opensAtBasis": null
+        },
+        "kcl-drug-development-science-msc::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-drug-development-science-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/drug-development-science-msc",
+          "opensAtBasis": null
+        },
+        "kcl-drug-development-science-msc::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-drug-development-science-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/drug-development-science-msc",
+          "opensAtBasis": null
+        },
+        "kcl-economics-for-competition-law-ma::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-economics-for-competition-law-ma",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-31",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/economics-for-competition-law-ma-pg-dip",
+          "opensAtBasis": null
+        },
+        "kcl-economics-for-competition-law-ma::September 2026::First application deadline::all": {
+          "programmeId": "kcl-economics-for-competition-law-ma",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-27",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/economics-for-competition-law-ma-pg-dip",
+          "opensAtBasis": null
+        },
+        "kcl-endodontics-msc::January 2027::Final application deadline::all": {
+          "programmeId": "kcl-endodontics-msc",
+          "intake": "January 2027",
+          "opensAt": null,
+          "closesAt": "2026-11-20",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/endodontics-msc",
+          "opensAtBasis": null
+        },
+        "kcl-endodontics-msc::January 2027::First application deadline::all": {
+          "programmeId": "kcl-endodontics-msc",
+          "intake": "January 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/endodontics-msc",
+          "opensAtBasis": null
+        },
+        "kcl-eu-competition-law-ma::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-eu-competition-law-ma",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-31",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/eu-competition-law-ma-pg-dip",
+          "opensAtBasis": null
+        },
+        "kcl-executive-mba::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-executive-mba",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/executive-mba",
+          "opensAtBasis": null
+        },
+        "kcl-executive-mba::September 2026::Final application deadline::all::2": {
+          "programmeId": "kcl-executive-mba",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/executive-mba",
+          "opensAtBasis": null
+        },
+        "kcl-executive-mba::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-executive-mba",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/executive-mba",
+          "opensAtBasis": null
+        },
+        "kcl-executive-mba::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-executive-mba",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/executive-mba",
+          "opensAtBasis": null
+        },
+        "kcl-family-therapy-msc::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-family-therapy-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-03-09",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/family-therapy-msc",
+          "opensAtBasis": null
+        },
+        "kcl-international-relations-war-ma::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-international-relations-war-ma",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/international-relations-and-war-ma",
+          "opensAtBasis": null
+        },
+        "kcl-international-tax-law-online-llm::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-international-tax-law-online-llm",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-10",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/international-tax-law-llm-online",
+          "opensAtBasis": null
+        },
+        "kcl-international-tax-law-online-llm::September 2026::First application deadline::all": {
+          "programmeId": "kcl-international-tax-law-online-llm",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-03-09",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/international-tax-law-llm-online",
+          "opensAtBasis": null
+        },
+        "kcl-master-of-arts-in-digital-futures-south-east-asia-ma::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-master-of-arts-in-digital-futures-south-east-asia-ma",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/ma-digital-futures-south-east-asia",
+          "opensAtBasis": null
+        },
+        "kcl-master-of-arts-in-digital-futures-south-east-asia-ma::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-master-of-arts-in-digital-futures-south-east-asia-ma",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/ma-digital-futures-south-east-asia",
+          "opensAtBasis": null
+        },
+        "kcl-master-of-arts-in-digital-futures-south-east-asia-ma::September 2026::First application deadline::all": {
+          "programmeId": "kcl-master-of-arts-in-digital-futures-south-east-asia-ma",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-03-09",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/ma-digital-futures-south-east-asia",
+          "opensAtBasis": null
+        },
+        "kcl-medical-affairs-msc::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-medical-affairs-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/medical-affairs-msc",
+          "opensAtBasis": null
+        },
+        "kcl-medical-affairs-msc::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-medical-affairs-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/medical-affairs-msc",
+          "opensAtBasis": null
+        },
+        "kcl-orthodontics-msc::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-orthodontics-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-01-31",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/orthodontics-msc",
+          "opensAtBasis": null
+        },
+        "kcl-orthodontics-msc::September 2026::First application deadline::all": {
+          "programmeId": "kcl-orthodontics-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2025-12-04",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/orthodontics-msc",
+          "opensAtBasis": null
+        },
+        "kcl-palliative-care-msc::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-palliative-care-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/palliative-care-msc-pg-dip-pg-cert",
+          "opensAtBasis": null
+        },
+        "kcl-palliative-care-msc::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-palliative-care-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/palliative-care-msc-pg-dip-pg-cert",
+          "opensAtBasis": null
+        },
+        "kcl-palliative-care-msc::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-palliative-care-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/palliative-care-msc-pg-dip-pg-cert",
+          "opensAtBasis": null
+        },
+        "kcl-physics-msc::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-physics-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/physics-msc",
+          "opensAtBasis": null
+        },
+        "kcl-physics-msc::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-physics-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/physics-msc",
+          "opensAtBasis": null
+        },
+        "kcl-physiotherapy-pre-registration-msc::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-physiotherapy-pre-registration-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-01-30",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/physiotherapy-pre-registration-msc",
+          "opensAtBasis": null
+        },
+        "kcl-theoretical-physics-msc::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-theoretical-physics-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/theoretical-physics-msc",
+          "opensAtBasis": null
+        },
+        "kcl-theoretical-physics-msc::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-theoretical-physics-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/theoretical-physics-msc",
+          "opensAtBasis": null
+        },
+        "kcl-tissue-engineering-innovation-technology-mres::September 2026::Final application deadline::home": {
+          "programmeId": "kcl-tissue-engineering-innovation-technology-mres",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/tissue-engineering-innovation-technology-mres",
+          "opensAtBasis": null
+        },
+        "kcl-tissue-engineering-innovation-technology-mres::September 2026::Final application deadline::international": {
+          "programmeId": "kcl-tissue-engineering-innovation-technology-mres",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-07-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/tissue-engineering-innovation-technology-mres",
+          "opensAtBasis": null
+        },
+        "kcl-uk-eu-us-copyright-law-master-of-arts-ma::September 2026::Final application deadline::all": {
+          "programmeId": "kcl-uk-eu-us-copyright-law-master-of-arts-ma",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-25",
+          "sourceUrl": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/uk-eu-us-copyright-law-ma",
           "opensAtBasis": null
         }
       },
-      "adapterWarnings": []
+      "adapterWarnings": [],
+      "adapterDiagnostics": {
+        "detailFailures": 0,
+        "transportFailures": 0,
+        "parserFailures": 0,
+        "detailRetries": 0,
+        "browserFallbacks": 0,
+        "deliveryApiProgrammes": 173,
+        "deliveryApiWindows": 50
+      }
     }
   }
 }
