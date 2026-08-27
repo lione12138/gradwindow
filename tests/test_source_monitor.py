@@ -177,3 +177,86 @@ def test_source_monitor_uses_matched_context_when_excerpt_misses_dates(
     evidence = evidence_bundle["snapshots"]["context-window"]
     assert "September 3, 2025" in evidence["excerpt"]
     assert "December 23, 2025" in evidence["excerpt"]
+
+
+def test_source_monitor_prioritizes_unchecked_urls_with_a_bounded_batch(
+    tmp_path,
+    monkeypatch,
+) -> None:
+    applications_path = tmp_path / "applications.json"
+    state_path = tmp_path / "state.json"
+    applications_path.write_text(
+        json.dumps(
+            {
+                "applications": [
+                    {
+                        "id": "recent",
+                        "universityId": "u",
+                        "sourceUrl": "https://example.edu/recent",
+                    },
+                    {
+                        "id": "unchecked-b",
+                        "universityId": "u",
+                        "sourceUrl": "https://example.edu/b",
+                    },
+                    {
+                        "id": "unchecked-a",
+                        "universityId": "u",
+                        "sourceUrl": "https://example.edu/a",
+                    },
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    state_path.write_text(
+        json.dumps(
+            {
+                "applications": {
+                    "recent": {
+                        "url": "https://example.edu/recent",
+                        "checkedAt": "2026-08-27T00:00:00Z",
+                        "status": "ok",
+                        "changed": False,
+                        "contentHash": "recent-hash",
+                    }
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+    calls = []
+
+    def fake_check(university, previous, capture_evidence=False):
+        calls.append(university["homepageUrl"])
+        return {
+            "url": university["homepageUrl"],
+            "checkedAt": "2026-08-28T00:00:00Z",
+            "status": "ok",
+            "changed": False,
+            "contentHash": "new-hash",
+        }
+
+    monkeypatch.setattr(source_monitor, "check_university", fake_check)
+    progress = []
+
+    summary = source_monitor.monitor_application_sources(
+        applications_path,
+        state_path,
+        workers=2,
+        max_urls=2,
+        progress_callback=lambda completed, total: progress.append((completed, total)),
+    )
+
+    assert calls == ["https://example.edu/a", "https://example.edu/b"]
+    assert progress[-1] == (2, 2)
+    assert summary["checked"] == 2
+    assert summary["deferred"] == 1
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    assert state["meta"]["uniqueSourcePages"] == 3
+    assert state["meta"]["uniqueSourcePagesChecked"] == 2
+    assert state["meta"]["uniqueSourcePagesDeferred"] == 1
+    assert state["meta"]["runStatus"] == "partial"
+    assert state["applications"]["recent"]["status"] == "ok"
+    assert state["applications"]["recent"]["checkedAt"] == "2026-08-27T00:00:00Z"
+    assert state["applications"]["recent"]["runStatus"] == "deferred"

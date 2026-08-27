@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import subprocess
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -41,8 +44,11 @@ from .refresh_status import generate_refresh_status
 from .review import generate_review_outputs
 from .schemas import export_schemas
 from .site import build_site
-from .source_monitor import monitor_application_sources
+from .source_monitor import DEFAULT_MAX_SOURCE_URLS, monitor_application_sources
 from .validation import validate_data
+
+DEDICATED_ADAPTER_TIMEOUT_SECONDS = 900
+_ADAPTER_WORKER_CODE = "from gradwindow.cli import main; main()"
 
 
 def main() -> None:
@@ -58,6 +64,11 @@ def main() -> None:
         "monitor-sources", help="Check exact application-window source pages"
     )
     source_monitor.add_argument("--workers", type=int, default=8)
+    source_monitor.add_argument(
+        "--max-urls",
+        type=int,
+        default=DEFAULT_MAX_SOURCE_URLS,
+    )
     programme_discovery = subparsers.add_parser(
         "discover-programmes",
         help="Discover new taught programmes from supported official catalogues",
@@ -68,6 +79,16 @@ def main() -> None:
         default="cuhk",
     )
     programme_discovery.add_argument("--dry-run", action="store_true")
+    adapter_worker = subparsers.add_parser(
+        "_pipeline-adapter",
+        help=argparse.SUPPRESS,
+    )
+    adapter_worker.add_argument(
+        "--university",
+        choices=tuple(PROGRAMME_ADAPTERS),
+        required=True,
+    )
+    adapter_worker.add_argument("--dry-run", action="store_true")
     generic_discovery = subparsers.add_parser(
         "discover-generic-programmes",
         help="Discover taught master's programmes from official seed pages",
@@ -129,6 +150,11 @@ def main() -> None:
     deadlines.add_argument("--dry-run", action="store_true")
     pipeline = subparsers.add_parser("pipeline", help="Run the daily pipeline")
     pipeline.add_argument("--workers", type=int, default=16)
+    pipeline.add_argument(
+        "--source-monitor-max-urls",
+        type=int,
+        default=DEFAULT_MAX_SOURCE_URLS,
+    )
     pipeline.add_argument("--skip-monitor", action="store_true")
     pipeline.add_argument("--skip-build", action="store_true")
     subparsers.add_parser("coverage", help="Generate QS top-200 coverage metrics")
@@ -187,7 +213,13 @@ def main() -> None:
     elif args.command == "monitor":
         print_summary(monitor_universities(workers=args.workers))
     elif args.command == "monitor-sources":
-        print_summary(monitor_application_sources(workers=args.workers))
+        print_summary(
+            monitor_application_sources(
+                workers=args.workers,
+                max_urls=args.max_urls,
+                progress_callback=_source_monitor_progress,
+            )
+        )
     elif args.command == "discover-programmes":
         if args.university == "all":
             report, _successful_ids = _run_dedicated_discovery(dry_run=args.dry_run)
@@ -201,6 +233,13 @@ def main() -> None:
         if not args.dry_run:
             generate_recurring_windows()
         print(json.dumps(report, ensure_ascii=False))
+    elif args.command == "_pipeline-adapter":
+        report = _pipeline_discovery_report(
+            args.university,
+            PROGRAMME_ADAPTERS[args.university],
+            dry_run=args.dry_run,
+        )
+        print(json.dumps(report, ensure_ascii=False), flush=True)
     elif args.command == "discover-generic-programmes":
         university = _university_by_id(args.university)
         seed_urls = tuple(
@@ -340,11 +379,38 @@ def main() -> None:
         generate_recurring_windows()
         _validate_or_exit()
         if not args.skip_monitor:
-            print_summary(monitor_universities(workers=args.workers))
-            print_summary(
-                monitor_application_sources(workers=max(1, args.workers // 2))
+            _print_pipeline_progress("university-monitor", "started")
+            university_monitor_summary = monitor_universities(workers=args.workers)
+            print_summary(university_monitor_summary)
+            _print_pipeline_progress(
+                "university-monitor",
+                "completed",
+                summary=university_monitor_summary,
             )
+            _print_pipeline_progress(
+                "application-source-monitor",
+                "started",
+                maxUrls=args.source_monitor_max_urls,
+            )
+            source_monitor_summary = monitor_application_sources(
+                workers=max(1, args.workers // 2),
+                max_urls=args.source_monitor_max_urls,
+                progress_callback=_source_monitor_progress,
+            )
+            print_summary(source_monitor_summary)
+            _print_pipeline_progress(
+                "application-source-monitor",
+                "completed",
+                summary=source_monitor_summary,
+            )
+            _print_pipeline_progress("dedicated-discovery", "started")
             discovery_reports, successful_dedicated_ids = _run_dedicated_discovery()
+            _print_pipeline_progress(
+                "dedicated-discovery",
+                "completed",
+                total=len(discovery_reports),
+                successful=len(successful_dedicated_ids),
+            )
             for discovery_report in discovery_reports:
                 print(json.dumps(discovery_report, ensure_ascii=False))
             adapter_health = update_adapter_health(discovery_reports)
@@ -476,16 +542,176 @@ def _run_dedicated_discovery(
     *,
     dry_run: bool = False,
 ) -> tuple[list[dict], set[str]]:
-    reports = [
-        _pipeline_discovery_report(name, adapter_factory, dry_run=dry_run)
-        for name, adapter_factory in PROGRAMME_ADAPTERS.items()
-    ]
+    timeout_seconds = _dedicated_adapter_timeout_seconds()
+    reports = []
+    total = len(PROGRAMME_ADAPTERS)
+    for index, (name, adapter_factory) in enumerate(PROGRAMME_ADAPTERS.items(), 1):
+        _print_pipeline_progress(
+            "dedicated-adapter",
+            "started",
+            adapter=name,
+            completed=index - 1,
+            total=total,
+            timeoutSeconds=timeout_seconds,
+        )
+        started = time.monotonic()
+        report = _run_dedicated_adapter_process(
+            name,
+            adapter_factory,
+            dry_run=dry_run,
+            timeout_seconds=timeout_seconds,
+        )
+        reports.append(report)
+        _print_pipeline_progress(
+            "dedicated-adapter",
+            "completed",
+            adapter=name,
+            adapterStatus=report.get("status"),
+            completed=index,
+            total=total,
+            durationSeconds=round(time.monotonic() - started, 1),
+        )
     successful_university_ids = {
         report["universityId"]
         for report in reports
         if report.get("status") == "ok" and report.get("universityId")
     }
     return reports, successful_university_ids
+
+
+def _run_dedicated_adapter_process(
+    name: str,
+    adapter_factory,
+    *,
+    dry_run: bool = False,
+    timeout_seconds: int = DEDICATED_ADAPTER_TIMEOUT_SECONDS,
+) -> dict:
+    command = [
+        sys.executable,
+        "-c",
+        _ADAPTER_WORKER_CODE,
+        "_pipeline-adapter",
+        "--university",
+        name,
+    ]
+    if dry_run:
+        command.append("--dry-run")
+    environment = os.environ.copy()
+    environment["PYTHONUNBUFFERED"] = "1"
+    try:
+        result = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=timeout_seconds,
+            env=environment,
+            check=False,
+        )
+    except subprocess.TimeoutExpired:
+        return _adapter_process_error_report(
+            name,
+            adapter_factory,
+            error_type="TimeoutError",
+            message=(
+                f"Dedicated adapter exceeded the {timeout_seconds}-second "
+                "pipeline limit."
+            ),
+            dry_run=dry_run,
+            timeout_seconds=timeout_seconds,
+        )
+
+    if result.stderr:
+        print(result.stderr, file=sys.stderr, end="", flush=True)
+    output_lines = [line for line in result.stdout.splitlines() if line.strip()]
+    if result.returncode != 0 or not output_lines:
+        detail = " ".join(result.stderr.split())[-500:] or (
+            f"worker exited with status {result.returncode}"
+        )
+        return _adapter_process_error_report(
+            name,
+            adapter_factory,
+            error_type="AdapterProcessError",
+            message=detail,
+            dry_run=dry_run,
+            timeout_seconds=timeout_seconds,
+        )
+    try:
+        report = json.loads(output_lines[-1])
+    except json.JSONDecodeError as exc:
+        return _adapter_process_error_report(
+            name,
+            adapter_factory,
+            error_type="AdapterProcessError",
+            message=f"Adapter worker returned invalid JSON: {exc}",
+            dry_run=dry_run,
+            timeout_seconds=timeout_seconds,
+        )
+    report.setdefault("adapter", name)
+    report["timeoutSeconds"] = timeout_seconds
+    return report
+
+
+def _adapter_process_error_report(
+    name: str,
+    adapter_factory,
+    *,
+    error_type: str,
+    message: str,
+    dry_run: bool,
+    timeout_seconds: int,
+) -> dict:
+    adapter = None
+    try:
+        adapter = adapter_factory()
+    except Exception:
+        pass
+    return {
+        "status": "error",
+        "adapter": name,
+        "universityId": getattr(
+            adapter,
+            "university_id",
+            getattr(adapter_factory, "university_id", None),
+        ),
+        "sourceUrl": getattr(
+            adapter,
+            "catalog_url",
+            getattr(adapter_factory, "catalog_url", None),
+        ),
+        "errorType": error_type,
+        "message": message,
+        "checkedAt": datetime.now(timezone.utc).isoformat(),
+        "dryRun": dry_run,
+        "timeoutSeconds": timeout_seconds,
+    }
+
+
+def _dedicated_adapter_timeout_seconds() -> int:
+    value = os.environ.get("GRADWINDOW_ADAPTER_TIMEOUT_SECONDS", "")
+    try:
+        return max(1, int(value)) if value else DEDICATED_ADAPTER_TIMEOUT_SECONDS
+    except ValueError:
+        return DEDICATED_ADAPTER_TIMEOUT_SECONDS
+
+
+def _print_pipeline_progress(phase: str, status: str, **details) -> None:
+    print(
+        json.dumps(
+            {"pipelineProgress": {"phase": phase, "status": status, **details}},
+            ensure_ascii=False,
+        ),
+        flush=True,
+    )
+
+
+def _source_monitor_progress(completed: int, total: int) -> None:
+    if completed == 1 or completed == total or completed % 25 == 0:
+        _print_pipeline_progress(
+            "application-source-monitor",
+            "running",
+            completed=completed,
+            total=total,
+        )
 
 
 def _approve_all_programmes(*, reviewer: str, parsed_only: bool) -> dict:

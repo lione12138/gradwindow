@@ -43,6 +43,9 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      PYTHONUNBUFFERED: "1"
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -310,7 +313,7 @@ jobs:
               --jq ".[] | select(.title == \"$title\") | .number" | head -n 1
           )"
 
-          if [ "$JOB_STATUS" = "failure" ]; then
+          if [ "$JOB_STATUS" != "success" ]; then
             body="$(printf '%s\n\n%s\n\n%s\n' \
               'The scheduled application-data refresh failed.' \
               "Run: https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
