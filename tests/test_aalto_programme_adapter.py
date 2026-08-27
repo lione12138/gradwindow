@@ -69,3 +69,20 @@ def test_aalto_rejects_an_api_response_without_a_data_list() -> None:
         assert "data list" in str(exc)
     else:
         raise AssertionError("invalid Aalto API payload should fail discovery")
+
+
+def test_aalto_accepts_browser_rendered_json_wrapped_in_pre() -> None:
+    adapter = AaltoAdapter()
+    adapter.minimum_expected_programmes = 2
+    rendered = (
+        '<html><body><pre style="white-space: pre-wrap;">'
+        + STUDIES_PAYLOAD.replace('"', "&quot;")
+        + "</pre></body></html>"
+    )
+
+    catalog = adapter.parse_catalog(rendered)
+
+    assert [programme.id for programme in catalog.programmes] == [
+        "aalto-life-science-technologies-msc",
+        "aalto-visual-cultures-curating-and-contemporary-art-ma",
+    ]
