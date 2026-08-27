@@ -7,7 +7,7 @@ import pytest
 from openpyxl import Workbook
 
 from gradwindow import programme_discovery
-from gradwindow.http_client import FetchedPage
+from gradwindow.http_client import FetchedPage, FetchFailure
 from gradwindow.io import partition_json_file
 from gradwindow.programme_adapters.base import (
     BaseProgrammeAdapter,
@@ -325,6 +325,18 @@ def test_discovery_creates_candidates_without_mutating_programmes(
     assert report["newCandidates"] == 2
     assert report["newWindowCandidates"] == 1
     assert report["changedWindowCandidates"] == 0
+    assert report["adapterDiagnostics"]["transport"] == {
+        "requests": 1,
+        "directSuccesses": 1,
+        "directFailures": 0,
+        "fallbackEnabled": False,
+        "fallbackLimit": 3,
+        "fallbackAttempts": 0,
+        "fallbackSuccesses": 0,
+        "fallbackFailures": 0,
+        "fallbackBudgetExhausted": 0,
+        "failureKinds": {},
+    }
     assert json.loads(programs_path.read_text(encoding="utf-8")) == programs
     candidates = json.loads(candidates_path.read_text(encoding="utf-8"))["items"]
     assert [item["programme"]["id"] for item in candidates] == [
@@ -359,6 +371,52 @@ def test_discovery_creates_candidates_without_mutating_programmes(
     assert repeated["pendingCandidates"] == 2
     assert repeated["newWindowCandidates"] == 0
     assert repeated["pendingWindowCandidates"] == 1
+
+
+def test_discovery_uses_shared_browser_fallback_and_reports_transport(
+    tmp_path,
+) -> None:
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    programs_path.write_text('{"programs": []}', encoding="utf-8")
+    applications_path.write_text(
+        '{"meta": {}, "applications": []}',
+        encoding="utf-8",
+    )
+    direct_calls = []
+    browser_calls = []
+
+    def blocked(url: str) -> str:
+        direct_calls.append(url)
+        raise FetchFailure("HTTP 403", kind="blocked", status_code=403)
+
+    report = discover_programmes(
+        CUHKAdapter(minimum_expected_programmes=1),
+        programs_path=programs_path,
+        applications_path=applications_path,
+        candidates_path=tmp_path / "programme-candidates.json",
+        state_path=tmp_path / "programme-catalog-state.json",
+        fetcher=blocked,
+        browser_fetcher=lambda url: browser_calls.append(url) or CUHK_HTML,
+        browser_fallback_limit=1,
+        dry_run=True,
+    )
+
+    assert direct_calls == [CUHKAdapter.catalog_url]
+    assert browser_calls == [CUHKAdapter.catalog_url]
+    assert report["catalogProgrammes"] == 3
+    assert report["adapterDiagnostics"]["transport"] == {
+        "requests": 1,
+        "directSuccesses": 0,
+        "directFailures": 1,
+        "fallbackEnabled": True,
+        "fallbackLimit": 1,
+        "fallbackAttempts": 1,
+        "fallbackSuccesses": 1,
+        "fallbackFailures": 0,
+        "fallbackBudgetExhausted": 0,
+        "failureKinds": {"blocked": 1},
+    }
 
 
 def test_recurring_policy_dates_publish_separately_not_as_exact_windows(

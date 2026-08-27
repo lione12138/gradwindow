@@ -10,8 +10,14 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
+from .browser_rendering import browser_content_fetcher_from_environment
 from .content import deadline_signal_text
-from .http_client import DEFAULT_USER_AGENT, fetch_page
+from .http_client import (
+    DEFAULT_BROWSER_FALLBACK_LIMIT,
+    DEFAULT_USER_AGENT,
+    ResilientFetcher,
+    fetch_page,
+)
 from .intakes import parse_intake_details
 from .io import read_json, write_json
 from .monitor import extract_fetched_text
@@ -81,19 +87,52 @@ def discover_programmes(
     state_path: Path = PROGRAMME_CATALOG_STATE_PATH,
     applicant_categories_path: Path = APPLICANT_CATEGORIES_PATH,
     fetcher: Callable[[str], str] = fetch_catalog,
+    browser_fetcher: Callable[[str], str] | None = None,
+    browser_fallback_limit: int = DEFAULT_BROWSER_FALLBACK_LIMIT,
     dry_run: bool = False,
 ) -> dict:
     checked_at = datetime.now(timezone.utc).isoformat()
     watched_urls = set(getattr(adapter, "window_watch_urls", ()))
     watched_source_hashes: dict[str, str] = {}
 
+    adapter_has_browser_fallback = any(
+        callable(getattr(adapter, attribute, None))
+        for attribute in (
+            "browser_content_fetcher",
+            "browser_markdown_fetcher",
+            "browser_fetcher",
+        )
+    )
+    if (
+        browser_fetcher is None
+        and fetcher is fetch_catalog
+        and not adapter_has_browser_fallback
+    ):
+        browser_fetcher = browser_content_fetcher_from_environment()
+    transport = ResilientFetcher(
+        fetcher,
+        browser_fetcher=browser_fetcher,
+        browser_fallback_limit=browser_fallback_limit,
+    )
+
     def tracking_fetcher(url: str) -> str:
-        content = fetcher(url)
+        content = transport(url)
         if url in watched_urls:
             watched_source_hashes[url] = _source_hash(content)
         return content
 
-    catalog = adapter.parse_catalog_from_fetcher(tracking_fetcher)
+    try:
+        catalog = adapter.parse_catalog_from_fetcher(tracking_fetcher)
+    except Exception as exc:
+        try:
+            exc.transport_diagnostics = transport.diagnostics()
+        except (AttributeError, TypeError):
+            pass
+        raise
+    catalog.diagnostics = {
+        **catalog.diagnostics,
+        "transport": transport.diagnostics(),
+    }
     _validate_recurring_applicant_categories(catalog, applicant_categories_path)
     programs_payload = read_json(programs_path)
     known_programmes = {

@@ -6,7 +6,13 @@ import pytest
 
 import gradwindow.programme_adapters.kcl as kcl_module
 from gradwindow.programme_adapters.base import OfficialSourceTransportError
-from gradwindow.programme_adapters.kcl import CATALOG_URL, SITEMAP_URL, KCLAdapter
+from gradwindow.programme_adapters.kcl import (
+    CATALOG_URL,
+    SITEMAP_URL,
+    KCLAdapter,
+    _HostRateLimiter,
+    _programme_from_slug,
+)
 
 SITEMAP_INDEX = """<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -63,16 +69,243 @@ SINGLE_FACULTY = """
 </body></html>
 """
 
+ENDODONTICS = """
+<html><head><title>Endodontics MSc | King's College London</title></head>
+<body>
+  <h2>Application closing date guidance</h2>
+  <p>Our first application deadline is on 1 October 2026 (23:59 UK time).
+  Where the programme remains open beyond this date, no further applications
+  will be accepted after 20 November 2026 (23:59 UK time).</p>
+  <p>Please note the course details including entry requirements, fees and
+  application deadlines apply to January 2027 entry.</p>
+  <h2>Base campus</h2>
+</body></html>
+"""
+
+
+def _adapter(**kwargs) -> KCLAdapter:
+    return KCLAdapter(
+        minimum_interval_seconds=0,
+        retry_backoff_seconds=0,
+        browser_content_fetcher=None,
+        use_environment_browser=False,
+        **kwargs,
+    )
+
+
+def test_kcl_defaults_to_three_detail_workers() -> None:
+    assert (
+        KCLAdapter(
+            browser_content_fetcher=None, use_environment_browser=False
+        ).detail_workers
+        == 3
+    )
+
+
+@pytest.mark.parametrize(
+    ("path", "title", "expected_id"),
+    [
+        (
+            "applied-neuroscience-msc",
+            "Applied Neuroscience (Online)",
+            "kcl-applied-neuroscience-msc-pg-dip-online",
+        ),
+        (
+            "global-security-ma-pg-dip-pg-cert",
+            "Global Security (Online)",
+            "kcl-global-security-ma-pg-dip-pg-cert-online-ma",
+        ),
+    ],
+)
+def test_kcl_keeps_published_ids_when_delivery_titles_change(
+    path: str,
+    title: str,
+    expected_id: str,
+) -> None:
+    programme = _programme_from_slug(
+        f"https://www.kcl.ac.uk/study/postgraduate-taught/courses/{path}",
+        catalogue_title=title,
+    )
+
+    assert programme is not None
+    assert programme.id == expected_id
+
+
+def test_kcl_rate_limiter_spaces_requests_per_host() -> None:
+    now = [10.0]
+    sleeps = []
+
+    def sleep(seconds: float) -> None:
+        sleeps.append(seconds)
+        now[0] += seconds
+
+    limiter = _HostRateLimiter(
+        minimum_interval=1.0,
+        sleep=sleep,
+        monotonic=lambda: now[0],
+    )
+
+    limiter.wait("https://www.kcl.ac.uk/one")
+    limiter.wait("https://www.kcl.ac.uk/two")
+    limiter.wait("https://api-kcl.cloud.contensis.com/three")
+
+    assert sleeps == [1.0]
+
+
+def test_kcl_retries_transient_detail_failure_before_parsing() -> None:
+    adapter = _adapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+        detail_attempts=3,
+    )
+    course_url = (
+        "https://www.kcl.ac.uk/study/postgraduate-taught/courses/"
+        "clinical-pharmacology-msc"
+    )
+    sitemap = f"<urlset><url><loc>{course_url}</loc></url></urlset>"
+    detail_calls = 0
+
+    def fetcher(url: str) -> str:
+        nonlocal detail_calls
+        if url == SITEMAP_URL:
+            return sitemap
+        if url == course_url:
+            detail_calls += 1
+            if detail_calls < 3:
+                raise RuntimeError("temporary rate limit")
+            return CLINICAL_PHARMACOLOGY
+        raise AssertionError(url)
+
+    catalogue = adapter.parse_catalog_from_fetcher(fetcher)
+
+    assert detail_calls == 3
+    assert catalogue.diagnostics["detailRetries"] == 2
+    assert catalogue.diagnostics["browserFallbacks"] == 0
+    assert catalogue.programmes[0].retrieval_method == "official-html"
+
+
+def test_kcl_uses_browser_fallback_only_after_detail_retries_fail() -> None:
+    course_url = (
+        "https://www.kcl.ac.uk/study/postgraduate-taught/courses/"
+        "clinical-pharmacology-msc"
+    )
+    detail_url = course_url
+    browser_calls = []
+    adapter = KCLAdapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+        detail_attempts=2,
+        minimum_interval_seconds=0,
+        retry_backoff_seconds=0,
+        browser_content_fetcher=lambda url: (
+            browser_calls.append(url) or CLINICAL_PHARMACOLOGY
+        ),
+    )
+    sitemap = f"<urlset><url><loc>{course_url}</loc></url></urlset>"
+    detail_calls = 0
+
+    def fetcher(url: str) -> str:
+        nonlocal detail_calls
+        if url == SITEMAP_URL:
+            return sitemap
+        if url == detail_url:
+            detail_calls += 1
+            raise RuntimeError("blocked")
+        raise AssertionError(url)
+
+    catalogue = adapter.parse_catalog_from_fetcher(fetcher)
+
+    assert detail_calls == 2
+    assert browser_calls == [detail_url]
+    assert catalogue.diagnostics["browserFallbacks"] == 1
+    assert catalogue.programmes[0].retrieval_method == "cloudflare-browser-rendering"
+
+
+def test_kcl_prefers_complete_delivery_api_entries_over_detail_crawl() -> None:
+    adapter = _adapter(
+        minimum_expected_programmes=1,
+        minimum_expected_delivery_windows=1,
+        detail_workers=1,
+    )
+    course_url = (
+        "https://www.kcl.ac.uk/study/postgraduate-taught/courses/endodontics-msc"
+    )
+    sitemap = f"<urlset><url><loc>{course_url}</loc></url></urlset>"
+    catalogue_html = (
+        '<html><script src="/_assets/static/startup-1.23.0.js"></script></html>'
+    )
+    startup_script = """
+    var alias = "kcl";
+    var config = {api: "https://api-" + alias + ".cloud.contensis.com"};
+    context.DELIVERY_API_CONFIG = {accessToken: "public-browser-token"};
+    """
+    api_payload = json.dumps(
+        {
+            "totalCount": 1,
+            "items": [
+                {
+                    "sys": {
+                        "uri": "/study/postgraduate-taught/courses/endodontics-msc"
+                    },
+                    "entryTitle": "Endodontics MSc",
+                    "applicationClosingDateInfoOverride": (
+                        "<h2>Application closing date guidance</h2>"
+                        "<p>Our first application deadline is on 1 October 2026. "
+                        "No further applications will be accepted after "
+                        "20 November 2026.</p>"
+                    ),
+                    "detailsDisclaimerOverride": (
+                        "Application deadlines apply to January 2027 entry."
+                    ),
+                    "orgUnits": [
+                        {
+                            "entryTitle": (
+                                "Faculty of Dentistry, Oral & Craniofacial Sciences"
+                            )
+                        }
+                    ],
+                }
+            ],
+        }
+    )
+    calls = []
+
+    def fetcher(url: str) -> str:
+        calls.append(url)
+        if url == SITEMAP_URL:
+            return sitemap
+        if url == CATALOG_URL:
+            return catalogue_html
+        if "startup-1.23.0.js" in url:
+            return startup_script
+        if "api-kcl.cloud.contensis.com" in url:
+            assert "fields=" not in url
+            return api_payload
+        raise AssertionError(f"detail crawl should not run: {url}")
+
+    catalogue = adapter.parse_catalog_from_fetcher(fetcher)
+
+    assert catalogue.diagnostics["deliveryApiProgrammes"] == 1
+    assert catalogue.diagnostics["deliveryApiWindows"] == 2
+    assert calls.count(course_url) == 0
+    programme = catalogue.programmes[0]
+    assert programme.retrieval_method == "official-api"
+    assert programme.faculty == "Faculty of Dentistry, Oral & Craniofacial Sciences"
+    assert [(window.closes_at, window.intake) for window in programme.windows] == [
+        ("2026-10-01", "January 2027"),
+        ("2026-11-20", "January 2027"),
+    ]
+
 
 def test_kcl_adapter_reads_sitemap_and_course_specific_deadlines() -> None:
-    adapter = KCLAdapter(minimum_expected_programmes=2, detail_workers=1)
+    adapter = _adapter(minimum_expected_programmes=2, detail_workers=1)
 
     def fetcher(url: str) -> str:
         if url == SITEMAP_URL:
             return SITEMAP_INDEX
         if url.endswith("/study"):
             return STUDY_SITEMAP
-        if "clinical-pharmacology-msc/requirements" in url:
+        if "clinical-pharmacology-msc" in url:
             return CLINICAL_PHARMACOLOGY
         if "advanced-clinical-practice" in url:
             return ADVANCED_CLINICAL_PRACTICE
@@ -116,8 +349,32 @@ def test_kcl_adapter_reads_sitemap_and_course_specific_deadlines() -> None:
     ]
 
 
+def test_kcl_reads_single_entry_label_after_deadlines_and_final_cutoff() -> None:
+    adapter = _adapter(minimum_expected_programmes=1, detail_workers=1)
+    course_url = (
+        "https://www.kcl.ac.uk/study/postgraduate-taught/courses/endodontics-msc"
+    )
+    sitemap = f"<urlset><url><loc>{course_url}</loc></url></urlset>"
+
+    def fetcher(url: str) -> str:
+        if url == SITEMAP_URL:
+            return sitemap
+        if url == course_url:
+            return ENDODONTICS
+        raise AssertionError(url)
+
+    programme = adapter.parse_catalog_from_fetcher(fetcher).programmes[0]
+
+    assert [
+        (window.round, window.closes_at, window.intake) for window in programme.windows
+    ] == [
+        ("First application deadline", "2026-10-01", "January 2027"),
+        ("Final application deadline", "2026-11-20", "January 2027"),
+    ]
+
+
 def test_kcl_adapter_fails_when_detail_transport_errors_exceed_ten_percent() -> None:
-    adapter = KCLAdapter(minimum_expected_programmes=1, detail_workers=1)
+    adapter = _adapter(minimum_expected_programmes=1, detail_workers=1)
     sitemap = """<urlset><url><loc>https://www.kcl.ac.uk/study/postgraduate-taught/courses/artificial-intelligence-msc</loc></url></urlset>"""
 
     def fetcher(url: str) -> str:
@@ -130,7 +387,7 @@ def test_kcl_adapter_fails_when_detail_transport_errors_exceed_ten_percent() -> 
 
 
 def test_kcl_adapter_warns_and_lists_small_detail_failure_set() -> None:
-    adapter = KCLAdapter(minimum_expected_programmes=10, detail_workers=1)
+    adapter = _adapter(minimum_expected_programmes=10, detail_workers=1)
     urls = [
         "https://www.kcl.ac.uk/study/postgraduate-taught/courses/"
         f"example-course-{index}-msc"
@@ -145,9 +402,9 @@ def test_kcl_adapter_warns_and_lists_small_detail_failure_set() -> None:
     def fetcher(url: str) -> str:
         if url == SITEMAP_URL:
             return sitemap
-        if url == f"{urls[0]}/requirements":
+        if url == urls[0]:
             raise RuntimeError("temporary block")
-        if url.endswith("/requirements"):
+        if url in urls:
             number = url.split("example-course-", 1)[1].split("-msc", 1)[0]
             return f"<title>Example Course {number} MSc | King's</title>"
         raise AssertionError(url)
@@ -159,10 +416,10 @@ def test_kcl_adapter_warns_and_lists_small_detail_failure_set() -> None:
         {
             "reason": "TRANSPORT_ERROR",
             "message": (
-                "1 of 10 KCL programme requirements pages failed during "
+                "1 of 10 KCL programme detail pages failed during "
                 "discovery; affected programmes were retained without deadlines."
             ),
-            "sourceUrl": f"{urls[0]}/requirements",
+            "sourceUrl": urls[0],
             "detailFailures": 1,
             "totalDetailPages": 10,
             "failedProgrammeIds": ["kcl-example-course-0-msc"],
@@ -173,7 +430,7 @@ def test_kcl_adapter_warns_and_lists_small_detail_failure_set() -> None:
 def test_kcl_adapter_classifies_parser_failures_separately(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    adapter = KCLAdapter(minimum_expected_programmes=10, detail_workers=1)
+    adapter = _adapter(minimum_expected_programmes=10, detail_workers=1)
     urls = [
         "https://www.kcl.ac.uk/study/postgraduate-taught/courses/"
         f"example-course-{index}-msc"
@@ -196,7 +453,7 @@ def test_kcl_adapter_classifies_parser_failures_separately(
     def fetcher(url: str) -> str:
         if url == SITEMAP_URL:
             return sitemap
-        if url.endswith("/requirements"):
+        if url in urls:
             number = url.split("example-course-", 1)[1].split("-msc", 1)[0]
             return f"<title>Example Course {number} MSc | King's</title>"
         raise AssertionError(url)
@@ -214,7 +471,7 @@ def test_kcl_adapter_classifies_parser_failures_separately(
 
 
 def test_kcl_adapter_uses_dynamic_delivery_catalogue_when_sitemap_is_stale() -> None:
-    adapter = KCLAdapter(minimum_expected_programmes=2, detail_workers=1)
+    adapter = _adapter(minimum_expected_programmes=2, detail_workers=1)
     stale_sitemap = """<urlset><url><loc>https://www.kcl.ac.uk/study-legacy/postgraduate/</loc></url></urlset>"""
     catalogue_html = """
     <html><body>
@@ -257,9 +514,9 @@ def test_kcl_adapter_uses_dynamic_delivery_catalogue_when_sitemap_is_stale() -> 
         if "api-kcl.cloud.contensis.com" in url:
             assert "accessToken=public-browser-token" in url
             return api_payload
-        if "clinical-pharmacology-msc/requirements" in url:
+        if "clinical-pharmacology-msc" in url:
             return CLINICAL_PHARMACOLOGY
-        if "artificial-intelligence-msc/requirements" in url:
+        if "artificial-intelligence-msc" in url:
             return "<title>Artificial Intelligence MSc | King's</title>"
         raise AssertionError(url)
 
@@ -277,13 +534,13 @@ def test_kcl_adapter_uses_dynamic_delivery_catalogue_when_sitemap_is_stale() -> 
 
 
 def test_kcl_adapter_does_not_treat_footer_links_as_departments() -> None:
-    adapter = KCLAdapter(minimum_expected_programmes=1, detail_workers=1)
+    adapter = _adapter(minimum_expected_programmes=1, detail_workers=1)
     sitemap = """<urlset><url><loc>https://www.kcl.ac.uk/study/postgraduate-taught/courses/accounting-finance-msc</loc></url></urlset>"""
 
     def fetcher(url: str) -> str:
         if url == SITEMAP_URL:
             return sitemap
-        if url.endswith("/requirements"):
+        if url.endswith("accounting-finance-msc"):
             return SINGLE_FACULTY
         raise AssertionError(url)
 

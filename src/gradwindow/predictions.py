@@ -118,7 +118,14 @@ def generate_predictions(
             history_by_signature[window_signature(source)]
         )
         target_intake = shift_intake_one_year(source["intake"])
-        target_key = (*window_signature(source), target_intake)
+        target_details = parse_intake_details(target_intake)
+        target_identity = (
+            target_details["cycleYear"],
+            target_details.get("academicYearEnd"),
+            target_details["term"],
+            target_details.get("startMonth"),
+        )
+        target_key = (*window_signature(source), target_identity)
         if target_key in official_keys:
             continue
         prediction = {
@@ -128,7 +135,7 @@ def generate_predictions(
             "scopeType": source["scopeType"],
             "scopeId": source["scopeId"],
             "intake": target_intake,
-            "intakeDetails": parse_intake_details(target_intake),
+            "intakeDetails": target_details,
             "round": source.get("round", ""),
             "applicantCategories": source["applicantCategories"],
             "opensAt": shift_date_one_year(source["opensAt"]),

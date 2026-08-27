@@ -34,6 +34,7 @@ from .predictions import generate_predictions
 from .programme_adapters.generic import GenericProgrammeAdapter, GenericProgrammeConfig
 from .programme_adapters.registry import PROGRAMME_ADAPTERS
 from .programme_discovery import discover_programmes
+from .published_data_audit import generate_published_data_audit
 from .readme import generate_readmes
 from .recurring_windows import generate_recurring_windows
 from .refresh_status import generate_refresh_status
@@ -142,6 +143,10 @@ def main() -> None:
         "migrate-intakes", help="Add structured intake details to applications"
     )
     subparsers.add_parser(
+        "audit-published-data",
+        help="Audit published windows against intake timing and adapter snapshots",
+    )
+    subparsers.add_parser(
         "export-schemas", help="Export Pydantic contracts as JSON Schema"
     )
     subparsers.add_parser(
@@ -177,6 +182,7 @@ def main() -> None:
         generate_recurring_windows()
         _validate_or_exit()
         generate_coverage()
+        generate_published_data_audit()
         print(f"Wrote site: {build_site(args.output)}")
     elif args.command == "monitor":
         print_summary(monitor_universities(workers=args.workers))
@@ -283,6 +289,9 @@ def main() -> None:
         payload = migrate_application_intakes()
         generate_predictions()
         print(f"Migrated {len(payload['applications'])} structured intake records.")
+    elif args.command == "audit-published-data":
+        audit = generate_published_data_audit()
+        print(json.dumps(audit["summary"], ensure_ascii=False))
     elif args.command == "export-schemas":
         written = export_schemas()
         print(f"Wrote {len(written)} JSON Schema files.")
@@ -295,6 +304,7 @@ def main() -> None:
         generate_recurring_windows()
         coverage = generate_coverage()
         generate_readmes()
+        generate_published_data_audit()
         print(
             f"Approved {record['id']}; "
             f"{coverage['summary']['verifiedWindows']} verified windows tracked."
@@ -374,6 +384,13 @@ def main() -> None:
         _validate_or_exit()
         coverage = generate_coverage()
         generate_readmes()
+        published_audit = generate_published_data_audit()
+        print(
+            json.dumps(
+                {"publishedDataAudit": published_audit["summary"]},
+                ensure_ascii=False,
+            )
+        )
         print(
             "Top-200 coverage: "
             f"{coverage['summary']['policiesVerified']}/200 policies, "
@@ -450,6 +467,8 @@ def _pipeline_discovery_report(
         }
         if reason := getattr(exc, "reason", None):
             report["reason"] = reason
+        if diagnostics := getattr(exc, "transport_diagnostics", None):
+            report["adapterDiagnostics"] = {"transport": diagnostics}
         return report
 
 

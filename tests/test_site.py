@@ -66,6 +66,28 @@ def test_build_site_accepts_default_site_directory() -> None:
     assert site._safe_build_output_dir(SITE_DIR) == SITE_DIR.resolve()
 
 
+def test_seo_aggregate_filter_removes_quarantined_official_and_predictions() -> None:
+    official = [
+        {"id": "safe"},
+        {"id": "suspicious"},
+    ]
+    predictions = [
+        {"id": "prediction-safe", "basedOnRecordId": "safe"},
+        {"id": "prediction-suspicious", "basedOnRecordId": "suspicious"},
+    ]
+
+    filtered_official, filtered_predictions = site.filter_seo_aggregate_records(
+        official,
+        predictions,
+        {"suspicious"},
+    )
+
+    assert filtered_official == [{"id": "safe"}]
+    assert filtered_predictions == [
+        {"id": "prediction-safe", "basedOnRecordId": "safe"}
+    ]
+
+
 def test_frontend_sources_are_grouped_outside_repository_root() -> None:
     assert (WEB_DIR / "index.html").exists()
     assert (WEB_DIR / "app.js").exists()
@@ -245,6 +267,13 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'lang="en"' in index_html
     assert 'property="og:image"' in index_html
     assert "og-image-multiranking.png" in index_html
+    assert 'rel="canonical"\n      href="https://gradwindow.com/"' in index_html
+    assert "250+ leading universities" not in index_html
+    assert (
+        "universities ranked in the global Top 200 by major world rankings"
+        in index_html
+    )
+    assert 'href="./index.html' not in index_html
     assert (
         'name="robots" content="index, follow, max-image-preview:large"' in index_html
     )
@@ -306,6 +335,8 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert snapshot["monitoring_run_at"] in index_html
     assert snapshot["refresh_summary"] in index_html
     assert snapshot["monitoring_health"] in index_html
+    assert "Monitoring healthy" not in index_html
+    assert "Needs verification in results" in index_html
     assert "Updated daily at 8:00 AM Beijing time" not in index_html
     app_js = (tmp_path / "app.js").read_text(encoding="utf-8")
     i18n_js = (tmp_path / "i18n.js").read_text(encoding="utf-8")
@@ -318,6 +349,7 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'className: "application-action-summary"' in app_js
     assert 'params.set("official", "1")' in app_js
     assert "Show {count} universities" in i18n_js
+    assert "Monitoring current · {healthy}/{total} adapters healthy" in i18n_js
     assert 'id="hero-deadline-countdown"' not in index_html
     assert "data-mobile-sort" in index_html
     assert ".window-card-row" in styles_css
@@ -370,6 +402,9 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert "Maestría en Explotación de Datos" in uba_html
     assert "Maestr?a" not in uba_html
     assert "university-of-cambridge" in (tmp_path / "sitemap.xml").read_text(
+        encoding="utf-8"
+    )
+    assert "/index.html</loc>" not in (tmp_path / "sitemap.xml").read_text(
         encoding="utf-8"
     )
     assert "roadmap.html" in (tmp_path / "sitemap.xml").read_text(encoding="utf-8")
@@ -466,6 +501,11 @@ def test_search_landing_pages_and_thin_university_indexing(tmp_path) -> None:
     assert "https://gradwindow.com/opening/2026-09/" in sitemap
     assert "https://gradwindow.com/intake/2027-fall/" in sitemap
     assert "<lastmod>" in sitemap
+    assert 'href="../../">Back to tracker</a>' in nus_html
+    assert "Source used for estimate" in aalto_html
+    assert "Official source" in aalto_html
+    assert "Source used for estimate" in fall_html
+    assert "Official policy source" in fall_html
 
 
 def test_build_site_uses_configured_public_url(tmp_path, monkeypatch) -> None:

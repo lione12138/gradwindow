@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import threading
 import time
-from collections.abc import Mapping
+from collections import Counter
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from urllib.parse import urlparse
 
@@ -13,6 +14,7 @@ from tenacity.wait import wait_exponential_jitter
 DEFAULT_TIMEOUT = 20.0
 DEFAULT_MAX_BYTES = 1_500_000
 MIN_HOST_INTERVAL = 0.15
+DEFAULT_BROWSER_FALLBACK_LIMIT = 3
 DEFAULT_USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/125.0 Safari/537.36"
@@ -48,6 +50,133 @@ class FetchFailure(Exception):
         self.kind = kind
         self.status_code = status_code
         self.retryable = retryable
+
+
+class ResilientFetcher:
+    """Bounded browser fallback around the shared retrying HTTP transport."""
+
+    def __init__(
+        self,
+        direct_fetcher: Callable[[str], str],
+        *,
+        browser_fetcher: Callable[[str], str] | None = None,
+        browser_fallback_limit: int = DEFAULT_BROWSER_FALLBACK_LIMIT,
+    ) -> None:
+        self.direct_fetcher = direct_fetcher
+        self.browser_fetcher = browser_fetcher
+        self.browser_fallback_limit = max(0, browser_fallback_limit)
+        self._lock = threading.Lock()
+        self._requests = 0
+        self._direct_successes = 0
+        self._direct_failures = 0
+        self._fallback_attempts = 0
+        self._fallback_successes = 0
+        self._fallback_failures = 0
+        self._fallback_budget_exhausted = 0
+        self._failure_kinds: Counter[str] = Counter()
+
+    def __call__(self, url: str) -> str:
+        with self._lock:
+            self._requests += 1
+        try:
+            content = self.direct_fetcher(url)
+        except Exception as direct_error:
+            kind = _fetch_failure_kind(direct_error)
+            with self._lock:
+                self._direct_failures += 1
+                self._failure_kinds[kind] += 1
+            if not self._reserve_browser_fallback(url, direct_error):
+                self._attach_diagnostics(direct_error)
+                raise
+            try:
+                rendered = self.browser_fetcher(url) if self.browser_fetcher else ""
+                if not rendered or not rendered.strip():
+                    raise RuntimeError("browser fallback returned an empty response")
+            except Exception as browser_error:
+                with self._lock:
+                    self._fallback_failures += 1
+                failure = _combined_fallback_failure(direct_error, browser_error)
+                self._attach_diagnostics(failure)
+                raise failure from browser_error
+            with self._lock:
+                self._fallback_successes += 1
+            return rendered
+        with self._lock:
+            self._direct_successes += 1
+        return content
+
+    def diagnostics(self) -> dict[str, object]:
+        with self._lock:
+            return {
+                "requests": self._requests,
+                "directSuccesses": self._direct_successes,
+                "directFailures": self._direct_failures,
+                "fallbackEnabled": self.browser_fetcher is not None,
+                "fallbackLimit": self.browser_fallback_limit,
+                "fallbackAttempts": self._fallback_attempts,
+                "fallbackSuccesses": self._fallback_successes,
+                "fallbackFailures": self._fallback_failures,
+                "fallbackBudgetExhausted": self._fallback_budget_exhausted,
+                "failureKinds": dict(sorted(self._failure_kinds.items())),
+            }
+
+    def _reserve_browser_fallback(
+        self,
+        url: str,
+        error: Exception,
+    ) -> bool:
+        if (
+            self.browser_fetcher is None
+            or not _browser_fallback_eligible(url, error)
+            or self.browser_fallback_limit == 0
+        ):
+            return False
+        with self._lock:
+            if self._fallback_attempts >= self.browser_fallback_limit:
+                self._fallback_budget_exhausted += 1
+                return False
+            self._fallback_attempts += 1
+            return True
+
+    def _attach_diagnostics(self, error: Exception) -> None:
+        try:
+            error.transport_diagnostics = self.diagnostics()
+        except (AttributeError, TypeError):
+            return
+
+
+def _fetch_failure_kind(error: Exception) -> str:
+    if isinstance(error, FetchFailure):
+        return error.kind
+    return type(error).__name__
+
+
+def _browser_fallback_eligible(url: str, error: Exception) -> bool:
+    if not isinstance(error, FetchFailure) or error.kind not in {
+        "blocked",
+        "rate-limited",
+        "network",
+        "server",
+    }:
+        return False
+    path = urlparse(url).path.lower()
+    return not path.endswith((".csv", ".json", ".pdf", ".xls", ".xlsx", ".xml", ".zip"))
+
+
+def _combined_fallback_failure(
+    direct_error: Exception,
+    browser_error: Exception,
+) -> FetchFailure:
+    direct_message = " ".join(str(direct_error).split())[:180]
+    browser_message = " ".join(str(browser_error).split())[:180]
+    return FetchFailure(
+        "Direct retrieval and browser fallback failed: "
+        f"direct={direct_message}; browser={browser_message}",
+        kind=_fetch_failure_kind(direct_error),
+        status_code=(
+            direct_error.status_code if isinstance(direct_error, FetchFailure) else None
+        ),
+    )
 
 
 def _wait_for_host(url: str) -> None:

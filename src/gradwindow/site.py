@@ -20,6 +20,8 @@ from .paths import (
     GLOBAL_RANKINGS_PATH,
     MONITOR_STATE_PATH,
     PREDICTIONS_PATH,
+    PROGRAMME_ADAPTER_HEALTH_PATH,
+    PROGRAMME_CATALOG_STATE_PATH,
     PROGRAMME_GROUPS_PATH,
     PROGRAMS_PATH,
     RECURRING_WINDOWS_PATH,
@@ -30,6 +32,7 @@ from .paths import (
     WEB_DIR,
     WINDOW_POLICIES_PATH,
 )
+from .published_data_audit import audit_published_data
 
 PUBLIC_FILES = (
     "CNAME",
@@ -205,7 +208,24 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     (output_dir / "sources.html").write_text(
         render_sources_page(public_site_url), encoding="utf-8"
     )
-    generated_urls = generate_index_pages(output_dir, public_site_url, build_date)
+    published_audit = audit_published_data(
+        read_json(APPLICATIONS_PATH)["applications"],
+        catalog_state=read_json(
+            PROGRAMME_CATALOG_STATE_PATH,
+            {"universities": {}},
+        ).get("universities", {}),
+        adapter_health=read_json(
+            PROGRAMME_ADAPTER_HEALTH_PATH,
+            {"universities": {}},
+        ).get("universities", {}),
+        today=build_date,
+    )
+    generated_urls = generate_index_pages(
+        output_dir,
+        public_site_url,
+        build_date,
+        quarantined_record_ids=set(published_audit["quarantinedRecordIds"]),
+    )
     data_lastmod = public_data_lastmod()
     sitemap_urls: list[str | tuple[str, str | None]] = [
         (public_site_url, data_lastmod),
@@ -423,6 +443,7 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     coverage = read_json(COVERAGE_PATH)["universities"]
     monitor = read_json(MONITOR_STATE_PATH, {})
     refresh_status = read_json(REFRESH_STATUS_PATH, {})
+    adapter_health = read_json(PROGRAMME_ADAPTER_HEALTH_PATH, {"meta": {}})
 
     qs_universities = [
         item for item in universities if item.get("qsPosition") is not None
@@ -519,6 +540,30 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
         if monitoring_run_at
         else None
     )
+    adapter_health_meta = adapter_health.get("meta", {})
+    adapter_health_updated_at = adapter_health_meta.get("updatedAt")
+    adapter_health_age_days = (
+        max((today - date.fromisoformat(adapter_health_updated_at[:10])).days, 0)
+        if adapter_health_updated_at
+        else None
+    )
+    adapter_health_summary = adapter_health_meta.get("summary", {})
+    total_adapters = int(adapter_health_summary.get("totalAdapters", 0))
+    healthy_adapters = int(adapter_health_summary.get("healthyAdapters", 0))
+    monitoring_current = (
+        monitoring_age_days is not None
+        and monitoring_age_days <= 2
+        and adapter_health_age_days is not None
+        and adapter_health_age_days <= 2
+    )
+    if monitoring_current and total_adapters:
+        monitoring_health = (
+            f"Monitoring current · {healthy_adapters}/{total_adapters} adapters healthy"
+        )
+    elif monitoring_current:
+        monitoring_health = "Monitoring current"
+    else:
+        monitoring_health = "Monitoring delayed"
     official_start = min(item["opensAt"] for item in applications)
     official_end = max(item["closesAt"] for item in applications)
 
@@ -535,11 +580,7 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
             else "Last successful monitoring run: unavailable"
         ),
         "refresh_summary": refresh_summary,
-        "monitoring_health": (
-            "Monitoring healthy"
-            if monitoring_age_days is not None and monitoring_age_days <= 2
-            else "Monitoring delayed"
-        ),
+        "monitoring_health": monitoring_health,
         "deadline_day": deadline_day,
         "deadline_month": deadline_month,
         "deadline_school": deadline_school,
@@ -600,11 +641,18 @@ def generate_index_pages(
     output_dir: Path,
     public_site_url: str,
     today: date | None = None,
+    *,
+    quarantined_record_ids: set[str] | None = None,
 ) -> list[tuple[str, str | None]]:
     today = today or date.today()
     universities = read_json(UNIVERSITIES_PATH)["universities"]
     applications = read_json(APPLICATIONS_PATH)["applications"]
     predictions = read_json(PREDICTIONS_PATH)["predictions"]
+    aggregate_applications, aggregate_predictions = filter_seo_aggregate_records(
+        applications,
+        predictions,
+        quarantined_record_ids or set(),
+    )
     recurring_windows = read_json(RECURRING_WINDOWS_PATH)["recurringWindows"]
     monitor_entries = read_json(MONITOR_STATE_PATH, {"universities": {}}).get(
         "universities", {}
@@ -623,7 +671,11 @@ def generate_index_pages(
     }
     target_cycle_year = primary_cycle_year(predictions, today)
     generated_urls: list[tuple[str, str | None]] = []
-    all_records = [*applications, *recurring_windows, *predictions]
+    all_records = [
+        *aggregate_applications,
+        *recurring_windows,
+        *aggregate_predictions,
+    ]
     intake_counts = Counter(
         slug for item in all_records if (slug := intake_slug(item)) is not None
     )
@@ -681,7 +733,7 @@ def generate_index_pages(
             )
         monitor_item = monitor_entries.get(university_id, {})
         body = (
-            f'<p class="back"><a href="../../index.html">Back to tracker</a></p>'
+            f'<p class="back"><a href="../../">Back to tracker</a></p>'
             f"<p>{html.escape(ranking_label)} · "
             f"{country_label}</p>"
             f'<p><a href="{html.escape(university["homepageUrl"], quote=True)}">'
@@ -782,7 +834,7 @@ def generate_index_pages(
         )
         canonical = f"{public_site_url}/country/{country_slug}/"
         body = (
-            '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
+            '<p class="back"><a href="../../">Back to tracker</a></p>'
             f"<p>{len(items)} QS Top 200 universities.</p><ul>{rows}</ul>"
         )
         (country_dir / "index.html").write_text(
@@ -810,11 +862,11 @@ def generate_index_pages(
         )
 
     by_month: dict[str, list[tuple[dict, str]]] = {}
-    for item in applications:
+    for item in aggregate_applications:
         by_month.setdefault(item["closesAt"][:7], []).append((item, "official"))
     for item in recurring_windows:
         by_month.setdefault(item["closesAt"][:7], []).append((item, "recurring"))
-    for item in predictions:
+    for item in aggregate_predictions:
         by_month.setdefault(item["closesAt"][:7], []).append((item, "predicted"))
     for month, items in by_month.items():
         month_dir = output_dir / "deadline" / month
@@ -834,8 +886,7 @@ def generate_index_pages(
         )
         canonical = f"{public_site_url}/deadline/{month}/"
         body = (
-            '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
-            f"<ul>{rows}</ul>"
+            f'<p class="back"><a href="../../">Back to tracker</a></p><ul>{rows}</ul>'
         )
         (month_dir / "index.html").write_text(
             render_static_page(
@@ -859,9 +910,9 @@ def generate_index_pages(
     by_opening_month: dict[str, list[tuple[dict, str]]] = defaultdict(list)
     by_intake: dict[str, list[tuple[dict, str]]] = defaultdict(list)
     for data_status, records in (
-        ("official", applications),
+        ("official", aggregate_applications),
         ("recurring", recurring_windows),
-        ("predicted", predictions),
+        ("predicted", aggregate_predictions),
     ):
         for item in records:
             by_opening_month[item["opensAt"][:7]].append((item, data_status))
@@ -889,8 +940,7 @@ def generate_index_pages(
             render_static_page(
                 f"{label} Master's Applications Opening Dates",
                 description,
-                '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
-                + body,
+                '<p class="back"><a href="../../">Back to tracker</a></p>' + body,
                 canonical,
                 [
                     ("GradWindow", f"{public_site_url}/"),
@@ -919,8 +969,7 @@ def generate_index_pages(
             render_static_page(
                 f"{label} Master's Application Deadlines",
                 description,
-                '<p class="back"><a href="../../index.html">Back to tracker</a></p>'
-                + body,
+                '<p class="back"><a href="../../">Back to tracker</a></p>' + body,
                 canonical,
                 [
                     ("GradWindow", f"{public_site_url}/"),
@@ -932,6 +981,21 @@ def generate_index_pages(
         )
         generated_urls.append((canonical, records_lastmod([item for item, _ in items])))
     return generated_urls
+
+
+def filter_seo_aggregate_records(
+    applications: list[dict],
+    predictions: list[dict],
+    quarantined_record_ids: set[str],
+) -> tuple[list[dict], list[dict]]:
+    return (
+        [item for item in applications if item["id"] not in quarantined_record_ids],
+        [
+            item
+            for item in predictions
+            if item.get("basedOnRecordId") not in quarantined_record_ids
+        ],
+    )
 
 
 def trim_description(value: str, limit: int = 180) -> str:
@@ -1193,10 +1257,16 @@ def render_landing_summary(
         visible_intakes = ", ".join(intake_labels[:4])
         if len(intake_labels) > 4:
             visible_intakes += f", and {len(intake_labels) - 4} more"
-        source = next(
-            (item["sourceUrl"] for item, status in records if status != "predicted"),
-            rows[0]["sourceUrl"],
+        source_item, source_status = min(
+            records,
+            key=lambda pair: {"official": 0, "recurring": 1, "predicted": 2}[pair[1]],
         )
+        source = source_item["sourceUrl"]
+        source_label = {
+            "official": "Official source",
+            "recurring": "Official policy source",
+            "predicted": "Source used for estimate",
+        }[source_status]
         status_parts = []
         if status_counts["official"]:
             status_parts.append(f"{status_counts['official']} verified")
@@ -1216,7 +1286,7 @@ def render_landing_summary(
             f"<p>{lead}: {html.escape(openings)}<br>"
             f"Deadlines: {html.escape(deadlines)}</p>"
             f"<p>Intakes: {html.escape(visible_intakes)}</p>"
-            f'<p><a href="{html.escape(source, quote=True)}">Official source</a></p>'
+            f'<p><a href="{html.escape(source, quote=True)}">{source_label}</a></p>'
             "</article>"
         )
     trust_note = (
@@ -1254,6 +1324,13 @@ def render_window_list(
 ) -> str:
     if not items:
         return ""
+    source_label = (
+        "Source used for estimate"
+        if predicted
+        else "Official policy source"
+        if recurring
+        else "Official source"
+    )
     rows = "".join(
         "<li>"
         f'<strong><a href="../../deadline/{html.escape(item["closesAt"][:7])}/">'
@@ -1284,7 +1361,7 @@ def render_window_list(
         )
         + f'<br><a href="{html.escape(item["applicationUrl"], quote=True)}">Application page</a>'
         + " · "
-        + f'<a href="{html.escape(item["sourceUrl"], quote=True)}">Official source</a>'
+        + f'<a href="{html.escape(item["sourceUrl"], quote=True)}">{source_label}</a>'
         "</li>"
         for item in sorted(items, key=lambda value: value["closesAt"])
     )
@@ -1596,7 +1673,7 @@ def render_sources_page(public_site_url: str) -> str:
 <body>
   <main>
     <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="index.html">GradWindow</a><span aria-hidden="true">/</span><span>Sources and coverage</span>
+      <a href="./">GradWindow</a><span aria-hidden="true">/</span><span>Sources and coverage</span>
     </nav>
     <h1>Sources and coverage</h1>
     <p>Public list of {len(universities)} monitored universities, official websites, admissions-entry discovery status, and latest monitoring result.</p>

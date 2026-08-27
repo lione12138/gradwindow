@@ -35,6 +35,10 @@ WARNING_ALERT_TYPES = {
     "PARSER_ERROR": "partial-parser-error",
     "UNKNOWN_DEGREE_CODE": "unknown-degree-code",
 }
+INCIDENT_RESOLUTIONS = {
+    "official-source-change",
+    "manual-acknowledgement",
+}
 
 
 def update_adapter_health(
@@ -200,15 +204,25 @@ def _successful_entry(
     previous_exact = previous.get("exactWindowCount")
     previous_observed = previous.get("observedWindowCount")
     current_observed = int(report.get("observedWindowCount", 0))
-    baseline_count = (
-        int(previous_count) if previous_count is not None else current_count
+    active_incident_baseline = _normalise_incident_baseline(
+        previous.get("activeIncidentBaseline")
     )
-    baseline_exact = (
-        int(previous_exact) if previous_exact is not None else current_exact
-    )
-    baseline_observed = (
-        int(previous_observed) if previous_observed is not None else current_observed
-    )
+    if active_incident_baseline:
+        baseline_count = active_incident_baseline["catalogProgrammes"]
+        baseline_exact = active_incident_baseline["exactWindowCount"]
+        baseline_observed = active_incident_baseline["observedWindowCount"]
+    else:
+        baseline_count = (
+            int(previous_count) if previous_count is not None else current_count
+        )
+        baseline_exact = (
+            int(previous_exact) if previous_exact is not None else current_exact
+        )
+        baseline_observed = (
+            int(previous_observed)
+            if previous_observed is not None
+            else current_observed
+        )
     historical_max_count = max(
         int(previous.get("historicalMaxCatalogProgrammes", 0)),
         int(previous.get("baselineCatalogProgrammes", 0)),
@@ -229,7 +243,11 @@ def _successful_entry(
     )
     current_cycles = _normalise_cycle_counts(report.get("windowCountsByCycle"))
     previous_cycles = _normalise_cycle_counts(previous.get("windowCountsByCycle"))
-    baseline_cycles = previous_cycles or current_cycles
+    baseline_cycles = (
+        active_incident_baseline.get("windowCountsByCycle", {})
+        if active_incident_baseline
+        else previous_cycles or current_cycles
+    )
     historical_max_cycles = _historical_cycle_max(
         _normalise_cycle_counts(previous.get("historicalMaxWindowCountsByCycle")),
         _normalise_cycle_counts(previous.get("baselineWindowCountsByCycle")),
@@ -371,8 +389,46 @@ def _successful_entry(
         "pendingWatchedWindowSourceHash": pending_source_hash,
         "pendingWatchedWindowSourceChecks": pending_source_checks,
         "unparsedSourceChange": unparsed_source_change,
+        "activeIncidentBaseline": active_incident_baseline or None,
+        "incidentOpenedAt": (
+            previous.get("incidentOpenedAt") if active_incident_baseline else None
+        ),
+        "lastKnownGoodWindowCount": int(
+            previous.get("lastKnownGoodWindowCount")
+            if previous.get("lastKnownGoodWindowCount") is not None
+            else baseline_observed
+        ),
+        "lastIncidentResolution": previous.get("lastIncidentResolution"),
         "lastError": None,
     }
+    incident_resolution = str(report.get("incidentResolution") or "")
+    incident_acknowledged = bool(
+        active_incident_baseline and incident_resolution in INCIDENT_RESOLUTIONS
+    )
+    regression_active = _count_regression_requires_alert(entry)
+    keep_active_incident = bool(
+        active_incident_baseline and regression_active and not incident_acknowledged
+    )
+    if not active_incident_baseline and regression_active:
+        active_incident_baseline = _incident_baseline_from_entry(entry)
+        entry["activeIncidentBaseline"] = active_incident_baseline
+        entry["incidentOpenedAt"] = checked_at.isoformat()
+        entry["lastKnownGoodWindowCount"] = baseline_observed
+    elif not keep_active_incident:
+        _move_baseline_to_current(entry)
+        entry["activeIncidentBaseline"] = None
+        entry["incidentOpenedAt"] = None
+        entry["lastKnownGoodWindowCount"] = current_observed
+        if incident_acknowledged:
+            entry["lastIncidentResolution"] = {
+                "type": incident_resolution,
+                "resolvedAt": checked_at.isoformat(),
+            }
+        elif active_incident_baseline:
+            entry["lastIncidentResolution"] = {
+                "type": "recovered",
+                "resolvedAt": checked_at.isoformat(),
+            }
     changes = []
     if previous_exact is not None and current_exact > int(previous_exact):
         changes.append(
@@ -385,6 +441,73 @@ def _successful_entry(
     if confirmed_source_change:
         changes.append({"type": "confirmed-source-change"})
     return entry, changes
+
+
+def _normalise_incident_baseline(value) -> dict:
+    if not isinstance(value, dict):
+        return {}
+    return {
+        "catalogProgrammes": int(value.get("catalogProgrammes", 0)),
+        "observedWindowCount": int(value.get("observedWindowCount", 0)),
+        "exactWindowCount": int(value.get("exactWindowCount", 0)),
+        "windowCountsByCycle": _normalise_cycle_counts(
+            value.get("windowCountsByCycle")
+        ),
+    }
+
+
+def _incident_baseline_from_entry(entry: dict) -> dict:
+    return {
+        "catalogProgrammes": int(entry.get("baselineCatalogProgrammes", 0)),
+        "observedWindowCount": int(entry.get("baselineObservedWindowCount", 0)),
+        "exactWindowCount": int(entry.get("baselineExactWindowCount", 0)),
+        "windowCountsByCycle": _normalise_cycle_counts(
+            entry.get("baselineWindowCountsByCycle")
+        ),
+    }
+
+
+def _move_baseline_to_current(entry: dict) -> None:
+    entry["baselineCatalogProgrammes"] = int(entry.get("catalogProgrammes", 0))
+    entry["baselineObservedWindowCount"] = int(entry.get("observedWindowCount", 0))
+    entry["baselineExactWindowCount"] = int(entry.get("exactWindowCount", 0))
+    entry["baselineWindowCountsByCycle"] = _normalise_cycle_counts(
+        entry.get("windowCountsByCycle")
+    )
+
+
+def _count_regression_requires_alert(entry: dict) -> bool:
+    baseline_count = int(entry.get("baselineCatalogProgrammes", 0))
+    current_count = int(entry.get("catalogProgrammes", 0))
+    if baseline_count and current_count < baseline_count * CATALOGUE_DROP_RATIO:
+        return True
+
+    baseline_exact = int(entry.get("baselineExactWindowCount", 0))
+    current_exact = int(entry.get("exactWindowCount", 0))
+    if (
+        baseline_exact
+        and current_exact < baseline_exact
+        and _cycle_window_drop_requires_alert(
+            entry,
+            "exactWindowCount",
+            baseline_exact,
+            current_exact,
+        )
+    ):
+        return True
+
+    baseline_observed = int(entry.get("baselineObservedWindowCount", 0))
+    current_observed = int(entry.get("observedWindowCount", 0))
+    return bool(
+        baseline_observed
+        and current_observed < baseline_observed
+        and _cycle_window_drop_requires_alert(
+            entry,
+            "observedWindowCount",
+            baseline_observed,
+            current_observed,
+        )
+    )
 
 
 def _failed_entry(
@@ -610,12 +733,13 @@ def _cycle_window_drop_requires_alert(
 ) -> bool:
     if current_total >= baseline_total:
         return False
+    active_incident = bool(entry.get("activeIncidentBaseline"))
     baseline_cycles = _normalise_cycle_counts(entry.get("baselineWindowCountsByCycle"))
     current_cycles = _normalise_cycle_counts(entry.get("windowCountsByCycle"))
     if not baseline_cycles:
-        return _window_drop_requires_alert(entry)
+        return active_incident or _window_drop_requires_alert(entry)
     if not current_cycles:
-        return _window_drop_requires_alert(entry)
+        return active_incident or _window_drop_requires_alert(entry)
 
     common_cycles = set(baseline_cycles) & set(current_cycles)
     common_cycle_drop = any(
@@ -624,7 +748,7 @@ def _cycle_window_drop_requires_alert(
         for cycle in common_cycles
     )
     if common_cycle_drop:
-        return _window_drop_requires_alert(entry)
+        return active_incident or _window_drop_requires_alert(entry)
 
     # A lower total caused only by replacing one intake cycle with another is
     # a cycle transition, not evidence that the current cycle parser regressed.

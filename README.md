@@ -1,9 +1,9 @@
 # GradWindow
 
-[![Tests](https://github.com/lione12138/qs-master-applications/actions/workflows/tests.yml/badge.svg)](https://github.com/lione12138/qs-master-applications/actions/workflows/tests.yml)
+[![Tests](https://github.com/lione12138/gradwindow/actions/workflows/tests.yml/badge.svg)](https://github.com/lione12138/gradwindow/actions/workflows/tests.yml)
 [![Website](https://img.shields.io/badge/Website-GradWindow-1e6548)](https://gradwindow.com/)
 
-[中文](README.zh-CN.md) · [Open GradWindow](https://gradwindow.com/) · [Application calendar](https://gradwindow.com/calendar.html) · [Report a data error](https://github.com/lione12138/qs-master-applications/issues/new?template=report-data-error.yml) · [Contribute](CONTRIBUTING.md)
+[中文](README.zh-CN.md) · [Open GradWindow](https://gradwindow.com/) · [Application calendar](https://gradwindow.com/calendar.html) · [Report a data error](https://github.com/lione12138/gradwindow/issues/new?template=report-data-error.yml) · [Contribute](CONTRIBUTING.md)
 
 > Official-source master's application windows for top-200 universities across major global rankings.
 

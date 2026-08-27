@@ -38,5 +38,11 @@ export default [
       "no-control-regex": "off",
     },
   },
+  {
+    files: ["playwright.config.mjs", "tests/e2e/**/*.js"],
+    languageOptions: {
+      globals: { ...globals.node, ...globals.browser },
+    },
+  },
   prettier,
 ];
