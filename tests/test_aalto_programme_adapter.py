@@ -4,7 +4,7 @@ import json
 
 from gradwindow.programme_adapters.aalto import AaltoAdapter
 
-STUDIES_API = "https://www.aalto.fi/aalto_api/studies/list"
+STUDIES_API = "https://www.aalto.fi/en/aalto_api/studies/list"
 
 STUDIES_PAYLOAD = json.dumps(
     {
