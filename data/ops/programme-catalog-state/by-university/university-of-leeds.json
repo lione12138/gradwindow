@@ -2,7 +2,7 @@
   "universities": {
     "university-of-leeds": {
       "sourceUrl": "https://courses.leeds.ac.uk/course-search/masters-courses",
-      "checkedAt": "2026-08-26T05:36:55.340429+00:00",
+      "checkedAt": "2026-08-27T15:44:04.487549+00:00",
       "itemCount": 204,
       "applicationOpensAt": null,
       "catalogHash": "a22688ef4afafa05bb617624ef6f13a885852b3891417747b1fede2f87f4746e",
@@ -17,9 +17,9 @@
       "programmesWithoutDeadlines": 204,
       "programmesNeedingReview": 204,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:36:55.340429+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:44:04.487549+00:00",
       "windowFingerprint": "68aebad88863f900d607292d0839e3a1ea475135ed6e7df1e74bfe8d17d0abca",
-      "watchedWindowSourceHash": "6423904c11f4ee74b771aa798a1c78e940cec1664f670a7a8bddbba4ba1d453e",
+      "watchedWindowSourceHash": "7bf16ffe811faae7f4e8b63cf3c7b6320403f25d5ae54e033d10b4c98341354f",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
         "leeds-ai-ethics-and-society-msc": {
@@ -2065,7 +2065,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 20,
+          "directSuccesses": 20,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

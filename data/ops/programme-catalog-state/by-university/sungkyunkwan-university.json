@@ -2,7 +2,7 @@
   "universities": {
     "sungkyunkwan-university": {
       "sourceUrl": "https://www.skku.edu/eng/edu/graduateSchool/graduate_school.do",
-      "checkedAt": "2026-08-26T05:48:17.586138+00:00",
+      "checkedAt": "2026-08-27T15:57:47.522689+00:00",
       "itemCount": 39,
       "applicationOpensAt": null,
       "catalogHash": "28a5885010272dad6119875d3561d1b3a1844d6aac0052e5a2371f86039abb0a",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 39,
       "programmesNeedingReview": 39,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:48:17.586138+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:57:47.522689+00:00",
       "windowFingerprint": "28bd492fe668963f7ee5349c9c281ad1341b4f92e8e5362af3994d31362a1b11",
       "watchedWindowSourceHash": "de0f074885130fa8a1ff395823ec4cd3899680a63480a3d43fd4995167171b9f",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -415,7 +415,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 4,
+          "directSuccesses": 4,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

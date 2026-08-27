@@ -2,7 +2,7 @@
   "universities": {
     "technical-university-of-munich": {
       "sourceUrl": "https://www.tum.de/en/studies/degree-programs?tx_solr%5Bq%5D=&graduation=Master",
-      "checkedAt": "2026-08-26T05:53:40.439193+00:00",
+      "checkedAt": "2026-08-27T16:09:22.008899+00:00",
       "itemCount": 115,
       "applicationOpensAt": null,
       "catalogHash": "f354dbe990955740fe1d55082eb3b59d623eaa223624ce79474aacb499a40b72",
@@ -13,7 +13,7 @@
       "exactWindowCount": 2,
       "recurringPolicyWindowCount": 127,
       "windowCountsByCycle": {
-        "2026-2027:winter:01": {
+        "2026-2027:winter:10": {
           "intakes": [
             "Winter semester 2026/27"
           ],
@@ -21,7 +21,7 @@
           "exactWindowCount": 1,
           "recurringPolicyWindowCount": 0
         },
-        "2027-2028:winter:01": {
+        "2027-2028:winter:10": {
           "intakes": [
             "Winter semester 2027/28"
           ],
@@ -42,7 +42,7 @@
       "programmesWithoutDeadlines": 28,
       "programmesNeedingReview": 28,
       "limitationReason": "127 window(s) use an official recurring day/month policy; GradWindow maps the cycle year. 28 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-26T05:53:40.439193+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:09:22.008899+00:00",
       "windowFingerprint": "9c54bc9be6d792833c19b7e2828490b802b8ff66ee7215cecba3b47df17eab6a",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -2233,7 +2233,20 @@
         }
       },
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 127,
+          "directSuccesses": 127,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

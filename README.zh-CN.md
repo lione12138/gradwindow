@@ -16,9 +16,9 @@
 - 搜索、状态筛选、收藏、提醒和日历导出组成完整申请流程。
 - QS 是默认视图，THE 与软科前 200 视图已经上线；U.S. News 暂不标为已上线。
 
-**当前覆盖：**302 所标准化大学 · 29,037 个项目 · 5,305 条官网精确窗口
+**当前覆盖：**302 所标准化大学 · 29,361 个项目 · 5,328 条官网精确窗口
 
-状态日期：**2026-08-26**
+状态日期：**2026-08-27**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -42,7 +42,7 @@
 | 6 | University of Cambridge / 剑桥大学 | 156 个即将开放窗口 | 2026-09-03 | 预测参考 | [招生官网](https://www.postgraduate.study.cam.ac.uk/application-process) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | 10 | National University of Singapore (NUS) / 新加坡国立大学 | 9 个即将开放窗口 | 2026-09-01 | 官网核验 + 预测参考 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
 | 11 | The University of Hong Kong / 香港大学 | 89 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://admissions.hku.hk/tpg/) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Hong%20Kong) |
-| 15 | University of Pennsylvania / 宾夕法尼亚大学 | 16 个即将开放窗口 | 2026-09-15 | 预测参考 | [招生官网](https://www.upenn.edu/academics/graduate) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Pennsylvania) |
+| 15 | University of Pennsylvania / 宾夕法尼亚大学 | 23 个即将开放窗口 | 2026-09-15 | 官网核验 + 预测参考 | [招生官网](https://www.upenn.edu/academics/graduate) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Pennsylvania) |
 
 [在 GradWindow 查看全部即将开放的窗口 →](https://gradwindow.com/?status=upcoming)
 

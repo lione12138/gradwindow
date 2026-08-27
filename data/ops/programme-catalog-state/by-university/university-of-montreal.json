@@ -2,10 +2,10 @@
   "universities": {
     "university-of-montreal": {
       "sourceUrl": "https://admission.umontreal.ca/sitemap.xml",
-      "checkedAt": "2026-08-26T05:41:01.663630+00:00",
-      "itemCount": 141,
+      "checkedAt": "2026-08-27T15:49:20.925528+00:00",
+      "itemCount": 142,
       "applicationOpensAt": null,
-      "catalogHash": "94ffa645327c95e6fb68f98f55ca9c6a26c591fcc9707669b4600ff2ab841d7e",
+      "catalogHash": "baa10c92a61c348b3612a374422c94a4687fa2ac2da53dd2fc73cfbccb8a53e2",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,11 +14,11 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 141,
-      "programmesNeedingReview": 141,
+      "programmesWithoutDeadlines": 142,
+      "programmesNeedingReview": 142,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:41:01.663630+00:00",
-      "windowFingerprint": "044dbd39eb3cffa354dc0424d12b536edbd45a0fd6dc8127ce327e37594ed1d1",
+      "lastSuccessfulAt": "2026-08-27T15:49:20.925528+00:00",
+      "windowFingerprint": "f3cb52e59a26505565d8013ab2b793f5243ae0d79fe890ec01e104be8807c4bf",
       "watchedWindowSourceHash": "522ec5e68d2f9457b4982a6814356eb2ef2d76645e05acf2f6f579f7652337c2",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
@@ -1362,6 +1362,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "umontreal-maitrise-en-traduction-option-traduction-professionnelle-anglais-francais-maitrise": {
+          "name": "Maîtrise en traduction option traduction professionnelle anglais francais",
+          "degreeType": "Maîtrise",
+          "faculty": "Université de Montréal",
+          "department": "Université de Montréal",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "umontreal-maitrise-en-travail-social-maitrise": {
           "name": "Maîtrise en travail social",
           "degreeType": "Maîtrise",
@@ -1435,7 +1445,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 3,
+          "directSuccesses": 3,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

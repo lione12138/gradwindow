@@ -2,7 +2,7 @@
   "universities": {
     "yonsei-university": {
       "sourceUrl": "https://graduate.yonsei.ac.kr/graduate_en/admission/forein_schedule.do",
-      "checkedAt": "2026-08-26T06:12:31.064365+00:00",
+      "checkedAt": "2026-08-27T16:29:54.849018+00:00",
       "itemCount": 109,
       "applicationOpensAt": null,
       "catalogHash": "e2924e8a6a60a8adff553fe769b01dd9f7ca42d3dbfeb50f9bb6bb28bb0d13c1",
@@ -26,7 +26,7 @@
       "programmesWithoutDeadlines": 0,
       "programmesNeedingReview": 0,
       "limitationReason": null,
-      "lastSuccessfulAt": "2026-08-26T06:12:31.064365+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:29:54.849018+00:00",
       "windowFingerprint": "fdc5925a7b3b7999c62bb7bc17109b21e0aceedf4ef73bfd0a8ca58d949488e3",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -1997,7 +1997,20 @@
         }
       },
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 2,
+          "directSuccesses": 2,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

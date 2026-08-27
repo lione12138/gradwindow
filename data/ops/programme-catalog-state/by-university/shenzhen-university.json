@@ -2,7 +2,7 @@
   "universities": {
     "shenzhen-university": {
       "sourceUrl": "https://lxs.szu.edu.cn/info/1278/5777.htm",
-      "checkedAt": "2026-08-26T05:48:38.670186+00:00",
+      "checkedAt": "2026-08-27T15:58:09.482349+00:00",
       "itemCount": 23,
       "applicationOpensAt": null,
       "catalogHash": "cb83c6ee8267fb6ad252de755e7edf34b2a0cc631df5497f2194edb55827bced",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 23,
       "programmesNeedingReview": 23,
       "limitationReason": "Shenzhen University's official 2026 international admissions table enumerates the master's programmes currently offered to international applicants. The central page does not publish a next-cycle exact opening and closing pair. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:48:38.670186+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:58:09.482349+00:00",
       "windowFingerprint": "4ccb769bb8633ef2e0f8f3dcf79e802d432d5ccbb8822dc37e8789ec82d194c7",
       "watchedWindowSourceHash": "39fd64c75028d285eba90c714e34f71c848591728f3ccde06eee1dd6707afa0e",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -255,7 +255,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

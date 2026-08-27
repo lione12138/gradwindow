@@ -2,7 +2,7 @@
   "universities": {
     "texas-a-and-m-university": {
       "sourceUrl": "https://catalog.tamu.edu/graduate/degrees-programs/",
-      "checkedAt": "2026-08-26T05:51:35.270272+00:00",
+      "checkedAt": "2026-08-27T16:04:25.382503+00:00",
       "itemCount": 176,
       "applicationOpensAt": null,
       "catalogHash": "dc5e3612f65cff77729682eb7c581b2985c8db27c51242d52fd5b2836b4c97ae",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 176,
       "programmesNeedingReview": 176,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:51:35.270272+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:04:25.382503+00:00",
       "windowFingerprint": "da405140447b00ed7d6710845f9c2ca8f6ba2357eebb921c725f3fce4f30591f",
       "watchedWindowSourceHash": "556ca0977685caf287ea64c0bd5350e5681d5c4bee1a534b2d5d76877499e821",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -1785,7 +1785,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 2,
+          "directSuccesses": 2,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

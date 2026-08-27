@@ -2,10 +2,10 @@
   "universities": {
     "the-university-of-sydney": {
       "sourceUrl": "https://www.sydney.edu.au/courses/sitemap.xml",
-      "checkedAt": "2026-08-26T05:51:05.797191+00:00",
+      "checkedAt": "2026-08-27T16:03:56.990819+00:00",
       "itemCount": 172,
       "applicationOpensAt": null,
-      "catalogHash": "62698ccb86a9d1ba41a9c6dc7b63d2ad9b5a867850ab931bb635b3a3a65d3cec",
+      "catalogHash": "892c89c083ea1adba49cc613a7b6343c85e17e22ee035f5022027ea9798446a1",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
@@ -27,7 +27,7 @@
       "programmesWithoutDeadlines": 0,
       "programmesNeedingReview": 172,
       "limitationReason": "688 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-26T05:51:05.797191+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:03:56.990819+00:00",
       "windowFingerprint": "c9b4c7659072c8a500bad62a5669f5965956bc3876dab4c4187e09128aa090dc",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -653,7 +653,7 @@
           "latestClosesAt": "2027-07-15"
         },
         "sydney-master-of-heritage-conservation": {
-          "name": "Master of Heritage Conservation",
+          "name": "Master of Heritage Conservation (2026 entry)",
           "degreeType": "Master",
           "faculty": "",
           "department": "",
@@ -1623,7 +1623,7 @@
           "latestClosesAt": "2027-07-15"
         },
         "sydney-master-of-sustainability": {
-          "name": "Master of Sustainability",
+          "name": "Master of Sustainability (2026 entry)",
           "degreeType": "Master",
           "faculty": "",
           "department": "",
@@ -7260,7 +7260,20 @@
         }
       },
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 174,
+          "directSuccesses": 174,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

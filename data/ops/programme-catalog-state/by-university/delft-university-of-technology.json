@@ -2,7 +2,7 @@
   "universities": {
     "delft-university-of-technology": {
       "sourceUrl": "https://www.tudelft.nl/en/education/programmes/masters",
-      "checkedAt": "2026-08-26T05:53:33.455233+00:00",
+      "checkedAt": "2026-08-27T16:09:11.755888+00:00",
       "itemCount": 37,
       "applicationOpensAt": null,
       "catalogHash": "daf46f2e4f9941ebc53cab1b4afc1a93956fb55ba9a78d4da2b61d11280ee04e",
@@ -26,7 +26,7 @@
       "programmesWithoutDeadlines": 0,
       "programmesNeedingReview": 0,
       "limitationReason": null,
-      "lastSuccessfulAt": "2026-08-26T05:53:33.455233+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:09:11.755888+00:00",
       "windowFingerprint": "beb605d5180858fc1f04174dac81aa2b6aa179760b69b53e6b7dbc784ec48e5d",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -789,7 +789,20 @@
         }
       },
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 2,
+          "directSuccesses": 2,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

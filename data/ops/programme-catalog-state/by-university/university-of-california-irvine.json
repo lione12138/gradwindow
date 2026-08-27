@@ -2,10 +2,10 @@
   "universities": {
     "university-of-california-irvine": {
       "sourceUrl": "https://grad.uci.edu/admissions/degree-programs/",
-      "checkedAt": "2026-08-26T05:58:47.718943+00:00",
-      "itemCount": 74,
+      "checkedAt": "2026-08-27T16:14:54.855846+00:00",
+      "itemCount": 73,
       "applicationOpensAt": null,
-      "catalogHash": "142af4f49d2a0bd29ce6ac29df10d1d0573aca3dd66d64c497ee069adf24580a",
+      "catalogHash": "6ccd0412049b8a388561d8a9b47153b63a9147bb344d169b475510adfe246181",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,12 +14,12 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 74,
-      "programmesNeedingReview": 74,
+      "programmesWithoutDeadlines": 73,
+      "programmesNeedingReview": 73,
       "limitationReason": "UCI's official portal publishes programme closing dates but not exact opening dates. Current closing dates are retained as review guidance only. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:58:47.718943+00:00",
-      "windowFingerprint": "46cb3f3027d9ea82c903bbd9ab89352533380e7fd8641675410b69b3a8ea9ae3",
-      "watchedWindowSourceHash": "880f70a58b969b178ad1c915f9ee52c6c7d207d46a9fc0c389ca23b95d61742c",
+      "lastSuccessfulAt": "2026-08-27T16:14:54.855846+00:00",
+      "windowFingerprint": "92e577b286fba73003f50346abc559e1d197c59310d065dcf6f42898263adbc2",
+      "watchedWindowSourceHash": "7eb78d625eb8cae1be46c854b10c93be2fd5cf611a000440a628e0babb8f44ff",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
         "uci-art-history-master": {
@@ -184,16 +184,6 @@
         },
         "uci-electrical-and-computer-engineering-with-concentration-in-electrical-engineering-master": {
           "name": "Electrical and Computer Engineering with concentration in Electrical Engineering",
-          "degreeType": "Master",
-          "faculty": "University of California, Irvine",
-          "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "uci-engineering-with-concentration-in-materials-and-manufacturing-technology-master": {
-          "name": "Engineering with concentration in Materials and Manufacturing Technology",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
@@ -765,7 +755,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 2,
+          "directSuccesses": 2,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

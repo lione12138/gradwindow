@@ -2,10 +2,10 @@
   "universities": {
     "lund-university": {
       "sourceUrl": "https://www.lunduniversity.lu.se/study/courses-programmes/%2A/educations/1/EducationsFilterByType-programme/",
-      "checkedAt": "2026-08-26T05:38:13.401823+00:00",
+      "checkedAt": "2026-08-27T15:45:35.825533+00:00",
       "itemCount": 149,
       "applicationOpensAt": null,
-      "catalogHash": "966632c34eb858d3f35d58feadefa12deea706e5209489d57b6369ef5ce4344b",
+      "catalogHash": "47b7c98b97a4d0b66d9e0a52606e1e229993571ea73a81269931bae6a5c4ab24",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -17,8 +17,8 @@
       "programmesWithoutDeadlines": 149,
       "programmesNeedingReview": 149,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:38:13.401823+00:00",
-      "windowFingerprint": "e2741fff6ac9fd307c0dc7c76f71412eb53a514c94d52dfb64dddc95b2619438",
+      "lastSuccessfulAt": "2026-08-27T15:45:35.825533+00:00",
+      "windowFingerprint": "21c34c3f266f8125406dded3537408357ac04f2873145451b0fcc3c935a03860",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -134,16 +134,6 @@
         },
         "lund-haast-asian-studies-master-s-programme-master": {
           "name": "Asian Studies - Master's Programme",
-          "degreeType": "Master",
-          "faculty": "Lund University",
-          "department": "Lund University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "lund-naafy-astrophysics-master-programme-master": {
-          "name": "Astrophysics - Master Programme",
           "degreeType": "Master",
           "faculty": "Lund University",
           "department": "Lund University",
@@ -952,6 +942,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "lund-naafy-master-programme-in-astrophysics-master": {
+          "name": "Master Programme in Astrophysics",
+          "degreeType": "Master",
+          "faculty": "Lund University",
+          "department": "Lund University",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "lund-sasto-master-of-science-programme-one-year-in-societal-resilience-and-comprehensive-defence-master": {
           "name": "Master of Science Programme (One Year) in Societal Resilience and Comprehensive Defence",
           "degreeType": "MSc",
@@ -1515,7 +1515,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 8,
+          "directSuccesses": 8,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

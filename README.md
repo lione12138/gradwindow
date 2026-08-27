@@ -16,9 +16,9 @@
 - Search, status filters, saved universities, alerts, and calendar export form one application workflow.
 - QS is the default view; THE and ARWU top-200 views are live. U.S. News coverage is not presented as live yet.
 
-**Coverage:** 302 canonical universities · 29,037 programmes · 5,305 verified exact windows
+**Coverage:** 302 canonical universities · 29,361 programmes · 5,328 verified exact windows
 
-Status date: **2026-08-26**
+Status date: **2026-08-27**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -42,7 +42,7 @@ Status date: **2026-08-26**
 | 6 | University of Cambridge | 156 upcoming windows | 2026-09-03 | Estimate | [Admissions](https://www.postgraduate.study.cam.ac.uk/application-process) · [All programme details](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | 10 | National University of Singapore (NUS) | 9 upcoming windows | 2026-09-01 | Official + Estimate | [Admissions](https://nusgs.nus.edu.sg/admissions/) · [All programme details](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
 | 11 | The University of Hong Kong | 89 upcoming windows | 2026-09-01 | Estimate | [Admissions](https://admissions.hku.hk/tpg/) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20Hong%20Kong) |
-| 15 | University of Pennsylvania | 16 upcoming windows | 2026-09-15 | Estimate | [Admissions](https://www.upenn.edu/academics/graduate) · [All programme details](https://gradwindow.com/?q=University%20of%20Pennsylvania) |
+| 15 | University of Pennsylvania | 23 upcoming windows | 2026-09-15 | Official + Estimate | [Admissions](https://www.upenn.edu/academics/graduate) · [All programme details](https://gradwindow.com/?q=University%20of%20Pennsylvania) |
 
 [View every upcoming window on GradWindow →](https://gradwindow.com/?status=upcoming)
 

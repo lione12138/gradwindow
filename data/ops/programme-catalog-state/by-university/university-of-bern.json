@@ -2,7 +2,7 @@
   "universities": {
     "university-of-bern": {
       "sourceUrl": "https://www.unibe.ch/studies/programs/masters/programs/index_eng.html",
-      "checkedAt": "2026-08-26T05:10:37.458177+00:00",
+      "checkedAt": "2026-08-27T15:09:52.472396+00:00",
       "itemCount": 74,
       "applicationOpensAt": null,
       "catalogHash": "08b38fb3bbcd9d7a04254a833aca50b96eccd9c3a729f192bd7550399a84504d",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 74,
       "programmesNeedingReview": 74,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:10:37.458177+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:09:52.472396+00:00",
       "windowFingerprint": "8c7768e2cbf191bf6dc139e470aa899d2d8f7e1cf75e429a5b49f5a270b9845e",
       "watchedWindowSourceHash": "c189ae1e5bcd3bbdb4d223c680344a29dd8bcb0cda618aaaa3e2899e253dbcbf",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -765,7 +765,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 3,
+          "directSuccesses": 3,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

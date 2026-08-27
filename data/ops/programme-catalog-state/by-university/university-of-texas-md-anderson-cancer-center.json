@@ -2,7 +2,7 @@
   "universities": {
     "university-of-texas-md-anderson-cancer-center": {
       "sourceUrl": "https://www.mdanderson.org/education-training/degree-granting-schools.html",
-      "checkedAt": "2026-08-26T05:40:36.489810+00:00",
+      "checkedAt": "2026-08-27T15:48:50.733990+00:00",
       "itemCount": 6,
       "applicationOpensAt": null,
       "catalogHash": "c0be0aee45b5df846d982903030aac1e63e8194b2142ae2b07cfbbc7e79efbee",
@@ -42,7 +42,7 @@
       "programmesWithoutDeadlines": 3,
       "programmesNeedingReview": 3,
       "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 3 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-26T05:40:36.489810+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:48:50.733990+00:00",
       "windowFingerprint": "45d0867de823a7a7c844101b64708d3ae530309e759f2adf549acd5f1c96f19e",
       "watchedWindowSourceHash": "af8385180ad2e86e5a47d3dbee2d049e161b6939d6c9741352503564abd1caf9",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -143,7 +143,20 @@
         }
       },
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 4,
+          "directSuccesses": 4,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

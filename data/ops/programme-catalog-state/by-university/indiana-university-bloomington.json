@@ -2,7 +2,7 @@
   "universities": {
     "indiana-university-bloomington": {
       "sourceUrl": "https://exdd-academics.webapps.iu.edu/api/public/v1/endpoint/degrees?campus=Bloomington&program_type=7&perPage=500",
-      "checkedAt": "2026-08-26T05:32:56.094880+00:00",
+      "checkedAt": "2026-08-27T15:37:02.469297+00:00",
       "itemCount": 350,
       "applicationOpensAt": null,
       "catalogHash": "d729bd6dcf8c133e1ddf9c0a8b670fbec0bf4fa9a5e8e677e444295384bd371e",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 350,
       "programmesNeedingReview": 350,
       "limitationReason": "Indiana University Bloomington explicitly assigns application deadlines to departments; the central catalogue has no shared window. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:32:56.094880+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:37:02.469297+00:00",
       "windowFingerprint": "c7c7186bb426fd09006db6ede324c2d04bb9f7427e07932b12cf75a2509ba89e",
       "watchedWindowSourceHash": "a534a4bcc5951d776982f1416f44de6e4621bd2c986f0d18eedfb12cf08f2e8c",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -3525,7 +3525,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 2,
+          "directSuccesses": 2,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

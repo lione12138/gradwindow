@@ -2,7 +2,7 @@
   "universities": {
     "kyoto-university": {
       "sourceUrl": "https://www.kyoto-u.ac.jp/en/education-campus/education-and-admissions/english-taught-degree-programs",
-      "checkedAt": "2026-08-26T05:36:43.181876+00:00",
+      "checkedAt": "2026-08-27T15:43:52.822437+00:00",
       "itemCount": 14,
       "applicationOpensAt": null,
       "catalogHash": "717e0dc5c9a9445ca46fb4c5334b2a94b3837fe4d842136468e1d99efc2b70d2",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 14,
       "programmesNeedingReview": 14,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:36:43.181876+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:43:52.822437+00:00",
       "windowFingerprint": "e86eed49e68fa3814c7259d1ffb518d45e13a7ddb2d3984dbf1fbc865b3a837c",
       "watchedWindowSourceHash": "0c503f44a882697ec430b8bff30648f2e46cb20e72510cc137fb18eadfd7e017",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -165,7 +165,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

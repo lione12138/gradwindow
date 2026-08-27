@@ -2,7 +2,7 @@
   "universities": {
     "newcastle-university": {
       "sourceUrl": "https://www.ncl.ac.uk/postgraduate/degrees/",
-      "checkedAt": "2026-08-26T05:42:44.717523+00:00",
+      "checkedAt": "2026-08-27T15:51:29.367397+00:00",
       "itemCount": 188,
       "applicationOpensAt": null,
       "catalogHash": "1ca23700484b998687e188889f8d64f8127a57591696d4e6663399a5d1e9771d",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 188,
       "programmesNeedingReview": 188,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:42:44.717523+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:51:29.367397+00:00",
       "windowFingerprint": "5f997c9a1b269a192ee2a2de67441bd8966e27b80e3f0623df7e6d972fad71f5",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -1905,7 +1905,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }
