@@ -209,6 +209,7 @@ def discover_programmes(
     created_guidance_candidates = 0
     created_window_candidates = 0
     changed_window_candidates = 0
+    discovered_window_cycles: set[tuple] = set()
     for programme in catalog.programmes:
         if programme.id in known_ids:
             for candidate in known_programme_window_candidates(
@@ -220,6 +221,10 @@ def discover_programmes(
                 application_ids,
                 checked_at,
             ):
+                candidate_cycle = official_cycle_key(candidate["record"])
+                if candidate_cycle in discovered_window_cycles:
+                    continue
+                discovered_window_cycles.add(candidate_cycle)
                 previous = existing_window_candidates.get(candidate["id"])
                 if previous is not None:
                     candidate["status"] = previous.get("status", "pending")

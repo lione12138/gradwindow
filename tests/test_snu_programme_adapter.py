@@ -163,9 +163,9 @@ def test_snu_known_programme_reuses_the_published_group_window() -> None:
         "universityId": "seoul-national-university",
         "scopeType": "programme-group",
         "scopeId": "snu-international-graduate-admissions",
-        "intake": "Spring 2027",
+        "intake": "Spring (March) 2027",
         "intakeDetails": {
-            "label": "Spring 2027",
+            "label": "Spring (March) 2027",
             "cycleYear": 2027,
             "academicYearEnd": None,
             "term": "spring",

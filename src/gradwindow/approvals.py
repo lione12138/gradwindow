@@ -16,7 +16,7 @@ from .paths import (
     PROGRAMS_PATH,
     WINDOW_CANDIDATES_PATH,
 )
-from .predictions import generate_predictions
+from .predictions import generate_predictions, official_cycle_key
 from .programme_windows import has_official_exact_window, programme_window_record_id
 from .validation import validate_data
 
@@ -133,7 +133,13 @@ def approve_official_adapter_window_candidates(
     records_by_id = {
         item["id"]: copy.deepcopy(item) for item in applications.get("applications", [])
     }
+    records_by_cycle = {
+        official_cycle_key(item): item for item in records_by_id.values()
+    }
     promoted: list[tuple[dict, dict]] = []
+    resolved_candidates: list[dict] = []
+    candidate_records_changed = False
+    candidates_by_cycle: dict[tuple, list[tuple[dict, dict]]] = {}
 
     for candidate in candidates.get("items", []):
         if candidate.get("status", "pending") != "pending":
@@ -168,10 +174,57 @@ def approve_official_adapter_window_candidates(
 
         record = with_intake_details(record)
         record["verifiedAt"] = verified_at
-        records_by_id[record["id"]] = record
-        promoted.append((record, candidate))
+        cycle_key = official_cycle_key(record)
+        candidates_by_cycle.setdefault(cycle_key, []).append((record, candidate))
 
-    if not promoted:
+    conflict_note = (
+        "Official candidates for the same semantic cycle disagree or conflict "
+        "with a published window; manual review is required."
+    )
+    for cycle_key, cycle_candidates in candidates_by_cycle.items():
+        signatures = {
+            _observed_window_signature(record) for record, _ in cycle_candidates
+        }
+        if len(signatures) != 1:
+            for _record, candidate in cycle_candidates:
+                if candidate.get("reviewNotes") != conflict_note:
+                    candidate["reviewNotes"] = conflict_note
+                    candidate_records_changed = True
+            continue
+
+        record, evidence_candidate = cycle_candidates[0]
+        existing = records_by_cycle.get(cycle_key)
+        if existing is not None:
+            if _same_observed_window(existing, record):
+                resolved_candidates.extend(
+                    candidate for _record, candidate in cycle_candidates
+                )
+                continue
+            approved_change = next(
+                (
+                    (candidate_record, candidate)
+                    for candidate_record, candidate in cycle_candidates
+                    if candidate.get("type") == "adapter-window-change"
+                    and candidate_record["id"] == existing["id"]
+                ),
+                None,
+            )
+            if approved_change is None:
+                for _record, candidate in cycle_candidates:
+                    if candidate.get("reviewNotes") != conflict_note:
+                        candidate["reviewNotes"] = conflict_note
+                        candidate_records_changed = True
+                continue
+            record, evidence_candidate = approved_change
+        records_by_id[record["id"]] = record
+        records_by_cycle[cycle_key] = record
+        promoted.append((record, evidence_candidate))
+        resolved_candidates.extend(candidate for _record, candidate in cycle_candidates)
+
+    if not promoted and not resolved_candidates:
+        if candidate_records_changed:
+            candidates.setdefault("meta", {})["updatedAt"] = approved_at.isoformat()
+            write_json(candidates_path, candidates)
         return {
             "promotedWindows": 0,
             "remainingPending": _pending_adapter_window_count(
@@ -179,42 +232,60 @@ def approve_official_adapter_window_candidates(
             ),
         }
 
-    proposed_payload = {
-        **applications,
-        "meta": {
-            **applications.get("meta", {}),
-            "updatedAt": approved_at.isoformat(),
-        },
-        "applications": sorted(
-            records_by_id.values(),
-            key=lambda item: (item["universityId"], item["closesAt"], item["id"]),
-        ),
-    }
-    _validate_programme_promotion(read_json(PROGRAMS_PATH), proposed_payload)
+    if promoted:
+        proposed_payload = {
+            **applications,
+            "meta": {
+                **applications.get("meta", {}),
+                "updatedAt": approved_at.isoformat(),
+            },
+            "applications": sorted(
+                records_by_id.values(),
+                key=lambda item: (
+                    item["universityId"],
+                    item["closesAt"],
+                    item["id"],
+                ),
+            ),
+        }
+        _validate_programme_promotion(read_json(PROGRAMS_PATH), proposed_payload)
 
-    write_json(applications_path, proposed_payload)
-    if applications_path == APPLICATIONS_PATH:
-        for record, candidate in promoted:
-            _write_window_candidate_evidence(record, candidate, approved_at)
-    for _record, candidate in promoted:
+        write_json(applications_path, proposed_payload)
+        if applications_path == APPLICATIONS_PATH:
+            for record, candidate in promoted:
+                _write_window_candidate_evidence(record, candidate, approved_at)
+    for candidate in resolved_candidates:
         candidate["status"] = "approved"
         candidate["reviewedBy"] = reviewer
         candidate["reviewedAt"] = approved_at.isoformat()
     candidates.setdefault("meta", {})["updatedAt"] = approved_at.isoformat()
     write_json(candidates_path, candidates)
-    prediction_output = (
-        PREDICTIONS_PATH
-        if applications_path == APPLICATIONS_PATH
-        else applications_path.with_name("predictions.json")
-    )
-    generate_predictions(
-        output_path=prediction_output,
-        applications_path=applications_path,
-    )
+    if promoted:
+        prediction_output = (
+            PREDICTIONS_PATH
+            if applications_path == APPLICATIONS_PATH
+            else applications_path.with_name("predictions.json")
+        )
+        generate_predictions(
+            output_path=prediction_output,
+            applications_path=applications_path,
+        )
     return {
         "promotedWindows": len(promoted),
         "remainingPending": _pending_adapter_window_count(candidates, university_ids),
     }
+
+
+def _same_observed_window(existing: dict, observed: dict) -> bool:
+    return _observed_window_signature(existing) == _observed_window_signature(observed)
+
+
+def _observed_window_signature(record: dict) -> tuple:
+    return (
+        record.get("opensAt"),
+        record.get("closesAt"),
+        record.get("deadlineSemantics", "on"),
+    )
 
 
 def approve_programme_candidates(

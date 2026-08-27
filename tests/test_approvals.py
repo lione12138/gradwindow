@@ -454,3 +454,183 @@ def test_batch_approval_only_promotes_official_adapter_windows(tmp_path) -> None
     assert candidates[0]["reviewedBy"] == "automated-policy"
     assert candidates[1]["status"] == "pending"
     assert candidates[2]["status"] == "pending"
+
+
+def test_batch_approval_resolves_identical_semantic_candidates_once(tmp_path) -> None:
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "window-candidates.json"
+    applications_path.write_text(
+        APPLICATIONS_PATH.read_text(encoding="utf-8"), encoding="utf-8"
+    )
+    base_record = {
+        "universityId": "eth-zurich-swiss-federal-institute-of-technology",
+        "scopeType": "institution",
+        "scopeId": "eth-zurich-swiss-federal-institute-of-technology",
+        "intake": "Fall 2031",
+        "round": "Shared main round",
+        "applicantCategories": ["all"],
+        "opensAt": "2030-09-01",
+        "closesAt": "2030-12-01",
+        "applicationUrl": "https://ethz.ch/en/studies/master/application.html",
+        "sourceUrl": "https://ethz.ch/en/studies/master/application/dates.html",
+        "verifiedAt": "2026-08-27",
+        "evidence": "The same official institutional window was observed twice.",
+    }
+    candidates_path.write_text(
+        json.dumps(
+            {
+                "meta": {},
+                "items": [
+                    {
+                        "id": f"candidate-{suffix}",
+                        "type": "adapter-new-window",
+                        "status": "pending",
+                        "openingBasis": "official",
+                        "record": {**base_record, "id": f"duplicate-window-{suffix}"},
+                    }
+                    for suffix in ("a", "b")
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    report = approve_official_adapter_window_candidates(
+        reviewer="automated-policy",
+        university_ids={"eth-zurich-swiss-federal-institute-of-technology"},
+        candidates_path=candidates_path,
+        applications_path=applications_path,
+    )
+
+    assert report == {"promotedWindows": 1, "remainingPending": 0}
+    applications = json.loads(applications_path.read_text(encoding="utf-8"))[
+        "applications"
+    ]
+    assert sum(item["id"].startswith("duplicate-window-") for item in applications) == 1
+    candidates = json.loads(candidates_path.read_text(encoding="utf-8"))["items"]
+    assert all(item["status"] == "approved" for item in candidates)
+
+
+def test_batch_approval_keeps_conflicting_semantic_candidates_pending(
+    tmp_path,
+) -> None:
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "window-candidates.json"
+    applications_path.write_text(
+        APPLICATIONS_PATH.read_text(encoding="utf-8"), encoding="utf-8"
+    )
+    base_record = {
+        "universityId": "eth-zurich-swiss-federal-institute-of-technology",
+        "scopeType": "institution",
+        "scopeId": "eth-zurich-swiss-federal-institute-of-technology",
+        "intake": "Fall 2032",
+        "round": "Conflicting main round",
+        "applicantCategories": ["all"],
+        "opensAt": "2031-09-01",
+        "applicationUrl": "https://ethz.ch/en/studies/master/application.html",
+        "sourceUrl": "https://ethz.ch/en/studies/master/application/dates.html",
+        "verifiedAt": "2026-08-27",
+        "evidence": "Two official observations disagree and require review.",
+    }
+    candidates_path.write_text(
+        json.dumps(
+            {
+                "meta": {},
+                "items": [
+                    {
+                        "id": f"candidate-{suffix}",
+                        "type": "adapter-new-window",
+                        "status": "pending",
+                        "openingBasis": "official",
+                        "record": {
+                            **base_record,
+                            "id": f"conflicting-window-{suffix}",
+                            "closesAt": closes_at,
+                        },
+                    }
+                    for suffix, closes_at in (
+                        ("a", "2031-12-01"),
+                        ("b", "2031-12-15"),
+                    )
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    report = approve_official_adapter_window_candidates(
+        reviewer="automated-policy",
+        university_ids={"eth-zurich-swiss-federal-institute-of-technology"},
+        candidates_path=candidates_path,
+        applications_path=applications_path,
+    )
+
+    assert report == {"promotedWindows": 0, "remainingPending": 2}
+    applications = json.loads(applications_path.read_text(encoding="utf-8"))[
+        "applications"
+    ]
+    assert not any(
+        item["id"].startswith("conflicting-window-") for item in applications
+    )
+    candidates = json.loads(candidates_path.read_text(encoding="utf-8"))["items"]
+    assert all(item["status"] == "pending" for item in candidates)
+    assert all("manual review" in item["reviewNotes"] for item in candidates)
+
+
+def test_batch_approval_still_promotes_an_explicit_window_change(tmp_path) -> None:
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "window-candidates.json"
+    applications = json.loads(APPLICATIONS_PATH.read_text(encoding="utf-8"))
+    existing = {
+        "id": "change-window",
+        "universityId": "eth-zurich-swiss-federal-institute-of-technology",
+        "scopeType": "institution",
+        "scopeId": "eth-zurich-swiss-federal-institute-of-technology",
+        "intake": "Fall 2033",
+        "intakeDetails": {
+            "label": "Fall 2033",
+            "cycleYear": 2033,
+            "academicYearEnd": None,
+            "term": "fall",
+            "startMonth": 9,
+        },
+        "round": "Change round",
+        "applicantCategories": ["all"],
+        "opensAt": "2032-09-01",
+        "closesAt": "2032-12-01",
+        "applicationUrl": "https://ethz.ch/en/studies/master/application.html",
+        "sourceUrl": "https://ethz.ch/en/studies/master/application/dates.html",
+        "verifiedAt": "2026-08-26",
+        "evidence": "Previously verified official window.",
+    }
+    applications["applications"].append(existing)
+    applications_path.write_text(json.dumps(applications), encoding="utf-8")
+    candidates_path.write_text(
+        json.dumps(
+            {
+                "meta": {},
+                "items": [
+                    {
+                        "id": "candidate-change",
+                        "type": "adapter-window-change",
+                        "status": "pending",
+                        "openingBasis": "official",
+                        "record": {**existing, "closesAt": "2032-12-15"},
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    report = approve_official_adapter_window_candidates(
+        reviewer="automated-policy",
+        university_ids={"eth-zurich-swiss-federal-institute-of-technology"},
+        candidates_path=candidates_path,
+        applications_path=applications_path,
+    )
+
+    assert report == {"promotedWindows": 1, "remainingPending": 0}
+    updated = json.loads(applications_path.read_text(encoding="utf-8"))["applications"]
+    changed = next(item for item in updated if item["id"] == "change-window")
+    assert changed["closesAt"] == "2032-12-15"
