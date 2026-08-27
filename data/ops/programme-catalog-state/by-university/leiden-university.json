@@ -2,7 +2,7 @@
   "universities": {
     "leiden-university": {
       "sourceUrl": "https://www.universiteitleiden.nl/en/education/study-programmes?pageNumber=1&type=master",
-      "checkedAt": "2026-08-26T05:37:25.943444+00:00",
+      "checkedAt": "2026-08-27T15:44:27.931440+00:00",
       "itemCount": 261,
       "applicationOpensAt": null,
       "catalogHash": "553d20af5a792306e3e6bfec7c27640a94f69fc2b69f6a51b45ab58050235c07",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 261,
       "programmesNeedingReview": 261,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:37:25.943444+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:44:27.931440+00:00",
       "windowFingerprint": "2511ceacf548e80db666b78f1448781d19a8b52cd998cbff6be3203d67a25931",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -2635,7 +2635,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 14,
+          "directSuccesses": 14,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

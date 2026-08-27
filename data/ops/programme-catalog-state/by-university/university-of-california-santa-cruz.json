@@ -2,7 +2,7 @@
   "universities": {
     "university-of-california-santa-cruz": {
       "sourceUrl": "https://catalog.ucsc.edu/en/current/general-catalog/academic-programs/masters-degrees",
-      "checkedAt": "2026-08-26T05:58:51.812221+00:00",
+      "checkedAt": "2026-08-27T16:14:59.373934+00:00",
       "itemCount": 31,
       "applicationOpensAt": null,
       "catalogHash": "b3cc01d4ec4b291d4101c0ae53738a5750ca9548c25d230889d1966b40620162",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 31,
       "programmesNeedingReview": 31,
       "limitationReason": "The current UCSC General Catalog provides a complete master's degree list. Graduate Division admissions pages are not reliably retrievable by the unattended client, so window discovery is retained as a monitored access limitation rather than guessed from older dates. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:58:51.812221+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:14:59.373934+00:00",
       "windowFingerprint": "0fffb0abeb955c4c4444d58cc16dd0b98c5cd392417ce95a04f95801394799fd",
       "watchedWindowSourceHash": "d9c1b67299c25aa5d9889dacf0b3dc1b0a30d8d7211d2883c46c1f34b205c59d",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -335,7 +335,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

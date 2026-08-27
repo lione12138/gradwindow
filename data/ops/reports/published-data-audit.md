@@ -1,11 +1,11 @@
 # Published data audit
 
-Generated for 2026-08-26.
+Generated for 2026-08-27.
 
-- Active issues: 666
-- Universities needing review: 12
-- Records quarantined from SEO aggregates: 475
-- Suspicious intake/deadline mappings: 196
+- Active issues: 680
+- Universities needing review: 13
+- Records quarantined from SEO aggregates: 489
+- Suspicious intake/deadline mappings: 210
 - Published records missing from a healthy current snapshot: 44
 - Published records changed from a healthy current snapshot: 426
 
@@ -676,4 +676,18 @@ Generated for 2026-08-26.
 - `edinburgh-social-justice-and-community-action-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
 - `edinburgh-veterinary-anaesthesia-and-analgesia-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-20) — correct-intake-or-document-flexible-entry
 - `umontreal-maitrise-informatique-hiver-2027` — **published-record-missing-from-snapshot** (university-of-montreal, Hiver 2027, closes 2026-09-01) — retire-or-correct-review
+- `penn-bioengineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-chemical-biomolecular-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-computer-information-science-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-data-science-artificial-intelligence-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-electrical-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-energy-sustainability-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-integrated-product-design-mipd-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-integrated-product-design-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-materials-science-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-mechanical-engineering-applied-mechanics-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-robotics-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-scientific-computing-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-software-systems-cybersecurity-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
+- `penn-systems-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `uts-information-technology-autumn-2027-domestic` — **published-record-missing-from-snapshot** (university-of-technology-sydney, Autumn 2027, closes 2027-01-31) — retire-or-correct-review

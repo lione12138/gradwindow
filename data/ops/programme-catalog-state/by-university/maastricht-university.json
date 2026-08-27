@@ -2,7 +2,7 @@
   "universities": {
     "maastricht-university": {
       "sourceUrl": "https://www.maastrichtuniversity.nl/education/master/programmes",
-      "checkedAt": "2026-08-26T05:39:53.801995+00:00",
+      "checkedAt": "2026-08-27T15:48:11.357470+00:00",
       "itemCount": 105,
       "applicationOpensAt": null,
       "catalogHash": "0aedfe4c845e11f27676ae75e051d67602e9624e89c0d64140714b365f1f8908",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 105,
       "programmesNeedingReview": 105,
       "limitationReason": "Maastricht's official catalogue is complete, but application dates and eligibility routes vary by programme and applicant background. Programme pages remain monitored until an exact official opening-and-closing pair can be assigned safely. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:39:53.801995+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:48:11.357470+00:00",
       "windowFingerprint": "9e0f05463317adc6df6f90886a873bc5a85600e6d86f419546cf763581c097e5",
       "watchedWindowSourceHash": "0b8b43dab70cbcbff13f3400be5d48e935d57cacaf208ce5e50f82ef5307d4b0",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -1075,7 +1075,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 12,
+          "directSuccesses": 12,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

@@ -2,10 +2,10 @@
   "universities": {
     "university-of-waterloo": {
       "sourceUrl": "https://uwaterloo.ca/future-graduate-students/programs",
-      "checkedAt": "2026-08-26T06:11:58.947005+00:00",
-      "itemCount": 145,
+      "checkedAt": "2026-08-27T16:28:43.473978+00:00",
+      "itemCount": 146,
       "applicationOpensAt": null,
-      "catalogHash": "dd7f7474b59a33814ee8aad6956b720813114dbf328fcc2b0d7711eaadc5c603",
+      "catalogHash": "24276e77321878e42f0932ee6c10c0813c3a98a2ff1893fc1250bd495f912d93",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,11 +14,11 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 145,
-      "programmesNeedingReview": 145,
+      "programmesWithoutDeadlines": 146,
+      "programmesNeedingReview": 146,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T06:11:58.947005+00:00",
-      "windowFingerprint": "20b4f18da340493f9ddc13f2618abd76d5e604f89ae3fd8fa6c5c3d7ef84f874",
+      "lastSuccessfulAt": "2026-08-27T16:28:43.473978+00:00",
+      "windowFingerprint": "bae19c5644268d4b477c79bb8968cea630cc7d4852241176cee318eee7d88f03",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -154,6 +154,16 @@
         },
         "waterloo-business-entrepreneurship-and-technology-master-of-business-entrepreneurship-and-technology-mbet-master": {
           "name": "Business, Entrepreneurship and Technology - Master of Business, Entrepreneurship and Technology (MBET)",
+          "degreeType": "Master",
+          "faculty": "University of Waterloo",
+          "department": "University of Waterloo",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "waterloo-catholic-thought-master-of-catholic-thought-mct-master": {
+          "name": "Catholic Thought - Master of Catholic Thought (MCT)",
           "degreeType": "Master",
           "faculty": "University of Waterloo",
           "department": "University of Waterloo",
@@ -1475,7 +1485,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

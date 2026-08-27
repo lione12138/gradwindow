@@ -1,60 +1,411 @@
 {
   "universities": {
     "university-of-chicago": {
-      "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/",
-      "checkedAt": "2026-08-26T06:17:25.931264+00:00",
-      "itemCount": 3,
+      "sourceUrl": "https://grad.uchicago.edu/admissions/programs/",
+      "checkedAt": "2026-08-27T16:14:00.992271+00:00",
+      "itemCount": 39,
       "applicationOpensAt": null,
-      "catalogHash": "7859d0a077aa6393545c3b47bd84b34eb504e562744c40f4153cd3b7651774ce",
+      "catalogHash": "bbbafa0f9807d9782fcb82a8f63e09b551510794d3c231a15b8aeb6d758754d4",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "needs-opening-date",
-      "observedWindowCount": 1,
+      "windowStatus": "monitoring",
+      "observedWindowCount": 0,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {
-        "2027:fall:09": {
-          "intakes": [
-            "Autumn 2027"
-          ],
-          "observedWindowCount": 1,
-          "exactWindowCount": 0,
-          "recurringPolicyWindowCount": 0
-        }
-      },
-      "missingOpeningDateCount": 1,
-      "programmesWithoutDeadlines": 2,
-      "programmesNeedingReview": 3,
-      "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-26T06:17:25.931264+00:00",
-      "windowFingerprint": "f0dab70f2e2f8908e8607513efa2d0fdb47064db21c86b2a923daa6bd00d957f",
+      "windowCountsByCycle": {},
+      "missingOpeningDateCount": 0,
+      "programmesWithoutDeadlines": 39,
+      "programmesNeedingReview": 39,
+      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
+      "lastSuccessfulAt": "2026-08-27T16:14:00.992271+00:00",
+      "windowFingerprint": "bfcad90a6e055b272b862dec4c65c47430f3e363dc812737590f1b88f08afa66",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
-        "uchicago-ms-in-data-science": {
-          "name": "MS in Data Science",
-          "degreeType": "MS",
-          "faculty": "",
+        "uchicago-master-of-business-administration": {
+          "name": "Master of Business Administration",
+          "degreeType": "MBA",
+          "faculty": "Booth",
           "department": "",
-          "parseStatus": "incomplete",
-          "deadlineHash": "c9a56ee311c4a563e20937ecb7feff599e52316bb75c1113ca7cc48090198e8d",
-          "windowCount": 1,
-          "latestClosesAt": "2027-01-29"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
-        "uchicago-ms-in-applied-data-science": {
+        "uchicago-master-of-arts-program-in-the-social-sciences": {
+          "name": "Master of Arts Program in the Social Sciences",
+          "degreeType": "MA",
+          "faculty": "Social Sciences / Harris",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-of-arts": {
+          "name": "Master of Arts",
+          "degreeType": "MA",
+          "faculty": "Divinity",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-of-arts-in-religious-studies": {
+          "name": "Master of Arts in Religious Studies",
+          "degreeType": "MA",
+          "faculty": "Divinity",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-applied-data-science-ms": {
           "name": "MS in Applied Data Science",
           "degreeType": "MS",
-          "faculty": "",
+          "faculty": "Physical Sciences",
           "department": "",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "uchicago-meng-jiang-notre-dame-schmidt-ai-in-science-speaker-series": {
-          "name": "Meng Jiang (Notre Dame): Schmidt AI in Science Speaker Series",
-          "degreeType": "MENG",
-          "faculty": "",
+        "uchicago-master-of-arts-program-in-the-humanities": {
+          "name": "Master of Arts Program in the Humanities",
+          "degreeType": "MA",
+          "faculty": "Arts & Humanities",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-biomedical-informatics-master-of-science": {
+          "name": "Biomedical Informatics, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Biological Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-biomedical-sciences-master-of-science": {
+          "name": "Biomedical Sciences, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Biological Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-chemistry-master-of-science": {
+          "name": "Chemistry, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Physical Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-computational-analysis-and-public-policy-master-of-science": {
+          "name": "Computational Analysis and Public Policy, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Harris",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-s-program-in-computational-and-applied-mathematics": {
+          "name": "Master's Program in Computational and Applied Mathematics",
+          "degreeType": "MS",
+          "faculty": "Physical Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-computational-social-science-master-of-arts": {
+          "name": "Computational Social Science, Master of Arts",
+          "degreeType": "MA",
+          "faculty": "Social Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-computer-science-master-of-science": {
+          "name": "Computer Science, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Physical Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-data-science-master-of-science": {
+          "name": "Data Science, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Physical Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-digital-studies-of-language-culture-and-history-master-of-arts": {
+          "name": "Digital Studies of Language, Culture, and History, Master of Arts",
+          "degreeType": "MA",
+          "faculty": "Arts & Humanities",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-economics-ssd-master-of-arts": {
+          "name": "Economics (SSD), Master of Arts",
+          "degreeType": "MA",
+          "faculty": "Social Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-environmental-science-master-of-science": {
+          "name": "Environmental Science, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Physical Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-of-finance": {
+          "name": "Master of Finance",
+          "degreeType": "MFin",
+          "faculty": "Booth",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-financial-mathematics-master-of-science": {
+          "name": "Financial Mathematics, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Physical Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-international-relations-master-of-arts": {
+          "name": "International Relations, Master of Arts",
+          "degreeType": "MA",
+          "faculty": "Social Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-law-legal-studies-master-of-laws": {
+          "name": "Law/Legal Studies, Master of Laws",
+          "degreeType": "LLM",
+          "faculty": "Law",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-law-legal-studies-master-of-legal-studies": {
+          "name": "Law/Legal Studies, Master of Legal Studies",
+          "degreeType": "MLS",
+          "faculty": "Law",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-of-liberal-arts": {
+          "name": "Master of Liberal Arts",
+          "degreeType": "MLA",
+          "faculty": "Graham",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-management-science-operations-management-master-of-management": {
+          "name": "Management Science/Operations Management, Master of Management",
+          "degreeType": "MiM",
+          "faculty": "Booth",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-of-divinity": {
+          "name": "Master of Divinity",
+          "degreeType": "MDiv",
+          "faculty": "Divinity",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-of-engineering": {
+          "name": "Master of Engineering",
+          "degreeType": "MEng",
+          "faculty": "PME",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-middle-eastern-studies-master-of-arts": {
+          "name": "Middle Eastern Studies, Master of Arts",
+          "degreeType": "MA",
+          "faculty": "Arts & Humanities",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-precision-health-master-of-science": {
+          "name": "Precision Health, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Biological Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-of-public-health": {
+          "name": "Master of Public Health",
+          "degreeType": "MPH",
+          "faculty": "Biological Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-public-health-master-of-science-for-clinical-professionals": {
+          "name": "Public Health, Master of Science for Clinical Professionals",
+          "degreeType": "MS",
+          "faculty": "Biological Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-public-policy-master-of-arts-evening": {
+          "name": "Public Policy, Master of Arts (Evening)",
+          "degreeType": "MA",
+          "faculty": "Harris",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-public-policy-master-of-arts": {
+          "name": "Public Policy, Master of Arts",
+          "degreeType": "MA",
+          "faculty": "Harris",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-master-of-public-policy": {
+          "name": "Master of Public Policy",
+          "degreeType": "MPP",
+          "faculty": "Harris",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-public-policy-with-certificate-in-research-methods-master-of-arts": {
+          "name": "Public Policy with Certificate in Research Methods, Master of Arts",
+          "degreeType": "MA",
+          "faculty": "Harris",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-social-sector-leadership-and-nonprofit-management-master-of-arts-ssl": {
+          "name": "Social Sector Leadership and Nonprofit Management, Master of Arts SSL",
+          "degreeType": "MA",
+          "faculty": "CFS",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-social-work-social-policy-and-social-administration-master-of-arts-in-social-work": {
+          "name": "Social Work, Social Policy, and Social Administration, Master of Arts in Social Work",
+          "degreeType": "MASW",
+          "faculty": "CFS",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-statistics-master-of-science": {
+          "name": "Statistics, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Physical Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-threat-and-response-management-master-of-science": {
+          "name": "Threat and Response Management, Master of Science",
+          "degreeType": "MS",
+          "faculty": "Biological Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uchicago-visual-arts-master-of-fine-arts": {
+          "name": "Visual Arts, Master of Fine Arts",
+          "degreeType": "MFA",
+          "faculty": "Arts & Humanities",
           "department": "",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
@@ -62,18 +413,24 @@
           "latestClosesAt": null
         }
       },
-      "windows": {
-        "uchicago-ms-in-data-science::Autumn 2027::Application deadline::all": {
-          "programmeId": "uchicago-ms-in-data-science",
-          "intake": "Autumn 2027",
-          "opensAt": null,
-          "closesAt": "2027-01-29",
-          "sourceUrl": "https://codas.uchicago.edu/academics/ms-data-science/",
-          "opensAtBasis": null
-        }
-      },
+      "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 0,
+          "directFailures": 1,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {
+            "blocked": 1
+          }
+        }
+      }
     }
   }
 }

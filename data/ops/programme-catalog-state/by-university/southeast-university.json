@@ -2,7 +2,7 @@
   "universities": {
     "southeast-university": {
       "sourceUrl": "https://cis.seu.edu.cn/hwenglish/13998/list.htm",
-      "checkedAt": "2026-08-26T05:47:59.500379+00:00",
+      "checkedAt": "2026-08-27T15:57:22.347748+00:00",
       "itemCount": 93,
       "applicationOpensAt": "2025-11-22",
       "catalogHash": "45e64c931291b86ae8bf56cab8e4115e916590d9d8cf1088e5d58cfceb7f3b23",
@@ -26,7 +26,7 @@
       "programmesWithoutDeadlines": 92,
       "programmesNeedingReview": 92,
       "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 92 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-26T05:47:59.500379+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:57:22.347748+00:00",
       "windowFingerprint": "faea3d3650eff3452df7eaeda6306476d1f552f6c890a829fff59f020a23fb91",
       "watchedWindowSourceHash": "186dd15c8d2f035e3937299991cc2bbc736e25596ad5ef02313667592044d945",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -973,7 +973,20 @@
         }
       },
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 2,
+          "directSuccesses": 2,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

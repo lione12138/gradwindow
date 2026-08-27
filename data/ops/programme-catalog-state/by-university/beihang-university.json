@@ -2,7 +2,7 @@
   "universities": {
     "beihang-university": {
       "sourceUrl": "https://is.buaa.edu.cn/en/Master-Program-Major-List-of-2026-Beihang.pdf",
-      "checkedAt": "2026-08-26T05:09:31.245108+00:00",
+      "checkedAt": "2026-08-27T15:08:39.233228+00:00",
       "itemCount": 52,
       "applicationOpensAt": "2025-11-01",
       "catalogHash": "d3228f417a53d6a03d50cababeb94cba504598caccf76fbc755dc83bfc0c920e",
@@ -26,7 +26,7 @@
       "programmesWithoutDeadlines": 51,
       "programmesNeedingReview": 51,
       "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 51 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-26T05:09:31.245108+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:08:39.233228+00:00",
       "windowFingerprint": "05dcecad342ddc6728fa69ae55f0ce574e928e044e3fa28210b4ffc79e44f87f",
       "watchedWindowSourceHash": "d654e0befbaea2d640d90067ac713d644a7f2b7913a82e8fbf2192905d6d86ef",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -563,7 +563,20 @@
         }
       },
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

@@ -2,23 +2,23 @@
   "universities": {
     "university-of-british-columbia": {
       "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs",
-      "checkedAt": "2026-08-26T05:55:15.428991+00:00",
+      "checkedAt": "2026-08-27T16:13:10.110813+00:00",
       "itemCount": 228,
       "applicationOpensAt": null,
-      "catalogHash": "9b79cf8a7eb1e46eaff4aec47b7ac3edee116923866cc8fb7f204980778ebdc1",
+      "catalogHash": "8eb960bfee0667302a5ef618b9e5740432f6c34436087ec86209e09e3fe31b5e",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
-      "observedWindowCount": 158,
-      "exactWindowCount": 157,
+      "observedWindowCount": 159,
+      "exactWindowCount": 158,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 88,
-          "exactWindowCount": 87,
+          "observedWindowCount": 89,
+          "exactWindowCount": 88,
           "recurringPolicyWindowCount": 0
         },
         "2027:other:01": {
@@ -71,11 +71,11 @@
         }
       },
       "missingOpeningDateCount": 1,
-      "programmesWithoutDeadlines": 129,
-      "programmesNeedingReview": 129,
+      "programmesWithoutDeadlines": 128,
+      "programmesNeedingReview": 128,
       "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-26T05:55:15.428991+00:00",
-      "windowFingerprint": "08e0d1fb5e524b8b040d189f151fb9c3c9ef85c55272ccaada62a8efe8132111",
+      "lastSuccessfulAt": "2026-08-27T16:13:10.110813+00:00",
+      "windowFingerprint": "5aaa02859c6f1181c92d17126154a94523d38b822367a2ba28868ac39fccc5d7",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -764,10 +764,10 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "Sociology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "37e6d65b88ff0d311ddb1543cd836865549d0fc512ba71cc496a8a4d63da45cb",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "ubc-master-of-arts-in-special-education-ma": {
           "name": "Master of Arts in Special Education (MA)",
@@ -2737,6 +2737,14 @@
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-school-applied-child-psychology",
           "opensAtBasis": null
         },
+        "ubc-master-of-arts-in-sociology-ma::September 2027::Application deadline::all": {
+          "programmeId": "ubc-master-of-arts-in-sociology-ma",
+          "intake": "September 2027",
+          "opensAt": "2026-09-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-sociology",
+          "opensAtBasis": null
+        },
         "ubc-master-of-arts-in-special-education-ma::September 2027::Application deadline::all": {
           "programmeId": "ubc-master-of-arts-in-special-education-ma",
           "intake": "September 2027",
@@ -3627,7 +3635,20 @@
         }
       },
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 232,
+          "directSuccesses": 232,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

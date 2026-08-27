@@ -2,7 +2,7 @@
   "universities": {
     "university-of-wollongong": {
       "sourceUrl": "https://uow-search.searchblox.com/rest/v2/api/search?query=master&pagesize=500&collection=courses&default=AND&col=25",
-      "checkedAt": "2026-08-26T06:11:19.696557+00:00",
+      "checkedAt": "2026-08-27T16:27:54.493926+00:00",
       "itemCount": 187,
       "applicationOpensAt": null,
       "catalogHash": "3d70b30c4950d9559f4f1198e8653d4773129787d8ae1087fcabfc5cd06f7e07",
@@ -17,9 +17,9 @@
       "programmesWithoutDeadlines": 187,
       "programmesNeedingReview": 187,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T06:11:19.696557+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:27:54.493926+00:00",
       "windowFingerprint": "2448001382462960bc177b75ea4bdb21ee232a01e67ca54853b4016ae1b844c5",
-      "watchedWindowSourceHash": "b37a6ee73a20adbb50ca1582c53a457a13d358a3837c8fb47632542dc6bf81d5",
+      "watchedWindowSourceHash": "bcc12a12618ee9a71e646c5190d471fd7bc1e5433dd024011d230b8a51827413",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
         "uow-master-of-applied-finance-double-specialisation-master": {
@@ -1895,7 +1895,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

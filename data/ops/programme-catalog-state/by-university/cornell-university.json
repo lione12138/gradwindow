@@ -2,7 +2,7 @@
   "universities": {
     "cornell-university": {
       "sourceUrl": "https://catalog.cornell.edu/programs/",
-      "checkedAt": "2026-08-26T05:23:01.114678+00:00",
+      "checkedAt": "2026-08-27T15:24:11.121415+00:00",
       "itemCount": 108,
       "applicationOpensAt": null,
       "catalogHash": "d37e93d0352570d4a2a6394a8b9c01d25faacc42987a33fbf2a2bc8b8b51cb28",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 108,
       "programmesNeedingReview": 108,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:23:01.114678+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:24:11.121415+00:00",
       "windowFingerprint": "5c627d4847626a13c58399910191bdb9b9c9923cbff1a1d9ccc74e6bb62285fe",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -1105,7 +1105,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

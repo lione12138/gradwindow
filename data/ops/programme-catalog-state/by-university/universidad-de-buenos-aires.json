@@ -2,7 +2,7 @@
   "universities": {
     "universidad-de-buenos-aires": {
       "sourceUrl": "https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/",
-      "checkedAt": "2026-08-26T05:56:12.916535+00:00",
+      "checkedAt": "2026-08-27T16:13:57.685726+00:00",
       "itemCount": 6,
       "applicationOpensAt": null,
       "catalogHash": "5e42be0a0e59011ef5babfb5a99d11511a763c8f1bdd85870ba99914fa7108d0",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 6,
       "programmesNeedingReview": 6,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:56:12.916535+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:13:57.685726+00:00",
       "windowFingerprint": "04117a729e7298c0f0fd0aeda8efafd0e868ea58b2944176cd26c790ede6c93c",
       "watchedWindowSourceHash": "59e62d904e889059a3d81b4b1835ab0a20206f94ba448b783c5b921107807891",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -85,7 +85,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

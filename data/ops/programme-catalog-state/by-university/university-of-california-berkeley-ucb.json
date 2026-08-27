@@ -2,42 +2,90 @@
   "universities": {
     "university-of-california-berkeley-ucb": {
       "sourceUrl": "https://grad.berkeley.edu/admissions/our-programs/",
-      "checkedAt": "2026-07-23T11:22:56.672814+00:00",
-      "itemCount": 109,
+      "checkedAt": "2026-08-27T15:09:46.489966+00:00",
+      "itemCount": 137,
       "applicationOpensAt": null,
-      "catalogHash": "c6d52517863384d0b41379cabe305b0a455f0cad74f1c411c7d88142dafcc4ac",
+      "catalogHash": "780506dbbccfb1350810777184d03dd09cde4fa28d5e317700330c39d8a6df1b",
+      "catalogueStatus": "ok",
+      "catalogueGranularity": "programme-level",
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 118,
+      "exactWindowCount": 0,
+      "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "label:fall-admission": {
+          "intakes": [
+            "Fall admission"
+          ],
+          "observedWindowCount": 105,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "label:spring-admission": {
+          "intakes": [
+            "Spring admission"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "label:summer-admission": {
+          "intakes": [
+            "Summer admission"
+          ],
+          "observedWindowCount": 11,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 118,
+      "programmesWithoutDeadlines": 19,
+      "programmesNeedingReview": 137,
+      "limitationReason": "118 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-08-27T15:09:46.489966+00:00",
+      "windowFingerprint": "08fefa9b5a895e7efb6aa86c4b723af68cf632d94191e681385e403602367d14",
+      "watchedWindowSourceHash": null,
+      "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
-        "berkeley-40579-anthropology-5th-year-ma": {
-          "name": "Anthropology 5th-Year MA (For UC Berkeley Students)",
+        "berkeley-40579-anthropology-5th-year-ma-for-ucb-students-only": {
+          "name": "Anthropology 5th-Year MA (For UCB students only)",
           "degreeType": "MA",
           "faculty": "Anthropology",
           "department": "Anthropology",
           "parseStatus": "incomplete",
-          "deadlineHash": "9b909eb4084ab34626ad45792381c8b45c369081c1d36c25b74087c4d8d37ecb"
+          "deadlineHash": "250a6bbfcca1d56586d834a10db4ddafd88f7fce52c746cf7ff54d84b5f8438e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-04-15"
         },
-        "berkeley-40954-architecture-city-planning-march-mcp": {
-          "name": "Architecture & City Planning MArch/MCP",
-          "degreeType": "MArch/MCP",
-          "faculty": "Architecture",
-          "department": "Architecture",
-          "parseStatus": "incomplete",
-          "deadlineHash": "92b3c31cd056a776ec60947aa49951459a8d288459ddd92e0eb76949fc496e40"
-        },
-        "berkeley-40956-architecture-civil-engineering-march-ms": {
-          "name": "Architecture & Civil Engineering MArch/MS",
+        "berkeley-40956-architecture-civil-and-environmental-engineering-march-ms": {
+          "name": "Architecture / Civil and Environmental Engineering MArch/MS",
           "degreeType": "MArch/MS",
           "faculty": "Architecture",
           "department": "Architecture",
           "parseStatus": "incomplete",
-          "deadlineHash": "5375f7a7907429a77daeb0e52ea5c4a4add28431fa31ff63161dee6aafccb4cd"
+          "deadlineHash": "f44db08715f7b5bfc9746aa69936ad8661648bfdb89dbd711473a301736bed7d",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
-        "berkeley-20342-architecture": {
+        "berkeley-40954-architecture-master-of-city-planning-march-mcp": {
+          "name": "Architecture / Master of City Planning MArch/MCP",
+          "degreeType": "MArch/MCP",
+          "faculty": "Architecture",
+          "department": "Architecture",
+          "parseStatus": "incomplete",
+          "deadlineHash": "1a3399f92984fa37099f028c3a4af2e7e0b916db26a276d34ea5b77c71d315d3",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-20342-architecture-march": {
           "name": "Architecture MArch",
           "degreeType": "MArch",
           "faculty": "Architecture",
           "department": "Architecture",
           "parseStatus": "incomplete",
-          "deadlineHash": "d9e81a64961ed1daf11c0282e786dc7c5f0fc5b39d995a1dadeb3fc616e3170b"
+          "deadlineHash": "c40e35e1d2a7dc850cd139a3ebc1cddd3c296a86f52fc8b0364ea30e3781e643",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-05"
         },
         "berkeley-40604-architecture-ms": {
           "name": "Architecture MS",
@@ -45,63 +93,159 @@
           "faculty": "Architecture",
           "department": "Architecture",
           "parseStatus": "incomplete",
-          "deadlineHash": "cdf3ea8bc6d7a6b6307c5f3c9650ab8228ec6a13ca16ede7ab95b9e81e3dcfcf"
+          "deadlineHash": "5c97f6acc781c44a010ebabb0dd02da64981bb7ceedd5583863a85b24e5df69e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-05"
         },
-        "berkeley-20343-art-practice": {
+        "berkeley-20343-art-practice-mfa": {
           "name": "Art Practice MFA",
           "degreeType": "MFA",
           "faculty": "Art Practice",
           "department": "Art Practice",
           "parseStatus": "incomplete",
-          "deadlineHash": "cc01ef4d669ff8219a5a5c0b623d0cf7583dd8f1b40d8bb3f41dd8b5306dd50d"
+          "deadlineHash": "85e49c6f4448cb2b6cdd961774f76dadd4b8652f34d0b25e072506b7ab705ba9",
+          "windowCount": 1,
+          "latestClosesAt": "2027-12-15"
         },
-        "berkeley-20344-asian-studies": {
+        "berkeley-20344-asian-studies-ma": {
           "name": "Asian Studies MA",
           "degreeType": "MA",
           "faculty": "Asian Studies Graduate Group",
           "department": "Asian Studies Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "addebba04dd95f889223e9723c320de82d1aacc87c7697c3583295f52f7c0b86"
+          "deadlineHash": "b919ca71db7e6d4e6dfbf704ffbc4ae85330b352adf73b84ef17ce14c117b261",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20350-bioengineering": {
+        "berkeley-20350-bioengineering-meng": {
           "name": "Bioengineering MEng",
           "degreeType": "MEng",
           "faculty": "Bioengineering",
           "department": "Bioengineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "11b969d2b744fa25b7f81971b5819185005c463962c353f2bbd9df7aabbf24d8"
+          "deadlineHash": "9e90a9f699ebdfe49dd175d7bca21fefc36327bfc8a0140d60ce907bbbdcc433",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-20352-biostatistics": {
+        "berkeley-20352-biostatistics-ma": {
           "name": "Biostatistics MA",
           "degreeType": "MA",
           "faculty": "University of California, Berkeley",
           "department": "University of California, Berkeley",
           "parseStatus": "incomplete",
-          "deadlineHash": "5d160e82d42f91a10a2158273acca71e3a1af91d2213f034d4e0de9f00b167be"
+          "deadlineHash": "708c8773e884a7fa013141f89c554335c74bff3b52d2333647c4b8fc9ba054ca",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-40960-business-administration-law-hastings-mba-jd-m-b-a": {
-          "name": "Business Administration & Law (Hastings) MBA/JD M.B.A.",
-          "degreeType": "JD/MBA",
-          "faculty": "Business",
-          "department": "Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        "berkeley-60095-business-administration-bioengineering-mba-meng": {
+          "name": "Business Administration / Bioengineering MBA/MEng",
+          "degreeType": "MBA/MEng",
+          "faculty": "Business, Bioengineering",
+          "department": "Business, Bioengineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "09c6b4d6e2e5e22e356d2a6d3ab6cb8799dc7ffecee8b75c981177b4f935cd73",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-07"
         },
-        "berkeley-40962-business-administration-law-mba-jd": {
-          "name": "Business Administration & Law MBA/JD",
-          "degreeType": "JD/MBA",
-          "faculty": "Business",
-          "department": "Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        "berkeley-60096-business-administration-civil-and-environmental-engineering-mba-meng": {
+          "name": "Business Administration / Civil and Environmental Engineering MBA/MEng",
+          "degreeType": "MBA/MEng",
+          "faculty": "Business, Civil & Environmental Engineering",
+          "department": "Business, Civil & Environmental Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "c14ecd2b4dfd73d3aadfaa91a2b33326123b95cadd9f419a3b6d2d4994b24a8b",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-07"
         },
-        "berkeley-45636-business-administration-master-of-climate-solutions-mba-mcs": {
-          "name": "Business Administration & Master of Climate Solutions MBA/MCS",
+        "berkeley-45636-business-administration-climate-solutions-mba-mcs": {
+          "name": "Business Administration / Climate Solutions MBA/MCS",
           "degreeType": "MBA/MCS",
           "faculty": "University of California, Berkeley",
           "department": "University of California, Berkeley",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "66603f09640ae01984005822bfa0b295ce68d831dd4aab1f5c32188ba3c008f5",
+          "windowCount": 1,
+          "latestClosesAt": "2027-04-01"
+        },
+        "berkeley-60098-business-administration-electrical-engineering-and-computer-sciences-mba-meng": {
+          "name": "Business Administration / Electrical Engineering and Computer Sciences MBA/MEng",
+          "degreeType": "MBA/MEng",
+          "faculty": "Business, Electrical Engineering & Computer Sciences",
+          "department": "Business, Electrical Engineering & Computer Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7a135c930779761054b6db63af1c9c2c9e8a3186f143f57c2e6359dbd7fb1d10",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-07"
+        },
+        "berkeley-60099-business-administration-health-policy-and-management-mba-mph": {
+          "name": "Business Administration / Health Policy and Management MBA/MPH",
+          "degreeType": "MBA/MEng",
+          "faculty": "Business, Public Health",
+          "department": "Business, Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "e64eb99e5b05fc1be998f29d47518c494d13a557664b902a960fdc33981a2afb",
+          "windowCount": 1,
+          "latestClosesAt": "2027-04-01"
+        },
+        "berkeley-60100-business-administration-industrial-engineering-and-operations-research-mba-meng": {
+          "name": "Business Administration / Industrial Engineering and Operations Research MBA/MEng",
+          "degreeType": "MBA/MEng",
+          "faculty": "Business, Industrial Engineering & Operations Research",
+          "department": "Business, Industrial Engineering & Operations Research",
+          "parseStatus": "incomplete",
+          "deadlineHash": "74efe1a7e526487ff5e76fc81dc4e6f648474c69e066ae7f4e92089c8f833c29",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-07"
+        },
+        "berkeley-40962-business-administration-law-mba-jd": {
+          "name": "Business Administration / Law MBA/JD",
+          "degreeType": "JD/MBA",
+          "faculty": "Business",
+          "department": "Business",
+          "parseStatus": "incomplete",
+          "deadlineHash": "9054055ff6f03c3c4439111c9c1717a0fb6ce5deea77e75aad068ec86e2de367",
+          "windowCount": 1,
+          "latestClosesAt": "2027-04-01"
+        },
+        "berkeley-40960-business-administration-law-mba-jd-hastings": {
+          "name": "Business Administration / Law MBA/JD (Hastings)",
+          "degreeType": "JD/MBA",
+          "faculty": "Business",
+          "department": "Business",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b0862b60f944c277f8c7e5d06ed1f4d976c183b116514091a1a8d604a91053a9",
+          "windowCount": 1,
+          "latestClosesAt": "2027-04-01"
+        },
+        "berkeley-60103-business-administration-materials-science-and-engineering-mba-meng": {
+          "name": "Business Administration / Materials Science and Engineering MBA/MEng",
+          "degreeType": "MBA/MEng",
+          "faculty": "Business, Materials Science & Engineering",
+          "department": "Business, Materials Science & Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "1c0e33610595246620517ffa5af3c098d502487d83f54bae7ba5750c2d3e4789",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-07"
+        },
+        "berkeley-60104-business-administration-mechanical-engineering-mba-meng": {
+          "name": "Business Administration / Mechanical Engineering MBA/MEng",
+          "degreeType": "MBA/MEng",
+          "faculty": "Business, Mechanical Engineering",
+          "department": "Business, Mechanical Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "277a03d1fa06bb2bd8ce3b0353daae4e896fc34a4a83be1910019abb9ac31d9d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-07"
+        },
+        "berkeley-60105-business-administration-nuclear-engineering-mba-meng": {
+          "name": "Business Administration / Nuclear Engineering MBA/MEng",
+          "degreeType": "MBA/MEng",
+          "faculty": "Business, Nuclear Engineering",
+          "department": "Business, Nuclear Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b0ddf3589170550f3f223a1a400d8c58289e4e820878c63ccd8acd22e32c37df",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-07"
         },
         "berkeley-40964-business-administration-masters-of-engineering-mba-meng": {
           "name": "Business Administration & Masters of Engineering MBA/MEng",
@@ -109,135 +253,119 @@
           "faculty": "Business",
           "department": "Business",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
-        "berkeley-40966-business-administration-public-health-mba-mph": {
-          "name": "Business Administration & Public Health MBA/MPH",
-          "degreeType": "MBA/MPH",
+        "berkeley-20463-business-administration-mba": {
+          "name": "Business Administration MBA",
+          "degreeType": "MBA",
           "faculty": "Business",
           "department": "Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "3255df3661c5c039851191fbed534b506d3cd4120a2342ddb286467a350db243",
+          "windowCount": 1,
+          "latestClosesAt": "2027-04-01"
         },
-        "berkeley-20355-chemical-and-biomolecular-engineering": {
+        "berkeley-20355-chemical-and-biomolecular-engineering-ms": {
           "name": "Chemical and Biomolecular Engineering MS",
           "degreeType": "MS",
           "faculty": "Chemistry & Biomolecular Engineering",
           "department": "Chemistry & Biomolecular Engineering",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
-        "berkeley-40636-chemical-and-biomolecular-engineering-prof-ms": {
+        "berkeley-40636-chemical-and-biomolecular-engineering-prof-ms-pdp": {
           "name": "Chemical and Biomolecular Engineering Prof MS (PDP)",
           "degreeType": "MS",
           "faculty": "Chemistry & Biomolecular Engineering",
           "department": "Chemistry & Biomolecular Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "ac11044a6889549d31cb24ea836943852dea6b31402471e094a820a5a0f98545"
+          "deadlineHash": "d3ca7818e46c98355e73b968c12556fce2278c5d080ae5cdc69e9348c4bc1e8f",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-11"
         },
-        "berkeley-40649-city-planning-civil-and-environmental-engineering-mcp-ms": {
-          "name": "City Planning & Civil and Environmental Engineering MCP/MS",
-          "degreeType": "MCP/MS",
-          "faculty": "City & Regional Planning",
-          "department": "City & Regional Planning",
-          "parseStatus": "incomplete",
-          "deadlineHash": "0f5b5acdfe24b1ed79babc5adff7c58e64723104dce547799099c01ee727722d"
-        },
-        "berkeley-40656-city-planning-law-hastings-mcp-jd": {
-          "name": "City Planning & Law (Hastings) MCP/JD",
-          "degreeType": "MCP/JD",
-          "faculty": "City & Regional Planning",
-          "department": "City & Regional Planning",
-          "parseStatus": "incomplete",
-          "deadlineHash": "177e03777e46a976ca255e996586a365a4f2cdc9f140b268d20cf5971308eae2"
-        },
-        "berkeley-40658-city-planning-law-mcp-jd": {
-          "name": "City Planning & Law MCP/JD",
-          "degreeType": "MCP/JD",
-          "faculty": "City & Regional Planning",
-          "department": "City & Regional Planning",
-          "parseStatus": "incomplete",
-          "deadlineHash": "cc15a77aca85d8f5b19f999d8310f23f10a45b628f46b10835d51b3c99a293f9"
-        },
-        "berkeley-40660-city-planning-public-health-mcp-mph": {
-          "name": "City Planning & Public Health MCP/MPH",
-          "degreeType": "MCP/MPH",
-          "faculty": "City & Regional Planning",
-          "department": "City & Regional Planning",
-          "parseStatus": "incomplete",
-          "deadlineHash": "2310a54b3b032428e857c8567dcbfe9a85e382802f7be2a33eae19576c6ce109"
-        },
-        "berkeley-40666-civil-environmental-engineering-prof-ms": {
-          "name": "Civil & Environmental Engineering Prof MS",
-          "degreeType": "MS",
-          "faculty": "Civil & Environmental Engineering",
-          "department": "Civil & Environmental Engineering",
-          "parseStatus": "incomplete",
-          "deadlineHash": "08741e19340d35961d29813ac93a19e3458ec653c8fa110848194a2481dc906f"
-        },
-        "berkeley-20359-civil-environmental-engineering": {
+        "berkeley-20359-civil-and-environmental-engineering-meng": {
           "name": "Civil and Environmental Engineering MEng",
           "degreeType": "MEng",
           "faculty": "Civil & Environmental Engineering",
           "department": "Civil & Environmental Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "2b1d12df01bdb3d5777686af608ff8d108e0e64f2f90f1422f0b6783aba97a71"
+          "deadlineHash": "a72712cdd040ec50cc82e72bbc0511b818155c757f817b6b50fea0b0c172343c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-20366-computer-science": {
-          "name": "Computer Science MS",
+        "berkeley-40666-civil-and-environmental-engineering-prof-ms": {
+          "name": "Civil and Environmental Engineering Prof MS",
           "degreeType": "MS",
-          "faculty": "Electrical Engineering & Computer Sciences",
-          "department": "Electrical Engineering & Computer Sciences",
+          "faculty": "Civil & Environmental Engineering",
+          "department": "Civil & Environmental Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "c708d3fa5f8f00cda7ee44c39044164b97979dad12bf9697c239e56074dbc758"
+          "deadlineHash": "51105aef84af4404e2731a862e8097d8fb0ee96bad1b2580e2b240420fafd99b",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
-        "berkeley-40678-computer-science-ms-phd": {
-          "name": "Computer Science MS/PhD",
-          "degreeType": "MS/PhD",
-          "faculty": "Electrical Engineering & Computer Sciences",
-          "department": "Electrical Engineering & Computer Sciences",
-          "parseStatus": "incomplete",
-          "deadlineHash": "bfda97dec9e051de596fa94e563463aef71cd7eee45fbce278dda59034bdb798"
-        },
-        "berkeley-20367-demography": {
+        "berkeley-20367-demography-ma": {
           "name": "Demography MA",
           "degreeType": "MA",
           "faculty": "Demography",
           "department": "Demography",
           "parseStatus": "incomplete",
-          "deadlineHash": "7e80671c3686ca3d10ec62181beba5e142b08ac602e3709a6c00f6929e5f46cd"
+          "deadlineHash": "cbf1c05f885a0ee0fdefc554eb416b76f9a89edb6cc5a6e99b86fbfd178dbf3f",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-29143-master-of-design": {
-          "name": "Design MDes",
+        "berkeley-29143-design-mdes": {
+          "name": "Design, MDes",
           "degreeType": "MDes",
           "faculty": "Design Innovation",
           "department": "Design Innovation",
           "parseStatus": "incomplete",
-          "deadlineHash": "9fa1fdf9b66244881ddff45a454f8fa14be612ae90bb4c0691102813d2c311a1"
+          "deadlineHash": "8fba9784a7240eb9d774ebe10b2ec6670e08c84cb3a68f9b0dce2104abdc96b9",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-20368-development-practice": {
+        "berkeley-31618-development-engineering-mdeveng": {
+          "name": "Development Engineering MDevEng",
+          "degreeType": "MDevEng",
+          "faculty": "University of California, Berkeley",
+          "department": "University of California, Berkeley",
+          "parseStatus": "incomplete",
+          "deadlineHash": "01a3097e6b367ba0eb1dd6e7fcfd4736504efc7479c64a1d078be1ad0cf7f583",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-15"
+        },
+        "berkeley-20368-development-practice-mdp": {
           "name": "Development Practice MDP",
           "degreeType": "MDP",
           "faculty": "Development Practice Grad Group",
           "department": "Development Practice Grad Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "b7c6ebd349064e84708e9c31079256c8d0d9ffad8a18ef6be24218416fc2e177"
+          "deadlineHash": "b1f111f4c2753ac57674295f2c73cd85371837eaa4783bdb8550479ca0664620",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-23"
         },
-        "berkeley-40691-earth-and-planetary-science-5th-year-ma-for-uc-berkeley-students": {
-          "name": "Earth and Planetary Science 5th-Year MA (For UC Berkeley Students)",
+        "berkeley-40691-earth-and-planetary-science-5th-year-ma-for-ucb-students-only": {
+          "name": "Earth and Planetary Science 5th-Year MA (For UCB students only)",
           "degreeType": "MA",
           "faculty": "Earth & Planetary Science",
           "department": "Earth & Planetary Science",
           "parseStatus": "incomplete",
-          "deadlineHash": "508e533063ee015b00e5cb4a01982360e2638fc834dabbdb14b70e0de7f7844f"
+          "deadlineHash": "478ab387958d3f5fba420f6203c8208e63a757aaf5f30b829d0d89a0ad909700",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-40696-economics-ma-for-uc-berkeley-graduate-students": {
-          "name": "Economics MA (For UC Berkeley Graduate Students)",
+        "berkeley-40696-economics-ma-ucb-graduate-students-only": {
+          "name": "Economics MA (UCB Graduate Students only)",
           "degreeType": "MA",
           "faculty": "Economics",
           "department": "Economics",
           "parseStatus": "incomplete",
-          "deadlineHash": "a9eca0a4d0d002bc54559edc37a277e97e241f0eb6d635a01183c514bca2a991"
+          "deadlineHash": "f9e380049173ed5354c9eaa8bb8781707713371a7ca13972436829288774172a",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
         "berkeley-40702-education-ma": {
           "name": "Education MA",
@@ -245,7 +373,9 @@
           "faculty": "Education",
           "department": "Education",
           "parseStatus": "incomplete",
-          "deadlineHash": "24b87049b9bc5138e25630d4ce64fabe5dc67797bdc6c903c5f86fc6f5c1cf68"
+          "deadlineHash": "e0de28d47138431e0661d37d8112b6add60cbc5bc78bc36853a60b649aa6ee39",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40706-education-admin-services-credential-cred-ma": {
           "name": "Education-Admin Services Credential Cred/MA",
@@ -253,7 +383,9 @@
           "faculty": "Education",
           "department": "Education",
           "parseStatus": "incomplete",
-          "deadlineHash": "7259d25b32965e05957e3b44113a0cd0171ca79c46f437f8cd734953c85875f7"
+          "deadlineHash": "631de8176478b91ba8b9f0fa546b1e7901708fc22a1975a0f182c701c4a3a624",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40711-education-teaching-credential-cred-ma": {
           "name": "Education-Teaching Credential Cred/MA",
@@ -261,55 +393,89 @@
           "faculty": "Education",
           "department": "Education",
           "parseStatus": "incomplete",
-          "deadlineHash": "0d9caff7cae59427794d377d5cc56ccdaeca0833dbbd07f958725c2419a6023c"
+          "deadlineHash": "5a6ce82c61131c304b63c62a156abb91de1e2ca573633efe45191a52fecd6dcb",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
-        "berkeley-40715-electrical-engineering-computer-sciences-5th-year-ms-for-uc-berkeley-students": {
-          "name": "Electrical Engineering & Computer Sciences 5th-Year MS (For UC Berkeley students)",
+        "berkeley-20366-eecs-computer-science-ms": {
+          "name": "EECS – Computer Science MS",
           "degreeType": "MS",
           "faculty": "Electrical Engineering & Computer Sciences",
           "department": "Electrical Engineering & Computer Sciences",
           "parseStatus": "incomplete",
-          "deadlineHash": "732fd4e1b6a7a5b4f1e8d69f3ffb43b228ea3f496cc6fc6c91227fc8609d17c4"
+          "deadlineHash": "ce9991b947d1ddd02442f1ab95dafb9d9794720ef8ede511bcc7621629fc0945",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-eecs-meng": {
-          "name": "Electrical Engineering & Computer Sciences MEng",
-          "degreeType": "MEng",
-          "faculty": "Electrical Engineering & Computer Sciences",
-          "department": "Electrical Engineering & Computer Sciences",
-          "parseStatus": "incomplete",
-          "deadlineHash": "afcede0a7a89bdae11dafa45721124ca3ffcc059cfecf3d51ba89de120dd5165"
-        },
-        "berkeley-40719-electrical-engineering-computer-sciences-ms": {
-          "name": "Electrical Engineering & Computer Sciences MS",
-          "degreeType": "MS",
-          "faculty": "Electrical Engineering & Computer Sciences",
-          "department": "Electrical Engineering & Computer Sciences",
-          "parseStatus": "incomplete",
-          "deadlineHash": "4fcfca0e0662e1a32281128e9c6e6d39570be275105f892a43a92b4ae510909d"
-        },
-        "berkeley-40721-electrical-engineering-computer-sciences-ms-phd": {
-          "name": "Electrical Engineering & Computer Sciences MS/PhD",
+        "berkeley-40678-eecs-computer-science-ms-phd": {
+          "name": "EECS – Computer Science MS/PhD",
           "degreeType": "MS/PhD",
           "faculty": "Electrical Engineering & Computer Sciences",
           "department": "Electrical Engineering & Computer Sciences",
           "parseStatus": "incomplete",
-          "deadlineHash": "3b2f633eda18206f986e3384f9f339b6c13caea8a7f034f3b501a60f42ad7089"
+          "deadlineHash": "c74e5d6e1408f9bb6d1d273a2255aa7ff0522123f3b1aed39cc1df1ba7dc4918",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-40729-energy-and-resources-m-a-law-j-d-berkeley": {
-          "name": "Energy and Resources (M.A.) – Law (J.D.) – Berkeley",
-          "degreeType": "MA/JD",
-          "faculty": "Energy & Resources Graduate Group",
-          "department": "Energy & Resources Graduate Group",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        "berkeley-40715-eecs-electrical-engineering-and-computer-sciences-5th-year-ms-for-ucb-students-only": {
+          "name": "EECS – Electrical Engineering and Computer Sciences 5th-Year MS (For UCB students only)",
+          "degreeType": "MS",
+          "faculty": "Electrical Engineering & Computer Sciences",
+          "department": "Electrical Engineering & Computer Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "4f628819f3de1b7152f36f798a1ed79f29fbf322e2c8478547ba81a933b5a240",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
-        "berkeley-40731-energy-and-resources-m-s-law-j-d-berkeley": {
-          "name": "Energy and Resources (M.S.) – Law (J.D.) — Berkeley",
+        "berkeley-40717-eecs-electrical-engineering-and-computer-sciences-meng": {
+          "name": "EECS – Electrical Engineering and Computer Sciences MEng",
+          "degreeType": "MEng",
+          "faculty": "Electrical Engineering & Computer Sciences",
+          "department": "Electrical Engineering & Computer Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7b3497242d0e5ebaffb81877787ca775d0946db103e7b47649060345993d6729",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
+        },
+        "berkeley-40719-eecs-electrical-engineering-and-computer-sciences-ms": {
+          "name": "EECS – Electrical Engineering and Computer Sciences MS",
+          "degreeType": "MS",
+          "faculty": "Electrical Engineering & Computer Sciences",
+          "department": "Electrical Engineering & Computer Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "5521b8e5ce499ce9165e23c8062353c2e220d7357f20c95e7d766a33bf50125a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-40721-eecs-electrical-engineering-and-computer-sciences-ms-phd": {
+          "name": "EECS – Electrical Engineering and Computer Sciences MS/PhD",
+          "degreeType": "MS/PhD",
+          "faculty": "Electrical Engineering & Computer Sciences",
+          "department": "Electrical Engineering & Computer Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "a6a8d67df30997e55689a866856eb32c7790fda05e29112bd931a6bfc30d5d60",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-40731-energy-and-resources-law-ms-jd": {
+          "name": "Energy and Resources Law MS/JD",
           "degreeType": "JD/MS",
           "faculty": "Energy & Resources Graduate Group",
           "department": "Energy & Resources Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "9a8e94f0e89cd348d48cf89479ae3236f0fbf5c0c037479df2a640896a08ab32"
+          "deadlineHash": "609c85b2b80fd32259f2cce566aac58d421ea4066d7f98cee7383932e4d4edfe",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-40729-energy-and-resources-law-ma-jd": {
+          "name": "Energy and Resources / Law MA/JD",
+          "degreeType": "MA/JD",
+          "faculty": "Energy & Resources Graduate Group",
+          "department": "Energy & Resources Graduate Group",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40733-energy-and-resources-ma": {
           "name": "Energy and Resources MA",
@@ -317,7 +483,9 @@
           "faculty": "Energy & Resources Graduate Group",
           "department": "Energy & Resources Graduate Group",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40735-energy-and-resources-ms": {
           "name": "Energy and Resources MS",
@@ -325,159 +493,229 @@
           "faculty": "Energy & Resources Graduate Group",
           "department": "Energy & Resources Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "a39e9c81eb95bd8098906348b3eb61122fcf395a7d16929f3848abe9b41a9d24"
+          "deadlineHash": "632e9ce4f620de06701711b00b746d4b0127941b064ffeb4946215ec1b09b642",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20382-environmental-health-sciences": {
+        "berkeley-60154-environmental-health-sciences-journalism-mph-mj": {
+          "name": "Environmental Health Sciences / Journalism MPH/MJ",
+          "degreeType": "MJ/MPH",
+          "faculty": "Public Health, Journalism",
+          "department": "Public Health, Journalism",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0d1ba69510449d60762f5bc750773a84077e0269e762f9d7642cd966f5aaa00e",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-20382-environmental-health-sciences-ms": {
           "name": "Environmental Health Sciences MS",
           "degreeType": "MS",
           "faculty": "Environmental Health Sciences Graduate Group",
           "department": "Environmental Health Sciences Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "7a7694ed7b3762227b93aed167cf9ca0a8202a90baedfbed62fac33bf39deec9"
+          "deadlineHash": "b428515ff05e5c7a6b608c40576a2c369c02821ae6190045caac12d3355804ac",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20384-epidemiology": {
+        "berkeley-60158-epidemiology-and-biostatistics-journalism-mph-mj": {
+          "name": "Epidemiology and Biostatistics / Journalism MPH/MJ",
+          "degreeType": "MJ/MPH",
+          "faculty": "Public Health, Journalism",
+          "department": "Public Health, Journalism",
+          "parseStatus": "incomplete",
+          "deadlineHash": "a0f118685d0be1f2d41a008e914466edde1aa8fc3201b3eb82a31872f10020f2",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-20384-epidemiology-ms": {
           "name": "Epidemiology MS",
           "degreeType": "MS",
           "faculty": "Epidemiology Graduate Group",
           "department": "Epidemiology Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "c166e056fc394cb3c167018d9baf806b2a26ed20b209410fe2d1c0ce0e74914c"
+          "deadlineHash": "2797f29968722178b19b045d0179ab52be78407ed6cf2a950cea4ac3b78a73cc",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20467-business-administration-evening-weekend-mba-program": {
-          "name": "Evening & Weekend MBA",
+        "berkeley-20467-evening-and-weekend-mba": {
+          "name": "Evening and Weekend MBA",
           "degreeType": "MBA",
           "faculty": "Business",
           "department": "Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "9ee6d6b6aeba64957e887f96af4f2885d809ad86014f67835792cdb3f6d2f74f",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
         },
-        "berkeley-20387-folklore": {
+        "berkeley-20462-executive-mba": {
+          "name": "Executive MBA",
+          "degreeType": "MBA",
+          "faculty": "Business",
+          "department": "Business",
+          "parseStatus": "incomplete",
+          "deadlineHash": "fc20cd980cf82a2731a391940828f457aeccb366639e2b2bb8b669ac00bad955",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-31"
+        },
+        "berkeley-20387-folklore-ma": {
           "name": "Folklore MA",
           "degreeType": "MA",
           "faculty": "Folklore Graduate Group",
           "department": "Folklore Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "bc3f181911fe8420b04736074e0f4f68f2fb21212b86a37c2de4bbad975e59a1"
+          "deadlineHash": "0b78e53d7e1f4ce357c961f5bc605f3706a1abd595cc231f2c8c9162c89c68b1",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
-        "berkeley-40753-forestry-5th-year-mf-ucb-students": {
-          "name": "Forestry 5th Year MF (For UC Berkeley students)",
+        "berkeley-40753-forestry-5th-year-mf-for-ucb-students-only": {
+          "name": "Forestry 5th-Year MF (For UCB students only)",
           "degreeType": "MF",
           "faculty": "Environmental Science Policy & Management PhD",
           "department": "Environmental Science Policy & Management PhD",
           "parseStatus": "incomplete",
-          "deadlineHash": "de6543cad378c4c2dc79259bf58f1b5c098121cb7900ccdb76c16d382a256186"
+          "deadlineHash": "3f656ef608b0aa19eb3ca82e0fc1201d24f6c4ffb233b30d613e6ccd74c3b028",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20955-forestry": {
+        "berkeley-20955-forestry-mf": {
           "name": "Forestry MF",
           "degreeType": "MF",
           "faculty": "Environmental Science Policy & Management",
           "department": "Environmental Science Policy & Management",
           "parseStatus": "incomplete",
-          "deadlineHash": "601cdcf6bb3b21112990a626a0e774526c2dc743720d5d245304cc37088f0452"
+          "deadlineHash": "33376eecf2b8e7a5eb8f5ca72947599c78c4c5c01460247aa905ea2f3fa34199",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20463-business-administration-full-time-mba-program": {
-          "name": "Full-Time MBA",
-          "degreeType": "MBA",
-          "faculty": "Business",
-          "department": "Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-        },
-        "berkeley-23173-global-studies-pending-approval": {
+        "berkeley-23173-global-studies-ma": {
           "name": "Global Studies MA",
           "degreeType": "MA",
           "faculty": "Global Studies Graduate Group",
           "department": "Global Studies Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "b83d61e35e6aaeb1fc421a95b70cfda2a513efd7cdad21af5c1259806c88764d"
+          "deadlineHash": "901fe9ab94eeedf825f034509839a12cf6a5531023a28da43223e714fa329d6a",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-20457-health-medical-sciences-medical-program-joint-program-with-ucsf": {
+        "berkeley-20457-health-and-medical-sciences-joint-ucsf-ms-dept-pre-approval-to-apply": {
           "name": "Health and Medical Sciences (Joint UCSF) MS (Dept pre-approval to apply)",
           "degreeType": "MS",
           "faculty": "Health & Medical Sciences Graduate Group Group",
           "department": "Health & Medical Sciences Graduate Group Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "a1983fe8c72352623cdc381e11a2664fffd1ff9f0ecd0810955bb6374156b560"
+          "deadlineHash": "8a5f66b4b1f1c32bde054e909b9c2db156fbd65df8051e83561fe66acdbb878e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-16"
         },
-        "berkeley-40769-industrial-engineering-operations-research-5th-year-ms-for-uc-berkeley-students": {
-          "name": "Industrial Engineering & Operations Research 5th-year MS (For UC Berkeley students)",
+        "berkeley-60173-health-and-social-behavior-journalism-mph-mj": {
+          "name": "Health and Social Behavior / Journalism MPH/MJ",
+          "degreeType": "MJ/MPH",
+          "faculty": "Public Health, Journalism",
+          "department": "Public Health, Journalism",
+          "parseStatus": "incomplete",
+          "deadlineHash": "68a912a25a239d8dd7a156e91e145f202e29d80dc9369cf53956ed52132b4e3a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-40769-industrial-engineering-and-operations-research-5th-year-ms-for-ucb-students-only": {
+          "name": "Industrial Engineering and Operations Research 5th-year MS (For UCB students only)",
           "degreeType": "MS",
           "faculty": "Industrial Engineering & Operations Research",
           "department": "Industrial Engineering & Operations Research",
           "parseStatus": "incomplete",
-          "deadlineHash": "9542463b31e291d26a3e8555271578d852ea43f9d4593d2a09f20acad6bf5a7e"
+          "deadlineHash": "8df1bfeaf1b896b8b22a461054969ab5f48a59626e97212b506c14182512c03a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
-        "berkeley-40771-industrial-engineering-operations-research-meng": {
-          "name": "Industrial Engineering & Operations Research MEng",
+        "berkeley-40771-industrial-engineering-and-operations-research-meng": {
+          "name": "Industrial Engineering and Operations Research MEng",
           "degreeType": "MEng",
           "faculty": "Industrial Engineering & Operations Research",
           "department": "Industrial Engineering & Operations Research",
           "parseStatus": "incomplete",
-          "deadlineHash": "830b935f587ba2353d992f45a9a117c617a1d0b7f0b1377858ede10dfacfb135"
+          "deadlineHash": "8ae9144b62ea80ef797bc8b76726eb6970e1f279274397fdf825efae32fe5cd6",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-40773-industrial-engineering-operations-research-ms": {
-          "name": "Industrial Engineering & Operations Research MS",
+        "berkeley-40773-industrial-engineering-and-operations-research-ms": {
+          "name": "Industrial Engineering and Operations Research MS",
           "degreeType": "MS",
           "faculty": "Industrial Engineering & Operations Research",
           "department": "Industrial Engineering & Operations Research",
           "parseStatus": "incomplete",
-          "deadlineHash": "a639506bde62b5fd037050559eba268fa33589d40ed6ab6de6670a225314883d"
+          "deadlineHash": "3d20627438795310adca7d38ca33f5e5c0cedbe8cbcd9ab2509f19b0a1611487",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
-        "berkeley-40777-information-cyber-security-mics": {
-          "name": "Information & Cyber Security MICS",
+        "berkeley-40777-information-and-cyber-security-mics": {
+          "name": "Information and Cybersecurity (MICS)",
           "degreeType": "MICS",
           "faculty": "Information",
           "department": "Information",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
-        "berkeley-40779-information-data-science-mids": {
-          "name": "Information & Data Science MIDS",
+        "berkeley-40779-information-and-data-science-mids": {
+          "name": "Information and Data Science (MIDS)",
           "degreeType": "MIDS",
           "faculty": "Information",
           "department": "Information",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
-        "berkeley-20400-information-management-systems": {
-          "name": "Information Management & Systems MIMS",
+        "berkeley-20400-information-management-and-systems-mims": {
+          "name": "Information Management and Systems MIMS",
           "degreeType": "MIMS/PhD",
           "faculty": "Information",
           "department": "Information",
           "parseStatus": "incomplete",
-          "deadlineHash": "6b399f38d20403a3b9dafec6a71c8572811e4cd3a38755b94f5e8fb438211159"
+          "deadlineHash": "6092fde70a006360e181a04460a8f9c3abed0348493b87c3e5340f388e2d5e26",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-40793-journalism-asian-studies-mjour-ma": {
-          "name": "Journalism & Asian Studies MJ/MA",
+        "berkeley-40793-journalism-asian-studies-mj-ma": {
+          "name": "Journalism / Asian Studies MJ/MA",
           "degreeType": "MA/MJ",
-          "faculty": "Journalism",
-          "department": "Journalism",
+          "faculty": "Asian Studies Graduate Group, Journalism",
+          "department": "Asian Studies Graduate Group, Journalism",
           "parseStatus": "incomplete",
-          "deadlineHash": "7dddcb55c215b1efad41829bb903a4bb20a3989cffda2894367f893b180dee84"
+          "deadlineHash": "6c061592c0b76a825ad85350c12099e0562ca4a04a6ba244e7b7a7fc484018a8",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20403-journalism": {
+        "berkeley-20403-journalism-mj": {
           "name": "Journalism MJ",
           "degreeType": "MJ",
           "faculty": "Journalism",
           "department": "Journalism",
           "parseStatus": "incomplete",
-          "deadlineHash": "6385619a97d04e51b8ecccda6f59b581aabe092e52120595f1353ae9814a0c9f"
+          "deadlineHash": "ddd8e28238d12c2479e8066a32e5c9a9582e2708612c4b90f2f6b257dc50d5dc",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-14"
         },
         "berkeley-40798-landscape-architecture-architecture-mla-march": {
-          "name": "Landscape Architecture & Architecture MLA/MArch",
+          "name": "Landscape Architecture / Architecture MLA/MArch",
           "degreeType": "MArch/MLA",
           "faculty": "Landscape Architecture & Environmental Planning",
           "department": "Landscape Architecture & Environmental Planning",
           "parseStatus": "incomplete",
-          "deadlineHash": "6e06e48c0d92b60875dad1e83bd6f4ea76f5f844eedf2c945d37434555949726"
+          "deadlineHash": "3af89b0e930852d0c82ce61bf171118441adb622c289114b8a01d4826b05dd63",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-05"
         },
-        "berkeley-40800-landscape-architecture-city-planning-mla-mcp": {
-          "name": "Landscape Architecture & City Planning MLA/MCP",
+        "berkeley-40800-landscape-architecture-master-of-city-planning-mla-mcp": {
+          "name": "Landscape Architecture / Master of City Planning MLA/MCP",
           "degreeType": "MCP/MLA",
           "faculty": "Landscape Architecture & Environmental Planning",
           "department": "Landscape Architecture & Environmental Planning",
           "parseStatus": "incomplete",
-          "deadlineHash": "4ec9eb9f5bcf5dab4a841226e17c0e3f919d340c4a0e6f6c92ef9f37e0bcd314"
+          "deadlineHash": "f3d8e5e3f44d39b66995eb92d413505e94af243e27a8474ab080b985781907cc",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40802-landscape-architecture-mla": {
           "name": "Landscape Architecture MLA",
@@ -485,7 +723,9 @@
           "faculty": "Landscape Architecture & Environmental Planning",
           "department": "Landscape Architecture & Environmental Planning",
           "parseStatus": "incomplete",
-          "deadlineHash": "cd6ee3a616c1ae65bdf01fd4cffcb5d82f643526c4b9d8dce212676a3ed59a03"
+          "deadlineHash": "10e06a16a323961f33f99704611206030d7b6d14403da16e3e8ef487c62beab2",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-05"
         },
         "berkeley-40808-law-llm": {
           "name": "Law LLM",
@@ -493,23 +733,29 @@
           "faculty": "Law",
           "department": "Law",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40812-master-of-advanced-architectural-design-maad": {
           "name": "Master of Advanced Architectural Design MAAD",
           "degreeType": "MAAD",
           "faculty": "University of California, Berkeley",
           "department": "University of California, Berkeley",
-          "parseStatus": "incomplete",
-          "deadlineHash": "8fe89a7a45a1edaeffe1de3073c44c6707b724509c49c8d338057aef6036cc51"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
-        "berkeley-40814-master-of-advanced-study-in-engineering-mas-e": {
-          "name": "Master of Advanced Study in Engineering MAS-E",
+        "berkeley-40814-master-of-advanced-studies-in-engineering-mas-e": {
+          "name": "Master of Advanced Studies in Engineering MAS-E",
           "degreeType": "MASE",
           "faculty": "University of California, Berkeley",
           "department": "University of California, Berkeley",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-33598-master-of-analytics-manlytx": {
           "name": "Master of Analytics MAnlytx",
@@ -517,23 +763,99 @@
           "faculty": "Industrial Engineering & Operations Research",
           "department": "Industrial Engineering & Operations Research",
           "parseStatus": "incomplete",
-          "deadlineHash": "7e5ad77a24ee1d7dbad6e5bb1c4a3308eaf0fd7eb4840b1c93cc95218f969d6f"
+          "deadlineHash": "38835b65f8e8898919e98cef475cbc765f06ab48bde8557d2c3a1c0d4e8cab75",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
+        },
+        "berkeley-60205-master-of-artificial-intelligence-and-machine-learning-maiml": {
+          "name": "Master of Artificial Intelligence and Machine Learning MAIML",
+          "degreeType": "MAIML",
+          "faculty": "University of California, Berkeley",
+          "department": "University of California, Berkeley",
+          "parseStatus": "incomplete",
+          "deadlineHash": "cee33a52071b5b7bef7a442aca3f6b40dc9f465c489045c02631cddae760ea79",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-11"
         },
         "berkeley-40816-master-of-bioprocess-engineering-mbe": {
-          "name": "Master of Bioprocess Engineering MBE",
+          "name": "Master of Bioprocess Engineering (MBE)",
           "degreeType": "MBE",
           "faculty": "Chemistry",
           "department": "Chemistry",
           "parseStatus": "incomplete",
-          "deadlineHash": "aa02183f15633c9e4586c16710b1d2f8d9f8dc0d5cba5fe8d5c4c0de288891fd"
+          "deadlineHash": "4804ab6a6e3fe299293ab6fa3a91680fbbc6b3c0ccf7f97dbc156dfc8893e882",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-19"
         },
-        "berkeley-41140-master-of-biotechnology-mbt": {
+        "berkeley-41140-master-of-biotechnology": {
           "name": "Master of Biotechnology",
           "degreeType": "MBT",
           "faculty": "Molecular & Cell Biology",
           "department": "Molecular & Cell Biology",
           "parseStatus": "incomplete",
-          "deadlineHash": "54b6ce09e2355bf83e475f8d4c67843c755ea2592810598fc36dc93a7cffae19"
+          "deadlineHash": "a220633951ad83bcbd36091b3be375f9f4600f89abe463c96148dfcb60a716ee",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-14"
+        },
+        "berkeley-40649-master-of-city-planning-civil-and-environmental-engineering-mcp-prof-ms": {
+          "name": "Master of City Planning / Civil and Environmental Engineering MCP/ Prof MS",
+          "degreeType": "MCP/MS",
+          "faculty": "City & Regional Planning",
+          "department": "City & Regional Planning",
+          "parseStatus": "incomplete",
+          "deadlineHash": "14330d60409a2da4e229dcfdbbcd79d98459191aa8505f03827e2699a3dfaf85",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60209-master-of-city-planning-environmental-health-sciences-mcp-mph": {
+          "name": "Master of City Planning / Environmental Health Sciences MCP/MPH",
+          "degreeType": "MCP/MPH",
+          "faculty": "City Planning, Public Health",
+          "department": "City Planning, Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "c0d4aba65898a5cf99bcbf22ac2914b16a54044740ba88d58c84fe810f81e42d",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60210-master-of-city-planning-epidemiology-and-biostatistics-mcp-mph": {
+          "name": "Master of City Planning / Epidemiology and Biostatistics MCP/MPH",
+          "degreeType": "MCP/MPH",
+          "faculty": "City Planning, Public Health",
+          "department": "City Planning, Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "3fa8575b268fb93ecc181f2d43a7e4f9b69ce256b966292b796f19bc0552e055",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60211-master-of-city-planning-health-and-social-behavior-mcp-mph": {
+          "name": "Master of City Planning / Health and Social Behavior MCP/MPH",
+          "degreeType": "MCP/MPH",
+          "faculty": "City Planning, Public Health",
+          "department": "City Planning, Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "3b407597e4af9345c062c908b3a625df5ff03751c12687fb21d0c7fa30a7a04c",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-40658-master-of-city-planning-law-mcp-jd": {
+          "name": "Master of City Planning / Law MCP/JD",
+          "degreeType": "MCP/JD",
+          "faculty": "City & Regional Planning",
+          "department": "City & Regional Planning",
+          "parseStatus": "incomplete",
+          "deadlineHash": "e86cedd9748efbe060628bd41f63f5876faeaadfccf3988c25c65b19dce8766a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-40656-master-of-city-planning-law-mcp-jd-hastings": {
+          "name": "Master of City Planning / Law MCP/JD (Hastings)",
+          "degreeType": "MCP/JD",
+          "faculty": "City & Regional Planning",
+          "department": "City & Regional Planning",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f5a828ee42769b038e8fd11e575ed00ae6967262f96d549e0f0b315f45e1eae8",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40818-master-of-city-planning-mcp": {
           "name": "Master of City Planning MCP",
@@ -541,7 +863,9 @@
           "faculty": "City & Regional Planning",
           "department": "City & Regional Planning",
           "parseStatus": "incomplete",
-          "deadlineHash": "63b11efdb12364ca90e370648ec4426b211c85a9dab037f38e0a6bc14fd5ea07"
+          "deadlineHash": "b0f1ecdf9127e1284cae5cfabe0238d4087c5a8f27861397e59ac8c4eece558a",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-22"
         },
         "berkeley-45837-master-of-climate-solutions-mcs": {
           "name": "Master of Climate Solutions MCS",
@@ -549,95 +873,109 @@
           "faculty": "University of California, Berkeley",
           "department": "University of California, Berkeley",
           "parseStatus": "incomplete",
-          "deadlineHash": "75303d7323c43ab2a9b2c79daa1926a5a56f4ec5e5f6550064a416d2711ec207"
+          "deadlineHash": "70fbdb98c87c0bd93fc32a8e34b5ca3f146890d395feeea58553c089c0a32eba",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-22"
         },
-        "berkeley-41031-master-of-computational-social-science-mcss": {
+        "berkeley-41031-master-of-computational-social-science-macss": {
           "name": "Master of Computational Social Science MaCSS",
           "degreeType": "MCSS",
           "faculty": "Computational Social Science Graduate Group",
           "department": "Computational Social Science Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "36185aaf1d54ce12c9fab46e51fa60c61d586d0f4cfbc7d44f37fcd7e749a393"
+          "deadlineHash": "3a9dc466274aa6f6f31c3982116e22d40540e634cd04a844c74650135627293c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-31618-master-of-development-engineering": {
-          "name": "Master of Development Engineering",
-          "degreeType": "MDevEng",
-          "faculty": "University of California, Berkeley",
-          "department": "University of California, Berkeley",
-          "parseStatus": "incomplete",
-          "deadlineHash": "527ad56aced50ff050ef856c0570c3148a5f44a1f62337e3f9cbfc5398f0184a"
-        },
-        "berkeley-20464-business-administration-masters-in-financial-engineering-program": {
+        "berkeley-20464-master-of-financial-engineering-mfe": {
           "name": "Master of Financial Engineering MFE",
           "degreeType": "MFE",
           "faculty": "Business",
           "department": "Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "b0a2f4b860aaec85fc07e588ef827ab71fda541c3020240d8fa4aa60d6dc1365",
+          "windowCount": 1,
+          "latestClosesAt": "2027-07-01"
         },
-        "berkeley-36400-nutritional-sciences-and-dietetics": {
+        "berkeley-60218-master-of-financial-engineering-mfe-2-year-part-time": {
+          "name": "Master of Financial Engineering MFE 2-Year (Part-Time)",
+          "degreeType": "MFE",
+          "faculty": "Business",
+          "department": "Business",
+          "parseStatus": "incomplete",
+          "deadlineHash": "bb35c16482a55d8bc2fa1cc9499056f66294fa3921f6f06f4b81378cb3f0a13e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-07-01"
+        },
+        "berkeley-36400-master-of-nutritional-sciences-and-dietetics-mnsd": {
           "name": "Master of Nutritional Sciences and Dietetics MNSD",
           "degreeType": "MNSD",
           "faculty": "Metabolic Biology & Nutrition",
           "department": "Metabolic Biology & Nutrition",
           "parseStatus": "incomplete",
-          "deadlineHash": "a796abec916534309225ecb87afbd499dd4545d830cba9a0ecc75ace3349c01c"
+          "deadlineHash": "6287e94843ccbdaae109a0c6974fc7afa1fe52858a9f614e10dbdfbdfc85fe6d",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
-        "berkeley-24810-master-in-real-estate-development-design": {
-          "name": "Master of Real Estate Development + Design (MRED+D)",
+        "berkeley-24810-master-of-real-estate-development-design-mredd": {
+          "name": "Master of Real Estate Development + Design MRED+D",
           "degreeType": "MRED+D",
           "faculty": "Institute of Urban & Regional Development",
           "department": "Institute of Urban & Regional Development",
           "parseStatus": "incomplete",
-          "deadlineHash": "39bba6961d4734d2deb6a2c2fcb17a7f955c96e932570d1a335b57ca58b89997"
+          "deadlineHash": "ede86e5a49c9b1350da49cbffd2794774ed7cf3a940ca51953b63e4877f3ed0c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-22"
         },
-        "berkeley-40825-materials-science-engineering-5th-year-ms-for-uc-berkeley-students": {
-          "name": "Materials Science & Engineering 5th-Year MS (For UC Berkeley Students)",
+        "berkeley-40825-materials-science-and-engineering-5th-year-ms-for-ucb-students-only": {
+          "name": "Materials Science and Engineering 5th-Year MS (For UCB students only)",
           "degreeType": "MS",
           "faculty": "Materials Science & Engineering",
           "department": "Materials Science & Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "7c30809e4b96257af861f97ff61c53c9138195cd14c83a8b91c433032b2cdd7a"
+          "deadlineHash": "63af1d7045128e8e05da4c96d621a7de79a70852cc90f8f5d036ca2c69e0165c",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-40827-materials-science-engineering-meng": {
-          "name": "Materials Science & Engineering MEng",
+        "berkeley-40827-materials-science-and-engineering-meng": {
+          "name": "Materials Science and Engineering MEng",
           "degreeType": "MEng",
           "faculty": "Materials Science & Engineering",
           "department": "Materials Science & Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "4cd74705452cc8462a1df2bda4ed24685f0822cf515ea6e952c1fadb899a2214"
+          "deadlineHash": "0d6c22e6d7edd03abda630fd01b4fbdd42e97b50298968865b293a859387a763",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-40829-materials-science-engineering-ms-phd": {
-          "name": "Materials Science & Engineering MS/PhD",
+        "berkeley-40829-materials-science-and-engineering-ms-phd": {
+          "name": "Materials Science and Engineering MS/PhD",
           "degreeType": "MS/PhD",
           "faculty": "Materials Science & Engineering",
           "department": "Materials Science & Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "c192e83eb3323b6cb7fcdd51c257dfd4202c3bce8ebc41bd243b057ff1233b12"
+          "deadlineHash": "3391021345436dfe73d1bf9f89d8761c23765b60ca6074e26971c0fbf1158b2c",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-40833-mathematics-ma-for-uc-berkeley-graduate-students": {
-          "name": "Mathematics MA (For UC Berkeley Graduate Students)",
+        "berkeley-40833-mathematics-ma-for-ucb-graduate-students-only": {
+          "name": "Mathematics MA (For UCB Graduate students only)",
           "degreeType": "MA",
           "faculty": "Mathematics",
           "department": "Mathematics",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
-        "berkeley-20462-business-administration-mba-for-executives": {
-          "name": "MBA for Executives",
-          "degreeType": "MBA",
-          "faculty": "Business",
-          "department": "Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-        },
-        "berkeley-40837-mechanical-engineering-5th-year-ms-for-uc-berkeley-students": {
-          "name": "Mechanical Engineering 5th-Year MS (For UC Berkeley Students)",
+        "berkeley-40837-mechanical-engineering-5th-year-ms-for-ucb-students-only": {
+          "name": "Mechanical Engineering 5th-Year MS (For UCB students only)",
           "degreeType": "MS",
           "faculty": "Mechanical Engineering",
           "department": "Mechanical Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "bc0aa58e0b1a0ce1f33da8a873b67f15f1c77ca6f11a67b7dcdb2782c05c63eb"
+          "deadlineHash": "d17a51fe9bcb62326f03fda88a65741c7038e17f7297e4dd53af8f314c56495e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
         "berkeley-40839-mechanical-engineering-meng": {
           "name": "Mechanical Engineering MEng",
@@ -645,7 +983,9 @@
           "faculty": "Mechanical Engineering",
           "department": "Mechanical Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "b7866c9cded41dd6a664601ff21d1ebe6feb5b8bb4bc79628fded7401389b129"
+          "deadlineHash": "d0ab1a963ae1d34a99e7128b5c27b6db2994e3923dc314820f1b2cf329631c63",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
         "berkeley-40841-mechanical-engineering-ms-phd": {
           "name": "Mechanical Engineering MS/PhD",
@@ -653,23 +993,29 @@
           "faculty": "Mechanical Engineering",
           "department": "Mechanical Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "f30308a5b1f3b75d20c3062b5bb055527fb85d70187e5687b49d0196a4eeb4c9"
+          "deadlineHash": "d2487cf4b8b384856110553f159c55dc42e442b97fed4e59f20fe31438634548",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20415-metabolic-biology": {
+        "berkeley-20415-metabolic-biology-ms": {
           "name": "Metabolic Biology MS",
           "degreeType": "MS",
           "faculty": "Metabolic Biology Graduate Group",
           "department": "Metabolic Biology Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "b7f08a5b1f0734031b1a1c7470c1e10e871561df0621af28e3b09a3080e5e563"
+          "deadlineHash": "e1b801196522245c12d2cf9015c3dbdb35d8ce04da15bb1314c5bcb1f317e7cd",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-29145-molecular-science-and-software-engineering": {
+        "berkeley-29145-molecular-science-and-software-engineering-msse": {
           "name": "Molecular Science and Software Engineering MSSE",
           "degreeType": "MSSE",
           "faculty": "Chemistry",
           "department": "Chemistry",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40861-nuclear-engineering-meng": {
           "name": "Nuclear Engineering MEng",
@@ -677,111 +1023,259 @@
           "faculty": "Nuclear Engineering",
           "department": "Nuclear Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "d76226409748b91ca1477b76d014023659a2839e261d211df58dd842ee74bdfc"
+          "deadlineHash": "3913c18b8f53a226bffb7723c670d4445c5c8fc4fe2fac37c937c0a4cdc67c4c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-21480-master-of-public-affairs": {
+        "berkeley-21480-public-affairs-mpa": {
           "name": "Public Affairs MPA",
           "degreeType": "MPA",
           "faculty": "Public Policy",
           "department": "Public Policy",
           "parseStatus": "incomplete",
-          "deadlineHash": "e93bacd1b1e15cb9af1e3ae14487b17f49e2ecf59a03c6538ad9b66c2e24356f"
+          "deadlineHash": "74e54ccefcde3f5e14bf100d22ba5d1a33375cdfcd7337ba34686eda04a8a712",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-01"
         },
-        "berkeley-40877-public-health-journalism-mph-mjour": {
-          "name": "Public Health & Journalism MPH/MJour",
-          "degreeType": "MJ/MPH",
-          "faculty": "Public Health",
-          "department": "Public Health",
-          "parseStatus": "incomplete",
-          "deadlineHash": "3420b1f2b86f8c65d24a665a0caa3f84b89ffe1ec96914fcfc7fc64c09db02aa"
-        },
-        "berkeley-40880-public-health-mph": {
-          "name": "Public Health MPH",
+        "berkeley-60252-public-health-mph-environmental-health-sciences-2-year": {
+          "name": "Public Health MPH – Environmental Health Sciences (2-year)",
           "degreeType": "MPH",
           "faculty": "Public Health",
           "department": "Public Health",
           "parseStatus": "incomplete",
-          "deadlineHash": "720f890f1b99106829421599dc4874f099b7a699202cf9ec86abf6c67dcac819"
+          "deadlineHash": "d06b91e7101549f3c6edd31e9410e14e76da7f2a51855d5c310859afee44c1bd",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-40882-public-health-mph-summer-start": {
-          "name": "Public Health MPH – Summer Start",
+        "berkeley-60253-public-health-mph-epidemiology-11-month": {
+          "name": "Public Health MPH – Epidemiology (11-month)",
           "degreeType": "MPH",
           "faculty": "Public Health",
           "department": "Public Health",
           "parseStatus": "incomplete",
-          "deadlineHash": "d0c33f4a5381c077585ccb3c094dd552604f81b39c6ee78dbc8ef8fc880ab9b6"
+          "deadlineHash": "5bb86991b1eec29b68387839bc2a4c804bd2161a833cb9d0ad47e6d180c5e66a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-40884-public-health-on-campus-online-mph": {
-          "name": "Public Health On-Campus/Online MPH",
+        "berkeley-60254-public-health-mph-epidemiology-and-biostatistics-2-year": {
+          "name": "Public Health MPH – Epidemiology and Biostatistics (2-year)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b38b478bbcd39fb182c1598b494883ad64ea0771d330100ac796ee15063a1751",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60255-public-health-mph-epidemiology-and-biostatistics-41": {
+          "name": "Public Health MPH – Epidemiology and Biostatistics (4+1)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "df4eeb09b4cac6b4178e5558a4b945b54bbc27a1a671e008900c94ee2352786e",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60256-public-health-mph-food-nutrition-and-population-health-11-month": {
+          "name": "Public Health MPH – Food, Nutrition and Population Health (11-month)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "8c012ef0582859a02a7f26f271be161082e97cfa323615204e97c5b78d0febec",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-01"
+        },
+        "berkeley-60257-public-health-mph-food-nutrition-and-population-health-2-year": {
+          "name": "Public Health MPH – Food, Nutrition and Population Health (2-year)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc8ec2f7b23b8b87c653851a4a072dc94046a182b746bc568ead2ba7660d3f03",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-01"
+        },
+        "berkeley-60258-public-health-mph-food-nutrition-and-population-health-41": {
+          "name": "Public Health MPH – Food, Nutrition and Population Health (4+1)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "c9fb456392eaefae031bee1dcc75754a54485b544b57c55bee3c081be0bfcd43",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60259-public-health-mph-global-health-and-environment-2-year": {
+          "name": "Public Health MPH – Global Health and Environment (2-year)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "4b3aead416ceabf90aeb8f31713c8ee02cd78100d58c13cbf2026d90e15459b9",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60260-public-health-mph-health-and-social-behavior-2-year": {
+          "name": "Public Health MPH – Health and Social Behavior (2-year)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "aecc148cf6ac62459670ee88897279bece1d04cdce2ec91de4cbbbe66012ddba",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60261-public-health-mph-health-policy-and-management-2-year": {
+          "name": "Public Health MPH – Health Policy and Management (2-year)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7888de3aace326d5278c99d70564689a125044d0df1d017d6358ce94b6c0568d",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60262-public-health-mph-infectious-diseases-and-vaccinology-2-year": {
+          "name": "Public Health MPH – Infectious Diseases and Vaccinology (2-year)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7c132a0ec7a0485f2a703e95357d3d0fa275d3197c1c29a49515b92806cc53f2",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60263-public-health-mph-interdisciplinary-11-month": {
+          "name": "Public Health MPH – Interdisciplinary (11-month)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "05547763671519668997c04253e483b3d6fec2aa67e21cdaeffe097e606f094e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-01"
+        },
+        "berkeley-60264-public-health-mph-maternal-child-and-adolescent-11-month": {
+          "name": "Public Health MPH – Maternal, Child and Adolescent (11-month)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "133a02cd8460e98177884b5b95eff9060bbaddbd752594e145c3470b5c053b64",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60265-public-health-mph-maternal-child-and-adolescent-2-year": {
+          "name": "Public Health MPH – Maternal, Child and Adolescent (2-year)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f49ec53b67a12a5e07a00459948f16dd91e0cf4eef23d1863c52ffa71654ab07",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60266-public-health-mph-maternal-child-and-adolescent-health-41": {
+          "name": "Public Health MPH – Maternal, Child and Adolescent Health (4+1)",
+          "degreeType": "MPH",
+          "faculty": "Public Health",
+          "department": "Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "07b156cd2d2720bb57cd931481861c8d391b7f52decc1697780191dbf6775444",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-40884-public-health-online-mph": {
+          "name": "Public Health-Online MPH",
           "degreeType": "MPH",
           "faculty": "Public Health",
           "department": "Public Health",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40890-public-policy-civil-and-environmental-engineering-mpp-ms": {
-          "name": "Public Policy & Civil and Environmental Engineering MPP/MS",
+          "name": "Public Policy / Civil and Environmental Engineering MPP/MS",
           "degreeType": "MPP/MS",
           "faculty": "Public Policy",
           "department": "Public Policy",
-          "parseStatus": "incomplete",
-          "deadlineHash": "c9086fd496f3aa4e24d7684e6ded2eec6964bfa31c3e8427ee20f57647904679"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40892-public-policy-electrical-engineering-and-computer-sciences-mpp-ms": {
-          "name": "Public Policy & Electrical Engineering and Computer Sciences MPP/MS",
+          "name": "Public Policy / Electrical Engineering and Computer Sciences MPP/MS",
           "degreeType": "MPP/MS",
           "faculty": "Public Policy",
           "department": "Public Policy",
-          "parseStatus": "incomplete",
-          "deadlineHash": "9468e9a125d680adc01f002fffac88336c9d938a2ab378d1aef3c5afbc105812"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40894-public-policy-energy-and-resources-mpp-ma": {
-          "name": "Public Policy & Energy and Resources MPP/MA",
+          "name": "Public Policy / Energy and Resources MPP/MA",
           "degreeType": "MA/MPP",
           "faculty": "Public Policy",
           "department": "Public Policy",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40896-public-policy-energy-and-resources-mpp-ms": {
-          "name": "Public Policy & Energy and Resources MPP/MS",
+          "name": "Public Policy / Energy and Resources MPP/MS",
           "degreeType": "MPP/MS",
           "faculty": "Public Policy",
           "department": "Public Policy",
           "parseStatus": "incomplete",
-          "deadlineHash": "2b24f68c8b7ed507a31138ce4df0eb775cc7e8787147766c30c16dab9794015b"
+          "deadlineHash": "c30eff9d8dfb25bd3d8c46dabda2036dca2e2a23ddbc5176b3081e86e62b9bec",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60272-public-policy-health-policy-and-management-mpp-mph": {
+          "name": "Public Policy / Health Policy and Management MPP/MPH",
+          "degreeType": "MPH/MPP",
+          "faculty": "Public Policy, Public Health",
+          "department": "Public Policy, Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b94a6ba7479721cf2653bf2f713f88a7aff02ed8205d55e632d3e3991a6ae5bf",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40899-public-policy-law-mpp-jd": {
-          "name": "Public Policy & Law MPP/JD",
+          "name": "Public Policy / Law MPP/JD",
           "degreeType": "JD/MPP",
           "faculty": "Public Policy",
           "department": "Public Policy",
           "parseStatus": "incomplete",
-          "deadlineHash": "6c3e3ee6cead798cead7304f912729f14da2e8cb303ce50ee56d656ece36a018"
+          "deadlineHash": "dc70dcc418c6854c05784637bb66470aa0f4fac0aa9b5f5b4ab19cdc70aeda6a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40901-public-policy-mechanical-engineering-mpp-ms": {
-          "name": "Public Policy & Mechanical Engineering MPP/MS",
+          "name": "Public Policy / Mechanical Engineering MPP/MS",
           "degreeType": "MPP/MS",
           "faculty": "Public Policy",
           "department": "Public Policy",
           "parseStatus": "incomplete",
-          "deadlineHash": "89dec1f3bfc8a23fba760ba2c7173299ed460603236c796cbf2338ddeb781a47"
+          "deadlineHash": "f042428d60438d4434b10e28e145c535badbf2dd8bcffe04a6b8f4fff4a16776",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40903-public-policy-nuclear-engineering-mpp-ms": {
-          "name": "Public Policy & Nuclear Engineering MPP/MS",
+          "name": "Public Policy / Nuclear Engineering MPP/MS",
           "degreeType": "MPP/MS",
           "faculty": "Public Policy",
           "department": "Public Policy",
           "parseStatus": "incomplete",
-          "deadlineHash": "e621b61d1f4b9028500bfb34666930506058725fc9ddd9e0531b1d81d5b244d7"
-        },
-        "berkeley-40905-public-policy-public-health-mpp-mph": {
-          "name": "Public Policy & Public Health MPP/MPH",
-          "degreeType": "MPH/MPP",
-          "faculty": "Public Health",
-          "department": "Public Health",
-          "parseStatus": "incomplete",
-          "deadlineHash": "e38980061e87b6a7126cb0df6e44915f0a2699830d35f63ef5f97e1e6bddbb1f"
+          "deadlineHash": "46145901ff5884cf406572694840f1d57d732592e8646546763eb261db570307",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40907-public-policy-mpp": {
           "name": "Public Policy MPP",
@@ -789,39 +1283,69 @@
           "faculty": "Public Policy",
           "department": "Public Policy",
           "parseStatus": "incomplete",
-          "deadlineHash": "5ad45091de6a0bb5034656fa6ea659caa3f5cb80ead267c8d82606e08f365220"
+          "deadlineHash": "59249656a20cfa441e7950ea96814521491c31c60049ee8fb8ee293967328549",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-20426-range-management": {
+        "berkeley-20426-rangeland-and-wildlife-management-ms": {
           "name": "Rangeland and Wildlife Management MS",
           "degreeType": "MS",
           "faculty": "Rangeland & Wildlife Mgmt Graduate Group",
           "department": "Rangeland & Wildlife Mgmt Graduate Group",
           "parseStatus": "incomplete",
-          "deadlineHash": "57fecf1a6bc43f98797c1e987dd5037466f37eda049c3dcba6dba4d2b9e9563b"
+          "deadlineHash": "f4a9d89709d9db9483af1f672e759c74ce6430cb15249d3add4a5627989a4c63",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
+        },
+        "berkeley-60284-social-welfare-food-nutrition-and-population-health-msw-mph": {
+          "name": "Social Welfare / Food, Nutrition and Population Health MSW/MPH",
+          "degreeType": "MPH/MSW",
+          "faculty": "Social Welfare, Public Health",
+          "department": "Social Welfare, Public Health",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "berkeley-60285-social-welfare-health-and-social-behavior-msw-mph": {
+          "name": "Social Welfare / Health and Social Behavior MSW/MPH",
+          "degreeType": "MPH/MSW",
+          "faculty": "Social Welfare, Public Health",
+          "department": "Social Welfare, Public Health",
+          "parseStatus": "incomplete",
+          "deadlineHash": "ae4758becaa3a05f978dacacb7b634577aff9223ee468fc16eb196662e5db247",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40923-social-welfare-law-msw-jd": {
-          "name": "Social Welfare & Law MSW/JD",
+          "name": "Social Welfare / Law MSW/JD",
           "degreeType": "JD/MSW",
           "faculty": "Social Welfare",
           "department": "Social Welfare",
-          "parseStatus": "incomplete",
-          "deadlineHash": "d65fcc2dcae1ec1c9102a478acaf0af10f7b63f5cbc29cb96d998aa5f6b7b316"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
-        "berkeley-40925-social-welfare-public-health-msw-mph": {
-          "name": "Social Welfare & Public Health MSW/MPH",
+        "berkeley-60287-social-welfare-maternal-child-and-adolescent-health-msw-mph": {
+          "name": "Social Welfare / Maternal, Child and Adolescent Health MSW/MPH",
           "degreeType": "MPH/MSW",
-          "faculty": "Social Welfare",
-          "department": "Social Welfare",
+          "faculty": "Social Welfare, Law",
+          "department": "Social Welfare, Law",
           "parseStatus": "incomplete",
-          "deadlineHash": "0bcc3046170871c1c2033ebbd436b5edbcef7236228daab8b395f141dea668de"
+          "deadlineHash": "589dc190611bdea3851465061ec87ff3b1b05a0414e561104ac09abb88feab7d",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40927-social-welfare-public-policy-msw-mpp": {
-          "name": "Social Welfare & Public Policy MSW/MPP",
+          "name": "Social Welfare / Public Policy MSW/MPP",
           "degreeType": "MPP/MSW",
           "faculty": "Social Welfare",
           "department": "Social Welfare",
           "parseStatus": "incomplete",
-          "deadlineHash": "84353c6823d68246db6a68175da64f69476fb3bc671130d28d8623cd06caccf9"
+          "deadlineHash": "78af15952b253b3e1ebfaa02e47d67bcc6d523c64df2e2b5e3b5a9d8ee249e9d",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "berkeley-40929-social-welfare-advanced-standing-flex-msw": {
           "name": "Social Welfare Advanced Standing Flex MSW",
@@ -829,7 +1353,9 @@
           "faculty": "Social Welfare",
           "department": "Social Welfare",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40931-social-welfare-extended-flex-msw": {
           "name": "Social Welfare Extended Flex MSW",
@@ -837,7 +1363,9 @@
           "faculty": "Social Welfare",
           "department": "Social Welfare",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "berkeley-40933-social-welfare-msw": {
           "name": "Social Welfare MSW",
@@ -845,39 +1373,1012 @@
           "faculty": "Social Welfare",
           "department": "Social Welfare",
           "parseStatus": "incomplete",
-          "deadlineHash": "320a74a32155cf497ae5a2d8ac6018fa59d4b8cba15e325758f54e7a576fdbee"
+          "deadlineHash": "b55e5a52329a2501c320e7ebef5356212f137020d9077d5ace5edf3219f7707e",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
-        "berkeley-55128-statistics-5th-year-ma-for-uc-berkeley-students": {
-          "name": "Statistics 5th Year MA (For UC Berkeley Students)",
+        "berkeley-55128-statistics-and-data-science-5th-year-ma-for-ucb-students-only": {
+          "name": "Statistics and Data Science 5th-year MA (For UCB students only)",
           "degreeType": "MA",
           "faculty": "Statistics",
           "department": "Statistics",
           "parseStatus": "incomplete",
-          "deadlineHash": "1c83c89fadddb97e53029300b2240df69dc1d909311ef3af0067e85ab4d27707"
+          "deadlineHash": "89a2d64d6fcaf1b94406f6c74623f81e90a0c575357070520903a0fb44567e52",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-20"
         },
-        "berkeley-20327-statistics": {
-          "name": "Statistics MA",
+        "berkeley-20327-statistics-and-data-science-ma": {
+          "name": "Statistics and Data Science MA",
           "degreeType": "MA",
           "faculty": "Statistics",
           "department": "Statistics",
           "parseStatus": "incomplete",
-          "deadlineHash": "7e187d9aa97cc45abc9a3fcb7078a2f2d5a2692569c64c7f89752493ff6cf768"
+          "deadlineHash": "7e20b5de3a4dc55be389fc5cb8cfc0283144396e2670b1603af4fd831bcbcd92",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-20326-translational-medicine-joint-with-ucsf": {
+        "berkeley-20326-translational-medicine-joint-ucsf-mtm": {
           "name": "Translational Medicine (joint UCSF) MTM",
           "degreeType": "MTM",
           "faculty": "Bioengineering",
           "department": "Bioengineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "c95085cfb2c6f09b189a170d6db4f64c24565fb4077e70dac66a37b64e791a2e"
+          "deadlineHash": "1d34b19d5e0f7e6de5605d81bcede9d2d6c28af927d8f38d1171631fbbad403d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
-        "berkeley-20325-urban-design": {
+        "berkeley-20325-urban-design-mud": {
           "name": "Urban Design MUD",
           "degreeType": "MUD",
           "faculty": "Institute of Urban & Regional Development",
           "department": "Institute of Urban & Regional Development",
           "parseStatus": "incomplete",
-          "deadlineHash": "409ac531c255b2576ed7d348e40ce3b07ddef670cb0db74d707e3273568310aa"
+          "deadlineHash": "de49c4df182bbd83ca32fdf0559d41b9d6bee5b1d8bf4eb119d1ac7f30597856",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
+        }
+      },
+      "windows": {
+        "berkeley-40579-anthropology-5th-year-ma-for-ucb-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40579-anthropology-5th-year-ma-for-ucb-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/anthropology-5th-year-ma-for-ucb-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-40956-architecture-civil-and-environmental-engineering-march-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40956-architecture-civil-and-environmental-engineering-march-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/architecture-civil-and-environmental-engineering-march-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-40954-architecture-master-of-city-planning-march-mcp::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40954-architecture-master-of-city-planning-march-mcp",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/architecture-master-of-city-planning-march-mcp/",
+          "opensAtBasis": null
+        },
+        "berkeley-20342-architecture-march::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20342-architecture-march",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-05",
+          "sourceUrl": "https://grad.berkeley.edu/program/architecture-march/",
+          "opensAtBasis": null
+        },
+        "berkeley-40604-architecture-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40604-architecture-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-05",
+          "sourceUrl": "https://grad.berkeley.edu/program/architecture-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-20343-art-practice-mfa::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20343-art-practice-mfa",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/art-practice-mfa/",
+          "opensAtBasis": null
+        },
+        "berkeley-20344-asian-studies-ma::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20344-asian-studies-ma",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/asian-studies-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-20350-bioengineering-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20350-bioengineering-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/bioengineering-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-20352-biostatistics-ma::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20352-biostatistics-ma",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/biostatistics-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-60095-business-administration-bioengineering-mba-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60095-business-administration-bioengineering-mba-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-07",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-bioengineering-mba-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-60096-business-administration-civil-and-environmental-engineering-mba-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60096-business-administration-civil-and-environmental-engineering-mba-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-07",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-civil-and-environmental-engineering-mba-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-45636-business-administration-climate-solutions-mba-mcs::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-45636-business-administration-climate-solutions-mba-mcs",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-climate-solutions-mba-mcs/",
+          "opensAtBasis": null
+        },
+        "berkeley-60098-business-administration-electrical-engineering-and-computer-sciences-mba-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60098-business-administration-electrical-engineering-and-computer-sciences-mba-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-07",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-electrical-engineering-and-computer-sciences-mba-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-60099-business-administration-health-policy-and-management-mba-mph::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60099-business-administration-health-policy-and-management-mba-mph",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-health-policy-and-management-mba-mph/",
+          "opensAtBasis": null
+        },
+        "berkeley-60100-business-administration-industrial-engineering-and-operations-research-mba-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60100-business-administration-industrial-engineering-and-operations-research-mba-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-07",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-industrial-engineering-and-operations-research-mba-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-40962-business-administration-law-mba-jd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40962-business-administration-law-mba-jd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-law-mba-jd/",
+          "opensAtBasis": null
+        },
+        "berkeley-40960-business-administration-law-mba-jd-hastings::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40960-business-administration-law-mba-jd-hastings",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-law-mba-jd-hastings/",
+          "opensAtBasis": null
+        },
+        "berkeley-60103-business-administration-materials-science-and-engineering-mba-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60103-business-administration-materials-science-and-engineering-mba-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-07",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-materials-science-and-engineering-mba-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-60104-business-administration-mechanical-engineering-mba-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60104-business-administration-mechanical-engineering-mba-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-07",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-mechanical-engineering-mba-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-60105-business-administration-nuclear-engineering-mba-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60105-business-administration-nuclear-engineering-mba-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-07",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-nuclear-engineering-mba-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-20463-business-administration-mba::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20463-business-administration-mba",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/business-administration-mba/",
+          "opensAtBasis": null
+        },
+        "berkeley-40636-chemical-and-biomolecular-engineering-prof-ms-pdp::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40636-chemical-and-biomolecular-engineering-prof-ms-pdp",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-11",
+          "sourceUrl": "https://grad.berkeley.edu/program/chemical-and-biomolecular-engineering-prof-ms-pdp/",
+          "opensAtBasis": null
+        },
+        "berkeley-20359-civil-and-environmental-engineering-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20359-civil-and-environmental-engineering-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/civil-and-environmental-engineering-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-40666-civil-and-environmental-engineering-prof-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40666-civil-and-environmental-engineering-prof-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/civil-and-environmental-engineering-prof-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-20367-demography-ma::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20367-demography-ma",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/demography-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-29143-design-mdes::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-29143-design-mdes",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/design-mdes/",
+          "opensAtBasis": null
+        },
+        "berkeley-31618-development-engineering-mdeveng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-31618-development-engineering-mdeveng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/development-engineering-mdeveng/",
+          "opensAtBasis": null
+        },
+        "berkeley-20368-development-practice-mdp::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20368-development-practice-mdp",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-02-23",
+          "sourceUrl": "https://grad.berkeley.edu/program/development-practice-mdp/",
+          "opensAtBasis": null
+        },
+        "berkeley-40691-earth-and-planetary-science-5th-year-ma-for-ucb-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40691-earth-and-planetary-science-5th-year-ma-for-ucb-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/earth-and-planetary-science-5th-year-ma-for-ucb-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-40696-economics-ma-ucb-graduate-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40696-economics-ma-ucb-graduate-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/economics-ma-ucb-graduate-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-40702-education-ma::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40702-education-ma",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/education-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-40706-education-admin-services-credential-cred-ma::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-40706-education-admin-services-credential-cred-ma",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/education-admin-services-credential-cred-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-40711-education-teaching-credential-cred-ma::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-40711-education-teaching-credential-cred-ma",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/education-teaching-credential-cred-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-20366-eecs-computer-science-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20366-eecs-computer-science-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/eecs-computer-science-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-40678-eecs-computer-science-ms-phd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40678-eecs-computer-science-ms-phd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/eecs-computer-science-ms-phd/",
+          "opensAtBasis": null
+        },
+        "berkeley-40715-eecs-electrical-engineering-and-computer-sciences-5th-year-ms-for-ucb-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40715-eecs-electrical-engineering-and-computer-sciences-5th-year-ms-for-ucb-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/eecs-electrical-engineering-and-computer-sciences-5th-year-ms-for-ucb-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-40717-eecs-electrical-engineering-and-computer-sciences-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40717-eecs-electrical-engineering-and-computer-sciences-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/eecs-electrical-engineering-and-computer-sciences-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-40719-eecs-electrical-engineering-and-computer-sciences-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40719-eecs-electrical-engineering-and-computer-sciences-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/eecs-electrical-engineering-and-computer-sciences-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-40721-eecs-electrical-engineering-and-computer-sciences-ms-phd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40721-eecs-electrical-engineering-and-computer-sciences-ms-phd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/eecs-electrical-engineering-and-computer-sciences-ms-phd/",
+          "opensAtBasis": null
+        },
+        "berkeley-40731-energy-and-resources-law-ms-jd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40731-energy-and-resources-law-ms-jd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/energy-and-resources-law-ms-jd/",
+          "opensAtBasis": null
+        },
+        "berkeley-40735-energy-and-resources-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40735-energy-and-resources-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/energy-and-resources-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-60154-environmental-health-sciences-journalism-mph-mj::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60154-environmental-health-sciences-journalism-mph-mj",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/environmental-health-sciences-journalism-mph-mj/",
+          "opensAtBasis": null
+        },
+        "berkeley-20382-environmental-health-sciences-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20382-environmental-health-sciences-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/environmental-health-sciences-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-60158-epidemiology-and-biostatistics-journalism-mph-mj::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60158-epidemiology-and-biostatistics-journalism-mph-mj",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/epidemiology-and-biostatistics-journalism-mph-mj/",
+          "opensAtBasis": null
+        },
+        "berkeley-20384-epidemiology-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20384-epidemiology-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/epidemiology-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-20467-evening-and-weekend-mba::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20467-evening-and-weekend-mba",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-05-31",
+          "sourceUrl": "https://grad.berkeley.edu/program/evening-and-weekend-mba/",
+          "opensAtBasis": null
+        },
+        "berkeley-20462-executive-mba::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20462-executive-mba",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-05-31",
+          "sourceUrl": "https://grad.berkeley.edu/program/executive-mba/",
+          "opensAtBasis": null
+        },
+        "berkeley-20387-folklore-ma::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20387-folklore-ma",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/folklore-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-40753-forestry-5th-year-mf-for-ucb-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40753-forestry-5th-year-mf-for-ucb-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/forestry-5th-year-mf-for-ucb-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-20955-forestry-mf::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20955-forestry-mf",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/forestry-mf/",
+          "opensAtBasis": null
+        },
+        "berkeley-23173-global-studies-ma::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-23173-global-studies-ma",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/global-studies-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-20457-health-and-medical-sciences-joint-ucsf-ms-dept-pre-approval-to-apply::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20457-health-and-medical-sciences-joint-ucsf-ms-dept-pre-approval-to-apply",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-02-16",
+          "sourceUrl": "https://grad.berkeley.edu/program/health-and-medical-sciences-joint-ucsf-ms-dept-pre-approval-to-apply/",
+          "opensAtBasis": null
+        },
+        "berkeley-60173-health-and-social-behavior-journalism-mph-mj::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60173-health-and-social-behavior-journalism-mph-mj",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/health-and-social-behavior-journalism-mph-mj/",
+          "opensAtBasis": null
+        },
+        "berkeley-40769-industrial-engineering-and-operations-research-5th-year-ms-for-ucb-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40769-industrial-engineering-and-operations-research-5th-year-ms-for-ucb-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/industrial-engineering-and-operations-research-5th-year-ms-for-ucb-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-40771-industrial-engineering-and-operations-research-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40771-industrial-engineering-and-operations-research-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/industrial-engineering-and-operations-research-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-40773-industrial-engineering-and-operations-research-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40773-industrial-engineering-and-operations-research-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/industrial-engineering-and-operations-research-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-20400-information-management-and-systems-mims::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20400-information-management-and-systems-mims",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/information-management-and-systems-mims/",
+          "opensAtBasis": null
+        },
+        "berkeley-40793-journalism-asian-studies-mj-ma::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40793-journalism-asian-studies-mj-ma",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/journalism-asian-studies-mj-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-20403-journalism-mj::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20403-journalism-mj",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-14",
+          "sourceUrl": "https://grad.berkeley.edu/program/journalism-mj/",
+          "opensAtBasis": null
+        },
+        "berkeley-40798-landscape-architecture-architecture-mla-march::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40798-landscape-architecture-architecture-mla-march",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-05",
+          "sourceUrl": "https://grad.berkeley.edu/program/landscape-architecture-architecture-mla-march/",
+          "opensAtBasis": null
+        },
+        "berkeley-40800-landscape-architecture-master-of-city-planning-mla-mcp::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40800-landscape-architecture-master-of-city-planning-mla-mcp",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/landscape-architecture-master-of-city-planning-mla-mcp/",
+          "opensAtBasis": null
+        },
+        "berkeley-40802-landscape-architecture-mla::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40802-landscape-architecture-mla",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-05",
+          "sourceUrl": "https://grad.berkeley.edu/program/landscape-architecture-mla/",
+          "opensAtBasis": null
+        },
+        "berkeley-33598-master-of-analytics-manlytx::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-33598-master-of-analytics-manlytx",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-analytics-manlytx/",
+          "opensAtBasis": null
+        },
+        "berkeley-60205-master-of-artificial-intelligence-and-machine-learning-maiml::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60205-master-of-artificial-intelligence-and-machine-learning-maiml",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-11",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-artificial-intelligence-and-machine-learning-maiml/",
+          "opensAtBasis": null
+        },
+        "berkeley-40816-master-of-bioprocess-engineering-mbe::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40816-master-of-bioprocess-engineering-mbe",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-19",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-bioprocess-engineering-mbe/",
+          "opensAtBasis": null
+        },
+        "berkeley-41140-master-of-biotechnology::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-41140-master-of-biotechnology",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2027-01-14",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-biotechnology/",
+          "opensAtBasis": null
+        },
+        "berkeley-40649-master-of-city-planning-civil-and-environmental-engineering-mcp-prof-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40649-master-of-city-planning-civil-and-environmental-engineering-mcp-prof-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-city-planning-civil-and-environmental-engineering-mcp-prof-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-60209-master-of-city-planning-environmental-health-sciences-mcp-mph::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60209-master-of-city-planning-environmental-health-sciences-mcp-mph",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-city-planning-environmental-health-sciences-mcp-mph/",
+          "opensAtBasis": null
+        },
+        "berkeley-60210-master-of-city-planning-epidemiology-and-biostatistics-mcp-mph::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60210-master-of-city-planning-epidemiology-and-biostatistics-mcp-mph",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-city-planning-epidemiology-and-biostatistics-mcp-mph/",
+          "opensAtBasis": null
+        },
+        "berkeley-60211-master-of-city-planning-health-and-social-behavior-mcp-mph::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60211-master-of-city-planning-health-and-social-behavior-mcp-mph",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-city-planning-health-and-social-behavior-mcp-mph/",
+          "opensAtBasis": null
+        },
+        "berkeley-40658-master-of-city-planning-law-mcp-jd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40658-master-of-city-planning-law-mcp-jd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-city-planning-law-mcp-jd/",
+          "opensAtBasis": null
+        },
+        "berkeley-40656-master-of-city-planning-law-mcp-jd-hastings::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40656-master-of-city-planning-law-mcp-jd-hastings",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-city-planning-law-mcp-jd-hastings/",
+          "opensAtBasis": null
+        },
+        "berkeley-40818-master-of-city-planning-mcp::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40818-master-of-city-planning-mcp",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-22",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-city-planning-mcp/",
+          "opensAtBasis": null
+        },
+        "berkeley-45837-master-of-climate-solutions-mcs::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-45837-master-of-climate-solutions-mcs",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-22",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-climate-solutions-mcs/",
+          "opensAtBasis": null
+        },
+        "berkeley-41031-master-of-computational-social-science-macss::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-41031-master-of-computational-social-science-macss",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-computational-social-science-macss/",
+          "opensAtBasis": null
+        },
+        "berkeley-20464-master-of-financial-engineering-mfe::Spring admission::Application deadline::all": {
+          "programmeId": "berkeley-20464-master-of-financial-engineering-mfe",
+          "intake": "Spring admission",
+          "opensAt": null,
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-financial-engineering-mfe/",
+          "opensAtBasis": null
+        },
+        "berkeley-60218-master-of-financial-engineering-mfe-2-year-part-time::Spring admission::Application deadline::all": {
+          "programmeId": "berkeley-60218-master-of-financial-engineering-mfe-2-year-part-time",
+          "intake": "Spring admission",
+          "opensAt": null,
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-financial-engineering-mfe-2-year-part-time/",
+          "opensAtBasis": null
+        },
+        "berkeley-36400-master-of-nutritional-sciences-and-dietetics-mnsd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-36400-master-of-nutritional-sciences-and-dietetics-mnsd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-nutritional-sciences-and-dietetics-mnsd/",
+          "opensAtBasis": null
+        },
+        "berkeley-24810-master-of-real-estate-development-design-mredd::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-24810-master-of-real-estate-development-design-mredd",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2027-01-22",
+          "sourceUrl": "https://grad.berkeley.edu/program/master-of-real-estate-development-design-mredd/",
+          "opensAtBasis": null
+        },
+        "berkeley-40825-materials-science-and-engineering-5th-year-ms-for-ucb-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40825-materials-science-and-engineering-5th-year-ms-for-ucb-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/materials-science-and-engineering-5th-year-ms-for-ucb-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-40827-materials-science-and-engineering-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40827-materials-science-and-engineering-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/materials-science-and-engineering-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-40829-materials-science-and-engineering-ms-phd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40829-materials-science-and-engineering-ms-phd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/materials-science-and-engineering-ms-phd/",
+          "opensAtBasis": null
+        },
+        "berkeley-40837-mechanical-engineering-5th-year-ms-for-ucb-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40837-mechanical-engineering-5th-year-ms-for-ucb-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/mechanical-engineering-5th-year-ms-for-ucb-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-40839-mechanical-engineering-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40839-mechanical-engineering-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/mechanical-engineering-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-40841-mechanical-engineering-ms-phd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40841-mechanical-engineering-ms-phd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/mechanical-engineering-ms-phd/",
+          "opensAtBasis": null
+        },
+        "berkeley-20415-metabolic-biology-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20415-metabolic-biology-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/metabolic-biology-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-40861-nuclear-engineering-meng::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40861-nuclear-engineering-meng",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/nuclear-engineering-meng/",
+          "opensAtBasis": null
+        },
+        "berkeley-21480-public-affairs-mpa::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-21480-public-affairs-mpa",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-affairs-mpa/",
+          "opensAtBasis": null
+        },
+        "berkeley-60252-public-health-mph-environmental-health-sciences-2-year::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60252-public-health-mph-environmental-health-sciences-2-year",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-environmental-health-sciences-2-year/",
+          "opensAtBasis": null
+        },
+        "berkeley-60253-public-health-mph-epidemiology-11-month::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-60253-public-health-mph-epidemiology-11-month",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-epidemiology-11-month/",
+          "opensAtBasis": null
+        },
+        "berkeley-60254-public-health-mph-epidemiology-and-biostatistics-2-year::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60254-public-health-mph-epidemiology-and-biostatistics-2-year",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-epidemiology-and-biostatistics-2-year/",
+          "opensAtBasis": null
+        },
+        "berkeley-60255-public-health-mph-epidemiology-and-biostatistics-41::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60255-public-health-mph-epidemiology-and-biostatistics-41",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-epidemiology-and-biostatistics-41/",
+          "opensAtBasis": null
+        },
+        "berkeley-60256-public-health-mph-food-nutrition-and-population-health-11-month::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-60256-public-health-mph-food-nutrition-and-population-health-11-month",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-food-nutrition-and-population-health-11-month/",
+          "opensAtBasis": null
+        },
+        "berkeley-60257-public-health-mph-food-nutrition-and-population-health-2-year::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60257-public-health-mph-food-nutrition-and-population-health-2-year",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-food-nutrition-and-population-health-2-year/",
+          "opensAtBasis": null
+        },
+        "berkeley-60258-public-health-mph-food-nutrition-and-population-health-41::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60258-public-health-mph-food-nutrition-and-population-health-41",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-food-nutrition-and-population-health-41/",
+          "opensAtBasis": null
+        },
+        "berkeley-60259-public-health-mph-global-health-and-environment-2-year::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60259-public-health-mph-global-health-and-environment-2-year",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-global-health-and-environment-2-year/",
+          "opensAtBasis": null
+        },
+        "berkeley-60260-public-health-mph-health-and-social-behavior-2-year::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60260-public-health-mph-health-and-social-behavior-2-year",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-health-and-social-behavior-2-year/",
+          "opensAtBasis": null
+        },
+        "berkeley-60261-public-health-mph-health-policy-and-management-2-year::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60261-public-health-mph-health-policy-and-management-2-year",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-health-policy-and-management-2-year/",
+          "opensAtBasis": null
+        },
+        "berkeley-60262-public-health-mph-infectious-diseases-and-vaccinology-2-year::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60262-public-health-mph-infectious-diseases-and-vaccinology-2-year",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-infectious-diseases-and-vaccinology-2-year/",
+          "opensAtBasis": null
+        },
+        "berkeley-60263-public-health-mph-interdisciplinary-11-month::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-60263-public-health-mph-interdisciplinary-11-month",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-interdisciplinary-11-month/",
+          "opensAtBasis": null
+        },
+        "berkeley-60264-public-health-mph-maternal-child-and-adolescent-11-month::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-60264-public-health-mph-maternal-child-and-adolescent-11-month",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-maternal-child-and-adolescent-11-month/",
+          "opensAtBasis": null
+        },
+        "berkeley-60265-public-health-mph-maternal-child-and-adolescent-2-year::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60265-public-health-mph-maternal-child-and-adolescent-2-year",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-maternal-child-and-adolescent-2-year/",
+          "opensAtBasis": null
+        },
+        "berkeley-60266-public-health-mph-maternal-child-and-adolescent-health-41::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60266-public-health-mph-maternal-child-and-adolescent-health-41",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-health-mph-maternal-child-and-adolescent-health-41/",
+          "opensAtBasis": null
+        },
+        "berkeley-40896-public-policy-energy-and-resources-mpp-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40896-public-policy-energy-and-resources-mpp-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-policy-energy-and-resources-mpp-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-60272-public-policy-health-policy-and-management-mpp-mph::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60272-public-policy-health-policy-and-management-mpp-mph",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-policy-health-policy-and-management-mpp-mph/",
+          "opensAtBasis": null
+        },
+        "berkeley-40899-public-policy-law-mpp-jd::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40899-public-policy-law-mpp-jd",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-policy-law-mpp-jd/",
+          "opensAtBasis": null
+        },
+        "berkeley-40901-public-policy-mechanical-engineering-mpp-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40901-public-policy-mechanical-engineering-mpp-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-policy-mechanical-engineering-mpp-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-40903-public-policy-nuclear-engineering-mpp-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40903-public-policy-nuclear-engineering-mpp-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-policy-nuclear-engineering-mpp-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-40907-public-policy-mpp::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40907-public-policy-mpp",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/public-policy-mpp/",
+          "opensAtBasis": null
+        },
+        "berkeley-20426-rangeland-and-wildlife-management-ms::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20426-rangeland-and-wildlife-management-ms",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/rangeland-and-wildlife-management-ms/",
+          "opensAtBasis": null
+        },
+        "berkeley-60285-social-welfare-health-and-social-behavior-msw-mph::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60285-social-welfare-health-and-social-behavior-msw-mph",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/social-welfare-health-and-social-behavior-msw-mph/",
+          "opensAtBasis": null
+        },
+        "berkeley-60287-social-welfare-maternal-child-and-adolescent-health-msw-mph::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-60287-social-welfare-maternal-child-and-adolescent-health-msw-mph",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/social-welfare-maternal-child-and-adolescent-health-msw-mph/",
+          "opensAtBasis": null
+        },
+        "berkeley-40927-social-welfare-public-policy-msw-mpp::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40927-social-welfare-public-policy-msw-mpp",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/social-welfare-public-policy-msw-mpp/",
+          "opensAtBasis": null
+        },
+        "berkeley-40933-social-welfare-msw::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-40933-social-welfare-msw",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://grad.berkeley.edu/program/social-welfare-msw/",
+          "opensAtBasis": null
+        },
+        "berkeley-55128-statistics-and-data-science-5th-year-ma-for-ucb-students-only::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-55128-statistics-and-data-science-5th-year-ma-for-ucb-students-only",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-20",
+          "sourceUrl": "https://grad.berkeley.edu/program/statistics-and-data-science-5th-year-ma-for-ucb-students-only/",
+          "opensAtBasis": null
+        },
+        "berkeley-20327-statistics-and-data-science-ma::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20327-statistics-and-data-science-ma",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/statistics-and-data-science-ma/",
+          "opensAtBasis": null
+        },
+        "berkeley-20326-translational-medicine-joint-ucsf-mtm::Fall admission::Application deadline::all": {
+          "programmeId": "berkeley-20326-translational-medicine-joint-ucsf-mtm",
+          "intake": "Fall admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/translational-medicine-joint-ucsf-mtm/",
+          "opensAtBasis": null
+        },
+        "berkeley-20325-urban-design-mud::Summer admission::Application deadline::all": {
+          "programmeId": "berkeley-20325-urban-design-mud",
+          "intake": "Summer admission",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://grad.berkeley.edu/program/urban-design-mud/",
+          "opensAtBasis": null
+        }
+      },
+      "adapterWarnings": [],
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 0,
+          "directFailures": 1,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {
+            "blocked": 1
+          }
         }
       }
     }

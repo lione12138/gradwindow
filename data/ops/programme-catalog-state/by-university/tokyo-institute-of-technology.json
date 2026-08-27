@@ -2,7 +2,7 @@
   "universities": {
     "tokyo-institute-of-technology": {
       "sourceUrl": "https://www.titech.ac.jp/english/prospective-students/graduate-programs",
-      "checkedAt": "2026-08-26T05:47:51.157623+00:00",
+      "checkedAt": "2026-08-27T15:57:13.369251+00:00",
       "itemCount": 19,
       "applicationOpensAt": null,
       "catalogHash": "596d82acf445d7afd04dbb6bbfa75f2695a25e894a34471b7f40911c56504b59",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 19,
       "programmesNeedingReview": 19,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:47:51.157623+00:00",
+      "lastSuccessfulAt": "2026-08-27T15:57:13.369251+00:00",
       "windowFingerprint": "b55b0870347b3897005683c045b839eb72d446cc999982b5b36b3ae4be41be35",
       "watchedWindowSourceHash": "22df43554d9f1d8939715caeba64e3b722c1a4eab125a7ce30c7206aede14213",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -215,7 +215,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 2,
+          "directSuccesses": 2,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

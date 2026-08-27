@@ -2,7 +2,7 @@
   "universities": {
     "universidade-de-s-o-paulo-usp": {
       "sourceUrl": "https://prpg.usp.br/mestrado-e-doutorado/",
-      "checkedAt": "2026-08-26T06:10:20.918033+00:00",
+      "checkedAt": "2026-08-27T16:27:19.505342+00:00",
       "itemCount": 237,
       "applicationOpensAt": null,
       "catalogHash": "f0486320a058ac9df7798cbb10197dfc23e6a1aa19fa716ba0e96328f247cedd",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 237,
       "programmesNeedingReview": 237,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T06:10:20.918033+00:00",
+      "lastSuccessfulAt": "2026-08-27T16:27:19.505342+00:00",
       "windowFingerprint": "dd78191408139fc1ba9f4b744b21fbe48c2953a8aa9e9a04f869ecbbeab082fa",
       "watchedWindowSourceHash": "3824c50db2871057ab4aa1634c0d739c7c8d9648414e44195486c56aeab1a6db",
       "watchedWindowSourceFingerprintVersion": 2,
@@ -2395,7 +2395,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }
