@@ -260,4 +260,4 @@ def summarize_monitor_results(results: dict[str, dict]) -> dict[str, int]:
 
 
 def print_summary(summary: dict[str, int]) -> None:
-    print(json.dumps(summary, ensure_ascii=False))
+    print(json.dumps(summary, ensure_ascii=False), flush=True)

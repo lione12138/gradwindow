@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 
 from gradwindow import cli
 
@@ -87,11 +88,12 @@ def test_run_dedicated_discovery_returns_only_successful_university_ids(
     )
     monkeypatch.setattr(
         cli,
-        "_pipeline_discovery_report",
-        lambda name, _factory, dry_run=False: {
+        "_run_dedicated_adapter_process",
+        lambda name, _factory, dry_run=False, timeout_seconds=900: {
             "status": "ok" if name == "first" else "error",
             "universityId": f"{name}-university",
             "dryRun": dry_run,
+            "timeoutSeconds": timeout_seconds,
         },
     )
 
@@ -99,6 +101,34 @@ def test_run_dedicated_discovery_returns_only_successful_university_ids(
 
     assert [report["status"] for report in reports] == ["ok", "error"]
     assert successful_ids == {"first-university"}
+
+
+def test_dedicated_adapter_process_converts_timeout_to_maintenance_report(
+    monkeypatch,
+) -> None:
+    def fake_run(*args, **kwargs):
+        raise subprocess.TimeoutExpired(args[0], timeout=kwargs["timeout"])
+
+    monkeypatch.setattr(cli.subprocess, "run", fake_run)
+
+    report = cli._run_dedicated_adapter_process(
+        "example",
+        FakeAdapter,
+        dry_run=True,
+        timeout_seconds=12,
+    )
+
+    assert report.pop("checkedAt")
+    assert report == {
+        "status": "error",
+        "adapter": "example",
+        "universityId": "example-university",
+        "sourceUrl": "https://example.edu/programmes",
+        "errorType": "TimeoutError",
+        "message": "Dedicated adapter exceeded the 12-second pipeline limit.",
+        "dryRun": True,
+        "timeoutSeconds": 12,
+    }
 
 
 def test_approve_all_programmes_uses_all_pending_candidate_universities(

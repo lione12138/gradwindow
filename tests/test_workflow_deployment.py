@@ -83,6 +83,9 @@ def test_data_workflows_maintain_failure_issues_without_comment_spam() -> None:
 
     assert "Maintain update workflow failure issue" in update_workflow
     assert 'title="Application-data refresh failed"' in update_workflow
+    assert "timeout-minutes: 240" in update_workflow
+    assert 'PYTHONUNBUFFERED: "1"' in update_workflow
+    assert 'if [ "$JOB_STATUS" != "success" ]; then' in update_workflow
     assert "Maintain monitoring workflow failure issue" in monitor_workflow
     assert 'title="Monitoring-status publication failed"' in monitor_workflow
     assert "gh issue comment" not in monitor_workflow
