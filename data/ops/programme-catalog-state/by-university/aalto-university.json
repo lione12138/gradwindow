@@ -1,8 +1,8 @@
 {
   "universities": {
     "aalto-university": {
-      "sourceUrl": "https://www.aalto.fi/aalto_api/studies/list",
-      "checkedAt": "2026-08-27T09:02:23.284233+00:00",
+      "sourceUrl": "https://www.aalto.fi/en/aalto_api/studies/list",
+      "checkedAt": "2026-08-27T17:10:11.496875+00:00",
       "itemCount": 89,
       "applicationOpensAt": null,
       "catalogHash": "6c7d23c0e5941fc93dc8b6b2ac42e6312e38674e375db590bef09f5a4b8284f4",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 89,
       "programmesNeedingReview": 89,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-27T09:02:23.284233+00:00",
+      "lastSuccessfulAt": "2026-08-27T17:10:11.496875+00:00",
       "windowFingerprint": "9804076ea462ec3174e11f594f9df47dc453c5009e272a93630009c685bf24c8",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -920,15 +920,17 @@
         "apiMasterOptions": 92,
         "transport": {
           "requests": 1,
-          "directSuccesses": 1,
-          "directFailures": 0,
-          "fallbackEnabled": false,
+          "directSuccesses": 0,
+          "directFailures": 1,
+          "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "network": 1
+          }
         }
       }
     }
