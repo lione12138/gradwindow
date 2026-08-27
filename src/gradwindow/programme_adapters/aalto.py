@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from html import unescape
 from urllib.parse import urlparse
 
 from .base import DiscoveredCatalog, Fetcher
@@ -25,7 +26,7 @@ class AaltoAdapter(OfficialCatalogAdapter):
         return self.parse_catalog(fetcher(CATALOG_URL))
 
     def parse_catalog(self, document: str) -> DiscoveredCatalog:
-        payload = json.loads(document)
+        payload = _load_payload(document)
         study_options = payload.get("data") if isinstance(payload, dict) else None
         if not isinstance(study_options, list):
             raise ValueError("Aalto studies API did not return a data list")
@@ -38,7 +39,7 @@ class AaltoAdapter(OfficialCatalogAdapter):
         return catalog
 
     def extract_entries(self, document: str) -> list[CatalogEntry]:
-        payload = json.loads(document)
+        payload = _load_payload(document)
         study_options = payload.get("data") if isinstance(payload, dict) else None
         if not isinstance(study_options, list):
             raise ValueError("Aalto studies API did not return a data list")
@@ -80,3 +81,13 @@ class AaltoAdapter(OfficialCatalogAdapter):
                 )
             )
         return entries
+
+
+def _load_payload(document: str) -> object:
+    try:
+        return json.loads(document)
+    except json.JSONDecodeError as direct_error:
+        match = re.search(r"<pre(?:\s[^>]*)?>(.*?)</pre>", document, re.DOTALL | re.I)
+        if match is None:
+            raise direct_error
+        return json.loads(unescape(match.group(1)))
