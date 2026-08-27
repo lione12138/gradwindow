@@ -115,12 +115,12 @@ two public GitHub Actions variables below.
    ```
 
    Copy the returned `database_id` into `subscriptions/wrangler.toml`.
-   Keep `ALLOWED_ORIGINS` as `https://lione12138.github.io` and
-   `PUBLIC_SITE_URL` as `https://lione12138.github.io/qs-master-applications`.
+   Keep `https://gradwindow.com` in `ALLOWED_ORIGINS` and set
+   `PUBLIC_SITE_URL` to `https://gradwindow.com`.
 
 3. Create a Turnstile widget in **Cloudflare Dashboard -> Turnstile**. Use the
-   managed widget type and add `lione12138.github.io` as its hostname. Keep the
-   site key for GitHub and the secret key for the Worker.
+   managed widget type and add `gradwindow.com` as its hostname. Keep the site
+   key for GitHub and the secret key for the Worker.
 
 4. Apply the schema and set the two Worker secrets required for public voting:
 

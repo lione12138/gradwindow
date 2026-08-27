@@ -1,9 +1,9 @@
 # GradWindow
 
-[![Tests](https://github.com/lione12138/qs-master-applications/actions/workflows/tests.yml/badge.svg)](https://github.com/lione12138/qs-master-applications/actions/workflows/tests.yml)
+[![Tests](https://github.com/lione12138/gradwindow/actions/workflows/tests.yml/badge.svg)](https://github.com/lione12138/gradwindow/actions/workflows/tests.yml)
 [![Website](https://img.shields.io/badge/Website-GradWindow-1e6548)](https://gradwindow.com/)
 
-[English](README.md) · [Open GradWindow](https://gradwindow.com/) · [Application calendar](https://gradwindow.com/calendar.html) · [Report a data error](https://github.com/lione12138/qs-master-applications/issues/new?template=report-data-error.yml) · [Contribute](CONTRIBUTING.md)
+[English](README.md) · [Open GradWindow](https://gradwindow.com/) · [Application calendar](https://gradwindow.com/calendar.html) · [Report a data error](https://github.com/lione12138/gradwindow/issues/new?template=report-data-error.yml) · [Contribute](CONTRIBUTING.md)
 
 > 面向全球主流排名前 200 大学、以学校官网为依据的硕士申请窗口追踪工具。
 

@@ -15,7 +15,7 @@ contributors are legally able to license.
 
 Permitted reuse must include a reasonably visible attribution:
 
-> Data from GradWindow (https://github.com/lione12138/qs-master-applications),
+> Data from GradWindow (https://github.com/lione12138/gradwindow),
 > licensed under CC BY-NC 4.0. University application dates must be verified
 > against the linked official sources.
 

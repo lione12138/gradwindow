@@ -267,10 +267,10 @@ python -m http.server 8000 --directory site
 
     return f"""# GradWindow
 
-[![Tests](https://github.com/lione12138/qs-master-applications/actions/workflows/tests.yml/badge.svg)](https://github.com/lione12138/qs-master-applications/actions/workflows/tests.yml)
+[![Tests](https://github.com/lione12138/gradwindow/actions/workflows/tests.yml/badge.svg)](https://github.com/lione12138/gradwindow/actions/workflows/tests.yml)
 [![Website](https://img.shields.io/badge/Website-GradWindow-1e6548)]({SITE_URL})
 
-{language_link} · [Open GradWindow]({SITE_URL}) · [Application calendar]({SITE_URL}calendar.html) · [Report a data error](https://github.com/lione12138/qs-master-applications/issues/new?template=report-data-error.yml) · [Contribute](CONTRIBUTING.md)
+{language_link} · [Open GradWindow]({SITE_URL}) · [Application calendar]({SITE_URL}calendar.html) · [Report a data error](https://github.com/lione12138/gradwindow/issues/new?template=report-data-error.yml) · [Contribute](CONTRIBUTING.md)
 
 > {tagline}
 
