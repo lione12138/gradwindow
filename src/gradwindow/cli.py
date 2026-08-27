@@ -467,6 +467,8 @@ def _pipeline_discovery_report(
         }
         if reason := getattr(exc, "reason", None):
             report["reason"] = reason
+        if diagnostics := getattr(exc, "transport_diagnostics", None):
+            report["adapterDiagnostics"] = {"transport": diagnostics}
         return report
 
 

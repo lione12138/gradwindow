@@ -129,3 +129,82 @@ def test_fetch_page_classifies_incomplete_body_as_retryable(monkeypatch) -> None
         )
     assert caught.value.kind == "network"
     assert caught.value.retryable is True
+
+
+def test_resilient_fetcher_uses_bounded_browser_fallback_for_blocked_html() -> None:
+    browser_calls = []
+
+    def blocked(_url: str) -> str:
+        raise http_client.FetchFailure(
+            "HTTP 403",
+            kind="blocked",
+            status_code=403,
+        )
+
+    fetcher = http_client.ResilientFetcher(
+        blocked,
+        browser_fetcher=lambda url: browser_calls.append(url) or "<main>ok</main>",
+        browser_fallback_limit=1,
+    )
+
+    assert fetcher("https://example.edu/programmes") == "<main>ok</main>"
+    with pytest.raises(http_client.FetchFailure) as caught:
+        fetcher("https://example.edu/another-page")
+
+    assert browser_calls == ["https://example.edu/programmes"]
+    assert caught.value.transport_diagnostics["fallbackBudgetExhausted"] == 1
+    assert fetcher.diagnostics() == {
+        "requests": 2,
+        "directSuccesses": 0,
+        "directFailures": 2,
+        "fallbackEnabled": True,
+        "fallbackLimit": 1,
+        "fallbackAttempts": 1,
+        "fallbackSuccesses": 1,
+        "fallbackFailures": 0,
+        "fallbackBudgetExhausted": 1,
+        "failureKinds": {"blocked": 2},
+    }
+
+
+def test_resilient_fetcher_does_not_browser_render_non_html_documents() -> None:
+    browser_calls = []
+
+    def timed_out(_url: str) -> str:
+        raise http_client.FetchFailure("timeout", kind="network", retryable=True)
+
+    fetcher = http_client.ResilientFetcher(
+        timed_out,
+        browser_fetcher=lambda url: browser_calls.append(url) or "rendered",
+    )
+
+    with pytest.raises(http_client.FetchFailure):
+        fetcher("https://example.edu/catalog.pdf")
+
+    assert browser_calls == []
+    assert fetcher.diagnostics()["fallbackAttempts"] == 0
+
+
+def test_resilient_fetcher_preserves_transport_kind_when_fallback_fails() -> None:
+    def rate_limited(_url: str) -> str:
+        raise http_client.FetchFailure(
+            "HTTP 429",
+            kind="rate-limited",
+            status_code=429,
+            retryable=True,
+        )
+
+    fetcher = http_client.ResilientFetcher(
+        rate_limited,
+        browser_fetcher=lambda _url: (_ for _ in ()).throw(
+            RuntimeError("browser quota exhausted")
+        ),
+    )
+
+    with pytest.raises(http_client.FetchFailure) as caught:
+        fetcher("https://example.edu/programmes")
+
+    assert caught.value.kind == "rate-limited"
+    assert caught.value.status_code == 429
+    assert "browser quota exhausted" in str(caught.value)
+    assert caught.value.transport_diagnostics["fallbackFailures"] == 1

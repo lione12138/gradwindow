@@ -48,6 +48,29 @@ def test_pipeline_discovery_report_converts_adapter_failure(monkeypatch) -> None
     }
 
 
+def test_pipeline_discovery_report_preserves_transport_diagnostics(monkeypatch) -> None:
+    def fake_discover(_adapter, *, dry_run=False):
+        error = RuntimeError("HTTP 403")
+        error.transport_diagnostics = {
+            "directFailures": 1,
+            "fallbackAttempts": 1,
+            "fallbackFailures": 1,
+            "failureKinds": {"blocked": 1},
+        }
+        raise error
+
+    monkeypatch.setattr(cli, "discover_programmes", fake_discover)
+
+    report = cli._pipeline_discovery_report("example", FakeAdapter)
+
+    assert report["adapterDiagnostics"]["transport"] == {
+        "directFailures": 1,
+        "fallbackAttempts": 1,
+        "fallbackFailures": 1,
+        "failureKinds": {"blocked": 1},
+    }
+
+
 def test_run_dedicated_discovery_returns_only_successful_university_ids(
     monkeypatch,
 ) -> None:
