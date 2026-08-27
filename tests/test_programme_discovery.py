@@ -706,6 +706,89 @@ def test_known_programme_missing_opening_stays_in_guidance_queue(tmp_path) -> No
     ]
 
 
+def test_shared_group_window_creates_one_candidate_for_multiple_programmes(
+    tmp_path,
+) -> None:
+    class SharedGroupAdapter(BaseProgrammeAdapter):
+        university_id = "example-university"
+        catalog_url = "https://example.edu/programmes"
+        intake = "Spring (March) 2027"
+        known_programme_window_scope_type = "programme-group"
+        known_programme_window_scope_id = "example-shared-admissions"
+
+        def parse_catalog(self, _html):
+            window = DiscoveredWindow(
+                round="International admissions",
+                applicant_categories=["international-students"],
+                opens_at="2026-07-06",
+                closes_at="2026-07-09",
+                source_url="https://example.edu/admissions",
+            )
+            return DiscoveredCatalog(
+                application_opens_at=None,
+                programmes=[
+                    DiscoveredProgramme(
+                        id=f"example-{name}-master",
+                        name=f"Master's in {name.title()}",
+                        degree_type="Master",
+                        faculty="Graduate School",
+                        department=name.title(),
+                        source_url=f"https://example.edu/programmes/{name}",
+                        application_url="https://example.edu/apply",
+                        windows=[window],
+                        deadline_text="One official central application window.",
+                        parse_status="parsed",
+                    )
+                    for name in ("alpha", "beta")
+                ],
+            )
+
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    candidates_path = tmp_path / "programme-candidates.json"
+    window_candidates_path = tmp_path / "window-candidates.json"
+    state_path = tmp_path / "programme-catalog-state.json"
+    programs_path.write_text(
+        json.dumps(
+            {
+                "programs": [
+                    {
+                        "id": f"example-{name}-master",
+                        "universityId": "example-university",
+                        "name": f"Master's in {name.title()}",
+                        "degreeType": "Master",
+                        "faculty": "Graduate School",
+                        "applicationUrl": "https://example.edu/apply",
+                        "sourceUrl": f"https://example.edu/programmes/{name}",
+                    }
+                    for name in ("alpha", "beta")
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    applications_path.write_text(json.dumps({"applications": []}), encoding="utf-8")
+
+    report = discover_programmes(
+        SharedGroupAdapter(),
+        programs_path=programs_path,
+        applications_path=applications_path,
+        candidates_path=candidates_path,
+        window_candidates_path=window_candidates_path,
+        state_path=state_path,
+        fetcher=lambda _url: "<main></main>",
+    )
+
+    window_candidates = json.loads(window_candidates_path.read_text(encoding="utf-8"))[
+        "items"
+    ]
+    assert report["newWindowCandidates"] == 1
+    assert report["pendingWindowCandidates"] == 1
+    assert len(window_candidates) == 1
+    assert window_candidates[0]["record"]["scopeType"] == "programme-group"
+    assert window_candidates[0]["record"]["scopeId"] == "example-shared-admissions"
+
+
 def test_known_programme_without_dates_stays_in_monitoring_not_review_queue() -> None:
     adapter = BaseProgrammeAdapter()
     adapter.university_id = "example-university"
