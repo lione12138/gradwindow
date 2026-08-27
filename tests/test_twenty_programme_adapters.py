@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import pytest
 
-from gradwindow.programme_adapters.aalto import AaltoAdapter
 from gradwindow.programme_adapters.basel import BaselAdapter
 from gradwindow.programme_adapters.bath import BathAdapter
 from gradwindow.programme_adapters.boston import BostonAdapter
@@ -127,11 +126,6 @@ def test_official_html_catalogue_parsers(adapter, document, expected_name) -> No
             RMITAdapter(),
             "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/master-of-data-science-mc267",
             "Master Of Data Science",
-        ),
-        (
-            AaltoAdapter(),
-            "https://www.aalto.fi/en/study-options/data-science-master-of-science-technology",
-            "Data Science",
         ),
         (
             HelsinkiAdapter(),

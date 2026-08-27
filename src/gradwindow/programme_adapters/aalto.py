@@ -1,13 +1,13 @@
 from __future__ import annotations
 
+import json
 import re
-import xml.etree.ElementTree as ET
 from urllib.parse import urlparse
 
 from .base import DiscoveredCatalog, Fetcher
 from .official_catalog import CatalogEntry, OfficialCatalogAdapter, entry
 
-CATALOG_URL = "https://www.aalto.fi/sitemap.xml"
+CATALOG_URL = "https://www.aalto.fi/aalto_api/studies/list"
 APPLICATION_URL = "https://www.aalto.fi/en/study-at-aalto/apply-to-masters-programmes"
 
 
@@ -19,18 +19,37 @@ class AaltoAdapter(OfficialCatalogAdapter):
     application_url = APPLICATION_URL
     window_watch_urls = (APPLICATION_URL,)
     minimum_expected_programmes = 80
-    retrieval_method = "official-sitemap"
+    retrieval_method = "official-json-api"
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
-        sitemap_urls = _locations(fetcher(CATALOG_URL))
-        entries = []
-        for sitemap_url in sitemap_urls:
-            entries.extend(self.extract_entries(fetcher(sitemap_url)))
-        return self._catalog(entries)
+        return self.parse_catalog(fetcher(CATALOG_URL))
 
-    def extract_entries(self, xml: str) -> list[CatalogEntry]:
+    def parse_catalog(self, document: str) -> DiscoveredCatalog:
+        payload = json.loads(document)
+        study_options = payload.get("data") if isinstance(payload, dict) else None
+        if not isinstance(study_options, list):
+            raise ValueError("Aalto studies API did not return a data list")
+        entries = self.extract_entries(document)
+        catalog = self._catalog(entries)
+        catalog.diagnostics = {
+            "apiStudyOptions": len(study_options),
+            "apiMasterOptions": len(entries),
+        }
+        return catalog
+
+    def extract_entries(self, document: str) -> list[CatalogEntry]:
+        payload = json.loads(document)
+        study_options = payload.get("data") if isinstance(payload, dict) else None
+        if not isinstance(study_options, list):
+            raise ValueError("Aalto studies API did not return a data list")
         entries = []
-        for source_url in _locations(xml):
+        for study_option in study_options:
+            if (
+                not isinstance(study_option, dict)
+                or study_option.get("degreeType") != "masters"
+            ):
+                continue
+            source_url = str(study_option.get("url") or "").strip()
             path = urlparse(source_url).path
             if "/en/study-options/" not in path:
                 continue
@@ -61,11 +80,3 @@ class AaltoAdapter(OfficialCatalogAdapter):
                 )
             )
         return entries
-
-
-def _locations(xml: str) -> list[str]:
-    return [
-        node.text
-        for node in ET.fromstring(xml).iter()
-        if node.tag.endswith("loc") and node.text
-    ]
