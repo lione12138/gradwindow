@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 from .base import DiscoveredCatalog, Fetcher
 from .official_catalog import CatalogEntry, OfficialCatalogAdapter, entry
 
-CATALOG_URL = "https://www.aalto.fi/aalto_api/studies/list"
+CATALOG_URL = "https://www.aalto.fi/en/aalto_api/studies/list"
 APPLICATION_URL = "https://www.aalto.fi/en/study-at-aalto/apply-to-masters-programmes"
 
 
