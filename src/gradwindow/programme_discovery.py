@@ -92,6 +92,13 @@ def discover_programmes(
     dry_run: bool = False,
 ) -> dict:
     checked_at = datetime.now(timezone.utc).isoformat()
+    state_payload = read_json(state_path, {"meta": {}, "universities": {}})
+    previous_state = state_payload.get("universities", {}).get(
+        adapter.university_id, {}
+    )
+    prepare_discovery = getattr(adapter, "prepare_discovery", None)
+    if callable(prepare_discovery):
+        prepare_discovery(previous_state)
     watched_urls = set(getattr(adapter, "window_watch_urls", ()))
     watched_source_hashes: dict[str, str] = {}
 
@@ -390,10 +397,6 @@ def discover_programmes(
                     else {}
                 ),
             }
-    state_payload = read_json(state_path, {"meta": {}, "universities": {}})
-    previous_state = state_payload.get("universities", {}).get(
-        adapter.university_id, {}
-    )
     previous_programmes = previous_state.get("programmes")
     previous_windows = previous_state.get("windows")
     has_record_baseline = isinstance(previous_programmes, dict) and isinstance(
@@ -575,6 +578,7 @@ def discover_programmes(
         "windows": window_snapshot_items,
         "adapterWarnings": catalog.warnings,
         "adapterDiagnostics": catalog.diagnostics,
+        **({"adapterState": catalog.adapter_state} if catalog.adapter_state else {}),
     }
     state_payload["meta"] = {
         "updatedAt": checked_at,

@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import json
+
 import pytest
 from bs4 import BeautifulSoup
 
 from gradwindow.programme_adapters.toronto import (
     APPLICATION_URL,
-    CATALOG_URL,
+    PROGRAMS_API_URL,
     TorontoAdapter,
     _deadline_windows,
 )
@@ -15,21 +17,38 @@ INFORMATION_URL = "https://www.sgs.utoronto.ca/programs/information/"
 AEROSPACE_URL = "https://www.sgs.utoronto.ca/programs/aerospace-and-engineering/"
 PSYCHOLOGY_URL = "https://www.sgs.utoronto.ca/programs/psychology/"
 
-CATALOG_HTML = f"""
-<html><body><table>
-  <thead><tr><th>Program</th><th>Graduate Unit</th><th>Degree Type</th></tr></thead>
-  <tbody>
-    <tr><td><a href="{COMPUTER_SCIENCE_URL}">Computer Science</a></td>
-      <td>Computer Science</td><td>MSc / PhD</td></tr>
-    <tr><td><a href="{INFORMATION_URL}">Information</a></td>
-      <td>Information</td><td>MI / PhD</td></tr>
-    <tr><td><a href="{AEROSPACE_URL}">Aerospace Science and Engineering</a></td>
-      <td>Aerospace Studies</td><td>MASc / MEng / PhD</td></tr>
-    <tr><td><a href="{PSYCHOLOGY_URL}">Psychology</a></td>
-      <td>Psychology</td><td>PhD</td></tr>
-  </tbody>
-</table></body></html>
-"""
+
+def _api_item(name: str, unit: str, degrees: list[str], url: str) -> dict:
+    return {
+        "title": {"rendered": name},
+        "link": url,
+        "modified": "2026-08-20T12:00:00",
+        "taxonomy_info": {
+            "degree-types": [{"label": degree} for degree in degrees],
+            "graduate-units": [{"label": unit}],
+        },
+    }
+
+
+API_PAYLOAD = [
+    {
+        "title": {"rendered": "Unclassified draft"},
+        "link": "https://www.sgs.utoronto.ca/programs/unclassified/",
+        "modified": "2026-08-20T12:00:00",
+        "taxonomy_info": [],
+    },
+    _api_item(
+        "Computer Science", "Computer Science", ["MSc", "PhD"], COMPUTER_SCIENCE_URL
+    ),
+    _api_item("Information", "Information", ["MI", "PhD"], INFORMATION_URL),
+    _api_item(
+        "Aerospace Science and Engineering",
+        "Aerospace Studies",
+        ["MASc", "MEng", "PhD"],
+        AEROSPACE_URL,
+    ),
+    _api_item("Psychology", "Psychology", ["PhD"], PSYCHOLOGY_URL),
+]
 
 
 def _detail(domestic: str, international: str) -> str:
@@ -60,8 +79,8 @@ DETAILS = {
 
 
 def _fetcher(url: str) -> str:
-    if url == CATALOG_URL:
-        return CATALOG_HTML
+    if url == PROGRAMS_API_URL.format(page=1):
+        return json.dumps(API_PAYLOAD)
     if url in DETAILS:
         return DETAILS[url]
     raise AssertionError(url)
@@ -71,6 +90,7 @@ def test_toronto_adapter_expands_master_degrees_and_skips_doctoral_only_rows() -
     catalog = TorontoAdapter(
         minimum_expected_programmes=4,
         workers=2,
+        detail_interval_seconds=0,
     ).parse_catalog_from_fetcher(_fetcher)
 
     assert catalog.application_opens_at is None
@@ -87,6 +107,7 @@ def test_toronto_adapter_preserves_existing_computer_science_identity() -> None:
     catalog = TorontoAdapter(
         minimum_expected_programmes=4,
         workers=2,
+        detail_interval_seconds=0,
     ).parse_catalog_from_fetcher(_fetcher)
     programme = next(
         item for item in catalog.programmes if item.id == "toronto-computer-science-msc"
@@ -102,6 +123,7 @@ def test_toronto_adapter_keeps_exact_closings_unresolved_without_an_opening() ->
     catalog = TorontoAdapter(
         minimum_expected_programmes=4,
         workers=2,
+        detail_interval_seconds=0,
     ).parse_catalog_from_fetcher(_fetcher)
     programme = next(
         item for item in catalog.programmes if item.id == "toronto-computer-science-msc"
@@ -126,6 +148,7 @@ def test_toronto_adapter_filters_stale_deadline_cycles() -> None:
     catalog = TorontoAdapter(
         minimum_expected_programmes=4,
         workers=2,
+        detail_interval_seconds=0,
     ).parse_catalog_from_fetcher(_fetcher)
     programme = next(
         item for item in catalog.programmes if item.id == "toronto-information-mi"
@@ -141,13 +164,14 @@ def test_toronto_adapter_keeps_a_valid_page_without_quick_facts() -> None:
     details[INFORMATION_URL] = "<html><body><h1>Information</h1></body></html>"
 
     def fetcher(url: str) -> str:
-        if url == CATALOG_URL:
-            return CATALOG_HTML
+        if url == PROGRAMS_API_URL.format(page=1):
+            return json.dumps(API_PAYLOAD)
         return details[url]
 
     catalog = TorontoAdapter(
         minimum_expected_programmes=4,
         workers=2,
+        detail_interval_seconds=0,
     ).parse_catalog_from_fetcher(fetcher)
     programme = next(
         item for item in catalog.programmes if item.id == "toronto-information-mi"
@@ -187,27 +211,28 @@ def test_toronto_adapter_rejects_a_truncated_catalogue() -> None:
         TorontoAdapter(
             minimum_expected_programmes=5,
             workers=2,
+            detail_interval_seconds=0,
         ).parse_catalog_from_fetcher(_fetcher)
 
 
-def test_toronto_adapter_retries_a_transient_detail_failure() -> None:
+def test_toronto_adapter_does_not_blindly_retry_a_blocked_detail() -> None:
     attempts = 0
 
     def fetcher(url: str) -> str:
         nonlocal attempts
         if url == COMPUTER_SCIENCE_URL:
             attempts += 1
-            if attempts == 1:
-                raise RuntimeError("temporary disconnect")
+            raise RuntimeError("HTTP 403")
         return _fetcher(url)
 
-    catalog = TorontoAdapter(
-        minimum_expected_programmes=4,
-        workers=2,
-    ).parse_catalog_from_fetcher(fetcher)
+    with pytest.raises(RuntimeError, match="HTTP 403"):
+        TorontoAdapter(
+            minimum_expected_programmes=4,
+            workers=2,
+            detail_interval_seconds=0,
+        ).parse_catalog_from_fetcher(fetcher)
 
-    assert len(catalog.programmes) == 4
-    assert attempts == 2
+    assert attempts == 1
 
 
 def test_toronto_adapter_propagates_a_persistent_detail_failure() -> None:
@@ -220,4 +245,35 @@ def test_toronto_adapter_propagates_a_persistent_detail_failure() -> None:
         TorontoAdapter(
             minimum_expected_programmes=4,
             workers=2,
+            detail_interval_seconds=0,
         ).parse_catalog_from_fetcher(fetcher)
+
+
+def test_toronto_adapter_reuses_fresh_details_when_api_modified_time_is_unchanged() -> (
+    None
+):
+    first = TorontoAdapter(
+        minimum_expected_programmes=4,
+        workers=2,
+        detail_interval_seconds=0,
+    ).parse_catalog_from_fetcher(_fetcher)
+    adapter = TorontoAdapter(
+        minimum_expected_programmes=4,
+        workers=2,
+        detail_interval_seconds=0,
+    )
+    adapter.prepare_discovery({"adapterState": first.adapter_state})
+
+    def api_only_fetcher(url: str) -> str:
+        if url == PROGRAMS_API_URL.format(page=1):
+            return json.dumps(API_PAYLOAD)
+        raise AssertionError(f"fresh cached detail should not be fetched: {url}")
+
+    second = adapter.parse_catalog_from_fetcher(api_only_fetcher)
+
+    assert len(second.programmes) == 4
+    assert second.diagnostics == {
+        "apiPages": 1,
+        "detailPagesFetched": 0,
+        "detailCacheHits": 3,
+    }

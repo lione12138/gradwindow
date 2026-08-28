@@ -61,6 +61,7 @@ class DiscoveredCatalog:
     programmes: list[DiscoveredProgramme]
     warnings: list[dict[str, object]] = field(default_factory=list)
     diagnostics: dict[str, object] = field(default_factory=dict)
+    adapter_state: dict[str, object] = field(default_factory=dict)
 
 
 @runtime_checkable
