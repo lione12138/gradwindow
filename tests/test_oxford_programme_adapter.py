@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 
 import pytest
+from bs4 import BeautifulSoup
 
 from gradwindow.programme_adapters.oxford import OxfordAdapter
 
@@ -52,7 +53,7 @@ def _course_card(
         for mode, status in statuses
     )
     return f"""
-    <article filter-listing-type="listing_course_graduate">
+    <article>
       <div class="course-statuses">{tags}</div>
       <h3><a href="/admissions/graduate/courses/{slug}"><span>{title}</span></a></h3>
       <p>{description}</p>
@@ -123,6 +124,13 @@ OXFORD_DETAIL = """
   </section>
 </main></body></html>
 """
+
+
+def test_oxford_browser_wait_selector_matches_current_course_cards() -> None:
+    soup = BeautifulSoup(OXFORD_FINDER_PAGE, "html.parser")
+    selector = OxfordAdapter.browser_wait_for_selectors[OxfordAdapter.catalog_url]
+
+    assert len(soup.select(selector)) == 3
 
 
 def test_oxford_adapter_uses_current_finder_api_and_preserves_study_modes() -> None:

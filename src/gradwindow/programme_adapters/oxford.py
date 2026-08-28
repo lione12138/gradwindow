@@ -102,11 +102,7 @@ class OxfordAdapter(BaseProgrammeAdapter):
     # needs one rendered page plus up to 33 lightweight official listing API pages.
     # Keep the larger budget local to Oxford instead of weakening the global limit.
     browser_fallback_limit = 200
-    browser_wait_for_selectors = {
-        CATALOG_URL: (
-            '[data-js-filter-listing] article[filter-listing-type="listing_course_graduate"]'
-        )
-    }
+    browser_wait_for_selectors = {CATALOG_URL: "[data-js-filter-listing] article"}
 
     def __init__(
         self,
