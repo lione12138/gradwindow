@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import atexit
 import threading
 import time
 from collections import Counter
@@ -23,6 +24,8 @@ DEFAULT_USER_AGENT = (
 _rate_lock = threading.Lock()
 _host_locks: dict[str, threading.Lock] = {}
 _last_request_by_host: dict[str, float] = {}
+_client_lock = threading.Lock()
+_persistent_clients: dict[tuple[object, ...], object] = {}
 
 
 @dataclass(slots=True)
@@ -216,62 +219,65 @@ def _fetch_once(
             "Pragma": "no-cache",
         }
         request_headers.update(extra_headers or {})
-        with httpx.Client(
-            follow_redirects=True,
-            timeout=httpx.Timeout(timeout),
-            headers=request_headers,
-        ) as client:
-            with client.stream("GET", url) as response:
-                status = response.status_code
-                if status in {401, 403}:
-                    raise FetchFailure(
-                        f"HTTP {status}",
-                        kind="blocked",
-                        status_code=status,
-                    )
-                if status == 429:
-                    raise FetchFailure(
-                        "HTTP 429",
-                        kind="rate-limited",
-                        status_code=status,
-                        retryable=True,
-                    )
-                if 500 <= status <= 599:
-                    raise FetchFailure(
-                        f"HTTP {status}",
-                        kind="server",
-                        status_code=status,
-                        retryable=True,
-                    )
-                if status >= 400:
-                    raise FetchFailure(
-                        f"HTTP {status}",
-                        kind="http",
-                        status_code=status,
-                    )
-
-                chunks = bytearray()
-                truncated = False
-                for chunk in response.iter_bytes():
-                    remaining = max_bytes - len(chunks)
-                    if remaining <= 0:
-                        truncated = True
-                        break
-                    chunks.extend(chunk[:remaining])
-                    if len(chunk) > remaining:
-                        truncated = True
-                        break
-                charset = response.encoding or "utf-8"
-                return FetchedPage(
-                    body=bytes(chunks).decode(charset, errors="replace"),
-                    raw_bytes=bytes(chunks),
-                    final_url=str(response.url),
+        client = _persistent_client(
+            url,
+            user_agent=user_agent,
+            timeout=timeout,
+            accept=accept,
+            extra_headers=extra_headers,
+            request_headers=request_headers,
+        )
+        with client.stream("GET", url) as response:
+            status = response.status_code
+            if status in {401, 403}:
+                raise FetchFailure(
+                    f"HTTP {status}",
+                    kind="blocked",
                     status_code=status,
-                    content_type=response.headers.get("content-type", ""),
-                    charset=charset,
-                    bytes_read=len(chunks),
-                    truncated=truncated,
                 )
+            if status == 429:
+                raise FetchFailure(
+                    "HTTP 429",
+                    kind="rate-limited",
+                    status_code=status,
+                    retryable=True,
+                )
+            if 500 <= status <= 599:
+                raise FetchFailure(
+                    f"HTTP {status}",
+                    kind="server",
+                    status_code=status,
+                    retryable=True,
+                )
+            if status >= 400:
+                raise FetchFailure(
+                    f"HTTP {status}",
+                    kind="http",
+                    status_code=status,
+                )
+
+            chunks = bytearray()
+            truncated = False
+            for chunk in response.iter_bytes():
+                remaining = max_bytes - len(chunks)
+                if remaining <= 0:
+                    truncated = True
+                    break
+                chunks.extend(chunk[:remaining])
+                if len(chunk) > remaining:
+                    truncated = True
+                    break
+            charset = response.encoding or "utf-8"
+            return FetchedPage(
+                body=bytes(chunks).decode(charset, errors="replace"),
+                raw_bytes=bytes(chunks),
+                final_url=str(response.url),
+                status_code=status,
+                content_type=response.headers.get("content-type", ""),
+                charset=charset,
+                bytes_read=len(chunks),
+                truncated=truncated,
+            )
     except (
         httpx.TimeoutException,
         httpx.NetworkError,
@@ -284,6 +290,49 @@ def _fetch_once(
         ) from exc
     except httpx.HTTPError as exc:
         raise FetchFailure(str(exc), kind="client") from exc
+
+
+def _persistent_client(
+    url: str,
+    *,
+    user_agent: str,
+    timeout: float,
+    accept: str,
+    extra_headers: Mapping[str, str] | None,
+    request_headers: Mapping[str, str],
+):
+    host = (urlparse(url).hostname or "").lower()
+    key = (
+        id(httpx.Client),
+        host,
+        user_agent,
+        timeout,
+        accept,
+        tuple(sorted((extra_headers or {}).items())),
+    )
+    with _client_lock:
+        client = _persistent_clients.get(key)
+        if client is None:
+            client = httpx.Client(
+                follow_redirects=True,
+                timeout=httpx.Timeout(timeout),
+                headers=request_headers,
+            )
+            _persistent_clients[key] = client
+        return client
+
+
+def _close_persistent_clients() -> None:
+    with _client_lock:
+        clients = list(_persistent_clients.values())
+        _persistent_clients.clear()
+    for client in clients:
+        close = getattr(client, "close", None)
+        if callable(close):
+            close()
+
+
+atexit.register(_close_persistent_clients)
 
 
 def fetch_page(

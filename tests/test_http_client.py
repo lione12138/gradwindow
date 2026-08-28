@@ -11,8 +11,10 @@ from gradwindow import http_client
 class FakeClient:
     response: httpx.Response
     last_kwargs: dict
+    init_count = 0
 
     def __init__(self, **kwargs) -> None:
+        type(self).init_count += 1
         self.kwargs = kwargs
         type(self).last_kwargs = kwargs
 
@@ -74,6 +76,23 @@ def test_fetch_page_returns_response_metadata(monkeypatch) -> None:
     assert page.body == "<main>Applications open</main>"
     assert page.content_type.startswith("text/html")
     assert page.truncated is False
+
+
+def test_fetch_page_reuses_a_persistent_client_for_the_same_host(monkeypatch) -> None:
+    http_client._close_persistent_clients()
+    FakeClient.init_count = 0
+    FakeClient.response = httpx.Response(
+        200,
+        content=b"ok",
+        request=httpx.Request("GET", "https://example.edu/one"),
+    )
+    monkeypatch.setattr(http_client.httpx, "Client", FakeClient)
+    monkeypatch.setattr(http_client, "MIN_HOST_INTERVAL", 0)
+
+    http_client.fetch_page("https://example.edu/one", user_agent="session-test")
+    http_client.fetch_page("https://example.edu/two", user_agent="session-test")
+
+    assert FakeClient.init_count == 1
 
 
 def test_fetch_page_merges_extra_headers(monkeypatch) -> None:
