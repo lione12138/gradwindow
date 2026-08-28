@@ -1,105 +1,217 @@
 from __future__ import annotations
 
+import json
+
 import pytest
+from bs4 import BeautifulSoup
 
 from gradwindow.programme_adapters.oxford import OxfordAdapter
 
-OXFORD_PAGE = """
-<html><body>
-  <div class="view-content">
-    <div class="views-row">
-      <h3><a href="/admissions/graduate/courses/msc-advanced-computer-science">Advanced Computer Science</a> MSc</h3>
-      <div class="course-department">Computer Science</div>
-      <div>Full time</div><div>12 months</div>
-    </div>
-    <div class="views-row">
-      <h3><a href="/admissions/graduate/courses/mphil-economics">Economics</a> MPhil</h3>
-      <div class="course-department">Economics</div>
-      <div>Full time</div><div>21 months</div>
-    </div>
-    <div class="views-row">
-      <h3><a href="/admissions/graduate/courses/msc-earth-sciences-research">Earth Sciences</a> MSc by Research</h3>
-      <div class="course-department">Earth Sciences</div>
-    </div>
-    <div class="views-row">
-      <h3><a href="/admissions/graduate/courses/mphil-law">Law</a> MPhil</h3>
-      <div class="course-department">Law</div>
-    </div>
-    <a href="https://third-party.example/msc-data-science">Data Science MSc</a>
-  </div>
-</body></html>
-"""
+
+def _finder_page(*cards: str, total: int, items_per_page: int = 12) -> str:
+    config = {
+        "listing": {
+            "3405": {
+                "paragraph_id": "3405",
+                "items_per_page": items_per_page,
+                "default_sorts": [
+                    {
+                        "search_key": "search_api_relevance",
+                        "direction": "desc",
+                    },
+                    {
+                        "search_key": "course_subject_sort",
+                        "direction": "asc",
+                    },
+                ],
+            }
+        }
+    }
+    return f"""
+    <html><body><main>
+      <h1>Find your postgraduate course</h1>
+      <div data-js-filter-listing data-js-filter-listing-id="3405">
+        <p>Showing 1 - {min(items_per_page, total)} of {total} Results</p>
+        {"".join(cards)}
+      </div>
+      <script type="application/json" data-drupal-selector="drupal-settings-json">
+        {json.dumps(config)}
+      </script>
+    </main></body></html>
+    """
+
+
+def _course_card(
+    *,
+    title: str,
+    slug: str,
+    statuses: tuple[tuple[str, str], ...],
+    description: str = "Official Oxford graduate course.",
+) -> str:
+    tags = "".join(
+        f'<div data-component-id="numiko:tag"><span>{mode}: {status}</span></div>'
+        for mode, status in statuses
+    )
+    return f"""
+    <article>
+      <div class="course-statuses">{tags}</div>
+      <h3><a href="/admissions/graduate/courses/{slug}"><span>{title}</span></a></h3>
+      <p>{description}</p>
+      <dl><dt>Expected start date:</dt><dd>October 2026</dd></dl>
+    </article>
+    """
+
+
+ADVANCED_CARD = _course_card(
+    title="MSc in Advanced Computer Science",
+    slug="msc-advanced-computer-science",
+    statuses=(("Full time", "Closed"),),
+)
+TRANSLATIONAL_CARD = _course_card(
+    title="MSc in Translational Health Sciences",
+    slug="msc-translational-health-sciences",
+    statuses=(("Full time", "Closed"), ("Part time", "Closed")),
+)
+INTEGRATED_CARD = _course_card(
+    title="MPhil + DPhil in Economics",
+    slug="mphil-dphil-economics",
+    statuses=(("Full time", "Closed"),),
+)
+BPHIL_CARD = _course_card(
+    title="BPhil in Philosophy",
+    slug="bphil-philosophy",
+    statuses=(("Full time", "Closed"),),
+)
+SBS_CARD = _course_card(
+    title="MSc in Financial Economics",
+    slug="msc-financial-economics",
+    statuses=(("Full time", "Apply directly"),),
+)
+
+OXFORD_FINDER_PAGE = _finder_page(
+    ADVANCED_CARD,
+    TRANSLATIONAL_CARD,
+    INTEGRATED_CARD,
+    total=5,
+    items_per_page=3,
+)
+OXFORD_API_PAGE = json.dumps({"results": [BPHIL_CARD, SBS_CARD]})
 
 OXFORD_DETAIL = """
-<html><body>
-  <h1>MSc in Advanced Computer Science</h1>
-  <div>Expected start date October 2027</div>
+<html><body><main>
+  <h1>MSc in Translational Health Sciences</h1>
+  <div class="course-modes">
+    <div class="mode-card">
+      <h2>Full time</h2>
+      <div><span>Open</span></div>
+      <div class="application-status">
+        <p>Application deadline: Tuesday 2 December 2026 at 12:00 midday UK time.</p>
+      </div>
+      <dl><dt>Expected start date</dt><dd>October 2027</dd></dl>
+    </div>
+    <div class="mode-card">
+      <h2>Part time</h2>
+      <div><span>Open</span></div>
+      <div class="application-status">
+        <p>Application deadline: Wednesday 6 January 2027 at 12:00 midday UK time.</p>
+      </div>
+      <dl><dt>Expected start date</dt><dd>October 2027</dd></dl>
+    </div>
+  </div>
   <section>
-    <h2>Application deadlines</h2>
-    <p>12:00 midday UK time on:</p>
-    <ul>
-      <li>Tuesday 2 December 2026</li>
-      <li>Wednesday 6 January 2027</li>
-    </ul>
+    <h2>Funding and costs</h2>
+    <p>A separate funding deadline is 30 September 2026.</p>
   </section>
-</body></html>
+</main></body></html>
 """
 
 
-def test_oxford_adapter_keeps_taught_masters_and_excludes_research_degrees() -> None:
-    catalog = OxfordAdapter(minimum_expected_programmes=2).parse_catalog(OXFORD_PAGE)
+def test_oxford_browser_wait_selector_matches_current_course_cards() -> None:
+    soup = BeautifulSoup(OXFORD_FINDER_PAGE, "html.parser")
+    selector = OxfordAdapter.browser_wait_for_selectors[OxfordAdapter.catalog_url]
 
-    assert [item.id for item in catalog.programmes] == [
-        "oxford-advanced-computer-science-msc",
-        "oxford-economics-mphil",
-    ]
-    assert catalog.programmes[0].name == "MSc in Advanced Computer Science"
-    assert catalog.programmes[0].faculty == "Computer Science"
-    assert catalog.programmes[0].parse_status == "no-deadline"
+    assert len(soup.select(selector)) == 3
 
 
-def test_oxford_adapter_fetches_pagination_and_parses_deadline_stages() -> None:
-    first_page = OXFORD_PAGE.replace(
-        "</body>", '<nav><a href="?page=1">Next</a></nav></body>'
-    )
-    second_page = OXFORD_PAGE.replace(
-        "Advanced Computer Science", "Mathematical and Computational Finance"
-    ).replace("msc-advanced-computer-science", "msc-mathematical-computational-finance")
+def test_oxford_adapter_uses_current_finder_api_and_preserves_study_modes() -> None:
+    calls: list[str] = []
 
     def fetcher(url: str) -> str:
-        if "/courses/msc-" in url:
-            return OXFORD_DETAIL
-        if "/courses/mphil-" in url:
-            return "<h1>MPhil in Economics</h1><p>Closed to applications for entry in 2026-27. Register to receive an email when applications open (for entry in 2027-28).</p>"
-        return second_page if "page=1" in url else first_page
+        calls.append(url)
+        if "/api/listing/3405" in url:
+            return OXFORD_API_PAGE
+        if url == OxfordAdapter.catalog_url:
+            return OXFORD_FINDER_PAGE
+        raise AssertionError(f"closed courses must not fetch detail pages: {url}")
 
     catalog = OxfordAdapter(
         minimum_expected_programmes=3,
         detail_workers=1,
     ).parse_catalog_from_fetcher(fetcher)
 
-    assert len(catalog.programmes) == 3
-    programme = next(
-        item
-        for item in catalog.programmes
-        if item.id == "oxford-advanced-computer-science-msc"
-    )
-    assert programme.name == "MSc in Advanced Computer Science"
-    assert programme.parse_status == "incomplete"
-    assert [
-        (window.round, window.opens_at, window.closes_at, window.intake)
-        for window in programme.windows
-    ] == [
-        ("Application deadline 1", None, "2026-12-02", "October 2027"),
-        ("Application deadline 2", None, "2027-01-06", "October 2027"),
+    assert [item.id for item in catalog.programmes] == [
+        "oxford-advanced-computer-science-msc-full-time",
+        "oxford-philosophy-bphil-full-time",
+        "oxford-translational-health-sciences-msc-full-time",
+        "oxford-translational-health-sciences-msc-part-time",
     ]
-    economics = next(
-        item for item in catalog.programmes if item.id == "oxford-economics-mphil"
+    assert [
+        item.name for item in catalog.programmes if "Translational" in item.name
+    ] == [
+        "MSc in Translational Health Sciences (Full time)",
+        "MSc in Translational Health Sciences (Part time)",
+    ]
+    assert all(item.parse_status == "no-deadline" for item in catalog.programmes)
+    assert all("Closed" in item.deadline_text for item in catalog.programmes)
+    assert len([url for url in calls if "/api/listing/3405" in url]) == 1
+    assert all("courses-a-z-listing" not in url for url in calls)
+
+
+def test_oxford_adapter_fetches_open_detail_once_and_scopes_deadlines_by_mode() -> None:
+    open_card = _course_card(
+        title="MSc in Translational Health Sciences",
+        slug="msc-translational-health-sciences",
+        statuses=(("Full time", "Open"), ("Part time", "Open")),
     )
-    assert economics.windows == []
-    assert "2027-28" in economics.deadline_text
+    finder_page = _finder_page(open_card, total=1)
+    detail_calls: list[str] = []
+
+    def fetcher(url: str) -> str:
+        if url == OxfordAdapter.catalog_url:
+            return finder_page
+        detail_calls.append(url)
+        return OXFORD_DETAIL
+
+    catalog = OxfordAdapter(
+        minimum_expected_programmes=1,
+        detail_workers=1,
+    ).parse_catalog_from_fetcher(fetcher)
+
+    assert detail_calls == [
+        "https://www.ox.ac.uk/admissions/graduate/courses/"
+        "msc-translational-health-sciences"
+    ]
+    assert [
+        (item.id, item.windows[0].closes_at, item.windows[0].intake)
+        for item in catalog.programmes
+    ] == [
+        (
+            "oxford-translational-health-sciences-msc-full-time",
+            "2026-12-02",
+            "October 2027",
+        ),
+        (
+            "oxford-translational-health-sciences-msc-part-time",
+            "2027-01-06",
+            "October 2027",
+        ),
+    ]
+    assert all(item.parse_status == "incomplete" for item in catalog.programmes)
+    assert all("2026-09-30" not in item.deadline_text for item in catalog.programmes)
 
 
-def test_oxford_adapter_rejects_partial_catalogues() -> None:
+def test_oxford_adapter_rejects_unrendered_or_partial_current_finder() -> None:
+    empty_current_page = _finder_page(total=0)
+
     with pytest.raises(ValueError, match="expected at least 3"):
-        OxfordAdapter(minimum_expected_programmes=3).parse_catalog(OXFORD_PAGE)
+        OxfordAdapter(minimum_expected_programmes=3).parse_catalog(empty_current_page)

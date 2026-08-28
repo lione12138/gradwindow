@@ -88,7 +88,7 @@ def discover_programmes(
     applicant_categories_path: Path = APPLICANT_CATEGORIES_PATH,
     fetcher: Callable[[str], str] = fetch_catalog,
     browser_fetcher: Callable[[str], str] | None = None,
-    browser_fallback_limit: int = DEFAULT_BROWSER_FALLBACK_LIMIT,
+    browser_fallback_limit: int | None = None,
     dry_run: bool = False,
 ) -> dict:
     checked_at = datetime.now(timezone.utc).isoformat()
@@ -108,11 +108,22 @@ def discover_programmes(
         and fetcher is fetch_catalog
         and not adapter_has_browser_fallback
     ):
-        browser_fetcher = browser_content_fetcher_from_environment()
+        browser_fetcher = browser_content_fetcher_from_environment(
+            wait_for_selectors=getattr(adapter, "browser_wait_for_selectors", None)
+        )
+    effective_browser_fallback_limit = (
+        browser_fallback_limit
+        if browser_fallback_limit is not None
+        else getattr(
+            adapter,
+            "browser_fallback_limit",
+            DEFAULT_BROWSER_FALLBACK_LIMIT,
+        )
+    )
     transport = ResilientFetcher(
         fetcher,
         browser_fetcher=browser_fetcher,
-        browser_fallback_limit=browser_fallback_limit,
+        browser_fallback_limit=effective_browser_fallback_limit,
     )
 
     def tracking_fetcher(url: str) -> str:

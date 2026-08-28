@@ -103,6 +103,30 @@ def test_browser_client_retries_transient_422_and_blocks_heavy_assets(
     ]
 
 
+def test_browser_client_can_wait_for_a_dynamic_listing_selector(monkeypatch) -> None:
+    requests = []
+
+    def post(*args, **kwargs) -> httpx.Response:
+        requests.append(kwargs)
+        return _response(200, payload="rendered")
+
+    monkeypatch.setattr(browser_rendering.httpx, "post", post)
+    client = CloudflareBrowserClient("account", "token", minimum_interval=0)
+
+    assert (
+        client.content(
+            "https://example.com/catalog",
+            wait_for_selector="[data-listing] article",
+        )
+        == "rendered"
+    )
+    assert requests[0]["json"]["waitForSelector"] == {
+        "selector": "[data-listing] article",
+        "timeout": 60_000,
+        "visible": True,
+    }
+
+
 def test_browser_client_does_not_retry_exhausted_daily_quota(monkeypatch) -> None:
     attempts = 0
 
