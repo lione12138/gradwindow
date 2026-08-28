@@ -129,7 +129,11 @@ def discover_programmes(
     def tracking_fetcher(url: str) -> str:
         content = transport(url)
         if url in watched_urls:
-            watched_source_hashes[url] = _source_hash(content)
+            watch_content = getattr(adapter, "window_watch_content", None)
+            fingerprint_content = (
+                watch_content(url, content) if callable(watch_content) else content
+            )
+            watched_source_hashes[url] = _source_hash(fingerprint_content)
         return content
 
     try:
@@ -495,7 +499,13 @@ def discover_programmes(
         else None
     )
     watched_source_fingerprint_version = (
-        WATCHED_SOURCE_FINGERPRINT_VERSION if watched_source_hashes else None
+        getattr(
+            adapter,
+            "window_watch_fingerprint_version",
+            WATCHED_SOURCE_FINGERPRINT_VERSION,
+        )
+        if watched_source_hashes
+        else None
     )
     programmes_without_deadlines = sum(
         not programme.windows for programme in catalog.programmes

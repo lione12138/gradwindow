@@ -888,6 +888,10 @@ def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
         university_id = "example-university"
         catalog_url = "https://example.edu/programmes"
         window_watch_urls = ("https://example.edu/application-dates",)
+        window_watch_fingerprint_version = 7
+
+        def window_watch_content(self, _url, content):
+            return content.split("<aside>", 1)[0]
 
         def parse_catalog_from_fetcher(self, fetcher):
             fetcher(self.window_watch_urls[0])
@@ -927,6 +931,7 @@ def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
     responses = {
         "https://example.edu/application-dates": (
             "<main>Applications open 1 August and close 15 January.</main>"
+            "<aside>Curriculum revised 1 January 2026.</aside>"
         ),
         "https://example.edu/programmes": "<main>Example MSc</main>",
     }
@@ -946,7 +951,24 @@ def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
     assert report["exactWindowCount"] == 1
     assert report["missingOpeningDateCount"] == 1
     assert report["windowStatus"] == "partial"
-    assert report["watchedWindowSourceFingerprintVersion"] == 2
+    assert report["watchedWindowSourceFingerprintVersion"] == 7
+
+    responses["https://example.edu/application-dates"] = (
+        "<main>Applications open 1 August and close 15 January.</main>"
+        "<aside>Curriculum revised 2 January 2026.</aside>"
+    )
+    unchanged = discover_programmes(
+        WatchedAdapter(),
+        programs_path=programs_path,
+        applications_path=applications_path,
+        candidates_path=tmp_path / "programme-candidates.json",
+        window_candidates_path=tmp_path / "window-candidates.json",
+        state_path=tmp_path / "programme-catalog-state.json",
+        fetcher=responses.__getitem__,
+        dry_run=True,
+    )
+
+    assert unchanged["watchedWindowSourceHash"] == report["watchedWindowSourceHash"]
 
 
 def test_discovery_reports_record_level_window_removals(tmp_path) -> None:
