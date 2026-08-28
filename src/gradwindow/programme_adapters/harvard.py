@@ -18,11 +18,14 @@ from .base import (
 CATALOG_URL = "https://gsas.harvard.edu/programs"
 APPLICATION_URL = "https://gsas.harvard.edu/apply"
 UNIVERSITY_ID = "harvard-university"
+MASTER_FILTER_URLS = tuple(
+    f"{CATALOG_URL}?f%5B0%5D=degrees_offered%3A{facet_id}"
+    for facet_id in (158, 160, 159)
+)
 
 MASTER_DEGREE_RE = re.compile(
     r"Master of (?P<label>Arts|Engineering|Science)\s+\((?P<code>AM|ME|SM)\)"
 )
-PAGE_RE = re.compile(r"[?&]page=(\d+)")
 
 
 class HarvardAdapter(BaseProgrammeAdapter):
@@ -31,22 +34,20 @@ class HarvardAdapter(BaseProgrammeAdapter):
     application_url = APPLICATION_URL
     intake = "Fall 2027"
     application_opens_at_basis = "missing"
+    browser_fallback_limit = len(MASTER_FILTER_URLS)
+    browser_wait_for_selectors = {
+        url: ".views-row .paragraph--type--degree" for url in MASTER_FILTER_URLS
+    }
+    window_watch_urls = MASTER_FILTER_URLS
 
-    def __init__(self, minimum_expected_programmes: int = 10) -> None:
+    def __init__(self, minimum_expected_programmes: int = 12) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
 
     def parse_catalog_from_fetcher(
         self,
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
-        first_html = fetcher(self.catalog_url)
-        soup = BeautifulSoup(first_html, "html.parser")
-        last_page = _last_page_number(soup)
-        html_pages = [first_html]
-        html_pages.extend(
-            fetcher(f"{self.catalog_url}?page={page}")
-            for page in range(1, last_page + 1)
-        )
+        html_pages = [fetcher(url) for url in MASTER_FILTER_URLS]
         programmes = [
             programme
             for html in html_pages
@@ -102,6 +103,8 @@ class HarvardAdapter(BaseProgrammeAdapter):
                         round="Main deadline",
                         closes_at=deadline,
                         intake=self.intake,
+                        source_url=source_url,
+                        opens_at_basis="missing",
                     )
                 ]
                 if deadline
@@ -163,8 +166,8 @@ def _deadline_text(title: str, degree_type: str, deadline: str | None) -> str:
         )
     return (
         f"Harvard Griffin GSAS lists {title} {degree_type} with a main "
-        f"application deadline of {deadline}. Applications for degree programs "
-        "are available in September, but no exact opening date is published."
+        f"application deadline of {deadline}. The filtered catalogue does not "
+        "publish an exact opening date."
     )
 
 
@@ -182,15 +185,6 @@ def _area_of_study(row) -> str:
         for item in field.select(".field__item")
     ]
     return " | ".join(value for value in values if value)
-
-
-def _last_page_number(soup: BeautifulSoup) -> int:
-    pages = set()
-    for link in soup.select('a[href*="page="]'):
-        match = PAGE_RE.search(link.get("href", ""))
-        if match:
-            pages.add(int(match.group(1)))
-    return max(pages) if pages else 0
 
 
 def _programme_id(title: str, degree_type: str) -> str:
