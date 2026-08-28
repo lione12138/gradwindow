@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import concurrent.futures
-import math
+import hashlib
+import random
 import re
+import threading
+import time
 import unicodedata
 from collections.abc import Callable
 from dataclasses import replace
@@ -16,13 +19,13 @@ from .base import (
     DiscoveredCatalog,
     DiscoveredProgramme,
     DiscoveredWindow,
+    OfficialSourceTransportError,
 )
 
 UNIVERSITY_ID = "university-of-edinburgh"
-CATALOG_URL = "https://study.ed.ac.uk/programmes/postgraduate-taught"
+CATALOG_URL = "https://study.ed.ac.uk/programmes/postgraduate-taught-a-z"
 APPLICATION_GUIDANCE_URL = "https://study.ed.ac.uk/postgraduate/applying/when"
 DEFAULT_INTAKE = "September 2026"
-RESULTS_PER_PAGE = 10
 COURSE_PATH_RE = re.compile(
     r"^/programmes/postgraduate-taught/(?:(?P<edition>20\d{2})/)?"
     r"(?P<code>\d+)-(?P<slug>[^/]+)/?$",
@@ -64,86 +67,144 @@ class EdinburghAdapter(BaseProgrammeAdapter):
     application_opens_at_basis = "missing"
     replace_pending_candidates = True
     intake = DEFAULT_INTAKE
+    browser_fallback_limit = 6
 
     def __init__(
         self,
         minimum_expected_programmes: int = 250,
-        catalogue_workers: int = 6,
-        detail_workers: int = 12,
+        detail_workers: int = 2,
+        detail_refresh_budget: int = 24,
+        detail_interval_seconds: float = 0.8,
+        detail_jitter_seconds: float = 0.7,
+        maximum_detail_failure_ratio: float = 0.2,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
-        self.catalogue_workers = catalogue_workers
         self.detail_workers = detail_workers
+        self.detail_refresh_budget = detail_refresh_budget
+        self.detail_interval_seconds = detail_interval_seconds
+        self.detail_jitter_seconds = detail_jitter_seconds
+        self.maximum_detail_failure_ratio = maximum_detail_failure_ratio
+        self._previous_cache: dict[str, dict] = {}
+        self.catalogue_status = "ok"
+
+    def prepare_discovery(self, previous_state: dict) -> None:
+        adapter_state = previous_state.get("adapterState", {})
+        cache = adapter_state.get("detailCache", {})
+        self._previous_cache = cache if isinstance(cache, dict) else {}
 
     def parse_catalog_from_fetcher(
         self,
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
-        first_html = fetcher(CATALOG_URL)
-        total = _result_count(first_html)
-        page_urls = [
-            f"{CATALOG_URL}?page={page}"
-            for page in range(1, math.ceil(total / RESULTS_PER_PAGE))
-        ]
-        with concurrent.futures.ThreadPoolExecutor(
-            max_workers=self.catalogue_workers
-        ) as executor:
-            remaining_html = list(executor.map(fetcher, page_urls))
-
-        programmes = {}
-        for html in [first_html, *remaining_html]:
-            for programme in _catalogue_programmes(html):
-                programmes[programme.id] = programme
+        programmes = {
+            programme.id: programme
+            for programme in _catalogue_programmes(fetcher(CATALOG_URL))
+        }
         catalogue = sorted(programmes.values(), key=lambda item: item.id)
         if len(catalogue) < self.minimum_expected_programmes:
             raise ValueError(
                 "University of Edinburgh catalogue only contained "
                 f"{len(catalogue)} master's programmes; expected at least "
-                f"{self.minimum_expected_programmes} from {total} taught results"
+                f"{self.minimum_expected_programmes} from the official A-Z list"
             )
 
-        def parse_one(programme: DiscoveredProgramme) -> DiscoveredProgramme:
-            try:
-                return _parse_detail(programme, fetcher(programme.source_url))
-            except Exception as exc:
-                return replace(
-                    programme,
-                    deadline_text=(
-                        "Official programme page could not be checked during "
-                        f"discovery: {type(exc).__name__}: {str(exc)[:180]}"
-                    ),
+        cached_programmes = {}
+        uncached = []
+        for programme in catalogue:
+            cached = self._previous_cache.get(programme.source_url)
+            if isinstance(cached, dict) and isinstance(cached.get("detail"), dict):
+                cached_programmes[programme.source_url] = _merge_cached_detail(
+                    programme, cached["detail"]
                 )
+            else:
+                uncached.append(programme)
+        refreshable = sorted(
+            (
+                programme
+                for programme in catalogue
+                if programme.source_url in cached_programmes
+            ),
+            key=lambda item: (
+                self._previous_cache[item.source_url].get("fetchedAt", ""),
+                item.source_url,
+            ),
+        )[: self.detail_refresh_budget]
+        to_fetch = [*uncached, *refreshable]
+        pacer = _RequestPacer(
+            interval_seconds=self.detail_interval_seconds,
+            jitter_seconds=self.detail_jitter_seconds,
+        )
+
+        def parse_one(
+            programme: DiscoveredProgramme,
+        ) -> tuple[DiscoveredProgramme, Exception | None]:
+            try:
+                pacer.wait()
+                return _parse_detail(programme, fetcher(programme.source_url)), None
+            except Exception as exc:
+                fallback = cached_programmes.get(programme.source_url, programme)
+                return fallback, exc
 
         with concurrent.futures.ThreadPoolExecutor(
             max_workers=self.detail_workers
         ) as executor:
-            detailed = list(executor.map(parse_one, catalogue))
-        return DiscoveredCatalog(application_opens_at=None, programmes=detailed)
+            results = list(executor.map(parse_one, to_fetch))
+        fetched = {
+            programme.source_url: programme
+            for programme, error in results
+            if error is None
+        }
+        failures = [error for _programme, error in results if error is not None]
+        failure_ratio = len(failures) / len(to_fetch) if to_fetch else 0.0
+        if failure_ratio > self.maximum_detail_failure_ratio:
+            raise OfficialSourceTransportError(
+                "University of Edinburgh detail refresh failed for "
+                f"{len(failures)} of {len(to_fetch)} programme pages "
+                f"({failure_ratio:.1%}); previous exact windows were preserved"
+            )
+        warnings = _detail_failure_warnings(len(failures), len(to_fetch))
+        if failure_ratio >= 0.05:
+            self.catalogue_status = "degraded"
 
-
-def _result_count(html: str) -> int:
-    soup = BeautifulSoup(html, "html.parser")
-    count = soup.select_one("#psw-search-result-count")
-    if count and count.get_text(strip=True).isdigit():
-        return int(count.get_text(strip=True))
-    heading = next(
-        (
-            item.get_text(" ", strip=True)
-            for item in soup.find_all(["h2", "h3"])
-            if re.search(r"\bof\s+\d+\s+results\b", item.get_text(" ", strip=True))
-        ),
-        "",
-    )
-    match = re.search(r"\bof\s+(?P<count>\d+)\s+results\b", heading)
-    if match:
-        return int(match.group("count"))
-    return len(soup.select("div.result h3 a[href]"))
+        fetched_at = datetime.now().astimezone().isoformat()
+        detailed = []
+        detail_cache = {}
+        for programme in catalogue:
+            detail = fetched.get(
+                programme.source_url,
+                cached_programmes.get(programme.source_url, programme),
+            )
+            detailed.append(detail)
+            previous = self._previous_cache.get(programme.source_url, {})
+            detail_cache[programme.source_url] = {
+                "fetchedAt": (
+                    fetched_at
+                    if programme.source_url in fetched
+                    else previous.get("fetchedAt", "")
+                ),
+                "detail": _programme_to_cache(detail),
+            }
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=detailed,
+            warnings=warnings,
+            diagnostics={
+                "catalogueRequests": 1,
+                "detailPagesFetched": len(fetched),
+                "detailCacheHits": len(catalogue) - len(uncached),
+                "detailFailures": len(failures),
+                "detailFailureRatio": round(failure_ratio, 4),
+            },
+            adapter_state={"detailCache": detail_cache},
+        )
 
 
 def _catalogue_programmes(html: str) -> list[DiscoveredProgramme]:
     soup = BeautifulSoup(html, "html.parser")
     programmes = []
-    for link in soup.select("div.result h3 a[href]"):
+    for link in soup.select(
+        "div.result h3 a[href], h3.field-content a[href*='/programmes/postgraduate-taught/']"
+    ):
         title = _normalise(link.get_text(" ", strip=True))
         source_url = _course_url(link.get("href", ""))
         split = _split_title(title)
@@ -177,6 +238,100 @@ def _catalogue_programmes(html: str) -> list[DiscoveredProgramme]:
     return programmes
 
 
+class _RequestPacer:
+    def __init__(self, *, interval_seconds: float, jitter_seconds: float) -> None:
+        self.interval_seconds = max(0.0, interval_seconds)
+        self.jitter_seconds = max(0.0, jitter_seconds)
+        self._lock = threading.Lock()
+        self._next_request_at = 0.0
+
+    def wait(self) -> None:
+        with self._lock:
+            now = time.monotonic()
+            request_at = max(now, self._next_request_at)
+            self._next_request_at = (
+                request_at
+                + self.interval_seconds
+                + random.uniform(0.0, self.jitter_seconds)
+            )
+        delay = request_at - now
+        if delay > 0:
+            time.sleep(delay)
+
+
+def _detail_failure_warnings(failures: int, attempted: int) -> list[dict[str, object]]:
+    if failures == 0 or attempted == 0:
+        return []
+    ratio = failures / attempted
+    return [
+        {
+            "code": (
+                "DETAIL_REFRESH_DEGRADED" if ratio >= 0.05 else "DETAIL_REFRESH_PARTIAL"
+            ),
+            "message": (
+                f"{failures} of {attempted} Edinburgh programme detail pages "
+                "failed; cached evidence was retained where available."
+            ),
+            "failureCount": failures,
+            "attemptedCount": attempted,
+            "failureRatio": round(ratio, 4),
+        }
+    ]
+
+
+def _programme_to_cache(programme: DiscoveredProgramme) -> dict:
+    return {
+        "faculty": programme.faculty,
+        "department": programme.department,
+        "deadlineText": programme.deadline_text,
+        "parseStatus": programme.parse_status,
+        "retrievalMethod": programme.retrieval_method,
+        "evidenceQuality": programme.evidence_quality,
+        "evidenceDocumentHash": programme.evidence_document_hash,
+        "windows": [
+            {
+                "round": window.round,
+                "opensAt": window.opens_at,
+                "closesAt": window.closes_at,
+                "applicantCategories": window.applicant_categories,
+                "intake": window.intake,
+                "sourceUrl": window.source_url,
+                "opensAtBasis": window.opens_at_basis,
+                "deadlineSemantics": window.deadline_semantics,
+            }
+            for window in programme.windows
+        ],
+    }
+
+
+def _merge_cached_detail(
+    programme: DiscoveredProgramme, cached: dict
+) -> DiscoveredProgramme:
+    return replace(
+        programme,
+        faculty=cached.get("faculty", ""),
+        department=cached.get("department", ""),
+        deadline_text=cached.get("deadlineText", programme.deadline_text),
+        parse_status=cached.get("parseStatus", programme.parse_status),
+        retrieval_method=cached.get("retrievalMethod"),
+        evidence_quality=cached.get("evidenceQuality"),
+        evidence_document_hash=cached.get("evidenceDocumentHash"),
+        windows=[
+            DiscoveredWindow(
+                round=window["round"],
+                opens_at=window.get("opensAt"),
+                closes_at=window["closesAt"],
+                applicant_categories=window.get("applicantCategories", ["all"]),
+                intake=window.get("intake"),
+                source_url=window.get("sourceUrl"),
+                opens_at_basis=window.get("opensAtBasis"),
+                deadline_semantics=window.get("deadlineSemantics", "on"),
+            )
+            for window in cached.get("windows", [])
+        ],
+    )
+
+
 def _parse_detail(
     programme: DiscoveredProgramme,
     html: str,
@@ -195,6 +350,8 @@ def _parse_detail(
                 "The official programme page does not contain a When to apply "
                 "section with an exact application deadline."
             ),
+            retrieval_method="official-html",
+            evidence_document_hash=hashlib.sha256(html.encode("utf-8")).hexdigest(),
         )
 
     section_text = _normalise(applying.get_text(" ", strip=True))
@@ -232,6 +389,8 @@ def _parse_detail(
             if windows
             else "no-deadline"
         ),
+        retrieval_method="official-html",
+        evidence_document_hash=hashlib.sha256(html.encode("utf-8")).hexdigest(),
     )
 
 
