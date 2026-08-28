@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from datetime import date
@@ -22,6 +23,10 @@ CATALOG_URL = (
 MEDICAL_INFORMATICS_URL = (
     "https://www.meduniwien.ac.at/web/en/studies-further-education/"
     "application-admission/masters-programme-in-medical-informatics/"
+)
+ADMISSION_PERIODS_URL = (
+    "https://www.meduniwien.ac.at/web/en/studies-further-education/"
+    "application-admission/admission-periods/"
 )
 MOLECULAR_PRECISION_MEDICINE_URL = (
     "https://www.meduniwien.ac.at/web/en/studies-further-education/"
@@ -67,16 +72,27 @@ class MedUniViennaAdapter(OfficialCatalogAdapter):
     school_prefix = "meduni-vienna"
     institution_name = "Medical University of Vienna"
     minimum_expected_programmes = 3
-    window_watch_urls = tuple(item.source_url for item in KNOWN_PROGRAMMES)
+    window_watch_urls = (
+        ADMISSION_PERIODS_URL,
+        MOLECULAR_PRECISION_MEDICINE_URL,
+        PSYCHOTHERAPY_URL,
+    )
+    window_watch_fingerprint_version = 3
     retrieval_method = "official-canonical-programme-registry"
     catalogue_limitation_reason = (
         "MedUni Vienna's three current master's programmes are monitored through "
         "their canonical official pages. Exact windows are recorded only where a "
-        "programme page publishes both dates and the intake."
+        "programme page or its linked central admissions source publishes both "
+        "dates and the intake."
     )
 
-    def __init__(self, minimum_expected_programmes: int = 3) -> None:
+    def __init__(
+        self,
+        minimum_expected_programmes: int = 3,
+        today: date | None = None,
+    ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
+        self.today = today or date.today()
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
         pages: dict[str, str] = {}
@@ -88,6 +104,18 @@ class MedUniViennaAdapter(OfficialCatalogAdapter):
                     f"MedUni Vienna's canonical {programme.name} catalogue source "
                     "was unavailable"
                 ) from exc
+
+        try:
+            admission_periods_html = fetcher(ADMISSION_PERIODS_URL)
+        except Exception as exc:
+            raise OfficialSourceTransportError(
+                "MedUni Vienna's official admission-periods source was unavailable"
+            ) from exc
+        if "admission periods" not in _page_text(admission_periods_html).casefold():
+            raise ParserZeroResultError(
+                "MedUni Vienna's official admission-periods page no longer "
+                "identified its admission periods"
+            )
 
         for programme in KNOWN_PROGRAMMES:
             text = _page_text(pages[programme.name])
@@ -111,6 +139,15 @@ class MedUniViennaAdapter(OfficialCatalogAdapter):
         for known in KNOWN_PROGRAMMES:
             programmes[known.name].application_url = known.source_url
 
+        informatics_windows = _medical_informatics_windows(
+            admission_periods_html,
+            today=self.today,
+        )
+        if informatics_windows:
+            _attach_general_admission_periods(
+                programmes["Medical Informatics"], informatics_windows
+            )
+
         precision_window = _molecular_precision_medicine_window(
             pages["Molecular Precision Medicine"]
         )
@@ -133,7 +170,33 @@ class MedUniViennaAdapter(OfficialCatalogAdapter):
             _attach_window(programmes["Molecular Precision Medicine"], precision_window)
         if psychotherapy_window is not None:
             _attach_window(programmes["Psychotherapy"], psychotherapy_window)
+        watched_sections = {
+            url: self.window_watch_content(url, content)
+            for url, content in (
+                (ADMISSION_PERIODS_URL, admission_periods_html),
+                (
+                    MOLECULAR_PRECISION_MEDICINE_URL,
+                    pages["Molecular Precision Medicine"],
+                ),
+                (PSYCHOTHERAPY_URL, pages["Psychotherapy"]),
+            )
+        }
+        catalog.diagnostics["applicationSectionFingerprints"] = {
+            url: hashlib.sha256(section.casefold().encode("utf-8")).hexdigest()
+            for url, section in watched_sections.items()
+        }
         return catalog
+
+    def window_watch_content(self, url: str, content: str) -> str:
+        if url == ADMISSION_PERIODS_URL:
+            section = _general_admission_period_fingerprint_text(content)
+        elif url == MOLECULAR_PRECISION_MEDICINE_URL:
+            section = _precision_application_section(content)
+        elif url == PSYCHOTHERAPY_URL:
+            section = _psychotherapy_application_section(content)
+        else:
+            section = ""
+        return f"<main>{section}</main>" if section else ""
 
     def extract_entries(self, html: str) -> list[CatalogEntry]:
         """Retained for the base parser contract; live discovery uses URLs."""
@@ -156,6 +219,84 @@ def _attach_window(programme: DiscoveredProgramme, window: DiscoveredWindow) -> 
         "opening date, closing date, and intake."
     )
     programme.parse_status = "parsed"
+
+
+def _attach_general_admission_periods(
+    programme: DiscoveredProgramme,
+    windows: list[DiscoveredWindow],
+) -> None:
+    programme.windows = windows
+    programme.deadline_text = (
+        "The Medical Informatics page directs applicants to MedUni Vienna's "
+        "official admission deadlines. These dates are labelled General admission "
+        "periods and are not a selective programme application period."
+    )
+    programme.parse_status = "parsed"
+
+
+def _medical_informatics_windows(
+    html: str,
+    *,
+    today: date,
+) -> list[DiscoveredWindow]:
+    windows = []
+    for item in _general_admission_period_rows(html):
+        closes_at = _iso_date(
+            item["close_day"], item["close_month"], item["close_year"]
+        )
+        if closes_at < today.isoformat():
+            continue
+        windows.append(
+            DiscoveredWindow(
+                round="General admission period",
+                applicant_categories=["all"],
+                opens_at=_iso_date(
+                    item["open_day"], item["open_month"], item["open_year"]
+                ),
+                closes_at=closes_at,
+                intake=item["intake"],
+                source_url=ADMISSION_PERIODS_URL,
+                opens_at_basis="official",
+            )
+        )
+    return windows
+
+
+def _general_admission_period_rows(html: str) -> list[dict[str, object]]:
+    text = _page_text(html)
+    pattern = re.compile(
+        r"(?P<intake>(?:Winter|Summer) semester 20\d{2}(?:/\d{2})?)\s+"
+        r"(?P<open_day>\d{1,2})\s+(?P<open_month>[A-Za-z]+)\s+"
+        r"(?P<open_year>20\d{2})\s*[-–—]\s*"
+        r"(?P<close_day>\d{1,2})\s+(?P<close_month>[A-Za-z]+)\s+"
+        r"(?P<close_year>20\d{2})\s*\|?\s*General admission period\b",
+        re.I,
+    )
+    return [
+        {
+            "intake": normalise(match.group("intake")),
+            "open_day": int(match.group("open_day")),
+            "open_month": match.group("open_month"),
+            "open_year": int(match.group("open_year")),
+            "close_day": int(match.group("close_day")),
+            "close_month": match.group("close_month"),
+            "close_year": int(match.group("close_year")),
+        }
+        for match in pattern.finditer(text)
+    ]
+
+
+def _general_admission_period_fingerprint_text(html: str) -> str:
+    lines = []
+    for item in _general_admission_period_rows(html):
+        opens_at = _iso_date(item["open_day"], item["open_month"], item["open_year"])
+        closes_at = _iso_date(
+            item["close_day"], item["close_month"], item["close_year"]
+        )
+        lines.append(
+            f"{item['intake']}: {opens_at} - {closes_at} General admission period"
+        )
+    return "\n".join(lines)
 
 
 def _molecular_precision_medicine_window(html: str) -> DiscoveredWindow | None:
@@ -282,6 +423,18 @@ def _has_psychotherapy_application_date_signal(html: str) -> bool:
             re.I,
         )
     )
+
+
+def _psychotherapy_application_section(html: str) -> str:
+    text = _page_text(html)
+    match = re.search(
+        r"Antragsfrist\s+für\s+das\s+Studienjahr\s+20\d{2}/\d{2}\s*:\s*"
+        r"\d{1,2}\.\s*[A-Za-zÀ-ſ]+\s+bis\s+\d{1,2}\.\s*"
+        r"[A-Za-zÀ-ſ]+\s+20\d{2}",
+        text,
+        re.I,
+    )
+    return normalise(match.group(0)) if match else ""
 
 
 def _iso_date(day: int, month: str, year: int) -> str:

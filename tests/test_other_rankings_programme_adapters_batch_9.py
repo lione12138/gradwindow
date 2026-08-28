@@ -9,6 +9,7 @@ from gradwindow.programme_adapters.macau import (
     parse_official_chinese_translations,
 )
 from gradwindow.programme_adapters.meduni_vienna import (
+    ADMISSION_PERIODS_URL,
     MEDICAL_INFORMATICS_URL,
     MOLECULAR_PRECISION_MEDICINE_URL,
     PSYCHOTHERAPY_URL,
@@ -107,6 +108,16 @@ def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
           <h1>Master’s Programme in Medical Informatics at MedUni Vienna</h1>
           <h2>Online Application</h2>
         """,
+        ADMISSION_PERIODS_URL: """
+          <h1>Admission Periods</h1>
+          <h2>Summer semester 2026</h2>
+          <p>07 January 2026 - 05 February 2026 | General admission period</p>
+          <h2>Winter semester 2026/27</h2>
+          <p>06 July 2026 - 05 September 2026 | General admission period</p>
+          <p>06 September 2026 - 31 October 2026 | Exception period</p>
+          <h2>Summer semester 2027</h2>
+          <p>08 January 2027 - 05 February 2027 | General admission period</p>
+        """,
         MOLECULAR_PRECISION_MEDICINE_URL: """
           <nav>Application &amp; Admission Student Exchange Campus</nav>
           <h1>The Molecular Precision Medicine Master’s Programme</h1>
@@ -133,6 +144,7 @@ def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
         MEDICAL_INFORMATICS_URL,
         MOLECULAR_PRECISION_MEDICINE_URL,
         PSYCHOTHERAPY_URL,
+        ADMISSION_PERIODS_URL,
     ]
     assert [row.name for row in rows] == [
         "Medical Informatics",
@@ -140,7 +152,31 @@ def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
         "Psychotherapy",
     ]
     medical_informatics, precision_medicine, psychotherapy = rows
-    assert medical_informatics.windows == []
+    assert [
+        (
+            window.round,
+            window.intake,
+            window.opens_at,
+            window.closes_at,
+        )
+        for window in medical_informatics.windows
+    ] == [
+        (
+            "General admission period",
+            "Winter semester 2026/27",
+            "2026-07-06",
+            "2026-09-05",
+        ),
+        (
+            "General admission period",
+            "Summer semester 2027",
+            "2027-01-08",
+            "2027-02-05",
+        ),
+    ]
+    assert "not a selective programme application period" in (
+        medical_informatics.deadline_text
+    )
     assert [
         (
             window.intake,
@@ -178,6 +214,13 @@ def test_meduni_vienna_ignores_unrelated_page_dates_outside_application_section(
 ):
     pages = {
         MEDICAL_INFORMATICS_URL: "Master’s Programme in Medical Informatics",
+        ADMISSION_PERIODS_URL: """
+          <h1>Admission Periods</h1>
+          <h2>Winter semester 2026/27</h2>
+          <p>06 July 2026 - 05 September 2026 | General admission period</p>
+          <h2>Summer semester 2027</h2>
+          <p>08 January 2027 - 05 February 2027 | General admission period</p>
+        """,
         MOLECULAR_PRECISION_MEDICINE_URL: """
           <h1>The Molecular Precision Medicine Master’s Programme</h1>
           <p>Application &amp; Admission</p><p>Application details will follow.</p>
@@ -199,6 +242,30 @@ def test_meduni_vienna_ignores_unrelated_page_dates_outside_application_section(
         if item.name == "Molecular Precision Medicine"
     )
     assert precision.windows == []
+
+
+def test_meduni_vienna_watch_content_ignores_unrelated_page_dates() -> None:
+    adapter = MedUniViennaAdapter()
+    first = """
+      <article>
+        <div class="program__item">
+          <h2 class="program__title">Application &amp; Admission</h2>
+          <p>Application 1 March - 31 March 2026</p>
+        </div>
+        <h2>Curriculum</h2><p>Revised 5 December 2025</p>
+      </article>
+    """
+    second = first.replace("5 December 2025", "8 January 2026")
+
+    assert adapter.window_watch_content(
+        MOLECULAR_PRECISION_MEDICINE_URL, first
+    ) == adapter.window_watch_content(MOLECULAR_PRECISION_MEDICINE_URL, second)
+    assert adapter.window_watch_content(
+        MOLECULAR_PRECISION_MEDICINE_URL, first
+    ) != adapter.window_watch_content(
+        MOLECULAR_PRECISION_MEDICINE_URL,
+        first.replace("31 March 2026", "30 March 2026"),
+    )
 
 
 def test_charite_excludes_programmes_closed_to_enrolment() -> None:

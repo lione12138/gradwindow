@@ -2,6 +2,10 @@ from __future__ import annotations
 
 import pytest
 
+from gradwindow.programme_adapters.base import (
+    OfficialSourceTransportError,
+    ParserZeroResultError,
+)
 from gradwindow.programme_adapters.northwestern import (
     BIENEN_TIMELINE_URL,
     CATALOG_URL,
@@ -81,6 +85,54 @@ def test_northwestern_adapter_assigns_exact_bienen_window_only_to_mm() -> None:
     assert music.windows[0].intake == "Fall 2027"
     assert all(item.windows == [] for item in non_music)
     assert all(item.parse_status == "no-deadline" for item in non_music)
+
+
+def test_northwestern_adapter_uses_timeline_without_marketing_copy() -> None:
+    timeline_only = TIMELINE_HTML.replace(
+        "<p>The 2027 MM &amp; DMA application will be available August 1, 2026.</p>",
+        "<p>Start your application</p>",
+    )
+
+    def fetcher(url: str) -> str:
+        return CATALOG_HTML if url == CATALOG_URL else timeline_only
+
+    catalog = NorthwesternAdapter(
+        minimum_expected_programmes=3
+    ).parse_catalog_from_fetcher(fetcher)
+    music = next(item for item in catalog.programmes if item.faculty == "Bienen")
+
+    assert music.windows[0].opens_at == "2026-08-01"
+    assert music.windows[0].closes_at == "2026-12-01"
+
+
+def test_northwestern_adapter_rejects_unparsed_target_timeline() -> None:
+    broken_timeline = TIMELINE_HTML.replace(
+        "Graduate Application available online", "Application portal status"
+    )
+
+    def fetcher(url: str) -> str:
+        return CATALOG_HTML if url == CATALOG_URL else broken_timeline
+
+    with pytest.raises(ParserZeroResultError, match="Fall 2027 timeline"):
+        NorthwesternAdapter(minimum_expected_programmes=3).parse_catalog_from_fetcher(
+            fetcher
+        )
+
+
+def test_northwestern_adapter_watches_bienen_timeline() -> None:
+    assert NorthwesternAdapter.window_watch_urls == (BIENEN_TIMELINE_URL,)
+
+
+def test_northwestern_adapter_rejects_browser_fallback_homepage() -> None:
+    def fetcher(url: str) -> str:
+        if url == BIENEN_TIMELINE_URL:
+            return "<html><title>Homepage</title><main>Welcome to Bienen</main></html>"
+        return CATALOG_HTML
+
+    with pytest.raises(OfficialSourceTransportError, match="timeline content"):
+        NorthwesternAdapter(minimum_expected_programmes=3).parse_catalog_from_fetcher(
+            fetcher
+        )
 
 
 def test_northwestern_adapter_does_not_reuse_an_old_bienen_cycle() -> None:

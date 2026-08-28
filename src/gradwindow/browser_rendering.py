@@ -53,11 +53,18 @@ class CloudflareBrowserClient:
     def markdown(self, url: str) -> str:
         return self._render("markdown", url)
 
-    def content(self, url: str, *, wait_for_selector: str | None = None) -> str:
+    def content(
+        self,
+        url: str,
+        *,
+        wait_for_selector: str | None = None,
+        script: str | None = None,
+    ) -> str:
         return self._render(
             "content",
             url,
             wait_for_selector=wait_for_selector,
+            script=script,
         )
 
     def _render(
@@ -66,6 +73,7 @@ class CloudflareBrowserClient:
         url: str,
         *,
         wait_for_selector: str | None = None,
+        script: str | None = None,
     ) -> str:
         request_body: dict[str, object] = {
             "url": url,
@@ -82,6 +90,8 @@ class CloudflareBrowserClient:
                 "timeout": 60_000,
                 "visible": True,
             }
+        if script:
+            request_body["addScriptTag"] = [{"content": script}]
         with self._request_lock:
             for attempt in range(self.max_retries + 1):
                 self._wait_for_request_slot()
@@ -169,14 +179,20 @@ def browser_markdown_fetcher_from_environment() -> Callable[[str], str] | None:
 def browser_content_fetcher_from_environment(
     *,
     wait_for_selectors: Mapping[str, str] | None = None,
+    scripts: Mapping[str, str] | None = None,
 ) -> Callable[[str], str] | None:
     client = CloudflareBrowserClient.from_environment()
     if client is None:
         return None
 
     selectors = dict(wait_for_selectors or {})
+    page_scripts = dict(scripts or {})
 
     def fetch(url: str) -> str:
-        return client.content(url, wait_for_selector=selectors.get(url))
+        return client.content(
+            url,
+            wait_for_selector=selectors.get(url),
+            script=page_scripts.get(url),
+        )
 
     return fetch
