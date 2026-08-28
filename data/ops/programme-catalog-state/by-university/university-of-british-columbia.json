@@ -2,31 +2,31 @@
   "universities": {
     "university-of-british-columbia": {
       "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs",
-      "checkedAt": "2026-08-27T16:13:10.110813+00:00",
+      "checkedAt": "2026-08-28T01:02:29.912288+00:00",
       "itemCount": 228,
       "applicationOpensAt": null,
-      "catalogHash": "8eb960bfee0667302a5ef618b9e5740432f6c34436087ec86209e09e3fe31b5e",
+      "catalogHash": "74b22b2f0e1f2ef1ebc167557f71f869e420e9e1b72d310480348de9da92d1dd",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
-      "observedWindowCount": 159,
-      "exactWindowCount": 158,
+      "observedWindowCount": 161,
+      "exactWindowCount": 160,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 89,
-          "exactWindowCount": 88,
+          "observedWindowCount": 90,
+          "exactWindowCount": 89,
           "recurringPolicyWindowCount": 0
         },
         "2027:other:01": {
           "intakes": [
             "January 2027"
           ],
-          "observedWindowCount": 18,
-          "exactWindowCount": 18,
+          "observedWindowCount": 19,
+          "exactWindowCount": 19,
           "recurringPolicyWindowCount": 0
         },
         "2027:other:05": {
@@ -71,11 +71,11 @@
         }
       },
       "missingOpeningDateCount": 1,
-      "programmesWithoutDeadlines": 128,
-      "programmesNeedingReview": 128,
+      "programmesWithoutDeadlines": 126,
+      "programmesNeedingReview": 126,
       "limitationReason": "1 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-27T16:13:10.110813+00:00",
-      "windowFingerprint": "5aaa02859c6f1181c92d17126154a94523d38b822367a2ba28868ac39fccc5d7",
+      "lastSuccessfulAt": "2026-08-28T01:02:29.912288+00:00",
+      "windowFingerprint": "91b3ab9544c245127a33732eb26e48f005e71498029f0b0b8afd3a8c6d387156",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -84,10 +84,10 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Science",
           "department": "Computer Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "1a6322bfc4a104f549f0e08e38ce4cdc97f667358311cfaa022c85a2c438e005",
+          "windowCount": 1,
+          "latestClosesAt": "2025-12-15"
         },
         "ubc-llm-in-taxation-llmt": {
           "name": "LLM in Taxation (LLMT)",
@@ -1484,10 +1484,10 @@
           "degreeType": "MJ",
           "faculty": "Faculty of Arts",
           "department": "Journalism",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "ff88b2e3423d3fbec9cea7ba5440968ca81e2ecc54079ae73c3c87485efd9f44",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-31"
         },
         "ubc-master-of-kinesiology-mkin": {
           "name": "Master of Kinesiology (MKin)",
@@ -2361,6 +2361,14 @@
         }
       },
       "windows": {
+        "ubc-computer-science-msc::January 2027::Application deadline::all": {
+          "programmeId": "ubc-computer-science-msc",
+          "intake": "January 2027",
+          "opensAt": "2025-10-15",
+          "closesAt": "2025-12-15",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-computer-science",
+          "opensAtBasis": null
+        },
         "ubc-llm-in-taxation-llmt::July 2027::Canadian applicant deadline::domestic-students": {
           "programmeId": "ubc-llm-in-taxation-llmt",
           "intake": "July 2027",
@@ -2975,6 +2983,14 @@
           "opensAt": "2026-08-07",
           "closesAt": "2027-02-01",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-international-forestry",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-journalism-mj::September 2027::Application deadline::all": {
+          "programmeId": "ubc-master-of-journalism-mj",
+          "intake": "September 2027",
+          "opensAt": "2026-09-01",
+          "closesAt": "2027-01-31",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-journalism",
           "opensAtBasis": null
         },
         "ubc-master-of-kinesiology-mkin::September 2027::Application deadline::all": {
