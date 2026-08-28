@@ -177,10 +177,12 @@ def test_manual_discovery_workflow_passes_browser_rendering_secrets() -> None:
     )
     selected_adapter_step = workflow.split("- name: Run selected programme adapter", 1)[
         1
-    ].split("- name: Run Oxford assisted official-domain discovery", 1)[0]
+    ].split("- name: Validate discovery outputs", 1)[0]
 
     assert "CLOUDFLARE_ACCOUNT_ID" in selected_adapter_step
     assert "CLOUDFLARE_BROWSER_API_TOKEN" in selected_adapter_step
+    assert "inputs.university != 'oxford'" not in selected_adapter_step
+    assert "discover-assisted --university university-of-oxford" not in workflow
 
 
 def test_every_registered_adapter_satisfies_the_discovery_contract() -> None:

@@ -419,6 +419,43 @@ def test_discovery_uses_shared_browser_fallback_and_reports_transport(
     }
 
 
+def test_discovery_honours_an_adapter_specific_browser_fallback_budget(
+    tmp_path,
+) -> None:
+    class TwoPageAdapter(BaseProgrammeAdapter):
+        university_id = "example-university"
+        catalog_url = "https://example.edu/catalog"
+        browser_fallback_limit = 2
+
+        def parse_catalog_from_fetcher(self, fetcher):
+            fetcher(self.catalog_url)
+            fetcher("https://example.edu/catalog?page=2")
+            return DiscoveredCatalog(application_opens_at=None, programmes=[])
+
+    programs_path = tmp_path / "programs.json"
+    applications_path = tmp_path / "applications.json"
+    programs_path.write_text('{"programs": []}', encoding="utf-8")
+    applications_path.write_text('{"applications": []}', encoding="utf-8")
+
+    def blocked(_url: str) -> str:
+        raise FetchFailure("HTTP 403", kind="blocked", status_code=403)
+
+    report = discover_programmes(
+        TwoPageAdapter(),
+        programs_path=programs_path,
+        applications_path=applications_path,
+        candidates_path=tmp_path / "programme-candidates.json",
+        state_path=tmp_path / "programme-catalog-state.json",
+        fetcher=blocked,
+        browser_fetcher=lambda _url: "<main></main>",
+        dry_run=True,
+    )
+
+    assert report["adapterDiagnostics"]["transport"]["fallbackLimit"] == 2
+    assert report["adapterDiagnostics"]["transport"]["fallbackAttempts"] == 2
+    assert report["adapterDiagnostics"]["transport"]["fallbackSuccesses"] == 2
+
+
 def test_recurring_policy_dates_publish_separately_not_as_exact_windows(
     tmp_path,
 ) -> None:

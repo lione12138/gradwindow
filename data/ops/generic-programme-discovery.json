@@ -10,7 +10,8 @@
       "discoveryRole": "fallback",
       "prefix": "oxford",
       "seedUrls": [
-        "https://www.ox.ac.uk/admissions/graduate/courses/courses-a-z-listing",
+        "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course",
+        "https://www.ox.ac.uk/admissions/graduate/courses/departments",
         "https://www.ox.ac.uk/admissions/graduate/courses/open-courses"
       ],
       "officialDomains": [
@@ -22,7 +23,7 @@
       "maxDetailPages": 20,
       "noDeadlineHandling": "monitor",
       "accessStatus": "blocked",
-      "accessReason": "The central Oxford graduate course catalogue returns a Cloudflare HTTP 403 challenge to direct GitHub-runner requests. The dedicated Oxford adapter provides strict catalogue and course-page parsing when full official HTML is available; assisted official-domain discovery monitors indexed official pages without promoting snippet dates.",
+      "accessReason": "Oxford's current postgraduate course finder and department directory return a Cloudflare HTTP 403 challenge to direct GitHub-runner requests. The dedicated Oxford adapter uses bounded Browser Rendering fallback for the official course-finder listing API and mode-specific course pages; assisted official-domain discovery remains a fallback and never promotes snippet dates.",
       "assistedDiscovery": {
         "enabled": true,
         "maxResults": 20,
