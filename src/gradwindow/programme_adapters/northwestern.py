@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 import unicodedata
-from datetime import datetime
+from datetime import date, datetime
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
 from bs4 import BeautifulSoup
@@ -12,6 +12,8 @@ from .base import (
     DiscoveredCatalog,
     DiscoveredProgramme,
     DiscoveredWindow,
+    OfficialSourceTransportError,
+    ParserZeroResultError,
 )
 
 UNIVERSITY_ID = "northwestern-university"
@@ -22,16 +24,25 @@ BIENEN_TIMELINE_URL = (
 BIENEN_APPLICATION_URL = "https://apply.music.northwestern.edu/apply/"
 EXISTING_CS_ID = "northwestern-computer-science-ms"
 
-_OPEN_RE = re.compile(
-    r"The (?P<intake>20\d{2}) MM & DMA application will be available "
-    r"(?P<date>[A-Z][a-z]+ \d{1,2}, 20\d{2})\.",
+_MARKETING_OPEN_RE = re.compile(
+    r"(?P<intake>20\d{2}) MM & DMA application (?:is|will be) available "
+    r"(?P<date>[A-Z][a-z]+ \d{1,2}, 20\d{2})",
     re.IGNORECASE,
 )
-_TIMELINE_RE = re.compile(
-    r"Fall (?P<intake>20\d{2}) Graduate Application Timeline.*?"
-    r"(?P<close>[A-Z][a-z]+ \d{1,2})\s+Graduate Application and "
+_TIMELINE_HEADING_RE = re.compile(
+    r"Fall (?P<intake>20\d{2}) Graduate Application Timeline",
+    re.IGNORECASE,
+)
+_TIMELINE_OPEN_RE = re.compile(
+    r"(?P<date>[A-Z][a-z]+ \d{1,2}(?:,? 20\d{2})?)\s*(?:[-–—]\s*)?"
+    r"Graduate Application (?:is )?available online",
+    re.IGNORECASE,
+)
+_TIMELINE_CLOSE_RE = re.compile(
+    r"(?P<date>[A-Z][a-z]+ \d{1,2}(?:,? 20\d{2})?)\s*(?:[-–—]\s*)?"
+    r"Graduate Application and "
     r"prescreening materials \(if applicable\) due",
-    re.IGNORECASE | re.DOTALL,
+    re.IGNORECASE,
 )
 
 
@@ -44,6 +55,7 @@ class NorthwesternAdapter(BaseProgrammeAdapter):
     intake = "Fall 2027"
     application_opens_at_basis = "official"
     replace_pending_candidates = True
+    window_watch_urls = (BIENEN_TIMELINE_URL,)
 
     def __init__(
         self,
@@ -57,10 +69,24 @@ class NorthwesternAdapter(BaseProgrammeAdapter):
         self.intake = f"Fall {target_intake_year}"
 
     def parse_catalog_from_fetcher(self, fetcher) -> DiscoveredCatalog:
+        timeline_html = fetcher(BIENEN_TIMELINE_URL)
+        if not _has_bienen_timeline_page_signal(timeline_html):
+            raise OfficialSourceTransportError(
+                "Northwestern Bienen's official timeline source did not contain "
+                "MM/DMA application timeline content"
+            )
         bienen_window = _bienen_window(
-            fetcher(BIENEN_TIMELINE_URL),
+            timeline_html,
             target_intake_year=self.target_intake_year,
         )
+        if bienen_window is None and _has_target_timeline(
+            timeline_html, target_intake_year=self.target_intake_year
+        ):
+            raise ParserZeroResultError(
+                "Northwestern Bienen's official "
+                f"Fall {self.target_intake_year} timeline was present but its "
+                "application window could not be parsed"
+            )
         programmes = _programmes(
             fetcher(CATALOG_URL),
             bienen_window=bienen_window,
@@ -151,18 +177,35 @@ def _bienen_window(
     target_intake_year: int,
 ) -> DiscoveredWindow | None:
     text = _normalise(BeautifulSoup(html, "html.parser").get_text(" ", strip=True))
-    open_match = _OPEN_RE.search(text)
-    timeline_match = _TIMELINE_RE.search(text)
-    if open_match is None or timeline_match is None:
+    heading_match = _TIMELINE_HEADING_RE.search(text)
+    if heading_match is None:
         return None
-    open_intake = int(open_match.group("intake"))
-    close_intake = int(timeline_match.group("intake"))
-    if open_intake != target_intake_year or close_intake != target_intake_year:
+    intake_year = int(heading_match.group("intake"))
+    if intake_year != target_intake_year:
         return None
-    opens_at = datetime.strptime(open_match.group("date"), "%B %d, %Y").date()
-    closes_at = datetime.strptime(
-        f"{timeline_match.group('close')}, {opens_at.year}", "%B %d, %Y"
-    ).date()
+    timeline = text[heading_match.start() :]
+    open_match = _TIMELINE_OPEN_RE.search(timeline)
+    close_match = _TIMELINE_CLOSE_RE.search(timeline)
+    if open_match is None or close_match is None:
+        return None
+
+    marketing_match = _MARKETING_OPEN_RE.search(text)
+    marketing_date = None
+    if (
+        marketing_match is not None
+        and int(marketing_match.group("intake")) == target_intake_year
+    ):
+        marketing_date = datetime.strptime(
+            marketing_match.group("date"), "%B %d, %Y"
+        ).date()
+    default_cycle_year = target_intake_year - 1
+    opens_at = _timeline_date(open_match.group("date"), default_cycle_year)
+    closes_at = _timeline_date(close_match.group("date"), default_cycle_year)
+    if marketing_date is not None and (marketing_date.month, marketing_date.day) == (
+        opens_at.month,
+        opens_at.day,
+    ):
+        opens_at = marketing_date
     if closes_at <= opens_at:
         raise ValueError("Northwestern Bienen timeline had an invalid date range")
     return DiscoveredWindow(
@@ -172,6 +215,32 @@ def _bienen_window(
         intake=f"Fall {target_intake_year}",
         source_url=BIENEN_TIMELINE_URL,
     )
+
+
+def _has_target_timeline(html: str, *, target_intake_year: int) -> bool:
+    text = _normalise(BeautifulSoup(html, "html.parser").get_text(" ", strip=True))
+    return bool(
+        re.search(
+            rf"Fall {target_intake_year} Graduate Application Timeline",
+            text,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
+def _has_bienen_timeline_page_signal(html: str) -> bool:
+    text = _normalise(BeautifulSoup(html, "html.parser").get_text(" ", strip=True))
+    return bool(
+        _TIMELINE_HEADING_RE.search(text)
+        or re.search(r"MM\s*&\s*DMA Application\s*&\s*Timeline", text, re.I)
+    )
+
+
+def _timeline_date(value: str, default_year: int) -> date:
+    value = _normalise(value)
+    if re.search(r"\b20\d{2}\b", value):
+        return datetime.strptime(value.replace(",", ""), "%B %d %Y").date()
+    return datetime.strptime(f"{value} {default_year}", "%B %d %Y").date()
 
 
 def _deadline_text(
