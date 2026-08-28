@@ -50,6 +50,9 @@ class DiscoveredProgramme:
     retrieval_method: str | None = None
     evidence_quality: str | None = None
     evidence_document_hash: str | None = None
+    admission_status: Literal["paused"] | None = None
+    moratorium_from: str | None = None
+    moratorium_to: str | None = None
 
 
 @dataclass(slots=True)

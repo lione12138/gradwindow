@@ -340,6 +340,15 @@ def discover_programmes(
                 (window.closes_at for window in programme.windows),
                 default=None,
             ),
+            **(
+                {
+                    "admissionStatus": programme.admission_status,
+                    "moratoriumFrom": programme.moratorium_from,
+                    "moratoriumTo": programme.moratorium_to,
+                }
+                if programme.admission_status
+                else {}
+            ),
         }
         for programme in catalog.programmes
     }
@@ -858,6 +867,14 @@ def _candidate_record(
         ),
         "evidenceExcerpt": programme.deadline_text,
     }
+    if programme.admission_status:
+        candidate["programme"].update(
+            {
+                "admissionStatus": programme.admission_status,
+                "moratoriumFrom": programme.moratorium_from,
+                "moratoriumTo": programme.moratorium_to,
+            }
+        )
     if programme.retrieval_method or programme.evidence_quality:
         candidate["discoveryEvidence"] = {
             "retrievalMethod": programme.retrieval_method,

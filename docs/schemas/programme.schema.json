@@ -53,6 +53,46 @@
       "default": "",
       "title": "Inheritswindowfrom",
       "type": "string"
+    },
+    "admissionStatus": {
+      "anyOf": [
+        {
+          "const": "paused",
+          "enum": [
+            "paused"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Admissionstatus"
+    },
+    "moratoriumFrom": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Moratoriumfrom"
+    },
+    "moratoriumTo": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Moratoriumto"
     }
   },
   "required": [

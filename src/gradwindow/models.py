@@ -123,6 +123,25 @@ class Programme(DataModel):
     application_url: AnyHttpUrl = Field(alias="applicationUrl")
     source_url: AnyHttpUrl = Field(alias="sourceUrl")
     inherits_window_from: str = Field(default="", alias="inheritsWindowFrom")
+    admission_status: Literal["paused"] | None = Field(
+        default=None,
+        alias="admissionStatus",
+    )
+    moratorium_from: str | None = Field(default=None, alias="moratoriumFrom")
+    moratorium_to: str | None = Field(default=None, alias="moratoriumTo")
+
+    @model_validator(mode="after")
+    def validate_moratorium(self) -> Programme:
+        has_period = self.moratorium_from is not None or self.moratorium_to is not None
+        if self.admission_status == "paused" and not (
+            self.moratorium_from and self.moratorium_to
+        ):
+            raise ValueError(
+                "paused programmes must provide moratoriumFrom and moratoriumTo"
+            )
+        if self.admission_status is None and has_period:
+            raise ValueError("moratorium period requires admissionStatus=paused")
+        return self
 
 
 class ProgrammeGroup(DataModel):

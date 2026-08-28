@@ -920,6 +920,9 @@ def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
                         ],
                         deadline_text="Official dates",
                         parse_status="parsed",
+                        admission_status="paused",
+                        moratorium_from="Fall 2026",
+                        moratorium_to="Summer 2027",
                     )
                 ],
             )
@@ -952,6 +955,20 @@ def test_discovery_records_window_watch_fingerprint_and_completion_metrics(
     assert report["missingOpeningDateCount"] == 1
     assert report["windowStatus"] == "partial"
     assert report["watchedWindowSourceFingerprintVersion"] == 7
+    state = json.loads(
+        (tmp_path / "programme-catalog-state.json").read_text(encoding="utf-8")
+    )
+    snapshot = state["universities"]["example-university"]["programmes"]["example-msc"]
+    assert snapshot["admissionStatus"] == "paused"
+    assert snapshot["moratoriumFrom"] == "Fall 2026"
+    assert snapshot["moratoriumTo"] == "Summer 2027"
+    candidates = json.loads(
+        (tmp_path / "programme-candidates.json").read_text(encoding="utf-8")
+    )
+    programme = candidates["items"][0]["programme"]
+    assert programme["admissionStatus"] == "paused"
+    assert programme["moratoriumFrom"] == "Fall 2026"
+    assert programme["moratoriumTo"] == "Summer 2027"
 
     responses["https://example.edu/application-dates"] = (
         "<main>Applications open 1 August and close 15 January.</main>"
