@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from gradwindow.models import RecurringWindow
 from gradwindow.recurring_windows import generate_recurring_windows
 
 
@@ -156,6 +157,7 @@ def test_generate_recurring_windows_publishes_only_official_recurring_policy(
             "evidence": "Summer semester: 01.10. - 30.11.",
         }
     ]
+    RecurringWindow.model_validate(payload["recurringWindows"][0])
 
 
 def test_generate_recurring_windows_suppresses_an_equivalent_official_record(

@@ -216,6 +216,10 @@ class RecurringWindow(DataModel):
     scope_id: str = Field(alias="scopeId", pattern=SLUG_PATTERN)
     intake: str
     intake_details: IntakeDetails = Field(alias="intakeDetails")
+    entry_pattern: EntryPattern = Field(default="fixed", alias="entryPattern")
+    start_date_precision: StartDatePrecision = Field(
+        default="unknown", alias="startDatePrecision"
+    )
     round: str = ""
     applicant_categories: list[str] = Field(alias="applicantCategories")
     opens_at: date = Field(alias="opensAt")
