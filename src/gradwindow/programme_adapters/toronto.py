@@ -23,8 +23,7 @@ from .base import (
 UNIVERSITY_ID = "university-of-toronto"
 CATALOG_URL = "https://www.sgs.utoronto.ca/programs/"
 PROGRAMS_API_URL = (
-    "https://www.sgs.utoronto.ca/wp-json/wp/v2/programs"
-    "?per_page=100&page={page}"
+    "https://www.sgs.utoronto.ca/wp-json/wp/v2/programs?per_page=100&page={page}"
 )
 APPLICATION_URL = "https://admissions.sgs.utoronto.ca/apply/"
 EXISTING_COMPUTER_SCIENCE_ID = "toronto-computer-science-msc"
