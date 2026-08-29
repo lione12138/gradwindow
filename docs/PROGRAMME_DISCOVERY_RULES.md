@@ -144,8 +144,11 @@ regenerates predictions.
 Dedicated and generic adapters also revisit programmes that already exist in
 `data/programs.json`. A newly observed official intake cycle becomes an
 `adapter-new-window` candidate; an official date change for an existing cycle
-becomes an `adapter-window-change` candidate. Both use the normal
-`approve-window` command and never write directly to `data/applications.json`.
+becomes an `adapter-window-change` candidate. New exact official windows may be
+batch-promoted after one complete observation. A change to an already published
+window must remain identical across two successful adapter runs before batch
+promotion; an explicitly reviewed `approve-window` remains available. Neither
+path writes directly to `data/applications.json` before the promotion boundary.
 
 After promotion, run:
 
@@ -154,6 +157,20 @@ python -m gradwindow.cli monitor-sources
 python -m gradwindow.cli validate
 python -m gradwindow.cli build-site
 ```
+
+## Change and pull-request hygiene
+
+Keep adapter implementation changes (`src/`, focused fixtures/tests, workflow
+changes, and documentation) in a code pull request. Run the production-secret
+adapter dry-run after that code reaches `main`; generated catalogue state and
+review candidates belong in a separate automation/data pull request. This keeps
+parser review separate from large operational JSON diffs.
+
+Writers must not advance `meta.updatedAt` when the meaningful payload is
+unchanged. Do not commit checked-at-only, generated-at-only, reordered, or other
+timestamp-only operational changes. Monitoring state may record a real check,
+and a confirmation counter may record a required second observation; both are
+meaningful state transitions rather than timestamp noise.
 
 ## When a school still needs an adapter
 

@@ -6,6 +6,7 @@ from pathlib import Path
 from gradwindow.assisted_discovery import AssistedCatalogAdapter
 from gradwindow.programme_adapters.base import BaseProgrammeAdapter, ProgrammeAdapter
 from gradwindow.programme_adapters.registry import PROGRAMME_ADAPTERS
+from scripts.changed_adapter_keys import adapter_keys_for_paths
 
 
 def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
@@ -183,6 +184,29 @@ def test_manual_discovery_workflow_passes_browser_rendering_secrets() -> None:
     assert "CLOUDFLARE_BROWSER_API_TOKEN" in selected_adapter_step
     assert "inputs.university != 'oxford'" not in selected_adapter_step
     assert "discover-assisted --university university-of-oxford" not in workflow
+
+
+def test_post_merge_smoke_runs_changed_adapters_with_production_secrets() -> None:
+    workflow = Path(".github/workflows/post-merge-adapter-smoke.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "branches: [main]" in workflow
+    assert "adapter-smoke-${{ github.sha }}" in workflow
+    assert "CLOUDFLARE_ACCOUNT_ID" in workflow
+    assert "CLOUDFLARE_BROWSER_API_TOKEN" in workflow
+    assert (
+        'discover-programmes --university "${{ matrix.adapter }}" --dry-run' in workflow
+    )
+
+
+def test_changed_adapter_keys_are_derived_from_the_registry() -> None:
+    assert adapter_keys_for_paths(
+        [
+            "src/gradwindow/programme_adapters/oxford.py",
+            "docs/notes.md",
+        ]
+    ) == ["oxford"]
 
 
 def test_every_registered_adapter_satisfies_the_discovery_contract() -> None:
