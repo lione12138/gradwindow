@@ -50,6 +50,17 @@ class DiscoveredProgramme:
     retrieval_method: str | None = None
     evidence_quality: str | None = None
     evidence_document_hash: str | None = None
+    admission_route: (
+        Literal[
+            "direct-master",
+            "restricted-master",
+            "master-phd-embedded",
+            "professional-master",
+        ]
+        | None
+    ) = None
+    available_intakes: list[str] = field(default_factory=list)
+    application_status: Literal["open"] | None = None
     admission_status: Literal["paused"] | None = None
     moratorium_from: str | None = None
     moratorium_to: str | None = None

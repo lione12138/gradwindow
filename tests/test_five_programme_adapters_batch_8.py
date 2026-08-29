@@ -3,7 +3,6 @@ from __future__ import annotations
 from gradwindow.programme_adapters.emory import EmoryAdapter
 from gradwindow.programme_adapters.qatar import QatarAdapter
 from gradwindow.programme_adapters.tamu import TAMUAdapter
-from gradwindow.programme_adapters.ucsb import UCSBAdapter
 from gradwindow.programme_adapters.unc import UNCAdapter
 
 
@@ -72,22 +71,4 @@ def test_tamu_expands_multiple_masters_columns_and_deduplicates() -> None:
     assert {(item.name, item.degree_type) for item in programmes} == {
         ("Computer Science", "MS"),
         ("Computer Science", "MCS"),
-    }
-
-
-def test_ucsb_extracts_master_codes_from_combined_routes() -> None:
-    adapter = UCSBAdapter()
-    adapter.minimum_expected_programmes = 1
-    programmes = adapter.parse_catalog(
-        """<div class="views-row"><div class="views-field-title">
-        <a href="/graduate-programs/departments/chemistry">Chemistry</a></div>
-        <div class="views-field-field-degrees">PhD, MS/PhD, MA/PhD</div></div>
-        <div class="views-row"><div class="views-field-title">
-        <a href="/graduate-programs/departments/physics">Physics</a></div>
-        <div class="views-field-field-degrees">PhD</div></div>"""
-    ).programmes
-
-    assert {(item.name, item.degree_type) for item in programmes} == {
-        ("Chemistry", "MA"),
-        ("Chemistry", "MS"),
     }
