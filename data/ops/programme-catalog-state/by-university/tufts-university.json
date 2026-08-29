@@ -2,782 +2,2805 @@
   "universities": {
     "tufts-university": {
       "sourceUrl": "https://www.tufts.edu/graduate-programs",
-      "checkedAt": "2026-08-11T02:06:38.353496+00:00",
-      "itemCount": 95,
+      "checkedAt": "2026-08-29T19:50:46.458846+00:00",
+      "itemCount": 93,
       "applicationOpensAt": null,
-      "catalogHash": "e7e40eba704e17270a8e04490818d0ea54574938563d66fc2bc612f60ee04da1",
+      "catalogHash": "6e330612e39f45d0dba54b621c0557dc3f2e8b0512ea9414025e0151f1c9d509",
       "catalogueStatus": "ok",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "catalogueGranularity": "programme-level",
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 226,
       "exactWindowCount": 0,
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 95,
-      "programmesNeedingReview": 95,
-      "limitationReason": "Tufts' university-wide directory identifies master's programmes across its graduate schools. Each school and programme maintains its own requirements and dates, so exact windows remain programme-level monitors. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-11T02:06:38.353496+00:00",
-      "windowFingerprint": "7b266683416d26c417c214a94cf88ee13b225368c6c75877faa638e284c08af2",
-      "watchedWindowSourceHash": "5e5d9778cb27cd5fdb6d86095c77fe68b7ef08dfcd5ffefd23c793eaa91b2d4a",
+      "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "2027:fall:09": {
+          "intakes": [
+            "Fall 2027"
+          ],
+          "observedWindowCount": 158,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:spring:01": {
+          "intakes": [
+            "Spring 2027"
+          ],
+          "observedWindowCount": 64,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:summer:06": {
+          "intakes": [
+            "Summer 2027"
+          ],
+          "observedWindowCount": 4,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 226,
+      "programmesWithoutDeadlines": 37,
+      "programmesNeedingReview": 93,
+      "limitationReason": "Tufts' university-wide directory supplies canonical identities. The central A&S/Engineering table supplies recurring month-and-day deadlines; other graduate schools remain programme-level deadline monitors. 226 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-08-29T19:50:46.458846+00:00",
+      "windowFingerprint": "0f06d7ed71017abcc87b715c708ac01279ef57bbd7393e4cf894620f2f91c6a9",
+      "watchedWindowSourceHash": "c5469de3ec9764e7983b7e97313784d9e5b45ea0184055a42fd40bde5975a12c",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
         "tufts-animals-and-public-policy-master": {
           "name": "Animals and Public Policy",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Cummings School of Veterinary Medicine",
+          "department": "Cummings School of Veterinary Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-art-education-master": {
           "name": "Art Education",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "e82be9f239ecaf5a3c4bdbc1a61de5479c25ce047164a1d8143f696ba87370d8",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-15"
         },
         "tufts-art-history-master": {
           "name": "Art History",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-art-history-and-museum-studies-master": {
           "name": "Art History and Museum Studies",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-artificial-intelligence-computer-science-master": {
           "name": "Artificial Intelligence: Computer Science",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-artificial-intelligence-electrical-and-computer-engineering-master": {
           "name": "Artificial Intelligence: Electrical and Computer Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-bioengineering-master": {
           "name": "Bioengineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-biology-master": {
           "name": "Biology",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-biomedical-engineering-master": {
           "name": "Biomedical Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-biomedical-research-master": {
           "name": "Biomedical Research",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Graduate School of Biomedical Sciences",
+          "department": "Graduate School of Biomedical Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-biomedical-sciences-master": {
           "name": "Biomedical Sciences",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine",
+          "department": "School of Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-biomedical-sciences-and-public-health-master": {
           "name": "Biomedical Sciences and Public Health",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine",
+          "department": "School of Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-biophotonics-master": {
           "name": "Biophotonics",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-chemical-engineering-master": {
           "name": "Chemical Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-chemistry-master": {
           "name": "Chemistry",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0ad9a3deca5605215cb4cfce235f1946f2c3dafac9e12fc2f22284909240ac67",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-15"
         },
         "tufts-chemistry-and-biotechnology-master": {
           "name": "Chemistry and Biotechnology",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0ad9a3deca5605215cb4cfce235f1946f2c3dafac9e12fc2f22284909240ac67",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-15"
         },
         "tufts-child-study-and-human-development-master": {
           "name": "Child Study and Human Development",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "e82be9f239ecaf5a3c4bdbc1a61de5479c25ce047164a1d8143f696ba87370d8",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-15"
         },
         "tufts-civil-and-environmental-engineering-master": {
           "name": "Civil and Environmental Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-classics-master": {
           "name": "Classics",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-classics-with-teaching-licensure-master": {
           "name": "Classics with Teaching Licensure",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-clinical-and-translational-science-master": {
           "name": "Clinical and Translational Science",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Graduate School of Biomedical Sciences",
+          "department": "Graduate School of Biomedical Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-computational-and-digital-humanities-master": {
           "name": "Computational and Digital Humanities",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-computational-cognitive-science-master": {
           "name": "Computational Cognitive Science",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-computer-engineering-master": {
           "name": "Computer Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-computer-science-master": {
           "name": "Computer Science",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-computer-science-online-master": {
           "name": "Computer Science (Online)",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "dbb02b78cde2f0f50375b0733dcb78cbbc1c23ab06a3de2903f506229f4080fa",
+          "windowCount": 6,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-conservation-medicine-master": {
           "name": "Conservation Medicine",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Cummings School of Veterinary Medicine",
+          "department": "Cummings School of Veterinary Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-cybersecurity-master": {
           "name": "Cybersecurity",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-cybersecurity-and-public-policy-master": {
           "name": "Cybersecurity and Public Policy",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "The Fletcher School School of Engineering",
+          "department": "The Fletcher School School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-data-analytics-master": {
           "name": "Data Analytics",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-data-science-master": {
           "name": "Data Science",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-data-science-master-s-online-master": {
           "name": "Data Science - Master's (Online)",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "dbb02b78cde2f0f50375b0733dcb78cbbc1c23ab06a3de2903f506229f4080fa",
+          "windowCount": 6,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-dental-research-master": {
           "name": "Dental Research",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Dental Medicine",
+          "department": "School of Dental Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-dual-degree-ms-msim-msem-or-mstml-master": {
           "name": "Dual Degree (MS + MSIM, MSEM, or MSTML)",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-economics-master": {
           "name": "Economics",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-educational-studies-master": {
           "name": "Educational Studies",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-electrical-engineering-master": {
           "name": "Electrical Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-engineering-management-master": {
           "name": "Engineering Management",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-environmental-economics-and-urban-planning-master": {
           "name": "Environmental Economics and Urban Planning",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-environmental-engineering-policy-and-planning-master": {
           "name": "Environmental Engineering Policy and Planning",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering Graduate School of Arts and Sciences",
+          "department": "School of Engineering Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-environmental-policy-and-planning-master": {
           "name": "Environmental Policy and Planning",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-executive-master-of-arts-in-international-affairs-master": {
           "name": "Executive Master of Arts in International Affairs",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-executive-master-of-international-business-master": {
           "name": "Executive Master of International Business",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-history-master": {
           "name": "History",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-        },
-        "tufts-history-doctorate-master": {
-          "name": "History - Doctorate",
-          "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-history-and-museum-studies-master": {
           "name": "History and Museum Studies",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-human-factors-engineering-master": {
           "name": "Human Factors Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-human-robot-interaction-master": {
           "name": "Human-Robot Interaction",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-innovation-and-management-master": {
           "name": "Innovation and Management",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-international-business-master": {
           "name": "International Business",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-international-law-master": {
           "name": "International Law",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-law-and-public-health-master": {
           "name": "Law and Public Health",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine",
+          "department": "School of Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-leadership-master": {
           "name": "Leadership",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-master-of-arts-in-creative-practice-master": {
           "name": "Master of Arts in Creative Practice",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of the Museum of Fine Arts Graduate School of Arts and Sciences",
+          "department": "School of the Museum of Fine Arts Graduate School of Arts and Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-master-of-arts-in-international-affairs-master": {
           "name": "Master of Arts in International Affairs",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-master-of-arts-in-transatlantic-affairs-master": {
           "name": "Master of Arts in Transatlantic Affairs",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-master-of-fine-arts-in-studio-art-mfa-master": {
           "name": "Master of Fine Arts in Studio Art - MFA",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of the Museum of Fine Arts Graduate School of Arts and Sciences",
+          "department": "School of the Museum of Fine Arts Graduate School of Arts and Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-master-of-international-business-quantitative-methods-master": {
           "name": "Master of International Business: Quantitative Methods",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-master-of-science-in-international-economics-master": {
           "name": "Master of Science in International Economics",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-materials-science-and-engineering-master": {
           "name": "Materials Science and Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-mathematics-master": {
           "name": "Mathematics",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-mechanical-engineering-master": {
           "name": "Mechanical Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-        },
-        "tufts-medicine-and-public-health-doctorate-master": {
-          "name": "Medicine and Public Health - Doctorate",
-          "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-mid-career-master-of-arts-in-international-affairs-master": {
           "name": "Mid-Career Master of Arts in International Affairs",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-middle-and-high-school-education-master": {
           "name": "Middle and High School Education",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "510dd3dc249adb6548450637c0b1757b60d303a5ee0b76a41675083ced5d66ec",
+          "windowCount": 3,
+          "latestClosesAt": "2027-06-01"
         },
         "tufts-museum-education-master": {
           "name": "Museum Education",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "e82be9f239ecaf5a3c4bdbc1a61de5479c25ce047164a1d8143f696ba87370d8",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-15"
         },
         "tufts-music-master": {
           "name": "Music",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-nutrition-master": {
           "name": "Nutrition",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Friedman School of Nutrition Science and Policy",
+          "department": "Friedman School of Nutrition Science and Policy",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-nutrition-master-s-online-master": {
           "name": "Nutrition - Master's (Online)",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Friedman School of Nutrition Science and Policy",
+          "department": "Friedman School of Nutrition Science and Policy",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-nutrition-and-public-health-master": {
           "name": "Nutrition and Public Health",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine",
+          "department": "School of Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-nutrition-science-and-dietetics-master": {
           "name": "Nutrition Science and Dietetics",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Friedman School of Nutrition Science and Policy",
+          "department": "Friedman School of Nutrition Science and Policy",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-occupational-therapy-post-professional-master-s-master": {
           "name": "Occupational Therapy - Post-Professional Master's",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-offshore-wind-energy-engineering-master": {
           "name": "Offshore Wind Energy Engineering",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-pharmacology-and-drug-development-master": {
           "name": "Pharmacology and Drug Development",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Graduate School of Biomedical Sciences",
+          "department": "Graduate School of Biomedical Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-philosophy-master": {
           "name": "Philosophy",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "31860ec91d34c382b01c0b937904d74346eee49e3be70945dc8a3043394ccb7d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "tufts-physician-assistant-master": {
           "name": "Physician Assistant",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine",
+          "department": "School of Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-physician-assistant-and-public-health-master": {
           "name": "Physician Assistant and Public Health",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine",
+          "department": "School of Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-physics-and-physics-astrophysics-master": {
           "name": "Physics and Physics: Astrophysics",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-physics-education-master": {
           "name": "Physics Education",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-public-health-master": {
           "name": "Public Health",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine",
+          "department": "School of Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-public-health-online-master": {
           "name": "Public Health: Online",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine",
+          "department": "School of Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-school-psychology-master": {
           "name": "School Psychology",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "e82be9f239ecaf5a3c4bdbc1a61de5479c25ce047164a1d8143f696ba87370d8",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-15"
         },
         "tufts-software-systems-development-master": {
           "name": "Software Systems Development",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-specialized-master-of-arts-in-international-affairs-master": {
           "name": "Specialized Master of Arts in International Affairs",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School",
+          "department": "The Fletcher School",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-stem-education-master": {
           "name": "STEM Education",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-sustainability-master": {
           "name": "Sustainability",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-technology-management-and-leadership-master": {
           "name": "Technology Management and Leadership",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Engineering",
+          "department": "School of Engineering",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-urban-and-environmental-policy-and-planning-master": {
           "name": "Urban and Environmental Policy and Planning",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master": {
           "name": "Urban and Environmental Policy and Planning and Agriculture, Food, and Environment",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences Friedman School of Nutrition Science and Policy",
+          "department": "Graduate School of Arts and Sciences Friedman School of Nutrition Science and Policy",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master": {
           "name": "Urban and Environmental Policy and Planning and Food and Nutrition Policy and Programs",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences Friedman School of Nutrition Science and Policy",
+          "department": "Graduate School of Arts and Sciences Friedman School of Nutrition Science and Policy",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-urban-and-environmental-policy-and-planning-and-law-master": {
           "name": "Urban and Environmental Policy and Planning and Law",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-urban-and-environmental-policy-and-planning-and-law-and-diplomacy-master": {
           "name": "Urban and Environmental Policy and Planning and Law and Diplomacy",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School Graduate School of Arts and Sciences",
+          "department": "The Fletcher School Graduate School of Arts and Sciences",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-veterinary-medicine-and-lab-animal-medicine-master-s-doctorate-master": {
           "name": "Veterinary Medicine and Lab Animal Medicine - Master's/Doctorate",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "Cummings School of Veterinary Medicine",
+          "department": "Cummings School of Veterinary Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-veterinary-medicine-and-law-and-diplomacy-master-s-doctorate-master": {
           "name": "Veterinary Medicine and Law and Diplomacy - Master's/Doctorate",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "The Fletcher School Cummings School of Veterinary Medicine",
+          "department": "The Fletcher School Cummings School of Veterinary Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "tufts-veterinary-medicine-and-public-health-master": {
           "name": "Veterinary Medicine and Public Health",
           "degreeType": "Master",
-          "faculty": "Tufts University",
-          "department": "Tufts University",
+          "faculty": "School of Medicine Cummings School of Veterinary Medicine",
+          "department": "School of Medicine Cummings School of Veterinary Medicine",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        }
+      },
+      "windows": {
+        "tufts-art-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-art-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-art-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-art-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-art-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-art-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-and-museum-studies-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-art-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-and-museum-studies-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-art-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-and-museum-studies-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-art-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemistry-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-chemistry-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-chemistry-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemistry-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-and-biotechnology-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemistry-and-biotechnology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-and-biotechnology-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-chemistry-and-biotechnology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-and-biotechnology-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-chemistry-and-biotechnology-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-and-biotechnology-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemistry-and-biotechnology-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-child-study-and-human-development-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-child-study-and-human-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-child-study-and-human-development-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-child-study-and-human-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-and-digital-humanities-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computational-and-digital-humanities-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-and-digital-humanities-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-computational-and-digital-humanities-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-and-digital-humanities-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-computational-and-digital-humanities-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-cognitive-science-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computational-cognitive-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-cognitive-science-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-computational-cognitive-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-cognitive-science-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-computational-cognitive-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Fall 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Summer 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Summer 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-analytics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-analytics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-analytics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-data-analytics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-analytics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-data-analytics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Fall 2027::Final deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Summer 2027::Final deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Summer 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-dual-degree-ms-msim-msem-or-mstml-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-dual-degree-ms-msim-msem-or-mstml-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-dual-degree-ms-msim-msem-or-mstml-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-dual-degree-ms-msim-msem-or-mstml-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-dual-degree-ms-msim-msem-or-mstml-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-dual-degree-ms-msim-msem-or-mstml-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-economics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-economics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-economics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-economics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-economics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-economics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-educational-studies-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-educational-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-educational-studies-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-educational-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-educational-studies-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-educational-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-economics-and-urban-planning-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-environmental-economics-and-urban-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-economics-and-urban-planning-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-environmental-economics-and-urban-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-economics-and-urban-planning-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-environmental-economics-and-urban-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-engineering-policy-and-planning-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-environmental-engineering-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-engineering-policy-and-planning-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-environmental-engineering-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-engineering-policy-and-planning-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-environmental-engineering-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-and-museum-studies-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-and-museum-studies-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-and-museum-studies-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mathematics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-mathematics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mathematics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-mathematics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mathematics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-mathematics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-middle-and-high-school-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-middle-and-high-school-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-middle-and-high-school-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-middle-and-high-school-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-middle-and-high-school-education-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-middle-and-high-school-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-museum-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-museum-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-museum-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-museum-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-music-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-music-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-music-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-music-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-music-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-music-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-philosophy-master::Fall 2027::Final deadline::all": {
+          "programmeId": "tufts-philosophy-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-and-physics-astrophysics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-physics-and-physics-astrophysics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-and-physics-astrophysics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-physics-and-physics-astrophysics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-and-physics-astrophysics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-physics-and-physics-astrophysics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-physics-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-physics-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-education-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-physics-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-school-psychology-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-school-psychology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-school-psychology-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-school-psychology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-stem-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-stem-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-stem-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-stem-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-stem-education-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-stem-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-sustainability-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-sustainability-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-sustainability-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-sustainability-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-sustainability-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-sustainability-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        }
+      },
+      "adapterWarnings": [],
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 14,
+          "directSuccesses": 14,
+          "directFailures": 0,
+          "fallbackEnabled": false,
+          "fallbackLimit": 2,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
         }
       }
     }

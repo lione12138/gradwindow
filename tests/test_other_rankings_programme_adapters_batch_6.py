@@ -12,8 +12,8 @@ from gradwindow.programme_adapters.leicester import (
     CATALOG_URL as LEICESTER_CATALOG_URL,
 )
 from gradwindow.programme_adapters.leicester import LeicesterAdapter
-from gradwindow.programme_adapters.tufts import APPLICATION_URL as TUFTS_APPLICATION_URL
 from gradwindow.programme_adapters.tufts import CATALOG_URL as TUFTS_CATALOG_URL
+from gradwindow.programme_adapters.tufts import DEADLINES_URL as TUFTS_DEADLINES_URL
 from gradwindow.programme_adapters.tufts import TuftsAdapter
 from gradwindow.programme_adapters.twente import (
     APPLICATION_URL as TWENTE_APPLICATION_URL,
@@ -146,13 +146,14 @@ def test_tufts_follows_infinite_scroll_pages_and_keeps_masters() -> None:
         TUFTS_CATALOG_URL: _tufts_card("Art Education - Master's", "Master's", "/art")
         + f'<a rel="next" href="{second_url}">See More Programs</a>',
         second_url: _tufts_card("Biology - Doctorate", "Doctorate", "/biology"),
-        TUFTS_APPLICATION_URL: (
-            "Review the requirements at each of our graduate schools."
-        ),
+        TUFTS_DEADLINES_URL: "<html><body>No matching deadlines</body></html>",
     }
 
     rows = (
-        TuftsAdapter(minimum_expected_programmes=1)
+        TuftsAdapter(
+            minimum_expected_programmes=1,
+            minimum_expected_deadline_programmes=0,
+        )
         .parse_catalog_from_fetcher(pages.__getitem__)
         .programmes
     )
