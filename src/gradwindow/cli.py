@@ -38,6 +38,10 @@ from .programme_adapters.generic import GenericProgrammeAdapter, GenericProgramm
 from .programme_adapters.registry import PROGRAMME_ADAPTERS
 from .programme_discovery import discover_programmes
 from .published_data_audit import generate_published_data_audit
+from .published_reconciliation import (
+    reconcile_published,
+    render_reconciliation_summary,
+)
 from .readme import generate_readmes
 from .recurring_windows import generate_recurring_windows
 from .refresh_status import generate_refresh_status
@@ -172,6 +176,12 @@ def main() -> None:
         "audit-published-data",
         help="Audit published windows against intake timing and adapter snapshots",
     )
+    reconcile = subparsers.add_parser(
+        "reconcile-published",
+        help="Create review candidates by comparing published windows to snapshots",
+    )
+    reconcile.add_argument("--university")
+    reconcile.add_argument("--dry-run", action="store_true")
     subparsers.add_parser(
         "export-schemas", help="Export Pydantic contracts as JSON Schema"
     )
@@ -331,6 +341,12 @@ def main() -> None:
     elif args.command == "audit-published-data":
         audit = generate_published_data_audit()
         print(json.dumps(audit["summary"], ensure_ascii=False))
+    elif args.command == "reconcile-published":
+        reconciliation = reconcile_published(
+            university_id=args.university,
+            dry_run=args.dry_run,
+        )
+        print(render_reconciliation_summary(reconciliation))
     elif args.command == "export-schemas":
         written = export_schemas()
         print(f"Wrote {len(written)} JSON Schema files.")
@@ -458,9 +474,11 @@ def main() -> None:
             )
         )
         print(
-            "Top-200 coverage: "
-            f"{coverage['summary']['policiesVerified']}/200 policies, "
-            f"{coverage['summary']['universitiesWithWindows']}/200 with windows"
+            "Ranking-union coverage: "
+            f"{coverage['rankingCoverage']['union']['policiesVerified']}/"
+            f"{coverage['rankingCoverage']['union']['targetUniversities']} policies, "
+            f"{coverage['rankingCoverage']['union']['universitiesWithWindows']} "
+            "with windows"
         )
         review_report, review_summary = generate_review_outputs(
             source_state_path=APPLICATION_SOURCE_STATE_PATH

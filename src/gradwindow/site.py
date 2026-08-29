@@ -195,8 +195,25 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     data_dir.mkdir()
     for source in PUBLIC_DATA:
         shutil.copy2(source, data_dir / source.name)
+    published_audit = audit_published_data(
+        read_json(APPLICATIONS_PATH)["applications"],
+        catalog_state=read_json(
+            PROGRAMME_CATALOG_STATE_PATH,
+            {"universities": {}},
+        ).get("universities", {}),
+        adapter_health=read_json(
+            PROGRAMME_ADAPTER_HEALTH_PATH,
+            {"universities": {}},
+        ).get("universities", {}),
+        source_state=read_json(
+            APPLICATION_SOURCE_STATE_PATH,
+            {"applications": {}},
+        ).get("applications", {}),
+        today=build_date,
+    )
     frontend_index, frontend_closed, university_details = build_frontend_payloads(
-        build_date
+        build_date,
+        published_audit=published_audit,
     )
     write_compact_json(data_dir / "frontend-index.json", frontend_index)
     write_compact_json(data_dir / "frontend-closed.json", frontend_closed)
@@ -208,23 +225,11 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     (output_dir / "sources.html").write_text(
         render_sources_page(public_site_url), encoding="utf-8"
     )
-    published_audit = audit_published_data(
-        read_json(APPLICATIONS_PATH)["applications"],
-        catalog_state=read_json(
-            PROGRAMME_CATALOG_STATE_PATH,
-            {"universities": {}},
-        ).get("universities", {}),
-        adapter_health=read_json(
-            PROGRAMME_ADAPTER_HEALTH_PATH,
-            {"universities": {}},
-        ).get("universities", {}),
-        today=build_date,
-    )
     generated_urls = generate_index_pages(
         output_dir,
         public_site_url,
         build_date,
-        quarantined_record_ids=set(published_audit["quarantinedRecordIds"]),
+        quarantined_record_ids=seo_excluded_record_ids(published_audit),
     )
     data_lastmod = public_data_lastmod()
     sitemap_urls: list[str | tuple[str, str | None]] = [
@@ -996,6 +1001,14 @@ def filter_seo_aggregate_records(
             if item.get("basedOnRecordId") not in quarantined_record_ids
         ],
     )
+
+
+def seo_excluded_record_ids(published_audit: dict) -> set[str]:
+    return {
+        record_id
+        for record_id, status in published_audit.get("recordTrustStatuses", {}).items()
+        if status != "current"
+    }
 
 
 def trim_description(value: str, limit: int = 180) -> str:

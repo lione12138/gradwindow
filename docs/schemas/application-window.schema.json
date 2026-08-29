@@ -96,6 +96,28 @@
     "intakeDetails": {
       "$ref": "#/$defs/IntakeDetails"
     },
+    "entryPattern": {
+      "default": "fixed",
+      "enum": [
+        "fixed",
+        "multiple-starts",
+        "rolling",
+        "flexible"
+      ],
+      "title": "Entrypattern",
+      "type": "string"
+    },
+    "startDatePrecision": {
+      "default": "unknown",
+      "enum": [
+        "exact",
+        "month",
+        "term",
+        "unknown"
+      ],
+      "title": "Startdateprecision",
+      "type": "string"
+    },
     "round": {
       "default": "",
       "title": "Round",

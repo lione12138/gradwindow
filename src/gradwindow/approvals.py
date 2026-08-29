@@ -159,6 +159,13 @@ def approve_official_adapter_window_candidates(
             continue
         if candidate.get("openingBasis") != "official":
             continue
+        if candidate.get("type") == "adapter-window-change":
+            confirmation = candidate.get("confirmation", {})
+            required_observations = max(
+                2, int(confirmation.get("requiredObservations", 2))
+            )
+            if int(confirmation.get("observationCount", 0)) < required_observations:
+                continue
         if not all(
             record.get(field)
             for field in (

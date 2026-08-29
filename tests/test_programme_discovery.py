@@ -356,6 +356,9 @@ def test_discovery_creates_candidates_without_mutating_programmes(
     assert window_candidates[0]["record"]["closesAt"] == "2026-01-31"
     state = json.loads(state_path.read_text(encoding="utf-8"))
     assert state["universities"][adapter.university_id]["itemCount"] == 3
+    candidate_payload_before_repeat = json.loads(
+        candidates_path.read_text(encoding="utf-8")
+    )
 
     repeated = discover_programmes(
         adapter,
@@ -371,6 +374,9 @@ def test_discovery_creates_candidates_without_mutating_programmes(
     assert repeated["pendingCandidates"] == 2
     assert repeated["newWindowCandidates"] == 0
     assert repeated["pendingWindowCandidates"] == 1
+    assert json.loads(candidates_path.read_text(encoding="utf-8")) == (
+        candidate_payload_before_repeat
+    )
 
 
 def test_discovery_uses_shared_browser_fallback_and_reports_transport(
@@ -932,6 +938,25 @@ def test_known_programme_window_change_becomes_review_candidate(tmp_path) -> Non
         "previous": "2026-01-15",
         "observed": "2026-01-31",
     }
+    assert candidate["confirmation"]["requiredObservations"] == 2
+    assert candidate["confirmation"]["observationCount"] == 1
+
+    discover_programmes(
+        CUHKAdapter(minimum_expected_programmes=1),
+        programs_path=programs_path,
+        applications_path=applications_path,
+        candidates_path=candidates_path,
+        window_candidates_path=window_candidates_path,
+        state_path=state_path,
+        fetcher=lambda url: CUHK_HTML,
+    )
+
+    confirmed = json.loads(window_candidates_path.read_text(encoding="utf-8"))["items"][
+        0
+    ]
+    assert confirmed["confirmation"]["observationCount"] == 2
+    assert confirmed["confirmation"]["firstObservedAt"] == candidate["detectedAt"]
+    assert confirmed["confirmation"]["lastObservedAt"] != ""
 
 
 def test_known_programme_inferred_opening_does_not_create_window_candidate(

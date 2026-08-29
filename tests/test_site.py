@@ -88,6 +88,19 @@ def test_seo_aggregate_filter_removes_quarantined_official_and_predictions() -> 
     ]
 
 
+def test_seo_excludes_every_non_current_published_record() -> None:
+    assert site.seo_excluded_record_ids(
+        {
+            "recordTrustStatuses": {
+                "safe": "current",
+                "date-change": "needs-review",
+                "missing": "stale",
+                "blocked-source": "source-unavailable",
+            }
+        }
+    ) == {"date-change", "missing", "blocked-source"}
+
+
 def test_frontend_sources_are_grouped_outside_repository_root() -> None:
     assert (WEB_DIR / "index.html").exists()
     assert (WEB_DIR / "app.js").exists()

@@ -1,0 +1,65 @@
+name: Post-merge adapter smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/gradwindow/programme_adapters/**"
+      - "src/gradwindow/programme_discovery.py"
+      - "src/gradwindow/browser_rendering.py"
+      - "scripts/changed_adapter_keys.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: adapter-smoke-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      adapters: ${{ steps.changed.outputs.adapters }}
+      count: ${{ steps.changed.outputs.count }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -e "."
+      - name: Find changed registered adapters
+        id: changed
+        run: >-
+          python scripts/changed_adapter_keys.py
+          --base "${{ github.event.before }}"
+          --head "${{ github.sha }}"
+          --github-output "$GITHUB_OUTPUT"
+
+  smoke:
+    needs: changes
+    if: needs.changes.outputs.count != '0'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        adapter: ${{ fromJSON(needs.changes.outputs.adapters) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: pip install -e "."
+      - name: Live dry-run changed adapter
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_BROWSER_API_TOKEN: ${{ secrets.CLOUDFLARE_BROWSER_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: gradwindow discover-programmes --university "${{ matrix.adapter }}" --dry-run

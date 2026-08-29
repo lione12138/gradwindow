@@ -48,6 +48,18 @@ def test_audit_allows_an_explicit_flexible_entry_exception() -> None:
     assert payload["quarantinedRecordIds"] == []
 
 
+def test_audit_allows_a_structured_multiple_start_entry_pattern() -> None:
+    item = _window(
+        entryPattern="multiple-starts",
+        evidence="Official programme deadline.",
+    )
+
+    payload = audit_published_data([item], today=date(2026, 8, 26))
+
+    assert payload["issues"] == []
+    assert payload["recordTrustStatuses"] == {"example-msc-fall-2027": "current"}
+
+
 def test_audit_reconciles_future_published_records_to_a_healthy_snapshot() -> None:
     published = _window(closesAt="2027-09-01")
     catalog_state = {
@@ -73,6 +85,7 @@ def test_audit_reconciles_future_published_records_to_a_healthy_snapshot() -> No
     assert payload["summary"]["publishedRecordsMissingFromSnapshot"] == 1
     assert payload["issues"][0]["type"] == "published-record-missing-from-snapshot"
     assert payload["issues"][0]["recommendedAction"] == "retire-or-correct-review"
+    assert payload["recordTrustStatuses"][published["id"]] == "stale"
 
 
 def test_audit_does_not_reconcile_against_an_unavailable_adapter() -> None:
@@ -114,3 +127,48 @@ def test_audit_detects_a_changed_published_window() -> None:
     assert payload["issues"][0]["differences"] == {
         "closesAt": {"published": "2027-08-01", "snapshot": "2027-07-01"}
     }
+    assert payload["recordTrustStatuses"][published["id"]] == "needs-review"
+
+
+def test_audit_reviews_a_source_url_only_change_without_quarantine() -> None:
+    published = _window(closesAt="2027-09-01")
+    identity = "example-msc::September 2027::Main::all"
+    payload = audit_published_data(
+        [published],
+        catalog_state={
+            "example-university": {
+                "windows": {
+                    identity: {
+                        "programmeId": "example-msc",
+                        "intake": "September 2027",
+                        "opensAt": published["opensAt"],
+                        "closesAt": published["closesAt"],
+                        "sourceUrl": "https://example.edu/programmes/msc",
+                        "opensAtBasis": "official",
+                    }
+                }
+            }
+        },
+        adapter_health={"example-university": {"healthStatus": "ok"}},
+        today=date(2026, 8, 26),
+    )
+
+    assert payload["quarantinedRecordIds"] == []
+    assert payload["issues"][0]["type"] == "published-record-source-url-changed"
+    assert payload["issues"][0]["severity"] == "low"
+    assert payload["issues"][0]["seoDisposition"] == "allow"
+    assert payload["recordTrustStatuses"][published["id"]] == "current"
+
+
+def test_audit_marks_an_unreachable_record_source_without_quarantining_dates() -> None:
+    item = _window(closesAt="2027-09-01")
+
+    payload = audit_published_data(
+        [item],
+        source_state={item["id"]: {"status": "blocked"}},
+        today=date(2026, 8, 26),
+    )
+
+    assert payload["issues"] == []
+    assert payload["quarantinedRecordIds"] == []
+    assert payload["recordTrustStatuses"][item["id"]] == "source-unavailable"

@@ -55,6 +55,9 @@ PROGRAMME_ADAPTER_HEALTH_PATH = OPS_DIR / "programme-adapter-health.json"
 PROGRAMME_ADAPTER_HEALTH_REPORT_PATH = REPORTS_DIR / "programme-adapter-health.md"
 PUBLISHED_DATA_AUDIT_PATH = REPORTS_DIR / "published-data-audit.json"
 PUBLISHED_DATA_AUDIT_REPORT_PATH = REPORTS_DIR / "published-data-audit.md"
+PUBLISHED_RECONCILIATION_CANDIDATES_PATH = (
+    OPS_DIR / "published-reconciliation-candidates.json"
+)
 GENERIC_PROGRAMME_DISCOVERY_CONFIG_PATH = OPS_DIR / "generic-programme-discovery.json"
 GENERIC_PROGRAMME_DISCOVERY_REPORT_PATH = (
     REPORTS_DIR / "generic-programme-discovery-report.json"

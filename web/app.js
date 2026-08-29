@@ -250,6 +250,10 @@ function getStatus(record, today = todayUtc()) {
   return getApplicationStatus(record, today);
 }
 
+function isCurrentRecord(record) {
+  return (record.trustStatus || "current") === "current";
+}
+
 function daysUntil(dateValue) {
   return Math.ceil((parseDate(dateValue) - todayUtc()) / 86_400_000);
 }
@@ -399,6 +403,15 @@ function sourcePresentation(record) {
   }
   if (isRecurringPolicyRecord(record)) {
     return [t("recurringPolicyBadge"), "recurring"];
+  }
+  if (record.trustStatus === "needs-review") {
+    return [t("officialNeedsReview"), "candidate"];
+  }
+  if (record.trustStatus === "stale") {
+    return [t("officialStale"), "candidate"];
+  }
+  if (record.trustStatus === "source-unavailable") {
+    return [t("officialSourceUnavailable"), "homepage"];
   }
   return sourceMonitorDescription(record);
 }
@@ -1128,7 +1141,9 @@ function updateStatusTabs(focusStatus = "") {
 
 function recordsForCurrentView(baseRecords) {
   if (hasActiveSearch()) return baseRecords;
-  return baseRecords.filter((record) => getStatus(record) === state.status);
+  return baseRecords.filter(
+    (record) => isCurrentRecord(record) && getStatus(record) === state.status,
+  );
 }
 
 function createRow(record, status, windowGroup = null) {
@@ -1138,7 +1153,9 @@ function createRow(record, status, windowGroup = null) {
   row.dataset.detailHint = t("mobileCardHint");
   const days = deadlineDaysRemaining(record, daysUntil(record.closesAt));
   const deadlineClass =
-    status === "open" && days >= 0 && days <= 14 ? "deadline-soon" : "";
+    isCurrentRecord(record) && status === "open" && days >= 0 && days <= 14
+      ? "deadline-soon"
+      : "";
 
   const rank = makeElement("span", {
     className: "rank-cell",
@@ -1763,9 +1780,13 @@ function createUniversityGroup(universities, status = "unknown") {
 }
 
 function renderCounts(records, universities) {
-  const applicationCounts = countUniversitiesByStatus(records, getStatus);
+  const trustedRecords = records.filter(isCurrentRecord);
+  const applicationCounts = countUniversitiesByStatus(
+    trustedRecords,
+    getStatus,
+  );
   const allUniversityIds = new Set([
-    ...records.map((record) => record.universityId).filter(Boolean),
+    ...trustedRecords.map((record) => record.universityId).filter(Boolean),
     ...universities.map((university) => university.id).filter(Boolean),
   ]);
   const counts = {
@@ -1952,8 +1973,9 @@ function updateApplicationTimeline() {
   if (!summary) return;
   const savedRecords = state.data.filter(
     (record) =>
-      state.favorites.has(favoriteKey("window", record.id)) ||
-      state.favorites.has(favoriteKey("university", record.universityId)),
+      isCurrentRecord(record) &&
+      (state.favorites.has(favoriteKey("window", record.id)) ||
+        state.favorites.has(favoriteKey("university", record.universityId))),
   );
   if (!savedRecords.length) {
     summary.textContent = t("timelineEmpty");
@@ -2170,7 +2192,9 @@ function setupHero() {
   const futureDeadline = state.data
     .filter(
       (record) =>
-        record.dataStatus === "official" && getStatus(record) !== "closed",
+        record.dataStatus === "official" &&
+        isCurrentRecord(record) &&
+        getStatus(record) !== "closed",
     )
     .sort((a, b) => a.closesAt.localeCompare(b.closesAt))[0];
   if (!futureDeadline) {

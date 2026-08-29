@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import pytest
 
-from gradwindow.intakes import intake_identity, parse_intake_details
+from gradwindow.intakes import (
+    intake_identity,
+    parse_intake_details,
+    with_intake_details,
+)
 
 
 def test_parse_structured_intake_details() -> None:
@@ -32,3 +36,21 @@ def test_winter_semester_uses_the_autumn_start_month() -> None:
 def test_intake_requires_a_year() -> None:
     with pytest.raises(ValueError, match="cycle year"):
         parse_intake_details("following fall")
+
+
+def test_with_intake_details_adds_structured_entry_timing_defaults() -> None:
+    assert with_intake_details({"intake": "September 2027"}) == {
+        "intake": "September 2027",
+        "intakeDetails": {
+            "label": "September 2027",
+            "cycleYear": 2027,
+            "academicYearEnd": None,
+            "term": "fall",
+            "startMonth": 9,
+        },
+        "entryPattern": "fixed",
+        "startDatePrecision": "month",
+    }
+    assert with_intake_details({"intake": "Fall 2027"})["startDatePrecision"] == (
+        "term"
+    )

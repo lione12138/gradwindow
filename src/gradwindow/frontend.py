@@ -135,6 +135,7 @@ def _compact_records(records: list[dict], university_indexes: dict[str, int]) ->
     confidences = _Dictionary()
     monitors = _Dictionary()
     deadline_semantics = _Dictionary()
+    trust_statuses = _Dictionary()
     rows: list[list[Any]] = []
 
     for record in records:
@@ -164,11 +165,12 @@ def _compact_records(records: list[dict], university_indexes: dict[str, int]) ->
                 record.get("evidenceCycleCount"),
                 monitors.add(record.get("sourceMonitor") or {}),
                 deadline_semantics.add(record.get("deadlineSemantics") or "on"),
+                trust_statuses.add(record.get("trustStatus") or "current"),
             ]
         )
 
     return {
-        "version": 2,
+        "version": 3,
         "dictionaries": {
             "scopes": scopes.values,
             "intakes": intakes.values,
@@ -180,6 +182,7 @@ def _compact_records(records: list[dict], university_indexes: dict[str, int]) ->
             "confidences": confidences.values,
             "monitors": monitors.values,
             "deadlineSemantics": deadline_semantics.values,
+            "trustStatuses": trust_statuses.values,
         },
         "rows": rows,
     }
@@ -187,6 +190,8 @@ def _compact_records(records: list[dict], university_indexes: dict[str, int]) ->
 
 def build_frontend_payloads(
     today: date | None = None,
+    *,
+    published_audit: dict | None = None,
 ) -> tuple[dict, dict, dict[str, dict]]:
     today = today or date.today()
     applications_payload = read_json(APPLICATIONS_PATH)
@@ -206,6 +211,7 @@ def build_frontend_payloads(
     refresh_payload = read_json(REFRESH_STATUS_PATH)
     rankings_payload = read_json(GLOBAL_RANKINGS_PATH)
     categories_payload = read_json(APPLICANT_CATEGORIES_PATH)
+    trust_statuses = (published_audit or {}).get("recordTrustStatuses", {})
 
     programs = {item["id"]: item for item in programs_payload.get("programs", [])}
     groups = {item["id"]: item for item in groups_payload.get("groups", [])}
@@ -254,7 +260,15 @@ def build_frontend_payloads(
     )
     for records, data_status in collections:
         for item in records:
-            record = {**item, "dataStatus": data_status}
+            record = {
+                **item,
+                "dataStatus": data_status,
+                "trustStatus": (
+                    trust_statuses.get(item["id"], "current")
+                    if data_status == "official"
+                    else "current"
+                ),
+            }
             if item["scopeType"] == "programme":
                 program = programs.get(item["scopeId"], {}).get("name")
             elif item["scopeType"] == "programme-group":
@@ -281,14 +295,17 @@ def build_frontend_payloads(
             if len(details) > 1:
                 detail_records[record["universityId"]].append(details)
 
+    trusted_records = [
+        item for item in enriched_records if item["trustStatus"] == "current"
+    ]
     status_counts = Counter(
-        _application_status(item, today) for item in enriched_records
+        _application_status(item, today) for item in trusted_records
     )
     qs_ids = {item["id"] for item in universities if item.get("qsPosition") is not None}
     closed_qs_universities = len(
         {
             item["universityId"]
-            for item in enriched_records
+            for item in trusted_records
             if item["universityId"] in qs_ids
             and _application_status(item, today) == "closed"
         }
@@ -310,6 +327,16 @@ def build_frontend_payloads(
         "recordCount": len(universities),
         "qsRecordCount": universities_payload.get("meta", {}).get("qsRecordCount"),
         "officialCount": len(applications_payload.get("applications", [])),
+        "trustedOfficialCount": sum(
+            trust_statuses.get(item["id"], "current") == "current"
+            for item in applications_payload.get("applications", [])
+        ),
+        "trustStatusCounts": dict(
+            Counter(
+                trust_statuses.get(item["id"], "current")
+                for item in applications_payload.get("applications", [])
+            )
+        ),
         "predictionCount": len(predictions_payload.get("predictions", [])),
         "recurringCount": len(recurring_payload.get("recurringWindows", [])),
         "statusCounts": dict(status_counts),

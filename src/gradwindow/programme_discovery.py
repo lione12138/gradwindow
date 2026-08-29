@@ -11,7 +11,7 @@ from pathlib import Path
 from openpyxl import load_workbook
 
 from .browser_rendering import browser_content_fetcher_from_environment
-from .content import deadline_signal_text
+from .content import DATE_PATTERN, deadline_signal_text
 from .http_client import (
     DEFAULT_BROWSER_FALLBACK_LIMIT,
     DEFAULT_USER_AGENT,
@@ -36,7 +36,7 @@ from .programme_windows import (
     known_programme_window_candidates,
 )
 
-WATCHED_SOURCE_FINGERPRINT_VERSION = 2
+WATCHED_SOURCE_FINGERPRINT_VERSION = 3
 
 
 def fetch_catalog(url: str) -> str:
@@ -247,7 +247,7 @@ def discover_programmes(
                 if candidate_cycle in discovered_window_cycles:
                     continue
                 discovered_window_cycles.add(candidate_cycle)
-                previous = existing_window_candidates.get(candidate["id"])
+                previous = original_window_candidates_by_id.get(candidate["id"])
                 if previous is not None:
                     candidate["status"] = previous.get("status", "pending")
                     candidate["detectedAt"] = previous.get("detectedAt", checked_at)
@@ -257,6 +257,27 @@ def discover_programmes(
                     for key in ("reviewedAt", "reviewedBy", "reviewNotes"):
                         if key in previous:
                             candidate[key] = previous[key]
+                    previous_confirmation = previous.get("confirmation", {})
+                    same_observation = previous_confirmation.get(
+                        "observationFingerprint"
+                    ) == candidate["confirmation"].get("observationFingerprint")
+                    candidate["confirmation"] = {
+                        **candidate["confirmation"],
+                        "observationCount": (
+                            int(previous_confirmation.get("observationCount", 1)) + 1
+                            if same_observation
+                            else 1
+                        ),
+                        "firstObservedAt": (
+                            previous_confirmation.get(
+                                "firstObservedAt",
+                                previous.get("detectedAt", checked_at),
+                            )
+                            if same_observation
+                            else checked_at
+                        ),
+                        "lastObservedAt": checked_at,
+                    }
                 else:
                     created_window_candidates += 1
                     if candidate["type"] == "adapter-window-change":
@@ -601,9 +622,10 @@ def discover_programmes(
     }
 
     if not dry_run:
-        candidates_payload["items"] = items
-        candidates_payload.setdefault("meta", {})["updatedAt"] = checked_at
-        write_json(candidates_path, candidates_payload)
+        if items != original_candidate_items:
+            candidates_payload["items"] = items
+            candidates_payload.setdefault("meta", {})["updatedAt"] = checked_at
+            write_json(candidates_path, candidates_payload)
         unrelated_window_candidate_items = [
             existing_window_candidates[item["id"]]
             for item in original_window_candidate_items
@@ -914,8 +936,14 @@ def _hash(value: str) -> str:
 
 
 def _source_hash(content: str) -> str:
-    """Fingerprint deadline signals, excluding unrelated page-content churn."""
+    """Fingerprint exact date tokens, excluding wording and page-content churn."""
     signal = deadline_signal_text(content, max_lines=None)
+    date_tokens = [
+        re.sub(r"[^a-z0-9]+", " ", match.group(0).lower()).strip()
+        for match in DATE_PATTERN.finditer(signal)
+    ]
+    if date_tokens:
+        return _hash("|".join(date_tokens))
     normalised = re.sub(r"\s+", " ", signal).strip().lower()
     return _hash(normalised)
 

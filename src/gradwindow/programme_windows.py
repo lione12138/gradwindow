@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 from collections.abc import Collection, Mapping
 from typing import Any
@@ -142,6 +143,15 @@ def known_programme_window_candidates(
                 "record": record,
                 "changes": changed_fields,
                 "evidenceExcerpt": programme.deadline_text,
+                "confirmation": {
+                    "requiredObservations": (
+                        2 if candidate_type == "adapter-window-change" else 1
+                    ),
+                    "observationCount": 1,
+                    "firstObservedAt": detected_at,
+                    "lastObservedAt": detected_at,
+                    "observationFingerprint": _observation_fingerprint(record),
+                },
             }
         )
     return candidates
@@ -149,3 +159,21 @@ def known_programme_window_candidates(
 
 def _slug(value: str) -> str:
     return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", value.lower())).strip("-")
+
+
+def _observation_fingerprint(record: Mapping[str, Any]) -> str:
+    observed = {
+        field: record.get(field)
+        for field in (
+            "id",
+            "intake",
+            "round",
+            "applicantCategories",
+            "opensAt",
+            "closesAt",
+            "deadlineSemantics",
+        )
+    }
+    return hashlib.sha256(
+        json.dumps(observed, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
