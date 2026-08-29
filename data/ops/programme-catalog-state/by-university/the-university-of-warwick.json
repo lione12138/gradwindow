@@ -2,7 +2,7 @@
   "universities": {
     "the-university-of-warwick": {
       "sourceUrl": "https://warwick.ac.uk/study/postgraduate/courses/",
-      "checkedAt": "2026-08-28T01:25:55.908649+00:00",
+      "checkedAt": "2026-08-29T12:35:07.906368+00:00",
       "itemCount": 116,
       "applicationOpensAt": null,
       "catalogHash": "41e942cc7b2806f1556b97583753e6d887b810c46adf2bd1c2fd80e788fbfb2a",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 116,
       "programmesNeedingReview": 116,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-28T01:25:55.908649+00:00",
+      "lastSuccessfulAt": "2026-08-29T12:35:07.906368+00:00",
       "windowFingerprint": "f9fe05d14f2730a97e7042787dc290e26b4ad0fc21a4141e8a88e87f31ed948c",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -1188,15 +1188,17 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 2,
-          "directSuccesses": 2,
-          "directFailures": 0,
+          "directSuccesses": 1,
+          "directFailures": 1,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "network": 1
+          }
         }
       }
     }

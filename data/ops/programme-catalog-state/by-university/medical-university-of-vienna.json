@@ -2,20 +2,28 @@
   "universities": {
     "medical-university-of-vienna": {
       "sourceUrl": "https://www.meduniwien.ac.at/web/en/studies-further-education/study-programmes/",
-      "checkedAt": "2026-08-28T00:43:13.422615+00:00",
+      "checkedAt": "2026-08-29T11:53:21.473208+00:00",
       "itemCount": 3,
       "applicationOpensAt": null,
-      "catalogHash": "305a9965aa9fb29633a3d3a77135b75eafd4a490d47c51cf30c54a990bbbbc15",
+      "catalogHash": "a5b765a65a5c5386a096ba678378862ca7d3a6e204500ceaf7cad34a65cf9820",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "partial",
-      "observedWindowCount": 2,
-      "exactWindowCount": 2,
+      "windowStatus": "exact",
+      "observedWindowCount": 4,
+      "exactWindowCount": 4,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2026-2027:other:00": {
           "intakes": [
             "Academic year 2026/27"
+          ],
+          "observedWindowCount": 1,
+          "exactWindowCount": 1,
+          "recurringPolicyWindowCount": 0
+        },
+        "2026-2027:winter:10": {
+          "intakes": [
+            "Winter semester 2026/27"
           ],
           "observedWindowCount": 1,
           "exactWindowCount": 1,
@@ -28,26 +36,34 @@
           "observedWindowCount": 1,
           "exactWindowCount": 1,
           "recurringPolicyWindowCount": 0
+        },
+        "2027:summer:06": {
+          "intakes": [
+            "Summer semester 2027"
+          ],
+          "observedWindowCount": 1,
+          "exactWindowCount": 1,
+          "recurringPolicyWindowCount": 0
         }
       },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 1,
-      "programmesNeedingReview": 1,
-      "limitationReason": "MedUni Vienna's three current master's programmes are monitored through their canonical official pages. Exact windows are recorded only where a programme page publishes both dates and the intake. Observed dates are incomplete or not safe for automatic publication. 1 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-08-28T00:43:13.422615+00:00",
-      "windowFingerprint": "b8693a033f4261be8409757d268523e13c8487dda4ca842ce80b2818a9fbb8f7",
-      "watchedWindowSourceHash": "684e536ab8b987d75836f5f1135ba24eacc835655816c6f2d5d18685c1ea3469",
-      "watchedWindowSourceFingerprintVersion": 2,
+      "programmesWithoutDeadlines": 0,
+      "programmesNeedingReview": 0,
+      "limitationReason": "MedUni Vienna's three current master's programmes are monitored through their canonical official pages. Exact windows are recorded only where a programme page or its linked central admissions source publishes both dates and the intake.",
+      "lastSuccessfulAt": "2026-08-29T11:53:21.473208+00:00",
+      "windowFingerprint": "5856ecd33b57c1fff9f9fc2e0624fe127f30084a8148bf466043d4ef9df8da21",
+      "watchedWindowSourceHash": "618f1656217eb10810cb7cfcff0291071b26cd04c29ebe5500895458db8b4d1f",
+      "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "meduni-vienna-medical-informatics-master": {
           "name": "Medical Informatics",
           "degreeType": "Master",
           "faculty": "Medical University of Vienna",
           "department": "Medical University of Vienna",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "875161d7fa45ff7a34b104eb28ba3794db33b25b8f65a044db37285c6b243b35",
+          "windowCount": 2,
+          "latestClosesAt": "2027-02-05"
         },
         "meduni-vienna-molecular-precision-medicine-master": {
           "name": "Molecular Precision Medicine",
@@ -71,6 +87,22 @@
         }
       },
       "windows": {
+        "meduni-vienna-medical-informatics-master::Summer semester 2027::General admission period::all": {
+          "programmeId": "meduni-vienna-medical-informatics-master",
+          "intake": "Summer semester 2027",
+          "opensAt": "2027-01-08",
+          "closesAt": "2027-02-05",
+          "sourceUrl": "https://www.meduniwien.ac.at/web/en/studies-further-education/application-admission/admission-periods/",
+          "opensAtBasis": "official"
+        },
+        "meduni-vienna-medical-informatics-master::Winter semester 2026/27::General admission period::all": {
+          "programmeId": "meduni-vienna-medical-informatics-master",
+          "intake": "Winter semester 2026/27",
+          "opensAt": "2026-07-06",
+          "closesAt": "2026-09-05",
+          "sourceUrl": "https://www.meduniwien.ac.at/web/en/studies-further-education/application-admission/admission-periods/",
+          "opensAtBasis": "official"
+        },
         "meduni-vienna-molecular-precision-medicine-master::Winter semester 2026::Annual application period::all": {
           "programmeId": "meduni-vienna-molecular-precision-medicine-master",
           "intake": "Winter semester 2026",
@@ -90,9 +122,14 @@
       },
       "adapterWarnings": [],
       "adapterDiagnostics": {
+        "applicationSectionFingerprints": {
+          "https://www.meduniwien.ac.at/web/en/studies-further-education/application-admission/admission-periods/": "55f49cd662b664f33e0453bffbb4364446e4461a5a6fecc57e4f7ccd39bc7ab0",
+          "https://www.meduniwien.ac.at/web/en/studies-further-education/the-molecular-precision-medicine-masters-programme/": "1b5ee92005c0dc0c610e95e615c6789493da2f4ed6999b4c2f4ae72719365801",
+          "https://www.meduniwien.ac.at/web/studierende/mein-studium/masterstudium-psychotherapie/": "7d8047a588294cfd8945b370b6da18047ce7df7bc2c12f32bd1d3f15a5d5a1b3"
+        },
         "transport": {
-          "requests": 3,
-          "directSuccesses": 3,
+          "requests": 4,
+          "directSuccesses": 4,
           "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,

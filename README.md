@@ -16,9 +16,9 @@
 - Search, status filters, saved universities, alerts, and calendar export form one application workflow.
 - QS is the default view; THE and ARWU top-200 views are live. U.S. News coverage is not presented as live yet.
 
-**Coverage:** 302 canonical universities · 29,365 programmes · 5,330 verified exact windows
+**Coverage:** 302 canonical universities · 29,385 programmes · 5,332 verified exact windows
 
-Status date: **2026-08-28**
+Status date: **2026-08-29**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -29,8 +29,8 @@ Status date: **2026-08-28**
 | 1 | Massachusetts Institute of Technology (MIT) | 1 open window | 2026-10-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
 | =2 | Imperial College London | 13 open windows | 2026-09-28 | Estimate | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 6 | University of Cambridge | 1 open window | 2027-05-14 | Estimate | [Admissions](https://www.postgraduate.study.cam.ac.uk/application-process) · [All programme details](https://gradwindow.com/?q=University%20of%20Cambridge) |
-| =8 | UCL | 10 open windows | 2026-08-28 | Official | [Admissions](https://www.ucl.ac.uk/prospective-students/graduate/applying-graduate-study) · [All programme details](https://gradwindow.com/?q=UCL) |
 | 10 | National University of Singapore (NUS) | 18 open windows | 2026-08-31 | Official | [Admissions](https://nusgs.nus.edu.sg/admissions/) · [All programme details](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
+| 12 | Nanyang Technological University, Singapore (NTU Singapore) | 29 open windows | 2026-08-31 | Official | [Admissions](https://www.ntu.edu.sg/admissions/graduate) · [All programme details](https://gradwindow.com/?q=Nanyang%20Technological%20University%2C%20Singapore%20%28NTU%20Singapore%29) |
 
 [View every open window on GradWindow →](https://gradwindow.com/?status=open)
 

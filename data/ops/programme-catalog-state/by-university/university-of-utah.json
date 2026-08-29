@@ -2,24 +2,33 @@
   "universities": {
     "university-of-utah": {
       "sourceUrl": "https://gradschool.utah.edu/degree-programs-and-contacts/",
-      "checkedAt": "2026-08-28T01:17:06.136676+00:00",
-      "itemCount": 119,
+      "checkedAt": "2026-08-29T12:28:16.855575+00:00",
+      "itemCount": 123,
       "applicationOpensAt": null,
-      "catalogHash": "4fd112838d13b39766f56c93c886308010bb15007f57fb151fc2c60f59b07c04",
+      "catalogHash": "69d927588871e56ec1b505aec7dde16c5db764e6f7accdcfa89b062ee910042e",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 2,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {},
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 119,
-      "programmesNeedingReview": 119,
-      "limitationReason": "Utah's Graduate School directory identifies master's degrees and their official departmental pages. Each graduate programme sets its own requirements and deadlines, so no central exact window is inferred. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-28T01:17:06.136676+00:00",
-      "windowFingerprint": "1e148f159ece2c864f4c5615bedc49e06f2c1d840b9d60f8f2d05eacbef369e4",
-      "watchedWindowSourceHash": "28ac4cafee5ff195b70877516d9b0c3de9debd72a85949d500b2c16a2994a91f",
+      "windowCountsByCycle": {
+        "2027:fall:09": {
+          "intakes": [
+            "Fall 2027"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 2,
+      "programmesWithoutDeadlines": 121,
+      "programmesNeedingReview": 123,
+      "limitationReason": "Utah's Graduate School directory identifies master's degrees and their official departmental pages. Each graduate programme sets its own requirements and deadlines, so no central exact window is inferred. 2 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-08-29T12:28:16.855575+00:00",
+      "windowFingerprint": "8f2245c351d3fc77147c0b0377a2abd8639265c603dbb936f1c8749612a7c770",
+      "watchedWindowSourceHash": "76899583647c42f8c945ae2b33dffdc02040b84e10135593ceb54781bc95faf3",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
         "utah-accounting-mac-master-of-accounting": {
@@ -172,6 +181,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "utah-biotechnology-psm-professional-science-master-s": {
+          "name": "Biotechnology PSM",
+          "degreeType": "Professional Science Master's",
+          "faculty": "University of Utah",
+          "department": "University of Utah",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "utah-business-administration-ex-mba-master-of-business-administration": {
           "name": "Business Administration Ex MBA",
           "degreeType": "Master of Business Administration",
@@ -312,9 +331,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "utah-computer-science-ms-master-of-science": {
-          "name": "Computer Science MS",
-          "degreeType": "Master of Science",
+        "utah-computational-and-data-science-psm-professional-science-master-s": {
+          "name": "Computational and Data Science PSM",
+          "degreeType": "Professional Science Master's",
           "faculty": "University of Utah",
           "department": "University of Utah",
           "parseStatus": "no-deadline",
@@ -322,15 +341,25 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "utah-computer-science-ms-master-of-science": {
+          "name": "Computer Science MS",
+          "degreeType": "Master of Science",
+          "faculty": "University of Utah",
+          "department": "University of Utah",
+          "parseStatus": "incomplete",
+          "deadlineHash": "bad9a311bd1bb82a34398664f81cd99bdbf82f441609d5bd8aecf7580aefea0f",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
+        },
         "utah-computing-ms-master-of-science": {
           "name": "Computing MS",
           "degreeType": "Master of Science",
           "faculty": "University of Utah",
           "department": "University of Utah",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "bad9a311bd1bb82a34398664f81cd99bdbf82f441609d5bd8aecf7580aefea0f",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "utah-construction-engineering-ms-master-of-science": {
           "name": "Construction Engineering MS",
@@ -365,6 +394,16 @@
         "utah-dance-and-choreography-mfa-master-of-fine-arts": {
           "name": "Dance and Choreography MFA",
           "degreeType": "Master of Fine Arts",
+          "faculty": "University of Utah",
+          "department": "University of Utah",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "utah-earth-resource-management-psm-professional-science-master-s": {
+          "name": "Earth Resource Management PSM",
+          "degreeType": "Professional Science Master's",
           "faculty": "University of Utah",
           "department": "University of Utah",
           "parseStatus": "no-deadline",
@@ -515,6 +554,16 @@
         "utah-environmental-humanities-ms-master-of-science": {
           "name": "Environmental Humanities MS",
           "degreeType": "Master of Science",
+          "faculty": "University of Utah",
+          "department": "University of Utah",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "utah-environmental-science-psm-professional-science-master-s": {
+          "name": "Environmental Science PSM",
+          "degreeType": "Professional Science Master's",
           "faculty": "University of Utah",
           "department": "University of Utah",
           "parseStatus": "no-deadline",
@@ -1213,20 +1262,39 @@
           "latestClosesAt": null
         }
       },
-      "windows": {},
+      "windows": {
+        "utah-computer-science-ms-master-of-science::Fall 2027::Fall admissions deadline::all": {
+          "programmeId": "utah-computer-science-ms-master-of-science",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://www.cs.utah.edu/graduate/prospective-students/admissions/graduate-deadline-details/",
+          "opensAtBasis": "missing"
+        },
+        "utah-computing-ms-master-of-science::Fall 2027::Fall admissions deadline::all": {
+          "programmeId": "utah-computing-ms-master-of-science",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://www.cs.utah.edu/graduate/prospective-students/admissions/graduate-deadline-details/",
+          "opensAtBasis": "missing"
+        }
+      },
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 2,
+          "requests": 3,
           "directSuccesses": 2,
-          "directFailures": 0,
+          "directFailures": 1,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "blocked": 1
+          }
         }
       }
     }
