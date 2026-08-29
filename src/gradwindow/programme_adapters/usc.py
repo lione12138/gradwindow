@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from urllib.parse import urlencode
+import re
+from urllib.parse import urljoin, urlsplit, urlunsplit
 
 from bs4 import BeautifulSoup
 
@@ -17,40 +18,23 @@ class USCAdapter(OfficialCatalogAdapter):
     institution_name = "University of Southern California"
     catalog_url = CATALOG_URL
     application_url = APPLICATION_URL
-    window_watch_urls = (CATALOG_URL, APPLICATION_URL)
-    retrieval_method = "official-filtered-graduate-programme-directory"
+    window_watch_urls = (CATALOG_URL,)
+    retrieval_method = "official-unfiltered-graduate-programme-directory"
 
     def __init__(self, minimum_expected_programmes: int = 300) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
-        index = fetcher(CATALOG_URL)
-        degree_values = _master_degree_values(index)
-        if not degree_values:
-            raise ValueError("USC directory did not expose master's degree filters")
-        next_url: str | None = (
-            CATALOG_URL
-            + "?"
-            + urlencode([("program-degrees[]", value) for value in degree_values])
-        )
+        next_url: str | None = CATALOG_URL
         visited: set[str] = set()
         entries: list[CatalogEntry] = []
         while next_url:
-            if next_url in visited or len(visited) >= 60:
+            if next_url in visited or len(visited) >= 80:
                 raise ValueError("USC programme pagination did not terminate")
             visited.add(next_url)
             html = fetcher(next_url)
             entries.extend(self.extract_entries(html))
-            soup = BeautifulSoup(html, "html.parser")
-            next_link = next(
-                (
-                    link
-                    for link in soup.select("nav.pager a[href]")
-                    if link.get_text(" ", strip=True).casefold() == "next page"
-                ),
-                None,
-            )
-            next_url = str(next_link.get("href")) if next_link is not None else None
+            next_url = _next_catalogue_page(html)
         return self._catalog(entries)
 
     def extract_entries(self, html: str) -> list[CatalogEntry]:
@@ -63,7 +47,11 @@ class USCAdapter(OfficialCatalogAdapter):
             heading = item.select_one(".item-title") if item is not None else None
             name = heading.get_text(" ", strip=True) if heading is not None else ""
             source_url = str(link.get("href", ""))
-            if not name or "catalogue.usc.edu/" not in source_url:
+            if (
+                not name
+                or "catalogue.usc.edu/" not in source_url
+                or not _is_master_programme(name)
+            ):
                 continue
             entries.append(
                 entry(
@@ -76,11 +64,79 @@ class USCAdapter(OfficialCatalogAdapter):
         return entries
 
 
-def _master_degree_values(html: str) -> list[str]:
+_MASTER_DEGREE_CODES = {
+    "IPPM",
+    "LLM",
+    "MA",
+    "MAARS",
+    "MAAS",
+    "MACC",
+    "MACM",
+    "MARCH",
+    "MAT",
+    "MBA",
+    "MBS",
+    "MBT",
+    "MBV",
+    "MCG",
+    "MCL",
+    "MCM",
+    "MDR",
+    "MED",
+    "MFA",
+    "MHA",
+    "MHC",
+    "MITLE",
+    "MLARCH",
+    "MMLIS",
+    "MM",
+    "MMS",
+    "MNLM",
+    "MPA",
+    "MPAP",
+    "MPD",
+    "MPDS",
+    "MPH",
+    "MPP",
+    "MRED",
+    "MS",
+    "MSAB",
+    "MSL",
+    "MSM",
+    "MSN-FNP",
+    "MSW",
+    "MUP",
+    "MVA",
+}
+_DEGREE_CODE_RE = re.compile(
+    r"(?<![A-Za-z0-9-])([A-Za-z][A-Za-z0-9-]{1,12})(?![A-Za-z0-9-])"
+)
+
+
+def _is_master_programme(name: str) -> bool:
+    if re.search(r"\bmaster\s+(?:of|in)\b", name, re.IGNORECASE):
+        return True
+    return any(
+        match.group(1).upper() in _MASTER_DEGREE_CODES
+        for match in _DEGREE_CODE_RE.finditer(name)
+    )
+
+
+def _next_catalogue_page(html: str) -> str | None:
     soup = BeautifulSoup(html, "html.parser")
-    values = []
-    for field in soup.select('input[name="program-degrees[]"][value]'):
-        label = soup.find("label", attrs={"for": field.get("id")})
-        if label is not None and "master" in label.get_text(" ", strip=True).casefold():
-            values.append(str(field.get("value")))
-    return values
+    next_link = next(
+        (
+            link
+            for link in soup.select("nav.pager a[href]")
+            if link.get_text(" ", strip=True).casefold() == "next page"
+        ),
+        None,
+    )
+    if next_link is None:
+        return None
+    target = urlsplit(urljoin(CATALOG_URL, str(next_link.get("href", ""))))
+    if target.hostname != "www.usc.edu" or not re.fullmatch(
+        r"/graduate-professional/page/\d+/", target.path
+    ):
+        raise ValueError("USC catalogue exposed an unexpected pagination URL")
+    return urlunsplit((target.scheme, target.netloc, target.path, "", ""))

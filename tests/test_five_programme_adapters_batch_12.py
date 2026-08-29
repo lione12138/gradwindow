@@ -44,33 +44,68 @@ def test_tue_follows_load_more_fragments() -> None:
     ]
 
 
-def test_usc_combines_master_filters_and_follows_pagination() -> None:
+def test_usc_uses_unfiltered_pagination_and_filters_master_programmes_locally() -> None:
     adapter = USCAdapter(minimum_expected_programmes=2)
-    index = """
-      <input id="ms" name="program-degrees[]" value="master-of-science">
-      <label for="ms">Master of Science</label>
-      <input id="phd" name="program-degrees[]" value="doctor-of-philosophy">
-      <label for="phd">Doctor of Philosophy</label>
-    """
     first = """
       <li><span class="item-title">Analytics (MS)</span>
         <a href="https://catalogue.usc.edu/preview_program.php?poid=1">Learn More</a>
       </li>
-      <nav class="pager"><a href="https://www.usc.edu/graduate-professional/page/2/?program-degrees%5B0%5D=master-of-science">Next page</a></nav>
+      <li><span class="item-title">Analytics Graduate Certificate</span>
+        <a href="https://catalogue.usc.edu/preview_program.php?poid=9">Learn More</a>
+      </li>
+      <nav class="pager"><a href="https://www.usc.edu/graduate-professional/page/2/?tracking=test">Next page</a></nav>
     """
     second = """
       <li><span class="item-title">Computer Science (MS)</span>
         <a href="https://catalogue.usc.edu/preview_program.php?poid=2">Learn More</a>
       </li>
+      <li><span class="item-title">Computer Science (PhD)</span>
+        <a href="https://catalogue.usc.edu/preview_program.php?poid=8">Learn More</a>
+      </li>
     """
+    calls = []
 
     def fetcher(url: str) -> str:
-        if url == adapter.catalog_url:
-            return index
+        calls.append(url)
         return second if "/page/2/" in url else first
 
     rows = adapter.parse_catalog_from_fetcher(fetcher).programmes
     assert [row.name for row in rows] == ["Analytics (MS)", "Computer Science (MS)"]
+    assert calls == [
+        "https://www.usc.edu/graduate-professional/",
+        "https://www.usc.edu/graduate-professional/page/2/",
+    ]
+
+
+def test_usc_recognises_named_joint_and_online_master_routes() -> None:
+    adapter = USCAdapter(minimum_expected_programmes=4)
+    html = """
+      <li><span class="item-title">Executive MBA Program</span>
+        <a href="https://catalogue.usc.edu/preview_program.php?poid=1">Learn More</a>
+      </li>
+      <li><span class="item-title">Public Health (MPH) (Online)</span>
+        <a href="https://catalogue.usc.edu/preview_program.php?poid=2">Learn More</a>
+      </li>
+      <li><span class="item-title">Doctor of Medicine/Master of Business Administration (MD/MBA)</span>
+        <a href="https://catalogue.usc.edu/preview_program.php?poid=3">Learn More</a>
+      </li>
+      <li><span class="item-title">Advanced Dentistry Certificate/MS, Craniofacial Biology</span>
+        <a href="https://catalogue.usc.edu/preview_program.php?poid=4">Learn More</a>
+      </li>
+      <li><span class="item-title">School Counseling, Post-Master's Certificate</span>
+        <a href="https://catalogue.usc.edu/preview_program.php?poid=5">Learn More</a>
+      </li>
+      <li><span class="item-title">Comparative Literature (PhD)</span>
+        <a href="https://catalogue.usc.edu/preview_program.php?poid=6">Learn More</a>
+      </li>
+    """
+    rows = adapter.parse_catalog(html).programmes
+    assert [row.name for row in rows] == [
+        "Advanced Dentistry Certificate/MS, Craniofacial Biology",
+        "Doctor of Medicine/Master of Business Administration (MD/MBA)",
+        "Executive MBA Program",
+        "Public Health (MPH) (Online)",
+    ]
 
 
 def test_hanyang_extracts_only_rows_with_a_masters_route() -> None:
