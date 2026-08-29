@@ -1,431 +1,1913 @@
 {
   "universities": {
     "university-of-california-santa-barbara-ucsb": {
-      "sourceUrl": "https://www.graddiv.ucsb.edu/graduate-programs/departments",
-      "checkedAt": "2026-08-10T06:31:49.645065+00:00",
-      "itemCount": 51,
+      "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs",
+      "checkedAt": "2026-08-29T19:43:23.962205+00:00",
+      "itemCount": 87,
       "applicationOpensAt": null,
-      "catalogHash": "282a2a52d79ea33e1cecd3dea8235ecd0a543f415d2fa0597ace08235bb36a67",
+      "catalogHash": "72559ca5abc574528d38d7490d01596c6b4fc7499a286156f067d7f062f2265f",
       "catalogueStatus": "ok",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "catalogueGranularity": "programme-route-level",
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 110,
       "exactWindowCount": 0,
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 51,
-      "programmesNeedingReview": 51,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-10T06:31:49.645065+00:00",
-      "windowFingerprint": "34028f88abe8bccf01990e3b80c3de326190a2f062c046525f60dd5428f112f3",
-      "watchedWindowSourceHash": "1ffe7236aabee15712e192d4d05a256ba1f7e4015dc5d4948434b2c497600601",
-      "watchedWindowSourceFingerprintVersion": 2,
+      "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "2027:fall:09": {
+          "intakes": [
+            "Fall 2027"
+          ],
+          "observedWindowCount": 100,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:spring:01": {
+          "intakes": [
+            "Spring 2027"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:summer:06": {
+          "intakes": [
+            "Summer 2027"
+          ],
+          "observedWindowCount": 6,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:winter:01": {
+          "intakes": [
+            "Winter 2027"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 110,
+      "programmesWithoutDeadlines": 0,
+      "programmesNeedingReview": 87,
+      "limitationReason": "110 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-08-29T19:43:23.962205+00:00",
+      "windowFingerprint": "0126775d0aad2a532bb724cca79b7700ea552e99237dd6e1d6507b1a162c33c7",
+      "watchedWindowSourceHash": null,
+      "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
-        "ucsb-actuarial-science-ms": {
-          "name": "Actuarial Science",
+        "ucsb-actuarial-science-five-year-program-current-ucsb-undergraduates-only-ms": {
+          "name": "Actuarial Science (Five-Year Program) Current UCSB Undergraduates Only",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Actuarial Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Statistics and Applied Probability",
+          "parseStatus": "incomplete",
+          "deadlineHash": "54a7847c2efb958610e91deb820c03556564ae474059ea28ec1de6f4bf6b6c28",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
         },
         "ucsb-anthropology-ma": {
           "name": "Anthropology",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Anthropology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "3acff96f62e096a3539a5aada1ae64690d621daf8e7f5935ccf529b2ae72eeeb",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-applied-mathematics-ma": {
           "name": "Applied Mathematics",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Applied Mathematics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Mathematics",
+          "parseStatus": "incomplete",
+          "deadlineHash": "742e49127e13635bf72442c497ac261db2cff15130e528dd8867600da589e108",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
         },
         "ucsb-art-mfa": {
           "name": "Art",
           "degreeType": "MFA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Art",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "6550e32ac1191d431adc49979fbf121737eae546fe0ef22eed51c5a5e00def59",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06",
+          "admissionRoute": "professional-master"
         },
-        "ucsb-asian-studies-ma": {
-          "name": "Asian Studies",
+        "ucsb-asian-studies-five-year-program-current-ucsb-undergraduates-only-ma": {
+          "name": "Asian Studies (Five-Year Program) Current UCSB Undergraduates Only",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Asian Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "East Asian Languages and Cultural Studies",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f8649e2b2c5e1399ea862cda14b20dc014d5b87c0b8b2846e7f61121871090a4",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
+        },
+        "ucsb-asian-studies-ma-ma": {
+          "name": "Asian Studies — MA",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "East Asian Languages and Cultural Studies",
+          "parseStatus": "incomplete",
+          "deadlineHash": "d75e46a2fd73efbba358976c54a8483a1edf65006f4f815913c214e7409c9253",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-asian-studies-ma-ma-east-asian-languages-cultural-studies-emphasis": {
+          "name": "Asian Studies — MA (East Asian Languages & Cultural Studies Emphasis)",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "East Asian Languages and Cultural Studies",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f8742dabc9f5dd6afaeb0e94cda8d127c033fea3d09c51ffbcf51a44fddeb142",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-biochemistry-and-molecular-biology-five-year-program-current-ucsb-undergraduates-only-ms": {
+          "name": "Biochemistry and Molecular Biology (Five-Year Program) Current UCSB Undergraduates Only",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Interdisciplinary Program in Quantitative Bioscience",
+          "parseStatus": "incomplete",
+          "deadlineHash": "5f92d253cb4e7d99ed8b5acd0876954ebf0199fa560b60ade6b8394095a70188",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
         },
         "ucsb-chemistry-ma": {
           "name": "Chemistry",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Chemistry",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Chemistry and Biochemistry",
+          "parseStatus": "incomplete",
+          "deadlineHash": "808f06a13186934448945a786283069d1ac145b94b258ac7506199709f8fa554",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-chemistry-ms": {
           "name": "Chemistry",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Chemistry",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Chemistry and Biochemistry",
+          "parseStatus": "incomplete",
+          "deadlineHash": "316bed6a081c5130e9813ac03bb5587063de17fc450bcdde86a80e89a4f3842e",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
-        "ucsb-chemistry-tep-joint-graduate-degree-program-ma": {
-          "name": "Chemistry/TEP Joint Graduate Degree Program",
+        "ucsb-chemistry-teacher-education-program-ma": {
+          "name": "Chemistry / Teacher Education Program",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Chemistry/TEP Joint Graduate Degree Program",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-        },
-        "ucsb-chemistry-tep-joint-graduate-degree-program-med": {
-          "name": "Chemistry/TEP Joint Graduate Degree Program",
-          "degreeType": "MEd",
-          "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Chemistry/TEP Joint Graduate Degree Program",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Chemistry / Teacher Education Joint Program",
+          "parseStatus": "incomplete",
+          "deadlineHash": "5bf1ab0b1814dadd4a3a0082249d0e2e19ed9b55ba6d861e615d23ca77d7e2db",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15",
+          "admissionRoute": "professional-master"
         },
         "ucsb-chicana-and-chicano-studies-ma": {
           "name": "Chicana and Chicano Studies",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Chicana and Chicano Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "d735fb105d13fb55c6dccf1f8848fe14d8356cc576d022bcd52ab3ecc1ed1c0f",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-communication-ma": {
           "name": "Communication",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Communication",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "96ed8f52a966592aa5f5393261130c80029e503b8493c62d1695fc14f1097135",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-comparative-literature-ma": {
           "name": "Comparative Literature",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Comparative Literature",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "245e3f6543162ae575992a5562606f72784294f1a193143206caef18c71c67c8",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-computer-science-five-year-program-current-ucsb-undergraduates-only-ms": {
+          "name": "Computer Science (Five-Year Program) Current UCSB Undergraduates Only",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Computer Science",
+          "parseStatus": "incomplete",
+          "deadlineHash": "809762d98e8e028627d2b918d21e422edc6f316e4748312d4bc36296e5986e2e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
         },
         "ucsb-computer-science-ms": {
           "name": "Computer Science",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Computer Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "2962a5d1fc3e3daf30b9e9bce85aac96830751eaa75943a77d632e1182a2fce4",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-counseling-clinical-school-psychology-med": {
-          "name": "Counseling, Clinical & School Psychology",
-          "degreeType": "MEd",
+        "ucsb-earth-science-five-year-program-current-ucsb-undergraduates-only-ms": {
+          "name": "Earth Science (Five-Year Program) Current UCSB Undergraduates Only",
+          "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Counseling, Clinical & School Psychology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Earth Science",
+          "parseStatus": "incomplete",
+          "deadlineHash": "20dd3dd3d26580dc73fa13c73c11519dadbd9c54b59bbae1c0be093caf008007",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
         },
         "ucsb-earth-science-ms": {
           "name": "Earth Science",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Earth Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "960d45cfeea1fa3e9284fcb292503994e99a72d1543281d8af0e323cd655aea9",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-ecology-evolution-marine-biology-ms": {
-          "name": "Ecology, Evolution & Marine Biology",
+        "ucsb-ecology-evolution-marine-biology-ms-ms": {
+          "name": "Ecology, Evolution & Marine Biology — MS",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Ecology, Evolution & Marine Biology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Ecology, Evolution and Marine Biology",
+          "parseStatus": "incomplete",
+          "deadlineHash": "633bcb3aafd70682ddae3732210465e29e7fc69f9af12c0bf9d5c14a463571b1",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-ecology-evolution-marine-biology-ms-ph-d-ms": {
+          "name": "Ecology, Evolution & Marine Biology — Ph.D. / MS",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Ecology, Evolution and Marine Biology",
+          "parseStatus": "incomplete",
+          "deadlineHash": "396a81914257b32ab14a13f74cff6fb17fc33c2c8dd3b305c59e2510838801c8",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-economics-ma": {
           "name": "Economics",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Economics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "560632aa30fa5f8d08b218b2ad8fe1e4eee0939de0da2fc3114cf044c6629998",
+          "windowCount": 2,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
         },
-        "ucsb-education-ma": {
-          "name": "Education",
+        "ucsb-education-ma-ma": {
+          "name": "Education — MA",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Education",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Education, Gevirtz Graduate School of Education",
+          "parseStatus": "incomplete",
+          "deadlineHash": "3630e7b5a71e54e4e5af281de4355506121283e1aee71a707ea181bfddd25cd1",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-education-teacher-education-program-med": {
-          "name": "Education - Teacher Education Program",
-          "degreeType": "MEd",
+        "ucsb-education-ma-ph-d-ma": {
+          "name": "Education — Ph.D. / MA",
+          "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Education - Teacher Education Program",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Education, Gevirtz Graduate School of Education",
+          "parseStatus": "incomplete",
+          "deadlineHash": "407a9f69dc94f6e3eb5f7bb17627e95a739454a346844394e79bfafbf9afb901",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
-        "ucsb-education-teacher-education-program-mst": {
-          "name": "Education - Teacher Education Program",
-          "degreeType": "MST",
-          "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Education - Teacher Education Program",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-        },
-        "ucsb-electrical-computer-engineering-ms": {
-          "name": "Electrical & Computer Engineering",
+        "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-communications-control-signal-processing-emphasis": {
+          "name": "Electrical & Computer Engineering (Five-Year Program) Current UCSB Undergraduates Only — MS (Communications, Control & Signal Processing Emphasis)",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Electrical & Computer Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "e37154275a5b01f2a524a2aceac71bf88935eb24bcc2c1fd4286ed42ca086633",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
+        },
+        "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-computer-engineering-emphasis": {
+          "name": "Electrical & Computer Engineering (Five-Year Program) Current UCSB Undergraduates Only — MS (Computer Engineering Emphasis)",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Electrical & Computer Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "9a4bc62ed0a987ff07b376affa137acd558d0eb12040b4d8549ad488594becfc",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
+        },
+        "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-electronics-photonics-emphasis": {
+          "name": "Electrical & Computer Engineering (Five-Year Program) Current UCSB Undergraduates Only — MS (Electronics & Photonics Emphasis)",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Electrical & Computer Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "fc895b84d1c0680f5333f69e9b1503a55b00d9d00cf9fa7b4fc4a59f5517226e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
+        },
+        "ucsb-electrical-computer-engineering-ms-ms-communications-control-signal-processing-emphasis": {
+          "name": "Electrical & Computer Engineering — MS (Communications, Control & Signal Processing Emphasis)",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Electrical & Computer Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a509df221637ca195d0b1356bdb6e27a5ec868b8c8c25fec6c61b41db975ad7",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-electrical-computer-engineering-ms-ms-computer-engineering-emphasis": {
+          "name": "Electrical & Computer Engineering — MS (Computer Engineering Emphasis)",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Electrical & Computer Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "df11ca3462be35aaa7f50591ac5d076dee8f6bfadd744616ec172520ec544e49",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-electrical-computer-engineering-ms-ms-electronics-photonics-emphasis": {
+          "name": "Electrical & Computer Engineering — MS (Electronics & Photonics Emphasis)",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Electrical & Computer Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "936c45e52aade815850b5144fae15e89c5e8b668ae8383accab6c983f3521eb2",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-electrical-computer-engineering-ms-ph-d-ms-communications-control-signal-processing-emphasis": {
+          "name": "Electrical & Computer Engineering — Ph.D. / MS (Communications, Control & Signal Processing Emphasis)",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Electrical & Computer Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "93545e38e97a79a483dcbd44298166df23895e025f9722f814a080aaee07f8eb",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-electrical-computer-engineering-ms-ph-d-ms-computer-engineering-emphasis": {
+          "name": "Electrical & Computer Engineering — Ph.D. / MS (Computer Engineering Emphasis)",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Electrical & Computer Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "608dc207d03ec752ae50259c5931dbe3fbd2e30de72309005bb2ac9230f66cae",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-electrical-computer-engineering-ms-ph-d-ms-electronics-photonics-emphasis": {
+          "name": "Electrical & Computer Engineering — Ph.D. / MS (Electronics & Photonics Emphasis)",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Electrical & Computer Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "2713878254956c79c26b9be919204357e73973e91dd1d1dc79ccea6f0af970f6",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-engineering-and-technology-leadership-metl": {
+          "name": "Engineering and Technology Leadership",
+          "degreeType": "METL",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Engineering and Technology Leadership Program",
+          "parseStatus": "incomplete",
+          "deadlineHash": "086abf010e736b2da1d0298351a95a83fc8acdddb036b77db9f66b799a4b52cb",
+          "windowCount": 3,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "professional-master"
         },
         "ucsb-english-ma": {
           "name": "English",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "English",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "a66c9bc304947725dadefee02817f86390c1015ddab049189a0cfcb2829db7d0",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
-        "ucsb-environmental-science-management-bren-school-meds": {
-          "name": "Environmental Science & Management (Bren School)",
+        "ucsb-environmental-data-science-meds": {
+          "name": "Environmental Data Science",
           "degreeType": "MEDS",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Environmental Science & Management (Bren School)",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Environmental Science & Management",
+          "parseStatus": "incomplete",
+          "deadlineHash": "5523e7f83c6728b6062f645002f7f6fe5a5b1e349af35cb1fa48f6115fd5fbd0",
+          "windowCount": 2,
+          "latestClosesAt": "2027-03-03",
+          "admissionRoute": "professional-master"
         },
-        "ucsb-environmental-science-management-bren-school-mesm": {
-          "name": "Environmental Science & Management (Bren School)",
+        "ucsb-environmental-science-management-mesm": {
+          "name": "Environmental Science & Management",
           "degreeType": "MESM",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Environmental Science & Management (Bren School)",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Environmental Science & Management",
+          "parseStatus": "incomplete",
+          "deadlineHash": "e9f10a57219dde757c7c5df69a36a60afb166061de6c1a454f5e628e7eddd31a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "professional-master"
         },
-        "ucsb-feminist-studies-ma": {
-          "name": "Feminist Studies",
+        "ucsb-feminist-studies-ma-ma": {
+          "name": "Feminist Studies — MA",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Feminist Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "1e5c01c57de9a24d23716af4c1a140c4738c92e4a41a5d4cfe1cb3aaed42dbea",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-feminist-studies-ma-ph-d-ma": {
+          "name": "Feminist Studies — Ph.D. / MA",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Feminist Studies",
+          "parseStatus": "incomplete",
+          "deadlineHash": "eacee4dcf6cd2ca1028f09b4f98498d952e4b4ac7542e763a3d601e0d7ff2dc1",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-film-and-media-studies-ma": {
           "name": "Film and Media Studies",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Film and Media Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "e3cc6c78cd5f73f9df4c1e23717f770c678b0ea0e9d3bd2ce63435275b1befd2",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
-        "ucsb-geography-ma": {
-          "name": "Geography",
+        "ucsb-geography-ma-ma": {
+          "name": "Geography — MA",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Geography",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "d9fb987000ebe408c1771d82b39301f021774e1109ed122f2ec23949b8d2f83b",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-geography-ma-ph-d-ma": {
+          "name": "Geography — Ph.D. / MA",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Geography",
+          "parseStatus": "incomplete",
+          "deadlineHash": "e42b878080417acb2af10757ecda158b90fb71ea54d13a64a9f12b58129e487a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-global-studies-ma": {
           "name": "Global Studies",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Global Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "91aa41e505050780300a98cdd521471563fd10c607b2b8b363a632d95f378508",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-hispanic-languages-and-literatures-ma": {
-          "name": "Hispanic Languages and Literatures",
+        "ucsb-hispanic-languages-and-literatures-portuguese-ma": {
+          "name": "Hispanic Languages and Literatures / Portuguese",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Hispanic Languages and Literatures",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Spanish and Portuguese",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0ca546d190a07a0231a3f8b8f692ec2daaa204952d167887bb2af61ee5ebc0bf",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-hispanic-languages-and-literatures-spanish-ma": {
+          "name": "Hispanic Languages and Literatures / Spanish",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Spanish and Portuguese",
+          "parseStatus": "incomplete",
+          "deadlineHash": "8258d6cc5f54db3c765b069fad28f2886d2584e6a2403e331862303e0134d923",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-history-ma": {
           "name": "History",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "History",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "e23a6ac026b54d06ec3ee8fa4f01d60b31c9ad6cc481391de31891108fbbe6e4",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-history-of-art-and-architecture-ma": {
           "name": "History of Art and Architecture",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "History of Art and Architecture",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "e2ff6cf011d22578bca0240bf50174ba66510234822872cfa89e628587751c8a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-latin-american-and-iberian-studies-ma": {
           "name": "Latin American and Iberian Studies",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Latin American and Iberian Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "62a0204b2a2ae1a112bb5acf4d1be62794e8028237ddec12675ad8eca2d5da7f",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15",
+          "admissionRoute": "direct-master"
         },
         "ucsb-linguistics-ma": {
           "name": "Linguistics",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Linguistics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "334edc892fa4cf2e8085623064ada59c54da0bc5ff23a010c4ba09fac29dba01",
+          "windowCount": 1,
+          "latestClosesAt": "2026-11-18",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-marine-science-ms": {
           "name": "Marine Science",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Marine Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "78fd5dc20ec89d74fed94dc0974ce02e0265541ce3f8179157bbe79b49ff3717",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-materials-ms": {
-          "name": "Materials",
+        "ucsb-materials-five-year-program-current-ucsb-undergraduates-only-ms": {
+          "name": "Materials (Five-Year Program) Current UCSB Undergraduates Only",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Materials",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "65039c9c44f2c40b77ed149174cb3469bf4c09a3464219212db77b974f71f99d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
         },
-        "ucsb-mathematics-ma": {
-          "name": "Mathematics",
+        "ucsb-materials-ms-ms": {
+          "name": "Materials — MS",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Materials",
+          "parseStatus": "incomplete",
+          "deadlineHash": "fad87058fa4f4ca178137f707cc16177c18e85ef3b832b9adcd646635a5c919b",
+          "windowCount": 3,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-materials-ms-ph-d-ms": {
+          "name": "Materials — Ph.D. / MS",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Materials",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f3bd48612b99459407ab6038971156ce72edf4ceee0d5cb2e01b45dca2c146bb",
+          "windowCount": 3,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-mathematics-ma-ma": {
+          "name": "Mathematics — MA",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Mathematics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "d16cb63f685571a1ffbbed92e4bc1527b82204091654c4e6020984dd21d68e99",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-mcdb-tep-joint-graduate-degree-program-med": {
-          "name": "MCDB/TEP Joint Graduate Degree Program",
-          "degreeType": "MEd",
+        "ucsb-mathematics-ma-ph-d-ma": {
+          "name": "Mathematics — Ph.D. / MA",
+          "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "MCDB/TEP Joint Graduate Degree Program",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Mathematics",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7cb821b4f69128063dfe5e999d815f73a11d87a07c15b5c9446491b652f6844d",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
         },
-        "ucsb-mcdb-tep-joint-graduate-degree-program-ms": {
-          "name": "MCDB/TEP Joint Graduate Degree Program",
+        "ucsb-mechanical-engineering-five-year-program-current-ucsb-undergraduates-only-ms": {
+          "name": "Mechanical Engineering (Five-Year Program) Current UCSB Undergraduates Only",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "MCDB/TEP Joint Graduate Degree Program",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Mechanical Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "3e69fd7efe97ada820181e3ea4b0da031f474994cdb4389c80fadc23516d546e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
         },
         "ucsb-mechanical-engineering-ms": {
           "name": "Mechanical Engineering",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Mechanical Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "d92871c1d264cbaae7669aeee1f81004c156f6ffdac393ba0e60e084b670a657",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-media-arts-and-technology-ms": {
-          "name": "Media Arts and Technology",
+        "ucsb-media-arts-and-technology-ms-ms": {
+          "name": "Media Arts and Technology — MS",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Media Arts and Technology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "30059f80bffb786ecfe6e862cd7703056ba6fed9a282fa311e4b7f6876f9cf1c",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-media-arts-and-technology-ms-ph-d-ms": {
+          "name": "Media Arts and Technology — Ph.D. / MS",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Media Arts and Technology",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f467a73df3b3abe821960ce9bcfe4875871d9cf61b5e890eee6f5aebb231c2ad",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-molecular-cellular-developmental-biology-five-year-program-current-ucsb-undergraduates-only-ms": {
+          "name": "Molecular, Cellular & Developmental Biology (Five-Year Program) Current UCSB Undergraduates Only",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Molecular, Cellular and Developmental Biology",
+          "parseStatus": "incomplete",
+          "deadlineHash": "cfb2aeb7b18c11268653bb46704a7023d7573d965c4f0bc1dcb66bba22527b9d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-14",
+          "admissionRoute": "restricted-master"
         },
         "ucsb-molecular-cellular-developmental-biology-ms": {
           "name": "Molecular, Cellular & Developmental Biology",
           "degreeType": "MS",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Molecular, Cellular & Developmental Biology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Molecular, Cellular and Developmental Biology",
+          "parseStatus": "incomplete",
+          "deadlineHash": "51c866fd48e9d336d5b76ddb5e0a42ad768b8ff85f84b84da61067e74589f1ee",
+          "windowCount": 1,
+          "latestClosesAt": "2026-11-18",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-music-ma": {
-          "name": "Music",
+        "ucsb-molecular-cellular-developmental-biology-teacher-education-program-ms": {
+          "name": "Molecular, Cellular & Developmental Biology / Teacher Education Program",
+          "degreeType": "MS",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "MCDB / Teacher Education Joint Program",
+          "parseStatus": "incomplete",
+          "deadlineHash": "216fab6bcbf49471b98c78945a7f5b40159b3520b29168bdd234c466a686de73",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15",
+          "admissionRoute": "professional-master"
+        },
+        "ucsb-music-ma-ma-composition-emphasis": {
+          "name": "Music — MA (Composition Emphasis)",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Music",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "213489b4971458eec6113495a1f3a1f9ba2d1d636faa92f3248df22843b02046",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "direct-master"
         },
-        "ucsb-music-mm": {
-          "name": "Music",
+        "ucsb-music-ma-ma-ethnomusicology-emphasis": {
+          "name": "Music — MA (Ethnomusicology Emphasis)",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "1b93538fa10fd5739ade4cd5b9a7cf14398b832217dadaaa9c9824ee73f2e4a1",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-music-ma-ma-musicology-emphasis": {
+          "name": "Music — MA (Musicology Emphasis)",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b15ea2d4073e8f89b9685838f6919f22d6503b50cab15a877761e578606c2319",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-music-ma-ma-theory-emphasis": {
+          "name": "Music — MA (Theory Emphasis)",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7782acf4a24c88b34dc69925b625b2869486478d7d9012585213dab98dcce939",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-music-ma-ph-d-ma-composition-emphasis": {
+          "name": "Music — Ph.D. / MA (Composition Emphasis)",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "4498f69b3d176ec20ff6b5979bc5cfe30f55d3c5c9a68f5ac0a43bb8f9566d88",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-music-ma-ph-d-ma-ethnomusicology-emphasis": {
+          "name": "Music — Ph.D. / MA (Ethnomusicology Emphasis)",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f34e189e291f90d1760772cc1b2f935f3ad1a5d94454513e958199326475a797",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-music-ma-ph-d-ma-musicology-emphasis": {
+          "name": "Music — Ph.D. / MA (Musicology Emphasis)",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "dbeeb6bbbe52914f5af202a12575ecc39d8527e9a9bc4d31b7ad36d9a5c50a14",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-music-ma-ph-d-ma-theory-emphasis": {
+          "name": "Music — Ph.D. / MA (Theory Emphasis)",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "edc9c0aab53ac91062fdf95c7d1432073364c05298ed3bc09395e274b282f89d",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-music-mm-mm-piano-accompanying-emphasis": {
+          "name": "Music — MM (Piano Accompanying Emphasis)",
           "degreeType": "MM",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Music",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "e8ad6f79576826856a562d7baaa821001287df918e76591573da1d09dd3b119b",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "professional-master"
+        },
+        "ucsb-music-mm-mm-strings-emphasis": {
+          "name": "Music — MM (Strings Emphasis)",
+          "degreeType": "MM",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "cefc1eb71dbfdd7cfd2ae0cf6540d0203e1f2d8ad57c0f382b27f64eb5fbec69",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "professional-master"
+        },
+        "ucsb-music-mm-mm-voice-emphasis": {
+          "name": "Music — MM (Voice Emphasis)",
+          "degreeType": "MM",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Music",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a4d137aa8a4f094aed21e7b980fc7a44f3e5bc49803c88aea54a64cea998219",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01",
+          "admissionRoute": "professional-master"
         },
         "ucsb-philosophy-ma": {
           "name": "Philosophy",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Philosophy",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "e0060644ce473ad8658f8373f0befe0a86a3dfe047bda15c78d525040758fa8f",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-political-science-ma": {
           "name": "Political Science",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Political Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "024f1bfc06c8d9ed24dbe8405361522281c0fb03753dba7fcdbb38e44c89c158",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
-        "ucsb-religious-studies-ma": {
-          "name": "Religious Studies",
+        "ucsb-religious-studies-ma-ma": {
+          "name": "Religious Studies — MA",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Religious Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "a57a57b96286a7a211b089d11bc19a32241af6c3d0a4e5073872c453eb5e669c",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-religious-studies-ma-ph-d-ma": {
+          "name": "Religious Studies — Ph.D. / MA",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Religious Studies",
+          "parseStatus": "incomplete",
+          "deadlineHash": "21af419b39438ff10567836035d2a8813276bef2c75ed325d8dd240c429e82a9",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        },
+        "ucsb-school-psychology-med": {
+          "name": "School Psychology",
+          "degreeType": "MEd",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Counseling, Clinical and School Psychology",
+          "parseStatus": "incomplete",
+          "deadlineHash": "2fc17bb91f064b420064153264ee37dfd5a1b9347a6d5c6e3ac0c1894d9dfdf9",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "professional-master"
         },
         "ucsb-sociology-ma": {
           "name": "Sociology",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Sociology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "6fb0ef4c6b9a51f7afd2ce019126d35b6f344079b695294575fcec4e9eef36ad",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-02",
+          "admissionRoute": "master-phd-embedded"
         },
-        "ucsb-statistics-and-applied-probability-ma": {
-          "name": "Statistics and Applied Probability",
+        "ucsb-statistics-and-applied-probability-statistics-ma": {
+          "name": "Statistics and Applied Probability / Statistics",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Statistics and Applied Probability",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "4ad2e1b904b839fcb1b66d57cd98569d3693d58806338494c75315682a82de0e",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
         },
         "ucsb-statistics-ma": {
           "name": "Statistics",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Statistics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Statistics and Applied Probability",
+          "parseStatus": "incomplete",
+          "deadlineHash": "fa7f074503fd241e0a064416adf2974903e427e7430f425102b8bfa37af25bf4",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-18",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-teacher-education-program-med-med-teaching-emphasis-es-credential-extensive-support-needs-emphasis": {
+          "name": "Teacher Education Program — MEd (Teaching Emphasis) / ES Credential (Extensive Support Needs Emphasis)",
+          "degreeType": "MEd",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Teacher Education Program, Gevirtz Graduate School of Education",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b22809b01a66b743658e16ca0730ab5d1aff2d74c873e9806ed8e76bee3713d8",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15",
+          "admissionRoute": "professional-master"
+        },
+        "ucsb-teacher-education-program-med-med-teaching-emphasis-es-credential-mild-to-moderate-support-needs-emphasis": {
+          "name": "Teacher Education Program — MEd (Teaching Emphasis) / ES Credential (Mild to Moderate Support Needs Emphasis)",
+          "degreeType": "MEd",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Teacher Education Program, Gevirtz Graduate School of Education",
+          "parseStatus": "incomplete",
+          "deadlineHash": "2f5065824ec9595965f0fdda4e15e9dcb412b9871f236cc982696b23a9258191",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15",
+          "admissionRoute": "professional-master"
+        },
+        "ucsb-teacher-education-program-med-med-teaching-emphasis-mst-credential": {
+          "name": "Teacher Education Program — MEd (Teaching Emphasis) / MST Credential",
+          "degreeType": "MEd",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Teacher Education Program, Gevirtz Graduate School of Education",
+          "parseStatus": "incomplete",
+          "deadlineHash": "700b70f23111e989bd5edc9908fca76ebc1c52402e39f29fff9860a50cb77e87",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15",
+          "admissionRoute": "professional-master"
+        },
+        "ucsb-teacher-education-program-med-med-teaching-emphasis-sst-credential": {
+          "name": "Teacher Education Program — MEd (Teaching Emphasis) / SST Credential",
+          "degreeType": "MEd",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Teacher Education Program, Gevirtz Graduate School of Education",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f31f31c3fb243ce0d64fdb849d45a2542a471086cb5b4f82668997d4a5d07582",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15",
+          "admissionRoute": "professional-master"
         },
         "ucsb-technology-management-mtm": {
           "name": "Technology Management",
           "degreeType": "MTM",
           "faculty": "UC Santa Barbara Graduate Division",
           "department": "Technology Management",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "9cee266b7a24f93757ffb5f36f5677c8719f8848ba9362e08009cc1b68d9265f",
+          "windowCount": 3,
+          "latestClosesAt": "2027-04-30",
+          "admissionRoute": "professional-master"
         },
-        "ucsb-theater-dance-and-performance-studies-ma": {
-          "name": "Theater, Dance, and Performance Studies",
+        "ucsb-theater-dance-and-performance-studies-ma-ma": {
+          "name": "Theater, Dance, and Performance Studies — MA",
           "degreeType": "MA",
           "faculty": "UC Santa Barbara Graduate Division",
-          "department": "Theater, Dance, and Performance Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "department": "Theater and Dance",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7d1300b268a0061b22ce74e40a476e324e2d004ec34ffff68a2056c927d786e5",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "direct-master"
+        },
+        "ucsb-theater-dance-and-performance-studies-ma-ph-d-ma": {
+          "name": "Theater, Dance, and Performance Studies — Ph.D. / MA",
+          "degreeType": "MA",
+          "faculty": "UC Santa Barbara Graduate Division",
+          "department": "Theater and Dance",
+          "parseStatus": "incomplete",
+          "deadlineHash": "c469dc721aeedbd00345efb4b79282422e8d9376aeed3e5947572c1bd28734ff",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-16",
+          "admissionRoute": "master-phd-embedded"
+        }
+      },
+      "windows": {
+        "ucsb-actuarial-science-five-year-program-current-ucsb-undergraduates-only-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-actuarial-science-five-year-program-current-ucsb-undergraduates-only-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ACTSC-MS-1",
+          "opensAtBasis": null
+        },
+        "ucsb-anthropology-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-anthropology-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ANTH-PHD-ANTH-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-applied-mathematics-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-applied-mathematics-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=AMATH-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-art-mfa::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-art-mfa",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=Art-MFA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-asian-studies-five-year-program-current-ucsb-undergraduates-only-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-asian-studies-five-year-program-current-ucsb-undergraduates-only-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ASNST-MA-EASIANLC-1",
+          "opensAtBasis": null
+        },
+        "ucsb-asian-studies-five-year-program-current-ucsb-undergraduates-only-ma::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-asian-studies-five-year-program-current-ucsb-undergraduates-only-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-03",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ASNST-MA-EASIANLC-1",
+          "opensAtBasis": null
+        },
+        "ucsb-asian-studies-ma-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-asian-studies-ma-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ASNST-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-asian-studies-ma-ma-east-asian-languages-cultural-studies-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-asian-studies-ma-ma-east-asian-languages-cultural-studies-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ASNST-MA-EASIANLC-0",
+          "opensAtBasis": null
+        },
+        "ucsb-biochemistry-and-molecular-biology-five-year-program-current-ucsb-undergraduates-only-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-biochemistry-and-molecular-biology-five-year-program-current-ucsb-undergraduates-only-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=BMB-MS-1",
+          "opensAtBasis": null
+        },
+        "ucsb-chemistry-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-chemistry-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=CHEM-PHD-CHEM-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-chemistry-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-chemistry-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=CHEM-PHD-CHEM-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-chemistry-teacher-education-program-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-chemistry-teacher-education-program-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=CHEM-MA-CHEMEDUC-TEP-SST-0",
+          "opensAtBasis": null
+        },
+        "ucsb-chicana-and-chicano-studies-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-chicana-and-chicano-studies-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=CHAST-PHD-CHAST-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-communication-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-communication-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=COMM-PHD-COMM-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-comparative-literature-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-comparative-literature-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=CLIT-PHD-CLIT-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-computer-science-five-year-program-current-ucsb-undergraduates-only-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-computer-science-five-year-program-current-ucsb-undergraduates-only-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=CMPSC-MS-1",
+          "opensAtBasis": null
+        },
+        "ucsb-computer-science-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-computer-science-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=CMPSC-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-earth-science-five-year-program-current-ucsb-undergraduates-only-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-earth-science-five-year-program-current-ucsb-undergraduates-only-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EARTH-MS-1",
+          "opensAtBasis": null
+        },
+        "ucsb-earth-science-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-earth-science-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EARTH-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-ecology-evolution-marine-biology-ms-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-ecology-evolution-marine-biology-ms-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EEMB-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-ecology-evolution-marine-biology-ms-ph-d-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-ecology-evolution-marine-biology-ms-ph-d-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EEMB-PHD-EEMB-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-economics-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-economics-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECON-PHD-ECON-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-economics-ma::Fall 2027::Priority financial deadline::all": {
+          "programmeId": "ucsb-economics-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECON-PHD-ECON-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-education-ma-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-education-ma-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EDUC-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-education-ma-ma::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-education-ma-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EDUC-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-education-ma-ph-d-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-education-ma-ph-d-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EDUC-PHD-EDUC-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-communications-control-signal-processing-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-communications-control-signal-processing-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-MS-CCSP-1",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-computer-engineering-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-computer-engineering-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-MS-COMPENGR-1",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-electronics-photonics-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-five-year-program-current-ucsb-undergraduates-only-ms-ms-electronics-photonics-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-MS-ELECPHOT-1",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-ms-ms-communications-control-signal-processing-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-ms-ms-communications-control-signal-processing-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-MS-CCSP-0",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-ms-ms-computer-engineering-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-ms-ms-computer-engineering-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-MS-COMPENGR-0",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-ms-ms-electronics-photonics-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-ms-ms-electronics-photonics-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-MS-ELECPHOT-0",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-ms-ph-d-ms-communications-control-signal-processing-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-ms-ph-d-ms-communications-control-signal-processing-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-PHD-CCSP-ECE-MS-CCSP-0",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-ms-ph-d-ms-computer-engineering-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-ms-ph-d-ms-computer-engineering-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-PHD-COMPENGR-ECE-MS-COMPENGR-0",
+          "opensAtBasis": null
+        },
+        "ucsb-electrical-computer-engineering-ms-ph-d-ms-electronics-photonics-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-electrical-computer-engineering-ms-ph-d-ms-electronics-photonics-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ECE-PHD-ELECPHOT-ECE-MS-ELECPHOT-0",
+          "opensAtBasis": null
+        },
+        "ucsb-engineering-and-technology-leadership-metl::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-engineering-and-technology-leadership-metl",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ETL-0",
+          "opensAtBasis": null
+        },
+        "ucsb-engineering-and-technology-leadership-metl::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-engineering-and-technology-leadership-metl",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-03",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ETL-0",
+          "opensAtBasis": null
+        },
+        "ucsb-engineering-and-technology-leadership-metl::Fall 2027::Priority financial deadline::all": {
+          "programmeId": "ucsb-engineering-and-technology-leadership-metl",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ETL-0",
+          "opensAtBasis": null
+        },
+        "ucsb-english-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-english-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ENGL-PHD-ENGL-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-environmental-data-science-meds::Summer 2027::Final deadline::all": {
+          "programmeId": "ucsb-environmental-data-science-meds",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-03",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EDS-MDS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-environmental-data-science-meds::Summer 2027::Priority financial deadline::all": {
+          "programmeId": "ucsb-environmental-data-science-meds",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=EDS-MDS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-environmental-science-management-mesm::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-environmental-science-management-mesm",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ESM-MES-0",
+          "opensAtBasis": null
+        },
+        "ucsb-feminist-studies-ma-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-feminist-studies-ma-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=FEMST-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-feminist-studies-ma-ph-d-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-feminist-studies-ma-ph-d-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=FEMST-PHD-FEMST-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-film-and-media-studies-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-film-and-media-studies-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=FAMST-PHD-FAMST-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-geography-ma-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-geography-ma-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=GEOG-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-geography-ma-ph-d-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-geography-ma-ph-d-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=GEOG-PHD-GEOG-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-global-studies-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-global-studies-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=GLOBL-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-hispanic-languages-and-literatures-portuguese-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-hispanic-languages-and-literatures-portuguese-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=HSPLL-PHD-PORT-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-hispanic-languages-and-literatures-spanish-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-hispanic-languages-and-literatures-spanish-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=HSPLL-PHD-SPAN-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-history-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-history-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=HIST-PHD-HIST-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-history-of-art-and-architecture-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-history-of-art-and-architecture-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=HSART-PHD-HSART-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-latin-american-and-iberian-studies-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-latin-american-and-iberian-studies-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=LAIS-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-linguistics-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-linguistics-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-11-18",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=LING-PHD-LING-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-marine-science-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-marine-science-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MARSC-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-materials-five-year-program-current-ucsb-undergraduates-only-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-materials-five-year-program-current-ucsb-undergraduates-only-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATRL-MS-1",
+          "opensAtBasis": null
+        },
+        "ucsb-materials-ms-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-materials-ms-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATRL-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-materials-ms-ms::Spring 2027::Final deadline::all": {
+          "programmeId": "ucsb-materials-ms-ms",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATRL-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-materials-ms-ms::Winter 2027::Final deadline::all": {
+          "programmeId": "ucsb-materials-ms-ms",
+          "intake": "Winter 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATRL-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-materials-ms-ph-d-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-materials-ms-ph-d-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATRL-PHD-MATRL-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-materials-ms-ph-d-ms::Spring 2027::Final deadline::all": {
+          "programmeId": "ucsb-materials-ms-ph-d-ms",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATRL-PHD-MATRL-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-materials-ms-ph-d-ms::Winter 2027::Final deadline::all": {
+          "programmeId": "ucsb-materials-ms-ph-d-ms",
+          "intake": "Winter 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATRL-PHD-MATRL-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-mathematics-ma-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-mathematics-ma-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATH-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-mathematics-ma-ph-d-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-mathematics-ma-ph-d-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MATH-PHD-MATH-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-mechanical-engineering-five-year-program-current-ucsb-undergraduates-only-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-mechanical-engineering-five-year-program-current-ucsb-undergraduates-only-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ME-MS-1",
+          "opensAtBasis": null
+        },
+        "ucsb-mechanical-engineering-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-mechanical-engineering-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=ME-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-media-arts-and-technology-ms-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-media-arts-and-technology-ms-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MAT-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-media-arts-and-technology-ms-ph-d-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-media-arts-and-technology-ms-ph-d-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MAT-PHD-MAT-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-molecular-cellular-developmental-biology-five-year-program-current-ucsb-undergraduates-only-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-molecular-cellular-developmental-biology-five-year-program-current-ucsb-undergraduates-only-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-14",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MCDB-MS-PHRMABIO-1",
+          "opensAtBasis": null
+        },
+        "ucsb-molecular-cellular-developmental-biology-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-molecular-cellular-developmental-biology-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-11-18",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MCDB-MS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-molecular-cellular-developmental-biology-teacher-education-program-ms::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-molecular-cellular-developmental-biology-teacher-education-program-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MCDB-MS-BIOEDUC-TEP-SST-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ma-composition-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-ma-ma-composition-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-MA-COMPOSTN-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ma-composition-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-ma-ma-composition-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-MA-COMPOSTN-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ma-ethnomusicology-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-ma-ma-ethnomusicology-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-MA-ETHNOMUS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ma-ethnomusicology-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-ma-ma-ethnomusicology-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-MA-ETHNOMUS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ma-musicology-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-ma-ma-musicology-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-MA-MUSCLGY-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ma-musicology-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-ma-ma-musicology-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-MA-MUSCLGY-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ma-theory-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-ma-ma-theory-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=Music-MA-Theory-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ma-theory-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-ma-ma-theory-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=Music-MA-Theory-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ph-d-ma-composition-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-ma-ph-d-ma-composition-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-PHD-COMPOSTN-MUSIC-MA-COMPOSTN-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ph-d-ma-composition-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-ma-ph-d-ma-composition-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-PHD-COMPOSTN-MUSIC-MA-COMPOSTN-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ph-d-ma-ethnomusicology-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-ma-ph-d-ma-ethnomusicology-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-PHD-ETHNOMUS-MUSIC-MA-ETHNOMUS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ph-d-ma-ethnomusicology-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-ma-ph-d-ma-ethnomusicology-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-PHD-ETHNOMUS-MUSIC-MA-ETHNOMUS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ph-d-ma-musicology-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-ma-ph-d-ma-musicology-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-PHD-MUSCLGY-MUSIC-MA-MUSCLGY-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ph-d-ma-musicology-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-ma-ph-d-ma-musicology-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-PHD-MUSCLGY-MUSIC-MA-MUSCLGY-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ph-d-ma-theory-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-ma-ph-d-ma-theory-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-PHD-THEORY-MUSIC-MA-THEORY-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-ma-ph-d-ma-theory-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-ma-ph-d-ma-theory-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-PHD-THEORY-MUSIC-MA-THEORY-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-mm-mm-piano-accompanying-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-mm-mm-piano-accompanying-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-MM-PIANOACC-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-mm-mm-piano-accompanying-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-mm-mm-piano-accompanying-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=MUSIC-MM-PIANOACC-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-mm-mm-strings-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-mm-mm-strings-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=Music-MM-Strings-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-mm-mm-strings-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-mm-mm-strings-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=Music-MM-Strings-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-mm-mm-voice-emphasis::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-music-mm-mm-voice-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=Music-MM-Voice-0",
+          "opensAtBasis": null
+        },
+        "ucsb-music-mm-mm-voice-emphasis::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-music-mm-mm-voice-emphasis",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=Music-MM-Voice-0",
+          "opensAtBasis": null
+        },
+        "ucsb-philosophy-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-philosophy-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=PHIL-PHD-PHIL-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-political-science-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-political-science-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=POLS-PHD-POLS-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-religious-studies-ma-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-religious-studies-ma-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=RGSTD-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-religious-studies-ma-ph-d-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-religious-studies-ma-ph-d-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=RGSTD-PHD-RGSTD-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-school-psychology-med::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-school-psychology-med",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=SCLP-MED-SCLP-PPS-0",
+          "opensAtBasis": null
+        },
+        "ucsb-sociology-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-sociology-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=SOC-PHD-SOC-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-statistics-and-applied-probability-statistics-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-statistics-and-applied-probability-statistics-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=STSAP-PHD-STATS-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-statistics-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-statistics-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-18",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=STATS-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-teacher-education-program-med-med-teaching-emphasis-es-credential-extensive-support-needs-emphasis::Summer 2027::Final deadline::all": {
+          "programmeId": "ucsb-teacher-education-program-med-med-teaching-emphasis-es-credential-extensive-support-needs-emphasis",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=TEP-MED-TEACHING-TEP-ESC-ESN-0",
+          "opensAtBasis": null
+        },
+        "ucsb-teacher-education-program-med-med-teaching-emphasis-es-credential-mild-to-moderate-support-needs-emphasis::Summer 2027::Final deadline::all": {
+          "programmeId": "ucsb-teacher-education-program-med-med-teaching-emphasis-es-credential-mild-to-moderate-support-needs-emphasis",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=TEP-MED-TEACHING-TEP-ESC-MMSN-0",
+          "opensAtBasis": null
+        },
+        "ucsb-teacher-education-program-med-med-teaching-emphasis-mst-credential::Summer 2027::Final deadline::all": {
+          "programmeId": "ucsb-teacher-education-program-med-med-teaching-emphasis-mst-credential",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=TEP-MED-TEACHING-TEP-MST-0",
+          "opensAtBasis": null
+        },
+        "ucsb-teacher-education-program-med-med-teaching-emphasis-sst-credential::Summer 2027::Final deadline::all": {
+          "programmeId": "ucsb-teacher-education-program-med-med-teaching-emphasis-sst-credential",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=TEP-MED-TEACHING-TEP-SST-0",
+          "opensAtBasis": null
+        },
+        "ucsb-technology-management-mtm::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-technology-management-mtm",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=TM-MTM-0",
+          "opensAtBasis": null
+        },
+        "ucsb-technology-management-mtm::Fall 2027::Priority deadline::all": {
+          "programmeId": "ucsb-technology-management-mtm",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-18",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=TM-MTM-0",
+          "opensAtBasis": null
+        },
+        "ucsb-technology-management-mtm::Fall 2027::Priority financial deadline::all": {
+          "programmeId": "ucsb-technology-management-mtm",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-02",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=TM-MTM-0",
+          "opensAtBasis": null
+        },
+        "ucsb-theater-dance-and-performance-studies-ma-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-theater-dance-and-performance-studies-ma-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=THDPS-MA-0",
+          "opensAtBasis": null
+        },
+        "ucsb-theater-dance-and-performance-studies-ma-ph-d-ma::Fall 2027::Final deadline::all": {
+          "programmeId": "ucsb-theater-dance-and-performance-studies-ma-ph-d-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-16",
+          "sourceUrl": "https://engage.graddiv.ucsb.edu/portal/programs?cmd=prog&code=THDPS-PHD-THDPS-MA-0",
+          "opensAtBasis": null
+        }
+      },
+      "adapterWarnings": [],
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 139,
+          "directSuccesses": 139,
+          "directFailures": 0,
+          "fallbackEnabled": false,
+          "fallbackLimit": 2,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
         }
       }
     }
