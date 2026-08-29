@@ -1,12 +1,12 @@
 # Published data audit
 
-Generated for 2026-08-28.
+Generated for 2026-08-29.
 
-- Active issues: 680
+- Active issues: 671
 - Universities needing review: 13
-- Records quarantined from SEO aggregates: 489
+- Records quarantined from SEO aggregates: 480
 - Suspicious intake/deadline mappings: 210
-- Published records missing from a healthy current snapshot: 44
+- Published records missing from a healthy current snapshot: 35
 - Published records changed from a healthy current snapshot: 426
 
 ## Maintenance queue
@@ -659,22 +659,13 @@ Generated for 2026-08-28.
 - `sheffield-cancer-biology-and-therapeutics-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
 - `sheffield-chemistry-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
 - `sheffield-civil-and-structural-engineering-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `ucl-advanced-materials-science-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-computer-graphics-vision-imaging-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-computer-science-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-data-science-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-data-science-machine-learning-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-machine-learning-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-medical-robotics-artificial-intelligence-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-robotics-artificial-intelligence-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-scientific-data-intensive-computing-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
-- `ucl-software-systems-engineering-2026-nonvisa` — **published-record-missing-from-snapshot** (ucl-university-college-london, September 2026, closes 2026-08-28) — retire-or-correct-review
 - `ubc-master-of-education-in-educational-administration-and-leadership-med-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, January 2027, closes 2026-10-01) — retire-or-correct-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
 - `edinburgh-social-justice-and-community-action-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
 - `edinburgh-veterinary-anaesthesia-and-analgesia-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-20) — correct-intake-or-document-flexible-entry
+- `helsinki-computer-science-autumn-2027` — **published-record-missing-from-snapshot** (university-of-helsinki, Autumn 2027, closes 2027-01-19) — retire-or-correct-review
 - `umontreal-maitrise-informatique-hiver-2027` — **published-record-missing-from-snapshot** (university-of-montreal, Hiver 2027, closes 2026-09-01) — retire-or-correct-review
 - `penn-bioengineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `penn-chemical-biomolecular-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry

@@ -1,11 +1,11 @@
 {
   "universities": {
     "michigan-state-university": {
-      "sourceUrl": "https://reg.msu.edu/academicprograms/Programs.aspx?PType=GRADLAWM&Sort=CollegeDepartment",
-      "checkedAt": "2026-08-23T05:46:03.167479+00:00",
+      "sourceUrl": "https://reg.msu.edu/academicprograms/Programs.aspx?PType=GRADLAWM",
+      "checkedAt": "2026-08-29T11:53:38.905149+00:00",
       "itemCount": 181,
       "applicationOpensAt": null,
-      "catalogHash": "a23d1d552ce5cbceabb417c3a84185824dbb0f7a8525a8c20599757a4b43baa6",
+      "catalogHash": "3f2a7cf2e9312a09f493bf7f419e58b36f2ba8c51e0d83f9b3bcbeb2fcfa714b",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -17,9 +17,9 @@
       "programmesWithoutDeadlines": 181,
       "programmesNeedingReview": 181,
       "limitationReason": "Michigan State's Registrar provides the canonical graduate degree catalogue. Application dates remain programme-specific, so no exact opening or closing date is inferred from the catalogue. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-23T05:46:03.167479+00:00",
+      "lastSuccessfulAt": "2026-08-29T11:53:38.905149+00:00",
       "windowFingerprint": "a8b5a1e449ad78785e37797d720dd0ca77405e953937d62c4c8c88302584c3a4",
-      "watchedWindowSourceHash": "bd3e0d5d247cfe81632bfba031b759224797dbf0b7768956fa67856163875780",
+      "watchedWindowSourceHash": "d13966069bf23b3dce70755962f91bfe5d781aed00ae6adbb3463202ea25f05b",
       "watchedWindowSourceFingerprintVersion": 2,
       "programmes": {
         "michigan-state-accelerator-science-and-engineering-accelse-ms": {
@@ -60,7 +60,10 @@
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
-          "latestClosesAt": null
+          "latestClosesAt": null,
+          "admissionStatus": "paused",
+          "moratoriumFrom": "Spring 2026",
+          "moratoriumTo": "Spring 2026"
         },
         "michigan-state-african-american-and-african-studies-aaas-ma": {
           "name": "African American and African Studies",
@@ -480,7 +483,10 @@
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
-          "latestClosesAt": null
+          "latestClosesAt": null,
+          "admissionStatus": "paused",
+          "moratoriumFrom": "Summer 2025",
+          "moratoriumTo": "Spring 2026"
         },
         "michigan-state-cybercrime-and-digital-investigation-cybdigi-ms": {
           "name": "Cybercrime and Digital Investigation",
@@ -870,7 +876,10 @@
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
-          "latestClosesAt": null
+          "latestClosesAt": null,
+          "admissionStatus": "paused",
+          "moratoriumFrom": "Fall 2020",
+          "moratoriumTo": "Fall 2027"
         },
         "michigan-state-human-development-and-family-studies-humande-ms": {
           "name": "Human Development and Family Studies",
@@ -910,7 +919,10 @@
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
-          "latestClosesAt": null
+          "latestClosesAt": null,
+          "admissionStatus": "paused",
+          "moratoriumFrom": "Fall 2026",
+          "moratoriumTo": "Summer 2027"
         },
         "michigan-state-integrated-secondary-science-education-isse-ms": {
           "name": "Integrated Secondary Science Education",
@@ -920,7 +932,10 @@
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
-          "latestClosesAt": null
+          "latestClosesAt": null,
+          "admissionStatus": "paused",
+          "moratoriumFrom": "Fall 2025",
+          "moratoriumTo": "Fall 2028"
         },
         "michigan-state-integrative-biology-integbi-ms": {
           "name": "Integrative Biology",
@@ -990,7 +1005,10 @@
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
-          "latestClosesAt": null
+          "latestClosesAt": null,
+          "admissionStatus": "paused",
+          "moratoriumFrom": "Spring 2026",
+          "moratoriumTo": "Fall 2027"
         },
         "michigan-state-kinesiology-kinesio-ms": {
           "name": "Kinesiology",
@@ -1000,7 +1018,10 @@
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
-          "latestClosesAt": null
+          "latestClosesAt": null,
+          "admissionStatus": "paused",
+          "moratoriumFrom": "Fall 2026",
+          "moratoriumTo": "Summer 2027"
         },
         "michigan-state-laboratory-research-in-pharmacology-and-toxicology-lresph2-ms": {
           "name": "Laboratory Research in Pharmacology and Toxicology",
@@ -1834,17 +1855,7 @@
         }
       },
       "windows": {},
-      "adapterWarnings": [
-        {
-          "reason": "UNKNOWN_DEGREE_CODE",
-          "message": "Michigan State's official graduate catalogue exposed unclassified degree codes; those routes were not ingested.",
-          "sourceUrl": "https://reg.msu.edu/academicprograms/Programs.aspx?PType=GRADLAWM&Sort=CollegeDepartment",
-          "unknownDegreeCodes": [
-            "DUAL",
-            "EDS"
-          ]
-        }
-      ],
+      "adapterWarnings": [],
       "adapterDiagnostics": {
         "observedGraduateDegreeCodes": [
           "DMA",
@@ -1869,10 +1880,19 @@
           "MURP",
           "PHD"
         ],
-        "unknownGraduateDegreeCodes": [
-          "DUAL",
-          "EDS"
-        ]
+        "unknownGraduateDegreeCodes": [],
+        "transport": {
+          "requests": 3,
+          "directSuccesses": 3,
+          "directFailures": 0,
+          "fallbackEnabled": false,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
       }
     }
   }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-28T01:29:11.024233+00:00",
+    "updatedAt": "2026-08-29T12:41:40.449673+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,7 +14,7 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 640,
+    "needsOpeningDate": 642,
     "needsAdapter": 419,
     "comingSoonMonitor": 0,
     "deadlineUnavailableMonitor": 2
@@ -79,7 +79,7 @@
     {
       "status": "error",
       "universityId": "university-of-oxford",
-      "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/courses-a-z-listing",
+      "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course",
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-08-28T01:33:09.418188+00:00",
+      "checkedAt": "2026-08-29T12:45:26.725753+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -1582,6 +1582,15 @@
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
       {
+        "id": "known-programme-guidance:sydney-master-of-heritage-conservation0",
+        "universityId": "the-university-of-sydney",
+        "programmeName": "Master of Heritage Conservation",
+        "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-heritage-conservation0.html",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
         "id": "known-programme-guidance:sydney-master-of-human-resource-management-and-industrial-relations",
         "universityId": "the-university-of-sydney",
         "programmeName": "Master of Human Resource Management and Industrial Relations",
@@ -2450,6 +2459,15 @@
         "universityId": "the-university-of-sydney",
         "programmeName": "Master of Sustainability (2026 entry)",
         "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-sustainability.html",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:sydney-master-of-sustainability0",
+        "universityId": "the-university-of-sydney",
+        "programmeName": "Master of Sustainability",
+        "sourceUrl": "https://www.sydney.edu.au/courses/courses/pc/master-of-sustainability0.html",
         "windowCount": 4,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
