@@ -1,6 +1,9 @@
 from __future__ import annotations
 
-from gradwindow.programme_adapters.harvard import HarvardAdapter
+from gradwindow.programme_adapters.harvard import (
+    MASTER_FILTER_URLS,
+    HarvardAdapter,
+)
 
 FIRST_PAGE_HTML = """
 <html><body>
@@ -47,9 +50,13 @@ SECOND_PAGE_HTML = """
 
 def test_harvard_adapter_extracts_master_degree_deadlines_across_pages() -> None:
     adapter = HarvardAdapter(minimum_expected_programmes=1)
+    fetched = []
 
     def fetcher(url: str) -> str:
-        return SECOND_PAGE_HTML if "page=1" in url else FIRST_PAGE_HTML
+        fetched.append(url)
+        if url == MASTER_FILTER_URLS[2]:
+            return SECOND_PAGE_HTML
+        return FIRST_PAGE_HTML
 
     catalog = adapter.parse_catalog_from_fetcher(fetcher)
 
@@ -77,3 +84,4 @@ def test_harvard_adapter_extracts_master_degree_deadlines_across_pages() -> None
     assert msmba.name == "SM MS/MBA"
     assert msmba.parse_status == "no-deadline"
     assert msmba.windows == []
+    assert fetched == list(MASTER_FILTER_URLS)

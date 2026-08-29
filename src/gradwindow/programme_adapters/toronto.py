@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import hashlib
+import json
+import random
 import re
+import threading
 import time
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime
-from functools import partial
+from datetime import datetime, timedelta, timezone
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
@@ -20,6 +22,9 @@ from .base import (
 
 UNIVERSITY_ID = "university-of-toronto"
 CATALOG_URL = "https://www.sgs.utoronto.ca/programs/"
+PROGRAMS_API_URL = (
+    "https://www.sgs.utoronto.ca/wp-json/wp/v2/programs?per_page=100&page={page}"
+)
 APPLICATION_URL = "https://admissions.sgs.utoronto.ca/apply/"
 EXISTING_COMPUTER_SCIENCE_ID = "toronto-computer-science-msc"
 
@@ -58,40 +63,85 @@ class TorontoAdapter(BaseProgrammeAdapter):
     catalog_url = CATALOG_URL
     application_url = APPLICATION_URL
     intake = "Fall 2027"
-    application_opens_at_basis = "official"
+    application_opens_at_basis = "missing"
     replace_pending_candidates = True
+    browser_fallback_limit = 3
 
     def __init__(
         self,
         minimum_expected_programmes: int = 150,
-        workers: int = 8,
+        workers: int = 2,
         intake_year: int = 2027,
+        detail_interval_seconds: float = 0.8,
+        detail_jitter_seconds: float = 0.7,
+        cache_max_age_days: int = 14,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.workers = workers
         self.intake_year = intake_year
         self.intake = f"Fall {intake_year}"
+        self.detail_interval_seconds = detail_interval_seconds
+        self.detail_jitter_seconds = detail_jitter_seconds
+        self.cache_max_age_days = cache_max_age_days
+        self._previous_cache: dict[str, dict] = {}
+
+    def prepare_discovery(self, previous_state: dict) -> None:
+        adapter_state = previous_state.get("adapterState", {})
+        cache = adapter_state.get("detailCache", {})
+        self._previous_cache = cache if isinstance(cache, dict) else {}
 
     def parse_catalog_from_fetcher(
         self,
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
-        rows = _catalog_rows(_fetch_with_retry(fetcher, CATALOG_URL))
+        rows, api_pages = _api_rows(fetcher)
         detail_urls = list(dict.fromkeys(row["url"] for row in rows))
-        with ThreadPoolExecutor(max_workers=self.workers) as executor:
-            pages = list(executor.map(partial(_fetch_with_retry, fetcher), detail_urls))
-        details = dict(zip(detail_urls, pages, strict=True))
+        fetched_at = datetime.now(timezone.utc)
+        details: dict[str, list[DiscoveredProgramme]] = {}
+        cache_hits = 0
+        urls_to_fetch = []
+        rows_by_url = {row["url"]: row for row in rows}
+        for url in detail_urls:
+            row = rows_by_url[url]
+            cached = self._previous_cache.get(url)
+            if _cache_is_fresh(
+                cached,
+                modified_at=row["modified_at"],
+                now=fetched_at,
+                max_age_days=self.cache_max_age_days,
+            ):
+                details[url] = [
+                    _programme_from_cache(item) for item in cached["programmes"]
+                ]
+                cache_hits += 1
+            else:
+                urls_to_fetch.append(url)
 
-        programmes = [
-            _programme(
-                row,
-                degree_type,
-                details[row["url"]],
-                intake_year=self.intake_year,
-            )
-            for row in rows
-            for degree_type in row["degrees"]
-        ]
+        pacer = _RequestPacer(
+            interval_seconds=self.detail_interval_seconds,
+            jitter_seconds=self.detail_jitter_seconds,
+        )
+
+        def fetch_detail(url: str) -> tuple[str, str]:
+            pacer.wait()
+            return url, fetcher(url)
+
+        with ThreadPoolExecutor(max_workers=self.workers) as executor:
+            pages = dict(executor.map(fetch_detail, urls_to_fetch))
+
+        for url, html in pages.items():
+            row = rows_by_url[url]
+            details[url] = [
+                _programme(
+                    row,
+                    degree_type,
+                    html,
+                    intake_year=self.intake_year,
+                )
+                for degree_type in row["degrees"]
+            ]
+
+        programmes = [programme for row in rows for programme in details[row["url"]]]
         programmes.sort(key=lambda item: item.id)
         if len(programmes) < self.minimum_expected_programmes:
             raise ValueError(
@@ -99,56 +149,113 @@ class TorontoAdapter(BaseProgrammeAdapter):
                 f"{len(programmes)} master's programmes; expected at least "
                 f"{self.minimum_expected_programmes}"
             )
-        return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
-
-
-def _fetch_with_retry(
-    fetcher: Callable[[str], str],
-    url: str,
-    attempts: int = 3,
-) -> str:
-    last_error: Exception | None = None
-    for attempt in range(attempts):
-        try:
-            return fetcher(url)
-        except Exception as error:
-            last_error = error
-            if attempt + 1 < attempts:
-                time.sleep(0.25 * (attempt + 1))
-    if last_error is None:
-        raise ValueError("attempts must be greater than zero")
-    raise last_error
-
-
-def _catalog_rows(html: str) -> list[dict]:
-    soup = BeautifulSoup(html, "html.parser")
-    rows = []
-    for row in soup.select("table tr"):
-        cells = row.find_all("td")
-        if len(cells) != 3:
-            continue
-        link = cells[0].find("a", href=True)
-        if link is None:
-            continue
-        degrees = [
-            degree
-            for value in _normalise(cells[2].get_text(" ", strip=True)).split("/")
-            if (degree := value.strip()) and _is_master_degree(degree)
-        ]
-        if not degrees:
-            continue
-        url = link["href"]
-        if not url.startswith("https://www.sgs.utoronto.ca/programs/"):
-            continue
-        rows.append(
-            {
-                "name": _normalise(link.get_text(" ", strip=True)),
-                "unit": _normalise(cells[1].get_text(" ", strip=True)),
-                "degrees": degrees,
-                "url": url,
+        detail_cache = {
+            row["url"]: {
+                "modifiedAt": row["modified_at"],
+                "fetchedAt": (
+                    self._previous_cache[row["url"]]["fetchedAt"]
+                    if row["url"] not in pages
+                    else fetched_at.isoformat()
+                ),
+                "programmes": [
+                    _programme_to_cache(programme) for programme in details[row["url"]]
+                ],
             }
+            for row in rows
+        }
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=programmes,
+            diagnostics={
+                "apiPages": api_pages,
+                "detailPagesFetched": len(pages),
+                "detailCacheHits": cache_hits,
+            },
+            adapter_state={"detailCache": detail_cache},
         )
-    return rows
+
+
+def _api_rows(fetcher: Callable[[str], str]) -> tuple[list[dict], int]:
+    rows = []
+    page = 1
+    while True:
+        payload = json.loads(fetcher(PROGRAMS_API_URL.format(page=page)))
+        if not isinstance(payload, list):
+            raise ValueError("U of T programmes API did not return a list")
+        for item in payload:
+            taxonomy = item.get("taxonomy_info", {})
+            if not isinstance(taxonomy, dict):
+                continue
+            degrees = [
+                value["label"]
+                for value in taxonomy.get("degree-types", [])
+                if _is_master_degree(value.get("label", ""))
+            ]
+            url = item.get("link", "")
+            if not degrees or not url.startswith(
+                "https://www.sgs.utoronto.ca/programs/"
+            ):
+                continue
+            units = taxonomy.get("graduate-units", [])
+            rows.append(
+                {
+                    "name": _normalise(
+                        BeautifulSoup(
+                            item.get("title", {}).get("rendered", ""), "html.parser"
+                        ).get_text(" ", strip=True)
+                    ),
+                    "unit": _normalise(units[0].get("label", "")) if units else "",
+                    "degrees": degrees,
+                    "url": url,
+                    "modified_at": item.get("modified", ""),
+                }
+            )
+        if len(payload) < 100:
+            return rows, page
+        page += 1
+
+
+class _RequestPacer:
+    def __init__(self, *, interval_seconds: float, jitter_seconds: float) -> None:
+        self.interval_seconds = max(0.0, interval_seconds)
+        self.jitter_seconds = max(0.0, jitter_seconds)
+        self._lock = threading.Lock()
+        self._next_request_at = 0.0
+
+    def wait(self) -> None:
+        with self._lock:
+            now = time.monotonic()
+            request_at = max(now, self._next_request_at)
+            self._next_request_at = (
+                request_at
+                + self.interval_seconds
+                + random.uniform(0.0, self.jitter_seconds)
+            )
+        delay = request_at - now
+        if delay > 0:
+            time.sleep(delay)
+
+
+def _cache_is_fresh(
+    cached: object,
+    *,
+    modified_at: str,
+    now: datetime,
+    max_age_days: int,
+) -> bool:
+    if not isinstance(cached, dict):
+        return False
+    if cached.get("modifiedAt") != modified_at or not isinstance(
+        cached.get("programmes"), list
+    ):
+        return False
+    try:
+        fetched_at = datetime.fromisoformat(cached["fetchedAt"])
+    except (KeyError, TypeError, ValueError):
+        return False
+    if fetched_at.tzinfo is None:
+        fetched_at = fetched_at.replace(tzinfo=timezone.utc)
+    return now - fetched_at <= timedelta(days=max_age_days)
 
 
 def _is_master_degree(value: str) -> bool:
@@ -200,6 +307,66 @@ def _programme(
         retrieval_method="official-html",
         evidence_quality="official-full-text",
         evidence_document_hash=hashlib.sha256(html.encode("utf-8")).hexdigest(),
+    )
+
+
+def _programme_to_cache(programme: DiscoveredProgramme) -> dict:
+    return {
+        "id": programme.id,
+        "name": programme.name,
+        "degreeType": programme.degree_type,
+        "faculty": programme.faculty,
+        "department": programme.department,
+        "sourceUrl": programme.source_url,
+        "applicationUrl": programme.application_url,
+        "deadlineText": programme.deadline_text,
+        "parseStatus": programme.parse_status,
+        "retrievalMethod": programme.retrieval_method,
+        "evidenceQuality": programme.evidence_quality,
+        "evidenceDocumentHash": programme.evidence_document_hash,
+        "windows": [
+            {
+                "round": window.round,
+                "opensAt": window.opens_at,
+                "closesAt": window.closes_at,
+                "applicantCategories": window.applicant_categories,
+                "intake": window.intake,
+                "sourceUrl": window.source_url,
+                "opensAtBasis": window.opens_at_basis,
+                "deadlineSemantics": window.deadline_semantics,
+            }
+            for window in programme.windows
+        ],
+    }
+
+
+def _programme_from_cache(item: dict) -> DiscoveredProgramme:
+    return DiscoveredProgramme(
+        id=item["id"],
+        name=item["name"],
+        degree_type=item["degreeType"],
+        faculty=item["faculty"],
+        department=item["department"],
+        source_url=item["sourceUrl"],
+        application_url=item["applicationUrl"],
+        windows=[
+            DiscoveredWindow(
+                round=window["round"],
+                opens_at=window.get("opensAt"),
+                closes_at=window["closesAt"],
+                applicant_categories=window.get("applicantCategories", ["all"]),
+                intake=window.get("intake"),
+                source_url=window.get("sourceUrl"),
+                opens_at_basis=window.get("opensAtBasis"),
+                deadline_semantics=window.get("deadlineSemantics", "on"),
+            )
+            for window in item.get("windows", [])
+        ],
+        deadline_text=item["deadlineText"],
+        parse_status=item["parseStatus"],
+        retrieval_method=item.get("retrievalMethod"),
+        evidence_quality=item.get("evidenceQuality"),
+        evidence_document_hash=item.get("evidenceDocumentHash"),
     )
 
 

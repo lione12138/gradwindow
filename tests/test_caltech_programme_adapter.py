@@ -1,27 +1,12 @@
 from __future__ import annotations
 
 from gradwindow.programme_adapters.caltech import (
+    AEROSPACE_ADMISSIONS_URL,
+    AEROSPACE_URL,
     APPLICATION_URL,
-    CATALOG_URL,
+    ELECTRICAL_ENGINEERING_URL,
     CaltechAdapter,
 )
-
-AEROSPACE_URL = (
-    "https://catalog.caltech.edu/current/information-for-graduate-students/"
-    "special-regulations-for-graduate-options/aerospace-ae/"
-)
-ELECTRICAL_ENGINEERING_URL = (
-    "https://catalog.caltech.edu/current/information-for-graduate-students/"
-    "special-regulations-for-graduate-options/electrical-engineering-ee/"
-)
-
-SITEMAP_XML = f"""
-<urlset>
-  <url><loc>{AEROSPACE_URL}</loc></url>
-  <url><loc>{ELECTRICAL_ENGINEERING_URL}</loc></url>
-  <url><loc>https://catalog.caltech.edu/current/areas-of-study-and-research/</loc></url>
-</urlset>
-"""
 
 AEROSPACE_HTML = """
 <html><body><main>
@@ -49,21 +34,31 @@ ELECTRICAL_ENGINEERING_HTML = """
 APPLICATION_HTML = """
 <html><body><main>
   <h1>Apply Online</h1>
+  <p>Our application for the 2027-2028 academic year will be available in
+  early October.</p>
   <p>Check the Application Deadlines for the particular academic program.</p>
   <p>Deadlines vary by program from December 1 to December 15.</p>
 </main></body></html>
 """
 
+AEROSPACE_ADMISSIONS_HTML = """
+<html><body><main>
+  <h1>Admissions</h1>
+  <p>Students are admitted only for the academic year beginning in September;
+  the deadline for applications is December 15.</p>
+</main></body></html>
+"""
+
 
 def _fetcher(url: str) -> str:
-    if url == CATALOG_URL:
-        return SITEMAP_XML
     if url == AEROSPACE_URL:
         return AEROSPACE_HTML
     if url == ELECTRICAL_ENGINEERING_URL:
         return ELECTRICAL_ENGINEERING_HTML
     if url == APPLICATION_URL:
         return APPLICATION_HTML
+    if url == AEROSPACE_ADMISSIONS_URL:
+        return AEROSPACE_ADMISSIONS_HTML
     raise AssertionError(url)
 
 
@@ -81,14 +76,34 @@ def test_caltech_adapter_keeps_only_direct_entry_masters_programmes() -> None:
         "MS Electrical Engineering",
         "MS Space Engineering",
     ]
-    assert all(programme.windows == [] for programme in catalog.programmes)
-    assert all(
-        programme.parse_status == "no-deadline" for programme in catalog.programmes
-    )
-    assert all(
-        "December 1 to December 15" in programme.deadline_text
-        for programme in catalog.programmes
-    )
+    programmes = {programme.id: programme for programme in catalog.programmes}
+    assert programmes["caltech-electrical-engineering-ms"].windows == []
+    assert programmes["caltech-electrical-engineering-ms"].parse_status == "no-deadline"
+    for programme_id in ("caltech-aeronautics-ms", "caltech-space-engineering-ms"):
+        programme = programmes[programme_id]
+        assert programme.parse_status == "incomplete"
+        assert len(programme.windows) == 1
+        assert programme.windows[0].intake == "Fall 2027"
+        assert programme.windows[0].opens_at is None
+        assert programme.windows[0].closes_at == "2026-12-15"
+
+
+def test_caltech_does_not_fetch_the_blocked_xml_sitemap() -> None:
+    fetched = []
+
+    def fetcher(url: str) -> str:
+        fetched.append(url)
+        assert not url.endswith(".xml")
+        return _fetcher(url)
+
+    CaltechAdapter().parse_catalog_from_fetcher(fetcher)
+
+    assert fetched == [
+        AEROSPACE_URL,
+        ELECTRICAL_ENGINEERING_URL,
+        APPLICATION_URL,
+        AEROSPACE_ADMISSIONS_URL,
+    ]
 
 
 def test_caltech_adapter_rejects_missing_direct_admission_evidence() -> None:

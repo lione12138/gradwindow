@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import pytest
 
+from gradwindow.programme_adapters.base import OfficialSourceTransportError
 from gradwindow.programme_adapters.edinburgh import (
     CATALOG_URL,
     EdinburghAdapter,
     _catalogue_programmes,
+    _detail_failure_warnings,
 )
 
 CATALOGUE = """
@@ -62,7 +64,11 @@ ROUNDS = """
 
 
 def test_edinburgh_adapter_reads_catalogue_and_deadline_table_variants() -> None:
-    adapter = EdinburghAdapter(minimum_expected_programmes=3, detail_workers=1)
+    adapter = EdinburghAdapter(
+        minimum_expected_programmes=3,
+        detail_workers=1,
+        detail_interval_seconds=0,
+    )
 
     def fetcher(url: str) -> str:
         if url == CATALOG_URL:
@@ -104,27 +110,30 @@ def test_edinburgh_adapter_reads_catalogue_and_deadline_table_variants() -> None
     ]
 
 
-def test_edinburgh_adapter_keeps_temporarily_failed_detail_page() -> None:
-    adapter = EdinburghAdapter(minimum_expected_programmes=3, detail_workers=1)
+def test_edinburgh_adapter_hard_fails_when_more_than_twenty_percent_of_details_fail() -> (
+    None
+):
+    adapter = EdinburghAdapter(
+        minimum_expected_programmes=3,
+        detail_workers=1,
+        detail_interval_seconds=0,
+    )
 
     def fetcher(url: str) -> str:
         if url == CATALOG_URL:
             return CATALOGUE
         raise RuntimeError("temporary block")
 
-    catalog = adapter.parse_catalog_from_fetcher(fetcher)
-
-    assert len(catalog.programmes) == 3
-    assert all(
-        programme.parse_status == "no-deadline" for programme in catalog.programmes
-    )
-    assert all(
-        "temporary block" in programme.deadline_text for programme in catalog.programmes
-    )
+    with pytest.raises(OfficialSourceTransportError, match="3 of 3"):
+        adapter.parse_catalog_from_fetcher(fetcher)
 
 
 def test_edinburgh_adapter_rejects_implausibly_small_catalogue() -> None:
-    adapter = EdinburghAdapter(minimum_expected_programmes=4, detail_workers=1)
+    adapter = EdinburghAdapter(
+        minimum_expected_programmes=4,
+        detail_workers=1,
+        detail_interval_seconds=0,
+    )
 
     with pytest.raises(ValueError, match="only contained 3 master's programmes"):
         adapter.parse_catalog_from_fetcher(lambda url: CATALOGUE)
@@ -132,9 +141,9 @@ def test_edinburgh_adapter_rejects_implausibly_small_catalogue() -> None:
 
 def test_edinburgh_catalogue_keeps_online_variant_and_edition_path() -> None:
     html = """
-    <div class="result"><h3><a href="/programmes/postgraduate-taught/267-business-administration-master-of">Business Administration, Master of MBA</a></h3></div>
-    <div class="result"><h3><a href="/programmes/postgraduate-taught/1076-business-administration-master-of-online-learning">Business Administration, Master of MBA</a></h3></div>
-    <div class="result"><h3><a href="/programmes/postgraduate-taught/2027/1045-comparative-education-and-international-development-ceid">Comparative Education and International Development (CEID) MSc</a></h3></div>
+    <h3 class="field-content"><a href="/programmes/postgraduate-taught/267-business-administration-master-of">Business Administration, Master of MBA</a></h3>
+    <h3 class="field-content"><a href="/programmes/postgraduate-taught/1076-business-administration-master-of-online-learning">Business Administration, Master of MBA</a></h3>
+    <h3 class="field-content"><a href="/programmes/postgraduate-taught/2027/1045-comparative-education-and-international-development-ceid">Comparative Education and International Development (CEID) MSc</a></h3>
     """
 
     programmes = _catalogue_programmes(html)
@@ -144,3 +153,47 @@ def test_edinburgh_catalogue_keeps_online_variant_and_edition_path() -> None:
         "edinburgh-business-administration-online-learning-master",
         "edinburgh-comparative-education-and-international-development-ceid-msc",
     ]
+
+
+def test_edinburgh_adapter_refreshes_only_a_bounded_cache_slice() -> None:
+    first = EdinburghAdapter(
+        minimum_expected_programmes=3,
+        detail_workers=1,
+        detail_interval_seconds=0,
+    ).parse_catalog_from_fetcher(
+        lambda url: (
+            CATALOGUE
+            if url == CATALOG_URL
+            else EXACT
+            if "/129-" in url
+            else STANDARD
+            if "/98-" in url
+            else ROUNDS
+        )
+    )
+    adapter = EdinburghAdapter(
+        minimum_expected_programmes=3,
+        detail_workers=1,
+        detail_refresh_budget=1,
+        detail_interval_seconds=0,
+    )
+    adapter.prepare_discovery({"adapterState": first.adapter_state})
+    detail_calls = []
+
+    def fetcher(url: str) -> str:
+        if url == CATALOG_URL:
+            return CATALOGUE
+        detail_calls.append(url)
+        return EXACT
+
+    second = adapter.parse_catalog_from_fetcher(fetcher)
+
+    assert len(second.programmes) == 3
+    assert len(detail_calls) == 1
+    assert second.diagnostics["detailCacheHits"] == 3
+    assert second.diagnostics["detailPagesFetched"] == 1
+
+
+def test_edinburgh_detail_failure_warnings_distinguish_partial_and_degraded() -> None:
+    assert _detail_failure_warnings(1, 25)[0]["code"] == "DETAIL_REFRESH_PARTIAL"
+    assert _detail_failure_warnings(1, 10)[0]["code"] == "DETAIL_REFRESH_DEGRADED"
