@@ -5,8 +5,8 @@ from pathlib import Path
 
 from gradwindow.assisted_discovery import AssistedCatalogAdapter
 from gradwindow.programme_adapters.base import BaseProgrammeAdapter, ProgrammeAdapter
+from gradwindow.changed_adapters import adapter_keys_for_paths
 from gradwindow.programme_adapters.registry import PROGRAMME_ADAPTERS
-from scripts.changed_adapter_keys import adapter_keys_for_paths
 
 
 def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
