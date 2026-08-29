@@ -23,6 +23,15 @@ def test_generate_top200_coverage(tmp_path) -> None:
     assert payload["summary"]["universitiesWithPrograms"] >= 73
     assert payload["summary"]["predictedWindows"] >= 27
     assert payload["summary"]["verifiedWindows"] >= 27
+    assert set(payload["rankingCoverage"]) == {"qs", "the", "arwu", "union"}
+    assert payload["rankingCoverage"]["qs"]["targetUniversities"] == 200
+    assert payload["rankingCoverage"]["the"]["targetUniversities"] == 201
+    assert payload["rankingCoverage"]["arwu"]["targetUniversities"] == 200
+    assert payload["rankingCoverage"]["union"]["targetUniversities"] == 291
+    assert (
+        payload["rankingCoverage"]["union"]["verifiedWindows"]
+        >= payload["rankingCoverage"]["qs"]["verifiedWindows"]
+    )
     assert (
         json.loads(output.read_text(encoding="utf-8"))["summary"] == payload["summary"]
     )

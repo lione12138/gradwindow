@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .io import read_json, write_json
 from .paths import (
+    APPLICATION_SOURCE_STATE_PATH,
     APPLICATIONS_PATH,
     PROGRAMME_ADAPTER_HEALTH_PATH,
     PROGRAMME_CATALOG_STATE_PATH,
@@ -22,7 +23,17 @@ FLEXIBLE_ENTRY_MARKERS = (
     "rolling admission",
     "rolling application",
 )
-RECONCILED_FIELDS = ("opensAt", "closesAt", "sourceUrl")
+HIGH_RISK_RECONCILED_FIELDS = ("opensAt", "closesAt")
+LOW_RISK_RECONCILED_FIELDS = ("sourceUrl",)
+RECONCILED_FIELDS = HIGH_RISK_RECONCILED_FIELDS + LOW_RISK_RECONCILED_FIELDS
+FLEXIBLE_ENTRY_PATTERNS = {"multiple-starts", "rolling", "flexible"}
+UNAVAILABLE_SOURCE_STATUSES = {"blocked", "error", "http-error"}
+TRUST_STATUS_PRIORITY = {
+    "current": 0,
+    "source-unavailable": 1,
+    "stale": 2,
+    "needs-review": 3,
+}
 
 
 def audit_published_data(
@@ -30,16 +41,25 @@ def audit_published_data(
     *,
     catalog_state: dict[str, dict] | None = None,
     adapter_health: dict[str, dict] | None = None,
+    source_state: dict[str, dict] | None = None,
     today: date | None = None,
 ) -> dict:
     today = today or date.today()
     catalog_state = catalog_state or {}
     adapter_health = adapter_health or {}
+    source_state = source_state or {}
     issues = []
+    trust_statuses = {item["id"]: "current" for item in applications}
+    for item in applications:
+        if source_state.get(item["id"], {}).get("status") in (
+            UNAVAILABLE_SOURCE_STATUSES
+        ):
+            trust_statuses[item["id"]] = "source-unavailable"
 
     for item in applications:
         if issue := _suspicious_intake_issue(item):
             issues.append(issue)
+            _set_trust_status(trust_statuses, item["id"], "needs-review")
 
     for item in applications:
         university_id = item.get("universityId")
@@ -72,6 +92,7 @@ def audit_published_data(
                     "seoDisposition": "quarantine",
                 }
             )
+            _set_trust_status(trust_statuses, item["id"], "stale")
             continue
         differences = {
             field: {"published": item.get(field), "snapshot": current.get(field)}
@@ -79,9 +100,35 @@ def audit_published_data(
             if item.get(field) != current.get(field)
         }
         if differences:
+            high_risk_differences = {
+                field: difference
+                for field, difference in differences.items()
+                if field in HIGH_RISK_RECONCILED_FIELDS
+            }
+            if not high_risk_differences:
+                issues.append(
+                    {
+                        "type": "published-record-source-url-changed",
+                        "severity": "low",
+                        "universityId": university_id,
+                        "recordId": item["id"],
+                        "intake": item["intake"],
+                        "closesAt": item["closesAt"],
+                        "sourceUrl": item["sourceUrl"],
+                        "snapshotIdentity": identity,
+                        "differences": differences,
+                        "lastSuccessfulAdapterCheck": health.get("lastSuccessfulAt")
+                        or state.get("lastSuccessfulAt")
+                        or state.get("checkedAt"),
+                        "recommendedAction": "canonicalise-source-url-review",
+                        "seoDisposition": "allow",
+                    }
+                )
+                continue
             issues.append(
                 {
                     "type": "published-record-changed-from-snapshot",
+                    "severity": "high",
                     "universityId": university_id,
                     "recordId": item["id"],
                     "intake": item["intake"],
@@ -96,6 +143,7 @@ def audit_published_data(
                     "seoDisposition": "quarantine",
                 }
             )
+            _set_trust_status(trust_statuses, item["id"], "needs-review")
 
     issues.sort(
         key=lambda item: (
@@ -121,8 +169,12 @@ def audit_published_data(
             "publishedRecordsChangedFromSnapshot": issue_counts[
                 "published-record-changed-from-snapshot"
             ],
+            "publishedRecordSourceUrlChanges": issue_counts[
+                "published-record-source-url-changed"
+            ],
         },
         "quarantinedRecordIds": quarantined_ids,
+        "recordTrustStatuses": dict(sorted(trust_statuses.items())),
         "issues": issues,
     }
 
@@ -146,6 +198,10 @@ def generate_published_data_audit(
             adapter_health_path,
             {"universities": {}},
         ).get("universities", {}),
+        source_state=read_json(
+            APPLICATION_SOURCE_STATE_PATH,
+            {"applications": {}},
+        ).get("applications", {}),
         today=today,
     )
     write_json(output_path, payload)
@@ -180,6 +236,7 @@ Generated for {payload["generatedFor"]}.
 - Suspicious intake/deadline mappings: {summary["suspiciousIntakeWindows"]}
 - Published records missing from a healthy current snapshot: {summary["publishedRecordsMissingFromSnapshot"]}
 - Published records changed from a healthy current snapshot: {summary["publishedRecordsChangedFromSnapshot"]}
+- Published records with source URL-only changes: {summary["publishedRecordSourceUrlChanges"]}
 
 ## Maintenance queue
 
@@ -217,10 +274,18 @@ def _suspicious_intake_issue(item: dict) -> dict | None:
 
 
 def _has_flexible_entry_exception(item: dict) -> bool:
+    if item.get("entryPattern") in FLEXIBLE_ENTRY_PATTERNS:
+        return True
     text = " ".join(
         str(item.get(field) or "") for field in ("intake", "round", "evidence")
     ).lower()
     return any(marker in text for marker in FLEXIBLE_ENTRY_MARKERS)
+
+
+def _set_trust_status(statuses: dict[str, str], record_id: str, status: str) -> None:
+    current = statuses.get(record_id, "current")
+    if TRUST_STATUS_PRIORITY[status] > TRUST_STATUS_PRIORITY[current]:
+        statuses[record_id] = status
 
 
 def _published_window_identity(item: dict) -> str:

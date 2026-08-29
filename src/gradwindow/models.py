@@ -19,6 +19,8 @@ ScopeType = Literal["institution", "programme-group", "programme"]
 Confidence = Literal["low", "medium", "high"]
 Term = Literal["fall", "spring", "summer", "winter", "michaelmas", "other"]
 DeadlineSemantics = Literal["on", "before"]
+EntryPattern = Literal["fixed", "multiple-starts", "rolling", "flexible"]
+StartDatePrecision = Literal["exact", "month", "term", "unknown"]
 SLUG_PATTERN = r"^[a-z0-9][a-z0-9-]*$"
 DiscoveryState = Literal[
     "curated",
@@ -165,6 +167,10 @@ class ApplicationWindow(DataModel):
     scope_id: str = Field(alias="scopeId", pattern=SLUG_PATTERN)
     intake: str
     intake_details: IntakeDetails = Field(alias="intakeDetails")
+    entry_pattern: EntryPattern = Field(default="fixed", alias="entryPattern")
+    start_date_precision: StartDatePrecision = Field(
+        default="unknown", alias="startDatePrecision"
+    )
     round: str = ""
     applicant_categories: list[str] = Field(alias="applicantCategories")
     opens_at: date = Field(alias="opensAt")

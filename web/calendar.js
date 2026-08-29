@@ -101,6 +101,7 @@ function filteredRecords() {
       .join(" ")
       .toLocaleLowerCase("zh-CN");
     return (
+      (record.trustStatus || "current") === "current" &&
       (!state.universityId || record.universityId === state.universityId) &&
       (state.universityId || record.qsRank <= state.qsLimit) &&
       (state.status === "all" ||

@@ -623,6 +623,23 @@ def test_batch_approval_still_promotes_an_explicit_window_change(tmp_path) -> No
         encoding="utf-8",
     )
 
+    unconfirmed = approve_official_adapter_window_candidates(
+        reviewer="automated-policy",
+        university_ids={"eth-zurich-swiss-federal-institute-of-technology"},
+        candidates_path=candidates_path,
+        applications_path=applications_path,
+    )
+
+    assert unconfirmed == {"promotedWindows": 0, "remainingPending": 1}
+    pending = json.loads(candidates_path.read_text(encoding="utf-8"))
+    pending["items"][0]["confirmation"] = {
+        "requiredObservations": 2,
+        "observationCount": 2,
+        "firstObservedAt": "2026-08-29T08:00:00+00:00",
+        "lastObservedAt": "2026-08-30T08:00:00+00:00",
+    }
+    candidates_path.write_text(json.dumps(pending), encoding="utf-8")
+
     report = approve_official_adapter_window_candidates(
         reviewer="automated-policy",
         university_ids={"eth-zurich-swiss-federal-institute-of-technology"},

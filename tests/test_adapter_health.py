@@ -84,6 +84,47 @@ def test_monitoring_without_exact_windows_is_healthy(tmp_path) -> None:
     assert payload["meta"]["summary"]["needsMaintenance"] == 0
 
 
+def test_small_catalogue_drop_is_a_warning_until_the_cumulative_drop_is_large(
+    tmp_path,
+) -> None:
+    start = datetime(2026, 8, 28, tzinfo=timezone.utc)
+    health_path, report_path, catalog_path, universities_path = _paths(tmp_path)
+    kwargs = {
+        "health_path": health_path,
+        "report_path": report_path,
+        "catalog_state_path": catalog_path,
+        "universities_path": universities_path,
+    }
+    update_adapter_health([_success(start)], now=start, **kwargs)
+
+    warning_payload = update_adapter_health(
+        [_success(start + timedelta(days=1), catalogProgrammes=95)],
+        now=start + timedelta(days=1),
+        **kwargs,
+    )
+
+    warning = warning_payload["universities"]["example-university"]
+    assert warning["healthStatus"] == "ok"
+    assert warning["alerts"] == []
+    assert warning["catalogueCountWarning"] == {
+        "type": "minor-catalogue-drop",
+        "baseline": 100,
+        "current": 95,
+    }
+    assert warning["baselineCatalogProgrammes"] == 100
+    assert warning_payload["meta"]["summary"]["catalogueDropWarnings"] == 1
+
+    alert_payload = update_adapter_health(
+        [_success(start + timedelta(days=2), catalogProgrammes=79)],
+        now=start + timedelta(days=2),
+        **kwargs,
+    )
+
+    alert = alert_payload["universities"]["example-university"]
+    assert alert["healthStatus"] == "needs-maintenance"
+    assert [item["type"] for item in alert["alerts"]] == ["catalogue-drop"]
+
+
 def test_identity_mismatch_warning_preserves_partial_success_and_alerts(
     tmp_path,
 ) -> None:
@@ -1207,12 +1248,17 @@ def test_window_watch_fingerprint_ignores_non_deadline_page_changes(tmp_path) ->
         f"<main>{earlier_signals}<p>Applications close 15 January 2027.</p>"
         "<p>Campus news item B.</p></main>"
     )
+    wording_only = report_for(
+        f"<main>{earlier_signals}<p>The submission deadline is 15 January 2027.</p>"
+        "<p>Campus news item B.</p></main>"
+    )
     deadline_change = report_for(
         f"<main>{earlier_signals}<p>Applications close 16 January 2027.</p>"
         "<p>Campus news item B.</p></main>"
     )
 
     assert first["watchedWindowSourceHash"] == chrome_only["watchedWindowSourceHash"]
+    assert first["watchedWindowSourceHash"] == wording_only["watchedWindowSourceHash"]
     assert (
         first["watchedWindowSourceHash"] != deadline_change["watchedWindowSourceHash"]
     )

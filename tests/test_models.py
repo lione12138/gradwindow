@@ -23,6 +23,20 @@ def test_application_model_accepts_current_record() -> None:
     assert parsed.intake_details.cycle_year == 2026
 
 
+def test_application_model_accepts_structured_entry_timing() -> None:
+    record = json.loads(APPLICATIONS_PATH.read_text(encoding="utf-8"))["applications"][
+        0
+    ]
+    record = copy.deepcopy(record)
+    record["entryPattern"] = "multiple-starts"
+    record["startDatePrecision"] = "term"
+
+    parsed = ApplicationWindow.model_validate(record)
+
+    assert parsed.entry_pattern == "multiple-starts"
+    assert parsed.start_date_precision == "term"
+
+
 def test_application_model_rejects_unknown_fields() -> None:
     record = json.loads(APPLICATIONS_PATH.read_text(encoding="utf-8"))["applications"][
         0

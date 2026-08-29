@@ -159,6 +159,9 @@ def update_adapter_health(
                 if alert.get("category") == "availability"
             }
         ),
+        "catalogueDropWarnings": sum(
+            bool(entry.get("catalogueCountWarning")) for entry in entries.values()
+        ),
     }
     payload = {
         "meta": {
@@ -213,7 +216,9 @@ def _successful_entry(
         baseline_observed = active_incident_baseline["observedWindowCount"]
     else:
         baseline_count = (
-            int(previous_count) if previous_count is not None else current_count
+            int(previous.get("baselineCatalogProgrammes", previous_count))
+            if previous_count is not None
+            else current_count
         )
         baseline_exact = (
             int(previous_exact) if previous_exact is not None else current_exact
@@ -401,6 +406,20 @@ def _successful_entry(
         "lastIncidentResolution": previous.get("lastIncidentResolution"),
         "lastError": None,
     }
+    minor_catalogue_drop = bool(
+        baseline_count
+        and current_count < baseline_count
+        and current_count >= baseline_count * CATALOGUE_DROP_RATIO
+    )
+    entry["catalogueCountWarning"] = (
+        {
+            "type": "minor-catalogue-drop",
+            "baseline": baseline_count,
+            "current": current_count,
+        }
+        if minor_catalogue_drop
+        else None
+    )
     incident_resolution = str(report.get("incidentResolution") or "")
     incident_acknowledged = bool(
         active_incident_baseline and incident_resolution in INCIDENT_RESOLUTIONS
@@ -416,6 +435,8 @@ def _successful_entry(
         entry["lastKnownGoodWindowCount"] = baseline_observed
     elif not keep_active_incident:
         _move_baseline_to_current(entry)
+        if minor_catalogue_drop:
+            entry["baselineCatalogProgrammes"] = baseline_count
         entry["activeIncidentBaseline"] = None
         entry["incidentOpenedAt"] = None
         entry["lastKnownGoodWindowCount"] = current_observed
@@ -913,6 +934,22 @@ def render_health_report(
             "No adapter currently requires maintainer action."
         )
 
+    warning_rows = []
+    for university_id, entry in sorted(payload.get("universities", {}).items()):
+        warning = entry.get("catalogueCountWarning")
+        if not warning:
+            continue
+        warning_rows.append(
+            f"- {university_names.get(university_id, university_id)}: catalogue "
+            f"count changed from {warning['baseline']} to {warning['current']}; "
+            "the adapter remains healthy while the cumulative change is monitored."
+        )
+    warnings = (
+        "## Warnings\n\n" + "\n".join(warning_rows)
+        if warning_rows
+        else "## Warnings\n\nNo non-blocking catalogue warnings."
+    )
+
     changed_schools = sorted(
         {
             change["universityId"]
@@ -934,8 +971,11 @@ def render_health_report(
 - Schools that gained exact windows: {change_text}
 - Published-data risks: {summary["dataIntegrityRisks"]}
 - Unavailable adapters: {summary["unavailableAdapters"]}
+- Non-blocking catalogue count warnings: {summary["catalogueDropWarnings"]}
 
 {maintenance}
+
+{warnings}
 
 Expected `monitoring` status is not an error. The issue body is refreshed after
 every full run, while consolidated reminder comments are limited to once every

@@ -141,6 +141,8 @@ def test_generate_recurring_windows_publishes_only_official_recurring_policy(
                 "term": "spring",
                 "startMonth": 1,
             },
+            "entryPattern": "fixed",
+            "startDatePrecision": "term",
             "round": "main",
             "applicantCategories": ["all"],
             "opensAt": "2026-10-01",

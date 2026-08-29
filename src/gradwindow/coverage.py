@@ -7,6 +7,7 @@ from .io import read_json, write_json
 from .paths import (
     APPLICATIONS_PATH,
     COVERAGE_PATH,
+    GLOBAL_RANKINGS_PATH,
     PREDICTIONS_PATH,
     PROGRAMS_PATH,
     UNIVERSITIES_PATH,
@@ -24,6 +25,7 @@ def generate_coverage(
     programs_path: Path = PROGRAMS_PATH,
     policies_path: Path = WINDOW_POLICIES_PATH,
     predictions_path: Path = PREDICTIONS_PATH,
+    global_rankings_path: Path = GLOBAL_RANKINGS_PATH,
 ) -> dict:
     university_payload = read_json(universities_path)
     universities = university_payload["universities"]
@@ -31,6 +33,9 @@ def generate_coverage(
     programs = read_json(programs_path)["programs"]
     policies = read_json(policies_path)["policies"]
     predictions = read_json(predictions_path)["predictions"]
+    global_rankings = read_json(global_rankings_path, {"rankings": {}}).get(
+        "rankings", {}
+    )
 
     top = sorted(
         (
@@ -120,7 +125,96 @@ def generate_coverage(
             }
         )
 
-    summary = {
+    summary = _summarise_rows(rows)
+    university_by_id = {item["id"]: item for item in universities}
+    ranking_ids = {
+        "qs": {item["id"] for item in top},
+        "the": {
+            item["universityId"]
+            for item in global_rankings.get("the", {}).get("rows", [])
+        },
+        "arwu": {
+            item["universityId"]
+            for item in global_rankings.get("arwu", {}).get("rows", [])
+        },
+    }
+    ranking_ids["union"] = set().union(*ranking_ids.values())
+    ranking_coverage = {
+        ranking_id: _summarise_university_ids(
+            university_ids,
+            university_by_id=university_by_id,
+            policies_by_university=policies_by_university,
+            program_counts=program_counts,
+            window_counts=window_counts,
+            prediction_counts=prediction_counts,
+        )
+        for ranking_id, university_ids in ranking_ids.items()
+    }
+    payload = {
+        "meta": {
+            "generatedAt": datetime.now(timezone.utc).isoformat(),
+            "rankingScope": (
+                "QS, THE, and ARWU top-200 views plus their deduplicated "
+                "canonical-university union"
+            ),
+            "batchSize": BATCH_SIZE,
+            "definition": (
+                "Entry, policy, programme, and exact-window coverage are counted "
+                "separately. Predictions never count as verified deadlines."
+            ),
+        },
+        "summary": summary,
+        "rankingCoverage": ranking_coverage,
+        "batches": batches,
+        "universities": rows,
+    }
+    write_json(output_path, payload)
+    return payload
+
+
+def _summarise_university_ids(
+    university_ids: set[str],
+    *,
+    university_by_id: dict[str, dict],
+    policies_by_university: dict[str, dict],
+    program_counts: dict[str, int],
+    window_counts: dict[str, int],
+    prediction_counts: dict[str, int],
+) -> dict:
+    rows = []
+    for university_id in sorted(university_ids):
+        university = university_by_id.get(university_id, {})
+        policy = policies_by_university.get(university_id)
+        programme_count = program_counts.get(university_id, 0)
+        window_count = window_counts.get(university_id, 0)
+        prediction_count = prediction_counts.get(university_id, 0)
+        rows.append(
+            {
+                "entryLocated": bool(university.get("admissionsUrl")),
+                "entryStatus": university.get("admissionsDiscovery"),
+                "policyStatus": "verified" if policy else "pending",
+                "cycleGuidance": policy.get("cycleGuidance") if policy else None,
+                "mastersAvailability": (
+                    policy.get("mastersAvailability", "unclear")
+                    if policy
+                    else "unverified"
+                ),
+                "programmeCount": programme_count,
+                "windowCount": window_count,
+                "predictionCount": prediction_count,
+                "nextAction": next_action(
+                    bool(university.get("admissionsUrl")),
+                    policy,
+                    programme_count,
+                    window_count,
+                ),
+            }
+        )
+    return _summarise_rows(rows)
+
+
+def _summarise_rows(rows: list[dict]) -> dict:
+    return {
         "targetUniversities": len(rows),
         "entriesLocated": sum(row["entryLocated"] for row in rows),
         "curatedEntries": sum(row["entryStatus"] == "curated" for row in rows),
@@ -148,25 +242,6 @@ def generate_coverage(
             )
         },
     }
-    payload = {
-        "meta": {
-            "generatedAt": datetime.now(timezone.utc).isoformat(),
-            "rankingScope": (
-                f"{university_payload.get('meta', {}).get('rankingEdition', 'QS World University Rankings')} "
-                f"top {TOP_LIMIT}"
-            ),
-            "batchSize": BATCH_SIZE,
-            "definition": (
-                "Entry, policy, programme, and exact-window coverage are counted "
-                "separately. Predictions never count as verified deadlines."
-            ),
-        },
-        "summary": summary,
-        "batches": batches,
-        "universities": rows,
-    }
-    write_json(output_path, payload)
-    return payload
 
 
 def next_action(

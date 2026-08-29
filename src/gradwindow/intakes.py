@@ -99,10 +99,28 @@ def intake_identity(item: dict) -> tuple[int, int | None, str, int | None]:
 
 
 def with_intake_details(item: dict) -> dict:
+    intake = item["intake"]
     return {
         **item,
-        "intakeDetails": parse_intake_details(item["intake"]),
+        "intakeDetails": parse_intake_details(intake),
+        "entryPattern": item.get("entryPattern", "fixed"),
+        "startDatePrecision": item.get(
+            "startDatePrecision", _start_date_precision(intake)
+        ),
     }
+
+
+def _start_date_precision(label: str) -> str:
+    lowered = label.lower()
+    if re.search(
+        r"\b(january|february|march|april|may|june|july|august|"
+        r"september|october|november|december)\b",
+        lowered,
+    ):
+        return "month"
+    if any(re.search(rf"\b{re.escape(token)}\b", lowered) for token in TERM_ALIASES):
+        return "term"
+    return "unknown"
 
 
 def migrate_application_intakes(

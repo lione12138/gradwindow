@@ -11,14 +11,30 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).parents[1]
 DATA_DIR = ROOT / "data"
 MAX_EVENTS_PER_DIGEST = 1000
+sys.path.insert(0, str(ROOT / "src"))
+
+from gradwindow.io import read_json as read_project_json  # noqa: E402
+from gradwindow.paths import (  # noqa: E402
+    APPLICATION_SOURCE_STATE_PATH,
+    APPLICATIONS_PATH,
+    PROGRAMME_ADAPTER_HEALTH_PATH,
+    PROGRAMME_CATALOG_STATE_PATH,
+)
+from gradwindow.published_data_audit import audit_published_data  # noqa: E402
 
 
 def read_json(name: str) -> dict:
     return json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
 
 
-def current_open_events(today: date | None = None) -> list[dict]:
+def current_open_events(
+    today: date | None = None,
+    *,
+    record_trust_statuses: dict[str, str] | None = None,
+) -> list[dict]:
     today = today or date.today()
+    if record_trust_statuses is None:
+        record_trust_statuses = _current_record_trust_statuses(today)
     universities = {
         item["id"]: item for item in read_json("universities.json")["universities"]
     }
@@ -31,6 +47,8 @@ def current_open_events(today: date | None = None) -> list[dict]:
     }
     events = []
     for record in read_json("applications.json")["applications"]:
+        if record_trust_statuses.get(record["id"], "current") != "current":
+            continue
         opens = date.fromisoformat(record["opensAt"])
         closes = date.fromisoformat(record["closesAt"])
         if not opens <= today <= closes:
@@ -55,6 +73,26 @@ def current_open_events(today: date | None = None) -> list[dict]:
             }
         )
     return events
+
+
+def _current_record_trust_statuses(today: date) -> dict[str, str]:
+    audit = audit_published_data(
+        read_project_json(APPLICATIONS_PATH).get("applications", []),
+        catalog_state=read_project_json(
+            PROGRAMME_CATALOG_STATE_PATH,
+            {"universities": {}},
+        ).get("universities", {}),
+        adapter_health=read_project_json(
+            PROGRAMME_ADAPTER_HEALTH_PATH,
+            {"universities": {}},
+        ).get("universities", {}),
+        source_state=read_project_json(
+            APPLICATION_SOURCE_STATE_PATH,
+            {"applications": {}},
+        ).get("applications", {}),
+        today=today,
+    )
+    return audit["recordTrustStatuses"]
 
 
 def notify(events: list[dict]) -> bool:
