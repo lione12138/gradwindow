@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from io import BytesIO
 
+import pytest
 from docx import Document
 
 from gradwindow.programme_adapters.barcelona import BarcelonaAdapter
@@ -75,14 +76,11 @@ def test_wuhan_reads_both_official_docx_catalogues_and_exact_window() -> None:
     assert rows[1].windows == []
 
 
-def test_qub_records_aws_waf_catalogue_limitation() -> None:
-    rows = (
-        QUBAdapter()
-        .parse_catalog("window.awsWafCookieDomainList = ['www.qub.ac.uk','qub.ac.uk'];")
-        .programmes
-    )
-    assert rows[0].id == "qub-postgraduate-taught-programmes"
-    assert rows[0].parse_status == "no-deadline"
+def test_qub_rejects_an_aws_waf_challenge_as_catalogue_content() -> None:
+    with pytest.raises(ValueError, match="access challenge"):
+        QUBAdapter().parse_catalog(
+            "window.awsWafCookieDomainList = ['www.qub.ac.uk','qub.ac.uk'];"
+        )
 
 
 def test_farabi_follows_all_master_catalogue_pages() -> None:

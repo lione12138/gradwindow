@@ -59,6 +59,8 @@ class DiscoveredProgramme:
         ]
         | None
     ) = None
+    available_intakes: list[str] = field(default_factory=list)
+    application_status: Literal["open"] | None = None
     admission_status: Literal["paused"] | None = None
     moratorium_from: str | None = None
     moratorium_to: str | None = None

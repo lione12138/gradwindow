@@ -353,6 +353,16 @@ def discover_programmes(
                 else {}
             ),
             **(
+                {"availableIntakes": programme.available_intakes}
+                if programme.available_intakes
+                else {}
+            ),
+            **(
+                {"applicationStatus": programme.application_status}
+                if programme.application_status
+                else {}
+            ),
+            **(
                 {
                     "admissionStatus": programme.admission_status,
                     "moratoriumFrom": programme.moratorium_from,
@@ -886,6 +896,10 @@ def _candidate_record(
         )
     if programme.admission_route:
         candidate["programme"]["admissionRoute"] = programme.admission_route
+    if programme.available_intakes:
+        candidate["programme"]["availableIntakes"] = programme.available_intakes
+    if programme.application_status:
+        candidate["programme"]["applicationStatus"] = programme.application_status
     if programme.retrieval_method or programme.evidence_quality:
         candidate["discoveryEvidence"] = {
             "retrievalMethod": programme.retrieval_method,
