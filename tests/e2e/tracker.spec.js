@@ -33,6 +33,31 @@ test("homepage loads the tracker without runtime errors", async ({ page }) => {
   expect(pageErrors).toEqual([]);
 });
 
+test("wide desktop places the filters beside the application results", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await openTracker(page);
+
+  const sidebar = page.locator(".tracker-sidebar");
+  const results = page.locator(".tracker-results");
+  const sidebarBox = await sidebar.boundingBox();
+  const resultsBox = await results.boundingBox();
+
+  expect(sidebarBox).not.toBeNull();
+  expect(resultsBox).not.toBeNull();
+  expect(sidebarBox.x + sidebarBox.width).toBeLessThan(resultsBox.x);
+  await expect(sidebar).toHaveCSS("position", "sticky");
+
+  const statusButtons = page.locator(".primary-status-tabs .status-tab");
+  const firstStatusBox = await statusButtons.nth(0).boundingBox();
+  const secondStatusBox = await statusButtons.nth(1).boundingBox();
+  expect(firstStatusBox).not.toBeNull();
+  expect(secondStatusBox).not.toBeNull();
+  expect(secondStatusBox.y).toBeGreaterThan(firstStatusBox.y);
+  expect(secondStatusBox.x).toBe(firstStatusBox.x);
+});
+
 test("hero search finds NUS across application statuses", async ({ page }) => {
   await openTracker(page);
 
@@ -153,6 +178,18 @@ test("a deadline row opens and closes the detail drawer", async ({ page }) => {
 
 test.describe("mobile filters", () => {
   test.use({ viewport: { width: 390, height: 844 } });
+
+  test("keeps filters above the results on narrow screens", async ({
+    page,
+  }) => {
+    await openTracker(page);
+    const sidebarBox = await page.locator(".tracker-sidebar").boundingBox();
+    const resultsBox = await page.locator(".tracker-results").boundingBox();
+
+    expect(sidebarBox).not.toBeNull();
+    expect(resultsBox).not.toBeNull();
+    expect(sidebarBox.y + sidebarBox.height).toBeLessThanOrEqual(resultsBox.y);
+  });
 
   test("filter drawer reports the result count before applying", async ({
     page,
