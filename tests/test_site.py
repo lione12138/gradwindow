@@ -371,6 +371,11 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'params.set("deadline", state.deadlineRange)' in app_js
     assert 'params.set("dates", state.dateType)' in app_js
     assert "grid-template-columns: 268px minmax(0, 1fr)" in styles_css
+    assert (
+        "grid-template-columns: clamp(232px, 17vw, 264px) minmax(0, 1fr)" in styles_css
+    )
+    assert "@media (min-width: 1400px)" in styles_css
+    assert ".tracker-sidebar .primary-status-tabs" in styles_css
     assert ".tracker-results .application-table tbody tr" in styles_css
     assert "height: 76px" in styles_css
     assert "school-group-summary" in app_js
