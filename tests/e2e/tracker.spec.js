@@ -80,6 +80,23 @@ test("advanced rank filtering updates results and the shareable URL", async ({
   expect(count).toBeLessThanOrEqual(30);
 });
 
+test("advanced date filters are progressive and shareable", async ({
+  page,
+}) => {
+  await openTracker(page);
+
+  await expect(page.locator("#advanced-filter-panel")).not.toBeVisible();
+  await page.locator("#mobile-filter-toggle").click();
+  await expect(page.locator("#applicant-filter")).toBeVisible();
+  await expect(page.locator("#deadline-range-filter")).toBeVisible();
+  await expect(page.locator("#date-type-filter")).toBeVisible();
+
+  await page.locator("#deadline-range-filter").selectOption("90");
+  await expect(page).toHaveURL(/deadline=90/);
+  await page.locator("#date-type-filter").selectOption("official");
+  await expect(page).toHaveURL(/dates=official/);
+});
+
 test("saving a deadline updates the saved workflow", async ({ page }) => {
   await openTracker(page);
   const favorite = await firstWindowFavorite(page);
@@ -92,6 +109,13 @@ test("saving a deadline updates the saved workflow", async ({ page }) => {
     JSON.parse(window.localStorage.getItem("gradwindow:favorites") || "[]"),
   );
   expect(stored).toHaveLength(1);
+
+  await page.locator("#saved-status-tab").click();
+  await expect(page.locator("#saved-status-tab")).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await expect(page).toHaveURL(/saved=1/);
 });
 
 test("saved deadlines survive a page reload", async ({ page }) => {
@@ -146,5 +170,23 @@ test.describe("mobile filters", () => {
     await expect(apply).toHaveText(/Show \d+ universities/);
     await apply.click();
     await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  });
+
+  test("bottom navigation keeps the four primary destinations", async ({
+    page,
+  }) => {
+    await openTracker(page);
+    await expect(
+      page.locator(".mobile-bottom-nav [data-mobile-nav]"),
+    ).toHaveCount(4);
+    await expect(
+      page.locator('.mobile-bottom-nav [data-mobile-nav="calendar"]'),
+    ).toHaveAttribute("href", "./calendar.html");
+
+    await page
+      .locator('.mobile-bottom-nav [data-mobile-nav="profile"]')
+      .click();
+    await expect(page.locator(".mobile-account-menu")).toBeVisible();
+    await expect(page.locator("#mobile-theme-toggle")).toBeVisible();
   });
 });

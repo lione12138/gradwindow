@@ -243,9 +243,9 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'id="theme-toggle"' in index_html
     assert 'id="ranking-filter"' in index_html
     assert 'id="rank-range-filter"' in index_html
-    assert 'class="mobile-dashboard-intro"' in index_html
+    assert 'class="mobile-dashboard-intro"' not in index_html
     assert 'class="mobile-sort-controls"' in index_html
-    assert 'class="hero-visual"' in index_html
+    assert 'class="hero-visual"' not in index_html
     assert 'class="hero-dashboard"' not in index_html
     assert 'class="quick-filter-panel"' in index_html
     assert 'class="tracker-workspace"' in index_html
@@ -255,24 +255,28 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'id="active-filter-chips"' in index_html
     assert 'id="expand-visible-groups"' in index_html
     assert 'id="collapse-visible-groups"' in index_html
-    assert 'id="hero-open-count"' in index_html
-    assert 'id="hero-deadline-day"' in index_html
-    assert 'id="hero-deadline-month"' in index_html
+    assert 'class="hero-trust-stats"' in index_html
     assert 'id="mobile-filter-toggle"' in index_html
     assert 'id="hero-search-form"' in index_html
     assert 'id="hero-search-input"' in index_html
     assert 'id="refresh-summary"' in index_html
-    assert 'id="my-application-timeline"' in index_html
-    assert 'id="official-only-toggle"' in index_html
+    assert 'id="my-application-timeline"' not in index_html
+    assert 'id="applicant-filter"' in index_html
+    assert 'id="deadline-range-filter"' in index_html
+    assert 'id="date-type-filter"' in index_html
+    assert 'id="saved-status-tab"' in index_html
     assert 'id="data-quality-filter"' in index_html
     assert 'id="browse-universities"' in index_html
     assert 'id="mobile-filter-apply"' in index_html
     assert 'id="window-detail-panel"' in index_html
     assert 'class="mobile-bottom-nav"' in index_html
+    assert 'id="mobile-theme-toggle"' in index_html
+    assert 'class="mobile-account-menu"' in index_html
     assert 'id="auth-turnstile"' in index_html
     assert 'id="auth-verify-form" hidden' in index_html
     assert 'id="favorites-sync-notice"' in index_html
-    assert index_html.count("data-mobile-nav=") == 3
+    assert index_html.count("data-mobile-nav=") == 4
+    assert 'data-mobile-nav="calendar"' in index_html
     assert 'data-mobile-nav="search"' not in index_html
     assert 'id="sort-select"' not in index_html
     assert 'id="top100-toggle"' not in index_html
@@ -313,8 +317,7 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
         "& Opening Dates | GradWindow</title>"
     ) in index_html
     assert (
-        f"{snapshot['target_cycle_year']} Master's Application Deadlines<br />"
-        "<em>& Opening Dates</em>"
+        f"{snapshot['target_cycle_year']} Master's Application Deadlines"
     ) in index_html
     assert 'class="seo-discovery"' in index_html
     assert index_html.index('id="application-board"') < index_html.index(
@@ -335,14 +338,8 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert index_html.count('href="./university/') >= 10
     assert f'id="total-schools">{snapshot["total_universities"]}</strong>' in index_html
     assert f'id="total-records">{snapshot["official_windows"]}</strong>' in index_html
-    assert (
-        f'id="total-predictions">{snapshot["estimated_windows"]}</strong>' in index_html
-    )
-    assert (
-        f'id="hero-open-count">{snapshot["open_universities"]}</strong>' in index_html
-    )
-    assert snapshot["deadline_school"] in index_html
-    assert snapshot["deadline_mobile_date"] in index_html
+    assert "NEXT DEADLINE" not in index_html
+    assert "Browse application windows" not in index_html
     assert snapshot["data_refreshed_at"] in index_html
     assert snapshot["page_checked_at"] in index_html
     assert snapshot["monitoring_run_at"] in index_html
@@ -360,7 +357,6 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert "function updateApplicationTimeline" in app_js
     assert "function showSavedApplications" in app_js
     assert 'className: "application-action-summary"' in app_js
-    assert 'params.set("official", "1")' in app_js
     assert "Show {count} universities" in i18n_js
     assert "Monitoring current · {healthy}/{total} adapters healthy" in i18n_js
     assert 'id="hero-deadline-countdown"' not in index_html
@@ -370,6 +366,10 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert ".university-table tr.university-card-row" in styles_css
     assert 'body[data-view-status="unknown"] .mobile-sort-controls' in styles_css
     assert ".mobile-bottom-nav" in styles_css
+    assert "grid-template-columns: repeat(4, minmax(0, 1fr))" in styles_css
+    assert 'params.set("applicant", state.applicantCategory)' in app_js
+    assert 'params.set("deadline", state.deadlineRange)' in app_js
+    assert 'params.set("dates", state.dateType)' in app_js
     assert "grid-template-columns: 268px minmax(0, 1fr)" in styles_css
     assert ".tracker-results .application-table tbody tr" in styles_css
     assert "height: 76px" in styles_css
