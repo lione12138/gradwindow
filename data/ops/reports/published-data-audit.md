@@ -1,6 +1,6 @@
 # Published data audit
 
-Generated for 2026-08-29.
+Generated for 2026-08-30.
 
 - Active issues: 671
 - Universities needing review: 13
@@ -8,6 +8,7 @@ Generated for 2026-08-29.
 - Suspicious intake/deadline mappings: 210
 - Published records missing from a healthy current snapshot: 35
 - Published records changed from a healthy current snapshot: 426
+- Published records with source URL-only changes: 0
 
 ## Maintenance queue
 

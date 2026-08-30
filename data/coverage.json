@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generatedAt": "2026-08-29T12:49:51.404889+00:00",
-    "rankingScope": "QS World University Rankings 2027 top 200",
+    "generatedAt": "2026-08-30T11:33:08.044018+00:00",
+    "rankingScope": "QS, THE, and ARWU top-200 views plus their deduplicated canonical-university union",
     "batchSize": 5,
     "definition": "Entry, policy, programme, and exact-window coverage are counted separately. Predictions never count as verified deadlines."
   },
@@ -15,15 +15,101 @@
     "limitedMastersAvailability": 5,
     "universitiesWithPrograms": 198,
     "universitiesWithWindows": 59,
-    "verifiedWindows": 5160,
+    "verifiedWindows": 5210,
     "universitiesWithPredictions": 59,
-    "predictedWindows": 4955,
+    "predictedWindows": 5005,
     "nextActions": {
       "locate-official-entry": 0,
       "verify-window-policy": 0,
       "select-target-programmes": 2,
       "verify-exact-windows": 139,
       "monitor-and-refresh": 59
+    }
+  },
+  "rankingCoverage": {
+    "qs": {
+      "targetUniversities": 200,
+      "entriesLocated": 200,
+      "curatedEntries": 200,
+      "policiesVerified": 200,
+      "cycleGuidanceAvailable": 198,
+      "broadMastersAvailability": 195,
+      "limitedMastersAvailability": 5,
+      "universitiesWithPrograms": 198,
+      "universitiesWithWindows": 59,
+      "verifiedWindows": 5210,
+      "universitiesWithPredictions": 59,
+      "predictedWindows": 5005,
+      "nextActions": {
+        "locate-official-entry": 0,
+        "verify-window-policy": 0,
+        "select-target-programmes": 2,
+        "verify-exact-windows": 139,
+        "monitor-and-refresh": 59
+      }
+    },
+    "the": {
+      "targetUniversities": 201,
+      "entriesLocated": 201,
+      "curatedEntries": 201,
+      "policiesVerified": 155,
+      "cycleGuidanceAvailable": 153,
+      "broadMastersAvailability": 152,
+      "limitedMastersAvailability": 3,
+      "universitiesWithPrograms": 197,
+      "universitiesWithWindows": 56,
+      "verifiedWindows": 5230,
+      "universitiesWithPredictions": 56,
+      "predictedWindows": 5024,
+      "nextActions": {
+        "locate-official-entry": 0,
+        "verify-window-policy": 46,
+        "select-target-programmes": 2,
+        "verify-exact-windows": 102,
+        "monitor-and-refresh": 51
+      }
+    },
+    "arwu": {
+      "targetUniversities": 200,
+      "entriesLocated": 200,
+      "curatedEntries": 200,
+      "policiesVerified": 129,
+      "cycleGuidanceAvailable": 127,
+      "broadMastersAvailability": 125,
+      "limitedMastersAvailability": 4,
+      "universitiesWithPrograms": 178,
+      "universitiesWithWindows": 47,
+      "verifiedWindows": 4825,
+      "universitiesWithPredictions": 47,
+      "predictedWindows": 4620,
+      "nextActions": {
+        "locate-official-entry": 0,
+        "verify-window-policy": 71,
+        "select-target-programmes": 2,
+        "verify-exact-windows": 86,
+        "monitor-and-refresh": 41
+      }
+    },
+    "union": {
+      "targetUniversities": 291,
+      "entriesLocated": 291,
+      "curatedEntries": 291,
+      "policiesVerified": 200,
+      "cycleGuidanceAvailable": 198,
+      "broadMastersAvailability": 195,
+      "limitedMastersAvailability": 5,
+      "universitiesWithPrograms": 269,
+      "universitiesWithWindows": 68,
+      "verifiedWindows": 5381,
+      "universitiesWithPredictions": 68,
+      "predictedWindows": 5175,
+      "nextActions": {
+        "locate-official-entry": 0,
+        "verify-window-policy": 91,
+        "select-target-programmes": 2,
+        "verify-exact-windows": 139,
+        "monitor-and-refresh": 59
+      }
     }
   },
   "batches": [
@@ -155,7 +241,7 @@
       "policiesVerified": 5,
       "universitiesWithPrograms": 5,
       "universitiesWithWindows": 3,
-      "predictedWindows": 381
+      "predictedWindows": 393
     },
     {
       "batch": 11,
@@ -350,7 +436,7 @@
       "policiesVerified": 5,
       "universitiesWithPrograms": 5,
       "universitiesWithWindows": 1,
-      "predictedWindows": 1
+      "predictedWindows": 39
     },
     {
       "batch": 26,
@@ -1639,8 +1725,8 @@
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
       "programmeCount": 228,
-      "windowCount": 172,
-      "predictionCount": 118,
+      "windowCount": 184,
+      "predictionCount": 130,
       "nextAction": "monitor-and-refresh"
     },
     {
@@ -3511,8 +3597,8 @@
         "notes": "Replaced earlier computer/data-science programme page with institution-level graduate admissions guidance."
       },
       "programmeCount": 46,
-      "windowCount": 1,
-      "predictionCount": 1,
+      "windowCount": 39,
+      "predictionCount": 39,
       "nextAction": "monitor-and-refresh"
     },
     {
@@ -5334,7 +5420,7 @@
         "opensText": "Use the central postgraduate admission page and admission portal; exact dates depend on admission route and programme group.",
         "notes": "The official page was updated on 2026-06-15 and links to the postgraduate admission portal, guide, procedures, and conditions."
       },
-      "programmeCount": 117,
+      "programmeCount": 118,
       "windowCount": 0,
       "predictionCount": 0,
       "nextAction": "verify-exact-windows"
