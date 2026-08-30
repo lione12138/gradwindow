@@ -15,7 +15,7 @@ import {
   setupReviewPanel,
   updateReviewAuthState,
 } from "./review.js";
-import { acronym, makeElement, makeLink, parseDate, safeUrl } from "./dom.js";
+import { acronym, makeElement, makeLink, parseDate } from "./dom.js";
 import {
   deadlineDaysRemaining,
   formatDeadlineDate,
@@ -59,7 +59,6 @@ import {
 
 const PAGE_SIZE = 20;
 const dateFormatters = new Map();
-const deadlineDatePartsFormatters = new Map();
 const recordSearchTextCache = new WeakMap();
 const recordIntakeCache = new WeakMap();
 let selectedRankingCache = null;
@@ -153,21 +152,6 @@ function dateFormatter() {
     );
   }
   return dateFormatters.get(locale);
-}
-
-function deadlineDatePartsFormatter() {
-  const locale = state.language === "zh" ? "zh-CN" : "en-GB";
-  if (!deadlineDatePartsFormatters.has(locale)) {
-    deadlineDatePartsFormatters.set(
-      locale,
-      new Intl.DateTimeFormat(locale, {
-        day: "2-digit",
-        month: "short",
-        timeZone: "UTC",
-      }),
-    );
-  }
-  return deadlineDatePartsFormatters.get(locale);
 }
 
 function makeCell(label, ...children) {
@@ -809,6 +793,15 @@ function refreshFilterOptions() {
     (region) => regionLabel(region, state.language),
   );
   populateIntakeSelect();
+  populateSelect(
+    "applicant-filter",
+    uniqueSorted(
+      recordsInSelectedRanking().flatMap(
+        (record) => record.applicantCategories || [],
+      ),
+    ),
+    (category) => applicantCategoryText([category]),
+  );
 }
 
 function updateRankingAvailability() {
@@ -869,13 +862,25 @@ function filteredRecords() {
       (!query || recordSearchText(record).includes(query)) &&
       (state.region === "all" || record.region === state.region) &&
       (state.intake === "all" || recordIntake(record).key === state.intake) &&
+      (state.applicantCategory === "all" ||
+        record.applicantCategories?.includes(state.applicantCategory)) &&
+      (state.deadlineRange === "all" ||
+        (() => {
+          const remaining = deadlineDaysRemaining(
+            record,
+            daysUntil(record.closesAt),
+          );
+          return remaining >= 0 && remaining <= Number(state.deadlineRange);
+        })()) &&
       (state.selectedUniversityId ||
         (selectedRankForUniversity(record.universityId)?.rankPosition || 999) <=
           Number(state.rankLimit)) &&
       (!state.favoritesOnly ||
         state.favorites.has(favoriteKey("window", record.id)) ||
         state.favorites.has(favoriteKey("university", record.universityId))) &&
-      (!state.officialOnly || !isPredictedRecord(record))
+      (state.dateType === "all" ||
+        (state.dateType === "official" && !isPredictedRecord(record)) ||
+        (state.dateType === "estimated" && isPredictedRecord(record)))
     );
   });
 }
@@ -940,9 +945,11 @@ function activeNonStatusFilter() {
     state.ranking !== "qs" ||
     state.region !== "all" ||
     state.intake !== "all" ||
+    state.applicantCategory !== "all" ||
+    state.deadlineRange !== "all" ||
+    state.dateType !== "all" ||
     state.rankLimit !== "200" ||
-    state.favoritesOnly ||
-    state.officialOnly
+    state.favoritesOnly
   );
 }
 
@@ -958,7 +965,9 @@ function syncFilterInputs() {
   refreshFilterOptions();
   document.getElementById("region-filter").value = state.region;
   document.getElementById("intake-filter").value = state.intake;
-  document.getElementById("official-only-toggle").checked = state.officialOnly;
+  document.getElementById("applicant-filter").value = state.applicantCategory;
+  document.getElementById("deadline-range-filter").value = state.deadlineRange;
+  document.getElementById("date-type-filter").value = state.dateType;
   updateRankRangeOptions();
 }
 
@@ -972,9 +981,11 @@ function resetFilter(filter) {
   }
   if (filter === "region") state.region = "all";
   if (filter === "intake") state.intake = "all";
+  if (filter === "applicantCategory") state.applicantCategory = "all";
+  if (filter === "deadlineRange") state.deadlineRange = "all";
+  if (filter === "dateType") state.dateType = "all";
   if (filter === "rankLimit") state.rankLimit = "200";
   if (filter === "favorites") state.favoritesOnly = false;
-  if (filter === "official") state.officialOnly = false;
   syncFilterInputs();
   resetPages();
   syncUrl();
@@ -987,9 +998,11 @@ function clearFilters() {
   state.ranking = "qs";
   state.region = "all";
   state.intake = "all";
+  state.applicantCategory = "all";
+  state.deadlineRange = "all";
+  state.dateType = "all";
   state.rankLimit = "200";
   state.favoritesOnly = false;
-  state.officialOnly = false;
   syncFilterInputs();
   resetPages();
   syncUrl();
@@ -1034,14 +1047,31 @@ function activeFilterItems() {
           ?.textContent || state.intake,
     });
   }
+  if (state.applicantCategory !== "all") {
+    items.push({
+      key: "applicantCategory",
+      label: applicantCategoryText([state.applicantCategory]),
+    });
+  }
+  if (state.deadlineRange !== "all") {
+    items.push({
+      key: "deadlineRange",
+      label: t("deadlineWithinDays").replace("{days}", state.deadlineRange),
+    });
+  }
+  if (state.dateType !== "all") {
+    items.push({
+      key: "dateType",
+      label: t(
+        state.dateType === "official" ? "officialOnly" : "estimatedOnly",
+      ),
+    });
+  }
   if (state.rankLimit !== "200") {
     items.push({ key: "rankLimit", label: rankRangeLabel(state.rankLimit) });
   }
   if (state.favoritesOnly) {
     items.push({ key: "favorites", label: t("favoritesOnly") });
-  }
-  if (state.officialOnly) {
-    items.push({ key: "official", label: t("officialOnly") });
   }
   return items;
 }
@@ -1125,8 +1155,10 @@ function setVisibleUniversityGroups(expanded) {
 }
 
 function updateStatusTabs(focusStatus = "") {
-  document.querySelectorAll("[data-status]").forEach((tab) => {
-    const active = tab.dataset.status === state.status;
+  document.querySelectorAll('[role="tab"]').forEach((tab) => {
+    const active = tab.hasAttribute("data-saved-tab")
+      ? state.favoritesOnly
+      : !state.favoritesOnly && tab.dataset.status === state.status;
     tab.classList.toggle("active", active);
     if (tab.matches('[role="tab"]')) {
       tab.setAttribute("aria-selected", String(active));
@@ -1140,7 +1172,7 @@ function updateStatusTabs(focusStatus = "") {
 }
 
 function recordsForCurrentView(baseRecords) {
-  if (hasActiveSearch()) return baseRecords;
+  if (hasActiveSearch() || state.favoritesOnly) return baseRecords;
   return baseRecords.filter(
     (record) => isCurrentRecord(record) && getStatus(record) === state.status,
   );
@@ -1816,7 +1848,7 @@ function renderCounts(records, universities) {
 function render() {
   const baseRecords = filteredRecords();
   const baseUniversities = filteredUniversities();
-  const counts = renderCounts(baseRecords, baseUniversities);
+  renderCounts(baseRecords, baseUniversities);
   const records = recordsForCurrentView(baseRecords);
   const exceptionUniversities = baseUniversities.filter(isExceptionUniversity);
   const container = document.getElementById("application-groups");
@@ -1825,7 +1857,8 @@ function render() {
   container.replaceChildren();
 
   ["open", "upcoming", "future", "closed"].forEach((status) => {
-    if (!hasActiveSearch() && state.status !== status) return;
+    if (!hasActiveSearch() && !state.favoritesOnly && state.status !== status)
+      return;
     const groupRecords = records
       .filter((record) => getStatus(record) === status)
       .sort(compareRecords);
@@ -1851,7 +1884,6 @@ function render() {
     (state.status === "exception" && exceptionUniversities.length > 0) ||
     ((state.status === "unknown" || hasActiveSearch()) &&
       baseUniversities.length > 0);
-  document.getElementById("hero-open-count").textContent = counts.open;
   document.querySelectorAll("[data-mobile-sort]").forEach((button) => {
     button.classList.toggle("active", button.dataset.mobileSort === state.sort);
   });
@@ -1875,8 +1907,12 @@ function syncUrl() {
   if (state.status !== "open") params.set("status", state.status);
   if (state.sort !== "rank") params.set("sort", state.sort);
   if (state.rankLimit !== "200") params.set("rank", state.rankLimit);
+  if (state.applicantCategory !== "all")
+    params.set("applicant", state.applicantCategory);
+  if (state.deadlineRange !== "all")
+    params.set("deadline", state.deadlineRange);
+  if (state.dateType !== "all") params.set("dates", state.dateType);
   if (state.favoritesOnly) params.set("saved", "1");
-  if (state.officialOnly) params.set("official", "1");
   history.replaceState(
     null,
     "",
@@ -1896,6 +1932,15 @@ function loadUrlState() {
     params.get("ranking") || rankingForUniversity(state.selectedUniversityId);
   state.region = params.get("region") || "all";
   state.intake = params.get("intake") || "all";
+  state.applicantCategory = params.get("applicant") || "all";
+  state.deadlineRange = ["30", "90", "180"].includes(params.get("deadline"))
+    ? params.get("deadline")
+    : "all";
+  state.dateType = ["official", "estimated"].includes(params.get("dates"))
+    ? params.get("dates")
+    : params.get("official") === "1"
+      ? "official"
+      : "all";
   state.status = params.get("status") || "open";
   state.sort = ["rank", "opens", "deadline"].includes(params.get("sort"))
     ? params.get("sort")
@@ -1908,7 +1953,6 @@ function loadUrlState() {
       ? "100"
       : "200";
   state.favoritesOnly = params.get("saved") === "1";
-  state.officialOnly = params.get("official") === "1";
 }
 
 function applyUrlAction() {
@@ -1932,6 +1976,7 @@ function applyUrlAction() {
 function updateFavoriteControls() {
   const count = state.favorites.size;
   document.getElementById("favorite-count").textContent = count;
+  document.getElementById("favorite-tab-count").textContent = count;
   document
     .getElementById("favorites-toggle")
     .classList.toggle("active", state.favoritesOnly);
@@ -2044,6 +2089,11 @@ function applyTheme() {
       "aria-label",
       state.theme === "dark" ? t("switchToLight") : t("switchToDark"),
     );
+  }
+  const mobileButton = document.getElementById("mobile-theme-toggle");
+  if (mobileButton) {
+    mobileButton.textContent =
+      state.theme === "dark" ? t("switchToLight") : t("switchToDark");
   }
 }
 
@@ -2183,73 +2233,8 @@ async function refreshLanguage() {
   refreshFilterOptions();
   updateDataNotes();
   renderCoverage();
-  setupHero();
   setupSubscription();
   render();
-}
-
-function setupHero() {
-  const futureDeadline = state.data
-    .filter(
-      (record) =>
-        record.dataStatus === "official" &&
-        isCurrentRecord(record) &&
-        getStatus(record) !== "closed",
-    )
-    .sort((a, b) => a.closesAt.localeCompare(b.closesAt))[0];
-  if (!futureDeadline) {
-    document.getElementById("hero-deadline-day").textContent = "200";
-    document.getElementById("hero-deadline-month").textContent =
-      state.language === "zh" ? "所学校" : "SCHOOLS";
-    document.getElementById("hero-deadline-school").textContent =
-      state.language === "zh"
-        ? "官方申请目录"
-        : "Official admissions directory";
-    const mobileLink = document.getElementById("mobile-deadline-link");
-    if (mobileLink) mobileLink.removeAttribute("target");
-    const mobileSchool = document.getElementById("mobile-deadline-school");
-    const mobileDate = document.getElementById("mobile-deadline-date");
-    const mobileNote = document.getElementById("mobile-deadline-note");
-    if (mobileSchool)
-      mobileSchool.textContent =
-        state.language === "zh"
-          ? "官方申请目录"
-          : "Official admissions directory";
-    if (mobileDate) mobileDate.textContent = "TOP 200";
-    if (mobileNote) mobileNote.textContent = "";
-    return;
-  }
-  const dateParts = deadlineDatePartsFormatter()
-    .formatToParts(parseDate(futureDeadline.closesAt))
-    .reduce((result, part) => ({ ...result, [part.type]: part.value }), {});
-  document.getElementById("hero-deadline-day").textContent = dateParts.day;
-  document.getElementById("hero-deadline-month").textContent =
-    dateParts.month.toUpperCase();
-  document.getElementById("hero-deadline-school").textContent = schoolLabels(
-    futureDeadline,
-    state.language,
-  ).primary;
-  const mobileLink = document.getElementById("mobile-deadline-link");
-  const mobileSchool = document.getElementById("mobile-deadline-school");
-  const mobileDate = document.getElementById("mobile-deadline-date");
-  const mobileNote = document.getElementById("mobile-deadline-note");
-  if (mobileLink) {
-    mobileLink.href =
-      safeUrl(futureDeadline.applicationUrl) || "#application-groups";
-    mobileLink.target = safeUrl(futureDeadline.applicationUrl) ? "_blank" : "";
-    mobileLink.rel = "noreferrer";
-  }
-  if (mobileSchool)
-    mobileSchool.textContent = schoolLabels(
-      futureDeadline,
-      state.language,
-    ).primary;
-  if (mobileDate) mobileDate.textContent = formatRecordDeadline(futureDeadline);
-  if (mobileNote)
-    mobileNote.textContent = deadlineNote(
-      futureDeadline,
-      getStatus(futureDeadline),
-    );
 }
 
 function setMobileNavActive(name) {
@@ -2265,11 +2250,10 @@ function updateMobileFilterToggle() {
   if (!toolbar || !button || !label) return;
   const expanded = toolbar.classList.contains("mobile-filters-open");
   const hasAdvancedFilters =
-    state.ranking !== "qs" ||
-    state.region !== "all" ||
-    state.intake !== "all" ||
+    state.applicantCategory !== "all" ||
+    state.deadlineRange !== "all" ||
+    state.dateType !== "all" ||
     state.rankLimit !== "200" ||
-    state.officialOnly ||
     state.favoritesOnly;
   button.setAttribute("aria-expanded", String(expanded));
   button.classList.toggle("active", expanded || hasAdvancedFilters);
@@ -2299,6 +2283,7 @@ async function showSavedApplications() {
 
 async function activateStatus(status, focusStatus = "") {
   if (status === "closed") await ensureClosedRecords();
+  state.favoritesOnly = false;
   state.status = status;
   resetPages();
   syncUrl();
@@ -2317,6 +2302,11 @@ function bindEvents() {
     state.theme = state.theme === "dark" ? "light" : "dark";
     applyTheme();
   });
+  document
+    .getElementById("mobile-theme-toggle")
+    .addEventListener("click", () => {
+      document.getElementById("theme-toggle").click();
+    });
   document
     .getElementById("mobile-filter-toggle")
     .addEventListener("click", () => {
@@ -2408,7 +2398,11 @@ function bindEvents() {
     });
   document.querySelectorAll(".status-tab").forEach((button) => {
     button.addEventListener("click", async () => {
-      await activateStatus(button.dataset.status);
+      if (button.hasAttribute("data-saved-tab")) {
+        await showSavedApplications();
+      } else {
+        await activateStatus(button.dataset.status);
+      }
     });
     button.addEventListener("keydown", async (event) => {
       if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
@@ -2428,10 +2422,13 @@ function bindEvents() {
                 (event.key === "ArrowRight" ? 1 : -1) +
                 tabs.length) %
               tabs.length;
-      await activateStatus(
-        tabs[nextIndex].dataset.status,
-        tabs[nextIndex].dataset.status,
-      );
+      const nextTab = tabs[nextIndex];
+      if (nextTab.hasAttribute("data-saved-tab")) {
+        await showSavedApplications();
+        nextTab.focus();
+      } else {
+        await activateStatus(nextTab.dataset.status, nextTab.dataset.status);
+      }
     });
   });
   document
@@ -2454,9 +2451,26 @@ function bindEvents() {
     render();
   });
   document
-    .getElementById("official-only-toggle")
+    .getElementById("applicant-filter")
     .addEventListener("change", (event) => {
-      state.officialOnly = event.target.checked;
+      state.applicantCategory = event.target.value;
+      resetPages();
+      syncUrl();
+      render();
+    });
+  document
+    .getElementById("deadline-range-filter")
+    .addEventListener("change", (event) => {
+      state.deadlineRange = event.target.value;
+      resetPages();
+      syncUrl();
+      render();
+    });
+  document
+    .getElementById("date-type-filter")
+    .addEventListener("change", async (event) => {
+      state.dateType = event.target.value;
+      if (state.dateType === "estimated") await ensureClosedRecords();
       resetPages();
       syncUrl();
       render();
@@ -2467,9 +2481,6 @@ function bindEvents() {
       event.preventDefault();
       showSavedApplications();
     });
-  document
-    .getElementById("timeline-saved")
-    .addEventListener("click", showSavedApplications);
   document.getElementById("favorites-sign-in").addEventListener("click", () => {
     openAuthPanel(t("favoritesSignInPrompt"));
   });
@@ -2490,7 +2501,7 @@ function bindEvents() {
     button.addEventListener("click", async () => {
       const destination = button.dataset.mobileNav;
       setMobileNavActive(destination);
-      if (destination === "home") {
+      if (destination === "tracker") {
         state.search = "";
         state.selectedUniversityId = "";
         state.favoritesOnly = false;
@@ -2597,20 +2608,18 @@ async function init() {
     document.getElementById("hero-search-input").value = state.search;
     document.getElementById("region-filter").value = state.region;
     document.getElementById("intake-filter").value = state.intake;
+    document.getElementById("applicant-filter").value = state.applicantCategory;
+    document.getElementById("deadline-range-filter").value =
+      state.deadlineRange;
+    document.getElementById("date-type-filter").value = state.dateType;
     document.getElementById("ranking-filter").value = state.ranking;
-    document.getElementById("official-only-toggle").checked =
-      state.officialOnly;
     updateRankRangeOptions();
     updateStatusTabs();
     const schoolCount = state.universities.length;
     document.getElementById("total-schools").textContent = schoolCount;
     document.getElementById("total-records").textContent = state.officialCount;
-    document.getElementById("total-predictions").textContent =
-      state.predictionCount;
     updateDataNotes();
-    document.getElementById("demo-banner").hidden = false;
     renderCoverage();
-    setupHero();
     setupSubscription();
     bindEvents();
     initAuth({ render, updateFavoriteControls, updateReviewAuthState });

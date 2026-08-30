@@ -135,7 +135,6 @@
             <a href="#application-board" data-i18n="navTrackerShort">Tracker</a>
             <a class="calendar-nav" href="./calendar.html" data-i18n="navCalendar">Calendar</a>
             <a href="#application-board" id="saved-nav-link" data-i18n="navSaved">Saved</a>
-            <a class="subscribe-link" href="#subscribe" data-i18n="navAlerts">Alerts</a>
             <details class="nav-more-menu">
               <summary data-i18n="navMore">More</summary>
               <div class="nav-more-popover">
@@ -164,6 +163,14 @@
             </div>
             <button class="icon-button" type="button" data-auth-close aria-label="Close account panel">×</button>
           </div>
+
+          <nav class="mobile-account-menu" aria-label="Mobile account and site menu" data-i18n-aria-label="mobileAccountMenuLabel">
+            <a href="#methodology" data-auth-close data-i18n="navMethod">Methodology</a>
+            <a href="./sources.html" data-i18n="navSources">Sources</a>
+            <a href="./roadmap.html" data-i18n="navRoadmap">Feature voting</a>
+            <a href="./contact.html" data-i18n="navContact">Contact</a>
+            <button id="mobile-theme-toggle" type="button" data-i18n="mobileTheme">Theme</button>
+          </nav>
 
           <div class="auth-signed-out" id="auth-signed-out">
             <p data-i18n="accountIntro">Sign in with an email code to sync saved universities, opening alerts, and your personal application calendar.</p>
@@ -210,15 +217,15 @@
       </div>
 
       <main>
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-title">
           <div class="hero-copy">
             <div class="eyebrow">
               <span class="live-dot"></span>
               <span data-i18n="eyebrow">Official sources · major rankings · daily monitoring</span>
             </div>
-            <h1 data-i18n-html="heroTitle">{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines<br /><em>& Opening Dates</em></h1>
+            <h1 id="hero-title" data-i18n="heroTitle">{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines</h1>
             <p data-i18n="heroDescription">
-              Master's application windows across top-200 universities in major global rankings. Filter by university, country, intake, status, and deadline.
+              Official opening dates and deadlines for master's programmes worldwide.
             </p>
             <form class="hero-search" id="hero-search-form" role="search">
               <label class="sr-only" for="hero-search-input" data-i18n="heroSearchLabel">Search application windows</label>
@@ -227,88 +234,36 @@
                 id="hero-search-input"
                 type="search"
                 autocomplete="off"
-                placeholder="Search NUS, KAIST, Electrical Engineering…"
+                placeholder="Search NUS, Oxford, Data Science…"
                 data-i18n-placeholder="heroSearchPlaceholder"
               />
               <button type="submit" data-i18n="heroSearchButton">Search</button>
             </form>
-            <div class="hero-actions">
-              <a class="primary-button" href="#application-board">
-                <span data-i18n="browseWindows">Browse application windows</span>
-                <span aria-hidden="true">↓</span>
-              </a>
+            <div class="hero-trust-stats" aria-label="Data coverage" data-i18n-aria-label="applicationStatsLabel">
+              <span><strong id="total-schools">{{GRADWINDOW_TOTAL_UNIVERSITIES}}</strong> <span data-i18n="universities">universities</span></span>
+              <span><strong id="total-records">{{GRADWINDOW_OFFICIAL_WINDOWS}}</strong> <span data-i18n="verifiedWindows">verified windows</span></span>
               <details class="refresh-summary" id="refresh-summary">
-                <summary><span id="refresh-relative">{{GRADWINDOW_REFRESH_SUMMARY}}</span> <span aria-hidden="true">·</span> <span id="monitoring-health">{{GRADWINDOW_MONITORING_HEALTH}}</span></summary>
+                <summary><span data-i18n="updatedDaily">Updated daily</span> <span aria-hidden="true">·</span> <span id="monitoring-health">{{GRADWINDOW_MONITORING_HEALTH}}</span></summary>
                 <div class="update-notes">
+                  <span class="update-note" id="refresh-relative">{{GRADWINDOW_REFRESH_SUMMARY}}</span>
                   <span class="update-note" id="data-refreshed-at">{{GRADWINDOW_DATA_REFRESHED_AT}}</span>
                   <span class="update-note" id="page-checked-at">{{GRADWINDOW_PAGE_CHECKED_AT}}</span>
                   <span class="update-note" id="monitoring-run-at">{{GRADWINDOW_MONITORING_RUN_AT}}</span>
                 </div>
               </details>
             </div>
-            <div class="hero-disclaimer">
-              <strong data-i18n="heroDisclaimerTitle">Before you apply</strong>
-              <p data-i18n="heroDisclaimerText">
-                We collect information from official university websites, but errors can still happen. Use this as a starting point, not your only source. Always confirm on the official school page before applying.
-              </p>
-            </div>
-          </div>
-
-          <div class="hero-visual" aria-hidden="true">
-            <div class="orbit orbit-one"></div>
-            <div class="orbit orbit-two"></div>
-            <div class="date-card date-card-main">
-              <span class="date-card-label" data-i18n="nextDeadline">NEXT DEADLINE</span>
-              <strong id="hero-deadline-day">{{GRADWINDOW_DEADLINE_DAY}}</strong>
-              <span id="hero-deadline-month">{{GRADWINDOW_DEADLINE_MONTH}}</span>
-              <div class="date-card-school" id="hero-deadline-school">{{GRADWINDOW_DEADLINE_SCHOOL}}</div>
-            </div>
-            <div class="mini-card mini-card-open">
-              <span data-i18n="openNow">OPEN NOW</span>
-              <strong id="hero-open-count">{{GRADWINDOW_OPEN_UNIVERSITIES}}</strong>
-            </div>
-            <div class="mini-card mini-card-rank">
-              <span data-i18n="rankingScopeLabel">GLOBAL TOP 200</span>
-              <strong data-i18n="rankingScopeValue">QS · THE · ARWU</strong>
-            </div>
+            <p class="hero-disclaimer">
+              <span data-i18n="heroTrustNote">Official sources · Confirm before applying.</span>
+              <a href="#methodology" data-i18n="learnMethodology">Methodology</a>
+            </p>
           </div>
         </section>
 
         <section class="board-section" id="application-board">
-          <div class="mobile-dashboard-intro" aria-label="Deadline overview" data-i18n-aria-label="mobileDeadlineOverview">
-            <span class="section-kicker">DEADLINE RADAR</span>
-            <h2 data-i18n="mobileTrackerTitle">Check urgent deadlines first</h2>
-            <p data-i18n="mobileTrackerDescription">Search globally, filter precisely, and confirm every deadline on the official page.</p>
-            <div class="mobile-summary-pills">
-              <span><strong id="mobile-open-count">{{GRADWINDOW_OPEN_UNIVERSITIES}}</strong> <span data-i18n="statusOpen">Open now</span></span>
-              <span><strong id="mobile-upcoming-count">{{GRADWINDOW_UPCOMING_UNIVERSITIES}}</strong> <span data-i18n="statusUpcoming">Opening soon</span></span>
-            </div>
-            <a class="mobile-deadline-alert" id="mobile-deadline-link" href="{{GRADWINDOW_DEADLINE_URL}}">
-              <span data-i18n="nextDeadline">NEXT DEADLINE</span>
-              <strong id="mobile-deadline-school">{{GRADWINDOW_DEADLINE_SCHOOL}}</strong>
-              <b id="mobile-deadline-date">{{GRADWINDOW_DEADLINE_MOBILE_DATE}}</b>
-              <small id="mobile-deadline-note">{{GRADWINDOW_DEADLINE_NOTE}}</small>
-            </a>
-          </div>
-
           <div class="section-heading">
             <div>
               <span class="section-kicker" data-i18n="applicationTrackerKicker">APPLICATION TRACKER</span>
               <h2 data-i18n="trackerTitle">Master's application windows</h2>
-            </div>
-            <div class="summary-stats" aria-label="Application statistics" data-i18n-aria-label="applicationStatsLabel">
-              <div>
-                <strong id="total-schools">{{GRADWINDOW_TOTAL_UNIVERSITIES}}</strong>
-                <span data-i18n="universities">universities</span>
-              </div>
-              <div>
-                <strong id="total-records">{{GRADWINDOW_OFFICIAL_WINDOWS}}</strong>
-                <span data-i18n="officialWindows">official windows</span>
-              </div>
-              <div>
-                <strong id="total-predictions">{{GRADWINDOW_ESTIMATED_WINDOWS}}</strong>
-                <span data-i18n="estimatedWindows">estimated windows</span>
-              </div>
             </div>
           </div>
 
@@ -317,20 +272,6 @@
             <span data-i18n="dataRulesText">Official dates and historical estimates are kept separate. Estimates shift the most recent verified cycle by one calendar year and never count as official windows.</span>
             <span id="monitor-summary"></span>
           </div>
-
-          <section class="application-workflow" id="my-application-timeline" aria-labelledby="timeline-title">
-            <div class="timeline-copy">
-              <span class="section-kicker" data-i18n="timelineKicker">YOUR WORKFLOW</span>
-              <h3 id="timeline-title" data-i18n="timelineTitle">My application timeline</h3>
-              <p id="timeline-summary" data-i18n="timelineEmpty">Save universities or deadlines to build your personal timeline.</p>
-            </div>
-            <div class="workflow-steps" aria-label="Application workflow" data-i18n-aria-label="workflowLabel">
-              <a href="#application-groups"><span>1</span><b data-i18n="workflowDiscover">Discover</b></a>
-              <button id="timeline-saved" type="button"><span>2</span><b data-i18n="workflowSave">Save</b></button>
-              <a href="#subscribe"><span>3</span><b data-i18n="workflowAlert">Alert me</b></a>
-              <a href="./calendar.html"><span>4</span><b data-i18n="workflowCalendar">Calendar</b></a>
-            </div>
-          </section>
 
           <div class="tracker-workspace">
             <aside class="tracker-sidebar" aria-label="Filters and sorting">
@@ -341,6 +282,23 @@
                 </div>
                 <div class="quick-filter-controls">
                   <div class="toolbar">
+                    <div class="status-tabs primary-status-tabs" role="tablist" aria-label="Application status" data-i18n-aria-label="statusTabsLabel">
+                      <button class="status-tab active" data-status="open" role="tab">
+                        <span data-i18n="statusOpen">Open now</span> <span id="count-open">{{GRADWINDOW_OPEN_UNIVERSITIES}}</span>
+                      </button>
+                      <button class="status-tab" data-status="upcoming" role="tab">
+                        <span data-i18n="statusUpcoming">Opening soon</span> <span id="count-upcoming">{{GRADWINDOW_UPCOMING_UNIVERSITIES}}</span>
+                      </button>
+                      <button class="status-tab" data-status="future" role="tab">
+                        <span data-i18n="statusFuture">Future</span> <span id="count-future">{{GRADWINDOW_FUTURE_UNIVERSITIES}}</span>
+                      </button>
+                      <button class="status-tab" id="saved-status-tab" data-saved-tab role="tab">
+                        <span data-i18n="statusSaved">Saved</span> <span id="favorite-tab-count">0</span>
+                      </button>
+                      <button class="status-tab" data-status="exception" role="tab">
+                        <span data-i18n="statusNeedsCheck">Needs check</span> <span id="count-exception">{{GRADWINDOW_MANUAL_CHECK_UNIVERSITIES}}</span>
+                      </button>
+                    </div>
                     <div class="primary-filter-row">
                       <label class="search-box">
                         <span aria-hidden="true">⌕</span>
@@ -351,26 +309,6 @@
                           data-i18n-placeholder="searchPlaceholder"
                         />
                       </label>
-                      <div class="status-tabs primary-status-tabs" role="tablist" aria-label="Application status" data-i18n-aria-label="statusTabsLabel">
-                        <button class="status-tab active" data-status="open" role="tab">
-                          <span data-i18n="statusOpen">Open now</span> <span id="count-open">{{GRADWINDOW_OPEN_UNIVERSITIES}}</span>
-                        </button>
-                        <button class="status-tab" data-status="upcoming" role="tab">
-                          <span data-i18n="statusUpcoming">Opening soon</span> <span id="count-upcoming">{{GRADWINDOW_UPCOMING_UNIVERSITIES}}</span>
-                        </button>
-                        <button class="status-tab secondary-status-tab" data-status="future" role="tab">
-                          <span data-i18n="statusFuture">Future</span> <span id="count-future">{{GRADWINDOW_FUTURE_UNIVERSITIES}}</span>
-                        </button>
-                        <button class="status-tab secondary-status-tab" data-status="closed" role="tab">
-                          <span data-i18n="statusClosed">Closed</span> <span id="count-closed">{{GRADWINDOW_CLOSED_UNIVERSITIES}}</span>
-                        </button>
-                      </div>
-                      <label class="select-wrap primary-select">
-                        <span class="sr-only" data-i18n="intakeFilterLabel">Intake</span>
-                        <select id="intake-filter">
-                          <option value="all" data-i18n="allIntakes">All intakes</option>
-                        </select>
-                      </label>
                       <label class="select-wrap primary-select">
                         <span class="sr-only" data-i18n="rankingFilter">Ranking</span>
                         <select id="ranking-filter">
@@ -380,17 +318,38 @@
                           <option value="usnews" disabled data-i18n="rankingUsnews">U.S. News (coverage expanding)</option>
                         </select>
                       </label>
+                      <label class="select-wrap primary-select">
+                        <span class="sr-only" data-i18n="regionFilterLabel">Region</span>
+                        <select id="region-filter">
+                          <option value="all" data-i18n="allRegions">All regions</option>
+                        </select>
+                      </label>
+                      <label class="select-wrap primary-select">
+                        <span class="sr-only" data-i18n="intakeFilterLabel">Intake</span>
+                        <select id="intake-filter">
+                          <option value="all" data-i18n="allIntakes">All intakes</option>
+                        </select>
+                      </label>
                       <button class="mobile-filter-toggle" id="mobile-filter-toggle" type="button" aria-expanded="false" aria-controls="advanced-filter-panel">
                         <span aria-hidden="true">☷</span>
-                        <span id="mobile-filter-toggle-label" data-i18n="showFilters">Filters</span>
+                        <span id="mobile-filter-toggle-label" data-i18n="showFilters">More filters</span>
                       </button>
                     </div>
 
                     <div class="advanced-filter-panel" id="advanced-filter-panel">
                       <label class="select-wrap advanced-filter-control">
-                        <span class="sr-only" data-i18n="regionFilterLabel">Region</span>
-                        <select id="region-filter">
-                          <option value="all" data-i18n="allRegions">All regions</option>
+                        <span class="sr-only" data-i18n="applicantFilterLabel">Applicant category</span>
+                        <select id="applicant-filter">
+                          <option value="all" data-i18n="allApplicants">All applicants</option>
+                        </select>
+                      </label>
+                      <label class="select-wrap advanced-filter-control">
+                        <span class="sr-only" data-i18n="deadlineRangeFilterLabel">Deadline range</span>
+                        <select id="deadline-range-filter">
+                          <option value="all" data-i18n="allDeadlineRanges">Any deadline</option>
+                          <option value="30" data-i18n="deadlineNext30">Next 30 days</option>
+                          <option value="90" data-i18n="deadlineNext90">Next 90 days</option>
+                          <option value="180" data-i18n="deadlineNext180">Next 180 days</option>
                         </select>
                       </label>
                       <label class="select-wrap advanced-filter-control">
@@ -403,9 +362,13 @@
                           <option value="200">QS Top 200</option>
                         </select>
                       </label>
-                      <label class="filter-check">
-                        <input id="official-only-toggle" type="checkbox" />
-                        <span data-i18n="officialOnly">Official only</span>
+                      <label class="select-wrap advanced-filter-control">
+                        <span class="sr-only" data-i18n="dateTypeFilterLabel">Date type</span>
+                        <select id="date-type-filter">
+                          <option value="all" data-i18n="allDateTypes">Official + estimated</option>
+                          <option value="official" data-i18n="officialOnly">Official only</option>
+                          <option value="estimated" data-i18n="estimatedOnly">Estimated only</option>
+                        </select>
                       </label>
                       <button class="toolbar-button" id="favorites-toggle" type="button">
                         <span data-i18n="favoritesOnly">Saved only</span> <span id="favorite-count">0</span>
@@ -422,8 +385,8 @@
                     </div>
 
                     <div class="tracker-route-actions">
-                      <button class="route-filter-button" id="data-quality-filter" data-status="exception" type="button">
-                        <span data-i18n="dataQualityFilter">Needs verification in results</span> <span id="count-exception">{{GRADWINDOW_MANUAL_CHECK_UNIVERSITIES}}</span>
+                      <button class="route-filter-button" id="data-quality-filter" data-status="exception" type="button" hidden>
+                        <span data-i18n="dataQualityFilter">Needs verification in results</span>
                       </button>
                       <button class="route-filter-button" id="browse-universities" data-status="unknown" type="button">
                         <span data-i18n="browseUniversities">Browse universities</span> <span id="count-unknown">{{GRADWINDOW_DIRECTORY_UNIVERSITIES}}</span>
@@ -466,12 +429,14 @@
           </div>
         </section>
 
-        <section class="seo-discovery" aria-labelledby="seo-discovery-title">
-          <div class="seo-discovery-heading">
-            <span class="section-kicker">{{GRADWINDOW_TARGET_CYCLE_YEAR}} APPLICATION TIMELINES</span>
-            <h2 id="seo-discovery-title" data-i18n="seoDiscoveryTitle">Browse by intake and opening month</h2>
-            <p data-i18n="seoDiscoveryDescription">Browse universities accepting applications now, opening soon, or grouped by opening month and intake.</p>
-          </div>
+        <details class="seo-discovery" aria-labelledby="seo-discovery-title">
+          <summary>
+            <span>
+              <span class="section-kicker">{{GRADWINDOW_TARGET_CYCLE_YEAR}} APPLICATION TIMELINES</span>
+              <strong id="seo-discovery-title" data-i18n="seoDiscoveryTitle">Browse by intake and opening month</strong>
+            </span>
+            <span aria-hidden="true">＋</span>
+          </summary>
           <div class="seo-discovery-columns">
             <section>
               <h3 data-i18n="seoOpenNowTitle">Open now</h3>
@@ -484,14 +449,7 @@
             <nav class="seo-landing-links" aria-label="Browse application timelines">{{GRADWINDOW_SEARCH_LANDING_LINKS}}</nav>
             <p class="seo-discovery-note" data-i18n="seoDiscoveryNote">Verified dates, official recurring policies, and unofficial estimates remain clearly labelled on every linked page.</p>
           </div>
-        </section>
-
-        <section class="trust-strip" aria-label="Product features" data-i18n-aria-label="productFeaturesLabel">
-          <div><span>01</span> <span data-i18n="featureOfficial">Official sources</span></div>
-          <div><span>02</span> <span data-i18n="featureDaily">Daily checks</span></div>
-          <div><span>03</span> <span data-i18n="featureCalendar">Add to calendar</span></div>
-          <div><span>04</span> <span data-i18n="featureRanked">Multi-ranking coverage</span></div>
-        </section>
+        </details>
 
         <div class="review-panel" id="review-panel" hidden>
           <button class="review-backdrop" type="button" data-review-close aria-label="Close reviews"></button>
@@ -547,33 +505,20 @@
           </article>
         </div>
 
-        <section class="methodology" id="methodology">
-          <div>
+        <section class="methodology" id="methodology" aria-labelledby="method-title">
+          <div class="method-heading">
             <span class="section-kicker" data-i18n="methodologyKicker">HOW IT WORKS</span>
-            <h2 data-i18n="methodTitle">Where do the dates come from?</h2>
+            <h2 id="method-title" data-i18n="methodTitle">Where do the dates come from?</h2>
           </div>
-          <div class="method-grid">
-            <article>
-              <span>1</span>
-              <h3 data-i18n="method1Title">Locate official pages</h3>
-              <p data-i18n="method1Text">Each record links to an official university, faculty, or programme admissions page.</p>
-            </article>
-            <article>
-              <span>2</span>
-              <h3 data-i18n="method2Title">Check changes daily</h3>
-              <p data-i18n="method2Text">Automated monitoring flags repeated page changes for human review.</p>
-            </article>
-            <article>
-              <span>3</span>
-              <h3 data-i18n="method3Title">Generate cycle estimates</h3>
-              <p data-i18n="method3Text">When the next cycle is unpublished, the latest verified dates are shifted by one year and marked unofficial.</p>
-            </article>
-            <article>
-              <span>4</span>
-              <h3 data-i18n="method4Title">Replace with official dates</h3>
-              <p data-i18n="method4Text">Verified new-cycle dates replace matching estimates automatically.</p>
-            </article>
+          <div class="method-flow" aria-label="Verification process">
+            <span data-i18n="methodFlowOfficial">Official university source</span>
+            <b aria-hidden="true">→</b>
+            <span data-i18n="methodFlowDaily">Daily monitoring</span>
+            <b aria-hidden="true">→</b>
+            <span data-i18n="methodFlowVerified">Verified date</span>
           </div>
+          <p class="method-estimate-note" data-i18n="methodEstimateNote">Estimates are always shown separately.</p>
+          <a class="method-link" href="./sources.html" data-i18n="viewMethodologySources">Methodology and sources</a>
         </section>
 
         <section class="qa-section" id="qa">
@@ -582,53 +527,34 @@
               <span class="section-kicker" data-i18n="qaKicker">Q&A</span>
               <h2 data-i18n="qaTitle">Questions about the data</h2>
             </div>
-            <p data-i18n="qaIntro">A few notes to help interpret representative programmes, university-wide rules, and daily updates.</p>
+            <p><span data-i18n="qaIntro">Three quick answers about how to read the tracker.</span> <a href="./sources.html" data-i18n="qaMoreLink">Read the full methodology and sources.</a></p>
           </div>
           <div class="qa-grid">
             <article>
-              <h3 data-i18n="qaRepresentativeTitle">Why does a university show only one programme?</h3>
-              <p data-i18n="qaRepresentativeText">The table lists exact windows we have verified. For programme-specific universities such as UCL, one representative programme may appear while the school directory records the broader rule.</p>
-            </article>
-            <article>
-              <h3 data-i18n="qaUnifiedTitle">Does this mean the whole university uses that deadline?</h3>
-              <p data-i18n="qaUnifiedText">No. If the policy says programme-level deadlines, dates can differ by course, faculty, funding route, or visa status. Always open the course page before applying.</p>
-            </article>
-            <article>
-              <h3 data-i18n="qaAutoUpdateTitle">Will unified admission dates be added automatically?</h3>
-              <p data-i18n="qaAutoUpdateText">Daily checks flag changes on saved official pages. New dates become official records only after a reliable source or parser confirms the exact window.</p>
-            </article>
-            <article>
-              <h3 data-i18n="qaExceptionTitle">What does “Needs manual check” mean?</h3>
-              <p data-i18n="qaExceptionText">Those schools block automated access, return stale pages, or do not expose reliable dates in the current environment. You should verify them directly on the official site.</p>
+              <h3 data-i18n="qaOfficialTitle">Are these dates official?</h3>
+              <p data-i18n="qaOfficialText">Verified records link to the official university source and show when the date was checked. Confirm the programme page before submitting.</p>
             </article>
             <article>
               <h3 data-i18n="qaEstimateTitle">What does an estimated date mean?</h3>
               <p data-i18n="qaEstimateText">An estimate shifts the latest verified cycle by one calendar year. It is a planning reference only and is never treated as an official application window.</p>
             </article>
             <article>
-              <h3 data-i18n="qaMultipleRowsTitle">Why can one university have several rows?</h3>
-              <p data-i18n="qaMultipleRowsText">Different programmes, applicant categories, visa routes, and admission rounds can use different dates. Each row represents one independently sourced window.</p>
-            </article>
-            <article>
-              <h3 data-i18n="qaCheckedTitle">Does “check passed” guarantee the date has not changed?</h3>
-              <p data-i18n="qaCheckedText">It means the monitored official page was reachable and no tracked change was detected. You should still confirm the programme page before submitting.</p>
-            </article>
-            <article>
-              <h3 data-i18n="qaRankingTitle">Why do the schools change when I switch rankings?</h3>
-              <p data-i18n="qaRankingText">QS is the default monitored dataset. THE and ARWU add institutions from their own top 200 lists, so those views can contain schools outside the QS directory.</p>
+              <h3 data-i18n="qaUnifiedTitle">Can deadlines differ by programme?</h3>
+              <p data-i18n="qaUnifiedText">Yes. Dates can differ by course, faculty, funding route, applicant category, or visa status. Always open the specific course page before applying.</p>
             </article>
           </div>
         </section>
 
         <section class="subscribe-section" id="subscribe">
           <div>
-            <span class="section-kicker" data-i18n="subscribeKicker">EMAIL ALERTS</span>
-            <h2 data-i18n="subscribeTitle">Get notified when applications open</h2>
+            <h2 data-i18n="subscribeCtaTitle">Want to know when applications open?</h2>
             <p data-i18n="subscribeDescription">
-              Receive an email only when a newly verified official application window opens.
+              Save universities and get verified-date alerts.
             </p>
           </div>
-          <form class="subscribe-form" id="subscribe-form">
+          <details class="subscribe-disclosure">
+            <summary class="primary-button" data-i18n="subscribeCtaButton">Set up alerts</summary>
+            <form class="subscribe-form" id="subscribe-form">
             <label for="subscribe-email" data-i18n="emailAddress">Email address</label>
             <div class="subscribe-row">
               <input
@@ -659,7 +585,8 @@
               <a href="./privacy.html" data-i18n="privacyPolicy">Privacy policy</a>
             </p>
             <p class="subscribe-status" id="subscribe-status" role="status" aria-live="polite"></p>
-          </form>
+            </form>
+          </details>
         </section>
       </main>
 
@@ -683,7 +610,8 @@
       </footer>
 
       <nav class="mobile-bottom-nav" aria-label="Mobile navigation" data-i18n-aria-label="mobileNavigationLabel">
-        <button class="active" type="button" data-mobile-nav="home"><span aria-hidden="true">⌂</span><b data-i18n="mobileNavHome">Home</b></button>
+        <button class="active" type="button" data-mobile-nav="tracker"><span aria-hidden="true">⌕</span><b data-i18n="mobileNavTracker">Tracker</b></button>
+        <a href="./calendar.html" data-mobile-nav="calendar"><span aria-hidden="true">□</span><b data-i18n="mobileNavCalendar">Calendar</b></a>
         <button type="button" data-mobile-nav="favorites"><span aria-hidden="true">☆</span><b data-i18n="mobileNavFavorites">Saved</b></button>
         <button type="button" data-mobile-nav="profile"><span aria-hidden="true">♙</span><b data-i18n="mobileNavProfile">Me</b></button>
       </nav>
