@@ -46,6 +46,8 @@ test("wide desktop places the filters beside the application results", async ({
 
   expect(sidebarBox).not.toBeNull();
   expect(resultsBox).not.toBeNull();
+  expect(sidebarBox.width).toBeGreaterThanOrEqual(260);
+  expect(sidebarBox.width).toBeLessThanOrEqual(296);
   expect(sidebarBox.x + sidebarBox.width).toBeLessThan(resultsBox.x);
   await expect(sidebar).toHaveCSS("position", "sticky");
 

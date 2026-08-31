@@ -372,7 +372,8 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'params.set("dates", state.dateType)' in app_js
     assert "grid-template-columns: 268px minmax(0, 1fr)" in styles_css
     assert (
-        "grid-template-columns: clamp(232px, 17vw, 264px) minmax(0, 1fr)" in styles_css
+        "grid-template-columns: clamp(260px, 18.5vw, 296px) minmax(0, 1fr)"
+        in styles_css
     )
     assert "@media (min-width: 1400px)" in styles_css
     assert ".tracker-sidebar .primary-status-tabs" in styles_css
