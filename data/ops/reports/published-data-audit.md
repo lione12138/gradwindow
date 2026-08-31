@@ -1,13 +1,13 @@
 # Published data audit
 
-Generated for 2026-08-30.
+Generated for 2026-08-31.
 
-- Active issues: 671
-- Universities needing review: 13
-- Records quarantined from SEO aggregates: 480
+- Active issues: 674
+- Universities needing review: 14
+- Records quarantined from SEO aggregates: 483
 - Suspicious intake/deadline mappings: 210
 - Published records missing from a healthy current snapshot: 35
-- Published records changed from a healthy current snapshot: 426
+- Published records changed from a healthy current snapshot: 429
 - Published records with source URL-only changes: 0
 
 ## Maintenance queue
@@ -15,6 +15,9 @@ Generated for 2026-08-30.
 - `kth-computer-science-autumn-2027` — **published-record-missing-from-snapshot** (kth-royal-institute-of-technology, Autumn 2027, closes 2027-01-15) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
+- `ntu-china-and-global-governance-msocsci-2027-semester-2` — **published-record-changed-from-snapshot** (nanyang-technological-university-singapore-ntu-singapore, January 2027, closes 2026-08-31) — correct-published-record-review
+- `ntu-english-mpa-2027-semester-2` — **published-record-changed-from-snapshot** (nanyang-technological-university-singapore-ntu-singapore, January 2027, closes 2026-08-31) — correct-published-record-review
+- `ntu-managerial-economics-english-msc-2027-semester-2` — **published-record-changed-from-snapshot** (nanyang-technological-university-singapore-ntu-singapore, January 2027, closes 2026-08-31) — correct-published-record-review
 - `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review
 - `nus-master-in-international-affairs-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-15) — retire-or-correct-review
 - `nus-master-in-public-administration-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-31) — retire-or-correct-review
