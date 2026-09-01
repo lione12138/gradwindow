@@ -2,7 +2,7 @@
   "universities": {
     "universit-catholique-de-louvain-ucl": {
       "sourceUrl": "https://www.uclouvain.be/fr/catalogue-formations/masters-2026",
-      "checkedAt": "2026-08-31T12:03:55.038032+00:00",
+      "checkedAt": "2026-09-01T10:34:17.645835+00:00",
       "itemCount": 139,
       "applicationOpensAt": null,
       "catalogHash": "dc911a4c7761ce895b8eb519f53420897f2af64fc728fb27d535fae3c665c2cc",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 139,
       "programmesNeedingReview": 139,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-31T12:03:55.038032+00:00",
+      "lastSuccessfulAt": "2026-09-01T10:34:17.645835+00:00",
       "windowFingerprint": "8dc2ab2b9fe43ee3d6bb4aaa3e08c97ea9c6cb659f851889b468698c43b3cfdf",
       "watchedWindowSourceHash": "7c90db3c56f20ce8215d86f2087173401a13455a1bbcdd425623eb3e9723f82f",
       "watchedWindowSourceFingerprintVersion": 3,
@@ -1418,15 +1418,17 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 1,
-          "directSuccesses": 1,
-          "directFailures": 0,
+          "directSuccesses": 0,
+          "directFailures": 1,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "network": 1
+          }
         }
       }
     }
