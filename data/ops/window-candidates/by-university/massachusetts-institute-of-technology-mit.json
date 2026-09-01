@@ -1,6 +1,55 @@
 {
   "items": [
     {
+      "id": "adapter-window:mit-supply-chain-management-residential-masters-2027-round-3:2026-09-03:2027-04-01",
+      "type": "adapter-window-change",
+      "status": "pending",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "detectedAt": "2026-09-01T10:10:33.740567+00:00",
+      "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "openingBasis": "official",
+      "record": {
+        "id": "mit-supply-chain-management-residential-masters-2027-round-3",
+        "universityId": "massachusetts-institute-of-technology-mit",
+        "scopeType": "programme",
+        "scopeId": "mit-supply-chain-management-residential-masters",
+        "intake": "September 2027",
+        "round": "Round 3",
+        "applicantCategories": [
+          "all"
+        ],
+        "opensAt": "2026-09-03",
+        "closesAt": "2027-04-01",
+        "applicationUrl": "https://oge.mit.edu/programs/supply-chain-management-residential/",
+        "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+        "verifiedAt": "2026-09-01",
+        "evidence": "The official programme adapter observed Supply Chain Management Residential opening on 2026-09-03 and closing on 2027-04-01. Source: https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+        "intakeDetails": {
+          "label": "September 2027",
+          "cycleYear": 2027,
+          "academicYearEnd": null,
+          "term": "fall",
+          "startMonth": 9
+        },
+        "entryPattern": "fixed",
+        "startDatePrecision": "month"
+      },
+      "changes": {
+        "closesAt": {
+          "previous": "2027-03-31",
+          "observed": "2027-04-01"
+        }
+      },
+      "evidenceExcerpt": "Application opens: September 3; deadline: November 1, January 31, April 1",
+      "confirmation": {
+        "requiredObservations": 2,
+        "observationCount": 1,
+        "firstObservedAt": "2026-09-01T10:10:33.740567+00:00",
+        "lastObservedAt": "2026-09-01T10:10:33.740567+00:00",
+        "observationFingerprint": "c839b7a3d01805110eca2c6799773ee018cea980f5273df3ef750acfc3426cc0"
+      }
+    },
+    {
       "id": "adapter-window:mit-architecture-masters-2027-main-deadline:2026-09-15:2027-01-07",
       "type": "adapter-window-change",
       "status": "approved",

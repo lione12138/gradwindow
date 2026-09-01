@@ -16,9 +16,9 @@
 - 搜索、状态筛选、收藏、提醒和日历导出组成完整申请流程。
 - QS 是默认视图，THE 与软科前 200 视图已经上线；U.S. News 暂不标为已上线。
 
-**当前覆盖：**302 所标准化大学 · 29,384 个项目 · 5,382 条官网精确窗口
+**当前覆盖：**302 所标准化大学 · 29,388 个项目 · 5,399 条官网精确窗口
 
-状态日期：**2026-08-31**
+状态日期：**2026-09-01**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -26,11 +26,11 @@
 
 | QS | 大学 | 覆盖范围 | 最近截止 | 数据类型 | 链接 |
 |---:|---|---|---|---|---|
-| 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 1 个当前开放窗口 | 2026-10-01 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 8 个当前开放窗口 | 2026-10-01 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
 | =2 | Imperial College London / 帝国理工学院 | 13 个当前开放窗口 | 2026-09-28 | 预测参考 | [招生官网](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [查看全部项目](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 6 | University of Cambridge / 剑桥大学 | 1 个当前开放窗口 | 2027-05-14 | 预测参考 | [招生官网](https://www.postgraduate.study.cam.ac.uk/application-process) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Cambridge) |
-| 10 | National University of Singapore (NUS) / 新加坡国立大学 | 18 个当前开放窗口 | 2026-08-31 | 官网核验 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
-| 12 | Nanyang Technological University, Singapore (NTU Singapore) / 南洋理工大学 | 29 个当前开放窗口 | 2026-08-31 | 官网核验 | [招生官网](https://www.ntu.edu.sg/admissions/graduate) · [查看全部项目](https://gradwindow.com/?q=Nanyang%20Technological%20University%2C%20Singapore%20%28NTU%20Singapore%29) |
+| 10 | National University of Singapore (NUS) / 新加坡国立大学 | 14 个当前开放窗口 | 2026-09-30 | 官网核验 + 预测参考 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
+| 11 | The University of Hong Kong / 香港大学 | 89 个当前开放窗口 | 2026-11-03 | 预测参考 | [招生官网](https://admissions.hku.hk/tpg/) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Hong%20Kong) |
 
 [在 GradWindow 查看全部正在开放的窗口 →](https://gradwindow.com/?status=open)
 
@@ -38,11 +38,11 @@
 
 | QS | 大学 | 覆盖范围 | 最近开放 | 数据类型 | 链接 |
 |---:|---|---|---|---|---|
-| 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 20 个即将开放窗口 | 2026-09-01 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 16 个即将开放窗口 | 2026-09-03 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
 | =2 | Imperial College London / 帝国理工学院 | 117 个即将开放窗口 | 2026-09-29 | 官网核验 + 预测参考 | [招生官网](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [查看全部项目](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 6 | University of Cambridge / 剑桥大学 | 156 个即将开放窗口 | 2026-09-03 | 预测参考 | [招生官网](https://www.postgraduate.study.cam.ac.uk/application-process) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Cambridge) |
-| 10 | National University of Singapore (NUS) / 新加坡国立大学 | 9 个即将开放窗口 | 2026-09-01 | 官网核验 + 预测参考 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
-| 11 | The University of Hong Kong / 香港大学 | 89 个即将开放窗口 | 2026-09-01 | 预测参考 | [招生官网](https://admissions.hku.hk/tpg/) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Hong%20Kong) |
+| 10 | National University of Singapore (NUS) / 新加坡国立大学 | 18 个即将开放窗口 | 2026-10-01 | 官网核验 + 预测参考 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
+| 15 | University of Pennsylvania / 宾夕法尼亚大学 | 23 个即将开放窗口 | 2026-09-15 | 官网核验 + 预测参考 | [招生官网](https://www.upenn.edu/academics/graduate) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Pennsylvania) |
 
 [在 GradWindow 查看全部即将开放的窗口 →](https://gradwindow.com/?status=upcoming)
 

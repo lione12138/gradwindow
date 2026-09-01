@@ -1,23 +1,21 @@
 # Published data audit
 
-Generated for 2026-08-31.
+Generated for 2026-09-01.
 
-- Active issues: 674
-- Universities needing review: 14
-- Records quarantined from SEO aggregates: 483
+- Active issues: 671
+- Universities needing review: 13
+- Records quarantined from SEO aggregates: 480
 - Suspicious intake/deadline mappings: 210
-- Published records missing from a healthy current snapshot: 35
-- Published records changed from a healthy current snapshot: 429
+- Published records missing from a healthy current snapshot: 34
+- Published records changed from a healthy current snapshot: 427
 - Published records with source URL-only changes: 0
 
 ## Maintenance queue
 
 - `kth-computer-science-autumn-2027` — **published-record-missing-from-snapshot** (kth-royal-institute-of-technology, Autumn 2027, closes 2027-01-15) — retire-or-correct-review
+- `mit-supply-chain-management-residential-masters-2027-round-3` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2027-03-31) — correct-published-record-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
-- `ntu-china-and-global-governance-msocsci-2027-semester-2` — **published-record-changed-from-snapshot** (nanyang-technological-university-singapore-ntu-singapore, January 2027, closes 2026-08-31) — correct-published-record-review
-- `ntu-english-mpa-2027-semester-2` — **published-record-changed-from-snapshot** (nanyang-technological-university-singapore-ntu-singapore, January 2027, closes 2026-08-31) — correct-published-record-review
-- `ntu-managerial-economics-english-msc-2027-semester-2` — **published-record-changed-from-snapshot** (nanyang-technological-university-singapore-ntu-singapore, January 2027, closes 2026-08-31) — correct-published-record-review
 - `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review
 - `nus-master-in-international-affairs-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-15) — retire-or-correct-review
 - `nus-master-in-public-administration-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-31) — retire-or-correct-review
@@ -669,7 +667,6 @@ Generated for 2026-08-31.
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
 - `edinburgh-social-justice-and-community-action-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
 - `edinburgh-veterinary-anaesthesia-and-analgesia-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-20) — correct-intake-or-document-flexible-entry
-- `helsinki-computer-science-autumn-2027` — **published-record-missing-from-snapshot** (university-of-helsinki, Autumn 2027, closes 2027-01-19) — retire-or-correct-review
 - `umontreal-maitrise-informatique-hiver-2027` — **published-record-missing-from-snapshot** (university-of-montreal, Hiver 2027, closes 2026-09-01) — retire-or-correct-review
 - `penn-bioengineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `penn-chemical-biomolecular-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
