@@ -16,9 +16,9 @@
 - Search, status filters, saved universities, alerts, and calendar export form one application workflow.
 - QS is the default view; THE and ARWU top-200 views are live. U.S. News coverage is not presented as live yet.
 
-**Coverage:** 302 canonical universities · 29,388 programmes · 5,399 verified exact windows
+**Coverage:** 302 canonical universities · 29,433 programmes · 5,409 verified exact windows
 
-Status date: **2026-09-01**
+Status date: **2026-09-02**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
