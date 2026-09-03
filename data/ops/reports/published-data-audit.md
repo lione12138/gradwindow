@@ -1,23 +1,18 @@
 # Published data audit
 
-Generated for 2026-09-02.
+Generated for 2026-09-03.
 
-- Active issues: 675
-- Universities needing review: 13
-- Records quarantined from SEO aggregates: 484
+- Active issues: 670
+- Universities needing review: 12
+- Records quarantined from SEO aggregates: 479
 - Suspicious intake/deadline mappings: 210
 - Published records missing from a healthy current snapshot: 34
-- Published records changed from a healthy current snapshot: 431
+- Published records changed from a healthy current snapshot: 426
 - Published records with source URL-only changes: 0
 
 ## Maintenance queue
 
 - `tu-delft-geomatics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
-- `mit-supply-chain-management-blended-masters-2027-round-1` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2027-01-09) — correct-published-record-review
-- `mit-supply-chain-management-blended-masters-2027-round-2` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2027-06-19) — correct-published-record-review
-- `mit-supply-chain-management-residential-masters-2027-round-1` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2026-11-01) — correct-published-record-review
-- `mit-supply-chain-management-residential-masters-2027-round-2` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2027-01-31) — correct-published-record-review
-- `mit-supply-chain-management-residential-masters-2027-round-3` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2027-03-31) — correct-published-record-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
 - `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review
