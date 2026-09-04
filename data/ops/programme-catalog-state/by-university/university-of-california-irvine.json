@@ -2,24 +2,33 @@
   "universities": {
     "university-of-california-irvine": {
       "sourceUrl": "https://grad.uci.edu/admissions/degree-programs/",
-      "checkedAt": "2026-09-03T10:18:34.162001+00:00",
-      "itemCount": 78,
+      "checkedAt": "2026-09-04T10:07:07.779758+00:00",
+      "itemCount": 81,
       "applicationOpensAt": null,
-      "catalogHash": "561cdd515356d5219fe05d0cd712004a13f57d9ec17ee0b5008fdc42c40a8780",
+      "catalogHash": "17aa3cff3d93001a65a8f638748896af93ade44cb054c75f2a6377ddde2f4000",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 50,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {},
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 78,
-      "programmesNeedingReview": 78,
-      "limitationReason": "UCI's official portal publishes programme closing dates but not exact opening dates. Current closing dates are retained as review guidance only. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-03T10:18:34.162001+00:00",
-      "windowFingerprint": "dfb432a0ef91585b4843674f4ab9c703c48f61e008d71faac6be7b6552da16ad",
-      "watchedWindowSourceHash": "c9b1bc88b49f95357cfc1c93e30c6a02a1880fb401deda39b1a289d932a4be33",
+      "windowCountsByCycle": {
+        "label:varies-by-programme": {
+          "intakes": [
+            "Varies by programme"
+          ],
+          "observedWindowCount": 50,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 50,
+      "programmesWithoutDeadlines": 31,
+      "programmesNeedingReview": 81,
+      "limitationReason": "UCI's official portal publishes programme closing dates but not exact opening dates. Current closing dates are retained as review guidance only. 50 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-09-04T10:07:07.779758+00:00",
+      "windowFingerprint": "4de4b7d1a55bbba0dc3da336c75262df1e4cdddfd74ed8bf3b8191ff1a6247b8",
+      "watchedWindowSourceHash": "378f5a8e179a3dfdaa7edc983221f40cd860194cc4c48411736ef194b2b3b0ab",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "uci-advanced-manufacturing-master": {
@@ -27,10 +36,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "6e4dc6909ad830986aaab35e70871dfb74795d05fa233d3698e3637108675da9",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-01"
         },
         "uci-art-history-master": {
           "name": "Art History",
@@ -47,10 +56,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-asian-american-studies-master": {
           "name": "Asian American Studies",
@@ -67,10 +76,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "afb2ffa857d01a22e629d37372412a36edb3efab33eb546a833c537eba1f5e6c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-05-01"
         },
         "uci-biomedical-engineering-master": {
           "name": "Biomedical Engineering",
@@ -87,20 +96,20 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "57fde896389037fadd9860025c5486cb0f4fb5041c3c38b53e0d2512dc590e7c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-01"
         },
         "uci-biotechnology-management-master": {
           "name": "Biotechnology Management",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-chemical-and-biomolecular-engineering-master": {
           "name": "Chemical and Biomolecular Engineering",
@@ -117,10 +126,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-civil-and-environmental-engineering-master": {
           "name": "Civil and Environmental Engineering",
@@ -137,10 +146,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-criminology-law-and-society-online-program-master": {
           "name": "Criminology, Law and Society (Online Program)",
@@ -157,80 +166,80 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "5a49002b7c32e4164a7c71271e3c7fa48adca109c9a5fdceb54cb38033699736",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "uci-developmental-and-cell-biology-fpo-master": {
           "name": "Developmental and Cell Biology FPO",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "5a49002b7c32e4164a7c71271e3c7fa48adca109c9a5fdceb54cb38033699736",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "uci-drama-m-f-a-master": {
           "name": "Drama M.F.A.",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "6e4dc6909ad830986aaab35e70871dfb74795d05fa233d3698e3637108675da9",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-01"
         },
         "uci-ecology-and-evolutionary-biology-master": {
           "name": "Ecology and Evolutionary Biology",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "5a49002b7c32e4164a7c71271e3c7fa48adca109c9a5fdceb54cb38033699736",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "uci-ecology-and-evolutionary-biology-fpo-master": {
           "name": "Ecology and Evolutionary Biology FPO",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "5a49002b7c32e4164a7c71271e3c7fa48adca109c9a5fdceb54cb38033699736",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "uci-electrical-and-computer-engineering-with-concentration-in-computer-engineering-master": {
           "name": "Electrical and Computer Engineering with concentration in Computer Engineering",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-electrical-and-computer-engineering-with-concentration-in-electrical-engineering-master": {
           "name": "Electrical and Computer Engineering with concentration in Electrical Engineering",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-english-m-f-a-creative-writing-master": {
           "name": "English M.F.A. (Creative Writing)",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "d4571d4323b9aac0e71c853f7b9f9d5339e48e5f047a36bfe29e0a5946063419",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-11"
         },
         "uci-environmental-health-sciences-master": {
           "name": "Environmental Health Sciences",
@@ -257,40 +266,40 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "57fde896389037fadd9860025c5486cb0f4fb5041c3c38b53e0d2512dc590e7c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-01"
         },
         "uci-genetic-counseling-master": {
           "name": "Genetic Counseling",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "170ccf228fef069fba6c2c4672a5c200eed125a4667dbb91136af8fef4154b83",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-18"
         },
         "uci-history-master": {
           "name": "History",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "f4d1df0e2d1d8d0d34bac874f92018487d5f25a88cd137ecfb5b3769819259ac",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-03"
         },
         "uci-informatics-master": {
           "name": "Informatics",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-master-of-arts-in-teaching-master": {
           "name": "Master of Arts in Teaching",
@@ -357,10 +366,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-master-of-conservation-and-restoration-science-master": {
           "name": "Master of Conservation and Restoration Science",
@@ -377,20 +386,40 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-master-of-education-sciences-with-concentration-in-artificial-intelligence-and-learning-analytics-master": {
           "name": "Master of Education Sciences with concentration in Artificial Intelligence and Learning Analytics",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "8206d1b6e6de99633e7b1a0b45858912635617c2c98ed170a3e8ffa336d97b1e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-06-30"
+        },
+        "uci-master-of-education-sciences-with-concentration-in-connected-learning-technology-and-design-master": {
+          "name": "Master of Education Sciences with concentration in Connected Learning, Technology, and Design",
+          "degreeType": "Master",
+          "faculty": "University of California, Irvine",
+          "department": "University of California, Irvine",
+          "parseStatus": "incomplete",
+          "deadlineHash": "8206d1b6e6de99633e7b1a0b45858912635617c2c98ed170a3e8ffa336d97b1e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-06-30"
+        },
+        "uci-master-of-education-sciences-with-concentration-in-stem-and-artificial-intelligence-teacher-leadership-master": {
+          "name": "Master of Education Sciences with concentration in STEM and Artificial Intelligence Teacher Leadership",
+          "degreeType": "Master",
+          "faculty": "University of California, Irvine",
+          "department": "University of California, Irvine",
+          "parseStatus": "incomplete",
+          "deadlineHash": "8206d1b6e6de99633e7b1a0b45858912635617c2c98ed170a3e8ffa336d97b1e",
+          "windowCount": 1,
+          "latestClosesAt": "2027-06-30"
         },
         "uci-master-of-embedded-and-cyber-physical-systems-master": {
           "name": "Master of Embedded and Cyber-Physical Systems",
@@ -467,10 +496,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-master-of-finance-master": {
           "name": "Master of Finance",
@@ -487,10 +516,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "d95782ecb5b0e85ed878b2773e447712dc0c541b11554354f261ca7f280e1b03",
+          "windowCount": 1,
+          "latestClosesAt": "2027-04-15"
         },
         "uci-master-of-innovation-and-entrepreneurship-master": {
           "name": "Master of Innovation and Entrepreneurship",
@@ -507,10 +536,10 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "57fde896389037fadd9860025c5486cb0f4fb5041c3c38b53e0d2512dc590e7c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-01"
         },
         "uci-master-of-professional-accountancy-master": {
           "name": "Master of Professional Accountancy",
@@ -537,60 +566,70 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-master-of-public-health-with-concentration-in-community-health-and-health-equity-master": {
           "name": "Master of Public Health with concentration in Community Health and Health Equity",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-master-of-public-health-with-concentration-in-environmental-and-occupational-health-master": {
           "name": "Master of Public Health with concentration in Environmental and Occupational Health",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-master-of-public-health-with-concentration-in-epidemiology-master": {
           "name": "Master of Public Health with concentration in Epidemiology",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-master-of-public-health-with-concentration-in-global-health-master": {
           "name": "Master of Public Health with concentration in Global Health",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-master-of-public-health-with-concentration-in-health-systems-and-policy-master": {
           "name": "Master of Public Health with concentration in Health Systems and Policy",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
+        },
+        "uci-master-of-science-in-applied-artificial-intelligence-for-science-master": {
+          "name": "Master of Science in Applied Artificial Intelligence for Science",
+          "degreeType": "Master",
+          "faculty": "University of California, Irvine",
+          "department": "University of California, Irvine",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-master-of-science-in-management-master": {
           "name": "Master of Science in Management",
@@ -607,70 +646,70 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-master-of-urban-and-regional-planning-master": {
           "name": "Master of Urban and Regional Planning",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-materials-science-and-engineering-master": {
           "name": "Materials Science and Engineering",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "5a49002b7c32e4164a7c71271e3c7fa48adca109c9a5fdceb54cb38033699736",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "uci-mathematical-computational-and-systems-biology-master": {
           "name": "Mathematical, Computational, and Systems Biology",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "c689be702b45968f3d021248b35d6df6b9ad4f29e8bdf9a009fafe154b976c4a",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-05"
         },
         "uci-mathematics-master": {
           "name": "Mathematics",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "5a49002b7c32e4164a7c71271e3c7fa48adca109c9a5fdceb54cb38033699736",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "uci-mechanical-and-aerospace-engineering-master": {
           "name": "Mechanical and Aerospace Engineering",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-molecular-biology-and-biochemistry-fpo-master": {
           "name": "Molecular Biology and Biochemistry FPO",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "5a49002b7c32e4164a7c71271e3c7fa48adca109c9a5fdceb54cb38033699736",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "uci-music-m-f-a-master": {
           "name": "Music M.F.A.",
@@ -687,30 +726,30 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cc3014ed74d713ec9ae85bdfcc4de17d5cb23d7e90fcdf23998a5068e8cab6d7",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "uci-neurobiology-and-behavior-fpo-master": {
           "name": "Neurobiology and Behavior FPO",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "5a49002b7c32e4164a7c71271e3c7fa48adca109c9a5fdceb54cb38033699736",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01"
         },
         "uci-nursing-science-community-and-population-health-concentration-master": {
           "name": "Nursing Science - Community and Population Health Concentration",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0404e2c06e5968b2f57eae3381f733bb6974ed093b1d9617cdca2bb66a737aab",
+          "windowCount": 1,
+          "latestClosesAt": "2026-11-30"
         },
         "uci-part-time-online-master-of-business-analytics-master": {
           "name": "Part-Time Online Master of Business Analytics",
@@ -737,30 +776,30 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "d95782ecb5b0e85ed878b2773e447712dc0c541b11554354f261ca7f280e1b03",
+          "windowCount": 1,
+          "latestClosesAt": "2027-04-15"
         },
         "uci-physics-with-concentration-in-astronomy-and-astrophysics-master": {
           "name": "Physics with concentration in Astronomy and Astrophysics",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-social-science-demographic-and-social-analysis-master": {
           "name": "Social Science - Demographic and Social Analysis",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "f06791435df5c2e1b719e635ab14aafafe3c0074116e0a286f0b33b8b4d077a1",
+          "windowCount": 1,
+          "latestClosesAt": "2027-06-15"
         },
         "uci-social-science-medicine-science-and-technology-studies-master": {
           "name": "Social Science - Medicine, Science and Technology Studies",
@@ -777,33 +816,434 @@
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-statistics-master": {
           "name": "Statistics",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a25fb27ae37a66b0840586bf245c71ca82b45701660e8c2238dfb065ab04695",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15"
         },
         "uci-transportation-science-master": {
           "name": "Transportation Science",
           "degreeType": "Master",
           "faculty": "University of California, Irvine",
           "department": "University of California, Irvine",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "57fde896389037fadd9860025c5486cb0f4fb5041c3c38b53e0d2512dc590e7c",
+          "windowCount": 1,
+          "latestClosesAt": "2027-03-01"
         }
       },
-      "windows": {},
+      "windows": {
+        "uci-advanced-manufacturing-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-advanced-manufacturing-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-02-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-art-m-f-a-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-art-m-f-a-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-biomedical-and-translational-science-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-biomedical-and-translational-science-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-biotechnology-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-biotechnology-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-biotechnology-management-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-biotechnology-management-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-chemical-applied-and-materials-physics-physics-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-chemical-applied-and-materials-physics-physics-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-computer-science-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-computer-science-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-dance-m-f-a-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-dance-m-f-a-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-developmental-and-cell-biology-fpo-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-developmental-and-cell-biology-fpo-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-drama-m-f-a-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-drama-m-f-a-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-02-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-ecology-and-evolutionary-biology-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-ecology-and-evolutionary-biology-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-ecology-and-evolutionary-biology-fpo-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-ecology-and-evolutionary-biology-fpo-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-electrical-and-computer-engineering-with-concentration-in-computer-engineering-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-electrical-and-computer-engineering-with-concentration-in-computer-engineering-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-electrical-and-computer-engineering-with-concentration-in-electrical-engineering-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-electrical-and-computer-engineering-with-concentration-in-electrical-engineering-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-english-m-f-a-creative-writing-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-english-m-f-a-creative-writing-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-11",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-european-thought-and-culture-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-european-thought-and-culture-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-genetic-counseling-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-genetic-counseling-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-18",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-history-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-history-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-03",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-informatics-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-informatics-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-computer-science-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-computer-science-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-data-science-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-data-science-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-education-sciences-with-concentration-in-artificial-intelligence-and-learning-analytics-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-education-sciences-with-concentration-in-artificial-intelligence-and-learning-analytics-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-education-sciences-with-concentration-in-connected-learning-technology-and-design-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-education-sciences-with-concentration-in-connected-learning-technology-and-design-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-education-sciences-with-concentration-in-stem-and-artificial-intelligence-teacher-leadership-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-education-sciences-with-concentration-in-stem-and-artificial-intelligence-teacher-leadership-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-english-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-english-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-human-computer-interaction-and-design-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-human-computer-interaction-and-design-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-legal-forensic-psychology-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-legal-forensic-psychology-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-public-health-with-concentration-in-biostatistics-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-public-health-with-concentration-in-biostatistics-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-public-health-with-concentration-in-community-health-and-health-equity-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-public-health-with-concentration-in-community-health-and-health-equity-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-public-health-with-concentration-in-environmental-and-occupational-health-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-public-health-with-concentration-in-environmental-and-occupational-health-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-public-health-with-concentration-in-epidemiology-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-public-health-with-concentration-in-epidemiology-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-public-health-with-concentration-in-global-health-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-public-health-with-concentration-in-global-health-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-public-health-with-concentration-in-health-systems-and-policy-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-public-health-with-concentration-in-health-systems-and-policy-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-science-in-applied-artificial-intelligence-for-science-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-science-in-applied-artificial-intelligence-for-science-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-software-engineering-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-software-engineering-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-master-of-urban-and-regional-planning-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-master-of-urban-and-regional-planning-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-materials-science-and-engineering-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-materials-science-and-engineering-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-mathematical-computational-and-systems-biology-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-mathematical-computational-and-systems-biology-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-05",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-mathematics-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-mathematics-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-mechanical-and-aerospace-engineering-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-mechanical-and-aerospace-engineering-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-molecular-biology-and-biochemistry-fpo-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-molecular-biology-and-biochemistry-fpo-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-networked-systems-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-networked-systems-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-neurobiology-and-behavior-fpo-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-neurobiology-and-behavior-fpo-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-nursing-science-community-and-population-health-concentration-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-nursing-science-community-and-population-health-concentration-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-11-30",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-philosophy-political-science-and-economics-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-philosophy-political-science-and-economics-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-physics-with-concentration-in-astronomy-and-astrophysics-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-physics-with-concentration-in-astronomy-and-astrophysics-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-social-science-demographic-and-social-analysis-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-social-science-demographic-and-social-analysis-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-06-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-software-engineering-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-software-engineering-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-statistics-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-statistics-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        },
+        "uci-transportation-science-master::Varies by programme::Official programme deadline::all": {
+          "programmeId": "uci-transportation-science-master",
+          "intake": "Varies by programme",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://apply.grad.uci.edu/portal/degree_program?cmd=getresults",
+          "opensAtBasis": null
+        }
+      },
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
