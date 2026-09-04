@@ -2,10 +2,10 @@
   "universities": {
     "aalto-university": {
       "sourceUrl": "https://www.aalto.fi/en/aalto_api/studies/list",
-      "checkedAt": "2026-09-03T09:00:57.882412+00:00",
-      "itemCount": 89,
+      "checkedAt": "2026-09-04T08:55:57.420190+00:00",
+      "itemCount": 90,
       "applicationOpensAt": null,
-      "catalogHash": "16b16ef621a62d5b23e0ba389227675da34f4bc036c426d06946d256d02ae47a",
+      "catalogHash": "d2e78e65b344a400a82c456ca502fadeb5c238d086d31d7d6b36e4d7432616b5",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,11 +14,11 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 89,
-      "programmesNeedingReview": 89,
+      "programmesWithoutDeadlines": 90,
+      "programmesNeedingReview": 90,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-03T09:00:57.882412+00:00",
-      "windowFingerprint": "d9057e1f7f0320cf066aa74766cfa56f937aad5b823ca2b8fdeacfa6cdaece5e",
+      "lastSuccessfulAt": "2026-09-04T08:55:57.420190+00:00",
+      "windowFingerprint": "155d22209519547d8db2d20912369d6b9356a44533ca5d0eed2388450d320dfb",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -324,6 +324,16 @@
         },
         "aalto-energy-in-buildings-and-built-environment-msc": {
           "name": "Energy In Buildings And Built Environment",
+          "degreeType": "MSc",
+          "faculty": "Aalto University",
+          "department": "Aalto University",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "aalto-energy-production-economics-and-sustainability-msc": {
+          "name": "Energy Production Economics And Sustainability",
           "degreeType": "MSc",
           "faculty": "Aalto University",
           "department": "Aalto University",
@@ -916,8 +926,8 @@
       "windows": {},
       "adapterWarnings": [],
       "adapterDiagnostics": {
-        "apiStudyOptions": 111,
-        "apiMasterOptions": 92,
+        "apiStudyOptions": 112,
+        "apiMasterOptions": 93,
         "transport": {
           "requests": 1,
           "directSuccesses": 0,
