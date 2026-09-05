@@ -1,18 +1,19 @@
 # Published data audit
 
-Generated for 2026-09-04.
+Generated for 2026-09-05.
 
-- Active issues: 670
-- Universities needing review: 12
-- Records quarantined from SEO aggregates: 479
+- Active issues: 651
+- Universities needing review: 11
+- Records quarantined from SEO aggregates: 460
 - Suspicious intake/deadline mappings: 210
-- Published records missing from a healthy current snapshot: 34
-- Published records changed from a healthy current snapshot: 426
+- Published records missing from a healthy current snapshot: 14
+- Published records changed from a healthy current snapshot: 427
 - Published records with source URL-only changes: 0
 
 ## Maintenance queue
 
 - `tu-delft-geomatics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
+- `mcgill-dental-sciences-msc-non-thesis-2027-fall-domestic-deadline-domestic-students` — **published-record-changed-from-snapshot** (mcgill-university, Fall 2027, closes 2026-12-15) — correct-published-record-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
 - `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review
@@ -640,26 +641,6 @@ Generated for 2026-09-04.
 - `polyu-urban-informatics-and-smart-cities-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
-- `sheffield-advanced-computer-science-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-advanced-mechanical-engineering-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-aerospace-engineering-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-applied-linguistics-and-tesol-ma-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-applied-professional-studies-in-education-ma-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-archaeology-and-heritage-ma-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-architectural-design-ma-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-artificial-intelligence-for-engineering-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-artificial-intelligence-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-astrophysics-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-biodiversity-and-conservation-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-biological-and-bioprocess-engineering-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-biomedical-engineering-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-biomedical-science-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-business-analytics-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-business-and-organisational-psychology-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-business-finance-and-economics-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-cancer-biology-and-therapeutics-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-chemistry-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
-- `sheffield-civil-and-structural-engineering-msc-2026-application-deadline` — **published-record-missing-from-snapshot** (the-university-of-sheffield, September 2026, closes 2026-09-04) — retire-or-correct-review
 - `ubc-master-of-education-in-educational-administration-and-leadership-med-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, January 2027, closes 2026-10-01) — retire-or-correct-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
