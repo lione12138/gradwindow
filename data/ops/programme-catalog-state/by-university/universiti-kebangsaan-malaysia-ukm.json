@@ -2,10 +2,10 @@
   "universities": {
     "universiti-kebangsaan-malaysia-ukm": {
       "sourceUrl": "https://www.ukm.my/studyukm/postgraduate/",
-      "checkedAt": "2026-09-04T10:07:33.474834+00:00",
-      "itemCount": 177,
+      "checkedAt": "2026-09-05T09:37:35.554098+00:00",
+      "itemCount": 176,
       "applicationOpensAt": null,
-      "catalogHash": "ac0e1dbbbc8e4489e97d76be446486dd74c03734f6dde4ebdca3f95df15d95f7",
+      "catalogHash": "b2be8673af0f0a0b6e7b7d264be72e35b0a9511570213609f86c06984d8a30d9",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,11 +14,11 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 177,
-      "programmesNeedingReview": 177,
+      "programmesWithoutDeadlines": 176,
+      "programmesNeedingReview": 176,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-04T10:07:33.474834+00:00",
-      "windowFingerprint": "a7b6336eaf1be12f5b9cb6bc3b4d772473e51968511c7def769f36a2947c2d7e",
+      "lastSuccessfulAt": "2026-09-05T09:37:35.554098+00:00",
+      "windowFingerprint": "fac092e0506fe002e7091b7e73a9ea75f6ddd1496232339d20722eaaa646ffb2",
       "watchedWindowSourceHash": "71105c654c0fb8dd3a51a0b64036e6d7865eb6b66953399d257b3b656f52b285",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
@@ -1562,16 +1562,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "ukm-master-of-science-in-low-carbon-and-hydrogen-technology-master-of-science": {
-          "name": "Master of Science in Low Carbon and Hydrogen Technology",
-          "degreeType": "Master of Science",
-          "faculty": "Universiti Kebangsaan Malaysia",
-          "department": "Universiti Kebangsaan Malaysia",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "ukm-master-of-science-in-management-of-plant-genetic-resources-master-of-science": {
           "name": "Master of Science in Management of Plant Genetic Resources",
           "degreeType": "Master of Science",
@@ -1798,15 +1788,17 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 27,
-          "directSuccesses": 27,
-          "directFailures": 0,
+          "directSuccesses": 25,
+          "directFailures": 2,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 2,
+          "fallbackSuccesses": 2,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "server": 2
+          }
         }
       }
     }
