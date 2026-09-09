@@ -23,7 +23,6 @@ CATALOG_URL = (
     "degree%5B%5D=MPP&year=2027-28"
 )
 APPLICATION_URL = "https://fytgs.hkust.edu.hk/apply"
-APPLICATION_OPENS_AT = "2026-09-01"
 
 MONTHS = (
     "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|"
