@@ -452,9 +452,9 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     published_audit = audit_published_data(
         applications,
         adapter_health=adapter_health.get("universities", {}),
-        source_state=read_json(
-            APPLICATION_SOURCE_STATE_PATH, {"applications": {}}
-        ).get("applications", {}),
+        source_state=read_json(APPLICATION_SOURCE_STATE_PATH, {"applications": {}}).get(
+            "applications", {}
+        ),
         today=today,
     )
     trusted_ids = {
