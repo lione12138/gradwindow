@@ -33,6 +33,7 @@ def generate_coverage(
     programs = read_json(programs_path)["programs"]
     policies = read_json(policies_path)["policies"]
     predictions = read_json(predictions_path)["predictions"]
+    target_cycle_year = datetime.now(timezone.utc).year + 1
     global_rankings = read_json(global_rankings_path, {"rankings": {}}).get(
         "rankings", {}
     )
@@ -69,6 +70,16 @@ def generate_coverage(
         programme_count = program_counts.get(university_id, 0)
         window_count = window_counts.get(university_id, 0)
         prediction_count = prediction_counts.get(university_id, 0)
+        target_cycle_windows = sum(
+            item.get("intakeDetails", {}).get("cycleYear") == target_cycle_year
+            for item in applications
+            if item["universityId"] == university_id
+        )
+        target_cycle_predictions = sum(
+            item.get("intakeDetails", {}).get("cycleYear") == target_cycle_year
+            for item in predictions
+            if item["universityId"] == university_id
+        )
         rows.append(
             {
                 "universityId": university_id,
@@ -91,6 +102,8 @@ def generate_coverage(
                 "programmeCount": programme_count,
                 "windowCount": window_count,
                 "predictionCount": prediction_count,
+                "targetCycleWindowCount": target_cycle_windows,
+                "targetCyclePredictionCount": target_cycle_predictions,
                 "nextAction": next_action(
                     bool(university.get("admissionsUrl")),
                     policy,
@@ -126,6 +139,16 @@ def generate_coverage(
         )
 
     summary = _summarise_rows(rows)
+    summary["targetCycleYear"] = target_cycle_year
+    summary["targetCycleVerifiedWindows"] = sum(
+        row["targetCycleWindowCount"] for row in rows
+    )
+    summary["targetCycleUniversitiesWithWindows"] = sum(
+        row["targetCycleWindowCount"] > 0 for row in rows
+    )
+    summary["targetCyclePredictedWindows"] = sum(
+        row["targetCyclePredictionCount"] for row in rows
+    )
     university_by_id = {item["id"]: item for item in universities}
     ranking_ids = {
         "qs": {item["id"] for item in top},
