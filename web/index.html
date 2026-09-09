@@ -241,7 +241,7 @@
             </form>
             <div class="hero-trust-stats" aria-label="Data coverage" data-i18n-aria-label="applicationStatsLabel">
               <span><strong id="total-schools">{{GRADWINDOW_TOTAL_UNIVERSITIES}}</strong> <span data-i18n="universities">universities</span></span>
-              <span><strong id="total-records">{{GRADWINDOW_OFFICIAL_WINDOWS}}</strong> <span data-i18n="verifiedWindows">verified windows</span></span>
+              <span><strong id="total-records">{{GRADWINDOW_OFFICIAL_WINDOWS}}</strong> <span data-i18n="verifiedWindows">verified records without flags</span></span>
               <details class="refresh-summary" id="refresh-summary">
                 <summary><span data-i18n="updatedDaily">Updated daily</span> <span aria-hidden="true">·</span> <span id="monitoring-health">{{GRADWINDOW_MONITORING_HEALTH}}</span></summary>
                 <div class="update-notes">
@@ -365,8 +365,9 @@
                       <label class="select-wrap advanced-filter-control">
                         <span class="sr-only" data-i18n="dateTypeFilterLabel">Date type</span>
                         <select id="date-type-filter">
-                          <option value="all" data-i18n="allDateTypes">Official + estimated</option>
-                          <option value="official" data-i18n="officialOnly">Official only</option>
+                          <option value="official" selected data-i18n="officialOnly">Official exact dates</option>
+                          <option value="all" data-i18n="allDateTypes">All date types</option>
+                          <option value="recurring" data-i18n="recurringOnly">Recurring policies</option>
                           <option value="estimated" data-i18n="estimatedOnly">Estimated only</option>
                         </select>
                       </label>

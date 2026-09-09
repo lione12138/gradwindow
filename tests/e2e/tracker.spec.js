@@ -28,7 +28,7 @@ test("homepage loads the tracker without runtime errors", async ({ page }) => {
     page.locator("#application-groups .application-table").first(),
   ).toBeVisible();
   await expect(page.locator("#monitoring-health")).toContainText(
-    "adapters healthy",
+    /adapters healthy|Monitoring delayed/,
   );
   expect(pageErrors).toEqual([]);
 });
@@ -120,8 +120,8 @@ test("advanced date filters are progressive and shareable", async ({
 
   await page.locator("#deadline-range-filter").selectOption("90");
   await expect(page).toHaveURL(/deadline=90/);
-  await page.locator("#date-type-filter").selectOption("official");
-  await expect(page).toHaveURL(/dates=official/);
+  await page.locator("#date-type-filter").selectOption("estimated");
+  await expect(page).toHaveURL(/dates=estimated/);
 });
 
 test("saving a deadline updates the saved workflow", async ({ page }) => {

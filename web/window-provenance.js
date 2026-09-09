@@ -6,6 +6,22 @@ export function isRecurringPolicyRecord(record) {
   return record?.dataStatus === "recurring";
 }
 
+export function recordProvenance(record) {
+  if ((record.trustStatus || "current") !== "current") return "review";
+  if (isPredictedRecord(record)) return "predicted";
+  if (isRecurringPolicyRecord(record)) return "recurring";
+  return "official";
+}
+
+export function groupRecordsByProvenance(records) {
+  return ["official", "recurring", "predicted", "review"]
+    .map((kind) => ({
+      kind,
+      records: records.filter((record) => recordProvenance(record) === kind),
+    }))
+    .filter((group) => group.records.length);
+}
+
 export function calendarTitlePrefix(record) {
   if (isPredictedRecord(record)) return "[ESTIMATE] ";
   if (isRecurringPolicyRecord(record)) return "[RECURRING POLICY] ";
