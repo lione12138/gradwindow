@@ -449,12 +449,26 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     monitor = read_json(MONITOR_STATE_PATH, {})
     refresh_status = read_json(REFRESH_STATUS_PATH, {})
     adapter_health = read_json(PROGRAMME_ADAPTER_HEALTH_PATH, {"meta": {}})
+    published_audit = audit_published_data(
+        applications,
+        adapter_health=adapter_health.get("universities", {}),
+        source_state=read_json(
+            APPLICATION_SOURCE_STATE_PATH, {"applications": {}}
+        ).get("applications", {}),
+        today=today,
+    )
+    trusted_ids = {
+        record_id
+        for record_id, status in published_audit["recordTrustStatuses"].items()
+        if status == "current"
+    }
+    trusted_applications = [item for item in applications if item["id"] in trusted_ids]
 
     qs_universities = [
         item for item in universities if item.get("qsPosition") is not None
     ]
     qs_ids = {item["id"] for item in qs_universities}
-    rows = [*applications, *recurring_windows, *predictions]
+    rows = [*trusted_applications, *recurring_windows, *predictions]
     target_cycle_year = primary_cycle_year(predictions, today)
     ranked_rows = [item for item in rows if item["universityId"] in qs_ids]
     rows_by_status = {
@@ -494,7 +508,7 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     next_deadline = min(
         (
             item
-            for item in applications
+            for item in trusted_applications
             if date.fromisoformat(item["closesAt"]) >= today
         ),
         key=lambda item: item["closesAt"],
@@ -593,7 +607,7 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
         "deadline_url": deadline_url,
         "deadline_note": deadline_note,
         "total_universities": str(len(universities)),
-        "official_windows": str(len(applications)),
+        "official_windows": str(len(trusted_applications)),
         "estimated_windows": str(len(predictions)),
         "open_universities": str(university_counts["open"]),
         "upcoming_universities": str(university_counts["upcoming"]),
