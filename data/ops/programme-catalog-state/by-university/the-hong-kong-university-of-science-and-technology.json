@@ -1,24 +1,33 @@
 {
   "universities": {
     "the-hong-kong-university-of-science-and-technology": {
-      "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/print_result.php?is_s=Y&degree%5B%5D=MSC&degree%5B%5D=MA&degree%5B%5D=MPM&degree%5B%5D=MPP&year=2026-27",
-      "checkedAt": "2026-09-05T08:58:59.429625+00:00",
-      "itemCount": 48,
-      "applicationOpensAt": "2025-09-01",
-      "catalogHash": "dbd6dea7115bd6fa52b8741a1bf085f2a13559a690a6292d660930a4dd9bdcf9",
+      "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/print_result.php?is_s=Y&degree%5B%5D=MSC&degree%5B%5D=MA&degree%5B%5D=MPM&degree%5B%5D=MPP&year=2027-28",
+      "checkedAt": "2026-09-11T20:16:26.174998+00:00",
+      "itemCount": 47,
+      "applicationOpensAt": null,
+      "catalogHash": "87965c2d82c0642a3f8b760e228e13b61e4a39a0a0ceace6ce9a8bc03786eb7e",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 144,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {},
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 48,
-      "programmesNeedingReview": 48,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-05T08:58:59.429625+00:00",
-      "windowFingerprint": "cbe5586964af674c56db2b6960d08edeaedf8987a527e45a67c4ce2129b28c94",
+      "windowCountsByCycle": {
+        "2027:fall:09": {
+          "intakes": [
+            "September 2027"
+          ],
+          "observedWindowCount": 144,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 144,
+      "programmesWithoutDeadlines": 1,
+      "programmesNeedingReview": 1,
+      "limitationReason": "144 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-09-11T20:16:26.174998+00:00",
+      "windowFingerprint": "a523c2dfd9d90321d67c2466df5f4e5b7e21e751a0f081115c7d95744040e2f5",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -27,270 +36,260 @@
           "degreeType": "MA",
           "faculty": "Division of Arts and Machine Creativity, Academy of Interdisciplinary Studies",
           "department": "Division of Arts and Machine Creativity, Academy of Interdisciplinary Studies",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "b86116c0e3c7d34896141530c6292f870dfb7c9275d1c7fe281555d9344f43c4",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-01"
         },
         "hkust-chinese-culture-ma": {
           "name": "Master of Arts in Chinese Culture",
           "degreeType": "MA",
           "faculty": "Division of Humanities",
           "department": "Division of Humanities",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "ce6a2ec4c51a0701a62f8946417414534b30d6100e82e1ff12e8a37c2eb48151",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-06"
         },
         "hkust-international-language-education-ma": {
           "name": "Master of Arts in International Language Education",
           "degreeType": "MA",
           "faculty": "School of Humanities and Social Science",
           "department": "School of Humanities and Social Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "956ce40a8953655eb92f6f83263a8a3938799db2bad3a9050d3421d7fdbe047b",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01"
         },
         "hkust-master-of-public-management-mpm": {
           "name": "Master of Public Management",
           "degreeType": "MPM",
           "faculty": "Division of Public Policy",
           "department": "Division of Public Policy",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "f72dfecb4d75e7a817349082ef31ca0efbca83e985b520453661ebb2b381ffbe",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "hkust-master-of-public-policy-mpp": {
           "name": "Master of Public Policy",
           "degreeType": "MPP",
           "faculty": "Division of Public Policy",
           "department": "Division of Public Policy",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "f72dfecb4d75e7a817349082ef31ca0efbca83e985b520453661ebb2b381ffbe",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-31"
         },
         "hkust-accounting-msc": {
           "name": "Master of Science in Accounting",
           "degreeType": "MSc",
           "faculty": "Department of Accounting",
           "department": "Department of Accounting",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "956ce40a8953655eb92f6f83263a8a3938799db2bad3a9050d3421d7fdbe047b",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-01"
         },
         "hkust-aeronautical-engineering-msc": {
           "name": "Master of Science in Aeronautical Engineering",
           "degreeType": "MSc",
           "faculty": "Department of Mechanical and Aerospace Engineering",
           "department": "Department of Mechanical and Aerospace Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "4837502c58793f3cf6c3fe86b04520b92b8a29dbc3da53c1bcdfe6dfe72b0ce3",
+          "windowCount": 6,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-artificial-intelligence-msc": {
           "name": "Master of Science in Artificial Intelligence",
           "degreeType": "MSc",
           "faculty": "Department of Computer Science and Engineering",
           "department": "Department of Computer Science and Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "hkust-ai-and-entrepreneurship-msc": {
-          "name": "Master of Science in AI and Entrepreneurship",
-          "degreeType": "MSc",
-          "faculty": "Department of Computer Science and Engineering",
-          "department": "Department of Computer Science and Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "0992cb5c9921a6edc27b8a10bac3709ba9094dad7bdd4243413ad55953907f7e",
+          "windowCount": 4,
+          "latestClosesAt": "2027-03-01"
         },
         "hkust-analytical-chemistry-msc": {
           "name": "Master of Science in Analytical Chemistry",
           "degreeType": "MSc",
           "faculty": "Department of Chemistry",
           "department": "Department of Chemistry",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-business-analytics-msc": {
           "name": "Master of Science in Business Analytics",
           "degreeType": "MSc",
           "faculty": "Department of Information Systems, Business Statistics and Operations Management",
           "department": "Department of Information Systems, Business Statistics and Operations Management",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "93891d6ad68a1e7e1171a8fac891154a43121af3feb9f44461c68fb78e2109c0",
+          "windowCount": 4,
+          "latestClosesAt": "2027-05-02"
         },
         "hkust-big-data-technology-msc": {
           "name": "Master of Science in Big Data Technology",
           "degreeType": "MSc",
           "faculty": "Department of Computer Science and Engineering , School of Engineering Department of Mathematics , School of Science",
           "department": "Department of Computer Science and Engineering , School of Engineering Department of Mathematics , School of Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "0992cb5c9921a6edc27b8a10bac3709ba9094dad7bdd4243413ad55953907f7e",
+          "windowCount": 4,
+          "latestClosesAt": "2027-03-01"
         },
         "hkust-biomolecular-engineering-and-health-informatics-msc": {
           "name": "Master of Science in Biomolecular Engineering and Health Informatics",
           "degreeType": "MSc",
           "faculty": "Department of Chemical and Biological Engineering",
           "department": "Department of Chemical and Biological Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "8c54479aebe241177780aeec374f27127c29991c136598f2e8640caaf0de875c",
+          "windowCount": 4,
+          "latestClosesAt": "2027-02-15"
         },
         "hkust-biotechnology-msc": {
           "name": "Master of Science in Biotechnology",
           "degreeType": "MSc",
           "faculty": "Division of Life Science",
           "department": "Division of Life Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-chemical-and-energy-engineering-msc": {
           "name": "Master of Science in Chemical and Energy Engineering",
           "degreeType": "MSc",
           "faculty": "Department of Chemical and Biological Engineering",
           "department": "Department of Chemical and Biological Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "0992cb5c9921a6edc27b8a10bac3709ba9094dad7bdd4243413ad55953907f7e",
+          "windowCount": 4,
+          "latestClosesAt": "2027-03-01"
         },
         "hkust-data-driven-modeling-msc": {
           "name": "Master of Science in Data-Driven Modeling",
           "degreeType": "MSc",
           "faculty": "Department of Physics",
           "department": "Department of Physics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "5b72d14e51d0dfe7ad029dbd5cb4f04bab084a1a4b2e2f1a5c0c5f242f434cf4",
+          "windowCount": 6,
+          "latestClosesAt": "2027-04-15"
         },
         "hkust-drug-regulatory-affairs-and-policy-msc": {
           "name": "Master of Science in Drug Regulatory Affairs and Policy",
           "degreeType": "MSc",
           "faculty": "Division of Life Science",
           "department": "Division of Life Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-economics-msc": {
           "name": "Master of Science in Economics",
           "degreeType": "MSc",
           "faculty": "Department of Economics",
           "department": "Department of Economics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "9cf0a9bcbca3b0a51b014b1da077d75db38d806f7fb9483876fa702731a1482a",
+          "windowCount": 2,
+          "latestClosesAt": "2027-02-15"
         },
         "hkust-engineering-enterprise-management-msc": {
           "name": "Master of Science in Engineering Enterprise Management",
           "degreeType": "MSc",
           "faculty": "Department of Industrial Engineering and Decision Analytics",
           "department": "Department of Industrial Engineering and Decision Analytics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "0992cb5c9921a6edc27b8a10bac3709ba9094dad7bdd4243413ad55953907f7e",
+          "windowCount": 4,
+          "latestClosesAt": "2027-03-01"
         },
         "hkust-environmental-health-and-safety-msc": {
           "name": "Master of Science in Environmental Health and Safety",
           "degreeType": "MSc",
           "faculty": "Department of Ocean Science",
           "department": "Department of Ocean Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-entrepreneurial-leadership-in-biotechnology-msc": {
           "name": "Master of Science in Entrepreneurial Leadership in Biotechnology",
           "degreeType": "MSc",
           "faculty": "Division of Life Science",
           "department": "Division of Life Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-electronic-engineering-msc": {
           "name": "Master of Science in Electronic Engineering",
           "degreeType": "MSc",
           "faculty": "Department of Electronic and Computer Engineering",
           "department": "Department of Electronic and Computer Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "037380e40c1ecbc9ab8fd5e3135b3336b6eb7da293cb3b70967dc3f631470866",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-01"
         },
         "hkust-environmental-science-management-and-sustainability-msc": {
           "name": "Master of Science in Environmental Science, Management and Sustainability",
           "degreeType": "MSc",
           "faculty": "Division of Environment and Sustainability",
           "department": "Division of Environment and Sustainability",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-finance-msc": {
           "name": "Master of Science in Finance",
           "degreeType": "MSc",
           "faculty": "Department of Finance",
           "department": "Department of Finance",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "93891d6ad68a1e7e1171a8fac891154a43121af3feb9f44461c68fb78e2109c0",
+          "windowCount": 4,
+          "latestClosesAt": "2027-05-02"
         },
         "hkust-financial-technology-msc": {
           "name": "Master of Science in Financial Technology",
           "degreeType": "MSc",
           "faculty": "School of Engineering , School of Business and Management and School of Science",
           "department": "School of Engineering , School of Business and Management and School of Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "0992cb5c9921a6edc27b8a10bac3709ba9094dad7bdd4243413ad55953907f7e",
+          "windowCount": 4,
+          "latestClosesAt": "2027-03-01"
         },
         "hkust-family-office-and-family-business-msc": {
           "name": "Master of Science in Family Office and Family Business",
           "degreeType": "MSc",
           "faculty": "Department of Management",
           "department": "Department of Management",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "93891d6ad68a1e7e1171a8fac891154a43121af3feb9f44461c68fb78e2109c0",
+          "windowCount": 4,
+          "latestClosesAt": "2027-05-02"
         },
         "hkust-global-china-studies-msc": {
           "name": "Master of Science in Global China Studies",
           "degreeType": "MSc",
           "faculty": "School of Humanities and Social Science",
           "department": "School of Humanities and Social Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "b86116c0e3c7d34896141530c6292f870dfb7c9275d1c7fe281555d9344f43c4",
+          "windowCount": 2,
+          "latestClosesAt": "2027-05-01"
         },
         "hkust-global-finance-joint-degree-by-new-york-university-and-hkust-msc": {
           "name": "Master of Science in Global Finance (Joint Degree by New York University and HKUST)",
@@ -307,210 +306,1363 @@
           "degreeType": "MSc",
           "faculty": "Department of Ocean Science",
           "department": "Department of Ocean Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-global-operations-msc": {
           "name": "Master of Science in Global Operations",
           "degreeType": "MSc",
           "faculty": "Department of Information Systems, Business Statistics and Operation Management",
           "department": "Department of Information Systems, Business Statistics and Operation Management",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "aca3a9e21348caa8377eacb39a0827aa8bef4c0bb3e9e570846777e907941b4c",
+          "windowCount": 2,
+          "latestClosesAt": "2027-02-28"
         },
         "hkust-intelligent-building-technology-and-management-msc": {
           "name": "Master of Science in Intelligent Building Technology and Management",
           "degreeType": "MSc",
           "faculty": "Department of Mechanical and Aerospace Engineering",
           "department": "Department of Mechanical and Aerospace Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "fe7d0cbc426e190a6a9585d86be794bb24cd98a1a08ec2d9ab11275a91093d47",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-01"
         },
         "hkust-integrated-circuits-msc": {
           "name": "Master of Science in Integrated Circuits",
           "degreeType": "MSc",
           "faculty": "Department of Electronic and Computer Engineering",
           "department": "Department of Electronic and Computer Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "037380e40c1ecbc9ab8fd5e3135b3336b6eb7da293cb3b70967dc3f631470866",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-01"
         },
         "hkust-information-and-cyber-security-management-msc": {
           "name": "Master of Science in Information and Cyber Security Management",
           "degreeType": "MSc",
           "faculty": "Department of Information Systems, Business Statistics and Operations Management",
           "department": "Department of Information Systems, Business Statistics and Operations Management",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "93891d6ad68a1e7e1171a8fac891154a43121af3feb9f44461c68fb78e2109c0",
+          "windowCount": 4,
+          "latestClosesAt": "2027-05-02"
         },
         "hkust-international-management-msc": {
           "name": "Master of Science in International Management",
           "degreeType": "MSc",
           "faculty": "School of Business and Management",
           "department": "School of Business and Management",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "3fb2dcba285d5c787d55f3edff0e0a5fd7eb584ffcc449c57849d0447247067a",
+          "windowCount": 2,
+          "latestClosesAt": "2027-02-27"
         },
         "hkust-information-systems-management-msc": {
           "name": "Master of Science in Information Systems Management",
           "degreeType": "MSc",
           "faculty": "Department of Information Systems, Business Statistics and Operations Management",
           "department": "Department of Information Systems, Business Statistics and Operations Management",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "93891d6ad68a1e7e1171a8fac891154a43121af3feb9f44461c68fb78e2109c0",
+          "windowCount": 4,
+          "latestClosesAt": "2027-05-02"
         },
         "hkust-information-technology-msc": {
           "name": "Master of Science in Information Technology",
           "degreeType": "MSc",
           "faculty": "Department of Computer Science and Engineering",
           "department": "Department of Computer Science and Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "0992cb5c9921a6edc27b8a10bac3709ba9094dad7bdd4243413ad55953907f7e",
+          "windowCount": 4,
+          "latestClosesAt": "2027-03-01"
         },
         "hkust-mathematics-for-educators-msc": {
           "name": "Master of Science in Mathematics for Educators",
           "degreeType": "MSc",
           "faculty": "Department of Mathematics",
           "department": "Department of Mathematics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-financial-mathematics-msc": {
           "name": "Master of Science in Financial Mathematics",
           "degreeType": "MSc",
           "faculty": "Department of Mathematics",
           "department": "Department of Mathematics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "be8864d3143525133df05c89fd08a49dde278bbff9e13bd2b39d777cef7b4969",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-30"
         },
         "hkust-marketing-msc": {
           "name": "Master of Science in Marketing",
           "degreeType": "MSc",
           "faculty": "Department of Marketing",
           "department": "Department of Marketing",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "aca3a9e21348caa8377eacb39a0827aa8bef4c0bb3e9e570846777e907941b4c",
+          "windowCount": 2,
+          "latestClosesAt": "2027-02-28"
         },
         "hkust-materials-engineering-msc": {
           "name": "Master of Science in Materials Engineering",
           "degreeType": "MSc",
           "faculty": "Department of Chemical and Biological Engineering",
           "department": "Department of Chemical and Biological Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "0992cb5c9921a6edc27b8a10bac3709ba9094dad7bdd4243413ad55953907f7e",
+          "windowCount": 4,
+          "latestClosesAt": "2027-03-01"
         },
         "hkust-mechanical-engineering-msc": {
           "name": "Master of Science in Mechanical Engineering",
           "degreeType": "MSc",
           "faculty": "Department of Mechanical and Aerospace Engineering",
           "department": "Department of Mechanical and Aerospace Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "0992cb5c9921a6edc27b8a10bac3709ba9094dad7bdd4243413ad55953907f7e",
+          "windowCount": 4,
+          "latestClosesAt": "2027-03-01"
         },
         "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc": {
           "name": "Master of Science in Digital and Sustainable Cities Master of Engineering in Digital and Sustainable Cities",
           "degreeType": "MSc",
           "faculty": "Department of Civil and Environmental Engineering",
           "department": "Department of Civil and Environmental Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "e2228dc3761dbbb175e53c6b5e0e8487086c934c5cb930fd5b54adc00c799da5",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-01"
         },
         "hkust-physics-msc": {
           "name": "Master of Science in Physics",
           "degreeType": "MSc",
           "faculty": "Department of Physics",
           "department": "Department of Physics",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "92b244f1a38648a2751bf9bd6be2645f38e814f4c41f0144f3a3073c75e9cfdd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-01"
         },
         "hkust-telecommunications-msc": {
           "name": "Master of Science in Telecommunications",
           "degreeType": "MSc",
           "faculty": "Department of Electronic and Computer Engineering",
           "department": "Department of Electronic and Computer Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "037380e40c1ecbc9ab8fd5e3135b3336b6eb7da293cb3b70967dc3f631470866",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-01"
         },
         "hkust-technology-leadership-and-entrepreneurship-msc": {
           "name": "Master of Science in Technology Leadership and Entrepreneurship",
           "degreeType": "MSc",
           "faculty": "Division of Integrative Systems and Design , Academy of Interdisciplinary Studies School of Business and Management",
           "department": "Division of Integrative Systems and Design , Academy of Interdisciplinary Studies School of Business and Management",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "be8864d3143525133df05c89fd08a49dde278bbff9e13bd2b39d777cef7b4969",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-30"
         },
         "hkust-pgd-ma-sosc": {
           "name": "Postgraduate Diploma in Social Science Master of Arts in Social Science",
           "degreeType": "MA",
           "faculty": "Division of Social Science",
           "department": "Division of Social Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "bcb96d0d6197252737dcfd16c98144e4cc1b21a710288831c5dba0703b915832",
+          "windowCount": 2,
+          "latestClosesAt": "2027-03-28"
         },
         "hkust-pgd-msc-ciem": {
           "name": "Postgraduate Diploma in Civil Infrastructural Engineering and Management Master of Science in Civil Infrastructural Engineering and Management",
           "degreeType": "MSc",
           "faculty": "Department of Civil and Environmental Engineering",
           "department": "Department of Civil and Environmental Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "e2228dc3761dbbb175e53c6b5e0e8487086c934c5cb930fd5b54adc00c799da5",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-01"
         },
         "hkust-pgd-msc-evem": {
           "name": "Postgraduate Diploma in Environmental Engineering and Management Master of Science in Environmental Engineering and Management",
           "degreeType": "MSc",
           "faculty": "Department of Civil and Environmental Engineering",
           "department": "Department of Civil and Environmental Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "e42efe8467cecc8bea79c6f2b70a34a8cdcc687df289db3e7779001fbb713e6c",
+          "windowCount": 6,
+          "latestClosesAt": "2027-04-01"
         }
       },
-      "windows": {},
+      "windows": {
+        "hkust-arts-and-machine-creativity-ma::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-arts-and-machine-creativity-ma",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/ma-amc/",
+          "opensAtBasis": null
+        },
+        "hkust-arts-and-machine-creativity-ma::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-arts-and-machine-creativity-ma",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/ma-amc/",
+          "opensAtBasis": null
+        },
+        "hkust-chinese-culture-ma::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-chinese-culture-ma",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-06",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/ma-cc/",
+          "opensAtBasis": null
+        },
+        "hkust-chinese-culture-ma::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-chinese-culture-ma",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-06",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/ma-cc/",
+          "opensAtBasis": null
+        },
+        "hkust-international-language-education-ma::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-international-language-education-ma",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/ma-ile/",
+          "opensAtBasis": null
+        },
+        "hkust-international-language-education-ma::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-international-language-education-ma",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/ma-ile/",
+          "opensAtBasis": null
+        },
+        "hkust-master-of-public-management-mpm::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-master-of-public-management-mpm",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-31",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/mpm/",
+          "opensAtBasis": null
+        },
+        "hkust-master-of-public-management-mpm::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-master-of-public-management-mpm",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-31",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/mpm/",
+          "opensAtBasis": null
+        },
+        "hkust-master-of-public-policy-mpp::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-master-of-public-policy-mpp",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-31",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/mpp/",
+          "opensAtBasis": null
+        },
+        "hkust-master-of-public-policy-mpp::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-master-of-public-policy-mpp",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-31",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/mpp/",
+          "opensAtBasis": null
+        },
+        "hkust-accounting-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-accounting-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-acct/",
+          "opensAtBasis": null
+        },
+        "hkust-accounting-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-accounting-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-acct/",
+          "opensAtBasis": null
+        },
+        "hkust-aeronautical-engineering-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-aeronautical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ae/",
+          "opensAtBasis": null
+        },
+        "hkust-aeronautical-engineering-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-aeronautical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ae/",
+          "opensAtBasis": null
+        },
+        "hkust-aeronautical-engineering-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-aeronautical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ae/",
+          "opensAtBasis": null
+        },
+        "hkust-aeronautical-engineering-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-aeronautical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ae/",
+          "opensAtBasis": null
+        },
+        "hkust-aeronautical-engineering-msc::September 2027::Round 3::domestic-students": {
+          "programmeId": "hkust-aeronautical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ae/",
+          "opensAtBasis": null
+        },
+        "hkust-aeronautical-engineering-msc::September 2027::Round 3::international-students": {
+          "programmeId": "hkust-aeronautical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ae/",
+          "opensAtBasis": null
+        },
+        "hkust-artificial-intelligence-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-artificial-intelligence-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ai/",
+          "opensAtBasis": null
+        },
+        "hkust-artificial-intelligence-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-artificial-intelligence-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ai/",
+          "opensAtBasis": null
+        },
+        "hkust-artificial-intelligence-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-artificial-intelligence-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ai/",
+          "opensAtBasis": null
+        },
+        "hkust-artificial-intelligence-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-artificial-intelligence-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ai/",
+          "opensAtBasis": null
+        },
+        "hkust-analytical-chemistry-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-analytical-chemistry-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-anchem/",
+          "opensAtBasis": null
+        },
+        "hkust-analytical-chemistry-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-analytical-chemistry-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-anchem/",
+          "opensAtBasis": null
+        },
+        "hkust-business-analytics-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-business-analytics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ba/",
+          "opensAtBasis": null
+        },
+        "hkust-business-analytics-msc::September 2027::Local Applicants::domestic-students::2": {
+          "programmeId": "hkust-business-analytics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ba/",
+          "opensAtBasis": null
+        },
+        "hkust-business-analytics-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-business-analytics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ba/",
+          "opensAtBasis": null
+        },
+        "hkust-business-analytics-msc::September 2027::Non-local Applicants::international-students::2": {
+          "programmeId": "hkust-business-analytics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ba/",
+          "opensAtBasis": null
+        },
+        "hkust-big-data-technology-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-big-data-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-bdt/",
+          "opensAtBasis": null
+        },
+        "hkust-big-data-technology-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-big-data-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-bdt/",
+          "opensAtBasis": null
+        },
+        "hkust-big-data-technology-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-big-data-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-bdt/",
+          "opensAtBasis": null
+        },
+        "hkust-big-data-technology-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-big-data-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-bdt/",
+          "opensAtBasis": null
+        },
+        "hkust-biomolecular-engineering-and-health-informatics-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-biomolecular-engineering-and-health-informatics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-behi/",
+          "opensAtBasis": null
+        },
+        "hkust-biomolecular-engineering-and-health-informatics-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-biomolecular-engineering-and-health-informatics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-behi/",
+          "opensAtBasis": null
+        },
+        "hkust-biomolecular-engineering-and-health-informatics-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-biomolecular-engineering-and-health-informatics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-behi/",
+          "opensAtBasis": null
+        },
+        "hkust-biomolecular-engineering-and-health-informatics-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-biomolecular-engineering-and-health-informatics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-behi/",
+          "opensAtBasis": null
+        },
+        "hkust-biotechnology-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-biotechnology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-biot/",
+          "opensAtBasis": null
+        },
+        "hkust-biotechnology-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-biotechnology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-biot/",
+          "opensAtBasis": null
+        },
+        "hkust-chemical-and-energy-engineering-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-chemical-and-energy-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-cee/",
+          "opensAtBasis": null
+        },
+        "hkust-chemical-and-energy-engineering-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-chemical-and-energy-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-cee/",
+          "opensAtBasis": null
+        },
+        "hkust-chemical-and-energy-engineering-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-chemical-and-energy-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-cee/",
+          "opensAtBasis": null
+        },
+        "hkust-chemical-and-energy-engineering-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-chemical-and-energy-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-cee/",
+          "opensAtBasis": null
+        },
+        "hkust-data-driven-modeling-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-data-driven-modeling-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-11-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ddm/",
+          "opensAtBasis": null
+        },
+        "hkust-data-driven-modeling-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-data-driven-modeling-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-11-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ddm/",
+          "opensAtBasis": null
+        },
+        "hkust-data-driven-modeling-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-data-driven-modeling-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ddm/",
+          "opensAtBasis": null
+        },
+        "hkust-data-driven-modeling-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-data-driven-modeling-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ddm/",
+          "opensAtBasis": null
+        },
+        "hkust-data-driven-modeling-msc::September 2027::Round 3::domestic-students": {
+          "programmeId": "hkust-data-driven-modeling-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ddm/",
+          "opensAtBasis": null
+        },
+        "hkust-data-driven-modeling-msc::September 2027::Round 3::international-students": {
+          "programmeId": "hkust-data-driven-modeling-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ddm/",
+          "opensAtBasis": null
+        },
+        "hkust-drug-regulatory-affairs-and-policy-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-drug-regulatory-affairs-and-policy-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-drap/",
+          "opensAtBasis": null
+        },
+        "hkust-drug-regulatory-affairs-and-policy-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-drug-regulatory-affairs-and-policy-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-drap/",
+          "opensAtBasis": null
+        },
+        "hkust-economics-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-economics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-econ/",
+          "opensAtBasis": null
+        },
+        "hkust-economics-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-economics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-econ/",
+          "opensAtBasis": null
+        },
+        "hkust-engineering-enterprise-management-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-engineering-enterprise-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-eem/",
+          "opensAtBasis": null
+        },
+        "hkust-engineering-enterprise-management-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-engineering-enterprise-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-eem/",
+          "opensAtBasis": null
+        },
+        "hkust-engineering-enterprise-management-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-engineering-enterprise-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-eem/",
+          "opensAtBasis": null
+        },
+        "hkust-engineering-enterprise-management-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-engineering-enterprise-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-eem/",
+          "opensAtBasis": null
+        },
+        "hkust-environmental-health-and-safety-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-environmental-health-and-safety-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ehs/",
+          "opensAtBasis": null
+        },
+        "hkust-environmental-health-and-safety-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-environmental-health-and-safety-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ehs/",
+          "opensAtBasis": null
+        },
+        "hkust-entrepreneurial-leadership-in-biotechnology-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-entrepreneurial-leadership-in-biotechnology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-elbt/",
+          "opensAtBasis": null
+        },
+        "hkust-entrepreneurial-leadership-in-biotechnology-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-entrepreneurial-leadership-in-biotechnology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-elbt/",
+          "opensAtBasis": null
+        },
+        "hkust-electronic-engineering-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-electronic-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-eleg/",
+          "opensAtBasis": null
+        },
+        "hkust-electronic-engineering-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-electronic-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-eleg/",
+          "opensAtBasis": null
+        },
+        "hkust-electronic-engineering-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-electronic-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-eleg/",
+          "opensAtBasis": null
+        },
+        "hkust-electronic-engineering-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-electronic-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-eleg/",
+          "opensAtBasis": null
+        },
+        "hkust-environmental-science-management-and-sustainability-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-environmental-science-management-and-sustainability-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-evsm/",
+          "opensAtBasis": null
+        },
+        "hkust-environmental-science-management-and-sustainability-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-environmental-science-management-and-sustainability-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-evsm/",
+          "opensAtBasis": null
+        },
+        "hkust-finance-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-finance-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fina/",
+          "opensAtBasis": null
+        },
+        "hkust-finance-msc::September 2027::Local Applicants::domestic-students::2": {
+          "programmeId": "hkust-finance-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fina/",
+          "opensAtBasis": null
+        },
+        "hkust-finance-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-finance-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fina/",
+          "opensAtBasis": null
+        },
+        "hkust-finance-msc::September 2027::Non-local Applicants::international-students::2": {
+          "programmeId": "hkust-finance-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fina/",
+          "opensAtBasis": null
+        },
+        "hkust-financial-technology-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-financial-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fintech/",
+          "opensAtBasis": null
+        },
+        "hkust-financial-technology-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-financial-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fintech/",
+          "opensAtBasis": null
+        },
+        "hkust-financial-technology-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-financial-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fintech/",
+          "opensAtBasis": null
+        },
+        "hkust-financial-technology-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-financial-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fintech/",
+          "opensAtBasis": null
+        },
+        "hkust-family-office-and-family-business-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-family-office-and-family-business-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fofb/",
+          "opensAtBasis": null
+        },
+        "hkust-family-office-and-family-business-msc::September 2027::Local Applicants::domestic-students::2": {
+          "programmeId": "hkust-family-office-and-family-business-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fofb/",
+          "opensAtBasis": null
+        },
+        "hkust-family-office-and-family-business-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-family-office-and-family-business-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fofb/",
+          "opensAtBasis": null
+        },
+        "hkust-family-office-and-family-business-msc::September 2027::Non-local Applicants::international-students::2": {
+          "programmeId": "hkust-family-office-and-family-business-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fofb/",
+          "opensAtBasis": null
+        },
+        "hkust-global-china-studies-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-global-china-studies-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-gcs/",
+          "opensAtBasis": null
+        },
+        "hkust-global-china-studies-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-global-china-studies-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-gcs/",
+          "opensAtBasis": null
+        },
+        "hkust-global-marine-resources-management-dual-degrees-by-hkust-and-university-of-southampton-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-global-marine-resources-management-dual-degrees-by-hkust-and-university-of-southampton-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-gmrm/",
+          "opensAtBasis": null
+        },
+        "hkust-global-marine-resources-management-dual-degrees-by-hkust-and-university-of-southampton-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-global-marine-resources-management-dual-degrees-by-hkust-and-university-of-southampton-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-gmrm/",
+          "opensAtBasis": null
+        },
+        "hkust-global-operations-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-global-operations-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-go/",
+          "opensAtBasis": null
+        },
+        "hkust-global-operations-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-global-operations-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-go/",
+          "opensAtBasis": null
+        },
+        "hkust-intelligent-building-technology-and-management-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-intelligent-building-technology-and-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ibtm/",
+          "opensAtBasis": null
+        },
+        "hkust-intelligent-building-technology-and-management-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-intelligent-building-technology-and-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ibtm/",
+          "opensAtBasis": null
+        },
+        "hkust-intelligent-building-technology-and-management-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-intelligent-building-technology-and-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ibtm/",
+          "opensAtBasis": null
+        },
+        "hkust-intelligent-building-technology-and-management-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-intelligent-building-technology-and-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ibtm/",
+          "opensAtBasis": null
+        },
+        "hkust-integrated-circuits-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-integrated-circuits-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ic/",
+          "opensAtBasis": null
+        },
+        "hkust-integrated-circuits-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-integrated-circuits-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ic/",
+          "opensAtBasis": null
+        },
+        "hkust-integrated-circuits-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-integrated-circuits-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ic/",
+          "opensAtBasis": null
+        },
+        "hkust-integrated-circuits-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-integrated-circuits-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ic/",
+          "opensAtBasis": null
+        },
+        "hkust-information-and-cyber-security-management-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-information-and-cyber-security-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-icsm/",
+          "opensAtBasis": null
+        },
+        "hkust-information-and-cyber-security-management-msc::September 2027::Local Applicants::domestic-students::2": {
+          "programmeId": "hkust-information-and-cyber-security-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-icsm/",
+          "opensAtBasis": null
+        },
+        "hkust-information-and-cyber-security-management-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-information-and-cyber-security-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-icsm/",
+          "opensAtBasis": null
+        },
+        "hkust-information-and-cyber-security-management-msc::September 2027::Non-local Applicants::international-students::2": {
+          "programmeId": "hkust-information-and-cyber-security-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-icsm/",
+          "opensAtBasis": null
+        },
+        "hkust-international-management-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-international-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-27",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-imt/",
+          "opensAtBasis": null
+        },
+        "hkust-international-management-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-international-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-27",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-imt/",
+          "opensAtBasis": null
+        },
+        "hkust-information-systems-management-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-information-systems-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ism/",
+          "opensAtBasis": null
+        },
+        "hkust-information-systems-management-msc::September 2027::Local Applicants::domestic-students::2": {
+          "programmeId": "hkust-information-systems-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ism/",
+          "opensAtBasis": null
+        },
+        "hkust-information-systems-management-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-information-systems-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ism/",
+          "opensAtBasis": null
+        },
+        "hkust-information-systems-management-msc::September 2027::Non-local Applicants::international-students::2": {
+          "programmeId": "hkust-information-systems-management-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-02",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ism/",
+          "opensAtBasis": null
+        },
+        "hkust-information-technology-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-information-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-it/",
+          "opensAtBasis": null
+        },
+        "hkust-information-technology-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-information-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-it/",
+          "opensAtBasis": null
+        },
+        "hkust-information-technology-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-information-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-it/",
+          "opensAtBasis": null
+        },
+        "hkust-information-technology-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-information-technology-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-it/",
+          "opensAtBasis": null
+        },
+        "hkust-mathematics-for-educators-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-mathematics-for-educators-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-maed/",
+          "opensAtBasis": null
+        },
+        "hkust-mathematics-for-educators-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-mathematics-for-educators-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-maed/",
+          "opensAtBasis": null
+        },
+        "hkust-financial-mathematics-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-financial-mathematics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mafm/",
+          "opensAtBasis": null
+        },
+        "hkust-financial-mathematics-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-financial-mathematics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mafm/",
+          "opensAtBasis": null
+        },
+        "hkust-marketing-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-marketing-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mark/",
+          "opensAtBasis": null
+        },
+        "hkust-marketing-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-marketing-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mark/",
+          "opensAtBasis": null
+        },
+        "hkust-materials-engineering-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-materials-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mate/",
+          "opensAtBasis": null
+        },
+        "hkust-materials-engineering-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-materials-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mate/",
+          "opensAtBasis": null
+        },
+        "hkust-materials-engineering-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-materials-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mate/",
+          "opensAtBasis": null
+        },
+        "hkust-materials-engineering-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-materials-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mate/",
+          "opensAtBasis": null
+        },
+        "hkust-mechanical-engineering-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-mechanical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mech/",
+          "opensAtBasis": null
+        },
+        "hkust-mechanical-engineering-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-mechanical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mech/",
+          "opensAtBasis": null
+        },
+        "hkust-mechanical-engineering-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-mechanical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mech/",
+          "opensAtBasis": null
+        },
+        "hkust-mechanical-engineering-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-mechanical-engineering-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mech/",
+          "opensAtBasis": null
+        },
+        "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-meng-disc/",
+          "opensAtBasis": null
+        },
+        "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-meng-disc/",
+          "opensAtBasis": null
+        },
+        "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-meng-disc/",
+          "opensAtBasis": null
+        },
+        "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-digital-and-sustainable-cities-master-of-engineering-in-digital-and-sustainable-cities-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-meng-disc/",
+          "opensAtBasis": null
+        },
+        "hkust-physics-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-physics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-phys/",
+          "opensAtBasis": null
+        },
+        "hkust-physics-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-physics-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-phys/",
+          "opensAtBasis": null
+        },
+        "hkust-telecommunications-msc::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-telecommunications-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-telecom/",
+          "opensAtBasis": null
+        },
+        "hkust-telecommunications-msc::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-telecommunications-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-telecom/",
+          "opensAtBasis": null
+        },
+        "hkust-telecommunications-msc::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-telecommunications-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-telecom/",
+          "opensAtBasis": null
+        },
+        "hkust-telecommunications-msc::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-telecommunications-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-telecom/",
+          "opensAtBasis": null
+        },
+        "hkust-technology-leadership-and-entrepreneurship-msc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-technology-leadership-and-entrepreneurship-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-tle/",
+          "opensAtBasis": null
+        },
+        "hkust-technology-leadership-and-entrepreneurship-msc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-technology-leadership-and-entrepreneurship-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-tle/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-ma-sosc::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-pgd-ma-sosc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-ma-sosc/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-ma-sosc::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-pgd-ma-sosc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-28",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-ma-sosc/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-ciem::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-pgd-msc-ciem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-ciem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-ciem::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-pgd-msc-ciem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-ciem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-ciem::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-pgd-msc-ciem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-ciem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-ciem::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-pgd-msc-ciem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-ciem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-evem::September 2027::Local Applicants::domestic-students": {
+          "programmeId": "hkust-pgd-msc-evem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-evem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-evem::September 2027::Non-local Applicants::international-students": {
+          "programmeId": "hkust-pgd-msc-evem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-evem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-evem::September 2027::Round 1::domestic-students": {
+          "programmeId": "hkust-pgd-msc-evem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-evem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-evem::September 2027::Round 1::international-students": {
+          "programmeId": "hkust-pgd-msc-evem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-evem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-evem::September 2027::Round 2::domestic-students": {
+          "programmeId": "hkust-pgd-msc-evem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-evem/",
+          "opensAtBasis": null
+        },
+        "hkust-pgd-msc-evem::September 2027::Round 2::international-students": {
+          "programmeId": "hkust-pgd-msc-evem",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-01",
+          "sourceUrl": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/pgd-msc-evem/",
+          "opensAtBasis": null
+        }
+      },
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 49,
-          "directSuccesses": 49,
+          "requests": 48,
+          "directSuccesses": 48,
           "directFailures": 0,
-          "fallbackEnabled": true,
+          "fallbackEnabled": false,
           "fallbackLimit": 3,
           "fallbackAttempts": 0,
           "fallbackSuccesses": 0,
