@@ -55,8 +55,9 @@ class HKUSTAdapter(BaseProgrammeAdapter):
         self.cycle_start_year = cycle_start_year
         self.cycle_label = f"{cycle_start_year}/{str(cycle_start_year + 1)[-2:]}"
         self.cycle_path = f"{cycle_start_year}-{str(cycle_start_year + 1)[-2:]}"
+        self.catalog_url = CATALOG_URL.rsplit("year=", 1)[0] + f"year={self.cycle_path}"
         self.intake = f"September {cycle_start_year}"
-        self.application_opens_at = f"{cycle_start_year - 1}-09-01"
+        self.application_opens_at = None
 
     def parse_catalog_from_fetcher(self, fetcher) -> DiscoveredCatalog:
         programmes = self.parse_catalog(fetcher(self.catalog_url)).programmes
@@ -160,7 +161,9 @@ def _parse_windows(
         text,
         flags=re.IGNORECASE,
     )
-    target = fall_match.group(0) if fall_match else text
+    if fall_match is None:
+        return []
+    target = fall_match.group(0)
     windows: list[DiscoveredWindow] = []
     seen: set[tuple[str, str, tuple[str, ...]]] = set()
     for label, categories in (
