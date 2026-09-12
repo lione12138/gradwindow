@@ -31,7 +31,9 @@ Back Privacy
 
 
 def test_hkust_adapter_extracts_catalog_and_deadline_candidates() -> None:
-    adapter = HKUSTAdapter(minimum_expected_programmes=1, detail_workers=1)
+    adapter = HKUSTAdapter(
+        minimum_expected_programmes=1, detail_workers=1, cycle_start_year=2026
+    )
 
     def fetcher(url: str) -> str:
         if "print_result.php" in url:
@@ -40,7 +42,8 @@ def test_hkust_adapter_extracts_catalog_and_deadline_candidates() -> None:
 
     catalog = adapter.parse_catalog_from_fetcher(fetcher)
 
-    assert catalog.application_opens_at == "2025-09-01"
+    assert catalog.application_opens_at is None
+    assert "year=2026-27" in adapter.catalog_url
     assert [item.id for item in catalog.programmes] == [
         "hkust-artificial-intelligence-msc"
     ]
@@ -61,3 +64,36 @@ def test_hkust_adapter_extracts_catalog_and_deadline_candidates() -> None:
         ("Round 2", "2026-01-01", ["domestic-students"], None),
         ("Round 3", "2026-03-01", ["domestic-students"], None),
     ]
+
+
+def test_hkust_adapter_targets_current_cycle_without_breaking_fixture_cycle() -> None:
+    adapter = HKUSTAdapter(minimum_expected_programmes=1, detail_workers=1)
+    catalog_html = CATALOG_HTML.replace("2026-27", "2027-28")
+    detail_html = (
+        DETAIL_HTML.replace("2026/27", "2027/28")
+        .replace("Sep 2026", "Sep 2027")
+        .replace("Nov 2025", "Nov 2026")
+        .replace("Jan 2026", "Jan 2027")
+        .replace("Mar 2026", "Mar 2027")
+    )
+
+    def fetcher(url: str) -> str:
+        return catalog_html if "print_result.php" in url else detail_html
+
+    catalog = adapter.parse_catalog_from_fetcher(fetcher)
+
+    assert catalog.application_opens_at is None
+    assert catalog.programmes[0].windows[0].intake == "September 2027"
+    assert catalog.programmes[0].windows[0].closes_at == "2026-11-01"
+
+
+def test_old_cycle_detail_is_not_relabelled_as_current_cycle() -> None:
+    adapter = HKUSTAdapter(minimum_expected_programmes=1, detail_workers=1)
+
+    def fetcher(url: str) -> str:
+        if "print_result.php" in url:
+            return CATALOG_HTML.replace("2026-27", "2027-28")
+        return DETAIL_HTML
+
+    catalog = adapter.parse_catalog_from_fetcher(fetcher)
+    assert catalog.programmes[0].windows == []

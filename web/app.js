@@ -47,8 +47,10 @@ import {
 import { groupWindowRecordsForDisplay } from "./window-grouping.js";
 import {
   calendarTitlePrefix,
+  groupRecordsByProvenance,
   isPredictedRecord,
   isRecurringPolicyRecord,
+  recordProvenance,
 } from "./window-provenance.js";
 import { decodeRecordBundle } from "./frontend-data.js";
 import {
@@ -328,7 +330,7 @@ function deadlineNote(record, status) {
 }
 
 function actionSummary(record, status) {
-  const statusLabel = statusLabels()[status]?.title || status;
+  const statusLabel = provenanceHeading(recordProvenance(record), status).title;
   const intake = intakeLabel(recordIntake(record), state.language);
   const milestone =
     status === "upcoming" || status === "future"
@@ -879,7 +881,10 @@ function filteredRecords() {
         state.favorites.has(favoriteKey("window", record.id)) ||
         state.favorites.has(favoriteKey("university", record.universityId))) &&
       (state.dateType === "all" ||
-        (state.dateType === "official" && !isPredictedRecord(record)) ||
+        (state.dateType === "official" &&
+          !isPredictedRecord(record) &&
+          !isRecurringPolicyRecord(record)) ||
+        (state.dateType === "recurring" && isRecurringPolicyRecord(record)) ||
         (state.dateType === "estimated" && isPredictedRecord(record)))
     );
   });
@@ -947,7 +952,7 @@ function activeNonStatusFilter() {
     state.intake !== "all" ||
     state.applicantCategory !== "all" ||
     state.deadlineRange !== "all" ||
-    state.dateType !== "all" ||
+    state.dateType !== "official" ||
     state.rankLimit !== "200" ||
     state.favoritesOnly
   );
@@ -983,7 +988,7 @@ function resetFilter(filter) {
   if (filter === "intake") state.intake = "all";
   if (filter === "applicantCategory") state.applicantCategory = "all";
   if (filter === "deadlineRange") state.deadlineRange = "all";
-  if (filter === "dateType") state.dateType = "all";
+  if (filter === "dateType") state.dateType = "official";
   if (filter === "rankLimit") state.rankLimit = "200";
   if (filter === "favorites") state.favoritesOnly = false;
   syncFilterInputs();
@@ -1000,7 +1005,7 @@ function clearFilters() {
   state.intake = "all";
   state.applicantCategory = "all";
   state.deadlineRange = "all";
-  state.dateType = "all";
+  state.dateType = "official";
   state.rankLimit = "200";
   state.favoritesOnly = false;
   syncFilterInputs();
@@ -1063,7 +1068,11 @@ function activeFilterItems() {
     items.push({
       key: "dateType",
       label: t(
-        state.dateType === "official" ? "officialOnly" : "estimatedOnly",
+        state.dateType === "official"
+          ? "officialOnly"
+          : state.dateType === "recurring"
+            ? "recurringOnly"
+            : "estimatedOnly",
       ),
     });
   }
@@ -1393,6 +1402,12 @@ function createUniversityGroupRow(universityGroup, status) {
     toggleGroup();
   });
   programmeSummary.append(summaryHeading, summaryCounts, toggle);
+  programmeSummary.appendChild(
+    makeElement("span", {
+      className: "application-trust-summary school-group-trust",
+      text: `${records.length} ${provenanceLabel(recordProvenance(records[0]))}`,
+    }),
+  );
   row.addEventListener("click", (event) => {
     if (event.target.closest("a, button")) return;
     toggleGroup();
@@ -1406,8 +1421,8 @@ function createUniversityGroupRow(universityGroup, status) {
     a.closesAt.localeCompare(b.closesAt),
   )[0];
   const source = makeElement("span", {
-    className: "source-badge discovered school-group-source",
-    text: `${windowCountText(records.length)} · ${t("groupedBySchool")}`,
+    className: `source-badge ${isPredictedRecord(records[0]) ? "predicted" : isRecurringPolicyRecord(records[0]) ? "recurring" : "discovered"} school-group-source`,
+    text: provenanceLabel(recordProvenance(records[0])),
   });
 
   row.append(
@@ -1475,8 +1490,46 @@ function predictionConfidenceText(record) {
   return `${labels[record.confidence] || t("estimate")} · ${record.evidenceCycleCount} ${t("historicalCycles")}`;
 }
 
-function createGroup(status, records) {
+function provenanceLabel(kind) {
+  return t(
+    {
+      official: "verifiedDates",
+      recurring: "recurringDates",
+      predicted: "estimatedDates",
+      review: "reviewDates",
+    }[kind],
+  );
+}
+
+function provenanceHeading(kind, status) {
   const heading = statusLabels()[status];
+  if (kind === "official") {
+    return { ...heading, title: `${t("verifiedDates")} · ${heading.title}` };
+  }
+  if (kind === "predicted") {
+    return {
+      title: t(
+        {
+          open: "estimatedOpenTitle",
+          upcoming: "estimatedUpcomingTitle",
+          future: "estimatedFutureTitle",
+          closed: "estimatedClosedTitle",
+        }[status],
+      ),
+      description: t("estimatedGroupDescription"),
+    };
+  }
+  return {
+    title: provenanceLabel(kind),
+    description: t(
+      kind === "review" ? "reviewGroupDescription" : "recurringYearMapped",
+    ),
+  };
+}
+
+function createGroup(status, records, kind) {
+  const heading = provenanceHeading(kind, status);
+  const groupKey = `${status}:${kind}`;
   const { section, tbody } = createTableSection(
     status,
     heading,
@@ -1493,11 +1546,12 @@ function createGroup(status, records) {
       t("dataSource"),
     ],
   );
+  section.dataset.provenance = kind;
   const universityGroups = groupWindowRecordsForDisplay(records, {
-    keyPrefix: status,
+    keyPrefix: groupKey,
   });
   const { items, start, end, total, page, totalPages } = paginate(
-    status,
+    groupKey,
     universityGroups,
   );
   items.forEach((universityGroup) => {
@@ -1516,7 +1570,7 @@ function createGroup(status, records) {
     childRows.at(-1)?.classList.add("university-group-child--last");
   });
   section.appendChild(
-    createPagination(status, { start, end, total, page, totalPages }),
+    createPagination(groupKey, { start, end, total, page, totalPages }),
   );
   return section;
 }
@@ -1862,9 +1916,9 @@ function render() {
     const groupRecords = records
       .filter((record) => getStatus(record) === status)
       .sort(compareRecords);
-    if (groupRecords.length) {
-      container.appendChild(createGroup(status, groupRecords));
-    }
+    groupRecordsByProvenance(groupRecords).forEach(({ kind, records }) => {
+      container.appendChild(createGroup(status, records, kind));
+    });
   });
   if (state.status === "exception" && exceptionUniversities.length) {
     container.appendChild(
@@ -1911,7 +1965,7 @@ function syncUrl() {
     params.set("applicant", state.applicantCategory);
   if (state.deadlineRange !== "all")
     params.set("deadline", state.deadlineRange);
-  if (state.dateType !== "all") params.set("dates", state.dateType);
+  if (state.dateType !== "official") params.set("dates", state.dateType);
   if (state.favoritesOnly) params.set("saved", "1");
   history.replaceState(
     null,
@@ -1936,11 +1990,11 @@ function loadUrlState() {
   state.deadlineRange = ["30", "90", "180"].includes(params.get("deadline"))
     ? params.get("deadline")
     : "all";
-  state.dateType = ["official", "estimated"].includes(params.get("dates"))
+  state.dateType = ["all", "official", "recurring", "estimated"].includes(
+    params.get("dates"),
+  )
     ? params.get("dates")
-    : params.get("official") === "1"
-      ? "official"
-      : "all";
+    : "official";
   state.status = params.get("status") || "open";
   state.sort = ["rank", "opens", "deadline"].includes(params.get("sort"))
     ? params.get("sort")
@@ -2252,7 +2306,7 @@ function updateMobileFilterToggle() {
   const hasAdvancedFilters =
     state.applicantCategory !== "all" ||
     state.deadlineRange !== "all" ||
-    state.dateType !== "all" ||
+    state.dateType !== "official" ||
     state.rankLimit !== "200" ||
     state.favoritesOnly;
   button.setAttribute("aria-expanded", String(expanded));
@@ -2272,6 +2326,8 @@ function updateMobileFilterToggle() {
 async function showSavedApplications() {
   await ensureClosedRecords();
   state.favoritesOnly = true;
+  state.dateType = "all";
+  document.getElementById("date-type-filter").value = state.dateType;
   state.selectedUniversityId = "";
   resetPages();
   syncUrl();
@@ -2617,7 +2673,8 @@ async function init() {
     updateStatusTabs();
     const schoolCount = state.universities.length;
     document.getElementById("total-schools").textContent = schoolCount;
-    document.getElementById("total-records").textContent = state.officialCount;
+    document.getElementById("total-records").textContent =
+      state.meta.trustedOfficialCount ?? state.officialCount;
     updateDataNotes();
     renderCoverage();
     setupSubscription();
