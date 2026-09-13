@@ -1,18 +1,11 @@
 import { translate } from "./i18n.js";
-import {
-  matchesDateAndScope,
-  matchesTimeStatus,
-  readViewFilters,
-  writeViewFilters,
-} from "./view-filters.js";
-import { createRankingIndex } from "./ranking-filter.js";
+import { getApplicationStatus } from "./status.js";
 import { canonicalIntake, intakeLabel } from "./intake-filter.js";
 import { acronym, makeElement, makeLink, parseDate } from "./dom.js";
-import { recordProvenance } from "./window-provenance.js";
+import { isRecurringPolicyRecord } from "./window-provenance.js";
 import { universityDeepLink } from "./university-deep-link.js";
 import {
   countryLabel,
-  regionLabel,
   programmeLabel,
   programmeSearchTerms,
   roundLabel,
@@ -24,17 +17,13 @@ import { formatDeadlineDate } from "./deadline-semantics.js";
 
 const state = {
   records: [],
-  ...readViewFilters(location.search),
-  universities: [],
-  rankings: {},
-  applicantLabels: {},
-  favorites: new Set(),
+  search: "",
+  universityId: "",
+  qsLimit: 200,
+  status: "all",
   month: null,
   language: "en",
   theme: "light",
-  selectedDay: "",
-  limit: 50,
-  view: window.matchMedia("(max-width: 720px)").matches ? "agenda" : "month",
 };
 let programmeTranslationsPromise = null;
 
@@ -89,31 +78,14 @@ function weekdayFormatter() {
 }
 
 function calendarEvents(records) {
-  return records
-    .flatMap((record) => [
-      { type: "open", date: record.opensAt, record },
-      { type: "deadline", date: record.closesAt, record },
-    ])
-    .filter((event) => event.date);
-}
-
-function rankingIndex() {
-  const rows =
-    state.ranking === "qs"
-      ? state.universities
-          .filter((item) => item.qsPosition != null)
-          .map((item) => ({
-            universityId: item.id,
-            rankPosition: item.qsPosition,
-            rankDisplay: item.rankDisplay,
-          }))
-      : state.rankings.rankings?.[state.ranking]?.rows || [];
-  return createRankingIndex(rows).byUniversityId;
+  return records.flatMap((record) => [
+    { type: "open", date: record.opensAt, record },
+    { type: "deadline", date: record.closesAt, record },
+  ]);
 }
 
 function filteredRecords() {
   const query = state.search.trim().toLocaleLowerCase("zh-CN");
-  const ranks = rankingIndex();
   return state.records.filter((record) => {
     const searchable = [
       record.school,
@@ -129,16 +101,11 @@ function filteredRecords() {
       .join(" ")
       .toLocaleLowerCase("zh-CN");
     return (
-      (!state.selectedUniversityId ||
-        record.universityId === state.selectedUniversityId) &&
-      (state.selectedUniversityId ||
-        (ranks.get(record.universityId)?.rankPosition ?? Infinity) <=
-          Number(state.rankLimit)) &&
-      matchesDateAndScope(record, state) &&
-      matchesTimeStatus(record, state.status) &&
-      (!state.favoritesOnly ||
-        state.favorites.has(`window:${record.id}`) ||
-        state.favorites.has(`university:${record.universityId}`)) &&
+      (record.trustStatus || "current") === "current" &&
+      (!state.universityId || record.universityId === state.universityId) &&
+      (state.universityId || record.qsRank <= state.qsLimit) &&
+      (state.status === "all" ||
+        getApplicationStatus(record) === state.status) &&
       (!query || searchable.includes(query))
     );
   });
@@ -156,19 +123,18 @@ function ensureCalendarMonth(records) {
 
 function eventLabel(event) {
   const school = schoolLabels(event.record, state.language).primary;
-  const provenance = ` · ${t({ official: "officialOnly", predicted: "estimatedOnly", recurring: "recurringPolicyShort", review: "statusNeedsCheck" }[recordProvenance(event.record)])}`;
+  const provenance = isRecurringPolicyRecord(event.record)
+    ? ` · ${t("recurringPolicyShort")}`
+    : "";
   return `${event.type === "open" ? t("calendarEventOpen") : t("calendarEventDeadline")} · ${school}${provenance}`;
 }
 
 function makeCalendarEvent(event) {
-  const params = writeViewFilters(state);
-  params.set("window", event.record.id);
   const link = makeLink(
     eventLabel(event),
-    `./?${params}#application-board`,
+    event.record.applicationUrl,
     `calendar-event ${event.type}`,
   );
-  link.removeAttribute("target");
   link.title = [
     schoolLabels(event.record, state.language).primary,
     programmeLabel(event.record.scopeId, event.record.program, state.language),
@@ -176,18 +142,7 @@ function makeCalendarEvent(event) {
   return link;
 }
 
-function selectDay(key) {
-  state.selectedDay = key;
-  state.limit = 50;
-  render();
-  document.getElementById("calendar-list-title").focus({ preventScroll: true });
-  document
-    .getElementById("calendar-list-title")
-    .scrollIntoView({ block: "start" });
-}
-
 function renderCalendar(records) {
-  const ranks = rankingIndex();
   ensureCalendarMonth(records);
   document.getElementById("calendar-month-label").textContent = formatMonth(
     state.month,
@@ -227,39 +182,26 @@ function renderCalendar(records) {
     const cell = makeElement("div", {
       className: `calendar-cell${date.getUTCMonth() === monthIndex ? "" : " muted"}${key === todayKey ? " today" : ""}`,
     });
-    const dayButton = makeElement("button", {
-      className: "calendar-day",
-      text: date.getUTCDate(),
-    });
-    dayButton.type = "button";
-    dayButton.setAttribute("aria-label", formatDate(key));
-    dayButton.setAttribute("aria-pressed", String(state.selectedDay === key));
-    dayButton.addEventListener("click", () => {
-      state.month = monthStart(date);
-      selectDay(key);
-    });
-    cell.appendChild(dayButton);
+    cell.appendChild(
+      makeElement("span", {
+        className: "calendar-day",
+        text: date.getUTCDate(),
+      }),
+    );
     const events = (eventsByDate.get(key) || []).sort((a, b) => {
       if (a.type !== b.type) return a.type === "deadline" ? -1 : 1;
-      return (
-        (ranks.get(a.record.universityId)?.rankPosition ?? Infinity) -
-        (ranks.get(b.record.universityId)?.rankPosition ?? Infinity)
-      );
+      return a.record.qsRank - b.record.qsRank;
     });
     events
       .slice(0, 4)
       .forEach((event) => cell.appendChild(makeCalendarEvent(event)));
-    if (events.length) {
-      const more = makeElement("button", {
-        className: "calendar-more",
-        text: t("calendarDayEvents").replace("{count}", events.length),
-      });
-      more.type = "button";
-      more.addEventListener("click", () => {
-        state.month = monthStart(date);
-        selectDay(key);
-      });
-      cell.appendChild(more);
+    if (events.length > 4) {
+      cell.appendChild(
+        makeElement("span", {
+          className: "calendar-more",
+          text: `+${events.length - 4} ${t("calendarMore")}`,
+        }),
+      );
     }
     return cell;
   });
@@ -267,27 +209,18 @@ function renderCalendar(records) {
 }
 
 function renderList(records) {
-  const ranks = rankingIndex();
   const events = calendarEvents(records)
     .filter(
       (event) =>
-        monthStart(parseDate(event.date)).getTime() === state.month.getTime() &&
-        (!state.selectedDay || event.date === state.selectedDay),
+        monthStart(parseDate(event.date)).getTime() === state.month.getTime(),
     )
     .sort(
       (a, b) =>
-        a.date.localeCompare(b.date) ||
-        (ranks.get(a.record.universityId)?.rankPosition ?? Infinity) -
-          (ranks.get(b.record.universityId)?.rankPosition ?? Infinity),
+        a.date.localeCompare(b.date) || a.record.qsRank - b.record.qsRank,
     );
   document.getElementById("calendar-result-count").textContent =
     `${events.length} ${t("calendarEventsUnit")}`;
   const list = document.getElementById("calendar-list");
-  document.getElementById("calendar-list-title").textContent = state.selectedDay
-    ? formatDate(state.selectedDay)
-    : t("calendarMonthEvents");
-  document.getElementById("calendar-load-more").hidden =
-    events.length <= state.limit;
   if (!events.length) {
     list.replaceChildren(
       makeElement("div", {
@@ -297,123 +230,47 @@ function renderList(records) {
     );
     return;
   }
-  const daySections = new Map();
-  events.slice(0, state.limit).forEach((event) => {
-    if (!daySections.has(event.date)) {
-      const section = makeElement("section", {
-        className: "calendar-day-section",
+  list.replaceChildren(
+    ...events.map((event) => {
+      const card = makeElement("article", {
+        className: `calendar-list-item ${event.type}`,
       });
-      section.appendChild(makeElement("h3", { text: formatDate(event.date) }));
-      daySections.set(event.date, section);
-    }
-    const card = makeElement("article", {
-      className: `calendar-list-item ${event.type}`,
-    });
-    const school = schoolLabels(event.record, state.language);
-    const intake = intakeLabel(canonicalIntake(event.record), state.language);
-    const round = roundLabel(event.record.round, state.language);
-    card.append(
-      makeElement("span", {
-        className: "date-secondary",
-        text: `${formatEventDate(event)} · ${state.ranking.toUpperCase()} ${ranks.get(event.record.universityId)?.rankDisplay || "—"}`,
-      }),
-      makeCalendarEvent(event),
-      makeElement("span", {
-        className: "school-meta",
-        text: [
-          programmeLabel(
-            event.record.scopeId,
-            event.record.program,
-            state.language,
-          ),
-          intake,
-          round,
-          countryLabel(event.record.country, state.language),
-          school.secondary,
-        ]
-          .filter(Boolean)
-          .join(" · "),
-      }),
-    );
-    card.appendChild(
-      makeElement("p", {
-        text: (event.record.applicantCategories || [])
-          .map((id) => state.applicantLabels[id]?.[state.language] || id)
-          .join(" · "),
-      }),
-    );
-    card.appendChild(
-      makeLink(t("applyOfficial"), event.record.applicationUrl, "apply-link"),
-    );
-    if (event.record.sourceUrl)
-      card.appendChild(
-        makeLink(t("dataSource"), event.record.sourceUrl, "source-link"),
+      const school = schoolLabels(event.record, state.language);
+      const intake = intakeLabel(canonicalIntake(event.record), state.language);
+      const round = roundLabel(event.record.round, state.language);
+      card.append(
+        makeElement("span", {
+          className: "date-secondary",
+          text: `${formatEventDate(event)} · QS #${event.record.qsRank}`,
+        }),
+        makeLink(eventLabel(event), event.record.applicationUrl, "school-link"),
+        makeElement("span", {
+          className: "school-meta",
+          text: [
+            programmeLabel(
+              event.record.scopeId,
+              event.record.program,
+              state.language,
+            ),
+            intake,
+            round,
+            countryLabel(event.record.country, state.language),
+            school.secondary,
+          ]
+            .filter(Boolean)
+            .join(" · "),
+        }),
       );
-    daySections.get(event.date).appendChild(card);
-  });
-  list.replaceChildren(...daySections.values());
+      return card;
+    }),
+  );
 }
 
 function render() {
-  for (const option of document.getElementById("calendar-qs").options) {
-    option.textContent = `${state.ranking.toUpperCase()} Top ${option.value}`;
-  }
   const records = filteredRecords();
   ensureCalendarMonth(records);
   renderCalendar(records);
   renderList(records);
-  document.getElementById("calendar-month-grid").hidden =
-    state.view !== "month";
-  document
-    .getElementById("calendar-agenda-view")
-    .setAttribute("aria-pressed", String(state.view === "agenda"));
-  document
-    .getElementById("calendar-month-view")
-    .setAttribute("aria-pressed", String(state.view === "month"));
-  document.getElementById("calendar-clear-day").hidden = !state.selectedDay;
-  document.getElementById("calendar-month-picker").value = state.month
-    .toISOString()
-    .slice(0, 7);
-  const params = writeViewFilters(state);
-  const trackerUrl = `./${params.size ? `?${params}` : ""}#application-board`;
-  document
-    .querySelectorAll('.calendar-back-link, a[href="./#application-board"]')
-    .forEach((link) => (link.href = trackerUrl));
-  document.getElementById("calendar-filter-context").textContent =
-    `${t("calendarFilterNote")} ${filterDescription()}`;
-  params.set("month", state.month.toISOString().slice(0, 7));
-  params.set("view", state.view);
-  if (state.selectedDay) params.set("day", state.selectedDay);
-  history.replaceState(null, "", `${location.pathname}?${params}`);
-}
-
-function filterDescription() {
-  const labels = [
-    t(
-      {
-        official: "officialOnly",
-        all: "allDateTypes",
-        estimated: "estimatedOnly",
-        recurring: "recurringOnly",
-        review: "statusNeedsCheck",
-      }[state.dateType],
-    ),
-  ];
-  if (state.region !== "all")
-    labels.push(regionLabel(state.region, state.language));
-  if (state.intake !== "all") {
-    const [term, year] = state.intake.split(":");
-    labels.push(intakeLabel({ term, year: Number(year) }, state.language));
-  }
-  if (state.applicantCategory !== "all")
-    labels.push(
-      state.applicantLabels[state.applicantCategory]?.[state.language] ||
-        state.applicantCategory,
-    );
-  if (state.deadlineRange !== "all")
-    labels.push(t(`deadlineNext${state.deadlineRange}`));
-  if (state.favoritesOnly) labels.push(t("favoritesOnly"));
-  return labels.join(" · ");
 }
 
 function applyStaticTranslations() {
@@ -451,45 +308,6 @@ function applyTheme() {
 }
 
 function bindEvents() {
-  for (const view of ["agenda", "month"]) {
-    document
-      .getElementById(`calendar-${view}-view`)
-      .addEventListener("click", () => {
-        state.view = view;
-        render();
-      });
-  }
-  document
-    .getElementById("calendar-load-more")
-    .addEventListener("click", () => {
-      state.limit += 50;
-      render();
-    });
-  document
-    .getElementById("calendar-clear-day")
-    .addEventListener("click", () => {
-      state.selectedDay = "";
-      state.limit = 50;
-      render();
-    });
-  document
-    .getElementById("calendar-month-picker")
-    .addEventListener("change", (event) => {
-      if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(event.target.value)) return;
-      state.month = new Date(`${event.target.value}-01T00:00:00Z`);
-      state.selectedDay = "";
-      state.limit = 50;
-      render();
-    });
-  document
-    .getElementById("calendar-ranking")
-    .addEventListener("change", (event) => {
-      state.ranking = event.target.value;
-      state.selectedUniversityId = "";
-      state.selectedDay = "";
-      state.limit = 50;
-      render();
-    });
   document
     .getElementById("language-toggle")
     .addEventListener("click", async () => {
@@ -506,18 +324,14 @@ function bindEvents() {
   document
     .getElementById("calendar-search")
     .addEventListener("input", (event) => {
-      state.selectedUniversityId = "";
+      state.universityId = "";
       state.search = event.target.value;
       state.month = null;
-      state.selectedDay = "";
-      state.limit = 50;
       render();
     });
   document.getElementById("calendar-qs").addEventListener("change", (event) => {
-    state.rankLimit = event.target.value;
+    state.qsLimit = Number(event.target.value);
     state.month = null;
-    state.selectedDay = "";
-    state.limit = 50;
     render();
   });
   document
@@ -525,26 +339,18 @@ function bindEvents() {
     .addEventListener("change", (event) => {
       state.status = event.target.value;
       state.month = null;
-      state.selectedDay = "";
-      state.limit = 50;
       render();
     });
   document.getElementById("calendar-prev").addEventListener("click", () => {
     state.month = addMonths(state.month || monthStart(), -1);
-    state.selectedDay = "";
-    state.limit = 50;
     render();
   });
   document.getElementById("calendar-next").addEventListener("click", () => {
     state.month = addMonths(state.month || monthStart(), 1);
-    state.selectedDay = "";
-    state.limit = 50;
     render();
   });
   document.getElementById("calendar-today").addEventListener("click", () => {
     state.month = monthStart();
-    state.selectedDay = "";
-    state.limit = 50;
     render();
   });
 }
@@ -594,47 +400,15 @@ async function init() {
   const universityById = new Map(
     frontend.universities.map((item) => [item.id, item]),
   );
-  state.universities = frontend.universities;
-  state.rankings = frontend.rankings || { rankings: {} };
-  state.applicantLabels = frontend.applicantCategoryLabels || {};
-  try {
-    state.favorites = new Set(
-      JSON.parse(
-        sessionStorage.getItem("gradwindow:calendar-favorites") ||
-          localStorage.getItem("gradwindow:favorites") ||
-          "[]",
-      ),
-    );
-  } catch {
-    state.favorites = new Set();
-  }
   const deepLink = universityDeepLink(
     window.location.search,
     new Set(universityById.keys()),
   );
-  state.selectedUniversityId = deepLink.universityId;
-  if (state.selectedUniversityId) {
-    state.search = universityById.get(state.selectedUniversityId).school;
+  state.universityId = deepLink.universityId;
+  if (state.universityId) {
+    state.search = universityById.get(state.universityId).school;
+    document.getElementById("calendar-search").value = state.search;
   }
-  document.getElementById("calendar-search").value = state.search;
-  document.getElementById("calendar-ranking").value = state.ranking;
-  document.getElementById("calendar-qs").value = state.rankLimit;
-  document.getElementById("calendar-status").value = state.status;
-  const urlParams = new URLSearchParams(location.search);
-  const month = urlParams.get("month");
-  if (/^\d{4}-(0[1-9]|1[0-2])$/.test(month || ""))
-    state.month = new Date(`${month}-01T00:00:00Z`);
-  const day = urlParams.get("day");
-  if (
-    state.month &&
-    /^\d{4}-\d{2}-\d{2}$/.test(day || "") &&
-    day.startsWith(month) &&
-    !Number.isNaN(Date.parse(day)) &&
-    new Date(day).toISOString().slice(0, 10) === day
-  )
-    state.selectedDay = day;
-  if (["month", "agenda"].includes(urlParams.get("view")))
-    state.view = urlParams.get("view");
   state.records = [
     ...decodeRecordBundle(frontend.records, frontend.universities),
     ...decodeRecordBundle(closed.records, frontend.universities),
@@ -645,7 +419,7 @@ async function init() {
 
 init().catch((error) => {
   document
-    .getElementById("calendar-list")
+    .getElementById("calendar-grid")
     .replaceChildren(
       makeElement("div", { className: "empty-state", text: t("loadFailed") }),
     );
