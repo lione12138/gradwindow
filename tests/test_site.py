@@ -367,9 +367,9 @@ def test_built_site_has_complete_directory(tmp_path) -> None:
     assert 'body[data-view-status="unknown"] .mobile-sort-controls' in styles_css
     assert ".mobile-bottom-nav" in styles_css
     assert "grid-template-columns: repeat(4, minmax(0, 1fr))" in styles_css
-    assert 'params.set("applicant", state.applicantCategory)' in app_js
-    assert 'params.set("deadline", state.deadlineRange)' in app_js
-    assert 'params.set("dates", state.dateType)' in app_js
+    assert "writeViewFilters(state)" in app_js
+    assert (tmp_path / "view-filters.js").is_file()
+    assert (tmp_path / "experience.css").is_file()
     assert "grid-template-columns: 268px minmax(0, 1fr)" in styles_css
     assert (
         "grid-template-columns: clamp(260px, 18.5vw, 296px) minmax(0, 1fr)"

@@ -57,6 +57,8 @@ PUBLIC_FILES = (
     "university-deep-link.js",
     "window-grouping.js",
     "window-provenance.js",
+    "view-filters.js",
+    "experience.css",
     "localization.js",
     "i18n.js",
     "dom.js",
