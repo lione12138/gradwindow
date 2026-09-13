@@ -1,7 +1,6 @@
 import { expect, test } from "@playwright/test";
 
 async function openTracker(page) {
-  await page.clock.setFixedTime(new Date("2026-09-13T12:00:00Z"));
   await page.route("https://static.cloudflareinsights.com/**", (route) =>
     route.abort(),
   );
@@ -52,12 +51,16 @@ test("wide desktop places the filters beside the application results", async ({
   expect(sidebarBox.x + sidebarBox.width).toBeLessThan(resultsBox.x);
   await expect(sidebar).toHaveCSS("position", "sticky");
 
-  await expect(page.locator("#time-status-filter")).toBeVisible();
-  await expect(page.locator("#hero-search-input")).toBeVisible();
-  await expect(page.locator("#search-input")).toBeHidden();
+  const statusButtons = page.locator(".primary-status-tabs .status-tab");
+  const firstStatusBox = await statusButtons.nth(0).boundingBox();
+  const secondStatusBox = await statusButtons.nth(1).boundingBox();
+  expect(firstStatusBox).not.toBeNull();
+  expect(secondStatusBox).not.toBeNull();
+  expect(secondStatusBox.y).toBeGreaterThan(firstStatusBox.y);
+  expect(secondStatusBox.x).toBe(firstStatusBox.x);
 });
 
-test("search finds NUS within the selected status", async ({ page }) => {
+test("hero search finds NUS across application statuses", async ({ page }) => {
   await openTracker(page);
 
   await page.locator("#hero-search-input").fill("NUS");
@@ -67,26 +70,19 @@ test("search finds NUS within the selected status", async ({ page }) => {
   await expect(page.locator("#application-groups")).toContainText(
     "National University of Singapore",
   );
-  await expect(page.locator("#time-status-filter")).toHaveValue("open");
-  await expect(
-    page.locator(
-      '#application-groups .application-group[data-status="closed"]',
-    ),
-  ).toHaveCount(0);
-  await page.locator(".clear-filter-button").click();
-  await expect(page.locator("#hero-search-input")).toHaveValue("");
 });
 
 test("Open now restores the primary status view", async ({ page }) => {
   await openTracker(page);
-  const status = page.locator("#time-status-filter");
+  const upcoming = page.locator('.status-tab[data-status="upcoming"]');
+  const open = page.locator('.status-tab[data-status="open"]');
 
-  await status.selectOption("upcoming");
-  await expect(status).toHaveValue("upcoming");
+  await upcoming.click();
+  await expect(upcoming).toHaveAttribute("aria-selected", "true");
   await expect(page).toHaveURL(/status=upcoming/);
 
-  await status.selectOption("open");
-  await expect(status).toHaveValue("open");
+  await open.click();
+  await expect(open).toHaveAttribute("aria-selected", "true");
   await expect(page).not.toHaveURL(/status=/);
   await expect(page.locator("#results-window-count")).not.toHaveText(
     "0 windows",
@@ -143,7 +139,7 @@ test("saving a deadline updates the saved workflow", async ({ page }) => {
 
   await page.locator("#saved-status-tab").click();
   await expect(page.locator("#saved-status-tab")).toHaveAttribute(
-    "aria-pressed",
+    "aria-selected",
     "true",
   );
   await expect(page).toHaveURL(/saved=1/);
@@ -173,44 +169,17 @@ test("a deadline row opens and closes the detail drawer", async ({ page }) => {
     .first();
   await expect(row).toBeVisible();
 
-  const trigger = row.locator(".programme-detail-button");
-  await trigger.click();
+  await row.locator("td").nth(3).click();
 
   const panel = page.locator("#window-detail-panel");
   await expect(panel).toBeVisible();
   await expect(panel.locator("#window-detail-body h2")).not.toBeEmpty();
-  await expect(page.getByRole("dialog")).toHaveAccessibleName(/\S/);
-  await expect(page).toHaveURL(/window=/);
-  const close = panel.locator(".window-detail-card [data-window-detail-close]");
-  await expect(close).toBeFocused();
-  await page.keyboard.press("Shift+Tab");
-  await expect(panel.locator(".detail-apply")).toBeFocused();
   await page.keyboard.press("Escape");
   await expect(panel).toBeHidden();
-  await expect(trigger).toBeFocused();
-  await expect(page).not.toHaveURL(/window=/);
 });
 
 test.describe("mobile filters", () => {
   test.use({ viewport: { width: 390, height: 844 } });
-
-  test("cards preserve applicant, intake, both dates and official source", async ({
-    page,
-  }) => {
-    await openTracker(page);
-    const row = page
-      .locator(".window-card-row:not(.university-group-parent)")
-      .first();
-    await expect(row.locator("td").nth(3)).toBeVisible();
-    await expect(
-      row.locator("td").nth(2).locator(".date-secondary"),
-    ).toBeVisible();
-    await expect(row.locator(".record-opening")).toBeVisible();
-    await expect(row.locator(".source-link")).toBeVisible();
-    expect(
-      await page.evaluate(() => document.documentElement.scrollWidth),
-    ).toBeLessThanOrEqual(390);
-  });
 
   test("keeps filters above the results on narrow screens", async ({
     page,

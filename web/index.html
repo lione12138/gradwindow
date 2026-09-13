@@ -122,9 +122,8 @@
     <script>window.GRADWINDOW_CONFIG = {};</script>
     <title>{{GRADWINDOW_TARGET_CYCLE_YEAR}} Master's Application Deadlines & Opening Dates | GradWindow</title>
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./experience.css" />
   </head>
-  <body class="experience-page">
+  <body>
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="./" aria-label="GradWindow home">
@@ -301,21 +300,10 @@
                       </button>
                     </div>
                     <div class="primary-filter-row">
-                      <label class="select-wrap primary-select">
-                        <span data-i18n="statusTabsLabel">Application status</span>
-                        <select id="time-status-filter">
-                          <option value="open" data-i18n="statusOpen">Open now</option>
-                          <option value="upcoming" data-i18n="statusUpcoming">Opening soon</option>
-                          <option value="future" data-i18n="statusFuture">Future</option>
-                          <option value="closed" data-i18n="statusClosed">Closed</option>
-                          <option value="all" data-i18n="calendarAllStatuses">All statuses</option>
-                        </select>
-                      </label>
                       <label class="search-box">
                         <span aria-hidden="true">⌕</span>
                         <input
                           id="search-input"
-                          aria-label="Search university, programme, or country"
                           type="search"
                           placeholder="Search university, programme, or country"
                           data-i18n-placeholder="searchPlaceholder"
@@ -352,7 +340,7 @@
                       <label class="select-wrap advanced-filter-control">
                         <span class="sr-only" data-i18n="applicantFilterLabel">Applicant category</span>
                         <select id="applicant-filter">
-                          <option value="all" data-i18n="anyApplicantCategory">Any applicant category</option>
+                          <option value="all" data-i18n="allApplicants">All applicants</option>
                         </select>
                       </label>
                       <label class="select-wrap advanced-filter-control">
@@ -381,7 +369,6 @@
                           <option value="all" data-i18n="allDateTypes">All date types</option>
                           <option value="recurring" data-i18n="recurringOnly">Recurring policies</option>
                           <option value="estimated" data-i18n="estimatedOnly">Estimated only</option>
-                          <option value="review" data-i18n="statusNeedsCheck">Needs check</option>
                         </select>
                       </label>
                       <button class="toolbar-button" id="favorites-toggle" type="button">
@@ -439,7 +426,6 @@
             <strong data-i18n="emptyTitle">No matching application windows</strong>
             <span data-i18n="emptyText">Adjust your search or filters and try again.</span>
           </div>
-          <button id="show-all-statuses" class="toolbar-button" type="button" hidden data-i18n="searchOtherStatuses">No windows in this status. View other statuses</button>
             </div>
           </div>
         </section>
