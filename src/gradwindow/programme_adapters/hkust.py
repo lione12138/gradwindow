@@ -20,10 +20,9 @@ UNIVERSITY_ID = "the-hong-kong-university-of-science-and-technology"
 CATALOG_URL = (
     "https://prog-crs.hkust.edu.hk/pgprog/print_result.php?"
     "is_s=Y&degree%5B%5D=MSC&degree%5B%5D=MA&degree%5B%5D=MPM&"
-    "degree%5B%5D=MPP&year=2026-27"
+    "degree%5B%5D=MPP&year=2027-28"
 )
 APPLICATION_URL = "https://fytgs.hkust.edu.hk/apply"
-APPLICATION_OPENS_AT = "2025-09-01"
 
 MONTHS = (
     "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|"
@@ -42,16 +41,23 @@ class HKUSTAdapter(BaseProgrammeAdapter):
     catalog_url = CATALOG_URL
     application_url = APPLICATION_URL
     application_opens_at_basis = "inferred-cycle-default"
-    intake = "September 2026"
+    intake = "September 2027"
 
     def __init__(
         self,
         minimum_expected_programmes: int = 35,
         *,
         detail_workers: int = 6,
+        cycle_start_year: int = 2027,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.detail_workers = detail_workers
+        self.cycle_start_year = cycle_start_year
+        self.cycle_label = f"{cycle_start_year}/{str(cycle_start_year + 1)[-2:]}"
+        self.cycle_path = f"{cycle_start_year}-{str(cycle_start_year + 1)[-2:]}"
+        self.catalog_url = CATALOG_URL.rsplit("year=", 1)[0] + f"year={self.cycle_path}"
+        self.intake = f"September {cycle_start_year}"
+        self.application_opens_at = None
 
     def parse_catalog_from_fetcher(self, fetcher) -> DiscoveredCatalog:
         programmes = self.parse_catalog(fetcher(self.catalog_url)).programmes
@@ -75,7 +81,7 @@ class HKUSTAdapter(BaseProgrammeAdapter):
         ) as executor:
             detailed = list(executor.map(parse_one, programmes))
         return DiscoveredCatalog(
-            application_opens_at=APPLICATION_OPENS_AT, programmes=detailed
+            application_opens_at=self.application_opens_at, programmes=detailed
         )
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:
@@ -83,7 +89,7 @@ class HKUSTAdapter(BaseProgrammeAdapter):
         programmes: dict[str, DiscoveredProgramme] = {}
         for link in soup.find_all("a", href=True):
             href = link["href"]
-            if "/pgprog/2026-27/" not in href:
+            if f"/pgprog/{self.cycle_path}/" not in href:
                 continue
             text = _normalise_text(link.get_text(" ", strip=True))
             degree_type = _degree_type(text)
@@ -128,7 +134,9 @@ class HKUSTAdapter(BaseProgrammeAdapter):
         website = _extract_between(text, "Website", "Enquiry")
         application_url = _normalise_url(website) or programme.application_url
         excerpt = _application_excerpt(text)
-        windows = _parse_windows(excerpt)
+        windows = _parse_windows(
+            excerpt, cycle_label=self.cycle_label, intake=self.intake
+        )
         return replace(
             programme,
             id=_programme_id(title, programme.source_url),
@@ -143,15 +151,19 @@ class HKUSTAdapter(BaseProgrammeAdapter):
         )
 
 
-def _parse_windows(text: str) -> list[DiscoveredWindow]:
+def _parse_windows(
+    text: str, *, cycle_label: str = "2027/28", intake: str = "September 2027"
+) -> list[DiscoveredWindow]:
     if not text:
         return []
     fall_match = re.search(
-        r"For\s+2026/27\s+Fall\s+Term\s+Intake.*?(?=For\s+20\d{2}/\d{2}\s+Spring|Admissions is|Back Privacy|$)",
+        rf"For\s+{re.escape(cycle_label)}\s+Fall\s+Term\s+Intake.*?(?=For\s+20\d{{2}}/\d{{2}}\s+Spring|Admissions is|Back Privacy|$)",
         text,
         flags=re.IGNORECASE,
     )
-    target = fall_match.group(0) if fall_match else text
+    if fall_match is None:
+        return []
+    target = fall_match.group(0)
     windows: list[DiscoveredWindow] = []
     seen: set[tuple[str, str, tuple[str, ...]]] = set()
     for label, categories in (
@@ -179,7 +191,7 @@ def _parse_windows(text: str) -> list[DiscoveredWindow]:
                     closes_at=closes_at,
                     applicant_categories=categories,
                     opens_at=None,
-                    intake="September 2026",
+                    intake=intake,
                 )
             )
     return windows

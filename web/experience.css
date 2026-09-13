@@ -1,0 +1,569 @@
+/* Tracker and calendar interaction layout. Shared with neither admin nor marketing pages. */
+.experience-page [hidden] {
+  display: none !important;
+}
+.experience-page .hero {
+  padding-block: 24px;
+}
+.experience-page .hero h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  max-width: 100%;
+}
+.experience-page .hero-copy > p {
+  margin-block: 8px;
+}
+.experience-page .hero-search {
+  margin: 0;
+  max-width: none;
+}
+.experience-page .primary-filter-row #hero-search-form {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0 0 8px;
+}
+.experience-page .primary-status-tabs {
+  display: none;
+}
+.experience-page .quick-filter-heading,
+.experience-page .section-kicker {
+  display: none;
+}
+.experience-page .primary-filter-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.experience-page .primary-select {
+  min-width: 0;
+  width: 100%;
+}
+.experience-page .select-wrap > span:not(.sr-only) {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.experience-page .primary-select {
+  display: block;
+  padding: 0;
+  min-height: 0;
+}
+.experience-page .primary-filter-row .primary-select > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.experience-page .primary-filter-row select {
+  font-size: 14px;
+  height: 44px;
+}
+.experience-page .application-table .date-secondary,
+.experience-page .application-table .applicant-category,
+.experience-page .application-table .source-badge {
+  font-size: 12px;
+}
+.experience-page .board-section > .section-heading {
+  margin-bottom: 12px;
+}
+.experience-page .board-section > .section-heading h2 {
+  font-size: 22px;
+}
+.experience-page .school-ranking {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.experience-page select {
+  width: 100%;
+  min-width: 0;
+}
+.experience-page .hero-disclaimer {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  overflow: visible;
+  max-height: none;
+}
+.experience-page .internal-school-link::after {
+  content: none;
+}
+.experience-page .mobile-sort-controls {
+  display: flex;
+}
+.experience-page .application-table:not(.university-table) {
+  width: 100%;
+  min-width: 0;
+  table-layout: auto;
+}
+.experience-page .application-table:not(.university-table) thead,
+.experience-page .application-table:not(.university-table) tbody {
+  display: block;
+}
+.experience-page .application-table:not(.university-table) tr {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 2.4fr) minmax(0, 1fr) minmax(0, 1.3fr)
+    minmax(0, 1.1fr) minmax(100px, 1fr);
+  gap: 8px 16px;
+  width: auto;
+}
+.experience-page .application-table:not(.university-table) tr.window-card-row {
+  height: auto;
+  min-height: 0;
+  align-items: start;
+  grid-template-areas: "school audience deadline source actions" "program audience deadline source actions";
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+  cursor: default;
+}
+.experience-page .application-table:not(.university-table) th,
+.experience-page .application-table:not(.university-table) td {
+  width: auto !important;
+  min-width: 0;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  overflow-wrap: anywhere;
+}
+.experience-page .application-table:not(.university-table) td::before {
+  display: none;
+}
+.experience-page .application-table:not(.university-table) th:nth-child(1),
+.experience-page .application-table:not(.university-table) th:nth-child(2),
+.experience-page .application-table:not(.university-table) th:nth-child(5),
+.experience-page .application-table:not(.university-table) th:nth-child(7),
+.experience-page .application-table:not(.university-table) td:nth-child(1),
+.experience-page .application-table:not(.university-table) td:nth-child(5),
+.experience-page .application-table:not(.university-table) td:nth-child(7) {
+  display: none;
+}
+.experience-page .application-table:not(.university-table) th:nth-child(9) {
+  grid-column: 4;
+  grid-row: 1;
+}
+.experience-page .application-table:not(.university-table) th:nth-child(8) {
+  grid-column: 5;
+  grid-row: 1;
+}
+.experience-page .application-table:not(.university-table) td:nth-child(2) {
+  grid-area: school;
+}
+.experience-page .application-table:not(.university-table) td:nth-child(3) {
+  grid-area: program;
+}
+.experience-page .application-table:not(.university-table) td:nth-child(4) {
+  grid-area: audience;
+  display: block;
+}
+.experience-page .application-table:not(.university-table) td:nth-child(6) {
+  grid-area: deadline;
+  display: block;
+}
+.experience-page .application-table:not(.university-table) td:nth-child(8) {
+  grid-area: actions;
+  display: block;
+}
+.experience-page .application-table:not(.university-table) td:nth-child(9) {
+  grid-area: source;
+  display: block;
+}
+.experience-page .application-table .school-link {
+  font-size: 13px;
+  font-weight: 600;
+}
+.experience-page .application-table .school-country-inline {
+  display: none;
+}
+.experience-page .programme-detail-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 650;
+  white-space: normal;
+  line-height: 1.45;
+}
+.experience-page .programme-detail-button:hover {
+  text-decoration: underline;
+}
+.experience-page .application-table .application-action-summary,
+.experience-page .programme-audience,
+.experience-page .application-table .mobile-date-range,
+.experience-page
+  .application-table
+  .application-trust-summary:not(.school-group-trust) {
+  display: none;
+}
+.experience-page .application-table .desktop-deadline-stack {
+  display: block;
+}
+.experience-page .application-table .date-primary {
+  font-size: 16px;
+}
+.experience-page .record-opening {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.experience-page .mobile-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.experience-page .mobile-card-actions button,
+.experience-page .mobile-card-actions summary {
+  min-height: 36px;
+  width: 100%;
+  white-space: normal;
+}
+.experience-page .favorite-button {
+  min-width: 0;
+  height: auto;
+  padding: 6px;
+  font-size: 12px;
+}
+.experience-page .apply-link {
+  display: block;
+  font-size: 12px;
+  text-decoration: underline;
+}
+.experience-page .calendar-menu-trigger {
+  min-width: 0;
+  font-size: 12px;
+  padding: 6px;
+}
+.experience-page .source-link {
+  font-size: 12px;
+}
+.experience-page .source-badge {
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+}
+.experience-page .school-next-deadline {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.experience-page .school-next-deadline > span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.experience-page .school-next-deadline > strong {
+  font-size: 18px;
+}
+.experience-page .school-intakes,
+.experience-page .school-group-trust {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+}
+.experience-page
+  .application-table:not(.university-table)
+  tr.university-group-parent {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-areas: "school deadline" "program deadline";
+  background: var(--green-pale);
+}
+.experience-page
+  .application-table:not(.university-table)
+  tr.university-group-parent
+  td:nth-child(4),
+.experience-page
+  .application-table:not(.university-table)
+  tr.university-group-parent
+  td:nth-child(8),
+.experience-page
+  .application-table:not(.university-table)
+  tr.university-group-parent
+  td:nth-child(9) {
+  display: none;
+}
+.experience-page .school-group-summary-heading {
+  display: none;
+}
+.experience-page .school-group-counts {
+  display: flex;
+}
+.experience-page .university-group-toggle {
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--green);
+  box-shadow: none;
+  width: fit-content;
+  min-height: 36px;
+}
+.experience-page .window-detail-card {
+  inset: 0 0 0 auto;
+  width: min(540px, 100%);
+  max-height: 100dvh;
+  border-radius: 0;
+}
+.experience-page .detail-apply {
+  position: sticky;
+  bottom: 0;
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+}
+.experience-page .window-detail-source-link {
+  background: transparent;
+  color: var(--green);
+  box-shadow: none;
+  border: 1px solid var(--line);
+}
+.experience-page .calendar-list {
+  display: block;
+}
+.experience-page .calendar-day-section {
+  margin-bottom: 24px;
+}
+.experience-page .calendar-day-section h3 {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  padding: 10px 0;
+  z-index: 1;
+}
+.experience-page .calendar-list-item {
+  margin: 8px 0;
+  padding: 16px;
+}
+.experience-page .calendar-list-item a {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.experience-page .calendar-more {
+  background: none;
+  border: 0;
+  padding: 8px 0;
+  text-decoration: underline;
+  color: var(--green);
+  cursor: pointer;
+}
+.experience-page .calendar-day {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  min-width: 32px;
+  min-height: 32px;
+}
+.experience-page .calendar-view-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.experience-page .calendar-view-controls [aria-pressed="true"] {
+  background: var(--green);
+  color: white;
+}
+.experience-page .calendar-page-heading {
+  margin-bottom: 20px;
+}
+.experience-page .calendar-page h1 {
+  font-size: clamp(28px, 4vw, 42px);
+}
+.experience-page .calendar-month-picker {
+  width: auto;
+  max-width: 180px;
+}
+.experience-page .calendar-filter-context {
+  font-size: 13px;
+  margin-block: 12px;
+}
+.experience-page .calendar-back-link {
+  white-space: normal;
+}
+@media (min-width: 1400px) {
+  .experience-page .primary-filter-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 720px) {
+  .experience-page .hero {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+  }
+  .experience-page .hero h1 {
+    font-size: 28px;
+  }
+  .experience-page .hero p {
+    margin-block: 6px;
+  }
+  .experience-page .hero-trust-stats {
+    margin-top: 8px;
+  }
+  .experience-page .board-section {
+    margin-top: 12px;
+    padding-top: 0;
+  }
+  .experience-page .section-heading {
+    display: none;
+  }
+  .experience-page .primary-filter-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .experience-page #saved-status-tab {
+    grid-column: auto;
+  }
+  .experience-page
+    .application-table:not(.university-table)
+    td:nth-child(3)
+    .date-secondary,
+  .experience-page
+    .application-table:not(.university-table)
+    td:nth-child(9)
+    .source-link,
+  .experience-page
+    .application-table:not(.university-table)
+    td:nth-child(9)
+    .date-secondary {
+    display: block;
+    font-size: 12px;
+    white-space: normal;
+  }
+  .experience-page .primary-filter-row select {
+    min-height: 44px;
+  }
+  .experience-page .primary-filter-row #hero-search-form {
+    margin: 0;
+  }
+  .experience-page .quick-filter-panel {
+    padding: 10px;
+  }
+  .experience-page .hero-disclaimer {
+    white-space: normal;
+    font-size: 12px;
+    flex-wrap: wrap;
+  }
+  .experience-page .application-table:not(.university-table) thead {
+    display: none;
+  }
+  .experience-page
+    .application-table:not(.university-table)
+    tr.window-card-row {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "school" "program" "audience" "deadline" "source" "actions";
+    gap: 8px;
+    padding: 16px;
+  }
+  .experience-page
+    .application-table:not(.university-table)
+    tr.university-group-parent {
+    grid-template-columns: 1fr;
+    grid-template-areas: "school" "program" "deadline";
+  }
+  .experience-page .school-next-deadline {
+    margin-top: 6px;
+  }
+  .experience-page .school-group-counts {
+    display: flex !important;
+  }
+  .experience-page .application-table .school-link {
+    font-size: 14px;
+  }
+  .experience-page .application-table td:nth-child(4) {
+    font-size: 13px;
+  }
+  .experience-page .mobile-card-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .experience-page .mobile-card-actions > * {
+    flex: 1;
+    min-width: 80px;
+  }
+  .experience-page .mobile-card-actions button {
+    min-height: 44px;
+  }
+  .experience-page .favorite-button {
+    font-size: 13px;
+  }
+  .experience-page .application-table .favorite-button::before {
+    display: none;
+  }
+  .experience-page .calendar-menu-trigger {
+    min-height: 44px;
+  }
+  .experience-page
+    .application-table:not(.university-table)
+    .calendar-menu-trigger {
+    width: 100%;
+    font-size: 12px;
+  }
+  .experience-page
+    .application-table:not(.university-table)
+    .calendar-menu-trigger
+    > span {
+    display: inline;
+  }
+  .experience-page
+    .application-table:not(.university-table)
+    .applicant-category {
+    font-size: 12px;
+  }
+  .experience-page .window-detail-card {
+    width: 100%;
+  }
+  .experience-page .calendar-panel {
+    overflow: visible;
+    padding: 12px;
+  }
+  .experience-page .calendar-weekdays,
+  .experience-page .calendar-grid {
+    min-width: 0;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 2px;
+  }
+  .experience-page .calendar-cell {
+    min-height: 62px;
+    padding: 2px;
+  }
+  .experience-page .calendar-cell .calendar-event {
+    display: none;
+  }
+  .experience-page .calendar-cell .calendar-more {
+    font-size: 10px;
+    overflow-wrap: anywhere;
+  }
+  .experience-page .calendar-cell .calendar-day {
+    width: 100%;
+  }
+  .experience-page .calendar-page {
+    padding-top: 16px;
+  }
+  .experience-page .calendar-page-heading p {
+    display: none;
+  }
+  .experience-page .calendar-page-toolbar {
+    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .experience-page .calendar-page-toolbar .search-box {
+    grid-column: 1 / -1;
+  }
+  .experience-page .calendar-page-toolbar .select-wrap {
+    display: block;
+  }
+  .experience-page .calendar-page-toolbar select {
+    font-size: 14px;
+    height: 44px;
+  }
+  .calendar-experience #theme-toggle {
+    display: inline-flex;
+  }
+}

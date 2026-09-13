@@ -37,8 +37,9 @@
     <link rel="modulepreload" href="./localization.js" />
     <title>Master's Application Deadline Calendar | GradWindow</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./experience.css" />
   </head>
-  <body>
+  <body class="experience-page calendar-experience">
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="./" aria-label="GradWindow home">
@@ -46,23 +47,14 @@
           <span>GradWindow</span>
         </a>
         <nav class="header-nav" aria-label="Main navigation">
-          <a href="./#application-board" data-i18n="navTracker">Application tracker</a>
+          <a class="calendar-back-link" href="./#application-board" data-i18n="navTrackerShort">Tracker</a>
           <a class="calendar-nav" href="./calendar.html" data-i18n="navCalendar">Calendar</a>
-          <a class="roadmap-nav" href="./roadmap.html" data-i18n="navRoadmap">Feature voting</a>
-          <a class="subscribe-link" href="./#subscribe" data-i18n="navSubscribe">Subscribe</a>
-          <a href="./contact.html" data-i18n="navContact">Contact</a>
-          <a
-            class="github-link"
-            href="https://github.com/lione12138/gradwindow"
-            data-i18n="navGithub"
-          >
-            GitHub
-          </a>
+          <a href="./?saved=1&amp;status=all&amp;dates=all#application-board" data-i18n="navSaved">Saved</a>
+        </nav>
           <div class="header-controls">
             <button class="header-control" id="language-toggle" type="button" aria-label="Switch language">中文</button>
             <button class="header-control icon-only-control" id="theme-toggle" type="button" aria-label="Switch color theme">◐</button>
           </div>
-        </nav>
       </header>
 
       <main>
@@ -83,13 +75,21 @@
               <span aria-hidden="true">⌕</span>
               <input
                 id="calendar-search"
+                aria-label="Search application windows"
+                data-i18n-aria-label="heroSearchLabel"
                 type="search"
                 placeholder="Search university, programme, or country"
                 data-i18n-placeholder="searchPlaceholder"
               />
             </label>
             <label class="select-wrap">
-              <span class="sr-only" data-i18n="calendarQsFilter">QS range</span>
+              <span data-i18n="rankingFilter">Ranking</span>
+              <select id="calendar-ranking">
+                <option value="qs">QS</option><option value="the">THE</option><option value="arwu">ARWU</option>
+              </select>
+            </label>
+            <label class="select-wrap">
+              <span data-i18n="rankRangeFilter">Rank range</span>
               <select id="calendar-qs">
                 <option value="30">QS Top 30</option>
                 <option value="50">QS Top 50</option>
@@ -109,6 +109,8 @@
               </select>
             </label>
           </div>
+          <p class="calendar-filter-context" id="calendar-filter-context"></p>
+          <a class="calendar-back-link" href="./#application-board" data-i18n="calendarEditFilters">Edit filters in tracker</a>
 
           <section class="calendar-panel calendar-page-panel" aria-live="polite">
             <div class="calendar-panel-header">
@@ -121,24 +123,38 @@
                 </div>
               </div>
               <div class="calendar-controls">
+                <label class="select-wrap"><span class="sr-only" data-i18n="calendarMonthPicker">Choose month</span><input type="month" id="calendar-month-picker" class="calendar-month-picker" /></label>
                 <button class="icon-button" id="calendar-prev" type="button" aria-label="Previous month">‹</button>
                 <button class="toolbar-button" id="calendar-today" type="button" data-i18n="calendarToday">Today</button>
                 <button class="icon-button" id="calendar-next" type="button" aria-label="Next month">›</button>
               </div>
             </div>
+            <div class="calendar-view-controls">
+              <button type="button" class="toolbar-button" id="calendar-agenda-view" data-i18n="calendarAgenda">Agenda</button>
+              <button type="button" class="toolbar-button" id="calendar-month-view" data-i18n="calendarMonthView">Month</button>
+              <button type="button" class="toolbar-button" id="calendar-clear-day" hidden data-i18n="calendarShowMonth">Show whole month</button>
+            </div>
+            <div id="calendar-month-grid">
             <div class="calendar-weekdays" id="calendar-weekdays"></div>
             <div class="calendar-grid" id="calendar-grid"></div>
+            </div>
           </section>
 
           <section class="calendar-month-list">
             <div class="group-heading">
-              <h3 data-i18n="calendarMonthEvents">Events this month</h3>
+              <h3 id="calendar-list-title" tabindex="-1" data-i18n="calendarMonthEvents">Events this month</h3>
               <p id="calendar-result-count">0</p>
             </div>
             <div id="calendar-list" class="calendar-list"></div>
+            <button id="calendar-load-more" class="toolbar-button" type="button" hidden data-i18n="calendarLoadMore">Show next 50 events</button>
           </section>
         </section>
       </main>
+      <footer>
+        <a href="./sources.html" data-i18n="dataSource">Data source</a> ·
+        <a href="./privacy.html" data-i18n="privacyPolicy">Privacy policy</a> ·
+        <a href="https://github.com/lione12138/gradwindow" data-i18n="navGithub">GitHub</a>
+      </footer>
     </div>
     <script type="module" src="./calendar.js"></script>
   </body>

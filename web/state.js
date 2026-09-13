@@ -25,7 +25,7 @@ export const state = {
   intake: "all",
   applicantCategory: "all",
   deadlineRange: "all",
-  dateType: "all",
+  dateType: "official",
   status: "open",
   sort: "rank",
   rankLimit: "200",

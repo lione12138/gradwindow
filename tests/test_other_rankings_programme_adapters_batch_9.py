@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import date
+
 import pytest
 
 from gradwindow.programme_adapters.base import OfficialSourceTransportError
@@ -101,7 +103,19 @@ def test_weizmann_reads_the_five_named_msc_fields() -> None:
     assert rows[0].degree_type == "MSc"
 
 
-def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
+@pytest.mark.parametrize(
+    ("today", "expected_periods"),
+    [
+        (date(2026, 8, 31), (0, 1)),
+        (date(2026, 9, 5), (0, 1)),
+        (date(2026, 9, 6), (1,)),
+        (date(2027, 2, 5), (1,)),
+        (date(2027, 2, 6), ()),
+    ],
+)
+def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows(
+    today: date, expected_periods: tuple[int, ...]
+) -> None:
     assert MOLECULAR_PRECISION_MEDICINE_URL.startswith("https://www.meduniwien.ac.at/")
     pages = {
         MEDICAL_INFORMATICS_URL: """
@@ -138,7 +152,9 @@ def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
         fetched.append(url)
         return pages[url]
 
-    rows = MedUniViennaAdapter().parse_catalog_from_fetcher(fetcher).programmes
+    rows = (
+        MedUniViennaAdapter(today=today).parse_catalog_from_fetcher(fetcher).programmes
+    )
 
     assert fetched == [
         MEDICAL_INFORMATICS_URL,
@@ -152,15 +168,7 @@ def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
         "Psychotherapy",
     ]
     medical_informatics, precision_medicine, psychotherapy = rows
-    assert [
-        (
-            window.round,
-            window.intake,
-            window.opens_at,
-            window.closes_at,
-        )
-        for window in medical_informatics.windows
-    ] == [
+    expected_windows = [
         (
             "General admission period",
             "Winter semester 2026/27",
@@ -174,9 +182,19 @@ def test_meduni_vienna_uses_canonical_pages_and_parses_exact_windows() -> None:
             "2027-02-05",
         ),
     ]
-    assert "not a selective programme application period" in (
-        medical_informatics.deadline_text
-    )
+    assert [
+        (
+            window.round,
+            window.intake,
+            window.opens_at,
+            window.closes_at,
+        )
+        for window in medical_informatics.windows
+    ] == [expected_windows[index] for index in expected_periods]
+    if expected_periods:
+        assert "not a selective programme application period" in (
+            medical_informatics.deadline_text
+        )
     assert [
         (
             window.intake,

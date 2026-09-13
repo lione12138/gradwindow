@@ -1,5 +1,11 @@
 import { countUniversitiesByStatus, getApplicationStatus } from "./status.js";
 import { state } from "./state.js";
+import {
+  matchesDateAndScope,
+  matchesTimeStatus,
+  readViewFilters,
+  writeViewFilters,
+} from "./view-filters.js";
 import { t } from "./strings.js";
 import { makeCalendarMenu } from "./calendar-export.js";
 import {
@@ -47,8 +53,10 @@ import {
 import { groupWindowRecordsForDisplay } from "./window-grouping.js";
 import {
   calendarTitlePrefix,
+  groupRecordsByProvenance,
   isPredictedRecord,
   isRecurringPolicyRecord,
+  recordProvenance,
 } from "./window-provenance.js";
 import { decodeRecordBundle } from "./frontend-data.js";
 import {
@@ -258,9 +266,21 @@ function makeSchoolDisplay(record) {
   const school = document.createDocumentFragment();
   const schoolText = schoolLabels(record, state.language);
   const country = countryLabel(record.country, state.language);
-  school.appendChild(
-    makeLink(schoolText.primary, record.applicationUrl, "school-link"),
+  const schoolLink = makeLink(
+    schoolText.primary,
+    `./university/${encodeURIComponent(record.universityId)}/`,
+    "school-link internal-school-link",
   );
+  schoolLink.removeAttribute("target");
+  school.appendChild(schoolLink);
+  const rank = selectedRankForUniversity(record.universityId);
+  if (rank)
+    school.appendChild(
+      makeElement("span", {
+        className: "school-ranking",
+        text: `${rankingShortLabel()} ${formatRank(rank.rankDisplay)}`,
+      }),
+    );
   if (country) {
     school.appendChild(
       makeElement("span", {
@@ -302,6 +322,12 @@ function makeResponsiveDeadline(
       ),
     }),
   );
+  deadline.appendChild(
+    makeElement("span", {
+      className: "record-opening",
+      text: `${t("opens")}: ${record.opensAt ? formatDate(record.opensAt) : t("openingUnconfirmed")}`,
+    }),
+  );
   return deadline;
 }
 
@@ -328,7 +354,7 @@ function deadlineNote(record, status) {
 }
 
 function actionSummary(record, status) {
-  const statusLabel = statusLabels()[status]?.title || status;
+  const statusLabel = provenanceHeading(recordProvenance(record), status).title;
   const intake = intakeLabel(recordIntake(record), state.language);
   const milestone =
     status === "upcoming" || status === "future"
@@ -416,10 +442,18 @@ function sourceLinkLabel(record) {
   return t("viewOfficial");
 }
 
+let detailTrigger = null;
+let detailRequest = 0;
 function closeWindowDetail() {
+  detailRequest += 1;
   const panel = document.getElementById("window-detail-panel");
   if (panel) panel.hidden = true;
   document.body.classList.remove("window-detail-open");
+  const url = new URL(location.href);
+  url.searchParams.delete("window");
+  history.replaceState(null, "", url);
+  if (detailTrigger?.isConnected) detailTrigger.focus({ preventScroll: true });
+  detailTrigger = null;
 }
 
 function detailField(label, value) {
@@ -431,8 +465,15 @@ function detailField(label, value) {
   return row;
 }
 
-async function openWindowDetail(record, status = getStatus(record)) {
+async function openWindowDetail(
+  record,
+  status = getStatus(record),
+  updateHistory = true,
+) {
+  detailTrigger = document.activeElement;
+  const request = ++detailRequest;
   await hydrateRecordDetails(record);
+  if (request !== detailRequest) return;
   const panel = document.getElementById("window-detail-panel");
   const body = document.getElementById("window-detail-body");
   const actions = document.getElementById("window-detail-header-actions");
@@ -464,6 +505,7 @@ async function openWindowDetail(record, status = getStatus(record)) {
       ),
     }),
   );
+  schoolRow.querySelector("h2").id = "window-detail-title";
   heading.append(
     schoolRow,
     makeElement("p", {
@@ -538,6 +580,12 @@ async function openWindowDetail(record, status = getStatus(record)) {
   }
 
   body.replaceChildren(heading, deadline, info, source);
+  const apply = makeLink(
+    t("applyOfficial"),
+    record.applicationUrl,
+    "primary-button detail-apply",
+  );
+  body.appendChild(apply);
 
   actions.replaceChildren(
     makeCalendarMenu(record),
@@ -545,7 +593,14 @@ async function openWindowDetail(record, status = getStatus(record)) {
   );
   panel.hidden = false;
   document.body.classList.add("window-detail-open");
-  panel.querySelector("[data-window-detail-close]")?.focus();
+  panel
+    .querySelector(".window-detail-card [data-window-detail-close]")
+    ?.focus();
+  if (updateHistory) {
+    const url = new URL(location.href);
+    url.searchParams.set("window", record.id);
+    history.pushState(null, "", url);
+  }
 }
 
 function setupWindowDetailPanel() {
@@ -554,6 +609,23 @@ function setupWindowDetailPanel() {
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeWindowDetail();
+    const panel = document.getElementById("window-detail-panel");
+    if (event.key !== "Tab" || panel.hidden) return;
+    const controls = [
+      ...panel.querySelectorAll(
+        ".window-detail-card button, .window-detail-card a[href]",
+      ),
+    ].filter((node) => node.getClientRects().length && !node.disabled);
+    const first = controls[0],
+      last = controls.at(-1);
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last?.focus();
+    }
+    if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first?.focus();
+    }
   });
 }
 
@@ -860,27 +932,13 @@ function filteredRecords() {
       (!state.selectedUniversityId ||
         record.universityId === state.selectedUniversityId) &&
       (!query || recordSearchText(record).includes(query)) &&
-      (state.region === "all" || record.region === state.region) &&
-      (state.intake === "all" || recordIntake(record).key === state.intake) &&
-      (state.applicantCategory === "all" ||
-        record.applicantCategories?.includes(state.applicantCategory)) &&
-      (state.deadlineRange === "all" ||
-        (() => {
-          const remaining = deadlineDaysRemaining(
-            record,
-            daysUntil(record.closesAt),
-          );
-          return remaining >= 0 && remaining <= Number(state.deadlineRange);
-        })()) &&
+      matchesDateAndScope(record, state) &&
       (state.selectedUniversityId ||
         (selectedRankForUniversity(record.universityId)?.rankPosition || 999) <=
           Number(state.rankLimit)) &&
       (!state.favoritesOnly ||
         state.favorites.has(favoriteKey("window", record.id)) ||
-        state.favorites.has(favoriteKey("university", record.universityId))) &&
-      (state.dateType === "all" ||
-        (state.dateType === "official" && !isPredictedRecord(record)) ||
-        (state.dateType === "estimated" && isPredictedRecord(record)))
+        state.favorites.has(favoriteKey("university", record.universityId)))
     );
   });
 }
@@ -947,7 +1005,7 @@ function activeNonStatusFilter() {
     state.intake !== "all" ||
     state.applicantCategory !== "all" ||
     state.deadlineRange !== "all" ||
-    state.dateType !== "all" ||
+    state.dateType !== "official" ||
     state.rankLimit !== "200" ||
     state.favoritesOnly
   );
@@ -961,6 +1019,7 @@ function localizedCount(count, labelKey) {
 
 function syncFilterInputs() {
   document.getElementById("search-input").value = state.search;
+  document.getElementById("hero-search-input").value = state.search;
   document.getElementById("ranking-filter").value = state.ranking;
   refreshFilterOptions();
   document.getElementById("region-filter").value = state.region;
@@ -983,7 +1042,7 @@ function resetFilter(filter) {
   if (filter === "intake") state.intake = "all";
   if (filter === "applicantCategory") state.applicantCategory = "all";
   if (filter === "deadlineRange") state.deadlineRange = "all";
-  if (filter === "dateType") state.dateType = "all";
+  if (filter === "dateType") state.dateType = "official";
   if (filter === "rankLimit") state.rankLimit = "200";
   if (filter === "favorites") state.favoritesOnly = false;
   syncFilterInputs();
@@ -1000,7 +1059,7 @@ function clearFilters() {
   state.intake = "all";
   state.applicantCategory = "all";
   state.deadlineRange = "all";
-  state.dateType = "all";
+  state.dateType = "official";
   state.rankLimit = "200";
   state.favoritesOnly = false;
   syncFilterInputs();
@@ -1059,11 +1118,16 @@ function activeFilterItems() {
       label: t("deadlineWithinDays").replace("{days}", state.deadlineRange),
     });
   }
-  if (state.dateType !== "all") {
+  if (state.dateType !== "official") {
     items.push({
       key: "dateType",
       label: t(
-        state.dateType === "official" ? "officialOnly" : "estimatedOnly",
+        {
+          all: "allDateTypes",
+          recurring: "recurringOnly",
+          estimated: "estimatedOnly",
+          review: "statusNeedsCheck",
+        }[state.dateType],
       ),
     });
   }
@@ -1099,7 +1163,10 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
       universityIds.add(university.id),
     );
   }
-  if (state.status === "unknown" || hasActiveSearch()) {
+  if (
+    state.status === "unknown" ||
+    (hasActiveSearch() && records.length === 0)
+  ) {
     universities.forEach((university) => universityIds.add(university.id));
   }
   const resultCount = document.getElementById("results-school-count");
@@ -1155,6 +1222,9 @@ function setVisibleUniversityGroups(expanded) {
 }
 
 function updateStatusTabs(focusStatus = "") {
+  document
+    .getElementById("saved-status-tab")
+    .setAttribute("aria-pressed", String(state.favoritesOnly));
   document.querySelectorAll('[role="tab"]').forEach((tab) => {
     const active = tab.hasAttribute("data-saved-tab")
       ? state.favoritesOnly
@@ -1172,9 +1242,8 @@ function updateStatusTabs(focusStatus = "") {
 }
 
 function recordsForCurrentView(baseRecords) {
-  if (hasActiveSearch() || state.favoritesOnly) return baseRecords;
-  return baseRecords.filter(
-    (record) => isCurrentRecord(record) && getStatus(record) === state.status,
+  return baseRecords.filter((record) =>
+    matchesTimeStatus(record, state.status),
   );
 }
 
@@ -1205,10 +1274,26 @@ function createRow(record, status, windowGroup = null) {
     `${intake}${localizedRound ? ` · ${localizedRound}` : ""}`,
     "program-link date-primary",
   );
+  const programmeLink = programme.firstElementChild;
+  const detailButton = makeElement("button", {
+    className: "program-link date-primary programme-detail-button",
+    text: programmeLink.textContent,
+  });
+  detailButton.type = "button";
+  detailButton.addEventListener("click", () =>
+    openWindowDetail(record, status),
+  );
+  programmeLink.replaceWith(detailButton);
   programme.prepend(
     makeElement("span", {
       className: "application-action-summary",
       text: actionSummary(record, status),
+    }),
+  );
+  programme.appendChild(
+    makeElement("span", {
+      className: "programme-audience",
+      text: applicantCategoryText(record.applicantCategories),
     }),
   );
   if (windowGroup?.collapsible) {
@@ -1263,7 +1348,12 @@ function createRow(record, status, windowGroup = null) {
   const calendar = makeCalendarMenu(record);
   const favorite = makeFavoriteButton(favoriteKey("window", record.id));
   const cardActions = makeElement("div", { className: "mobile-card-actions" });
-  cardActions.appendChild(favorite);
+  cardActions.append(
+    favorite,
+    makeLink(t("applyOfficial"), record.applicationUrl, "apply-link"),
+  );
+  const calendarCell = makeElement("span");
+  cardActions.appendChild(calendar);
 
   const openDetails = (event) => {
     if (event.target.closest("a, button, details, input, select")) return;
@@ -1300,7 +1390,7 @@ function createRow(record, status, windowGroup = null) {
       ),
     ),
     makeCell(t("deadline"), deadline),
-    makeCell(t("calendar"), calendar),
+    makeCell(t("calendar"), calendarCell),
     makeCell(t("favorite"), cardActions),
     makeCell(t("source"), source),
   );
@@ -1393,6 +1483,12 @@ function createUniversityGroupRow(universityGroup, status) {
     toggleGroup();
   });
   programmeSummary.append(summaryHeading, summaryCounts, toggle);
+  programmeSummary.appendChild(
+    makeElement("span", {
+      className: "application-trust-summary school-group-trust",
+      text: `${records.length} ${provenanceLabel(recordProvenance(records[0]))}`,
+    }),
+  );
   row.addEventListener("click", (event) => {
     if (event.target.closest("a, button")) return;
     toggleGroup();
@@ -1403,11 +1499,54 @@ function createUniversityGroupRow(universityGroup, status) {
     .filter(Boolean)
     .sort()[0];
   const nearestDeadline = [...records].sort((a, b) =>
-    a.closesAt.localeCompare(b.closesAt),
+    status === "closed"
+      ? b.closesAt.localeCompare(a.closesAt)
+      : a.closesAt.localeCompare(b.closesAt),
   )[0];
+  const nearestRecords = records.filter(
+    (record) => record.closesAt === nearestDeadline.closesAt,
+  );
+  const nearestCount = new Set(nearestRecords.map((record) => record.scopeId))
+    .size;
+  const summaryDate = makeElement("div", { className: "school-next-deadline" });
+  summaryDate.append(
+    makeElement("span", {
+      text: t(status === "closed" ? "lastDeadlineLabel" : "nextDeadlineLabel"),
+    }),
+    makeElement("strong", { text: formatRecordDeadline(nearestDeadline) }),
+    makeElement("span", {
+      text:
+        nearestCount === 1
+          ? programmeLabel(
+              nearestDeadline.scopeId,
+              nearestDeadline.program,
+              state.language,
+            )
+          : t("programmesDue").replace("{count}", nearestCount),
+    }),
+    makeElement("span", {
+      text: applicantCategoryText([
+        ...new Set(
+          nearestRecords.flatMap((record) => record.applicantCategories),
+        ),
+      ]),
+    }),
+  );
+  programmeSummary.appendChild(
+    makeElement("span", {
+      className: "school-intakes",
+      text: [
+        ...new Set(
+          records.map((record) =>
+            intakeLabel(recordIntake(record), state.language),
+          ),
+        ),
+      ].join(" · "),
+    }),
+  );
   const source = makeElement("span", {
-    className: "source-badge discovered school-group-source",
-    text: `${windowCountText(records.length)} · ${t("groupedBySchool")}`,
+    className: `source-badge ${isPredictedRecord(records[0]) ? "predicted" : isRecurringPolicyRecord(records[0]) ? "recurring" : "discovered"} school-group-source`,
+    text: provenanceLabel(recordProvenance(records[0])),
   });
 
   row.append(
@@ -1427,13 +1566,7 @@ function createUniversityGroupRow(universityGroup, status) {
         ? makeTextStack(formatDate(earliestOpen), t("earliestOpening"))
         : makeElement("span", { text: "—" }),
     ),
-    makeCell(
-      t("deadline"),
-      makeResponsiveDeadline(
-        nearestDeadline,
-        `${t("nextDeadlineLabel")} · ${deadlineNote(nearestDeadline, status)}`,
-      ),
-    ),
+    makeCell(t("deadline"), summaryDate),
     makeCell(t("calendar"), makeElement("span", { text: "—" })),
     makeCell(t("favorite"), makeElement("span", { text: "—" })),
     makeCell(t("source"), source),
@@ -1475,8 +1608,46 @@ function predictionConfidenceText(record) {
   return `${labels[record.confidence] || t("estimate")} · ${record.evidenceCycleCount} ${t("historicalCycles")}`;
 }
 
-function createGroup(status, records) {
+function provenanceLabel(kind) {
+  return t(
+    {
+      official: "verifiedDates",
+      recurring: "recurringDates",
+      predicted: "estimatedDates",
+      review: "reviewDates",
+    }[kind],
+  );
+}
+
+function provenanceHeading(kind, status) {
   const heading = statusLabels()[status];
+  if (kind === "official") {
+    return { ...heading, title: `${t("verifiedDates")} · ${heading.title}` };
+  }
+  if (kind === "predicted") {
+    return {
+      title: t(
+        {
+          open: "estimatedOpenTitle",
+          upcoming: "estimatedUpcomingTitle",
+          future: "estimatedFutureTitle",
+          closed: "estimatedClosedTitle",
+        }[status],
+      ),
+      description: t("estimatedGroupDescription"),
+    };
+  }
+  return {
+    title: provenanceLabel(kind),
+    description: t(
+      kind === "review" ? "reviewGroupDescription" : "recurringYearMapped",
+    ),
+  };
+}
+
+function createGroup(status, records, kind) {
+  const heading = provenanceHeading(kind, status);
+  const groupKey = `${status}:${kind}`;
   const { section, tbody } = createTableSection(
     status,
     heading,
@@ -1489,15 +1660,16 @@ function createGroup(status, records) {
       { label: t("opens"), sort: "opens" },
       { label: t("deadline"), sort: "deadline" },
       t("addCalendar"),
-      t("favorite"),
+      t("windowActions"),
       t("dataSource"),
     ],
   );
+  section.dataset.provenance = kind;
   const universityGroups = groupWindowRecordsForDisplay(records, {
-    keyPrefix: status,
+    keyPrefix: groupKey,
   });
   const { items, start, end, total, page, totalPages } = paginate(
-    status,
+    groupKey,
     universityGroups,
   );
   items.forEach((universityGroup) => {
@@ -1516,7 +1688,7 @@ function createGroup(status, records) {
     childRows.at(-1)?.classList.add("university-group-child--last");
   });
   section.appendChild(
-    createPagination(status, { start, end, total, page, totalPages }),
+    createPagination(groupKey, { start, end, total, page, totalPages }),
   );
   return section;
 }
@@ -1857,14 +2029,13 @@ function render() {
   container.replaceChildren();
 
   ["open", "upcoming", "future", "closed"].forEach((status) => {
-    if (!hasActiveSearch() && !state.favoritesOnly && state.status !== status)
-      return;
+    if (state.status !== "all" && state.status !== status) return;
     const groupRecords = records
       .filter((record) => getStatus(record) === status)
       .sort(compareRecords);
-    if (groupRecords.length) {
-      container.appendChild(createGroup(status, groupRecords));
-    }
+    groupRecordsByProvenance(groupRecords).forEach(({ kind, records }) => {
+      container.appendChild(createGroup(status, records, kind));
+    });
   });
   if (state.status === "exception" && exceptionUniversities.length) {
     container.appendChild(
@@ -1872,7 +2043,8 @@ function render() {
     );
   }
   if (
-    (state.status === "unknown" || hasActiveSearch()) &&
+    (state.status === "unknown" ||
+      (hasActiveSearch() && records.length === 0)) &&
     baseUniversities.length
   ) {
     container.appendChild(createUniversityGroup([...baseUniversities]));
@@ -1892,27 +2064,21 @@ function render() {
   updateMobileFilterToggle();
   updateFavoriteControls();
   updateApplicationTimeline();
+  const navigationParams = writeViewFilters(state);
+  document.querySelectorAll('a[href*="calendar.html"]').forEach((link) => {
+    link.href = `./calendar.html${navigationParams.size ? `?${navigationParams}` : ""}`;
+  });
+  sessionStorage.setItem(
+    "gradwindow:calendar-favorites",
+    JSON.stringify([...state.favorites]),
+  );
+  document.getElementById("show-all-statuses").hidden =
+    records.length > 0 || state.status === "all";
+  document.getElementById("time-status-filter").value = state.status;
 }
 
 function syncUrl() {
-  const params = new URLSearchParams();
-  if (state.selectedUniversityId) {
-    params.set("university", state.selectedUniversityId);
-  } else if (state.search) {
-    params.set("q", state.search);
-  }
-  if (state.ranking !== "qs") params.set("ranking", state.ranking);
-  if (state.region !== "all") params.set("region", state.region);
-  if (state.intake !== "all") params.set("intake", state.intake);
-  if (state.status !== "open") params.set("status", state.status);
-  if (state.sort !== "rank") params.set("sort", state.sort);
-  if (state.rankLimit !== "200") params.set("rank", state.rankLimit);
-  if (state.applicantCategory !== "all")
-    params.set("applicant", state.applicantCategory);
-  if (state.deadlineRange !== "all")
-    params.set("deadline", state.deadlineRange);
-  if (state.dateType !== "all") params.set("dates", state.dateType);
-  if (state.favoritesOnly) params.set("saved", "1");
+  const params = writeViewFilters(state);
   history.replaceState(
     null,
     "",
@@ -1922,37 +2088,17 @@ function syncUrl() {
 
 function loadUrlState() {
   const params = new URLSearchParams(location.search);
+  Object.assign(state, readViewFilters(location.search));
   const deepLink = universityDeepLink(
     location.search,
     new Set(state.universityById.keys()),
   );
   state.selectedUniversityId = deepLink.universityId;
   state.search = state.selectedUniversityId ? "" : params.get("q") || "";
-  state.ranking =
-    params.get("ranking") || rankingForUniversity(state.selectedUniversityId);
-  state.region = params.get("region") || "all";
-  state.intake = params.get("intake") || "all";
-  state.applicantCategory = params.get("applicant") || "all";
-  state.deadlineRange = ["30", "90", "180"].includes(params.get("deadline"))
-    ? params.get("deadline")
-    : "all";
-  state.dateType = ["official", "estimated"].includes(params.get("dates"))
-    ? params.get("dates")
-    : params.get("official") === "1"
-      ? "official"
-      : "all";
-  state.status = params.get("status") || "open";
-  state.sort = ["rank", "opens", "deadline"].includes(params.get("sort"))
-    ? params.get("sort")
-    : "rank";
-  state.rankLimit = ["30", "50", "100", "150", "200"].includes(
-    params.get("rank"),
-  )
-    ? params.get("rank")
-    : params.get("top") === "100"
-      ? "100"
-      : "200";
-  state.favoritesOnly = params.get("saved") === "1";
+  if (!params.has("ranking"))
+    state.ranking = rankingForUniversity(state.selectedUniversityId);
+  if (!params.has("rank") && params.get("top") === "100")
+    state.rankLimit = "100";
 }
 
 function applyUrlAction() {
@@ -2252,7 +2398,7 @@ function updateMobileFilterToggle() {
   const hasAdvancedFilters =
     state.applicantCategory !== "all" ||
     state.deadlineRange !== "all" ||
-    state.dateType !== "all" ||
+    state.dateType !== "official" ||
     state.rankLimit !== "200" ||
     state.favoritesOnly;
   button.setAttribute("aria-expanded", String(expanded));
@@ -2272,6 +2418,9 @@ function updateMobileFilterToggle() {
 async function showSavedApplications() {
   await ensureClosedRecords();
   state.favoritesOnly = true;
+  state.status = "all";
+  state.dateType = "all";
+  document.getElementById("date-type-filter").value = state.dateType;
   state.selectedUniversityId = "";
   resetPages();
   syncUrl();
@@ -2282,7 +2431,7 @@ async function showSavedApplications() {
 }
 
 async function activateStatus(status, focusStatus = "") {
-  if (status === "closed") await ensureClosedRecords();
+  if (["closed", "all"].includes(status)) await ensureClosedRecords();
   state.favoritesOnly = false;
   state.status = status;
   resetPages();
@@ -2292,6 +2441,43 @@ async function activateStatus(status, focusStatus = "") {
 }
 
 function bindEvents() {
+  const filterRow = document.querySelector(".primary-filter-row");
+  filterRow.prepend(document.getElementById("hero-search-form"));
+  document.getElementById("search-input").closest("label").hidden = true;
+  document
+    .getElementById("advanced-filter-panel")
+    .prepend(document.getElementById("ranking-filter").closest("label"));
+  const audienceControl = document
+    .getElementById("applicant-filter")
+    .closest("label");
+  audienceControl.className = "select-wrap primary-select";
+  filterRow.insertBefore(
+    audienceControl,
+    document.getElementById("mobile-filter-toggle"),
+  );
+  const savedControl = document.getElementById("saved-status-tab");
+  savedControl.removeAttribute("role");
+  savedControl.removeAttribute("aria-selected");
+  savedControl.className = "toolbar-button saved-view-button";
+  savedControl.addEventListener("click", showSavedApplications);
+  filterRow.append(savedControl);
+  document
+    .getElementById("show-all-statuses")
+    .addEventListener("click", () => activateStatus("all"));
+  document
+    .getElementById("time-status-filter")
+    .addEventListener("change", (event) => activateStatus(event.target.value));
+  window.addEventListener("popstate", async () => {
+    loadUrlState();
+    syncFilterInputs();
+    if (["all", "closed"].includes(state.status)) await ensureClosedRecords();
+    render();
+    const record = state.data.find(
+      (item) => item.id === new URLSearchParams(location.search).get("window"),
+    );
+    if (record) await openWindowDetail(record, getStatus(record), false);
+    else closeWindowDetail();
+  });
   document
     .getElementById("language-toggle")
     .addEventListener("click", async () => {
@@ -2507,6 +2693,7 @@ function bindEvents() {
         state.favoritesOnly = false;
         state.status = "open";
         document.getElementById("search-input").value = "";
+        document.getElementById("hero-search-input").value = "";
         updateStatusTabs();
         resetPages();
         syncUrl();
@@ -2515,11 +2702,7 @@ function bindEvents() {
           .getElementById("application-board")
           .scrollIntoView({ behavior: "smooth" });
       } else if (destination === "favorites") {
-        await ensureClosedRecords();
-        state.favoritesOnly = true;
-        resetPages();
-        syncUrl();
-        render();
+        await showSavedApplications();
         document
           .getElementById("application-groups")
           .scrollIntoView({ behavior: "smooth" });
@@ -2566,7 +2749,12 @@ async function init() {
     loadUrlState();
     if (selectedRankingDefinition().available === false) state.ranking = "qs";
     updateRankingAvailability();
-    if (state.status === "closed" || hasActiveSearch() || state.favoritesOnly) {
+    if (
+      ["closed", "all"].includes(state.status) ||
+      hasActiveSearch() ||
+      state.favoritesOnly ||
+      new URLSearchParams(location.search).has("window")
+    ) {
       await ensureClosedRecords();
     }
 
@@ -2580,6 +2768,7 @@ async function init() {
     }
     populateIntakeSelect();
     const allowedStatuses = new Set([
+      "all",
       "open",
       "upcoming",
       "future",
@@ -2617,7 +2806,8 @@ async function init() {
     updateStatusTabs();
     const schoolCount = state.universities.length;
     document.getElementById("total-schools").textContent = schoolCount;
-    document.getElementById("total-records").textContent = state.officialCount;
+    document.getElementById("total-records").textContent =
+      state.meta.trustedOfficialCount ?? state.officialCount;
     updateDataNotes();
     renderCoverage();
     setupSubscription();
@@ -2628,6 +2818,10 @@ async function init() {
     setupWindowDetailPanel();
     applyUrlAction();
     render();
+    const detailId = new URLSearchParams(location.search).get("window");
+    const detailRecord = state.data.find((record) => record.id === detailId);
+    if (detailRecord)
+      await openWindowDetail(detailRecord, getStatus(detailRecord), false);
   } catch (error) {
     const errorState = makeElement("div", { className: "empty-state" });
     errorState.append(
