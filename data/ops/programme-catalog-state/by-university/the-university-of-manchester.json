@@ -2,40 +2,40 @@
   "universities": {
     "the-university-of-manchester": {
       "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/basic/",
-      "checkedAt": "2026-09-05T09:05:18.779711+00:00",
+      "checkedAt": "2026-09-14T10:36:22.926531+00:00",
       "itemCount": 264,
       "applicationOpensAt": null,
-      "catalogHash": "d9861f86db779f9340052bbfa8f765ca620fa433b03b595c287ecb55acac55e4",
+      "catalogHash": "84123d9b02a3880e9892f60ef5625bf217ecd7f33cdd72f17529c2b6065e481b",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "partial",
-      "observedWindowCount": 279,
-      "exactWindowCount": 68,
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 233,
+      "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2026:fall:09": {
           "intakes": [
             "September 2026"
           ],
-          "observedWindowCount": 69,
-          "exactWindowCount": 68,
+          "observedWindowCount": 1,
+          "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         },
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 210,
+          "observedWindowCount": 232,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 211,
-      "programmesWithoutDeadlines": 190,
-      "programmesNeedingReview": 247,
-      "limitationReason": "211 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-09-05T09:05:18.779711+00:00",
-      "windowFingerprint": "83e3a09d9f5880b456be6e6bb177e648dca0816217e2864a3767fd59fa736e3a",
+      "missingOpeningDateCount": 233,
+      "programmesWithoutDeadlines": 202,
+      "programmesNeedingReview": 264,
+      "limitationReason": "233 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-09-14T10:36:22.926531+00:00",
+      "windowFingerprint": "d95677cb25a4dc4b9923969ddbcdee2d9261d1a41a9d14b6de752e053fa543d1",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -44,20 +44,20 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-accounting": {
           "name": "MSc Accounting",
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-adult-nursing": {
           "name": "MSc Adult Nursing",
@@ -119,15 +119,15 @@
           "windowCount": 4,
           "latestClosesAt": "2027-04-30"
         },
-        "manchester-advanced-control-and-systems-engineering-with-extended-research-msc": {
-          "name": "Advanced Control and Systems Engineering with Extended Research MSc",
+        "manchester-msc-advanced-control-and-systems-engineering-with-extended-research": {
+          "name": "MSc Advanced Control and Systems Engineering with Extended Research",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "faculty": "Department of Electrical & Electronic Engineering",
+          "department": "Department of Electrical & Electronic Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "5fa25c9c4bb8164d439a33f6ec6b8eba5b57ff5b49db5add3477b8560f3a0949",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-30"
         },
         "manchester-msc-advanced-electrical-power-systems-engineering": {
           "name": "MSc Advanced Electrical Power Systems Engineering",
@@ -294,10 +294,10 @@
           "degreeType": "MA",
           "faculty": "School of Arts, Languages and Cultures",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "1651b10f06231d7e9dc1038f5f299f89482f56d11a461bb0eb18b7d0da521451",
+          "windowCount": 4,
+          "latestClosesAt": "2026-07-05"
         },
         "manchester-msc-audiology": {
           "name": "MSc Audiology",
@@ -374,30 +374,30 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-business-analytics-and-artificial-intelligence": {
           "name": "MSc Business Analytics and Artificial Intelligence",
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-business-psychology": {
           "name": "MSc Business Psychology",
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-cancer-research-and-molecular-biomedicine": {
           "name": "MSc Cancer Research and Molecular Biomedicine",
@@ -484,10 +484,10 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Biology, Medicine and Health",
           "department": "",
-          "parseStatus": "incomplete",
-          "deadlineHash": "5e22aeb5aca70579050c7115b270502ea5886f836f89561b549063152de34a00",
-          "windowCount": 2,
-          "latestClosesAt": "2026-03-02"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-clinical-immunology": {
           "name": "MSc Clinical Immunology",
@@ -569,8 +569,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-musm-composition-instrumental-and-vocal-music": {
-          "name": "MusM Composition (Instrumental and Vocal music)",
+        "manchester-musm-composition-instrumental-and-vocal-music-overview": {
+          "name": "MusM Composition (Instrumental and Vocal music) / Overview",
           "degreeType": "MusM",
           "faculty": "School of Arts, Languages and Cultures",
           "department": "",
@@ -724,10 +724,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-ma-digital-media-culture-and-society": {
           "name": "MA Digital Media, Culture and Society",
@@ -754,10 +754,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-economics-and-data-science": {
           "name": "MSc Economics and Data Science",
@@ -934,10 +934,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-financial-crime-and-compliance-in-digital-societies-top-up": {
           "name": "MSc Financial Crime and Compliance in Digital Societies (top-up)",
@@ -1274,10 +1274,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-human-resource-management-international-development": {
           "name": "MSc Human Resource Management (International Development)",
@@ -1374,10 +1374,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-llm-intellectual-property-law": {
           "name": "LLM Intellectual Property Law",
@@ -1394,10 +1394,10 @@
           "degreeType": "MA",
           "faculty": "School of Arts, Languages and Cultures",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "947f725c58ee864b010f1f9a5a39f58903c47265265d61cac8246f02bd72b29d",
+          "windowCount": 4,
+          "latestClosesAt": "2026-07-05"
         },
         "manchester-llm-international-business-and-commercial-law": {
           "name": "LLM International Business and Commercial Law",
@@ -1414,10 +1414,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-international-commercial-and-technology-law-online-llm": {
           "name": "International Commercial and Technology Law (online) LLM",
@@ -1629,8 +1629,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-ma-library-and-archive-studies": {
-          "name": "MA Library and Archive Studies",
+        "manchester-ma-library-and-archive-studies-overview": {
+          "name": "MA Library and Archive Studies / Overview",
           "degreeType": "MA",
           "faculty": "School of Arts, Languages and Cultures",
           "department": "",
@@ -1639,8 +1639,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-ma-linguistics": {
-          "name": "MA Linguistics",
+        "manchester-ma-linguistics-overview": {
+          "name": "MA Linguistics / Overview",
           "degreeType": "MA",
           "faculty": "School of Arts, Languages and Cultures",
           "department": "",
@@ -1694,10 +1694,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-management-of-projects": {
           "name": "MSc Management of Projects",
@@ -1734,10 +1734,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-mla-master-of-landscape-architecture": {
           "name": "MLA Master of Landscape Architecture",
@@ -1849,8 +1849,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-ma-modern-languages-and-cultures": {
-          "name": "MA Modern Languages and Cultures",
+        "manchester-ma-modern-languages-and-cultures-overview": {
+          "name": "MA Modern Languages and Cultures / Overview",
           "degreeType": "MA",
           "faculty": "School of Arts, Languages and Cultures",
           "department": "",
@@ -2004,10 +2004,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-pgdip-oral-and-maxillofacial-surgery-dental-specialties": {
           "name": "MSc/PGDip Oral and Maxillofacial Surgery (Dental Specialties)",
@@ -2044,10 +2044,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-clin-orthodontics": {
           "name": "MSc (Clin) Orthodontics",
@@ -2284,10 +2284,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-msc-real-estate-development": {
           "name": "MSc Real Estate Development",
@@ -2329,11 +2329,11 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-renewable-energy-and-clean-technology-with-extended-research-msc": {
-          "name": "Renewable Energy and Clean Technology with Extended Research MSc",
+        "manchester-msc-renewable-energy-and-clean-technology-with-extended-research": {
+          "name": "MSc Renewable Energy and Clean Technology with Extended Research",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
+          "faculty": "Department of Electrical & Electronic Engineering",
+          "department": "Department of Electrical & Electronic Engineering",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
@@ -2389,25 +2389,25 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-robotics-msc": {
-          "name": "Robotics MSc",
+        "manchester-msc-robotics": {
+          "name": "MSc Robotics",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "faculty": "Department of Electrical & Electronic Engineering",
+          "department": "Department of Electrical & Electronic Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "888b8e8bd1edc3015bf17ff16548e80bdc6681ee88f6ad2c1f4655a6aa575335",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-30"
         },
-        "manchester-robotics-with-extended-research-msc": {
-          "name": "Robotics with Extended Research MSc",
+        "manchester-msc-robotics-with-extended-research": {
+          "name": "MSc Robotics with Extended Research",
           "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "faculty": "Department of Electrical & Electronic Engineering",
+          "department": "Department of Electrical & Electronic Engineering",
+          "parseStatus": "incomplete",
+          "deadlineHash": "3a5aff22bcdbd7664997a17fd33f546f7f72aed6a18ac018baf8be55b3e53e41",
+          "windowCount": 4,
+          "latestClosesAt": "2027-04-30"
         },
         "manchester-msc-science-and-health-communication": {
           "name": "MSc Science and Health Communication",
@@ -2564,10 +2564,10 @@
           "degreeType": "MSc",
           "faculty": "Alliance Manchester Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d62440a7eb96f7534f53d55c0ce00d9c0de77cebaa63cc1cddd070e2134076ab",
-          "windowCount": 4,
-          "latestClosesAt": "2026-07-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "manchester-sustainable-electrical-power-systems-engineering-online-msc-pgdip-pgcert": {
           "name": "Sustainable Electrical Power Systems Engineering (online) MSc/PGDip/PGCert",
@@ -2619,15 +2619,15 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-ma-translation-and-interpreting-studies-overview": {
-          "name": "MA Translation and Interpreting Studies / Overview",
+        "manchester-ma-translation-and-interpreting-studies": {
+          "name": "MA Translation and Interpreting Studies",
           "degreeType": "MA",
           "faculty": "School of Arts, Languages and Cultures",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "8315b0074b94d636d90c59276c5c4baf99f2e421d28ca3b1749cd3e16f53a445",
+          "windowCount": 4,
+          "latestClosesAt": "2026-07-05"
         },
         "manchester-msc-transport-and-urban-planning": {
           "name": "MSc Transport and Urban Planning",
@@ -2681,70 +2681,6 @@
         }
       },
       "windows": {
-        "manchester-msc-accounting-and-finance::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-accounting-and-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-accounting-and-finance::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-accounting-and-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-accounting-and-finance::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-accounting-and-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-accounting-and-finance::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-accounting-and-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-accounting::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-accounting",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-accounting::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-accounting",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-accounting::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-accounting",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-accounting::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-accounting",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
         "manchester-msc-advanced-computer-science::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-advanced-computer-science",
           "intake": "September 2027",
@@ -2807,6 +2743,38 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/04166/msc-advanced-control-and-systems-engineering/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-advanced-control-and-systems-engineering-with-extended-research::September 2027::Stage 1::all": {
+          "programmeId": "manchester-msc-advanced-control-and-systems-engineering-with-extended-research",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-23",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/12729/msc-advanced-control-and-systems-engineering-with-extended-research/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-advanced-control-and-systems-engineering-with-extended-research::September 2027::Stage 2::all": {
+          "programmeId": "manchester-msc-advanced-control-and-systems-engineering-with-extended-research",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-11",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/12729/msc-advanced-control-and-systems-engineering-with-extended-research/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-advanced-control-and-systems-engineering-with-extended-research::September 2027::Stage 3::all": {
+          "programmeId": "manchester-msc-advanced-control-and-systems-engineering-with-extended-research",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-26",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/12729/msc-advanced-control-and-systems-engineering-with-extended-research/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-advanced-control-and-systems-engineering-with-extended-research::September 2027::Stage 4::all": {
+          "programmeId": "manchester-msc-advanced-control-and-systems-engineering-with-extended-research",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/12729/msc-advanced-control-and-systems-engineering-with-extended-research/",
           "opensAtBasis": null
         },
         "manchester-msc-advanced-engineering-materials::September 2027::Stage 1::all": {
@@ -2961,6 +2929,38 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21574/msc-artificial-intelligence/",
           "opensAtBasis": null
         },
+        "manchester-ma-arts-management-policy-and-practice::September 2027::Stage 1::all": {
+          "programmeId": "manchester-ma-arts-management-policy-and-practice",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2025-12-07",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08035/ma-arts-management-policy-and-practice/",
+          "opensAtBasis": null
+        },
+        "manchester-ma-arts-management-policy-and-practice::September 2027::Stage 2::all": {
+          "programmeId": "manchester-ma-arts-management-policy-and-practice",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-03-01",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08035/ma-arts-management-policy-and-practice/",
+          "opensAtBasis": null
+        },
+        "manchester-ma-arts-management-policy-and-practice::September 2027::Stage 3::all": {
+          "programmeId": "manchester-ma-arts-management-policy-and-practice",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-05-03",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08035/ma-arts-management-policy-and-practice/",
+          "opensAtBasis": null
+        },
+        "manchester-ma-arts-management-policy-and-practice::September 2027::Stage 4::all": {
+          "programmeId": "manchester-ma-arts-management-policy-and-practice",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-07-05",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08035/ma-arts-management-policy-and-practice/",
+          "opensAtBasis": null
+        },
         "manchester-msc-biomaterials::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-biomaterials",
           "intake": "September 2027",
@@ -2993,102 +2993,6 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08839/msc-biomaterials/",
           "opensAtBasis": null
         },
-        "manchester-msc-business-analysis-and-strategic-management::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-business-analysis-and-strategic-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-analysis-and-strategic-management::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-business-analysis-and-strategic-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-analysis-and-strategic-management::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-business-analysis-and-strategic-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-analysis-and-strategic-management::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-business-analysis-and-strategic-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-analytics-and-artificial-intelligence::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-business-analytics-and-artificial-intelligence",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-analytics-and-artificial-intelligence::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-business-analytics-and-artificial-intelligence",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-analytics-and-artificial-intelligence::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-business-analytics-and-artificial-intelligence",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-analytics-and-artificial-intelligence::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-business-analytics-and-artificial-intelligence",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-psychology::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-business-psychology",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-psychology::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-business-psychology",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-psychology::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-business-psychology",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-business-psychology::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-business-psychology",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
         "manchester-msc-climate-change-science-society-and-solutions::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-climate-change-science-society-and-solutions",
           "intake": "September 2027",
@@ -3119,22 +3023,6 @@
           "opensAt": null,
           "closesAt": "2027-07-04",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20311/msc-climate-change-science-society-and-solutions/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-clinical-dentistry-paediatric-dentistry::September 2027::Stage 1::all": {
-          "programmeId": "manchester-msc-clinical-dentistry-paediatric-dentistry",
-          "intake": "September 2027",
-          "opensAt": null,
-          "closesAt": "2025-12-01",
-          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/11762/msc-clinical-dentistry-paediatric-dentistry/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-clinical-dentistry-paediatric-dentistry::September 2027::Stage 2::all": {
-          "programmeId": "manchester-msc-clinical-dentistry-paediatric-dentistry",
-          "intake": "September 2027",
-          "opensAt": null,
-          "closesAt": "2026-03-02",
-          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/11762/msc-clinical-dentistry-paediatric-dentistry/",
           "opensAtBasis": null
         },
         "manchester-msc-commercial-project-management::September 2027::Stage 1::all": {
@@ -3289,38 +3177,6 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/06537/msc-development-finance/",
           "opensAtBasis": null
         },
-        "manchester-msc-digital-marketing::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-digital-marketing",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-digital-marketing::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-digital-marketing",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-digital-marketing::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-digital-marketing",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-digital-marketing::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-digital-marketing",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
         "manchester-ma-digital-technologies-communication-and-education::September 2027::Stage 1::all": {
           "programmeId": "manchester-ma-digital-technologies-communication-and-education",
           "intake": "September 2027",
@@ -3351,38 +3207,6 @@
           "opensAt": null,
           "closesAt": "2027-07-04",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07022/ma-digital-technologies-communication-and-education/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-digital-transformation::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-digital-transformation",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-digital-transformation::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-digital-transformation",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-digital-transformation::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-digital-transformation",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-digital-transformation::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-digital-transformation",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
           "opensAtBasis": null
         },
         "manchester-ma-educational-leadership::September 2027::Stage 1::all": {
@@ -3479,38 +3303,6 @@
           "opensAt": null,
           "closesAt": "2027-07-04",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/06967/msc-environmental-governance/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-finance::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-finance::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-finance::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-finance::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
           "opensAtBasis": null
         },
         "manchester-msc-fixed-and-removable-prosthodontics-dental-specialties::September 2027::Stage 1::all": {
@@ -3689,38 +3481,6 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
           "opensAtBasis": null
         },
-        "manchester-msc-human-resource-management-and-employment-relations-overview::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-human-resource-management-and-employment-relations-overview",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-human-resource-management-and-employment-relations-overview::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-human-resource-management-and-employment-relations-overview",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-human-resource-management-and-employment-relations-overview::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-human-resource-management-and-employment-relations-overview",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-human-resource-management-and-employment-relations-overview::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-human-resource-management-and-employment-relations-overview",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
         "manchester-msc-human-resource-management-international-development::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-human-resource-management-international-development",
           "intake": "September 2027",
@@ -3777,68 +3537,36 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08264/ma-humanitarianism-and-conflict-response/",
           "opensAtBasis": null
         },
-        "manchester-msc-innovation-management-and-entrepreneurship::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-innovation-management-and-entrepreneurship",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
+        "manchester-ma-intercultural-communication::September 2027::Stage 1::all": {
+          "programmeId": "manchester-ma-intercultural-communication",
+          "intake": "September 2027",
+          "opensAt": null,
           "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08815/ma-intercultural-communication/",
           "opensAtBasis": null
         },
-        "manchester-msc-innovation-management-and-entrepreneurship::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-innovation-management-and-entrepreneurship",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
+        "manchester-ma-intercultural-communication::September 2027::Stage 2::all": {
+          "programmeId": "manchester-ma-intercultural-communication",
+          "intake": "September 2027",
+          "opensAt": null,
           "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08815/ma-intercultural-communication/",
           "opensAtBasis": null
         },
-        "manchester-msc-innovation-management-and-entrepreneurship::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-innovation-management-and-entrepreneurship",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
+        "manchester-ma-intercultural-communication::September 2027::Stage 3::all": {
+          "programmeId": "manchester-ma-intercultural-communication",
+          "intake": "September 2027",
+          "opensAt": null,
           "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08815/ma-intercultural-communication/",
           "opensAtBasis": null
         },
-        "manchester-msc-innovation-management-and-entrepreneurship::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-innovation-management-and-entrepreneurship",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
+        "manchester-ma-intercultural-communication::September 2027::Stage 4::all": {
+          "programmeId": "manchester-ma-intercultural-communication",
+          "intake": "September 2027",
+          "opensAt": null,
           "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-international-business-and-management::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-international-business-and-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-international-business-and-management::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-international-business-and-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-international-business-and-management::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-international-business-and-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-international-business-and-management::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-international-business-and-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08815/ma-intercultural-communication/",
           "opensAtBasis": null
         },
         "manchester-msc-international-development-public-policy-and-management::September 2027::Stage 1::all": {
@@ -4217,38 +3945,6 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/01388/msc-management-and-information-systems-change-and-development/",
           "opensAtBasis": null
         },
-        "manchester-msc-management::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-management::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-management::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-management::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
         "manchester-msc-management-of-projects::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-management-of-projects",
           "intake": "September 2027",
@@ -4279,38 +3975,6 @@
           "opensAt": null,
           "closesAt": "2027-05-28",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/04332/msc-management-of-projects/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-marketing::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-marketing",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-marketing::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-marketing",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-marketing::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-marketing",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-marketing::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-marketing",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
           "opensAtBasis": null
         },
         "manchester-msc-materials-engineering-for-sustainability-in-demanding-environments::September 2027::Stage 1::all": {
@@ -4433,38 +4097,6 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/11998/msc-nanomaterials/",
           "opensAtBasis": null
         },
-        "manchester-msc-operations-project-and-supply-chain-management::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-operations-project-and-supply-chain-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-operations-project-and-supply-chain-management::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-operations-project-and-supply-chain-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-operations-project-and-supply-chain-management::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-operations-project-and-supply-chain-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-operations-project-and-supply-chain-management::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-operations-project-and-supply-chain-management",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
         "manchester-msc-pgdip-oral-and-maxillofacial-surgery-dental-specialties::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-pgdip-oral-and-maxillofacial-surgery-dental-specialties",
           "intake": "September 2027",
@@ -4527,38 +4159,6 @@
           "opensAt": null,
           "closesAt": "2027-07-04",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/02303/msc-organisational-change-and-development/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-organisational-psychology::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-organisational-psychology",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-organisational-psychology::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-organisational-psychology",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-organisational-psychology::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-organisational-psychology",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-organisational-psychology::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-organisational-psychology",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
           "opensAtBasis": null
         },
         "manchester-pollution-and-environmental-control-online-msc::September 2026::Application deadline::all": {
@@ -4665,38 +4265,6 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/12519/msc-pure-mathematics/",
           "opensAtBasis": null
         },
-        "manchester-msc-quantitative-finance::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-quantitative-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-quantitative-finance::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-quantitative-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-quantitative-finance::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-quantitative-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-quantitative-finance::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-quantitative-finance",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
         "manchester-msc-real-estate-development::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-real-estate-development",
           "intake": "September 2027",
@@ -4761,6 +4329,70 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21405/msc-real-estate-finance-and-investment/",
           "opensAtBasis": null
         },
+        "manchester-msc-robotics::September 2027::Stage 1::all": {
+          "programmeId": "manchester-msc-robotics",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-23",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20967/msc-robotics/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-robotics::September 2027::Stage 2::all": {
+          "programmeId": "manchester-msc-robotics",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-11",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20967/msc-robotics/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-robotics::September 2027::Stage 3::all": {
+          "programmeId": "manchester-msc-robotics",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-26",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20967/msc-robotics/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-robotics::September 2027::Stage 4::all": {
+          "programmeId": "manchester-msc-robotics",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20967/msc-robotics/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-robotics-with-extended-research::September 2027::Stage 1::all": {
+          "programmeId": "manchester-msc-robotics-with-extended-research",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-23",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21031/msc-robotics-with-extended-research/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-robotics-with-extended-research::September 2027::Stage 2::all": {
+          "programmeId": "manchester-msc-robotics-with-extended-research",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-11",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21031/msc-robotics-with-extended-research/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-robotics-with-extended-research::September 2027::Stage 3::all": {
+          "programmeId": "manchester-msc-robotics-with-extended-research",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-26",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21031/msc-robotics-with-extended-research/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-robotics-with-extended-research::September 2027::Stage 4::all": {
+          "programmeId": "manchester-msc-robotics-with-extended-research",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21031/msc-robotics-with-extended-research/",
+          "opensAtBasis": null
+        },
         "manchester-msc-statistics::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-statistics",
           "intake": "September 2027",
@@ -4817,38 +4449,6 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/04410/msc-structural-engineering/",
           "opensAtBasis": null
         },
-        "manchester-msc-sustainable-business::September 2026::Stage 1::all": {
-          "programmeId": "manchester-msc-sustainable-business",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2025-12-07",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-sustainable-business::September 2026::Stage 2::all": {
-          "programmeId": "manchester-msc-sustainable-business",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-03-01",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-sustainable-business::September 2026::Stage 3::all": {
-          "programmeId": "manchester-msc-sustainable-business",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-05-03",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
-        "manchester-msc-sustainable-business::September 2026::Stage 4::all": {
-          "programmeId": "manchester-msc-sustainable-business",
-          "intake": "September 2026",
-          "opensAt": "2025-10-13",
-          "closesAt": "2026-07-05",
-          "sourceUrl": "https://www.alliancembs.manchester.ac.uk/study/masters/how-to-apply/",
-          "opensAtBasis": null
-        },
         "manchester-msc-textile-technology-technical-textiles::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-textile-technology-technical-textiles",
           "intake": "September 2027",
@@ -4879,6 +4479,38 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08611/msc-textile-technology-technical-textiles/",
+          "opensAtBasis": null
+        },
+        "manchester-ma-translation-and-interpreting-studies::September 2027::Stage 1::all": {
+          "programmeId": "manchester-ma-translation-and-interpreting-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2025-12-07",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07006/ma-translation-and-interpreting-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-ma-translation-and-interpreting-studies::September 2027::Stage 2::all": {
+          "programmeId": "manchester-ma-translation-and-interpreting-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-03-01",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07006/ma-translation-and-interpreting-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-ma-translation-and-interpreting-studies::September 2027::Stage 3::all": {
+          "programmeId": "manchester-ma-translation-and-interpreting-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-05-03",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07006/ma-translation-and-interpreting-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-ma-translation-and-interpreting-studies::September 2027::Stage 4::all": {
+          "programmeId": "manchester-ma-translation-and-interpreting-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-07-05",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07006/ma-translation-and-interpreting-studies/",
           "opensAtBasis": null
         },
         "manchester-msc-urban-design-and-international-planning::September 2027::Stage 1::all": {
@@ -4918,17 +4550,15 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 266,
-          "directSuccesses": 262,
-          "directFailures": 4,
+          "directSuccesses": 266,
+          "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
           "fallbackAttempts": 0,
           "fallbackSuccesses": 0,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {
-            "http": 4
-          }
+          "failureKinds": {}
         }
       }
     }

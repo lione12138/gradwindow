@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-05T09:50:14.790323+00:00",
+    "updatedAt": "2026-09-14T11:13:36.856493+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,10 +14,10 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 604,
-    "needsAdapter": 419,
+    "needsOpeningDate": 609,
+    "needsAdapter": 420,
     "comingSoonMonitor": 0,
-    "deadlineUnavailableMonitor": 2
+    "deadlineUnavailableMonitor": 6
   },
   "results": [
     {
@@ -83,7 +83,7 @@
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-v4-pro, deepseek-v4-flash, and deepseek-v4-flash-vision-exp, but you passed .\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed .\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "dryRun": false,
       "batchStatus": "error"
     },
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-09-05T09:54:40.574136+00:00",
+      "checkedAt": "2026-09-14T11:17:32.377100+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -169,6 +169,15 @@
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
       {
+        "id": "known-programme-guidance:manchester-ma-arts-management-policy-and-practice",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MA Arts Management, Policy and Practice",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08035/ma-arts-management-policy-and-practice/",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
         "id": "known-programme-guidance:manchester-ma-digital-technologies-communication-and-education",
         "universityId": "the-university-of-manchester",
         "programmeName": "MA Digital Technologies, Communication and Education",
@@ -192,6 +201,15 @@
         "programmeName": "MA Humanitarianism and Conflict Response",
         "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08264/ma-humanitarianism-and-conflict-response/",
         "windowCount": 3,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:manchester-ma-intercultural-communication",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MA Intercultural Communication",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/08815/ma-intercultural-communication/",
+        "windowCount": 4,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
@@ -232,6 +250,15 @@
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
       {
+        "id": "known-programme-guidance:manchester-ma-translation-and-interpreting-studies",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MA Translation and Interpreting Studies",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07006/ma-translation-and-interpreting-studies/",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
         "id": "known-programme-guidance:manchester-med-psychology-of-education",
         "universityId": "the-university-of-manchester",
         "programmeName": "MEd Psychology of Education",
@@ -254,6 +281,15 @@
         "universityId": "the-university-of-manchester",
         "programmeName": "MSc Advanced Control and Systems Engineering",
         "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/04166/msc-advanced-control-and-systems-engineering/",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:manchester-msc-advanced-control-and-systems-engineering-with-extended-research",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MSc Advanced Control and Systems Engineering with Extended Research",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/12729/msc-advanced-control-and-systems-engineering-with-extended-research/",
         "windowCount": 4,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
@@ -326,15 +362,6 @@
         "universityId": "the-university-of-manchester",
         "programmeName": "MSc (Clin) Oral and Maxillofacial Surgery",
         "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07776/msc-clin-oral-and-maxillofacial-surgery/",
-        "windowCount": 2,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "known-programme-guidance:manchester-msc-clinical-dentistry-paediatric-dentistry",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MSc Clinical Dentistry (Paediatric Dentistry)",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/11762/msc-clinical-dentistry-paediatric-dentistry/",
         "windowCount": 2,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
@@ -623,6 +650,24 @@
         "universityId": "the-university-of-manchester",
         "programmeName": "MSc Real Estate Finance and Investment",
         "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21405/msc-real-estate-finance-and-investment/",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:manchester-msc-robotics",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MSc Robotics",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20967/msc-robotics/",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:manchester-msc-robotics-with-extended-research",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MSc Robotics with Extended Research",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21031/msc-robotics-with-extended-research/",
         "windowCount": 4,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
@@ -9261,6 +9306,15 @@
         "reviewReason": "No application deadline was parsed."
       },
       {
+        "id": "new-programme:uchicago-master-s-in-applied-ai-ms-aai",
+        "universityId": "university-of-chicago",
+        "programmeName": "Master's in Applied AI, MS AAI",
+        "sourceUrl": "https://datascience.uchicago.edu/education/masters-programs/masters-in-applied-ai/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
         "id": "new-programme:uchicago-master-s-program-in-computational-and-applied-mathematics",
         "universityId": "university-of-chicago",
         "programmeName": "Master's Program in Computational and Applied Mathematics",
@@ -9371,6 +9425,42 @@
     ],
     "comingSoonMonitor": [],
     "deadlineUnavailableMonitor": [
+      {
+        "id": "new-programme:manchester-ma-library-and-archive-studies-overview",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MA Library and Archive Studies / Overview",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20436/ma-library-and-archive-studies/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:manchester-ma-linguistics-overview",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MA Linguistics / Overview",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/01233/ma-linguistics/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:manchester-ma-modern-languages-and-cultures-overview",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MA Modern Languages and Cultures / Overview",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/11966/ma-modern-languages-and-cultures/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:manchester-musm-composition-instrumental-and-vocal-music-overview",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MusM Composition (Instrumental and Vocal music) / Overview",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/10163/musm-composition-instrumental-and-vocal-music/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
       {
         "id": "new-programme:nottingham-animal-nutrition-msc-pgdip",
         "universityId": "the-university-of-nottingham",
