@@ -1,17 +1,19 @@
 # Published data audit
 
-Generated for 2026-09-14.
+Generated for 2026-09-15.
 
-- Active issues: 660
-- Universities needing review: 12
-- Records quarantined from SEO aggregates: 469
+- Active issues: 662
+- Universities needing review: 14
+- Records quarantined from SEO aggregates: 471
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 13
-- Published records changed from a healthy current snapshot: 428
+- Published records missing from a healthy current snapshot: 14
+- Published records changed from a healthy current snapshot: 429
 - Published records with source URL-only changes: 0
 
 ## Maintenance queue
 
+- `cityu-p83-msc-accounting-and-finance-with-ai-and-fintech-applications-taught-in-chinese-2026-main-round-domestic-students` — **published-record-changed-from-snapshot** (city-university-of-hong-kong, 2026/27, closes 2026-09-30) — correct-published-record-review
+- `cityu-p83-msc-accounting-and-finance-with-ai-and-fintech-applications-taught-in-chinese-2026-main-round-international-students` — **published-record-changed-from-snapshot** (city-university-of-hong-kong, 2026/27, closes 2026-09-30) — correct-published-record-review
 - `tu-delft-geomatics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-3-fad24373` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-03-10) — correct-intake-or-document-flexible-entry
@@ -22,7 +24,7 @@ Generated for 2026-09-14.
 - `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-2` — **suspicious-intake-window** (imperial-college-london, September 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-3` — **suspicious-intake-window** (imperial-college-london, September 2026, closes 2027-03-10) — correct-intake-or-document-flexible-entry
 - `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-4` — **suspicious-intake-window** (imperial-college-london, September 2026, closes 2027-04-28) — correct-intake-or-document-flexible-entry
-- `mit-earth-atmospheric-and-planetary-sciences-masters-2027-main-deadline` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2026-12-15) — correct-published-record-review
+- `mit-chemical-engineering-masters-2027-main-deadline` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2026-12-01) — correct-published-record-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
 - `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review
@@ -650,13 +652,13 @@ Generated for 2026-09-14.
 - `polyu-urban-informatics-and-smart-cities-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
-- `ubc-master-of-arts-in-teaching-english-as-a-second-language-ma-2027-international-applicant-deadline-international-students` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-01-01) — correct-published-record-review
 - `ubc-master-of-education-in-educational-administration-and-leadership-med-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, January 2027, closes 2026-10-01) — retire-or-correct-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
 - `edinburgh-social-justice-and-community-action-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
 - `edinburgh-veterinary-anaesthesia-and-analgesia-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-20) — correct-intake-or-document-flexible-entry
+- `helsinki-computer-science-autumn-2027` — **published-record-missing-from-snapshot** (university-of-helsinki, Autumn 2027, closes 2027-01-19) — retire-or-correct-review
 - `penn-bioengineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `penn-chemical-biomolecular-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `penn-computer-information-science-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry

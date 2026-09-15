@@ -16,9 +16,9 @@
 - Search, status filters, saved universities, alerts, and calendar export form one application workflow.
 - QS is the default view; THE and ARWU top-200 views are live. U.S. News coverage is not presented as live yet.
 
-**Coverage:** 302 canonical universities · 29,502 programmes · 5,854 verified exact windows
+**Coverage:** 302 canonical universities · 29,518 programmes · 5,920 verified exact windows
 
-Status date: **2026-09-14**
+Status date: **2026-09-15**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -26,7 +26,7 @@ Status date: **2026-09-14**
 
 | QS | University | Coverage | Next deadline | Data | Links |
 |---:|---|---|---|---|---|
-| 1 | Massachusetts Institute of Technology (MIT) | 13 open windows | 2026-10-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| 1 | Massachusetts Institute of Technology (MIT) | 21 open windows | 2026-10-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
 | =2 | Imperial College London | 13 open windows | 2026-09-28 | Estimate | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 6 | University of Cambridge | 159 open windows | 2026-11-18 | Official + Estimate | [Admissions](https://www.postgraduate.study.cam.ac.uk/application-process) · [All programme details](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | 10 | National University of Singapore (NUS) | 14 open windows | 2026-09-30 | Official + Estimate | [Admissions](https://nusgs.nus.edu.sg/admissions/) · [All programme details](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
@@ -38,10 +38,10 @@ Status date: **2026-09-14**
 
 | QS | University | Coverage | Next opening | Data | Links |
 |---:|---|---|---|---|---|
-| 1 | Massachusetts Institute of Technology (MIT) | 11 upcoming windows | 2026-09-15 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
-| =2 | Imperial College London | 159 upcoming windows | 2026-09-29 | Official + Estimate | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
+| 1 | Massachusetts Institute of Technology (MIT) | 3 upcoming windows | 2026-10-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| =2 | Imperial College London | 177 upcoming windows | 2026-09-29 | Official + Estimate | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 10 | National University of Singapore (NUS) | 18 upcoming windows | 2026-10-01 | Official + Estimate | [Admissions](https://nusgs.nus.edu.sg/admissions/) · [All programme details](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
-| 15 | University of Pennsylvania | 23 upcoming windows | 2026-09-15 | Official + Estimate | [Admissions](https://www.upenn.edu/academics/graduate) · [All programme details](https://gradwindow.com/?q=University%20of%20Pennsylvania) |
+| 14 | Tsinghua University | 2 upcoming windows | 2026-10-15 | Estimate | [Admissions](https://yz.tsinghua.edu.cn/en/) · [All programme details](https://gradwindow.com/?q=Tsinghua%20University) |
 | 25 | Technical University of Munich | 1 upcoming window | 2026-10-01 | Official | [Admissions](https://www.tum.de/en/studies/application/application-info-portal) · [All programme details](https://gradwindow.com/?q=Technical%20University%20of%20Munich) |
 
 [View every upcoming window on GradWindow →](https://gradwindow.com/?status=upcoming)
