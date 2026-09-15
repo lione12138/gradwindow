@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-14T11:13:36.856493+00:00",
+    "updatedAt": "2026-09-15T10:49:14.807546+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,10 +14,10 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 609,
-    "needsAdapter": 420,
+    "needsOpeningDate": 610,
+    "needsAdapter": 422,
     "comingSoonMonitor": 0,
-    "deadlineUnavailableMonitor": 6
+    "deadlineUnavailableMonitor": 2
   },
   "results": [
     {
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-09-14T11:17:32.377100+00:00",
+      "checkedAt": "2026-09-15T10:53:42.515297+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -4597,6 +4597,15 @@
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
       {
+        "id": "known-programme-guidance:southampton-environmental-management-and-sustainability-msc",
+        "universityId": "university-of-southampton",
+        "programmeName": "Environmental Management and Sustainability (MSc)",
+        "sourceUrl": "https://www.southampton.ac.uk/courses/environmental-management-sustainability-masters-msc",
+        "windowCount": 2,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
         "id": "known-programme-guidance:southampton-environmental-monitoring-and-assessment-msc",
         "universityId": "university-of-southampton",
         "programmeName": "Environmental Monitoring and Assessment (MSc)",
@@ -9072,6 +9081,24 @@
         "reviewReason": "No application deadline was parsed."
       },
       {
+        "id": "new-programme:sheffield-international-journalism-ma",
+        "universityId": "the-university-of-sheffield",
+        "programmeName": "International Journalism MA",
+        "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/international-journalism-ma",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:sheffield-the-sheffield-llm-llm",
+        "universityId": "the-university-of-sheffield",
+        "programmeName": "The Sheffield LLM LLM",
+        "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/sheffield-llm-llm",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
         "id": "new-programme:uchicago-biomedical-informatics-master-of-science",
         "universityId": "university-of-chicago",
         "programmeName": "Biomedical Informatics, Master of Science",
@@ -9425,42 +9452,6 @@
     ],
     "comingSoonMonitor": [],
     "deadlineUnavailableMonitor": [
-      {
-        "id": "new-programme:manchester-ma-library-and-archive-studies-overview",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MA Library and Archive Studies / Overview",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20436/ma-library-and-archive-studies/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:manchester-ma-linguistics-overview",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MA Linguistics / Overview",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/01233/ma-linguistics/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:manchester-ma-modern-languages-and-cultures-overview",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MA Modern Languages and Cultures / Overview",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/11966/ma-modern-languages-and-cultures/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:manchester-musm-composition-instrumental-and-vocal-music-overview",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MusM Composition (Instrumental and Vocal music) / Overview",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/10163/musm-composition-instrumental-and-vocal-music/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
       {
         "id": "new-programme:nottingham-animal-nutrition-msc-pgdip",
         "universityId": "the-university-of-nottingham",
