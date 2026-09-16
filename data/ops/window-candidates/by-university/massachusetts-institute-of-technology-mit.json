@@ -3,7 +3,7 @@
     {
       "id": "adapter-window:mit-chemical-engineering-masters-2027-main-deadline:2026-10-01:2026-12-01",
       "type": "adapter-window-change",
-      "status": "pending",
+      "status": "approved",
       "universityId": "massachusetts-institute-of-technology-mit",
       "detectedAt": "2026-09-15T10:16:40.507121+00:00",
       "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
@@ -43,62 +43,13 @@
       "evidenceExcerpt": "Application opens: October 1; deadline: December 1",
       "confirmation": {
         "requiredObservations": 2,
-        "observationCount": 1,
-        "firstObservedAt": "2026-09-15T10:16:40.507121+00:00",
-        "lastObservedAt": "2026-09-15T10:16:40.507121+00:00",
-        "observationFingerprint": "b33be15f126cc00dc950a2d7f578f436486949596f73a1e5dcba3cb1518505fb"
-      }
-    },
-    {
-      "id": "adapter-window:mit-earth-atmospheric-and-planetary-sciences-masters-2027-main-deadline:2026-09-01:2026-12-01",
-      "type": "adapter-window-change",
-      "status": "approved",
-      "universityId": "massachusetts-institute-of-technology-mit",
-      "detectedAt": "2026-09-14T10:39:02.578346+00:00",
-      "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
-      "openingBasis": "official",
-      "record": {
-        "id": "mit-earth-atmospheric-and-planetary-sciences-masters-2027-main-deadline",
-        "universityId": "massachusetts-institute-of-technology-mit",
-        "scopeType": "programme",
-        "scopeId": "mit-earth-atmospheric-and-planetary-sciences-masters",
-        "intake": "September 2027",
-        "round": "Main deadline",
-        "applicantCategories": [
-          "all"
-        ],
-        "opensAt": "2026-09-01",
-        "closesAt": "2026-12-01",
-        "applicationUrl": "https://oge.mit.edu/programs/earth-atmospheric-and-planetary-sciences/",
-        "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
-        "verifiedAt": "2026-09-14",
-        "evidence": "The official programme adapter observed Earth, Atmospheric, and Planetary Sciences opening on 2026-09-01 and closing on 2026-12-01. Source: https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
-        "intakeDetails": {
-          "label": "September 2027",
-          "cycleYear": 2027,
-          "academicYearEnd": null,
-          "term": "fall",
-          "startMonth": 9
-        },
-        "entryPattern": "fixed",
-        "startDatePrecision": "month"
-      },
-      "changes": {
-        "closesAt": {
-          "previous": "2026-12-15",
-          "observed": "2026-12-01"
-        }
-      },
-      "evidenceExcerpt": "Application opens: September 1; deadline: December 1",
-      "confirmation": {
-        "requiredObservations": 2,
         "observationCount": 2,
-        "firstObservedAt": "2026-09-14T10:39:02.578346+00:00",
-        "lastObservedAt": "2026-09-15T10:16:40.507121+00:00",
-        "observationFingerprint": "a273b21f4982434c6f39805db1b5fba0628d18fa95694419fcd88e42c0fc99f5"
+        "firstObservedAt": "2026-09-15T10:16:40.507121+00:00",
+        "lastObservedAt": "2026-09-16T10:12:39.244799+00:00",
+        "observationFingerprint": "b33be15f126cc00dc950a2d7f578f436486949596f73a1e5dcba3cb1518505fb"
       },
       "reviewedBy": "automated-official-source-policy",
-      "reviewedAt": "2026-09-15T10:57:14.716423+00:00"
+      "reviewedAt": "2026-09-16T10:56:26.821846+00:00"
     },
     {
       "id": "adapter-window:mit-supply-chain-management-residential-masters-2027-round-3:2026-09-03:2027-04-01",
@@ -190,6 +141,57 @@
       "evidenceExcerpt": "Application opens: September 15; deadline: January 7",
       "reviewedBy": "automated-official-source-policy",
       "reviewedAt": "2026-08-19T06:09:41.472962+00:00"
+    },
+    {
+      "id": "adapter-window:mit-earth-atmospheric-and-planetary-sciences-masters-2027-main-deadline:2026-09-01:2026-12-01",
+      "type": "adapter-window-change",
+      "status": "approved",
+      "universityId": "massachusetts-institute-of-technology-mit",
+      "detectedAt": "2026-09-14T10:39:02.578346+00:00",
+      "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+      "openingBasis": "official",
+      "record": {
+        "id": "mit-earth-atmospheric-and-planetary-sciences-masters-2027-main-deadline",
+        "universityId": "massachusetts-institute-of-technology-mit",
+        "scopeType": "programme",
+        "scopeId": "mit-earth-atmospheric-and-planetary-sciences-masters",
+        "intake": "September 2027",
+        "round": "Main deadline",
+        "applicantCategories": [
+          "all"
+        ],
+        "opensAt": "2026-09-01",
+        "closesAt": "2026-12-01",
+        "applicationUrl": "https://oge.mit.edu/programs/earth-atmospheric-and-planetary-sciences/",
+        "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+        "verifiedAt": "2026-09-14",
+        "evidence": "The official programme adapter observed Earth, Atmospheric, and Planetary Sciences opening on 2026-09-01 and closing on 2026-12-01. Source: https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
+        "intakeDetails": {
+          "label": "September 2027",
+          "cycleYear": 2027,
+          "academicYearEnd": null,
+          "term": "fall",
+          "startMonth": 9
+        },
+        "entryPattern": "fixed",
+        "startDatePrecision": "month"
+      },
+      "changes": {
+        "closesAt": {
+          "previous": "2026-12-15",
+          "observed": "2026-12-01"
+        }
+      },
+      "evidenceExcerpt": "Application opens: September 1; deadline: December 1",
+      "confirmation": {
+        "requiredObservations": 2,
+        "observationCount": 2,
+        "firstObservedAt": "2026-09-14T10:39:02.578346+00:00",
+        "lastObservedAt": "2026-09-15T10:16:40.507121+00:00",
+        "observationFingerprint": "a273b21f4982434c6f39805db1b5fba0628d18fa95694419fcd88e42c0fc99f5"
+      },
+      "reviewedBy": "automated-official-source-policy",
+      "reviewedAt": "2026-09-15T10:57:14.716423+00:00"
     },
     {
       "id": "adapter-window:mit-mechanical-engineering-masters-2027-main-deadline:2026-09-15:2026-12-01",
