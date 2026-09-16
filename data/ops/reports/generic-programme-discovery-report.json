@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-15T10:49:14.807546+00:00",
+    "updatedAt": "2026-09-16T10:48:12.228569+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,8 +14,8 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 610,
-    "needsAdapter": 422,
+    "needsOpeningDate": 611,
+    "needsAdapter": 420,
     "comingSoonMonitor": 0,
     "deadlineUnavailableMonitor": 2
   },
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-09-15T10:53:42.515297+00:00",
+      "checkedAt": "2026-09-16T10:52:34.234576+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -236,6 +236,15 @@
         "universityId": "the-university-of-manchester",
         "programmeName": "MA International Education (Equity, Diversity and Inclusion)",
         "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/13007/ma-international-education-equity-diversity-and-inclusion/",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:manchester-ma-international-education-higher-education",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MA International Education (Higher Education)",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/13008/ma-international-education-higher-education/",
         "windowCount": 4,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
@@ -9076,24 +9085,6 @@
         "universityId": "the-university-of-melbourne",
         "programmeName": "Master of Youth Mental Health",
         "sourceUrl": "https://handbook.unimelb.edu.au/2026/courses/mc-youthmh",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:sheffield-international-journalism-ma",
-        "universityId": "the-university-of-sheffield",
-        "programmeName": "International Journalism MA",
-        "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/international-journalism-ma",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:sheffield-the-sheffield-llm-llm",
-        "universityId": "the-university-of-sheffield",
-        "programmeName": "The Sheffield LLM LLM",
-        "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/sheffield-llm-llm",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
