@@ -1,18 +1,17 @@
 # Published data audit
 
-Generated for 2026-09-16.
+Generated for 2026-09-17.
 
-- Active issues: 701
-- Universities needing review: 12
-- Records quarantined from SEO aggregates: 468
+- Active issues: 700
+- Universities needing review: 11
+- Records quarantined from SEO aggregates: 467
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 14
+- Published records missing from a healthy current snapshot: 13
 - Published records changed from a healthy current snapshot: 426
 - Published records with source URL-only changes: 42
 
 ## Maintenance queue
 
-- `tu-delft-geomatics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-3-fad24373` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-03-10) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-4-cbb2ce2e` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-04-28) — correct-intake-or-document-flexible-entry
