@@ -2,10 +2,10 @@
   "universities": {
     "university-college-dublin": {
       "sourceUrl": "https://hub.ucd.ie/usis/!W_HU_MENU.P_PUBLISH?p_tag=COURSES&LEVEL=GT",
-      "checkedAt": "2026-09-17T10:46:46.278491+00:00",
+      "checkedAt": "2026-09-18T10:12:07.612724+00:00",
       "itemCount": 255,
       "applicationOpensAt": null,
-      "catalogHash": "bfccbe77a720b7c1d95472e3290639721589755a4aa10e0ede58c4f02da1ee06",
+      "catalogHash": "70b8ee23b94e96b6956cb6bf579fa368158f93e62f05620ec07dee84a2465068",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -17,8 +17,8 @@
       "programmesWithoutDeadlines": 255,
       "programmesNeedingReview": 255,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-17T10:46:46.278491+00:00",
-      "windowFingerprint": "9dc401f6909fe385030df1699c1ae5a1dada3ea97a9d004e8c6c472504680b56",
+      "lastSuccessfulAt": "2026-09-18T10:12:07.612724+00:00",
+      "windowFingerprint": "5040639b996d3cff2c6e4b0c076d370a80b378b3538abe93653ebb56b31da46f",
       "watchedWindowSourceHash": "1a2e9cd7577c6fe7ef46cfe98e7f620230733cdb94f081edfded21446eaf9a57",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
@@ -144,6 +144,16 @@
         },
         "ucd-biological-biomolecular-science-negotiated-learning-msc": {
           "name": "Biological & Biomolecular Science (Negotiated Learning)",
+          "degreeType": "MSc",
+          "faculty": "University College Dublin",
+          "department": "University College Dublin",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "ucd-biomolecular-data-analysis-ai-msc": {
+          "name": "Biomolecular Data Analysis & AI",
           "degreeType": "MSc",
           "faculty": "University College Dublin",
           "department": "University College Dublin",
@@ -292,9 +302,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "ucd-creative-writing-mfa": {
+        "ucd-creative-writing-ma": {
           "name": "Creative Writing",
-          "degreeType": "MFA",
+          "degreeType": "MA",
           "faculty": "University College Dublin",
           "department": "University College Dublin",
           "parseStatus": "no-deadline",
@@ -302,9 +312,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "ucd-creative-writing-ma": {
+        "ucd-creative-writing-mfa": {
           "name": "Creative Writing",
-          "degreeType": "MA",
+          "degreeType": "MFA",
           "faculty": "University College Dublin",
           "department": "University College Dublin",
           "parseStatus": "no-deadline",
@@ -462,16 +472,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "ucd-equality-studies-msc": {
-          "name": "Equality Studies",
-          "degreeType": "MSc",
-          "faculty": "University College Dublin",
-          "department": "University College Dublin",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "ucd-eu-law-governance-llm": {
           "name": "EU Law & Governance",
           "degreeType": "LLM",
@@ -554,16 +554,6 @@
         },
         "ucd-forensic-computing-cybercrime-investigation-msc": {
           "name": "Forensic Computing & Cybercrime Investigation",
-          "degreeType": "MSc",
-          "faculty": "University College Dublin",
-          "department": "University College Dublin",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "ucd-gender-and-sexualities-studies-msc": {
-          "name": "Gender and Sexualities Studies",
           "degreeType": "MSc",
           "faculty": "University College Dublin",
           "department": "University College Dublin",
@@ -705,6 +695,16 @@
         "ucd-international-business-msc": {
           "name": "International Business",
           "degreeType": "MSc",
+          "faculty": "University College Dublin",
+          "department": "University College Dublin",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "ucd-international-financial-services-law-llm": {
+          "name": "International Financial Services Law",
+          "degreeType": "LLM",
           "faculty": "University College Dublin",
           "department": "University College Dublin",
           "parseStatus": "no-deadline",
@@ -1612,16 +1612,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "ucd-msc-clinical-diagnostic-biochemistry-ft-msc": {
-          "name": "MSc Clinical & Diagnostic Biochemistry FT",
-          "degreeType": "MSc",
-          "faculty": "University College Dublin",
-          "department": "University College Dublin",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "ucd-msc-clinical-translational-research-full-time-msc": {
           "name": "MSc Clinical & Translational Research Full-Time",
           "degreeType": "MSc",
@@ -2394,6 +2384,16 @@
         },
         "ucd-regulatory-affairs-toxicology-msc": {
           "name": "Regulatory Affairs & Toxicology",
+          "degreeType": "MSc",
+          "faculty": "University College Dublin",
+          "department": "University College Dublin",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "ucd-restoration-ecology-msc": {
+          "name": "Restoration Ecology",
           "degreeType": "MSc",
           "faculty": "University College Dublin",
           "department": "University College Dublin",
