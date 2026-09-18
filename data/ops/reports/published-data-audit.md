@@ -1,17 +1,19 @@
 # Published data audit
 
-Generated for 2026-09-17.
+Generated for 2026-09-18.
 
-- Active issues: 700
+- Active issues: 697
 - Universities needing review: 11
-- Records quarantined from SEO aggregates: 467
+- Records quarantined from SEO aggregates: 464
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 13
-- Published records changed from a healthy current snapshot: 426
+- Published records missing from a healthy current snapshot: 8
+- Published records changed from a healthy current snapshot: 428
 - Published records with source URL-only changes: 42
 
 ## Maintenance queue
 
+- `tu-delft-civil-engineering-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
+- `tu-delft-geomatics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-3-fad24373` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-03-10) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-4-cbb2ce2e` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-04-28) — correct-intake-or-document-flexible-entry
@@ -65,13 +67,6 @@ Generated for 2026-09-17.
 - `imperial-strategic-marketing-online-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
-- `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review
-- `nus-master-in-international-affairs-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-15) — retire-or-correct-review
-- `nus-master-in-public-administration-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-31) — retire-or-correct-review
-- `nus-master-in-public-policy-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-15) — retire-or-correct-review
-- `nus-master-of-public-health-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-01) — retire-or-correct-review
-- `nus-msc-biomedical-informatics-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2027-02-02) — retire-or-correct-review
-- `nus-msc-data-science-and-machine-learning-coursework-2027-regular-admission` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2027-01-31) — retire-or-correct-review
 - `tum-informatics-msc-summer-2027-application-period` — **published-record-missing-from-snapshot** (technical-university-of-munich, Summer 2027, closes 2026-11-30) — retire-or-correct-review
 - `cuhk-accountancy-master-2026-main-application-period` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-published-record-review
 - `cuhk-accountancy-master-2026-main-application-period` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-intake-or-document-flexible-entry
@@ -690,7 +685,9 @@ Generated for 2026-09-17.
 - `polyu-urban-informatics-and-smart-cities-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
+- `ubc-master-of-arts-in-special-education-ma-2027-application-deadline` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — correct-published-record-review
 - `ubc-master-of-education-in-educational-administration-and-leadership-med-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, January 2027, closes 2026-10-01) — retire-or-correct-review
+- `ubc-master-of-engineering-in-electrical-and-computer-engineering-meng-2027-application-deadline` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-11-30) — correct-published-record-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
