@@ -2,14 +2,14 @@
   "universities": {
     "the-university-of-manchester": {
       "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/basic/",
-      "checkedAt": "2026-09-18T09:48:42.988471+00:00",
-      "itemCount": 263,
+      "checkedAt": "2026-09-19T09:44:17.034718+00:00",
+      "itemCount": 264,
       "applicationOpensAt": null,
-      "catalogHash": "45dc120911416f47069de3109b27492cffb1af9bff1dc751ff49d0ced060ec8a",
+      "catalogHash": "f95602088f69af1d6d1748680b91aefc90fbff6fd3afc3df03c22d581bcfe7b2",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 237,
+      "observedWindowCount": 238,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -25,17 +25,17 @@
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 236,
+          "observedWindowCount": 237,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 237,
+      "missingOpeningDateCount": 238,
       "programmesWithoutDeadlines": 200,
-      "programmesNeedingReview": 263,
-      "limitationReason": "237 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-09-18T09:48:42.988471+00:00",
-      "windowFingerprint": "cf5849b7ed65b5e2848658ba49844a99fb100903aa744bc403a0c12323b0b560",
+      "programmesNeedingReview": 264,
+      "limitationReason": "238 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-09-19T09:44:17.034718+00:00",
+      "windowFingerprint": "6faa75260456695d9d58d31d52035ba3e723567eb8809056039e8b0bc2115852",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -2229,6 +2229,16 @@
           "windowCount": 4,
           "latestClosesAt": "2027-07-04"
         },
+        "manchester-ma-public-and-applied-anthropology-overview": {
+          "name": "MA Public and Applied Anthropology / Overview",
+          "degreeType": "MA",
+          "faculty": "School of Social Sciences",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "manchester-mres-public-health": {
           "name": "MRes Public Health",
           "degreeType": "MRes",
@@ -2314,10 +2324,10 @@
           "degreeType": "MSc",
           "faculty": "",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "3780cc4490b8f5b43dd9563071de2ea5d4c94b64a591011517f113f2f7812f4a",
+          "windowCount": 1,
+          "latestClosesAt": "2027-08-23"
         },
         "manchester-msc-renewable-energy-and-clean-technology": {
           "name": "MSc Renewable Energy and Clean Technology",
@@ -4351,6 +4361,14 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/21405/msc-real-estate-finance-and-investment/",
           "opensAtBasis": null
         },
+        "manchester-msc-real-estate::September 2027::Application deadline::all": {
+          "programmeId": "manchester-msc-real-estate",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-23",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/10005/msc-real-estate-online/",
+          "opensAtBasis": null
+        },
         "manchester-msc-robotics::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-robotics",
           "intake": "September 2027",
@@ -4571,8 +4589,8 @@
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 265,
-          "directSuccesses": 265,
+          "requests": 266,
+          "directSuccesses": 266,
           "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
