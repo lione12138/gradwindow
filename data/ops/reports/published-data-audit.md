@@ -1,13 +1,13 @@
 # Published data audit
 
-Generated for 2026-09-18.
+Generated for 2026-09-19.
 
-- Active issues: 697
-- Universities needing review: 11
-- Records quarantined from SEO aggregates: 464
+- Active issues: 704
+- Universities needing review: 12
+- Records quarantined from SEO aggregates: 471
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 8
-- Published records changed from a healthy current snapshot: 428
+- Published records missing from a healthy current snapshot: 17
+- Published records changed from a healthy current snapshot: 426
 - Published records with source URL-only changes: 42
 
 ## Maintenance queue
@@ -67,6 +67,14 @@ Generated for 2026-09-18.
 - `imperial-strategic-marketing-online-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
+- `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review
+- `nus-master-in-international-affairs-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-15) — retire-or-correct-review
+- `nus-master-in-public-administration-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-31) — retire-or-correct-review
+- `nus-master-in-public-policy-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-12-15) — retire-or-correct-review
+- `nus-master-of-cities-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, January 2027, closes 2026-09-30) — retire-or-correct-review
+- `nus-master-of-public-health-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-01) — retire-or-correct-review
+- `nus-msc-biomedical-informatics-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2027-02-02) — retire-or-correct-review
+- `nus-msc-data-science-and-machine-learning-coursework-2027-regular-admission` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2027-01-31) — retire-or-correct-review
 - `tum-informatics-msc-summer-2027-application-period` — **published-record-missing-from-snapshot** (technical-university-of-munich, Summer 2027, closes 2026-11-30) — retire-or-correct-review
 - `cuhk-accountancy-master-2026-main-application-period` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-published-record-review
 - `cuhk-accountancy-master-2026-main-application-period` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-intake-or-document-flexible-entry
@@ -685,9 +693,8 @@ Generated for 2026-09-18.
 - `polyu-urban-informatics-and-smart-cities-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
-- `ubc-master-of-arts-in-special-education-ma-2027-application-deadline` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — correct-published-record-review
 - `ubc-master-of-education-in-educational-administration-and-leadership-med-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, January 2027, closes 2026-10-01) — retire-or-correct-review
-- `ubc-master-of-engineering-in-electrical-and-computer-engineering-meng-2027-application-deadline` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-11-30) — correct-published-record-review
+- `ubc-master-of-engineering-in-mining-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-02-05) — retire-or-correct-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry

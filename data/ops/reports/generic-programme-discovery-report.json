@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-18T10:25:56.623615+00:00",
+    "updatedAt": "2026-09-19T10:20:42.243395+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,10 +14,10 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 611,
+    "needsOpeningDate": 613,
     "needsAdapter": 420,
     "comingSoonMonitor": 0,
-    "deadlineUnavailableMonitor": 2
+    "deadlineUnavailableMonitor": 3
   },
   "results": [
     {
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-09-18T10:30:12.883610+00:00",
+      "checkedAt": "2026-09-19T10:24:17.286496+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -642,6 +642,15 @@
         "programmeName": "MSc Pure Mathematics",
         "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/12519/msc-pure-mathematics/",
         "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:manchester-msc-real-estate",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MSc Real Estate",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/10005/msc-real-estate-online/",
+        "windowCount": 1,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
@@ -3926,7 +3935,7 @@
         "universityId": "university-of-southampton",
         "programmeName": "Advanced Audiology (MSc)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/advanced-audiology-masters-msc",
-        "windowCount": 2,
+        "windowCount": 1,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
@@ -4088,7 +4097,7 @@
         "universityId": "university-of-southampton",
         "programmeName": "Audiology with Clinical Placement (MSc)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/audiology-with-clinical-placement-masters-msc",
-        "windowCount": 2,
+        "windowCount": 1,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
@@ -4592,6 +4601,15 @@
         "universityId": "university-of-southampton",
         "programmeName": "English Literature (MA)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/english-literature-masters-ma",
+        "windowCount": 2,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:southampton-environmental-and-spatial-design-ma",
+        "universityId": "university-of-southampton",
+        "programmeName": "Environmental and Spatial Design (MA)",
+        "sourceUrl": "https://www.southampton.ac.uk/courses/environmental-spatial-design-ma",
         "windowCount": 2,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
@@ -9443,6 +9461,15 @@
     ],
     "comingSoonMonitor": [],
     "deadlineUnavailableMonitor": [
+      {
+        "id": "new-programme:manchester-ma-public-and-applied-anthropology-overview",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MA Public and Applied Anthropology / Overview",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/22200/ma-public-and-applied-anthropology/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
       {
         "id": "new-programme:nottingham-animal-nutrition-msc-pgdip",
         "universityId": "the-university-of-nottingham",

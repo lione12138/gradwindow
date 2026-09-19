@@ -2,23 +2,23 @@
   "universities": {
     "university-of-british-columbia": {
       "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs",
-      "checkedAt": "2026-09-18T10:07:48.468083+00:00",
+      "checkedAt": "2026-09-19T10:05:18.898480+00:00",
       "itemCount": 228,
       "applicationOpensAt": null,
-      "catalogHash": "4e0e5de88d9786083fe604a85986ef5f03e256f2741b9f3e16efba2b8fb8540f",
+      "catalogHash": "f508f263c70d98b9b747e338b4ef91eb1306295131b617de5c35dc02bf9a50e4",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
-      "observedWindowCount": 221,
-      "exactWindowCount": 221,
+      "observedWindowCount": 222,
+      "exactWindowCount": 222,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 154,
-          "exactWindowCount": 154,
+          "observedWindowCount": 155,
+          "exactWindowCount": 155,
           "recurringPolicyWindowCount": 0
         },
         "2027:other:01": {
@@ -71,11 +71,11 @@
         }
       },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 70,
-      "programmesNeedingReview": 70,
-      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 70 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-09-18T10:07:48.468083+00:00",
-      "windowFingerprint": "4e415613754798b1ea1a4ceb22ac447ff4aaf9d6199e1c31670ec97f4e64fae5",
+      "programmesWithoutDeadlines": 69,
+      "programmesNeedingReview": 69,
+      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 69 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-09-19T10:05:18.898480+00:00",
+      "windowFingerprint": "e2904fd61a9ceb1d6f9eddce323b8c37014e7cc2afd1b481ab2318af02f88c84",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -664,10 +664,10 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "Philosophy",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "d19696c95598d556eaba0b2790d91625561303672f37cd95400dc1c616fd87aa",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-06"
         },
         "ubc-master-of-arts-in-planning-map": {
           "name": "Master of Arts in Planning (MAP)",
@@ -834,10 +834,10 @@
           "degreeType": "MDSCL",
           "faculty": "Faculty of Arts",
           "department": "Data Science",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "f83494449a80c849131031ce9ee860395b52e89d0666d6173bb7861c0e343cb4",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-31"
         },
         "ubc-master-of-data-science-mds": {
           "name": "Master of Data Science (MDS)",
@@ -1204,10 +1204,10 @@
           "degreeType": "MEng",
           "faculty": "Faculty of Applied Science",
           "department": "Mining Engineering",
-          "parseStatus": "parsed",
-          "deadlineHash": "a736253713751ef26fcdf1155e574dba2d5e64dbd801d5089e8713aabbce39b3",
-          "windowCount": 1,
-          "latestClosesAt": "2027-02-05"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "ubc-master-of-engineering-in-naval-architecture-and-marine-engineering-meng": {
           "name": "Master of Engineering in Naval Architecture and Marine Engineering (MEng)",
@@ -2873,6 +2873,14 @@
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-music-theory",
           "opensAtBasis": null
         },
+        "ubc-master-of-arts-in-philosophy-ma::September 2027::Application deadline::all": {
+          "programmeId": "ubc-master-of-arts-in-philosophy-ma",
+          "intake": "September 2027",
+          "opensAt": "2026-10-14",
+          "closesAt": "2027-01-06",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-philosophy",
+          "opensAtBasis": null
+        },
         "ubc-master-of-arts-in-political-science-ma::September 2027::Application deadline::all": {
           "programmeId": "ubc-master-of-arts-in-political-science-ma",
           "intake": "September 2027",
@@ -2983,6 +2991,14 @@
           "opensAt": "2026-09-25",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-arts-theatre",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-data-science-in-computational-linguistics-mdscl::September 2027::Application deadline::all": {
+          "programmeId": "ubc-master-of-data-science-in-computational-linguistics-mdscl",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-01-31",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-data-science-computational-linguistics",
           "opensAtBasis": null
         },
         "ubc-master-of-data-science-mds::September 2027::Application deadline::all": {
@@ -3263,14 +3279,6 @@
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-engineering-geological-engineering",
-          "opensAtBasis": null
-        },
-        "ubc-master-of-engineering-in-mining-engineering-meng::September 2027::Application deadline::all": {
-          "programmeId": "ubc-master-of-engineering-in-mining-engineering-meng",
-          "intake": "September 2027",
-          "opensAt": "2026-09-19",
-          "closesAt": "2027-02-05",
-          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-engineering-mining-engineering",
           "opensAtBasis": null
         },
         "ubc-master-of-fine-arts-in-theatre-mfa::September 2027::Application deadline::all": {
