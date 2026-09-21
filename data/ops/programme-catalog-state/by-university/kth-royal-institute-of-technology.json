@@ -2,7 +2,7 @@
   "universities": {
     "kth-royal-institute-of-technology": {
       "sourceUrl": "https://www.kth.se/en/studies/master/programmes",
-      "checkedAt": "2026-09-20T10:03:56.092236+00:00",
+      "checkedAt": "2026-09-21T10:44:54.896966+00:00",
       "itemCount": 60,
       "applicationOpensAt": null,
       "catalogHash": "c4b5273b0083cbeefba21a96e2a4b3463ec90179fb6061d78c7d637521fd55f4",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 60,
       "programmesNeedingReview": 60,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-20T10:03:56.092236+00:00",
+      "lastSuccessfulAt": "2026-09-21T10:44:54.896966+00:00",
       "windowFingerprint": "5ceb4484db15567d63c33a82ed543eee182293beff967a8c037a6a61f479ee65",
       "watchedWindowSourceHash": "f2dacb305a6f3eb8010daed302eb429ab22ea91af2a345acaa123fcf2302ddef",
       "watchedWindowSourceFingerprintVersion": 3,
@@ -628,15 +628,17 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 2,
-          "directSuccesses": 2,
-          "directFailures": 0,
+          "directSuccesses": 0,
+          "directFailures": 2,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 2,
+          "fallbackSuccesses": 2,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "network": 2
+          }
         }
       }
     }

@@ -1,13 +1,13 @@
 # Published data audit
 
-Generated for 2026-09-20.
+Generated for 2026-09-21.
 
-- Active issues: 708
+- Active issues: 704
 - Universities needing review: 12
-- Records quarantined from SEO aggregates: 475
+- Records quarantined from SEO aggregates: 471
 - Suspicious intake/deadline mappings: 219
 - Published records missing from a healthy current snapshot: 17
-- Published records changed from a healthy current snapshot: 430
+- Published records changed from a healthy current snapshot: 426
 - Published records with source URL-only changes: 42
 
 ## Maintenance queue
@@ -693,11 +693,7 @@ Generated for 2026-09-20.
 - `polyu-urban-informatics-and-smart-cities-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
-- `ubc-master-of-arts-in-counselling-psychology-ma-2027-application-deadline` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — correct-published-record-review
-- `ubc-master-of-arts-in-measurement-evaluation-and-research-methodology-ma-2027-application-deadline` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — correct-published-record-review
-- `ubc-master-of-education-in-counselling-psychology-med-2027-application-deadline` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — correct-published-record-review
 - `ubc-master-of-education-in-educational-administration-and-leadership-med-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, January 2027, closes 2026-10-01) — retire-or-correct-review
-- `ubc-master-of-education-in-measurement-evaluation-and-research-methodology-med-2027-application-deadline` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — correct-published-record-review
 - `ubc-master-of-engineering-in-mining-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-02-05) — retire-or-correct-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-20T10:38:03.605877+00:00",
+    "updatedAt": "2026-09-21T11:30:12.484013+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -15,7 +15,7 @@
     "readyToApprove": 0,
     "needsOpeningReview": 0,
     "needsOpeningDate": 613,
-    "needsAdapter": 420,
+    "needsAdapter": 421,
     "comingSoonMonitor": 0,
     "deadlineUnavailableMonitor": 2
   },
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-09-20T10:42:09.523260+00:00",
+      "checkedAt": "2026-09-21T11:34:07.053890+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -9103,6 +9103,15 @@
         "universityId": "the-university-of-melbourne",
         "programmeName": "Master of Youth Mental Health",
         "sourceUrl": "https://handbook.unimelb.edu.au/2026/courses/mc-youthmh",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:sheffield-artificial-intelligence-for-life-sciences-msc",
+        "universityId": "the-university-of-sheffield",
+        "programmeName": "Artificial Intelligence for Life Sciences MSc",
+        "sourceUrl": "https://sheffield.ac.uk/postgraduate/taught/courses/2027/artificial-intelligence-life-sciences-msc",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
