@@ -2,7 +2,7 @@
   "universities": {
     "massachusetts-institute-of-technology-mit": {
       "sourceUrl": "https://oge.mit.edu/graduate-admissions/programs/masters-degrees/",
-      "checkedAt": "2026-09-18T09:51:29.887085+00:00",
+      "checkedAt": "2026-09-22T10:14:53.082407+00:00",
       "itemCount": 30,
       "applicationOpensAt": null,
       "catalogHash": "806b75e6b698436de691e3c1da6e142234364a5ab1e77e59ecee4da705192d8d",
@@ -26,7 +26,7 @@
       "programmesWithoutDeadlines": 1,
       "programmesNeedingReview": 9,
       "limitationReason": "14 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-09-18T09:51:29.887085+00:00",
+      "lastSuccessfulAt": "2026-09-22T10:14:53.082407+00:00",
       "windowFingerprint": "321e23d73d9d22aaa313b328131d6c1caa30dd04381357cdb23ec722c6a8ac06",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -650,15 +650,17 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 1,
-          "directSuccesses": 1,
-          "directFailures": 0,
+          "directSuccesses": 0,
+          "directFailures": 1,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "blocked": 1
+          }
         }
       }
     }
