@@ -122,6 +122,7 @@ async function hydrateRecordDetails(record) {
 
 function statusLabels() {
   return {
+    all: { title: t("statusAll"), description: t("allDescription") },
     open: { title: t("openTitle"), description: t("openDescription") },
     upcoming: {
       title: t("upcomingTitle"),
@@ -1108,7 +1109,11 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
       universityIds.add(university.id),
     );
   }
-  if (state.status === "unknown" || hasActiveSearch()) {
+  if (
+    state.status === "all" ||
+    state.status === "unknown" ||
+    hasActiveSearch()
+  ) {
     universities.forEach((university) => universityIds.add(university.id));
   }
   const resultCount = document.getElementById("results-school-count");
@@ -1181,6 +1186,7 @@ function updateStatusTabs(focusStatus = "") {
 }
 
 function recordsForCurrentView(baseRecords) {
+  if (state.status === "all") return baseRecords.filter(isCurrentRecord);
   if (hasActiveSearch() || state.favoritesOnly) return baseRecords;
   return baseRecords.filter(
     (record) => isCurrentRecord(record) && getStatus(record) === state.status,
@@ -1527,9 +1533,9 @@ function provenanceHeading(kind, status) {
   };
 }
 
-function createGroup(status, records, kind) {
+function createGroup(status, records, kind, keyPrefix = "") {
   const heading = provenanceHeading(kind, status);
-  const groupKey = `${status}:${kind}`;
+  const groupKey = `${keyPrefix}${status}:${kind}`;
   const { section, tbody } = createTableSection(
     status,
     heading,
@@ -1762,7 +1768,7 @@ function renderCoverage() {
   // public page no longer exposes the internal build-progress panel.
 }
 
-function createUniversityGroup(universities, status = "unknown") {
+function createUniversityGroup(universities, status = "unknown", records = []) {
   const heading = statusLabels()[status];
   const { section, tbody } = createTableSection(
     status,
@@ -1797,6 +1803,7 @@ function createUniversityGroup(universities, status = "unknown") {
     const directLabel = t("applicationEntry");
     const row = document.createElement("tr");
     row.className = "university-card-row";
+    row.dataset.universityId = university.id;
     const schoolText = schoolLabels(university, state.language);
     const school = makeTextStack(schoolText.primary, schoolText.secondary);
     const admissions = university.rankingOnly
@@ -1858,6 +1865,50 @@ function createUniversityGroup(universities, status = "unknown") {
       makeCell(t("schoolReviews"), makeReviewButton(university)),
     );
     tbody.appendChild(row);
+    if (status === "all") {
+      const schoolRecords = records.filter(
+        (record) => record.universityId === university.id,
+      );
+      const summary = document.createElement("details");
+      const detailKey = `all:${university.id}`;
+      summary.open = state.expandedUniversityGroups.has(detailKey);
+      const label = document.createElement("summary");
+      label.textContent =
+        ["open", "upcoming", "future", "closed"]
+          .map((windowStatus) => {
+            const count = schoolRecords.filter(
+              (record) => getStatus(record) === windowStatus,
+            ).length;
+            return count
+              ? `${statusLabels()[windowStatus].title} · ${count}`
+              : "";
+          })
+          .filter(Boolean)
+          .join(" / ") || t("noVerifiedWindows");
+      summary.appendChild(label);
+      summary.addEventListener("toggle", () => {
+        if (summary.open) state.expandedUniversityGroups.add(detailKey);
+        else state.expandedUniversityGroups.delete(detailKey);
+        if (!summary.open || summary.childElementCount > 1) return;
+        ["open", "upcoming", "future", "closed"].forEach((windowStatus) => {
+          const windows = schoolRecords.filter(
+            (record) => getStatus(record) === windowStatus,
+          );
+          groupRecordsByProvenance(windows).forEach(({ kind, records }) => {
+            summary.appendChild(
+              createGroup(windowStatus, records, kind, `${detailKey}:`),
+            );
+          });
+        });
+      });
+      const detailRow = document.createElement("tr");
+      detailRow.className = "all-school-windows";
+      const cell = document.createElement("td");
+      cell.colSpan = 9;
+      cell.appendChild(summary);
+      detailRow.appendChild(cell);
+      tbody.appendChild(detailRow);
+    }
   });
   section.appendChild(
     createPagination(status, { start, end, total, page, totalPages }),
@@ -1901,7 +1952,24 @@ function renderCounts(records, universities) {
 
 function render() {
   const baseRecords = filteredRecords();
-  const baseUniversities = filteredUniversities();
+  let baseUniversities = filteredUniversities();
+  if (state.status === "all") {
+    const matchingIds = new Set(
+      baseRecords.filter(isCurrentRecord).map((record) => record.universityId),
+    );
+    const directoryIds = new Set(
+      baseUniversities.map((university) => university.id),
+    );
+    const windowFilters =
+      state.intake !== "all" ||
+      state.applicantCategory !== "all" ||
+      state.deadlineRange !== "all";
+    baseUniversities = selectedDirectoryUniversities().filter(
+      (university) =>
+        matchingIds.has(university.id) ||
+        (!windowFilters && directoryIds.has(university.id)),
+    );
+  }
   renderCounts(baseRecords, baseUniversities);
   const records = recordsForCurrentView(baseRecords);
   const exceptionUniversities = baseUniversities.filter(isExceptionUniversity);
@@ -1909,8 +1977,14 @@ function render() {
   const emptyState = document.getElementById("empty-state");
   document.body.dataset.viewStatus = state.status;
   container.replaceChildren();
+  if (state.status === "all" && baseUniversities.length) {
+    container.appendChild(
+      createUniversityGroup([...baseUniversities], "all", records),
+    );
+  }
 
   ["open", "upcoming", "future", "closed"].forEach((status) => {
+    if (state.status === "all") return;
     if (!hasActiveSearch() && !state.favoritesOnly && state.status !== status)
       return;
     const groupRecords = records
@@ -1926,6 +2000,7 @@ function render() {
     );
   }
   if (
+    state.status !== "all" &&
     (state.status === "unknown" || hasActiveSearch()) &&
     baseUniversities.length
   ) {
@@ -1936,7 +2011,9 @@ function render() {
     !activeNonStatusFilter() ||
     records.length > 0 ||
     (state.status === "exception" && exceptionUniversities.length > 0) ||
-    ((state.status === "unknown" || hasActiveSearch()) &&
+    ((state.status === "all" ||
+      state.status === "unknown" ||
+      hasActiveSearch()) &&
       baseUniversities.length > 0);
   document.querySelectorAll("[data-mobile-sort]").forEach((button) => {
     button.classList.toggle("active", button.dataset.mobileSort === state.sort);
@@ -2325,6 +2402,7 @@ function updateMobileFilterToggle() {
 
 async function showSavedApplications() {
   await ensureClosedRecords();
+  if (state.status === "all") state.status = "open";
   state.favoritesOnly = true;
   state.dateType = "all";
   document.getElementById("date-type-filter").value = state.dateType;
@@ -2338,7 +2416,7 @@ async function showSavedApplications() {
 }
 
 async function activateStatus(status, focusStatus = "") {
-  if (status === "closed") await ensureClosedRecords();
+  if (status === "closed" || status === "all") await ensureClosedRecords();
   state.favoritesOnly = false;
   state.status = status;
   resetPages();
@@ -2622,7 +2700,12 @@ async function init() {
     loadUrlState();
     if (selectedRankingDefinition().available === false) state.ranking = "qs";
     updateRankingAvailability();
-    if (state.status === "closed" || hasActiveSearch() || state.favoritesOnly) {
+    if (
+      state.status === "all" ||
+      state.status === "closed" ||
+      hasActiveSearch() ||
+      state.favoritesOnly
+    ) {
       await ensureClosedRecords();
     }
 
@@ -2636,6 +2719,7 @@ async function init() {
     }
     populateIntakeSelect();
     const allowedStatuses = new Set([
+      "all",
       "open",
       "upcoming",
       "future",

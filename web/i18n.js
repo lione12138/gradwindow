@@ -298,6 +298,10 @@ export const I18N = {
       "Application dates may vary by programme and applicant category. Always confirm on the official university website.",
     openTitle: "Open now",
     openDescription: "Applications can currently be submitted",
+    statusAll: "All universities",
+    allDescription:
+      "Universities in ranking order, across all application statuses. Expand a university to view its windows.",
+    noVerifiedWindows: "No verified application windows",
     upcomingTitle: "Opening soon",
     upcomingDescription: "Opening within the next 30 days",
     futureTitle: "Future openings",
@@ -822,6 +826,10 @@ export const I18N = {
       "QS 是默认监控数据集。THE 和软科会加入各自前 200 中、但不在 QS 前 200 的学校，因此不同榜单显示的学校范围并不相同。",
     openTitle: "正在开放",
     openDescription: "当前可以提交申请",
+    statusAll: "全部学校",
+    allDescription:
+      "按排名查看所有申请状态的学校，展开学校可查看具体申请窗口。",
+    noVerifiedWindows: "暂无已核实的申请窗口",
     upcomingTitle: "即将开放",
     upcomingDescription: "将在未来 30 天内开放",
     futureTitle: "未来开放",
