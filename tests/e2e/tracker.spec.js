@@ -83,26 +83,37 @@ test("All universities lists schools in rank order with mixed window statuses", 
   await all.click();
   await expect(all).toHaveAttribute("aria-selected", "true");
   await expect(page).toHaveURL(/status=all/);
-  const rows = page.locator(".university-card-row");
+  const rows = page.locator(".window-card-row[data-school-id]");
   await expect(rows).toHaveCount(20);
   const ranks = await rows.locator(".rank-cell").allTextContents();
   const positions = ranks.map((rank) => Number(rank.replace(/\D/g, "")));
   expect(positions).toEqual([...positions].sort((a, b) => a - b));
-  await expect(page.locator(".all-school-windows")).toHaveCount(20);
+  await expect(page.locator(".university-table")).toHaveCount(0);
+  await expect(page.locator(".school-without-windows").first()).toContainText(
+    "No verified application windows",
+  );
+  await expect(
+    page.locator(".school-without-windows").first().locator("td").nth(4),
+  ).toHaveText("—");
+  const allHeaders = await page
+    .locator(".application-table th")
+    .allTextContents();
   await expect(page.locator("#application-groups")).toContainText("Open now");
   await expect(page.locator("#application-groups")).toContainText(
     /Opening soon|Future/,
   );
-  const schoolDetails = page
-    .locator(".all-school-windows details")
-    .filter({
-      has: page.locator("summary", { hasText: /Open now|Opening soon|Future/ }),
-    })
-    .first();
-  await schoolDetails.locator("summary").click();
+  const schoolGroup = page.locator(".university-group-parent").first();
+  await expect(schoolGroup).toHaveClass(/university-group-parent--collapsed/);
+  await schoolGroup.locator(".university-group-toggle").click();
+  await expect(schoolGroup).toHaveAttribute("data-group-state", "expanded");
+  await expect(page.locator(".university-group-child").first()).toBeVisible();
   await expect(
-    schoolDetails.locator(".application-group").first(),
+    page.locator(".university-group-child .calendar-menu-trigger").first(),
   ).toBeVisible();
+  await page.locator("#collapse-visible-groups").click();
+  await expect(page.locator(".university-group-child")).toHaveCount(0);
+  await page.locator("#application-groups").scrollIntoViewIfNeeded();
+  await page.screenshot({ path: "test-results/all-schools-desktop.png" });
   await expect(page.locator("#results-school-count")).toHaveAttribute(
     "data-count",
     await page.locator("#count-all").innerText(),
@@ -117,10 +128,8 @@ test("All universities lists schools in rank order with mixed window statuses", 
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true);
-  await page.screenshot({
-    path: "test-results/all-schools-mobile.png",
-    fullPage: true,
-  });
+  await page.locator("#application-groups").scrollIntoViewIfNeeded();
+  await page.screenshot({ path: "test-results/all-schools-mobile.png" });
   await page.locator("#ranking-filter").selectOption("the");
   await expect(page).toHaveURL(/ranking=the/);
   await expect(rows).toHaveCount(20);
@@ -129,9 +138,17 @@ test("All universities lists schools in rank order with mixed window statuses", 
     "aria-selected",
     "true",
   );
-  await expect(page.locator(".all-school-windows")).toHaveCount(0);
+  await expect(rows).toHaveCount(0);
   await page.locator('.status-tab[data-status="open"]').click();
-  await expect(page.locator(".all-school-windows")).toHaveCount(0);
+  await expect(rows).toHaveCount(0);
+  const openHeaders = await page
+    .locator(".application-table")
+    .first()
+    .locator("th")
+    .allTextContents();
+  expect(
+    allHeaders.map((label) => label.replace(/QS|THE/g, "Ranking")),
+  ).toEqual(openHeaders.map((label) => label.replace(/QS|THE/g, "Ranking")));
 });
 
 test("Open now restores the primary status view", async ({ page }) => {
