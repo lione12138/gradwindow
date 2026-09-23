@@ -6816,3 +6816,32 @@ footer p {
     margin-top: 0;
   }
 }
+
+.all-school-windows > td {
+  width: auto;
+  padding: 12px 18px 20px;
+}
+
+.all-school-windows summary {
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.all-school-windows .application-group {
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  .university-table tr.all-school-windows,
+  .university-table tr.all-school-windows > td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .all-school-windows > td::before {
+    display: none;
+  }
+}

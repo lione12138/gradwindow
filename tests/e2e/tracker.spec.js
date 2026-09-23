@@ -72,6 +72,68 @@ test("hero search finds NUS across application statuses", async ({ page }) => {
   );
 });
 
+test("All universities lists schools in rank order with mixed window statuses", async ({
+  page,
+}) => {
+  await openTracker(page);
+  const all = page.locator('.status-tab[data-status="all"]');
+  await expect(
+    page.locator(".primary-status-tabs .status-tab").first(),
+  ).toHaveAttribute("data-status", "all");
+  await all.click();
+  await expect(all).toHaveAttribute("aria-selected", "true");
+  await expect(page).toHaveURL(/status=all/);
+  const rows = page.locator(".university-card-row");
+  await expect(rows).toHaveCount(20);
+  const ranks = await rows.locator(".rank-cell").allTextContents();
+  const positions = ranks.map((rank) => Number(rank.replace(/\D/g, "")));
+  expect(positions).toEqual([...positions].sort((a, b) => a - b));
+  await expect(page.locator(".all-school-windows")).toHaveCount(20);
+  await expect(page.locator("#application-groups")).toContainText("Open now");
+  await expect(page.locator("#application-groups")).toContainText(
+    /Opening soon|Future/,
+  );
+  const schoolDetails = page
+    .locator(".all-school-windows details")
+    .filter({
+      has: page.locator("summary", { hasText: /Open now|Opening soon|Future/ }),
+    })
+    .first();
+  await schoolDetails.locator("summary").click();
+  await expect(
+    schoolDetails.locator(".application-group").first(),
+  ).toBeVisible();
+  await expect(page.locator("#results-school-count")).toHaveAttribute(
+    "data-count",
+    await page.locator("#count-all").innerText(),
+  );
+  await page.reload();
+  await expect(all).toHaveAttribute("aria-selected", "true");
+  await expect(rows).toHaveCount(20);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(all).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "test-results/all-schools-mobile.png",
+    fullPage: true,
+  });
+  await page.locator("#ranking-filter").selectOption("the");
+  await expect(page).toHaveURL(/ranking=the/);
+  await expect(rows).toHaveCount(20);
+  await page.locator("#saved-status-tab").click();
+  await expect(page.locator("#saved-status-tab")).toHaveAttribute(
+    "aria-selected",
+    "true",
+  );
+  await expect(page.locator(".all-school-windows")).toHaveCount(0);
+  await page.locator('.status-tab[data-status="open"]').click();
+  await expect(page.locator(".all-school-windows")).toHaveCount(0);
+});
+
 test("Open now restores the primary status view", async ({ page }) => {
   await openTracker(page);
   const upcoming = page.locator('.status-tab[data-status="upcoming"]');
