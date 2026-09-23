@@ -16,9 +16,9 @@
 - 搜索、状态筛选、收藏、提醒和日历导出组成完整申请流程。
 - QS 是默认视图，THE 与软科前 200 视图已经上线；U.S. News 暂不标为已上线。
 
-**当前覆盖：**302 所标准化大学 · 29,569 个项目 · 5,942 条官网精确窗口
+**当前覆盖：**302 所标准化大学 · 29,572 个项目 · 5,943 条官网精确窗口
 
-状态日期：**2026-09-22**
+状态日期：**2026-09-23**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -42,7 +42,7 @@
 | =2 | Imperial College London / 帝国理工学院 | 177 个即将开放窗口 | 2026-09-29 | 官网核验 + 预测参考 | [招生官网](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [查看全部项目](https://gradwindow.com/?q=Imperial%20College%20London) |
 | =8 | UCL / 伦敦大学学院 | 20 个即将开放窗口 | 2026-10-20 | 预测参考 | [招生官网](https://www.ucl.ac.uk/prospective-students/graduate/applying-graduate-study) · [查看全部项目](https://gradwindow.com/?q=UCL) |
 | 10 | National University of Singapore (NUS) / 新加坡国立大学 | 21 个即将开放窗口 | 2026-10-01 | 官网核验 + 预测参考 | [招生官网](https://nusgs.nus.edu.sg/admissions/) · [查看全部项目](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
-| 13 | Peking University / 北京大学 | 162 个即将开放窗口 | 2026-10-20 | 预测参考 | [招生官网](https://admission.pku.edu.cn/) · [查看全部项目](https://gradwindow.com/?q=Peking%20University) |
+| 13 | Peking University / 北京大学 | 168 个即将开放窗口 | 2026-10-20 | 预测参考 | [招生官网](https://admission.pku.edu.cn/) · [查看全部项目](https://gradwindow.com/?q=Peking%20University) |
 
 [在 GradWindow 查看全部即将开放的窗口 →](https://gradwindow.com/?status=upcoming)
 

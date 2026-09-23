@@ -1,12 +1,12 @@
 # Published data audit
 
-Generated for 2026-09-22.
+Generated for 2026-09-23.
 
-- Active issues: 704
-- Universities needing review: 12
-- Records quarantined from SEO aggregates: 471
+- Active issues: 703
+- Universities needing review: 11
+- Records quarantined from SEO aggregates: 470
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 17
+- Published records missing from a healthy current snapshot: 16
 - Published records changed from a healthy current snapshot: 426
 - Published records with source URL-only changes: 42
 
@@ -715,4 +715,3 @@ Generated for 2026-09-22.
 - `penn-scientific-computing-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `penn-software-systems-cybersecurity-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `penn-systems-engineering-mse-2026-regular-admissions` — **suspicious-intake-window** (university-of-pennsylvania, Fall 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
-- `uts-information-technology-autumn-2027-domestic` — **published-record-missing-from-snapshot** (university-of-technology-sydney, Autumn 2027, closes 2027-01-31) — retire-or-correct-review
