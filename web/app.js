@@ -1411,24 +1411,55 @@ function createUniversityGroupRow(universityGroup, status) {
   programmeSummary.appendChild(
     makeElement("span", {
       className: "application-trust-summary school-group-trust",
-      text: `${records.length} ${provenanceLabel(recordProvenance(records[0]))}`,
+      text: groupRecordsByProvenance(records)
+        .map(
+          ({ kind, records }) => `${records.length} ${provenanceLabel(kind)}`,
+        )
+        .join(" · "),
     }),
   );
+  if (status === "all") {
+    programmeSummary.appendChild(
+      makeElement("span", {
+        className: "application-trust-summary",
+        text: ["open", "upcoming", "future", "closed"]
+          .map((windowStatus) => {
+            const count = records.filter(
+              (record) => getStatus(record) === windowStatus,
+            ).length;
+            return count
+              ? `${statusLabels()[windowStatus].title} · ${count}`
+              : "";
+          })
+          .filter(Boolean)
+          .join(" / "),
+      }),
+    );
+  }
   row.addEventListener("click", (event) => {
     if (event.target.closest("a, button")) return;
     toggleGroup();
   });
 
-  const earliestOpen = records
+  const activeRecords =
+    status === "all"
+      ? records.filter((record) => getStatus(record) !== "closed")
+      : records;
+  const dateRecords = activeRecords.length ? activeRecords : records;
+  const earliestOpen = dateRecords
     .map((record) => record.opensAt)
     .filter(Boolean)
     .sort()[0];
-  const nearestDeadline = [...records].sort((a, b) =>
-    a.closesAt.localeCompare(b.closesAt),
+  const nearestDeadline = [...dateRecords].sort((a, b) =>
+    status === "all" && !activeRecords.length
+      ? b.closesAt.localeCompare(a.closesAt)
+      : a.closesAt.localeCompare(b.closesAt),
   )[0];
   const source = makeElement("span", {
     className: `source-badge ${isPredictedRecord(records[0]) ? "predicted" : isRecurringPolicyRecord(records[0]) ? "recurring" : "discovered"} school-group-source`,
-    text: provenanceLabel(recordProvenance(records[0])),
+    text: groupRecordsByProvenance(records)
+      .map(({ kind }) => provenanceLabel(kind))
+      .join(" · "),
   });
 
   row.append(
@@ -1452,7 +1483,7 @@ function createUniversityGroupRow(universityGroup, status) {
       t("deadline"),
       makeResponsiveDeadline(
         nearestDeadline,
-        `${t("nextDeadlineLabel")} · ${deadlineNote(nearestDeadline, status)}`,
+        `${t("nextDeadlineLabel")} · ${deadlineNote(nearestDeadline, status === "all" ? getStatus(nearestDeadline) : status)}`,
       ),
     ),
     makeCell(t("calendar"), makeElement("span", { text: "—" })),
@@ -1475,12 +1506,19 @@ function appendWindowGroupRows(
   universityGroup = null,
 ) {
   const [representative, ...additionalRecords] = windowGroup.records;
-  const representativeRow = createRow(representative, status, windowGroup);
+  const representativeRow = createRow(
+    representative,
+    status === "all" ? getStatus(representative) : status,
+    windowGroup,
+  );
   markUniversityGroupChild(representativeRow, universityGroup);
   tbody.appendChild(representativeRow);
   if (!state.expandedWindowGroups.has(windowGroup.key)) return;
   additionalRecords.forEach((record) => {
-    const row = createRow(record, status);
+    const row = createRow(
+      record,
+      status === "all" ? getStatus(record) : status,
+    );
     row.classList.add("window-group-child");
     markUniversityGroupChild(row, universityGroup);
     tbody.appendChild(row);
@@ -1533,24 +1571,28 @@ function provenanceHeading(kind, status) {
   };
 }
 
-function createGroup(status, records, kind, keyPrefix = "") {
+function applicationColumns() {
+  return [
+    { label: rankColumnLabel(), sort: "rank" },
+    t("universityEntry"),
+    t("programmeIntake"),
+    t("applicantGroup"),
+    { label: t("opens"), sort: "opens" },
+    { label: t("deadline"), sort: "deadline" },
+    t("addCalendar"),
+    t("favorite"),
+    t("dataSource"),
+  ];
+}
+
+function createGroup(status, records, kind) {
   const heading = provenanceHeading(kind, status);
-  const groupKey = `${keyPrefix}${status}:${kind}`;
+  const groupKey = `${status}:${kind}`;
   const { section, tbody } = createTableSection(
     status,
     heading,
     `${records.length} ${t("windows")}`,
-    [
-      { label: rankColumnLabel(), sort: "rank" },
-      t("universityEntry"),
-      t("programmeIntake"),
-      t("applicantGroup"),
-      { label: t("opens"), sort: "opens" },
-      { label: t("deadline"), sort: "deadline" },
-      t("addCalendar"),
-      t("favorite"),
-      t("dataSource"),
-    ],
+    applicationColumns(),
   );
   section.dataset.provenance = kind;
   const universityGroups = groupWindowRecordsForDisplay(records, {
@@ -1561,19 +1603,7 @@ function createGroup(status, records, kind, keyPrefix = "") {
     universityGroups,
   );
   items.forEach((universityGroup) => {
-    if (!universityGroup.collapsible) {
-      appendWindowGroupRows(tbody, universityGroup.windowGroups[0], status);
-      return;
-    }
-    tbody.appendChild(createUniversityGroupRow(universityGroup, status));
-    if (!state.expandedUniversityGroups.has(universityGroup.key)) return;
-    const childStart = tbody.children.length;
-    universityGroup.windowGroups.forEach((windowGroup) => {
-      appendWindowGroupRows(tbody, windowGroup, status, universityGroup);
-    });
-    const childRows = [...tbody.children].slice(childStart);
-    childRows.at(0)?.classList.add("university-group-child--first");
-    childRows.at(-1)?.classList.add("university-group-child--last");
+    appendUniversityRows(tbody, universityGroup, status);
   });
   section.appendChild(
     createPagination(groupKey, { start, end, total, page, totalPages }),
@@ -1768,7 +1798,126 @@ function renderCoverage() {
   // public page no longer exposes the internal build-progress panel.
 }
 
-function createUniversityGroup(universities, status = "unknown", records = []) {
+function appendUniversityRows(tbody, universityGroup, status) {
+  if (!universityGroup.collapsible) {
+    appendWindowGroupRows(tbody, universityGroup.windowGroups[0], status);
+    return;
+  }
+  tbody.appendChild(createUniversityGroupRow(universityGroup, status));
+  if (!state.expandedUniversityGroups.has(universityGroup.key)) return;
+  const childStart = tbody.children.length;
+  universityGroup.windowGroups.forEach((windowGroup) => {
+    appendWindowGroupRows(tbody, windowGroup, status, universityGroup);
+  });
+  const childRows = [...tbody.children].slice(childStart);
+  childRows.at(0)?.classList.add("university-group-child--first");
+  childRows.at(-1)?.classList.add("university-group-child--last");
+}
+
+function createSchoolWithoutWindowsRow(university) {
+  const row = document.createElement("tr");
+  row.className = "window-card-row school-without-windows";
+  const school = document.createDocumentFragment();
+  const labels = schoolLabels(university, state.language);
+  const url =
+    university.admissionsUrl ||
+    university.homepageUrl ||
+    university.rankingSourceUrl;
+  school.appendChild(
+    url
+      ? makeLink(labels.primary, url, "school-link")
+      : makeElement("span", { className: "school-link", text: labels.primary }),
+  );
+  school.appendChild(
+    makeElement("span", {
+      className: "school-meta",
+      text: [labels.secondary, countryLabel(university.country, state.language)]
+        .filter(Boolean)
+        .join(" · "),
+    }),
+  );
+  const source = document.createDocumentFragment();
+  if (url)
+    source.appendChild(
+      makeLink(
+        university.rankingOnly ? t("rankingSource") : t("officialWebsite"),
+        url,
+        "source-link",
+      ),
+    );
+  const reviewActions = makeElement("div", {
+    className: "mobile-card-actions",
+  });
+  reviewActions.appendChild(makeReviewButton(university));
+  source.appendChild(reviewActions);
+  row.append(
+    makeCell(
+      t("rank"),
+      makeElement("span", {
+        className: "rank-cell",
+        text: formatRank(university.rankDisplay),
+      }),
+    ),
+    makeCell(t("university"), school),
+    makeCell(
+      t("programme"),
+      makeTextStack(
+        t("noVerifiedWindows"),
+        policyDescription(university).join(" · "),
+        "date-primary",
+      ),
+    ),
+    makeCell(t("applicantGroup"), makeElement("span", { text: "—" })),
+    makeCell(
+      t("opens"),
+      makeElement("span", { className: "date-primary", text: "—" }),
+    ),
+    makeCell(
+      t("deadline"),
+      makeElement("span", { className: "date-primary", text: "—" }),
+    ),
+    makeCell(t("calendar"), makeElement("span", { text: "—" })),
+    makeCell(
+      t("favorite"),
+      makeFavoriteButton(favoriteKey("university", university.id)),
+    ),
+    makeCell(t("source"), source),
+  );
+  return row;
+}
+
+function createAllSchoolsGroup(universities, records) {
+  const { section, tbody } = createTableSection(
+    "all",
+    statusLabels().all,
+    `${universities.length} ${t("schools")}`,
+    applicationColumns(),
+  );
+  const groups = new Map(
+    groupWindowRecordsForDisplay(records, { keyPrefix: "all" }).map((group) => [
+      group.universityId,
+      group,
+    ]),
+  );
+  const pagination = paginate(
+    "all",
+    [...universities].sort(
+      (a, b) =>
+        a.rankPosition - b.rankPosition || a.school.localeCompare(b.school),
+    ),
+  );
+  pagination.items.forEach((university) => {
+    const group = groups.get(university.id);
+    const start = tbody.children.length;
+    if (group) appendUniversityRows(tbody, group, "all");
+    else tbody.appendChild(createSchoolWithoutWindowsRow(university));
+    tbody.children[start].dataset.schoolId = university.id;
+  });
+  section.appendChild(createPagination("all", pagination));
+  return section;
+}
+
+function createUniversityGroup(universities, status = "unknown") {
   const heading = statusLabels()[status];
   const { section, tbody } = createTableSection(
     status,
@@ -1865,50 +2014,6 @@ function createUniversityGroup(universities, status = "unknown", records = []) {
       makeCell(t("schoolReviews"), makeReviewButton(university)),
     );
     tbody.appendChild(row);
-    if (status === "all") {
-      const schoolRecords = records.filter(
-        (record) => record.universityId === university.id,
-      );
-      const summary = document.createElement("details");
-      const detailKey = `all:${university.id}`;
-      summary.open = state.expandedUniversityGroups.has(detailKey);
-      const label = document.createElement("summary");
-      label.textContent =
-        ["open", "upcoming", "future", "closed"]
-          .map((windowStatus) => {
-            const count = schoolRecords.filter(
-              (record) => getStatus(record) === windowStatus,
-            ).length;
-            return count
-              ? `${statusLabels()[windowStatus].title} · ${count}`
-              : "";
-          })
-          .filter(Boolean)
-          .join(" / ") || t("noVerifiedWindows");
-      summary.appendChild(label);
-      summary.addEventListener("toggle", () => {
-        if (summary.open) state.expandedUniversityGroups.add(detailKey);
-        else state.expandedUniversityGroups.delete(detailKey);
-        if (!summary.open || summary.childElementCount > 1) return;
-        ["open", "upcoming", "future", "closed"].forEach((windowStatus) => {
-          const windows = schoolRecords.filter(
-            (record) => getStatus(record) === windowStatus,
-          );
-          groupRecordsByProvenance(windows).forEach(({ kind, records }) => {
-            summary.appendChild(
-              createGroup(windowStatus, records, kind, `${detailKey}:`),
-            );
-          });
-        });
-      });
-      const detailRow = document.createElement("tr");
-      detailRow.className = "all-school-windows";
-      const cell = document.createElement("td");
-      cell.colSpan = 9;
-      cell.appendChild(summary);
-      detailRow.appendChild(cell);
-      tbody.appendChild(detailRow);
-    }
   });
   section.appendChild(
     createPagination(status, { start, end, total, page, totalPages }),
@@ -1978,9 +2083,7 @@ function render() {
   document.body.dataset.viewStatus = state.status;
   container.replaceChildren();
   if (state.status === "all" && baseUniversities.length) {
-    container.appendChild(
-      createUniversityGroup([...baseUniversities], "all", records),
-    );
+    container.appendChild(createAllSchoolsGroup(baseUniversities, records));
   }
 
   ["open", "upcoming", "future", "closed"].forEach((status) => {
