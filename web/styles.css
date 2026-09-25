@@ -2623,9 +2623,9 @@ body.window-detail-open {
 .application-actions {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
   width: 100%;
-  max-width: 140px;
+  max-width: 104px;
 }
 
 .application-table:not(.university-table) th:nth-child(7) {
@@ -2642,7 +2642,10 @@ body.window-detail-open {
 
 .application-table .application-actions .favorite-button,
 .application-table .application-actions .calendar-menu-trigger {
-  min-height: 36px;
+  height: 30px;
+  min-height: 30px;
+  padding: 0 6px;
+  font-size: 11px;
 }
 
 @media (max-width: 760px) {
