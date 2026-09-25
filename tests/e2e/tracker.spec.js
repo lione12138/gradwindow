@@ -163,6 +163,10 @@ test("favorite and calendar share one column with equal widths", async ({
     await page.setViewportSize({ width, height: 900 });
     const favorite = actions.locator(".favorite-button");
     const calendar = actions.locator(".calendar-menu-trigger");
+    const deadline = actions.locator("xpath=ancestor::tr").locator("td").nth(5);
+    await expect(deadline.locator(".date-primary")).toHaveCount(1);
+    await expect(deadline.locator(".date-primary")).toBeVisible();
+    await expect(deadline).not.toContainText(" – ");
     await expect(favorite).toBeVisible();
     const favoriteBox = await favorite.boundingBox();
     const calendarBox = await calendar.boundingBox();

@@ -19,7 +19,6 @@ import { acronym, makeElement, makeLink, parseDate } from "./dom.js";
 import {
   deadlineDaysRemaining,
   formatDeadlineDate,
-  formatDeadlineRange,
 } from "./deadline-semantics.js";
 import {
   canonicalIntake,
@@ -300,26 +299,7 @@ function makeResponsiveDeadline(
   secondary,
   primaryClass = "date-primary",
 ) {
-  const deadline = document.createDocumentFragment();
-  const desktop = makeElement("span", {
-    className: "desktop-deadline-stack",
-  });
-  desktop.appendChild(
-    makeTextStack(formatRecordDeadline(record), secondary, primaryClass),
-  );
-  deadline.append(
-    desktop,
-    makeElement("span", {
-      className: `mobile-date-range ${primaryClass}`,
-      text: formatDeadlineRange(
-        record,
-        formatDate(record.opensAt),
-        formatDate(record.closesAt),
-        state.language,
-      ),
-    }),
-  );
-  return deadline;
+  return makeTextStack(formatRecordDeadline(record), secondary, primaryClass);
 }
 
 function recordIntake(record) {

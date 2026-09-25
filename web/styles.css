@@ -2566,13 +2566,8 @@ body.window-detail-open {
   overflow-wrap: anywhere;
 }
 
-.school-country-inline,
-.mobile-date-range {
+.school-country-inline {
   display: none;
-}
-
-.desktop-deadline-stack {
-  display: contents;
 }
 
 .program-cell {
@@ -4705,13 +4700,8 @@ footer p {
     font-weight: 800;
   }
 
-  .application-table:not(.university-table) .school-meta,
-  .application-table:not(.university-table) .desktop-deadline-stack {
+  .application-table:not(.university-table) .school-meta {
     display: none;
-  }
-
-  .application-table:not(.university-table) .mobile-date-range {
-    display: block;
   }
 
   .application-table:not(.university-table) .school-link::after {
