@@ -2,32 +2,23 @@
   "universities": {
     "university-of-cambridge": {
       "sourceUrl": "https://www.postgraduate.study.cam.ac.uk/courses/directory",
-      "checkedAt": "2026-09-24T09:37:29.606670+00:00",
+      "checkedAt": "2026-09-25T09:51:16.811290+00:00",
       "itemCount": 160,
       "applicationOpensAt": null,
-      "catalogHash": "502f6c36a4d34e51799ab3bcd0dad694020172b1f3011071f72bec6b2689eae0",
+      "catalogHash": "ac46e112a06a4a95765ad7835d944021bf2939309c081f3af1f751f1a9b35413",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "partial",
-      "observedWindowCount": 2,
-      "exactWindowCount": 2,
+      "windowStatus": "monitoring",
+      "observedWindowCount": 0,
+      "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {
-        "2027:other:00": {
-          "intakes": [
-            "Easter 2027"
-          ],
-          "observedWindowCount": 2,
-          "exactWindowCount": 2,
-          "recurringPolicyWindowCount": 0
-        }
-      },
+      "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 158,
-      "programmesNeedingReview": 158,
-      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 158 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-09-24T09:37:29.606670+00:00",
-      "windowFingerprint": "5c16cf26a6af13d740236d803ca8bfb62b0f9ca1590bb9f2312a3a3b61bbeb89",
+      "programmesWithoutDeadlines": 160,
+      "programmesNeedingReview": 160,
+      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
+      "lastSuccessfulAt": "2026-09-25T09:51:16.811290+00:00",
+      "windowFingerprint": "1466f447fc4e0173bbf4707b0f0343907c5d52753d529d9c63ca68e0d952004e",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -116,20 +107,20 @@
           "degreeType": "MSt",
           "faculty": "",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "a03c51d96c94ab5f878aaf184f583cf7950a8fdf55f514ede3f42d0871faba3f",
-          "windowCount": 1,
-          "latestClosesAt": "2026-12-15"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "cambridge-applied-criminology-penology-and-management-mst": {
           "name": "MSt in Applied Criminology, Penology and Management",
           "degreeType": "MSt",
           "faculty": "",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "628ce508e8445581fb5043e7d7593d89d683cf65075d20bb709b6181ae9537fc",
-          "windowCount": 1,
-          "latestClosesAt": "2026-12-15"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "cambridge-archaeological-research-mphil": {
           "name": "MPhil in Archaeological Research",
@@ -1632,24 +1623,7 @@
           "latestClosesAt": null
         }
       },
-      "windows": {
-        "cambridge-applied-criminology-and-police-management-mst::Easter 2027::Main deadline::all": {
-          "programmeId": "cambridge-applied-criminology-and-police-management-mst",
-          "intake": "Easter 2027",
-          "opensAt": "2026-09-09",
-          "closesAt": "2026-12-15",
-          "sourceUrl": "https://www.postgraduate.study.cam.ac.uk/courses/directory/lwcrstacp/apply",
-          "opensAtBasis": null
-        },
-        "cambridge-applied-criminology-penology-and-management-mst::Easter 2027::Main deadline::all": {
-          "programmeId": "cambridge-applied-criminology-penology-and-management-mst",
-          "intake": "Easter 2027",
-          "opensAt": "2026-09-09",
-          "closesAt": "2026-12-15",
-          "sourceUrl": "https://www.postgraduate.study.cam.ac.uk/courses/directory/lwcrstcpm/apply",
-          "opensAtBasis": null
-        }
-      },
+      "windows": {},
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {

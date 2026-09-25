@@ -2,7 +2,7 @@
   "universities": {
     "university-of-california-berkeley-ucb": {
       "sourceUrl": "https://grad.berkeley.edu/admissions/our-programs/",
-      "checkedAt": "2026-09-24T09:30:26.246169+00:00",
+      "checkedAt": "2026-09-25T09:48:22.657269+00:00",
       "itemCount": 137,
       "applicationOpensAt": null,
       "catalogHash": "be45c92bbfe5c1f9760a9964a506ad5158c48ca354a2cb61f437d0bb3be6bf73",
@@ -42,7 +42,7 @@
       "programmesWithoutDeadlines": 18,
       "programmesNeedingReview": 137,
       "limitationReason": "119 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-09-24T09:30:26.246169+00:00",
+      "lastSuccessfulAt": "2026-09-25T09:48:22.657269+00:00",
       "windowFingerprint": "503426176f7e0ba57a6a86da09646142202e75069e3d50d59e70762f12944915",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -2376,15 +2376,17 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 1,
-          "directSuccesses": 1,
-          "directFailures": 0,
+          "directSuccesses": 0,
+          "directFailures": 1,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "blocked": 1
+          }
         }
       }
     }
