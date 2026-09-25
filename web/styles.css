@@ -2460,17 +2460,12 @@ body.window-detail-open {
 
 .application-table:not(.university-table) th:nth-child(7),
 .application-table:not(.university-table) td:nth-child(7) {
-  width: 11%;
+  width: 13%;
 }
 
 .application-table:not(.university-table) th:nth-child(8),
 .application-table:not(.university-table) td:nth-child(8) {
-  width: 7%;
-}
-
-.application-table:not(.university-table) th:nth-child(9),
-.application-table:not(.university-table) td:nth-child(9) {
-  width: 9.5%;
+  width: 14.5%;
 }
 
 .university-table th:nth-child(1),
@@ -2625,6 +2620,37 @@ body.window-detail-open {
   display: inline-block;
 }
 
+.application-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 140px;
+}
+
+.application-table:not(.university-table) th:nth-child(7) {
+  white-space: normal;
+}
+
+.application-table .application-actions-cell .application-actions .favorite-button,
+.application-table .application-actions-cell .application-actions .calendar-menu,
+.application-table .application-actions-cell .application-actions .calendar-menu-trigger {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.application-table .application-actions .favorite-button,
+.application-table .application-actions .calendar-menu-trigger {
+  min-height: 36px;
+}
+
+@media (max-width: 760px) {
+  .application-actions {
+    width: 44px;
+  }
+}
+
 .calendar-menu-trigger {
   display: inline-flex;
   min-width: 86px;
@@ -2758,10 +2784,6 @@ body.window-detail-open {
   border-color: var(--green);
   color: var(--white);
   background: var(--green);
-}
-
-.application-table:not(.university-table) td:nth-child(8) .favorite-button {
-  min-width: 58px;
 }
 
 .source-link {
@@ -4580,7 +4602,7 @@ footer p {
       "deadline deadline"
       "applicant applicant"
       "opens opens"
-      "calendar favorite"
+      "actions actions"
       "source source";
     gap: 8px 12px;
     margin-bottom: 0;
@@ -4627,15 +4649,11 @@ footer p {
   }
 
   .application-table:not(.university-table) td:nth-child(7) {
-    grid-area: calendar;
-  }
-
-  .application-table:not(.university-table) td:nth-child(8) {
-    grid-area: favorite;
+    grid-area: actions;
     justify-self: end;
   }
 
-  .application-table:not(.university-table) td:nth-child(9) {
+  .application-table:not(.university-table) td:nth-child(8) {
     grid-area: source;
   }
 
@@ -4716,15 +4734,15 @@ footer p {
     font-weight: 700;
   }
 
-  .application-table:not(.university-table) td:nth-child(9) .source-link {
+  .application-table:not(.university-table) td:nth-child(8) .source-link {
     display: none;
   }
 
-  .application-table:not(.university-table) td:nth-child(9) .source-badge {
+  .application-table:not(.university-table) td:nth-child(8) .source-badge {
     margin-right: 6px;
   }
 
-  .application-table:not(.university-table) td:nth-child(9) .date-secondary {
+  .application-table:not(.university-table) td:nth-child(8) .date-secondary {
     display: none;
   }
 
@@ -5133,7 +5151,7 @@ footer p {
       "school school rank"
       "program program program"
       "deadline deadline deadline"
-      "source calendar favorite";
+      "source actions actions";
     gap: 6px 9px;
     padding: 12px;
     border-radius: 14px;
@@ -5184,16 +5202,11 @@ footer p {
   }
 
   .application-table:not(.university-table) td:nth-child(7) {
-    grid-area: calendar;
+    grid-area: actions;
     justify-self: end;
   }
 
   .application-table:not(.university-table) td:nth-child(8) {
-    grid-area: favorite;
-    justify-self: end;
-  }
-
-  .application-table:not(.university-table) td:nth-child(9) {
     grid-area: source;
     align-self: center;
   }
@@ -5235,10 +5248,7 @@ footer p {
     td:nth-child(7),
   .application-table:not(.university-table)
     tr.university-group-parent
-    td:nth-child(8),
-  .application-table:not(.university-table)
-    tr.university-group-parent
-    td:nth-child(9) {
+    td:nth-child(8) {
     display: none;
   }
 
