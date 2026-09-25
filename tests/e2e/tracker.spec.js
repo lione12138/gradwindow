@@ -151,6 +151,36 @@ test("All universities lists schools in rank order with mixed window statuses", 
   ).toEqual(openHeaders.map((label) => label.replace(/QS|THE/g, "Ranking")));
 });
 
+test("favorite and calendar share one column with equal widths", async ({
+  page,
+}) => {
+  await openTracker(page);
+  const actions = page
+    .locator(".application-actions")
+    .filter({ has: page.locator(".calendar-menu") })
+    .first();
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    const favorite = actions.locator(".favorite-button");
+    const calendar = actions.locator(".calendar-menu-trigger");
+    await expect(favorite).toBeVisible();
+    const favoriteBox = await favorite.boundingBox();
+    const calendarBox = await calendar.boundingBox();
+    expect(calendarBox.y).toBeGreaterThanOrEqual(
+      favoriteBox.y + favoriteBox.height,
+    );
+    expect(Math.abs(calendarBox.width - favoriteBox.width)).toBeLessThan(1);
+    expect(Math.abs(calendarBox.x - favoriteBox.x)).toBeLessThan(1);
+    await calendar.click();
+    await expect(actions.locator(".calendar-menu")).toHaveAttribute("open", "");
+    await calendar.click();
+    await favorite.scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: `test-results/stacked-actions-${width}.png`,
+    });
+  }
+});
+
 test("Open now restores the primary status view", async ({ page }) => {
   await openTracker(page);
   const upcoming = page.locator('.status-tab[data-status="upcoming"]');

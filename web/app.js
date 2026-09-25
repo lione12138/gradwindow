@@ -164,6 +164,20 @@ function makeCell(label, ...children) {
   return cell;
 }
 
+function makeActionsCell(...children) {
+  const stack = makeElement("div", { className: "application-actions" });
+  stack.append(...children);
+  const cell = makeCell(`${t("favorite")} / ${t("addCalendar")}`, stack);
+  cell.className = "application-actions-cell";
+  return cell;
+}
+
+function makeSourceCell(source) {
+  const cell = makeCell(t("source"), source);
+  cell.className = "application-source-cell";
+  return cell;
+}
+
 function resetPages() {
   state.pages = {};
   state.expandedWindowGroups.clear();
@@ -1277,8 +1291,6 @@ function createRow(record, status, windowGroup = null) {
   );
   const calendar = makeCalendarMenu(record);
   const favorite = makeFavoriteButton(favoriteKey("window", record.id));
-  const cardActions = makeElement("div", { className: "mobile-card-actions" });
-  cardActions.appendChild(favorite);
 
   const openDetails = (event) => {
     if (event.target.closest("a, button, details, input, select")) return;
@@ -1315,9 +1327,8 @@ function createRow(record, status, windowGroup = null) {
       ),
     ),
     makeCell(t("deadline"), deadline),
-    makeCell(t("calendar"), calendar),
-    makeCell(t("favorite"), cardActions),
-    makeCell(t("source"), source),
+    makeActionsCell(favorite, calendar),
+    makeSourceCell(source),
   );
   return row;
 }
@@ -1486,9 +1497,8 @@ function createUniversityGroupRow(universityGroup, status) {
         `${t("nextDeadlineLabel")} · ${deadlineNote(nearestDeadline, status === "all" ? getStatus(nearestDeadline) : status)}`,
       ),
     ),
-    makeCell(t("calendar"), makeElement("span", { text: "—" })),
-    makeCell(t("favorite"), makeElement("span", { text: "—" })),
-    makeCell(t("source"), source),
+    makeActionsCell(makeElement("span", { text: "—" })),
+    makeSourceCell(source),
   );
   return row;
 }
@@ -1579,8 +1589,7 @@ function applicationColumns() {
     t("applicantGroup"),
     { label: t("opens"), sort: "opens" },
     { label: t("deadline"), sort: "deadline" },
-    t("addCalendar"),
-    t("favorite"),
+    `${t("favorite")} / ${t("addCalendar")}`,
     t("dataSource"),
   ];
 }
@@ -1876,12 +1885,10 @@ function createSchoolWithoutWindowsRow(university) {
       t("deadline"),
       makeElement("span", { className: "date-primary", text: "—" }),
     ),
-    makeCell(t("calendar"), makeElement("span", { text: "—" })),
-    makeCell(
-      t("favorite"),
+    makeActionsCell(
       makeFavoriteButton(favoriteKey("university", university.id)),
     ),
-    makeCell(t("source"), source),
+    makeSourceCell(source),
   );
   return row;
 }
