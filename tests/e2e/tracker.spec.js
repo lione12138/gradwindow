@@ -164,6 +164,22 @@ test("favorite and calendar share one column with equal widths", async ({
     const favorite = actions.locator(".favorite-button");
     const calendar = actions.locator(".calendar-menu-trigger");
     const deadline = actions.locator("xpath=ancestor::tr").locator("td").nth(5);
+    const programme = actions
+      .locator("xpath=ancestor::tr")
+      .locator("td")
+      .nth(2);
+    await expect(programme.locator(".application-action-summary")).toHaveText(
+      "Verified exact dates",
+    );
+    await expect(programme.locator(".date-secondary")).toHaveText(
+      /^[^·]+ [0-9]{4}$/,
+    );
+    await expect(programme.locator(".application-trust-summary")).toHaveCount(
+      0,
+    );
+    await expect(programme).not.toContainText(
+      /Open now|Deadline|days left|Application period|Check passed|Verified on/,
+    );
     await expect(deadline.locator(".date-primary")).toHaveCount(1);
     await expect(deadline.locator(".date-primary")).toBeVisible();
     await expect(deadline).not.toContainText(" – ");

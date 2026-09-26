@@ -324,16 +324,6 @@ function deadlineNote(record, status) {
   return intakeLabel(recordIntake(record), state.language);
 }
 
-function actionSummary(record, status) {
-  const statusLabel = provenanceHeading(recordProvenance(record), status).title;
-  const intake = intakeLabel(recordIntake(record), state.language);
-  const milestone =
-    status === "upcoming" || status === "future"
-      ? `${t("opens")} ${formatDate(record.opensAt)}`
-      : `${t("deadline")} ${formatRecordDeadline(record)}`;
-  return `${statusLabel} · ${intake} · ${milestone} · ${deadlineNote(record, status)}`;
-}
-
 const APPLICANT_CATEGORY_LABELS = {
   all: { en: "All applicants", zh: "所有申请人" },
   "international-bachelors": {
@@ -1207,17 +1197,16 @@ function createRow(record, status, windowGroup = null) {
   });
   const school = makeSchoolDisplay(record);
   const intake = intakeLabel(recordIntake(record), state.language);
-  const localizedRound = roundLabel(record.round, state.language);
   const programme = makeLinkedTextStack(
     programmeLabel(record.scopeId, record.program, state.language),
     record.applicationUrl,
-    `${intake}${localizedRound ? ` · ${localizedRound}` : ""}`,
+    intake,
     "program-link date-primary",
   );
   programme.prepend(
     makeElement("span", {
       className: "application-action-summary",
-      text: actionSummary(record, status),
+      text: provenanceLabel(recordProvenance(record)),
     }),
   );
   if (windowGroup?.collapsible) {
@@ -1247,12 +1236,6 @@ function createRow(record, status, windowGroup = null) {
   const predicted = isPredictedRecord(record);
   const recurring = isRecurringPolicyRecord(record);
   const [sourceStatus, sourceClass] = sourcePresentation(record);
-  programme.appendChild(
-    makeElement("span", {
-      className: "application-trust-summary",
-      text: `${sourceStatus} · ${sourceEvidenceText(record)}`,
-    }),
-  );
   source.append(
     makeLink(sourceLinkLabel(record), record.sourceUrl, "source-link"),
     makeElement("span", {
