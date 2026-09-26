@@ -2,23 +2,23 @@
   "universities": {
     "university-of-british-columbia": {
       "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs",
-      "checkedAt": "2026-09-25T10:41:21.760397+00:00",
+      "checkedAt": "2026-09-26T10:32:18.109912+00:00",
       "itemCount": 228,
       "applicationOpensAt": null,
-      "catalogHash": "f0eceb657f3ad3af028b4239927eb580570a3d0c05e4c06f0169120df1bffb4c",
+      "catalogHash": "1b7a3ccc730572795ef7fbc61fcc12b66fcaa8a787376d33e3f54107633ae3e0",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
-      "observedWindowCount": 223,
-      "exactWindowCount": 223,
+      "observedWindowCount": 225,
+      "exactWindowCount": 225,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 156,
-          "exactWindowCount": 156,
+          "observedWindowCount": 158,
+          "exactWindowCount": 158,
           "recurringPolicyWindowCount": 0
         },
         "2027:other:01": {
@@ -71,11 +71,11 @@
         }
       },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 68,
-      "programmesNeedingReview": 68,
-      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 68 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-09-25T10:41:21.760397+00:00",
-      "windowFingerprint": "51af22ea9bce1990c1e97be5498ee7a6b32f703813b8442b0aa361fae2e8c7bc",
+      "programmesWithoutDeadlines": 66,
+      "programmesNeedingReview": 66,
+      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 66 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-09-26T10:32:18.109912+00:00",
+      "windowFingerprint": "6be29084029baf8d2050d05fcb8bae9f28d06662b3b8be9bcadeae4d6f5f2ff8",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -1694,10 +1694,10 @@
           "degreeType": "MOT",
           "faculty": "Faculty of Medicine",
           "department": "Occupational Therapy",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "94ed988126ef7af691138ed1a9c9f41e0c0cd5567f3389d30d24b6458d7d6b0d",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "ubc-master-of-physical-therapy-mpt": {
           "name": "Master of Physical Therapy (MPT)",
@@ -2164,10 +2164,10 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Science",
           "department": "Oceans and Fisheries",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "dd9f5bce786ba5862b21e9d8d0b2e7280ac1c6fc71809a837e23ef75c18e00df",
+          "windowCount": 1,
+          "latestClosesAt": "2027-01-15"
         },
         "ubc-master-of-science-in-pathology-and-laboratory-medicine-msc": {
           "name": "Master of Science in Pathology and Laboratory Medicine (MSc)",
@@ -3497,6 +3497,14 @@
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-nutrition-dietetics",
           "opensAtBasis": null
         },
+        "ubc-master-of-occupational-therapy-mot::September 2027::Application deadline::all": {
+          "programmeId": "ubc-master-of-occupational-therapy-mot",
+          "intake": "September 2027",
+          "opensAt": "2026-10-15",
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-occupational-therapy",
+          "opensAtBasis": null
+        },
         "ubc-master-of-physical-therapy-mpt::September 2027::Canadian applicant deadline::domestic-students": {
           "programmeId": "ubc-master-of-physical-therapy-mpt",
           "intake": "September 2027",
@@ -3895,6 +3903,14 @@
           "opensAt": "2026-10-01",
           "closesAt": "2027-01-15",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-oceanography",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-oceans-and-fisheries-msc::September 2027::Application deadline::all": {
+          "programmeId": "ubc-master-of-science-in-oceans-and-fisheries-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-oceans-fisheries",
           "opensAtBasis": null
         },
         "ubc-master-of-science-in-pathology-and-laboratory-medicine-msc::January 2027::Canadian applicant deadline::domestic-students": {
