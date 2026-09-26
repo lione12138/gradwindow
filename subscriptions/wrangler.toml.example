@@ -3,6 +3,10 @@ main = "worker.js"
 compatibility_date = "2026-08-07"
 compatibility_flags = ["nodejs_compat"]
 
+# Secure password hashing requires Workers Paid CPU allowance.
+[limits]
+cpu_ms = 1000
+
 [triggers]
 crons = ["31 3 * * *"]
 

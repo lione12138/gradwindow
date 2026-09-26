@@ -43,6 +43,12 @@ CREATE TABLE IF NOT EXISTS auth_login_codes (
   created_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS user_passwords (
+  user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  password_hash TEXT NOT NULL,
+  updated_at TEXT NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS idx_auth_login_codes_lookup
   ON auth_login_codes(email_hash, code_hash, expires_at)
   WHERE consumed_at IS NULL;

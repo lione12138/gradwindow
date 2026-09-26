@@ -6,6 +6,8 @@ export default [
   {
     ignores: [
       "node_modules/**",
+      "**/.wrangler/**",
+      "**/.tmp/**",
       "site/**",
       "data/**",
       "scripts/**",

@@ -198,20 +198,38 @@ npx wrangler secret put ROADMAP_ADMIN_API_KEY --config subscriptions/wrangler.to
 
 ## Accounts and comments
 
-Accounts are passwordless. A user enters an email address, receives a six-digit
-code, and the Worker returns an opaque session token after verification. The
-static site stores that token in browser local storage and sends it as a Bearer
+Accounts support passwords and email codes. Registration and password reset use
+the email-code flow with a new password in the verification request. Passwords
+must contain 15–128 characters and are stored as salted, versioned scrypt hashes
+(N=16384, r=8, p=5; OWASP's 16 MiB configuration). Password resets revoke all
+existing sessions and outstanding email codes. Existing email-only users keep
+their account ID, profile and favourites when setting a password. Successful
+authentication creates an opaque 30-day session. The static site stores the
+token in browser local storage and sends it as a Bearer
 token to account-only endpoints.
 
 Account endpoints:
 
 - `POST /auth/request`: send an email login code.
-- `POST /auth/verify`: verify the code and create a 30-day session.
+- `POST /auth/verify`: atomically consume the code and create a 30-day session;
+  optional `password` sets/resets the password after email ownership is verified.
+- `POST /auth/login`: sign in with `email`, `password` and `turnstileToken`.
 - `POST /auth/logout`: revoke the current session.
 - `GET /me`: return the public profile and synced favourites.
 - `PATCH /me`: update display name, language, country/region, and target
   intake.
 - `PUT /me/favorites`: replace the signed-in user's favourite item keys.
+
+The private `/#my-account` view uses these endpoints. Its personal calendar is
+derived from saved published windows; it does not copy or invent admissions
+dates in D1. Account data is always scoped to the authenticated session.
+Apply the idempotent `schema.sql` before deploying (it adds `user_passwords`
+without altering existing user rows). Password hashing requires the Workers
+Paid CPU allowance; the example configuration caps each request at 1,000 ms.
+Do not lower the hash work factor to fit the Free plan. Measure locally with
+the real Workers runtime before rollout (three scrypt operations took about
+400 ms in the September 2026 local smoke check). Deploy the schema and Worker
+before publishing the frontend that defaults to password login.
 
 School comments remain publicly readable, but posting now requires a valid
 session. Run the schema command again before deploying this Worker version:

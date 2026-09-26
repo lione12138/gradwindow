@@ -93,13 +93,16 @@
 
       <h2>Accounts and school comments / 账号与学校评论</h2>
       <p>
-        GradWindow accounts use email login codes instead of passwords. The
+        GradWindow supports password sign-in and email verification codes. Passwords
+        are stored only as salted scrypt hashes, never as plaintext. Email verification
+        is required to register or reset a password. Resetting revokes existing sessions. The
         Worker stores an encrypted email address, a keyed lookup hash, session
         hashes, optional profile fields such as display name, country/region,
         and target intake, plus synced favourite item keys.
       </p>
       <p>
-        GradWindow 账号使用邮箱验证码登录，不保存密码。Worker 会保存加密邮箱、带密钥的
+        GradWindow 支持密码登录与邮箱验证码。密码仅以加盐 scrypt 哈希保存，不保存明文；
+        注册或重设密码需要验证邮箱，重设后原有会话失效。Worker 会保存加密邮箱、带密钥的
         查询摘要、会话摘要、可选资料字段（例如显示名称、国家/地区、目标入学季）以及同步收藏项。
       </p>
       <p>
