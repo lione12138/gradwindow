@@ -1,5 +1,14 @@
 import { expect, test } from "@playwright/test";
 
+test("direct personal homepage entry opens login", async ({ page }) => {
+  await page.goto("/#my-account");
+  await page
+    .getByRole("button", { name: "Sign in / create account", exact: true })
+    .click();
+  await expect(page.locator("#auth-panel")).toBeVisible();
+  await expect(page.locator("#auth-password")).toBeVisible();
+});
+
 async function accountFixture(page) {
   let favorites = [];
   const requests = [];
