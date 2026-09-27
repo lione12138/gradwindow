@@ -1,6 +1,7 @@
 // Password work is delegated to Supabase Auth; never persist passwords in D1.
 export function validPassword(password) {
-  return typeof password === "string" && [...password].length >= 15 &&
+  return typeof password === "string" && [...password].length >= 6 &&
+    /[a-z]/.test(password) && /[A-Z]/.test(password) && /[0-9]/.test(password) &&
     new TextEncoder().encode(password).length <= 72;
 }
 

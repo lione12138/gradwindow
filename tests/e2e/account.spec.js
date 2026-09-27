@@ -124,10 +124,8 @@ test("password reset verifies ownership, and failed sync survives a reload", asy
   await page.locator("#auth-toggle").click();
   await page.locator('[data-auth-mode="reset"]').click();
   await page.locator("#auth-email").fill("user@example.com");
-  await page.locator("#auth-password").fill("a brand new passphrase 456");
-  await page
-    .locator("#auth-password-confirm")
-    .fill("a brand new passphrase 456");
+  await page.locator("#auth-password").fill("Abcd12");
+  await page.locator("#auth-password-confirm").fill("Abcd12");
   await page.locator("#auth-request-button").click();
   await page.locator("#auth-code").fill("123456");
   await page.locator("#auth-verify-button").click();
@@ -162,15 +160,13 @@ test("registration checks password confirmation then verifies email, on mobile",
   await page.locator('[data-mobile-nav="profile"]').click();
   await page.locator('[data-auth-mode="register"]').click();
   await page.locator("#auth-email").fill("new@example.com");
-  await page.locator("#auth-password").fill("my memorable password 123");
-  await page.locator("#auth-password-confirm").fill("a different password 456");
+  await page.locator("#auth-password").fill("Abcd12");
+  await page.locator("#auth-password-confirm").fill("Efgh34");
   await page.locator("#auth-request-button").click();
   await expect(page.locator("#auth-status")).toHaveText(
     "两次输入的密码不一致。",
   );
-  await page
-    .locator("#auth-password-confirm")
-    .fill("my memorable password 123");
+  await page.locator("#auth-password-confirm").fill("Abcd12");
   await page.locator("#auth-request-button").click();
   await expect(page.locator("#auth-verify-form")).toBeVisible();
   await page.locator("#auth-code").fill("123456");
@@ -181,7 +177,7 @@ test("registration checks password confirmation then verifies email, on mobile",
   ).toEqual({
     email: "new@example.com",
     code: "123456",
-    password: "my memorable password 123",
+    password: "Abcd12",
   });
   await expect(page.locator(".account-calendar")).toBeVisible();
   expect(

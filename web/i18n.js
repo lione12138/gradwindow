@@ -30,9 +30,9 @@ export const I18N = {
     passwordLabel: "Password",
     confirmPassword: "Confirm password",
     passwordHelp:
-      "Use at least 15 characters, up to 72 UTF-8 bytes. A memorable passphrase works well.",
+      "Use at least 6 characters, including uppercase and lowercase letters and a number.",
     passwordLengthError:
-      "Use at least 15 characters and at most 72 UTF-8 bytes (72 ASCII characters or 24 Chinese characters).",
+      "Use 6 or more characters, with uppercase and lowercase letters and a number; at most 72 UTF-8 bytes.",
     forgotPassword: "Reset / set a password",
     passwordMismatch: "The passwords do not match.",
     passwordLoginError:
@@ -591,9 +591,9 @@ export const I18N = {
     passwordLabel: "密码",
     confirmPassword: "再次输入密码",
     passwordHelp:
-      "至少 15 个字符；英文最多 72 个字符，纯中文最多 24 个字。可以使用容易记住的长句。",
+      "至少 6 个字符，必须包含大写字母、小写字母和数字。",
     passwordLengthError:
-      "密码至少 15 个字符，总长度不能超过 72 字节（英文最多 72 个字符，纯中文最多 24 个字）。",
+      "密码至少 6 个字符，必须包含大写字母、小写字母和数字，总长度不能超过 72 字节。",
     forgotPassword: "忘记密码 / 设置密码",
     passwordMismatch: "两次输入的密码不一致。",
     passwordLoginError:

@@ -200,7 +200,8 @@ npx wrangler secret put ROADMAP_ADMIN_API_KEY --config subscriptions/wrangler.to
 
 Accounts support passwords and email codes. Registration and password reset use
 the email-code flow with a new password in the verification request. Passwords
-must contain at least 15 Unicode characters and at most 72 UTF-8 bytes (the
+must contain at least 6 Unicode characters, uppercase and lowercase ASCII letters,
+and a digit, with at most 72 UTF-8 bytes (the
 provider's bcrypt limit). Supabase Auth stores and verifies passwords;
 the Worker never stores plaintext passwords or password hashes. Resets revoke all
 existing sessions and outstanding email codes. Existing email-only users keep
