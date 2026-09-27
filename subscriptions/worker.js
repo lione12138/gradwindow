@@ -10,7 +10,7 @@ import {
   signedUnsubscribeToken,
   verifyUnsubscribeToken,
 } from "./core.js";
-import { hashPassword, verifyPassword, validPassword } from "./passwords.js";
+import { setPassword, verifyPassword, validPassword, passwordAuthConfigured } from "./passwords.js";
 
 const JSON_HEADERS = {
   "Content-Type": "application/json; charset=utf-8",
@@ -597,10 +597,9 @@ async function verifyAuthCode(request, env) {
   ).bind(emailHash, codeHash, now).first();
   if (!challenge) return jsonResponse(request, env, { ok: false }, 400);
 
-  let passwordHash = null;
   if (payload.password !== undefined) {
     if (!validPassword(payload.password)) return jsonResponse(request, env, { ok: false }, 400);
-    passwordHash = await hashPassword(payload.password);
+    if (!passwordAuthConfigured(env)) return jsonResponse(request, env, { ok: false }, 503);
   }
   // Atomically claim the code: concurrent verification must never reuse it.
   const claimed = await env.DB.prepare(
@@ -628,18 +627,37 @@ async function verifyAuthCode(request, env) {
     now,
   ).run();
   const user = await env.DB.prepare(
-    `SELECT id, display_name, language, country, target_intake
-       FROM users WHERE email_hash = ?1`,
+    `SELECT u.*, p.credential_version FROM users u
+       LEFT JOIN user_password_auth p ON p.user_id = u.id WHERE u.email_hash = ?1`,
   ).bind(emailHash).first();
-  if (passwordHash) {
+  if (payload.password !== undefined) {
+    const version = crypto.randomUUID();
+    // Serialize remote writes and invalidate in-flight logins before the network call.
+    const locked = await env.DB.prepare(`INSERT INTO user_password_auth
+      (user_id, credential_version, ready, reset_started_at, updated_at)
+      VALUES (?1, ?2, 0, ?3, ?3) ON CONFLICT(user_id) DO UPDATE SET
+      credential_version = excluded.credential_version, ready = 0,
+      reset_started_at = excluded.reset_started_at, updated_at = excluded.updated_at
+      WHERE user_password_auth.reset_started_at IS NULL OR user_password_auth.reset_started_at < ?4
+      RETURNING user_id`).bind(user.id, version, now, new Date(Date.now() - 120_000).toISOString()).first();
+    if (!locked) return jsonResponse(request, env, { ok: false }, 409);
     await env.DB.batch([
-      env.DB.prepare(`INSERT INTO user_passwords (user_id, password_hash, updated_at)
-        VALUES (?1, ?2, ?3) ON CONFLICT(user_id) DO UPDATE SET
-        password_hash = excluded.password_hash, updated_at = excluded.updated_at`).bind(user.id, passwordHash, now),
       env.DB.prepare("DELETE FROM auth_sessions WHERE user_id = ?1").bind(user.id),
       env.DB.prepare("UPDATE auth_login_codes SET consumed_at = ?2 WHERE email_hash = ?1 AND consumed_at IS NULL").bind(emailHash, now),
     ]);
-    user.password_hash = passwordHash;
+    try {
+      await setPassword(env, user.id, email, payload.password);
+    } catch {
+      // Fail closed after an ambiguous write. A fresh verified reset repairs it.
+      await env.DB.prepare(`UPDATE user_password_auth SET reset_started_at = NULL
+        WHERE user_id = ?1 AND credential_version = ?2`).bind(user.id, version).run();
+      return jsonResponse(request, env, { ok: false }, 503);
+    }
+    const completed = await env.DB.prepare(`UPDATE user_password_auth
+      SET ready = 1, reset_started_at = NULL WHERE user_id = ?1 AND credential_version = ?2
+      RETURNING user_id`).bind(user.id, version).first();
+    if (!completed) return jsonResponse(request, env, { ok: false }, 409);
+    user.credential_version = version;
   }
   return createSession(request, env, user);
 }
@@ -649,15 +667,16 @@ async function createSession(request, env, user) {
   const token = randomToken(36);
   const created = await env.DB.prepare(
     `INSERT INTO auth_sessions (session_hash, user_id, created_at, expires_at)
-     SELECT ?1, ?2, ?3, ?4 WHERE ?5 IS NULL OR EXISTS (
-       SELECT 1 FROM user_passwords WHERE user_id = ?2 AND password_hash = ?5
-     ) RETURNING session_hash`,
+     SELECT ?1, ?2, ?3, ?4 WHERE
+       COALESCE((SELECT credential_version FROM user_password_auth WHERE user_id = ?2), '') = ?5
+       AND NOT EXISTS (SELECT 1 FROM user_password_auth WHERE user_id = ?2 AND reset_started_at IS NOT NULL)
+     RETURNING session_hash`,
   ).bind(
     await sha256Hex(token),
     user.id,
     now,
     new Date(Date.now() + AUTH_SESSION_TTL_MS).toISOString(),
-    user.password_hash || null,
+    user.credential_version || "",
   ).first();
   if (!created) return jsonResponse(request, env, { ok: false }, 401);
   const favorites = await listUserFavoriteKeys(env, user.id);
@@ -693,9 +712,16 @@ async function loginWithPassword(request, env) {
   if (!(await verifyTurnstile(payload.turnstileToken, request, env, "auth-login"))) {
     return jsonResponse(request, env, { ok: false }, 400);
   }
-  const user = await env.DB.prepare(`SELECT u.*, p.password_hash FROM users u
-    LEFT JOIN user_passwords p ON p.user_id = u.id WHERE u.email_hash = ?1`).bind(emailHash).first();
-  if (!(await verifyPassword(payload.password, user?.password_hash))) {
+  if (!passwordAuthConfigured(env)) return jsonResponse(request, env, { ok: false }, 503);
+  const user = await env.DB.prepare(`SELECT u.*, p.credential_version, p.ready, p.reset_started_at FROM users u
+    LEFT JOIN user_password_auth p ON p.user_id = u.id WHERE u.email_hash = ?1`).bind(emailHash).first();
+  let verified;
+  try {
+    verified = await verifyPassword(env, user?.id, email, payload.password);
+  } catch {
+    return jsonResponse(request, env, { ok: false }, 503);
+  }
+  if (!verified || !user?.ready || user.reset_started_at) {
     return jsonResponse(request, env, { ok: false }, 401);
   }
   return createSession(request, env, user);

@@ -1,35 +1,64 @@
-import { scrypt, randomBytes, timingSafeEqual } from "node:crypto";
-import { Buffer } from "node:buffer";
-
-// OWASP's 16 MiB scrypt configuration fits the Workers memory budget.
-const PREFIX = "scrypt$16384$8$5";
-const OPTIONS = { N: 16384, r: 8, p: 5, maxmem: 32 * 1024 * 1024 };
-
+// Password work is delegated to Supabase Auth; never persist passwords in D1.
 export function validPassword(password) {
-  return typeof password === "string" && password.length >= 15 && password.length <= 128;
+  return typeof password === "string" && [...password].length >= 15 &&
+    new TextEncoder().encode(password).length <= 72;
 }
 
-function derive(password, salt) {
-  return new Promise((resolve, reject) => {
-    scrypt(password, salt, 32, OPTIONS, (error, key) => error ? reject(error) : resolve(key));
+export function passwordAuthConfigured(env) {
+  return /^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(env.SUPABASE_URL || "") &&
+    Boolean(env.SUPABASE_SERVICE_ROLE_KEY);
+}
+
+export function authIdentityId(userId) {
+  const hex = String(userId).replace(/^user-/, "");
+  if (!/^[a-f0-9]{32}$/.test(hex)) throw new Error("Invalid account identity");
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+}
+
+async function authRequest(env, path, method, body) {
+  if (!passwordAuthConfigured(env)) throw new Error("Password service unavailable");
+  const response = await fetch(`${env.SUPABASE_URL}/auth/v1${path}`, {
+    method,
+    headers: {
+      apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+      Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+      "Content-Type": "application/json",
+      "X-Supabase-Api-Version": "2024-01-01",
+    },
+    ...(body ? { body: JSON.stringify(body) } : {}),
+    signal: AbortSignal.timeout(10_000),
+    redirect: "error",
   });
+  if (response.status >= 500 || response.status === 429) throw new Error("Password service unavailable");
+  return { response, data: await response.json() };
 }
 
-export async function hashPassword(password) {
-  if (!validPassword(password)) throw new Error("invalid password length");
-  const salt = randomBytes(16).toString("hex");
-  const key = await derive(password, salt);
-  return `${PREFIX}$${salt}$${key.toString("hex")}`;
+function matchesIdentity(user, id, email) {
+  return user?.id === id && user?.email?.toLowerCase() === email && Boolean(user.email_confirmed_at);
 }
 
-export async function verifyPassword(password, encoded) {
-  if (!validPassword(password)) return false;
-  const parts = String(encoded || "").split("$");
-  const valid = parts.slice(0, 4).join("$") === PREFIX &&
-    /^[a-f0-9]{32}$/.test(parts[4] || "") && /^[a-f0-9]{64}$/.test(parts[5] || "") && parts.length === 6;
-  // Pay the same hashing cost for an unknown account or passwordless account.
-  const salt = valid ? parts[4] : "00000000000000000000000000000000";
-  const expected = Buffer.from(valid ? parts[5] : "00".repeat(32), "hex");
-  const actual = await derive(password, salt);
-  return timingSafeEqual(actual, expected) && valid;
+// Only called after atomically consuming a valid email code. A stable UUID
+// allows retries to recover safely after a partial provider/D1 failure.
+export async function setPassword(env, userId, email, password) {
+  if (!validPassword(password)) throw new Error("Invalid password");
+  const id = authIdentityId(userId);
+  const existing = await authRequest(env, `/admin/users/${id}`, "GET");
+  let result;
+  if (existing.response.status === 404) {
+    result = await authRequest(env, "/admin/users", "POST", { id, email, password, email_confirm: true });
+  } else {
+    if (!existing.response.ok || !matchesIdentity(existing.data, id, email)) throw new Error("Password identity mismatch");
+    result = await authRequest(env, `/admin/users/${id}`, "PUT", { password });
+  }
+  if (!result.response.ok || !matchesIdentity(result.data, id, email)) throw new Error("Password update failed");
+}
+
+export async function verifyPassword(env, userId, email, password) {
+  const { response, data } = await authRequest(env, "/token?grant_type=password", "POST", { email, password });
+  if (!response.ok) {
+    if (response.status === 400 && (data.code || data.error_code) === "invalid_credentials") return false;
+    throw new Error("Password service unavailable");
+  }
+  // Provider tokens are never returned to the browser or persisted.
+  return Boolean(userId) && matchesIdentity(data.user, authIdentityId(userId), email);
 }

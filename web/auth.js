@@ -491,6 +491,15 @@ export function setupAuthPanel() {
       const email = document.getElementById("auth-email").value.trim();
       button.disabled = true;
       try {
+        const password = document.getElementById("auth-password").value;
+        if (
+          authMode !== "code" &&
+          ([...password].length < 15 ||
+            new TextEncoder().encode(password).length > 72)
+        ) {
+          setAuthStatus(t("passwordLengthError"), "error");
+          return;
+        }
         if (
           ["register", "reset"].includes(authMode) &&
           document.getElementById("auth-password").value !==

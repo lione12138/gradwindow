@@ -33,7 +33,7 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import worker from WORKER_URI;
 import { hmacHex, bytesToBase64Url } from CORE_URI;
-import { hashPassword, verifyPassword } from PASSWORD_URI;
+import { authIdentityId, validPassword } from PASSWORD_URI;
 const execute = (statements) => {
   const result = spawnSync(PYTHON, [BRIDGE, DATABASE], { input: JSON.stringify(statements), encoding: 'utf8' });
   if (result.status !== 0) throw new Error(result.stderr);
@@ -49,12 +49,43 @@ const DB = {
 };
 const env = { DB, ALLOWED_ORIGINS: 'https://gradwindow.com', AUTH_SECRET_KEY: 'test-auth-secret',
   EMAIL_INDEX_KEY: 'test-index-key', EMAIL_ENCRYPTION_KEY: bytesToBase64Url(new Uint8Array(32).fill(7)),
-  ROADMAP_VOTER_HASH_KEY: 'test-ip-key', RESEND_API_KEY: 'test-key', RESEND_FROM: 'test@example.com' };
+  ROADMAP_VOTER_HASH_KEY: 'test-ip-key', RESEND_API_KEY: 'test-key', RESEND_FROM: 'test@example.com',
+  SUPABASE_URL: 'https://test-project.supabase.co', SUPABASE_SERVICE_ROLE_KEY: 'server-only-secret' };
 let code;
-globalThis.fetch = async (_url, options) => {
-  const email = JSON.parse(options.body);
-  code = email.text.match(/\b\d{6}\b/)[0];
-  return Response.json({ id: 'local-only' });
+const identities = new Map();
+let providerFailure = false;
+let failAfterWrite = false;
+let wrongIdentity = false;
+let afterProviderLogin;
+globalThis.fetch = async (url, options) => {
+  const body = options.body ? JSON.parse(options.body) : {};
+  if (url.startsWith('https://api.resend.com/')) {
+    code = body.text.match(/\b\d{6}\b/)[0];
+    return Response.json({ id: 'local-only' });
+  }
+  assert.ok(url.startsWith(env.SUPABASE_URL + '/auth/v1/'));
+  assert.equal(options.headers.apikey, env.SUPABASE_SERVICE_ROLE_KEY);
+  assert.equal(options.redirect, 'error');
+  if (providerFailure) return Response.json({message:'unavailable'}, {status:503});
+  if (url.endsWith('/token?grant_type=password')) {
+    const user = [...identities.values()].find(item => item.email === body.email && item.password === body.password);
+    if (!user) return Response.json({code:'invalid_credentials'}, {status:400});
+    const result = {user: {...user, ...(wrongIdentity ? {id:crypto.randomUUID()} : {})}, access_token:'never-return-this', refresh_token:'never-persist-this'};
+    if (afterProviderLogin) { const hook = afterProviderLogin; afterProviderLogin = null; await hook(); }
+    return Response.json(result);
+  }
+  if (url.endsWith('/admin/users') && options.method === 'POST') {
+    assert.equal(body.email_confirm, true);
+    const user = {...body, email_confirmed_at:new Date().toISOString()};
+    identities.set(user.id, user);
+    if (failAfterWrite) return Response.json({message:'connection interrupted after commit'}, {status:503});
+    return Response.json(user);
+  }
+  const id = url.split('/').at(-1);
+  const user = identities.get(id);
+  if (!user) return Response.json({code:'user_not_found'}, {status:404});
+  if (options.method === 'PUT') Object.assign(user, body);
+  return Response.json(user);
 };
 const request = async (path, body, token = '', method = 'POST', origin = 'https://gradwindow.com') => {
   const result = await worker.fetch(new Request('https://worker.test' + path, {
@@ -67,11 +98,11 @@ const request = async (path, body, token = '', method = 'POST', origin = 'https:
 const email = 'user@example.com';
 const password = 'a long unique passphrase 123';
 const secondPassword = 'another long passphrase 456';
-const firstHash = await hashPassword(password);
-assert.notEqual(firstHash, await hashPassword(password));
-assert.equal(await verifyPassword(password, firstHash), true);
-assert.equal(await verifyPassword(secondPassword, firstHash), false);
-assert.equal(await verifyPassword(password, null), false);
+assert.equal(validPassword('a'.repeat(72)), true);
+assert.equal(validPassword('a'.repeat(73)), false);
+assert.equal(validPassword('中'.repeat(24)), true);
+assert.equal(validPassword('中'.repeat(25)), false);
+assert.equal(validPassword('😀'.repeat(8)), false);
 assert.equal((await request('/auth/login', {email, password}, '', 'POST', 'https://evil.test')).status, 403);
 assert.equal((await request('/auth/login', {email, password})).status, 401);
 assert.equal((await request('/auth/verify', {email, code:'000000', password})).status, 400);
@@ -85,6 +116,8 @@ assert.deepEqual(verificationRace.map(result => result.status).sort(), [200, 400
 const registered = verificationRace.find(result => result.status === 200);
 assert.equal(registered.status, 200);
 assert.equal('password_hash' in registered.data.user, false);
+assert.equal(JSON.stringify(registered).includes('server-only-secret'), false);
+assert.equal(JSON.stringify(registered).includes('never-return-this'), false);
 assert.equal((await request('/auth/verify', {email, code, password})).status, 400);
 const token = registered.data.token;
 assert.equal((await request('/me/favorites', {favorites:['university:mit','window:mit-cs']}, token, 'PUT')).status, 200);
@@ -116,11 +149,48 @@ assert.equal((await request('/me', null, token, 'GET')).status, 401);
 assert.equal((await request('/me', null, login.data.token, 'GET')).status, 401);
 assert.equal((await request('/auth/login', {email, password})).status, 401);
 assert.equal((await request('/auth/login', {email, password:secondPassword})).status, 200);
-const stored = await DB.prepare('SELECT password_hash FROM user_passwords WHERE user_id=?1').bind(reset.data.user.id).first();
-assert.ok(stored.password_hash.startsWith('scrypt$16384$8$5$'));
-assert.equal(stored.password_hash.includes(secondPassword), false);
+const stored = await DB.prepare('SELECT * FROM user_password_auth WHERE user_id=?1').bind(reset.data.user.id).first();
+assert.equal(stored.ready, 1);
+assert.equal(JSON.stringify(stored).includes(secondPassword), false);
+assert.equal(identities.get(authIdentityId(reset.data.user.id)).password, secondPassword);
 await request('/auth/logout', {}, reset.data.token);
 assert.equal((await request('/me', null, reset.data.token, 'GET')).status, 401);
+// Provider outage must not authenticate; a mismatched provider identity is rejected.
+providerFailure = true;
+assert.equal((await request('/auth/login', {email:'legacy@example.com', password})).status, 503);
+providerFailure = false;
+wrongIdentity = true;
+assert.equal((await request('/auth/login', {email:'legacy@example.com', password})).status, 401);
+wrongIdentity = false;
+// A reset racing with an already-verified provider response cannot mint a stale session.
+afterProviderLogin = async () => {
+  await DB.prepare('UPDATE user_password_auth SET credential_version=?2 WHERE user_id=?1')
+    .bind(legacy.data.user.id, crypto.randomUUID()).run();
+};
+assert.equal((await request('/auth/login', {email:'legacy@example.com', password})).status, 401);
+// A failed reset keeps data and email login working, and a later verified reset repairs it.
+await request('/auth/request', {email:'repair@example.com'});
+failAfterWrite = true;
+assert.equal((await request('/auth/verify', {email:'repair@example.com', code, password})).status, 503);
+failAfterWrite = false;
+assert.equal((await request('/auth/login', {email:'repair@example.com', password})).status, 401);
+await DB.prepare("UPDATE auth_login_codes SET created_at='2020-01-01T00:00:00Z'").run();
+await request('/auth/request', {email:'repair@example.com'});
+const emailOnlyRepair = await request('/auth/verify', {email:'repair@example.com', code});
+assert.equal(emailOnlyRepair.status, 200);
+await DB.prepare("UPDATE auth_login_codes SET created_at='2020-01-01T00:00:00Z'").run();
+await request('/auth/request', {email:'repair@example.com'});
+const repaired = await request('/auth/verify', {email:'repair@example.com', code, password});
+assert.equal(repaired.status, 200);
+assert.equal(repaired.data.user.id, emailOnlyRepair.data.user.id);
+assert.equal((await request('/auth/login', {email:'repair@example.com', password})).status, 200);
+// A second reset cannot overwrite a provider write already in progress.
+await DB.prepare('UPDATE user_password_auth SET reset_started_at=?2 WHERE user_id=?1')
+  .bind(repaired.data.user.id, new Date().toISOString()).run();
+await DB.prepare("UPDATE auth_login_codes SET created_at='2020-01-01T00:00:00Z'").run();
+await request('/auth/request', {email:'repair@example.com'});
+assert.equal((await request('/auth/verify', {email:'repair@example.com', code, password:secondPassword})).status, 409);
+assert.equal(identities.get(authIdentityId(repaired.data.user.id)).password, password);
 // Rate limits count failed attempts, including unknown accounts.
 for (let i=0; i<10; i++) await request('/auth/login', {email:'missing@example.com',password});
 assert.equal((await request('/auth/login', {email:'missing@example.com',password})).status, 429);

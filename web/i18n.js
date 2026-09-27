@@ -29,7 +29,10 @@ export const I18N = {
     codeLogin: "Email code",
     passwordLabel: "Password",
     confirmPassword: "Confirm password",
-    passwordHelp: "Use 15–128 characters. A memorable passphrase works well.",
+    passwordHelp:
+      "Use at least 15 characters, up to 72 UTF-8 bytes. A memorable passphrase works well.",
+    passwordLengthError:
+      "Use at least 15 characters and at most 72 UTF-8 bytes (72 ASCII characters or 24 Chinese characters).",
     forgotPassword: "Reset / set a password",
     passwordMismatch: "The passwords do not match.",
     passwordLoginError:
@@ -59,7 +62,7 @@ export const I18N = {
     authCodeSentTo: "We sent a 6-digit code to",
     authChangeEmail: "Use a different email",
     authPrivacy:
-      "Passwords are securely hashed. Your email is encrypted and never shown publicly.",
+      "Supabase Auth securely verifies your password. Your email is never shown publicly.",
     authChallengeError:
       "The security check could not load. Please refresh and try again.",
     authVerifying: "Signing in…",
@@ -587,7 +590,10 @@ export const I18N = {
     codeLogin: "验证码登录",
     passwordLabel: "密码",
     confirmPassword: "再次输入密码",
-    passwordHelp: "使用 15–128 个字符，可以是一句容易记住的长密码。",
+    passwordHelp:
+      "至少 15 个字符；英文最多 72 个字符，纯中文最多 24 个字。可以使用容易记住的长句。",
+    passwordLengthError:
+      "密码至少 15 个字符，总长度不能超过 72 字节（英文最多 72 个字符，纯中文最多 24 个字）。",
     forgotPassword: "忘记密码 / 设置密码",
     passwordMismatch: "两次输入的密码不一致。",
     passwordLoginError:
@@ -614,7 +620,7 @@ export const I18N = {
     authCodeSent: "请查看邮箱中的 6 位验证码。",
     authCodeSentTo: "验证码已发送至",
     authChangeEmail: "换一个邮箱",
-    authPrivacy: "密码经过安全哈希处理；邮箱会加密保存，不会公开显示。",
+    authPrivacy: "密码由 Supabase Auth 安全验证；邮箱不会公开显示。",
     authChallengeError: "安全验证加载失败，请刷新页面后重试。",
     authVerifying: "正在登录…",
     authSignedIn: "已登录。",
