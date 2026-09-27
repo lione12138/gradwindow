@@ -590,8 +590,7 @@ export const I18N = {
     codeLogin: "验证码登录",
     passwordLabel: "密码",
     confirmPassword: "再次输入密码",
-    passwordHelp:
-      "至少 6 个字符，必须包含大写字母、小写字母和数字。",
+    passwordHelp: "至少 6 个字符，必须包含大写字母、小写字母和数字。",
     passwordLengthError:
       "密码至少 6 个字符，必须包含大写字母、小写字母和数字，总长度不能超过 72 字节。",
     forgotPassword: "忘记密码 / 设置密码",
