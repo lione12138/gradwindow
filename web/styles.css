@@ -15,6 +15,57 @@
   color-scheme: light;
 }
 
+/* Personal workspace shares the tracker theme and works without a second login. */
+body.account-view main > :not(#my-account) { display: none; }
+.account-home { max-width: 1400px; margin: 24px auto 80px; padding: 0 32px; }
+.account-hero { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 24px; }
+.account-hero h1 { font-size: clamp(30px, 4vw, 48px); margin: 12px 0; letter-spacing: -.04em; }
+.account-hero p, .account-home .muted { color: var(--muted); line-height: 1.7; }
+.account-tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.account-tabs [aria-pressed="true"] { background: var(--green-pale); border-color: var(--green); }
+.account-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+.account-stats > div { background: var(--green-pale); border: 1px solid var(--line); padding: 24px; border-radius: 18px; }
+.account-stats strong { display: block; font-size: 32px; color: var(--green); margin-bottom: 8px; }
+.account-stats span { font-size: 14px; }
+.account-columns { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(340px, 1fr); gap: 24px; align-items: start; }
+.account-card { background: var(--white); border: 1px solid var(--line); border-radius: 20px; padding: 26px; margin-bottom: 24px; min-width: 0; }
+.account-card h2 { font-size: 21px; margin: 0 0 20px; }
+.account-card h3 { font-size: 16px; }
+.account-saved-school { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 0; border-top: 1px solid var(--line); }
+.account-saved-school a { font-weight: 700; }
+.account-saved-school button { flex-shrink: 0; }
+.account-saved-project { padding: 22px 0; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+.account-programme-title { display: block; font-size: 18px; font-weight: 700; margin: 10px 0 8px; text-decoration: none; }
+.account-provenance { font-size: 12px; color: var(--green); background: var(--green-pale); padding: 4px 8px; border-radius: 6px; }
+.account-calendar-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.account-calendar-toolbar button { min-width: 36px; padding: 6px 10px; }
+.account-calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; margin: 16px 0; }
+.account-weekday { text-align: center; color: var(--muted); padding: 6px 0; font-size: 12px; }
+.account-day { display: flex; flex-direction: column; align-items: center; gap: 2px; justify-content: center; min-height: 48px; padding: 5px 0; border: 1px solid transparent; border-radius: 10px; background: var(--paper); color: var(--ink); cursor: pointer; }
+.account-day[aria-current="date"] { border-color: var(--green); }
+.account-day[aria-pressed="true"] { background: var(--green-pale); outline: 2px solid var(--green); }
+.account-day-count { color: var(--green); font-size: 10px; font-weight: 700; }
+.account-event { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 14px; border-top: 1px solid var(--line); padding: 14px 0; font-size: 13px; }
+.account-event time { color: var(--muted); padding-top: 4px; }
+.account-event strong, .account-event small, .account-event a { display: block; line-height: 1.6; overflow-wrap: anywhere; }
+.account-event small { color: var(--muted); }
+.account-event-type { display: inline-block; font-size: 11px; color: var(--green); margin-bottom: 5px; }
+.account-event-type.deadline { color: var(--red); }
+.auth-card { max-height: 90dvh; overflow-y: auto; }
+@media (max-width: 760px) {
+  .account-home { margin-top: 12px; padding: 0 16px; }
+  .account-hero { display: block; }
+  .account-hero .account-tabs { margin-top: 20px; }
+  .account-stats { gap: 8px; }
+  .account-stats > div { padding: 16px 10px; }
+  .account-stats strong { font-size: 26px; }
+  .account-stats span { font-size: 12px; }
+  .account-columns { display: flex; flex-direction: column; gap: 0; }
+  .account-main-column, .account-side-column { width: 100%; }
+  .account-side-column { order: -1; }
+  .account-card { padding: 20px; }
+}
+
 :root[data-theme="dark"] {
   --ink: #ecf4ee;
   --muted: #a1aea5;

@@ -16,3 +16,6 @@ ALLOWED_ORIGINS = "https://lione12138.github.io,https://gradwindow.com,https://w
 PUBLIC_SITE_URL = "https://gradwindow.com"
 API_BASE_URL = "https://gradwindow-subscriptions.your-account.workers.dev"
 RESEND_FROM = "GradWindow <alerts@updates.your-domain.example>"
+# Set after creating the dedicated free Supabase Auth project.
+# SUPABASE_URL = "https://your-project.supabase.co"
+# Store SUPABASE_SERVICE_ROLE_KEY with `wrangler secret put`, never in this file.

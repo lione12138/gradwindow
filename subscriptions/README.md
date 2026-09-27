@@ -198,20 +198,63 @@ npx wrangler secret put ROADMAP_ADMIN_API_KEY --config subscriptions/wrangler.to
 
 ## Accounts and comments
 
-Accounts are passwordless. A user enters an email address, receives a six-digit
-code, and the Worker returns an opaque session token after verification. The
-static site stores that token in browser local storage and sends it as a Bearer
+Accounts support passwords and email codes. Registration and password reset use
+the email-code flow with a new password in the verification request. Passwords
+must contain at least 15 Unicode characters and at most 72 UTF-8 bytes (the
+provider's bcrypt limit). Supabase Auth stores and verifies passwords;
+the Worker never stores plaintext passwords or password hashes. Resets revoke all
+existing sessions and outstanding email codes. Existing email-only users keep
+their account ID, profile and favourites when setting a password. Successful
+authentication creates an opaque 30-day session. The static site stores the
+token in browser local storage and sends it as a Bearer
 token to account-only endpoints.
 
 Account endpoints:
 
 - `POST /auth/request`: send an email login code.
-- `POST /auth/verify`: verify the code and create a 30-day session.
+- `POST /auth/verify`: atomically consume the code and create a 30-day session;
+  optional `password` sets/resets the password after email ownership is verified.
+- `POST /auth/login`: sign in with `email`, `password` and `turnstileToken`.
 - `POST /auth/logout`: revoke the current session.
 - `GET /me`: return the public profile and synced favourites.
 - `PATCH /me`: update display name, language, country/region, and target
   intake.
 - `PUT /me/favorites`: replace the signed-in user's favourite item keys.
+
+The private `/#my-account` view uses these endpoints. Its personal calendar is
+derived from saved published windows; it does not copy or invent admissions
+dates in D1. Account data is always scoped to the authenticated session.
+Apply the idempotent `schema.sql` before deploying (it adds `user_password_auth`
+without altering existing user rows). D1 stores only a credential generation
+and reset state, so password hashing does not consume Workers Free CPU time.
+An earlier experimental `user_passwords` table, if present, is unused.
+
+Create a dedicated **Free** Supabase project for GradWindow authentication.
+Keep public signups disabled: the Worker creates confirmed identities only after
+verifying the existing Resend email code. Email/password sign-in must be enabled.
+No Supabase SMTP configuration is needed for this flow. Do not create public
+application tables or expose the admin key to the static frontend.
+
+Set `SUPABASE_URL` (for example `https://PROJECT.supabase.co`) in Worker variables,
+and install the project's legacy `service_role` JWT as a server-only secret:
+
+```powershell
+npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY --config subscriptions/wrangler.toml
+```
+
+Use a dedicated project because the service-role key has admin access. Store it
+only in Cloudflare secrets and the owner's password manager, never Git, browser
+storage, analytics, logs, or frontend config. Existing GradWindow UUIDs identify
+the corresponding Supabase users; existing favourites and profile rows remain
+in D1. Provider tokens are discarded, and only the existing opaque D1 session is
+issued to the browser. A provider failure returns 503, never a successful login.
+If a password reset is interrupted, email-code login remains available and a
+fresh verified password reset repairs the credential state (allow two minutes
+for an interrupted reset lock to expire).
+
+Deploy the schema and configured Worker, then verify registration, password login,
+reset, and legacy-account upgrade before publishing the frontend. Supabase Free
+projects can pause after inactivity; check project health before a public launch.
 
 School comments remain publicly readable, but posting now requires a valid
 session. Run the schema command again before deploying this Worker version:

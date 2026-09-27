@@ -6,7 +6,7 @@ import {
   turnstileToken,
 } from "./turnstile.js";
 
-// Email-code sign-in, profile, and favourites sync for the tracker page.
+// Password/email-code sign-in, profile, and favourites sync.
 // Auth updates page UI it does not own (board, favourite controls, review
 // panel), so app.js injects those refreshers via initAuth() instead of this
 // module importing app.js back (which would create a cycle).
@@ -16,11 +16,27 @@ const GUEST_FAVORITES_KEY = "gradwindow:favorites";
 const USER_FAVORITES_PREFIX = "gradwindow:favorites:user:";
 const AUTH_TURNSTILE_CONTAINER = "auth-turnstile";
 const AUTH_TURNSTILE_ACTION = "auth-login";
+let authMode = "password";
+let favoriteSyncInFlight = false;
+
+function pendingFavorites(user = state.user) {
+  try {
+    const value = JSON.parse(
+      localStorage.getItem(`${userFavoritesKey(user)}:pending`) || "{}",
+    );
+    return value && typeof value === "object" && !Array.isArray(value)
+      ? value
+      : {};
+  } catch {
+    return {};
+  }
+}
 
 let deps = {
   render: () => {},
   updateFavoriteControls: () => {},
   updateReviewAuthState: () => {},
+  openHome: () => {},
 };
 
 export function initAuth(callbacks = {}) {
@@ -78,10 +94,20 @@ export function loadInitialFavorites() {
 
 export function persistFavorites() {
   const key = userFavoritesKey() || GUEST_FAVORITES_KEY;
+  if (state.user) {
+    const previous = favoriteSetFromStorage(key);
+    const pending = pendingFavorites();
+    for (const item of new Set([...previous, ...state.favorites])) {
+      if (previous.has(item) !== state.favorites.has(item))
+        pending[item] = state.favorites.has(item);
+    }
+    localStorage.setItem(`${key}:pending`, JSON.stringify(pending));
+  }
   localStorage.setItem(key, JSON.stringify([...state.favorites]));
   state.favoriteSyncStatus = state.user ? "pending" : "local";
   deps.updateFavoriteControls();
   scheduleFavoriteSync();
+  window.dispatchEvent(new Event("accountchange"));
 }
 
 function useSignedInFavorites(user, remoteFavorites = []) {
@@ -90,13 +116,21 @@ function useSignedInFavorites(user, remoteFavorites = []) {
   const guestFavorites = state.user
     ? new Set()
     : favoriteSetFromStorage(GUEST_FAVORITES_KEY);
-  const accountFavorites = favoriteSetFromStorage(userFavoritesKey(user));
   state.user = user;
   state.favorites = new Set([
-    ...accountFavorites,
     ...serverFavorites.filter(Boolean),
     ...guestFavorites,
   ]);
+  const pending = pendingFavorites(user);
+  for (const key of guestFavorites) pending[key] = true;
+  localStorage.setItem(
+    `${userFavoritesKey(user)}:pending`,
+    JSON.stringify(pending),
+  );
+  for (const [key, saved] of Object.entries(pending)) {
+    if (saved) state.favorites.add(key);
+    else state.favorites.delete(key);
+  }
   localStorage.removeItem(GUEST_FAVORITES_KEY);
   localStorage.setItem(
     userFavoritesKey(user),
@@ -128,9 +162,7 @@ export function updateAuthUi() {
   const signedIn = Boolean(state.user);
   const toggle = document.getElementById("auth-toggle");
   if (toggle) {
-    toggle.textContent = signedIn
-      ? state.user.displayName || t("accountTitle")
-      : t("signIn");
+    toggle.textContent = signedIn ? t("personalHome") : t("signIn");
   }
   const signedOut = document.getElementById("auth-signed-out");
   const signedInPanel = document.getElementById("auth-signed-in");
@@ -154,9 +186,14 @@ export function updateAuthUi() {
       : t("mobileNavProfile");
   }
   deps.updateReviewAuthState();
+  window.dispatchEvent(new Event("accountchange"));
 }
 
-export function openAuthPanel(message = "") {
+export function openAuthPanel(message = "", settings = false) {
+  if (state.user && !settings) {
+    deps.openHome();
+    return;
+  }
   const panel = document.getElementById("auth-panel");
   if (!panel) return;
   panel.hidden = false;
@@ -189,13 +226,19 @@ async function refreshMe() {
     const response = await fetch(`${base}/me`, {
       headers: authHeaders(false),
     });
-    if (!response.ok) throw new Error("auth expired");
+    if (response.status === 401) {
+      saveAuthToken("");
+      useGuestFavorites();
+      updateAuthUi();
+      deps.render();
+      return;
+    }
+    if (!response.ok) throw new Error("auth unavailable");
     const payload = await response.json();
     useSignedInFavorites(payload.user, payload.favorites || []);
     scheduleFavoriteSync();
   } catch {
-    saveAuthToken("");
-    useGuestFavorites();
+    setAuthStatus(t("authError"), "error");
   }
   updateAuthUi();
   deps.updateFavoriteControls();
@@ -212,8 +255,16 @@ export function scheduleFavoriteSync() {
 
 async function syncFavorites() {
   if (!state.authToken || !state.user) return;
+  if (favoriteSyncInFlight) {
+    state.favoriteSyncTimer = setTimeout(syncFavorites, 400);
+    return;
+  }
   const base = authApiBase();
   if (!base) return;
+  favoriteSyncInFlight = true;
+  const token = state.authToken;
+  const storageKey = userFavoritesKey();
+  const pendingSnapshot = pendingFavorites();
   state.favoriteSyncStatus = "syncing";
   deps.updateFavoriteControls();
   try {
@@ -222,6 +273,7 @@ async function syncFavorites() {
       headers: authHeaders(),
       body: JSON.stringify({ favorites: [...state.favorites] }),
     });
+    if (state.authToken !== token) return;
     if (response.status === 401) {
       saveAuthToken("");
       useGuestFavorites();
@@ -231,11 +283,19 @@ async function syncFavorites() {
       return;
     }
     if (!response.ok) throw new Error("favorite sync failed");
+    const pending = pendingFavorites();
+    for (const [key, saved] of Object.entries(pendingSnapshot)) {
+      if (pending[key] === saved) delete pending[key];
+    }
+    localStorage.setItem(`${storageKey}:pending`, JSON.stringify(pending));
     state.favoriteSyncStatus = "synced";
   } catch {
-    state.favoriteSyncStatus = "error";
+    if (state.authToken === token) state.favoriteSyncStatus = "error";
+  } finally {
+    favoriteSyncInFlight = false;
   }
   deps.updateFavoriteControls();
+  window.dispatchEvent(new Event("accountchange"));
 }
 
 async function requestLoginCode(email) {
@@ -269,10 +329,20 @@ async function verifyLoginCode(email, code) {
   const response = await fetch(`${base}/auth/verify`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, code }),
+    body: JSON.stringify({
+      email,
+      code,
+      ...(["register", "reset"].includes(authMode)
+        ? { password: document.getElementById("auth-password").value }
+        : {}),
+    }),
   });
   if (!response.ok) throw new Error("login verify failed");
   const payload = await response.json();
+  finishLogin(payload);
+}
+
+function finishLogin(payload) {
   saveAuthToken(payload.token || "");
   useSignedInFavorites(payload.user, payload.favorites || []);
   setAuthStatus(t("authSignedIn"), "success");
@@ -280,6 +350,65 @@ async function verifyLoginCode(email, code) {
   deps.updateFavoriteControls();
   deps.render();
   scheduleFavoriteSync();
+  document.getElementById("auth-password").value = "";
+  document.getElementById("auth-password-confirm").value = "";
+  document.getElementById("auth-code").value = "";
+  closeAuthPanel();
+  deps.openHome();
+}
+
+function setAuthMode(mode) {
+  authMode = mode;
+  setAuthStep("email");
+  const password = document.getElementById("auth-password");
+  const confirm = document.getElementById("auth-password-confirm");
+  const setting = ["register", "reset"].includes(mode);
+  document.getElementById("auth-password-fields").hidden = mode === "code";
+  password.required = mode !== "code";
+  password.autocomplete = setting ? "new-password" : "current-password";
+  password.value = "";
+  confirm.value = "";
+  confirm.required = setting;
+  confirm.hidden = !setting;
+  document.getElementById("auth-confirm-label").hidden = !setting;
+  const submit = document.getElementById("auth-request-button");
+  submit.dataset.i18n = mode === "password" ? "passwordLogin" : "sendLoginCode";
+  submit.textContent = t(submit.dataset.i18n);
+  document.querySelectorAll("[data-auth-mode]").forEach((button) => {
+    button.setAttribute(
+      "aria-pressed",
+      String(button.dataset.authMode === mode),
+    );
+  });
+  setAuthStatus(setting ? t("passwordSetup") : "");
+}
+
+async function passwordLogin(email) {
+  const base = authApiBase();
+  if (!base) throw new Error("auth unavailable");
+  await ensureTurnstileWidget(AUTH_TURNSTILE_CONTAINER, AUTH_TURNSTILE_ACTION);
+  const token = turnstileToken(AUTH_TURNSTILE_CONTAINER);
+  if (window.GRADWINDOW_CONFIG?.turnstileSiteKey && !token)
+    throw new Error("challenge required");
+  try {
+    const response = await fetch(`${base}/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password: document.getElementById("auth-password").value,
+        turnstileToken: token,
+      }),
+    });
+    if (!response.ok) {
+      const error = new Error("login failed");
+      error.status = response.status;
+      throw error;
+    }
+    finishLogin(await response.json());
+  } finally {
+    resetTurnstileWidget(AUTH_TURNSTILE_CONTAINER);
+  }
 }
 
 async function saveProfile() {
@@ -331,6 +460,23 @@ async function signOut() {
 }
 
 export function setupAuthPanel() {
+  document.querySelectorAll("[data-auth-mode]").forEach((button) => {
+    button.addEventListener("click", () =>
+      setAuthMode(button.dataset.authMode),
+    );
+  });
+  document
+    .getElementById("account-password-reset")
+    ?.addEventListener("click", () => {
+      document.getElementById("auth-signed-in").hidden = true;
+      document.getElementById("auth-signed-out").hidden = false;
+      setAuthMode("reset");
+      ensureTurnstileWidget(
+        AUTH_TURNSTILE_CONTAINER,
+        AUTH_TURNSTILE_ACTION,
+      ).catch(() => setAuthStatus(t("authChallengeError"), "error"));
+      document.getElementById("auth-email").focus();
+    });
   document.getElementById("auth-toggle")?.addEventListener("click", () => {
     openAuthPanel();
   });
@@ -345,10 +491,40 @@ export function setupAuthPanel() {
       const email = document.getElementById("auth-email").value.trim();
       button.disabled = true;
       try {
-        await requestLoginCode(email);
-        document.getElementById("auth-code").focus();
-      } catch {
-        setAuthStatus(t("authError"), "error");
+        const password = document.getElementById("auth-password").value;
+        if (
+          authMode !== "code" &&
+          ([...password].length < 15 ||
+            new TextEncoder().encode(password).length > 72)
+        ) {
+          setAuthStatus(t("passwordLengthError"), "error");
+          return;
+        }
+        if (
+          ["register", "reset"].includes(authMode) &&
+          document.getElementById("auth-password").value !==
+            document.getElementById("auth-password-confirm").value
+        ) {
+          setAuthStatus(t("passwordMismatch"), "error");
+          return;
+        }
+        if (authMode === "password") await passwordLogin(email);
+        else {
+          await requestLoginCode(email);
+          document.getElementById("auth-code").focus();
+        }
+      } catch (error) {
+        setAuthStatus(
+          t(
+            error.status === 429
+              ? "authRateLimited"
+              : error.status === 401
+                ? "passwordLoginError"
+                : "authError",
+          ),
+          "error",
+        );
+        resetTurnstileWidget(AUTH_TURNSTILE_CONTAINER);
       } finally {
         button.disabled = false;
       }
@@ -407,7 +583,7 @@ export function setupAuthPanel() {
     }
   });
   state.authToken = localStorage.getItem(AUTH_TOKEN_KEY) || "";
-  setAuthStep("email");
+  setAuthMode("password");
   updateAuthUi();
   refreshMe();
 }

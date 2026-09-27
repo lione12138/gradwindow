@@ -65,6 +65,7 @@ PUBLIC_FILES = (
     "calendar-export.js",
     "turnstile.js",
     "auth.js",
+    "account.js",
     "review.js",
     "styles.css",
     "og-image-multiranking.png",

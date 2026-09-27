@@ -175,10 +175,23 @@
           <div class="auth-signed-out" id="auth-signed-out">
             <p data-i18n="accountIntro">Sign in with an email code to sync saved universities, opening alerts, and your personal application calendar.</p>
             <form class="auth-form" id="auth-request-form">
+              <div class="account-tabs" role="group" aria-label="Sign-in method">
+                <button type="button" class="toolbar-button" data-auth-mode="password" data-i18n="passwordLogin">Password login</button>
+                <button type="button" class="toolbar-button" data-auth-mode="register" data-i18n="registerAccount">Create account</button>
+                <button type="button" class="text-button" data-auth-mode="code" data-i18n="codeLogin">Email code</button>
+              </div>
               <label for="auth-email" data-i18n="authEmailLabel">Email address</label>
               <input id="auth-email" type="email" autocomplete="email" required data-i18n-placeholder="emailPlaceholder" placeholder="you@example.com" />
+              <div class="auth-form" id="auth-password-fields">
+                <label for="auth-password" data-i18n="passwordLabel">Password</label>
+                <input id="auth-password" type="password" autocomplete="current-password" minlength="15" maxlength="72" required />
+                <p class="muted" data-i18n="passwordHelp">Use at least 15 characters, up to 72 UTF-8 bytes. A memorable passphrase works well.</p>
+                <label for="auth-password-confirm" id="auth-confirm-label" data-i18n="confirmPassword" hidden>Confirm password</label>
+                <input id="auth-password-confirm" type="password" autocomplete="new-password" minlength="15" maxlength="72" hidden />
+              </div>
               <div id="auth-turnstile" class="auth-turnstile"></div>
               <button class="primary-button" id="auth-request-button" type="submit" data-i18n="sendLoginCode">Send login code</button>
+              <button type="button" class="text-button" data-auth-mode="reset" data-i18n="forgotPassword">Forgot password / set a password</button>
             </form>
             <form class="auth-form" id="auth-verify-form" hidden>
               <p class="auth-code-help">
@@ -191,7 +204,7 @@
               <button class="text-button" id="auth-change-email" type="button" data-i18n="authChangeEmail">Use a different email</button>
             </form>
             <p class="auth-privacy">
-              <span data-i18n="authPrivacy">Passwordless sign-in. Your email is encrypted and never shown publicly.</span>
+              <span data-i18n="authPrivacy">Supabase Auth securely verifies your password. Your email is never shown publicly.</span>
               <a href="./privacy.html" data-i18n="privacyPolicy">Privacy policy</a>
             </p>
           </div>
@@ -211,6 +224,7 @@
               <button class="primary-button" id="profile-save-button" type="submit" data-i18n="saveProfile">Save profile</button>
             </form>
             <button class="toolbar-button" id="auth-logout-button" type="button" data-i18n="signOut">Sign out</button>
+            <button class="text-button" id="account-password-reset" type="button" data-i18n="forgotPassword">Forgot password / set a password</button>
           </div>
           <p class="auth-status" id="auth-status" role="status" aria-live="polite"></p>
         </section>

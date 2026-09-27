@@ -1,5 +1,6 @@
 import { countUniversitiesByStatus, getApplicationStatus } from "./status.js";
 import { state } from "./state.js";
+import { setupAccount, openAccountHome } from "./account.js";
 import { t } from "./strings.js";
 import { makeCalendarMenu } from "./calendar-export.js";
 import {
@@ -2652,6 +2653,7 @@ function bindEvents() {
     .getElementById("collapse-visible-groups")
     .addEventListener("click", () => setVisibleUniversityGroups(false));
   document.getElementById("favorites-toggle").addEventListener("click", () => {
+    if (location.hash === "#my-account") location.hash = "application-board";
     state.favoritesOnly = !state.favoritesOnly;
     resetPages();
     syncUrl();
@@ -2707,6 +2709,8 @@ function bindEvents() {
   document.querySelectorAll("[data-mobile-nav]").forEach((button) => {
     button.addEventListener("click", async () => {
       const destination = button.dataset.mobileNav;
+      if (destination !== "profile" && location.hash === "#my-account")
+        location.hash = "application-board";
       setMobileNavActive(destination);
       if (destination === "tracker") {
         state.search = "";
@@ -2836,7 +2840,13 @@ async function init() {
     renderCoverage();
     setupSubscription();
     bindEvents();
-    initAuth({ render, updateFavoriteControls, updateReviewAuthState });
+    setupAccount(ensureClosedRecords);
+    initAuth({
+      render,
+      updateFavoriteControls,
+      updateReviewAuthState,
+      openHome: openAccountHome,
+    });
     setupAuthPanel();
     setupReviewPanel();
     setupWindowDetailPanel();
