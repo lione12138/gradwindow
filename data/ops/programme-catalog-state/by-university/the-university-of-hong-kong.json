@@ -2,14 +2,14 @@
   "universities": {
     "the-university-of-hong-kong": {
       "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-listing",
-      "checkedAt": "2026-09-27T10:39:56.713208+00:00",
-      "itemCount": 153,
+      "checkedAt": "2026-09-28T11:31:34.296226+00:00",
+      "itemCount": 155,
       "applicationOpensAt": "2025-09-01",
-      "catalogHash": "1b603b1c8155e56b6488dccc6df995bc12539608da653817efd9ee54af1943f5",
+      "catalogHash": "3e88f74419c101a37fdda4490b8ff103a9a1e695d12f6c25402eae8dfd01e61c",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 120,
+      "observedWindowCount": 118,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -17,7 +17,7 @@
           "intakes": [
             "September 2026"
           ],
-          "observedWindowCount": 96,
+          "observedWindowCount": 94,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         },
@@ -30,12 +30,12 @@
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 120,
-      "programmesWithoutDeadlines": 94,
-      "programmesNeedingReview": 94,
-      "limitationReason": "120 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-09-27T10:39:56.713208+00:00",
-      "windowFingerprint": "c116d3057064cd5d47751feb6cdebc77489c3234ecec89da335319fd920dc6f9",
+      "missingOpeningDateCount": 118,
+      "programmesWithoutDeadlines": 97,
+      "programmesNeedingReview": 97,
+      "limitationReason": "118 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-09-28T11:31:34.296226+00:00",
+      "windowFingerprint": "25a402dc17533b374ea05371dc638a06cb49b9e9ba16484ecd8c7b46d4551bda",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -319,6 +319,26 @@
           "windowCount": 2,
           "latestClosesAt": "2026-04-30"
         },
+        "hku-computer-science-general-cyber-security-financial-computing-and-multimedia-computing-streams-msc": {
+          "name": "Master of Science in Computer Science (General, Cyber Security, Financial Computing and Multimedia Computing Streams)",
+          "degreeType": "MSc",
+          "faculty": "School of Computing and Data Science",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "hku-computer-science-general-cyber-security-financial-computing-and-multimedia-computing-streams-with-delta-x-fellowship-msc": {
+          "name": "Master of Science in Computer Science (General, Cyber Security, Financial Computing and Multimedia Computing Streams), with Delta X Fellowship",
+          "degreeType": "MSc",
+          "faculty": "School of Computing and Data Science",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "hku-computer-science-general-msc": {
           "name": "Master of Science in Computer Science - General Stream",
           "degreeType": "MSc",
@@ -504,10 +524,10 @@
           "degreeType": "MSc",
           "faculty": "School of Computing and Data Science",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "111587b5dab2a11483e7d1a2510e19da164f9b6ce811aa7c8bae1869ebc27cd5",
-          "windowCount": 2,
-          "latestClosesAt": "2026-04-30"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-engineering-building-services-engineering-msc": {
           "name": "Master of Science in Engineering (Building Services Engineering)",
@@ -1779,22 +1799,6 @@
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-economics-hkubs&mode=FT",
           "opensAtBasis": null
         },
-        "hku-electronic-commerce-and-internet-computing-msc::September 2026::Round 1 (Main)::all": {
-          "programmeId": "hku-electronic-commerce-and-internet-computing-msc",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2025-12-01",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-electronic-commerce-and-internet-computing-cds&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-electronic-commerce-and-internet-computing-msc::September 2026::Round 2 (Clearing)::all": {
-          "programmeId": "hku-electronic-commerce-and-internet-computing-msc",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-04-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-electronic-commerce-and-internet-computing-cds&mode=FT",
-          "opensAtBasis": null
-        },
         "hku-engineering-building-services-engineering-msc::September 2026::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-building-services-engineering-msc",
           "intake": "September 2026",
@@ -2535,8 +2539,8 @@
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 161,
-          "directSuccesses": 161,
+          "requests": 163,
+          "directSuccesses": 163,
           "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
