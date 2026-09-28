@@ -184,10 +184,10 @@
               <input id="auth-email" type="email" autocomplete="email" required data-i18n-placeholder="emailPlaceholder" placeholder="you@example.com" />
               <div class="auth-form" id="auth-password-fields">
                 <label for="auth-password" data-i18n="passwordLabel">Password</label>
-                <input id="auth-password" type="password" autocomplete="current-password" minlength="15" maxlength="72" required />
-                <p class="muted" data-i18n="passwordHelp">Use at least 15 characters, up to 72 UTF-8 bytes. A memorable passphrase works well.</p>
+                <input id="auth-password" type="password" autocomplete="current-password" minlength="6" maxlength="72" required />
+                <p class="muted" data-i18n="passwordHelp">Use at least 6 characters, including uppercase and lowercase letters and a number.</p>
                 <label for="auth-password-confirm" id="auth-confirm-label" data-i18n="confirmPassword" hidden>Confirm password</label>
-                <input id="auth-password-confirm" type="password" autocomplete="new-password" minlength="15" maxlength="72" hidden />
+                <input id="auth-password-confirm" type="password" autocomplete="new-password" minlength="6" maxlength="72" hidden />
               </div>
               <div id="auth-turnstile" class="auth-turnstile"></div>
               <button class="primary-button" id="auth-request-button" type="submit" data-i18n="sendLoginCode">Send login code</button>

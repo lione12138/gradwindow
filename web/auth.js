@@ -494,8 +494,12 @@ export function setupAuthPanel() {
         const password = document.getElementById("auth-password").value;
         if (
           authMode !== "code" &&
-          ([...password].length < 15 ||
-            new TextEncoder().encode(password).length > 72)
+          ([...password].length < 6 ||
+            new TextEncoder().encode(password).length > 72 ||
+            (["register", "reset"].includes(authMode) &&
+              (!/[a-z]/.test(password) ||
+                !/[A-Z]/.test(password) ||
+                !/[0-9]/.test(password))))
         ) {
           setAuthStatus(t("passwordLengthError"), "error");
           return;

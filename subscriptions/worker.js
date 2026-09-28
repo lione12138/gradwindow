@@ -701,7 +701,8 @@ async function loginWithPassword(request, env) {
   } catch {
     return jsonResponse(request, env, { ok: false }, 400);
   }
-  if (!validPassword(payload.password)) return jsonResponse(request, env, { ok: false }, 401);
+  // Complexity applies when setting a password, not to existing credentials.
+  if (typeof payload.password !== "string" || payload.password.length < 6 || new TextEncoder().encode(payload.password).length > 72) return jsonResponse(request, env, { ok: false }, 401);
   const emailHash = await hmacHex(env.EMAIL_INDEX_KEY, email);
   const ipHash = await hmacHex(authSecret(env), request.headers.get("CF-Connecting-IP") || "unknown");
   const allowed = await Promise.all([
