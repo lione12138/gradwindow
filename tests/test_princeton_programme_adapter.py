@@ -150,16 +150,17 @@ def test_princeton_adapter_rejects_a_truncated_masters_catalogue() -> None:
         )
 
 
-def test_princeton_adapter_requires_an_exact_official_opening_date() -> None:
+def test_princeton_adapter_keeps_month_only_opening_incomplete() -> None:
     def fetcher(url: str) -> str:
         if url == DEADLINES_URL:
             return DEADLINES_HTML.replace("September 15, 2026", "September 2026")
         return _fetcher(url)
 
-    with pytest.raises(ValueError, match="no exact opening date"):
-        PrincetonAdapter(minimum_expected_programmes=5).parse_catalog_from_fetcher(
-            fetcher
-        )
+    catalog = PrincetonAdapter(
+        minimum_expected_programmes=5
+    ).parse_catalog_from_fetcher(fetcher)
+    assert all(p.windows[0].opens_at is None for p in catalog.programmes)
+    assert all(p.parse_status == "incomplete" for p in catalog.programmes)
 
 
 def test_princeton_adapter_rejects_a_missing_central_deadline() -> None:

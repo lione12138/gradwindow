@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import re
+from urllib.parse import urljoin
+
 from bs4 import BeautifulSoup
 
 from .base import DiscoveredCatalog, Fetcher
@@ -33,8 +36,8 @@ class DartmouthAdapter(OfficialCatalogAdapter):
     catalogue_limitation_reason = (
         "The official Guarini page covers Guarini and listed Geisel master's "
         "programmes, but not every professional degree offered independently by "
-        "Dartmouth's other schools. Fall 2027 is announced only as opening in "
-        "September, which is not an exact opening date."
+        "Dartmouth's other schools. The central application guide does not "
+        "provide programme-specific exact opening and closing dates."
     )
 
     def __init__(self, minimum_expected_programmes: int = 14) -> None:
@@ -47,8 +50,14 @@ class DartmouthAdapter(OfficialCatalogAdapter):
                 " ", strip=True
             )
         ).casefold()
-        if "fall 2027 will open in september" not in admissions:
-            raise ValueError("Dartmouth's Fall 2027 application notice is missing")
+        if not (
+            re.search(r"fall 20\d{2} will open in september", admissions)
+            or (
+                "applying to dartmouth" in admissions
+                and "application requirements vary by program" in admissions
+            )
+        ):
+            raise ValueError("Dartmouth's application guide was not recognised")
         return catalog
 
     def extract_entries(self, html: str) -> list[CatalogEntry]:
@@ -69,7 +78,7 @@ class DartmouthAdapter(OfficialCatalogAdapter):
                     CatalogEntry(
                         name=name,
                         degree_type=degree_type,
-                        source_url=str(link["href"]),
+                        source_url=urljoin(CATALOG_URL, str(link["href"])),
                     )
                 )
         return rows
