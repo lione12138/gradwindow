@@ -1,13 +1,13 @@
 # Published data audit
 
-Generated for 2026-09-28.
+Generated for 2026-09-29.
 
-- Active issues: 710
-- Universities needing review: 12
-- Records quarantined from SEO aggregates: 474
+- Active issues: 709
+- Universities needing review: 13
+- Records quarantined from SEO aggregates: 473
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 23
-- Published records changed from a healthy current snapshot: 426
+- Published records missing from a healthy current snapshot: 24
+- Published records changed from a healthy current snapshot: 424
 - Published records with source URL-only changes: 42
 
 ## Maintenance queue
@@ -71,6 +71,7 @@ Generated for 2026-09-28.
 - `imperial-strategic-marketing-online-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
 - `imperial-strategic-marketing-online-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
 - `imperial-strategic-marketing-online-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
+- `kth-computer-science-autumn-2027` — **published-record-missing-from-snapshot** (kth-royal-institute-of-technology, Autumn 2027, closes 2027-01-15) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
 - `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review
@@ -210,7 +211,6 @@ Generated for 2026-09-28.
 - `cuhk-education-in-teaching-in-key-subject-areas-national-excellent-teacher-training-initiative-master-2026-main-application-period` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-02-28) — correct-intake-or-document-flexible-entry
 - `cuhk-education-master-2026-main-application-period` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2027-02-28) — correct-published-record-review
 - `cuhk-education-master-2026-main-application-period` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-02-28) — correct-intake-or-document-flexible-entry
-- `cuhk-electronic-engineering-msc-2026-1st-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-09-28) — correct-published-record-review
 - `cuhk-electronic-engineering-msc-2026-2nd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-10-26) — correct-published-record-review
 - `cuhk-electronic-engineering-msc-2026-3rd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-11-30) — correct-published-record-review
 - `cuhk-electronic-engineering-msc-2026-3rd-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2026-11-30) — correct-intake-or-document-flexible-entry
@@ -368,7 +368,6 @@ Generated for 2026-09-28.
 - `cuhk-mba-2026-5th-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-intake-or-document-flexible-entry
 - `cuhk-mechanical-and-automation-engineering-msc-2026-main-application-period` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2027-03-31) — correct-published-record-review
 - `cuhk-mechanical-and-automation-engineering-msc-2026-main-application-period` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-03-31) — correct-intake-or-document-flexible-entry
-- `cuhk-microelectronics-and-integrated-circuits-msc-2026-1st-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-09-28) — correct-published-record-review
 - `cuhk-microelectronics-and-integrated-circuits-msc-2026-2nd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-10-26) — correct-published-record-review
 - `cuhk-microelectronics-and-integrated-circuits-msc-2026-3rd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-11-30) — correct-published-record-review
 - `cuhk-microelectronics-and-integrated-circuits-msc-2026-3rd-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2026-11-30) — correct-intake-or-document-flexible-entry
