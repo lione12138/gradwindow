@@ -2,10 +2,10 @@
   "universities": {
     "university-of-wollongong": {
       "sourceUrl": "https://uow-search.searchblox.com/rest/v2/api/search?query=master&pagesize=500&collection=courses&default=AND&col=25",
-      "checkedAt": "2026-09-28T12:11:13.153971+00:00",
-      "itemCount": 187,
+      "checkedAt": "2026-09-29T12:03:36.173874+00:00",
+      "itemCount": 188,
       "applicationOpensAt": null,
-      "catalogHash": "3d70b30c4950d9559f4f1198e8653d4773129787d8ae1087fcabfc5cd06f7e07",
+      "catalogHash": "af7a6665a6fe5174d202fb337d7ef98d25af3c447cd0471042fd8c8520834388",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,12 +14,12 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 187,
-      "programmesNeedingReview": 187,
+      "programmesWithoutDeadlines": 188,
+      "programmesNeedingReview": 188,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-28T12:11:13.153971+00:00",
-      "windowFingerprint": "2448001382462960bc177b75ea4bdb21ee232a01e67ca54853b4016ae1b844c5",
-      "watchedWindowSourceHash": "e29e64863e227c8f8d223f9a3af0856eb665ed419ff7eea4732294b1172bf3a7",
+      "lastSuccessfulAt": "2026-09-29T12:03:36.173874+00:00",
+      "windowFingerprint": "d4e28e452ec134c64e7ea562e6907b7a38ac7f3032af4aa2053f5f3c0dcf80db",
+      "watchedWindowSourceHash": "cb35a32282a77b63e9543ef216f5f8bc159e41ce2ebe7adb3b2fb732b063c83b",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "uow-master-of-applied-finance-double-specialisation-master": {
@@ -914,6 +914,16 @@
         },
         "uow-master-of-medicinal-chemistry-master": {
           "name": "Master of Medicinal Chemistry",
+          "degreeType": "Master",
+          "faculty": "University of Wollongong",
+          "department": "University of Wollongong",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "uow-master-of-nursing-mental-health-master": {
+          "name": "Master of Nursing (Mental Health)",
           "degreeType": "Master",
           "faculty": "University of Wollongong",
           "department": "University of Wollongong",
