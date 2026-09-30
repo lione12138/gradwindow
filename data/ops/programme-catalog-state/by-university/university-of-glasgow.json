@@ -2,23 +2,32 @@
   "universities": {
     "university-of-glasgow": {
       "sourceUrl": "https://www.gla.ac.uk/postgraduate/taught/",
-      "checkedAt": "2026-09-29T11:14:10.594574+00:00",
+      "checkedAt": "2026-09-30T11:05:23.458252+00:00",
       "itemCount": 240,
       "applicationOpensAt": null,
-      "catalogHash": "eb3b46b2f48fc3a9d496f1abe2287427f0d90c607429378d30cbfac6c7ce6dd5",
+      "catalogHash": "cdc603ab3b59c16551d0e117ab0d44e44d5f0b58d5ab5741d96b1cc200557715",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 2,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {},
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 240,
+      "windowCountsByCycle": {
+        "2026:fall:09": {
+          "intakes": [
+            "September 2026"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 2,
+      "programmesWithoutDeadlines": 238,
       "programmesNeedingReview": 240,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-29T11:14:10.594574+00:00",
-      "windowFingerprint": "c6fad29bb9f5a5a84981600b3b7fef7f16e7e62ecb0e044efcc18a2b00e9e590",
+      "limitationReason": "2 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-09-30T11:05:23.458252+00:00",
+      "windowFingerprint": "80a46022fa4190c2eb9f8ea9c56f5088867ba846c83a15455b30f9620f06516a",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -517,10 +526,10 @@
           "degreeType": "MSc",
           "faculty": "",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "38632c89c7bf2bbb36e8a02aeb7c1206b53551dea9882d269bc857420c2f48e1",
+          "windowCount": 1,
+          "latestClosesAt": "2026-08-24"
         },
         "glasgow-computational-geoscience-universitas-gadjah-mada-dual-degree-msc": {
           "name": "MSc Computational Geoscience (Universitas Gadjah Mada dual degree)",
@@ -1277,10 +1286,10 @@
           "degreeType": "MSc",
           "faculty": "",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "38632c89c7bf2bbb36e8a02aeb7c1206b53551dea9882d269bc857420c2f48e1",
+          "windowCount": 1,
+          "latestClosesAt": "2026-08-24"
         },
         "glasgow-human-geography-critical-research-encounters-msc": {
           "name": "MSc Human Geography: Critical Research Encounters",
@@ -2423,7 +2432,24 @@
           "latestClosesAt": null
         }
       },
-      "windows": {},
+      "windows": {
+        "glasgow-computational-geoscience-msc::September 2026::Home applicants::domestic-students": {
+          "programmeId": "glasgow-computational-geoscience-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-24",
+          "sourceUrl": "https://www.gla.ac.uk/postgraduate/taught/computational-geoscience/",
+          "opensAtBasis": null
+        },
+        "glasgow-human-computer-interaction-msc::September 2026::Home applicants::domestic-students": {
+          "programmeId": "glasgow-human-computer-interaction-msc",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-08-24",
+          "sourceUrl": "https://www.gla.ac.uk/postgraduate/taught/human-computer-interaction/",
+          "opensAtBasis": null
+        }
+      },
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {

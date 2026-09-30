@@ -2,10 +2,10 @@
   "universities": {
     "university-of-illinois-at-urbana-champaign": {
       "sourceUrl": "https://catalog.illinois.edu/degree-programs/graduate_index/",
-      "checkedAt": "2026-09-29T11:54:45.364318+00:00",
-      "itemCount": 165,
+      "checkedAt": "2026-09-30T11:43:09.319387+00:00",
+      "itemCount": 166,
       "applicationOpensAt": null,
-      "catalogHash": "22347a7f34c3d98162e83add2146f535be7e2a43ae05c872b6941ad565c3ccba",
+      "catalogHash": "c8b387501d5a8e59e27baa2b27ed82b518af73af32de895bca5ecc597769c87c",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,11 +14,11 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 165,
-      "programmesNeedingReview": 165,
+      "programmesWithoutDeadlines": 166,
+      "programmesNeedingReview": 166,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-29T11:54:45.364318+00:00",
-      "windowFingerprint": "31fb5ec92cc466858444fbc8b365df1170a2d1baa215e5299f3db49fff46e539",
+      "lastSuccessfulAt": "2026-09-30T11:43:09.319387+00:00",
+      "windowFingerprint": "0665b37bf667508b418a8802b422f84aaaf182682caf5f010d2ee56bd5211561",
       "watchedWindowSourceHash": "b81e7adc9dc63aeb9b1d12fc7d83651c13935b1d2bc07618963749f34b1b0662",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
@@ -1072,6 +1072,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "uiuc-law-ms": {
+          "name": "Law MS",
+          "degreeType": "MS",
+          "faculty": "LAW",
+          "department": "LAW",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "uiuc-master-studies-msl": {
           "name": "Law MSL",
           "degreeType": "MSL",
@@ -1678,17 +1688,15 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 2,
-          "directSuccesses": 1,
-          "directFailures": 1,
+          "directSuccesses": 2,
+          "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 1,
-          "fallbackSuccesses": 1,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {
-            "network": 1
-          }
+          "failureKinds": {}
         }
       }
     }
