@@ -2,10 +2,10 @@
   "universities": {
     "the-university-of-manchester": {
       "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/basic/",
-      "checkedAt": "2026-09-29T11:29:52.236586+00:00",
-      "itemCount": 265,
+      "checkedAt": "2026-09-30T11:21:01.223782+00:00",
+      "itemCount": 267,
       "applicationOpensAt": null,
-      "catalogHash": "07b6f555c03d4eb298adc6f044025bcd1ec70f7963a893e3275fabe3f4841e4c",
+      "catalogHash": "3a06c5b55b2654260e828f9452f4b09157d4b92ee2e83db8481c217f204a5717",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
@@ -31,11 +31,11 @@
         }
       },
       "missingOpeningDateCount": 238,
-      "programmesWithoutDeadlines": 201,
-      "programmesNeedingReview": 265,
+      "programmesWithoutDeadlines": 203,
+      "programmesNeedingReview": 267,
       "limitationReason": "238 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-09-29T11:29:52.236586+00:00",
-      "windowFingerprint": "3ff780b99688712aceb1150afa25920b2f65014feca1e2d9e515c0e291d098ff",
+      "lastSuccessfulAt": "2026-09-30T11:21:01.223782+00:00",
+      "windowFingerprint": "664bb2e4eab659b787d45c8ffc87c67680c2e5252d836fb57506c2bfcad4d754",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -671,6 +671,26 @@
         },
         "manchester-data-analytics-and-social-statistics-online-msc": {
           "name": "Data Analytics and Social Statistics (online) MSc",
+          "degreeType": "MSc",
+          "faculty": "",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "manchester-data-science-and-artificial-intelligence-social-analytics-msc": {
+          "name": "Data Science and Artificial Intelligence (Social Analytics) MSc",
+          "degreeType": "MSc",
+          "faculty": "",
+          "department": "",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "manchester-data-science-and-artificial-intelligence-urban-analytics-msc": {
+          "name": "Data Science and Artificial Intelligence (Urban Analytics) MSc",
           "degreeType": "MSc",
           "faculty": "",
           "department": "",
@@ -4599,16 +4619,18 @@
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 267,
+          "requests": 269,
           "directSuccesses": 267,
-          "directFailures": 0,
+          "directFailures": 2,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
           "fallbackAttempts": 0,
           "fallbackSuccesses": 0,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "http": 2
+          }
         }
       }
     }

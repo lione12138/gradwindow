@@ -2,7 +2,7 @@
   "universities": {
     "university-of-zurich-uzh": {
       "sourceUrl": "https://www.uzh.ch/de/studies/programs/master.html",
-      "checkedAt": "2026-09-29T12:03:41.262142+00:00",
+      "checkedAt": "2026-09-30T11:49:12.428538+00:00",
       "itemCount": 141,
       "applicationOpensAt": null,
       "catalogHash": "648597010d9f33755891f0fb7f5477b41ac52c22d2729e5e4215443f2e56b5cf",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 141,
       "programmesNeedingReview": 141,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-29T12:03:41.262142+00:00",
+      "lastSuccessfulAt": "2026-09-30T11:49:12.428538+00:00",
       "windowFingerprint": "a5d833411c5e308a553bc2c337e13340925485c1cb2319ae41c94eaff9f33130",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -1438,17 +1438,15 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 1,
-          "directSuccesses": 0,
-          "directFailures": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 1,
-          "fallbackSuccesses": 1,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {
-            "network": 1
-          }
+          "failureKinds": {}
         }
       }
     }

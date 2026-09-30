@@ -1,14 +1,14 @@
 # Published data audit
 
-Generated for 2026-09-29.
+Generated for 2026-09-30.
 
-- Active issues: 709
+- Active issues: 665
 - Universities needing review: 13
-- Records quarantined from SEO aggregates: 473
+- Records quarantined from SEO aggregates: 474
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 24
-- Published records changed from a healthy current snapshot: 424
-- Published records with source URL-only changes: 42
+- Published records missing from a healthy current snapshot: 18
+- Published records changed from a healthy current snapshot: 428
+- Published records with source URL-only changes: 0
 
 ## Maintenance queue
 
@@ -17,60 +17,12 @@ Generated for 2026-09-29.
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-3-fad24373` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-03-10) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-4-cbb2ce2e` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-04-28) — correct-intake-or-document-flexible-entry
-- `imperial-ai-economics-and-policy-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-ai-economics-and-policy-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-ai-economics-and-policy-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-business-analytics-and-ai-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-business-analytics-and-ai-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-business-analytics-and-ai-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-04-28) — canonicalise-source-url-review
 - `imperial-cleantech-innovation-msc-2026-round-2-803f88fb` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-cleantech-innovation-msc-2026-round-3-fad24373` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-03-10) — correct-intake-or-document-flexible-entry
 - `imperial-cleantech-innovation-msc-2026-round-4-cbb2ce2e` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-04-28) — correct-intake-or-document-flexible-entry
-- `imperial-climate-change-management-and-finance-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-climate-change-management-and-finance-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-climate-change-management-and-finance-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-2` — **published-record-missing-from-snapshot** (imperial-college-london, September 2026, closes 2027-01-06) — retire-or-correct-review
 - `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-2` — **suspicious-intake-window** (imperial-college-london, September 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
-- `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-3` — **published-record-missing-from-snapshot** (imperial-college-london, September 2026, closes 2027-03-10) — retire-or-correct-review
 - `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-3` — **suspicious-intake-window** (imperial-college-london, September 2026, closes 2027-03-10) — correct-intake-or-document-flexible-entry
-- `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-4` — **published-record-missing-from-snapshot** (imperial-college-london, September 2026, closes 2027-04-28) — retire-or-correct-review
 - `imperial-composites-the-science-technology-and-engineering-application-of-advanced-composites-msc-2026-round-4` — **suspicious-intake-window** (imperial-college-london, September 2026, closes 2027-04-28) — correct-intake-or-document-flexible-entry
-- `imperial-economics-and-strategy-for-business-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-economics-and-strategy-for-business-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-economics-and-strategy-for-business-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-finance-and-accounting-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-finance-and-accounting-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-finance-and-accounting-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-finance-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-finance-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-finance-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-financial-technology-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-financial-technology-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-financial-technology-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-geotechnical-and-geological-engineering-msc-2027-round-2` — **published-record-missing-from-snapshot** (imperial-college-london, October 2027, closes 2027-01-06) — retire-or-correct-review
-- `imperial-geotechnical-and-geological-engineering-msc-2027-round-3` — **published-record-missing-from-snapshot** (imperial-college-london, October 2027, closes 2027-03-10) — retire-or-correct-review
-- `imperial-geotechnical-and-geological-engineering-msc-2027-round-4` — **published-record-missing-from-snapshot** (imperial-college-london, October 2027, closes 2027-04-28) — retire-or-correct-review
-- `imperial-global-health-management-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-global-health-management-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-global-health-management-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-innovation-entrepreneurship-and-management-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-innovation-entrepreneurship-and-management-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-innovation-entrepreneurship-and-management-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, August 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-investment-and-wealth-management-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-investment-and-wealth-management-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-investment-and-wealth-management-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-msc-in-management-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-msc-in-management-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-msc-in-management-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-risk-management-and-financial-engineering-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-risk-management-and-financial-engineering-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-risk-management-and-financial-engineering-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-strategic-marketing-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-strategic-marketing-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-strategic-marketing-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
-- `imperial-strategic-marketing-online-msc-2027-round-2` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-01-06) — canonicalise-source-url-review
-- `imperial-strategic-marketing-online-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
-- `imperial-strategic-marketing-online-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
 - `kth-computer-science-autumn-2027` — **published-record-missing-from-snapshot** (kth-royal-institute-of-technology, Autumn 2027, closes 2027-01-15) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
@@ -510,6 +462,8 @@ Generated for 2026-09-29.
 - `polyu-applied-psychology-master-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-artificial-intelligence-and-big-data-computing-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-artificial-intelligence-and-big-data-computing-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
+- `polyu-artificial-intelligence-for-the-professions-msc-scheme-2027-early-round-domestic-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
+- `polyu-artificial-intelligence-for-the-professions-msc-scheme-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-asset-and-wealth-management-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-asset-and-wealth-management-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-aviation-engineering-and-operations-management-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
@@ -628,6 +582,8 @@ Generated for 2026-09-29.
 - `polyu-low-altitude-economy-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-marketing-management-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-marketing-management-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
+- `polyu-materials-intelligence-msc-2027-early-round-domestic-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
+- `polyu-materials-intelligence-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-mathematics-for-artificial-intelligence-technology-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-mathematics-for-artificial-intelligence-technology-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-mechanical-engineering-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
