@@ -2,14 +2,14 @@
   "universities": {
     "university-of-birmingham": {
       "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/taught/course-search",
-      "checkedAt": "2026-09-30T10:42:38.084260+00:00",
-      "itemCount": 303,
+      "checkedAt": "2026-10-01T11:07:23.663105+00:00",
+      "itemCount": 302,
       "applicationOpensAt": null,
-      "catalogHash": "804d5d37814503e2a0bab401d082d8c274f2e92f52b2f273be55d8b2dcaa6fde",
+      "catalogHash": "39e0f2b05f46f06967605aae15daa1b7a4e64421250fc1510961f93f45e72367",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 13,
+      "observedWindowCount": 16,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -17,7 +17,7 @@
           "intakes": [
             "September 2026"
           ],
-          "observedWindowCount": 7,
+          "observedWindowCount": 8,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         },
@@ -25,17 +25,17 @@
           "intakes": [
             "January 2027"
           ],
-          "observedWindowCount": 6,
+          "observedWindowCount": 8,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 13,
-      "programmesWithoutDeadlines": 296,
-      "programmesNeedingReview": 303,
-      "limitationReason": "13 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-09-30T10:42:38.084260+00:00",
-      "windowFingerprint": "e9b28f73552f951ebb2b415eba0866122287027a16308db39d780bace8c1dc0e",
+      "missingOpeningDateCount": 16,
+      "programmesWithoutDeadlines": 294,
+      "programmesNeedingReview": 302,
+      "limitationReason": "16 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-10-01T11:07:23.663105+00:00",
+      "windowFingerprint": "230813e02066119ab14dd0ececfaa0927660310758b80dd70f45453c9a314653",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -1070,7 +1070,7 @@
           "latestClosesAt": null
         },
         "birmingham-llm-environmental-social-and-governance-law-and-policy": {
-          "name": "LLM Environmental, Social and Governance Law, and Policy",
+          "name": "LLM Environmental, Social and Governance Law and Policy",
           "degreeType": "LLM",
           "faculty": "Arts and Law",
           "department": "Birmingham Law School",
@@ -1239,16 +1239,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "birmingham-ma-antiquity-classics-and-ancient-history-pathway": {
-          "name": "MA Antiquity: Classics and Ancient History pathway",
-          "degreeType": "MA",
-          "faculty": "Arts and Law",
-          "department": "Department of Classics, Ancient History and Archaeology",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "birmingham-ma-applied-linguistics": {
           "name": "MA Applied Linguistics",
           "degreeType": "MA",
@@ -1274,6 +1264,16 @@
           "degreeType": "MA",
           "faculty": "Arts and Law",
           "department": "Department of Art History, Curating and Visual Studies",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "birmingham-ma-classics-and-the-ancient-world": {
+          "name": "MA Classics and the Ancient World",
+          "degreeType": "MA",
+          "faculty": "Arts and Law",
+          "department": "Department of Classics, Ancient History and Archaeology",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
@@ -1909,25 +1909,15 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "birmingham-mba-executive-uk": {
-          "name": "MBA Executive UK",
-          "degreeType": "MBA",
-          "faculty": "Social Sciences",
-          "department": "Business School",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "birmingham-mba-online": {
           "name": "MBA (Online)",
           "degreeType": "MBA",
           "faculty": "Social Sciences",
           "department": "Business School",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "463aca38d3232da69a1cd0cc9e4fe49a109e276d473558818e6ef9e41a4b9446",
+          "windowCount": 3,
+          "latestClosesAt": "2026-12-18"
         },
         "birmingham-mba-singapore": {
           "name": "MBA Singapore",
@@ -3165,6 +3155,30 @@
           "opensAt": null,
           "closesAt": "2026-08-07",
           "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/medicine-courses/health-data-science-j-bji-msc",
+          "opensAtBasis": null
+        },
+        "birmingham-mba-online::January 2027::Home applicants::home": {
+          "programmeId": "birmingham-mba-online",
+          "intake": "January 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-18",
+          "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/business-and-management-courses/mba-online",
+          "opensAtBasis": null
+        },
+        "birmingham-mba-online::January 2027::International applicants::international": {
+          "programmeId": "birmingham-mba-online",
+          "intake": "January 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-30",
+          "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/business-and-management-courses/mba-online",
+          "opensAtBasis": null
+        },
+        "birmingham-mba-online::September 2026::Application deadline::all": {
+          "programmeId": "birmingham-mba-online",
+          "intake": "September 2026",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.birmingham.ac.uk/study/postgraduate/subjects/business-and-management-courses/mba-online",
           "opensAtBasis": null
         },
         "birmingham-statistical-data-science-j-bji-msc::September 2026::Application deadline::all": {
