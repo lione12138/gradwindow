@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-30T11:51:51.647155+00:00",
+    "updatedAt": "2026-10-01T12:22:31.957941+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,10 +14,10 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 613,
+    "needsOpeningDate": 609,
     "needsAdapter": 420,
     "comingSoonMonitor": 0,
-    "deadlineUnavailableMonitor": 4
+    "deadlineUnavailableMonitor": 2
   },
   "results": [
     {
@@ -83,7 +83,7 @@
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 1d07fffc-1d66-4761-bb26-409478a30ec5)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 946f3fa1-e0d5-4ba6-bbaa-31aced74a96d)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "dryRun": false,
       "batchStatus": "error"
     },
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-09-30T11:55:49.005749+00:00",
+      "checkedAt": "2026-10-01T12:26:59.526331+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -4556,42 +4556,6 @@
         "universityId": "university-of-southampton",
         "programmeName": "Engineering Materials (Advanced Mechanical Engineering Science) (MSc)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/engineering-materials-advanced-mechanical-engineering-science-masters-msc",
-        "windowCount": 2,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "known-programme-guidance:southampton-english-literary-studies-eighteenth-century-ma",
-        "universityId": "university-of-southampton",
-        "programmeName": "English Literary Studies (Eighteenth Century) (MA)",
-        "sourceUrl": "https://www.southampton.ac.uk/courses/english-literary-studies-eighteenth-century-masters-ma",
-        "windowCount": 2,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "known-programme-guidance:southampton-english-literary-studies-nineteenth-century-ma",
-        "universityId": "university-of-southampton",
-        "programmeName": "English Literary Studies (Nineteenth Century) (MA)",
-        "sourceUrl": "https://www.southampton.ac.uk/courses/english-literary-studies-nineteenth-century-masters-ma",
-        "windowCount": 2,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "known-programme-guidance:southampton-english-literary-studies-postcolonial-and-world-literatures-ma",
-        "universityId": "university-of-southampton",
-        "programmeName": "English Literary Studies (Postcolonial and World Literatures) (MA)",
-        "sourceUrl": "https://www.southampton.ac.uk/courses/english-literary-studies-postcolonial-world-literatures-masters-ma",
-        "windowCount": 2,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "known-programme-guidance:southampton-english-literary-studies-twentieth-century-and-contemporary-ma",
-        "universityId": "university-of-southampton",
-        "programmeName": "English Literary Studies (Twentieth Century and Contemporary) (MA)",
-        "sourceUrl": "https://www.southampton.ac.uk/courses/english-literary-studies-twentieth-century-contemporary-masters-ma",
         "windowCount": 2,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
@@ -9461,24 +9425,6 @@
     ],
     "comingSoonMonitor": [],
     "deadlineUnavailableMonitor": [
-      {
-        "id": "new-programme:manchester-data-science-and-artificial-intelligence-social-analytics-msc",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "Data Science and Artificial Intelligence (Social Analytics) MSc",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/22198/msc-data-science-and-artificial-intelligence social-analytics/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:manchester-data-science-and-artificial-intelligence-urban-analytics-msc",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "Data Science and Artificial Intelligence (Urban Analytics) MSc",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/22199/msc-data-science-and-artificial-intelligence urban-analytics/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
       {
         "id": "new-programme:nottingham-animal-nutrition-msc-pgdip",
         "universityId": "the-university-of-nottingham",
