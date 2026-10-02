@@ -16,9 +16,9 @@
 - Search, status filters, saved universities, alerts, and calendar export form one application workflow.
 - QS is the default view; THE and ARWU top-200 views are live. U.S. News coverage is not presented as live yet.
 
-**Coverage:** 302 canonical universities · 29,647 programmes · 6,008 verified exact windows
+**Coverage:** 302 canonical universities · 29,653 programmes · 6,010 verified exact windows
 
-Status date: **2026-10-01**
+Status date: **2026-10-02**
 
 > **Estimate** means the date is shifted from the latest verified cycle and is not an official forecast. Always confirm dates on the linked university source.
 
@@ -26,7 +26,7 @@ Status date: **2026-10-01**
 
 | QS | University | Coverage | Next deadline | Data | Links |
 |---:|---|---|---|---|---|
-| 1 | Massachusetts Institute of Technology (MIT) | 24 open windows | 2026-10-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| 1 | Massachusetts Institute of Technology (MIT) | 22 open windows | 2026-11-01 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
 | =2 | Imperial College London | 181 open windows | 2027-01-06 | Official + Estimate | [Admissions](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [All programme details](https://gradwindow.com/?q=Imperial%20College%20London) |
 | 6 | University of Cambridge | 159 open windows | 2026-11-18 | Official + Estimate | [Admissions](https://www.postgraduate.study.cam.ac.uk/application-process) · [All programme details](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | 10 | National University of Singapore (NUS) | 34 open windows | 2026-10-15 | Official + Estimate | [Admissions](https://nusgs.nus.edu.sg/admissions/) · [All programme details](https://gradwindow.com/?q=National%20University%20of%20Singapore%20%28NUS%29) |
@@ -38,11 +38,11 @@ Status date: **2026-10-01**
 
 | QS | University | Coverage | Next opening | Data | Links |
 |---:|---|---|---|---|---|
+| 1 | Massachusetts Institute of Technology (MIT) | 2 upcoming windows | 2026-10-15 | Official | [Admissions](https://oge.mit.edu/graduate-admissions/) · [All programme details](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
+| =8 | ETH Zurich | Institution-level window | 2026-11-01 | Estimate | [Admissions](https://ethz.ch/en/studies/master/application.html) · [All programme details](https://gradwindow.com/?q=ETH%20Zurich) |
 | =8 | UCL | 20 upcoming windows | 2026-10-20 | Estimate | [Admissions](https://www.ucl.ac.uk/prospective-students/graduate/applying-graduate-study) · [All programme details](https://gradwindow.com/?q=UCL) |
+| 12 | Nanyang Technological University, Singapore (NTU Singapore) | 1 upcoming window | 2026-11-01 | Estimate | [Admissions](https://www.ntu.edu.sg/admissions/graduate) · [All programme details](https://gradwindow.com/?q=Nanyang%20Technological%20University%2C%20Singapore%20%28NTU%20Singapore%29) |
 | 13 | Peking University | 168 upcoming windows | 2026-10-20 | Estimate | [Admissions](https://admission.pku.edu.cn/) · [All programme details](https://gradwindow.com/?q=Peking%20University) |
-| 14 | Tsinghua University | 2 upcoming windows | 2026-10-15 | Estimate | [Admissions](https://yz.tsinghua.edu.cn/en/) · [All programme details](https://gradwindow.com/?q=Tsinghua%20University) |
-| 19 | The University of New South Wales (UNSW Sydney) | 1 upcoming window | 2026-10-20 | Estimate | [Admissions](https://www.unsw.edu.au/study/how-to-apply/postgraduate) · [All programme details](https://gradwindow.com/?q=The%20University%20of%20New%20South%20Wales%20%28UNSW%20Sydney%29) |
-| 26 | Fudan University | 161 upcoming windows | 2026-10-13 | Estimate | [Admissions](https://iso.fudan.edu.cn/isoenglish/wnlinewwpplication/list.htm) · [All programme details](https://gradwindow.com/?q=Fudan%20University) |
 
 [View every upcoming window on GradWindow →](https://gradwindow.com/?status=upcoming)
 
