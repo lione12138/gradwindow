@@ -1,19 +1,17 @@
 # Published data audit
 
-Generated for 2026-10-01.
+Generated for 2026-10-02.
 
-- Active issues: 720
-- Universities needing review: 13
-- Records quarantined from SEO aggregates: 472
+- Active issues: 717
+- Universities needing review: 11
+- Records quarantined from SEO aggregates: 469
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 27
-- Published records changed from a healthy current snapshot: 426
+- Published records missing from a healthy current snapshot: 25
+- Published records changed from a healthy current snapshot: 425
 - Published records with source URL-only changes: 48
 
 ## Maintenance queue
 
-- `tu-delft-civil-engineering-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
-- `tu-delft-geomatics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **published-record-missing-from-snapshot** (imperial-college-london, October 2026, closes 2027-01-06) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-3-fad24373` — **published-record-missing-from-snapshot** (imperial-college-london, October 2026, closes 2027-03-10) — retire-or-correct-review
@@ -84,7 +82,6 @@ Generated for 2026-10-01.
 - `imperial-strategic-marketing-online-msc-2027-round-3` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-03-10) — canonicalise-source-url-review
 - `imperial-strategic-marketing-online-msc-2027-round-4` — **published-record-source-url-changed** (imperial-college-london, September 2027, closes 2027-04-28) — canonicalise-source-url-review
 - `kth-computer-science-autumn-2027` — **published-record-missing-from-snapshot** (kth-royal-institute-of-technology, Autumn 2027, closes 2027-01-15) — retire-or-correct-review
-- `mit-music-technology-and-computation-masters-2027-main-deadline` — **published-record-changed-from-snapshot** (massachusetts-institute-of-technology-mit, September 2027, closes 2026-12-22) — correct-published-record-review
 - `mcgill-otolaryngology-msc-2027-fall-domestic-deadline-domestic-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-06-21) — retire-or-correct-review
 - `mcgill-otolaryngology-msc-2027-fall-international-deadline-international-students` — **published-record-missing-from-snapshot** (mcgill-university, Fall 2027, closes 2027-01-15) — retire-or-correct-review
 - `nus-ma-global-sociology-and-anthropology-coursework-2027-main` — **published-record-missing-from-snapshot** (national-university-of-singapore-nus, August 2027, closes 2026-11-30) — retire-or-correct-review

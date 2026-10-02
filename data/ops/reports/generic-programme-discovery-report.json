@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-01T12:22:31.957941+00:00",
+    "updatedAt": "2026-10-02T11:55:28.829892+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,7 +14,7 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 609,
+    "needsOpeningDate": 610,
     "needsAdapter": 420,
     "comingSoonMonitor": 0,
     "deadlineUnavailableMonitor": 2
@@ -83,7 +83,7 @@
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 946f3fa1-e0d5-4ba6-bbaa-31aced74a96d)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 5069e78c-d1b9-42e3-b777-4d16f74bcea6)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "dryRun": false,
       "batchStatus": "error"
     },
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-10-01T12:26:59.526331+00:00",
+      "checkedAt": "2026-10-02T11:59:48.156301+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -380,6 +380,15 @@
         "universityId": "the-university-of-manchester",
         "programmeName": "MSc Commercial Project Management",
         "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/04201/msc-commercial-project-management/",
+        "windowCount": 4,
+        "parseStatus": "incomplete",
+        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
+      },
+      {
+        "id": "known-programme-guidance:manchester-msc-communications-and-signal-processing",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MSc Communications and Signal Processing",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/12034/msc-communications-and-signal-processing/",
         "windowCount": 4,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
