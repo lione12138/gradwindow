@@ -42,6 +42,7 @@ class CaltechAdapter(BaseProgrammeAdapter):
         intake_year, deadline_policy = _application_policy(
             fetcher(self.application_url)
         )
+        self.intake = f"Fall {intake_year}"
         aerospace_deadline = _aerospace_deadline(
             fetcher(AEROSPACE_ADMISSIONS_URL), intake_year
         )
@@ -115,13 +116,15 @@ def _is_direct_electrical_engineering(text: str) -> bool:
 def _application_policy(html: str) -> tuple[int, str]:
     text = _page_text(html)
     cycle = re.search(
-        r"application for the (20\d{2})-(20\d{2}) academic year "
-        r"will be available in early October",
+        r"applications? for (?:the )?(20\d{2})\s*[-–]\s*(20\d{2}) "
+        r"(?:academic year|admission) "
+        r"(?:will be available in early October|are now open|is now open)",
         text,
         re.I,
     )
     match = re.search(
-        r"Deadlines vary by program from December 1 to December 15[.]?",
+        r"Deadlines vary by program from December 1 to "
+        r"(?:December 15|January 15)[.]?",
         text,
         re.I,
     )
@@ -185,7 +188,7 @@ def _programme(
             f"The Graduate Studies Office states: {deadline_policy}. "
             + (
                 "The Aerospace department publishes a December 15 deadline, but "
-                "the opening is only described as early October, so no exact "
+                "the application notice supplies no exact opening date, so no "
                 "opening date is inferred."
                 if closes_at is not None
                 else "No programme-specific exact deadline is published for this "

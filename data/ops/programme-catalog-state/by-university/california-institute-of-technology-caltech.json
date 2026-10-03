@@ -1,19 +1,45 @@
 {
   "universities": {
     "california-institute-of-technology-caltech": {
-      "sourceUrl": "https://catalog.caltech.edu/sitemap.xml",
-      "checkedAt": "2026-07-14T22:44:38.493805+00:00",
+      "sourceUrl": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/aerospace-ae/",
+      "checkedAt": "2026-10-03T13:39:37.945534+00:00",
       "itemCount": 3,
       "applicationOpensAt": null,
-      "catalogHash": "34a1fe577712512a95bc6feabbcfc8510ccf43f1e583cd80f0b2ff74ba2f5349",
+      "catalogHash": "08e7ed9ff0ce5a2d04bb93b04244e0a20dd7c5afa4bb80343910f7ab5a2005a1",
+      "catalogueStatus": "ok",
+      "catalogueGranularity": "programme-level",
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 2,
+      "exactWindowCount": 0,
+      "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "2026:fall:09": {
+          "intakes": [
+            "Fall 2026"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 2,
+      "programmesWithoutDeadlines": 1,
+      "programmesNeedingReview": 3,
+      "limitationReason": "2 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-10-03T13:39:37.945534+00:00",
+      "windowFingerprint": "6673af9763426d34c045292a0582f6914d8a6bddd0b9466fd989da8328afedd4",
+      "watchedWindowSourceHash": "6cc5b4c5b01d9409ef9de44a7395efded05ada10e4a78044ad9e52502957d1fd",
+      "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "caltech-aeronautics-ms": {
           "name": "MS Aeronautics",
           "degreeType": "MS",
           "faculty": "Division of Engineering and Applied Science",
           "department": "Aerospace",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "a02432ebcfd9ef7cc8025bcc2ee4bb8e3811477b5773da5d6fbeca5e2ec7707d",
+          "windowCount": 1,
+          "latestClosesAt": "2025-12-15"
         },
         "caltech-electrical-engineering-ms": {
           "name": "MS Electrical Engineering",
@@ -21,15 +47,52 @@
           "faculty": "Division of Engineering and Applied Science",
           "department": "Electrical Engineering",
           "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "caltech-space-engineering-ms": {
           "name": "MS Space Engineering",
           "degreeType": "MS",
           "faculty": "Division of Engineering and Applied Science",
           "department": "Aerospace",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          "parseStatus": "incomplete",
+          "deadlineHash": "a02432ebcfd9ef7cc8025bcc2ee4bb8e3811477b5773da5d6fbeca5e2ec7707d",
+          "windowCount": 1,
+          "latestClosesAt": "2025-12-15"
+        }
+      },
+      "windows": {
+        "caltech-aeronautics-ms::Fall 2026::Graduate admissions deadline::all": {
+          "programmeId": "caltech-aeronautics-ms",
+          "intake": "Fall 2026",
+          "opensAt": null,
+          "closesAt": "2025-12-15",
+          "sourceUrl": "https://aerospace.caltech.edu/academics/admissions",
+          "opensAtBasis": "missing"
+        },
+        "caltech-space-engineering-ms::Fall 2026::Graduate admissions deadline::all": {
+          "programmeId": "caltech-space-engineering-ms",
+          "intake": "Fall 2026",
+          "opensAt": null,
+          "closesAt": "2025-12-15",
+          "sourceUrl": "https://aerospace.caltech.edu/academics/admissions",
+          "opensAtBasis": "missing"
+        }
+      },
+      "adapterWarnings": [],
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 4,
+          "directSuccesses": 4,
+          "directFailures": 0,
+          "fallbackEnabled": false,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
         }
       }
     }
