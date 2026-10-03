@@ -1,17 +1,21 @@
 # Published data audit
 
-Generated for 2026-10-02.
+Generated for 2026-10-03.
 
-- Active issues: 717
-- Universities needing review: 11
-- Records quarantined from SEO aggregates: 469
+- Active issues: 726
+- Universities needing review: 13
+- Records quarantined from SEO aggregates: 478
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 25
-- Published records changed from a healthy current snapshot: 425
+- Published records missing from a healthy current snapshot: 36
+- Published records changed from a healthy current snapshot: 423
 - Published records with source URL-only changes: 48
 
 ## Maintenance queue
 
+- `tu-delft-applied-geophysics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
+- `tu-delft-civil-engineering-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
+- `tu-delft-geomatics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
+- `tu-delft-transport-infrastructure-and-logistics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **published-record-missing-from-snapshot** (imperial-college-london, October 2026, closes 2027-01-06) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-3-fad24373` — **published-record-missing-from-snapshot** (imperial-college-london, October 2026, closes 2027-03-10) — retire-or-correct-review
@@ -121,7 +125,6 @@ Generated for 2026-10-02.
 - `cuhk-architecture-master-2026-2nd-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-03-31) — correct-intake-or-document-flexible-entry
 - `cuhk-artificial-intelligence-for-science-msc-2026-main-application-period` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-published-record-review
 - `cuhk-artificial-intelligence-for-science-msc-2026-main-application-period` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-intake-or-document-flexible-entry
-- `cuhk-artificial-intelligence-msc-2026-1st-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-10-02) — correct-published-record-review
 - `cuhk-artificial-intelligence-msc-2026-2nd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-11-06) — correct-published-record-review
 - `cuhk-artificial-intelligence-msc-2026-3rd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-31) — correct-published-record-review
 - `cuhk-artificial-intelligence-msc-2026-3rd-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-31) — correct-intake-or-document-flexible-entry
@@ -253,7 +256,6 @@ Generated for 2026-10-02.
 - `cuhk-finance-mba-2026-main-application-period` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-06-18) — correct-intake-or-document-flexible-entry
 - `cuhk-finance-msc-2026-main-application-period` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-published-record-review
 - `cuhk-finance-msc-2026-main-application-period` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-04-30) — correct-intake-or-document-flexible-entry
-- `cuhk-financial-technology-msc-2026-1st-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-10-02) — correct-published-record-review
 - `cuhk-financial-technology-msc-2026-2nd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-11-06) — correct-published-record-review
 - `cuhk-financial-technology-msc-2026-3rd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-31) — correct-published-record-review
 - `cuhk-financial-technology-msc-2026-3rd-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-31) — correct-intake-or-document-flexible-entry
@@ -708,6 +710,13 @@ Generated for 2026-10-02.
 - `polyu-urban-informatics-and-smart-cities-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
 - `polyu-vision-science-and-innovation-msc-2027-early-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2026-10-20) — correct-published-record-review
+- `ubc-master-of-data-science-in-computational-linguistics-mdscl-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-01-31) — retire-or-correct-review
+- `ubc-master-of-data-science-mds-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-01-31) — retire-or-correct-review
+- `ubc-master-of-engineering-in-chemical-and-biological-engineering-meng-2027-canadian-applicant-deadline-domestic-students` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-05-01) — retire-or-correct-review
+- `ubc-master-of-engineering-in-chemical-and-biological-engineering-meng-2027-international-applicant-deadline-international-students` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-04-01) — retire-or-correct-review
+- `ubc-master-of-engineering-in-electrical-and-computer-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-12) — retire-or-correct-review
+- `ubc-master-of-engineering-in-geological-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-01-15) — retire-or-correct-review
+- `ubc-master-of-engineering-in-mining-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-02-05) — retire-or-correct-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry

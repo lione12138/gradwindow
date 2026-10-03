@@ -2,23 +2,32 @@
   "universities": {
     "monash-university": {
       "sourceUrl": "https://handbook.monash.edu/sitemap.xml",
-      "checkedAt": "2026-10-02T11:18:13.116518+00:00",
+      "checkedAt": "2026-10-03T10:40:28.379294+00:00",
       "itemCount": 163,
       "applicationOpensAt": null,
-      "catalogHash": "7af6c55e455ed530e1aef5d8c7599d6f87a177db9f916836dca43d31f01b5072",
+      "catalogHash": "44bd66ad115edfcc59c69d1dd2fff199e64002edabedf11c917706d8d1569017",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 2,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {},
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 163,
+      "windowCountsByCycle": {
+        "2027:other:00": {
+          "intakes": [
+            "Semester 1 2027"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 2,
+      "programmesWithoutDeadlines": 162,
       "programmesNeedingReview": 163,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-10-02T11:18:13.116518+00:00",
-      "windowFingerprint": "59f73f87f59d41c8a351793a3e24cf1ff3fdbca60754fc467de36673c48e0c98",
+      "limitationReason": "2 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-10-03T10:40:28.379294+00:00",
+      "windowFingerprint": "bbb0c520c9fdb90b38eeef468d8a9fd70f93867b77a3d82b255256c684aaa913",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -297,10 +306,10 @@
           "degreeType": "Master",
           "faculty": "",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "cf504793202208eaa3047882b9570b3b30a4e2a1104c03f45a62e520daa71508",
+          "windowCount": 2,
+          "latestClosesAt": "2026-09-30"
         },
         "monash-master-of-business-b6005": {
           "name": "Master of Business",
@@ -1653,12 +1662,29 @@
           "latestClosesAt": null
         }
       },
-      "windows": {},
+      "windows": {
+        "monash-master-of-business-analytics-b6022::Semester 1 2027::Round 1 applications::all": {
+          "programmeId": "monash-master-of-business-analytics-b6022",
+          "intake": "Semester 1 2027",
+          "opensAt": null,
+          "closesAt": "2026-07-30",
+          "sourceUrl": "https://www.monash.edu/study/courses/find-a-course/business-analytics-b6022",
+          "opensAtBasis": null
+        },
+        "monash-master-of-business-analytics-b6022::Semester 1 2027::Round 2 applications::all": {
+          "programmeId": "monash-master-of-business-analytics-b6022",
+          "intake": "Semester 1 2027",
+          "opensAt": null,
+          "closesAt": "2026-09-30",
+          "sourceUrl": "https://www.monash.edu/study/courses/find-a-course/business-analytics-b6022",
+          "opensAtBasis": null
+        }
+      },
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 358,
-          "directSuccesses": 195,
+          "requests": 357,
+          "directSuccesses": 194,
           "directFailures": 163,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
