@@ -91,10 +91,20 @@ class PrincetonAdapter(BaseProgrammeAdapter):
         programmes = []
         for record in records:
             for degree_label in record["degrees"]:
-                closes_at = _central_closing_date(
-                    deadline_rows,
-                    department=record["name"],
-                    degree_label=degree_label,
+                paused = _degree_paused(
+                    policy_document,
+                    record["name"],
+                    degree_label,
+                    opening_policy["intake_year"],
+                )
+                closes_at = (
+                    None
+                    if paused
+                    else _central_closing_date(
+                        deadline_rows,
+                        department=record["name"],
+                        degree_label=degree_label,
+                    )
                 )
                 programmes.append(
                     _programme(
@@ -105,6 +115,7 @@ class PrincetonAdapter(BaseProgrammeAdapter):
                         intake_year=opening_policy["intake_year"],
                         opening_policy=opening_policy,
                         evidence_document=f"{catalog_document}\n{policy_document}",
+                        paused=paused,
                     )
                 )
 
@@ -192,6 +203,14 @@ def _next_cycle_opening_policy(document: str) -> dict[str, object]:
     text = _document_text(document)
     match = _OPENING_POLICY_RE.search(text)
     if match is None:
+        current = re.search(r"application for Fall (20\d{2}) is now open", text, re.I)
+        if current:
+            return {
+                "intake_year": int(current.group(1)),
+                "text": current.group(0),
+                "exact_date": None,
+            }
+    if match is None:
         raise ValueError("Princeton's official next application cycle was not found")
     exact_date = None
     if match.group("day"):
@@ -203,15 +222,29 @@ def _next_cycle_opening_policy(document: str) -> dict[str, object]:
             .date()
             .isoformat()
         )
-    if exact_date is None:
-        raise ValueError(
-            "Princeton's official next application cycle has no exact opening date"
-        )
     return {
         "intake_year": int(match.group("intake")),
         "text": _normalise(match.group(0)),
         "exact_date": exact_date,
     }
+
+
+def _degree_paused(document: str, department: str, degree: str, year: int) -> bool:
+    # Keep degree punctuation: splitting on periods would turn M.S.E. into M.
+    text = _document_text(document)
+    match = re.search(
+        rf"not accepting applications for Fall {year}:\s*(.+?)(?:\s+Deadline|$)",
+        text,
+        re.I,
+    )
+    return bool(
+        match
+        and re.search(
+            rf"(?<!\w){re.escape(department)},?\s+{re.escape(degree)}(?!\w)",
+            match.group(1),
+            re.I,
+        )
+    )
 
 
 def _deadline_rows(document: str, intake_year: int) -> list[dict[str, str]]:
@@ -284,10 +317,11 @@ def _programme(
     department: str,
     degree_label: str,
     source_url: str,
-    closes_at: str,
+    closes_at: str | None,
     intake_year: int,
     opening_policy: dict[str, object],
     evidence_document: str,
+    paused: bool = False,
 ) -> DiscoveredProgramme:
     degree_type = _DEGREE_TYPES[degree_label]
     department_slug = _slug(department)
@@ -309,23 +343,38 @@ def _programme(
         department=department,
         source_url=source_url,
         application_url=APPLICATION_URL,
-        windows=[
+        windows=[]
+        if paused
+        else [
             DiscoveredWindow(
                 round="Main deadline",
                 closes_at=closes_at,
-                opens_at=str(opening_policy["exact_date"]),
+                opens_at=opening_policy["exact_date"],
                 intake=f"Fall {intake_year}",
                 source_url=DEADLINES_URL,
-                opens_at_basis="official",
+                opens_at_basis="official"
+                if opening_policy["exact_date"]
+                else "missing",
             )
         ],
         deadline_text=(
-            f"Princeton lists Fall {intake_year} applications as opening on "
-            f"{opening_policy['exact_date']} and the {degree_label} deadline as "
-            f"{closes_at}. {policy_text}."
+            (
+                f"Princeton is not accepting applications for Fall {intake_year} "
+                f"for {department}, {degree_label}."
+                if paused
+                else f"{policy_text}. The {degree_label} deadline is {closes_at}. "
+                + (
+                    f"Exact opening: {opening_policy['exact_date']}."
+                    if opening_policy["exact_date"]
+                    else "No exact opening date is stated; no opening date is inferred."
+                )
+            )
             + (f" Restricted route: {restriction}" if restriction else "")
         ),
-        parse_status="parsed",
+        parse_status="no-deadline"
+        if paused
+        else ("parsed" if opening_policy["exact_date"] else "incomplete"),
+        admission_status="paused" if paused else None,
         retrieval_method="official-html",
         evidence_quality="official-full-text",
         evidence_document_hash=hashlib.sha256(
