@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from datetime import date
 
+import pytest
+
 from gradwindow.programme_adapters.florida import FloridaAdapter
 from gradwindow.programme_adapters.gottingen import (
     ADMISSIONS_URL as GOTTINGEN_ADMISSIONS_URL,
@@ -77,7 +79,8 @@ def test_uci_reads_master_cards_and_keeps_only_current_deadline_guidance() -> No
     assert rows[1].windows == []
 
 
-def test_hamburg_reads_official_javascript_catalogue_asset() -> None:
+@pytest.mark.parametrize("language", ["EN", "DE"])
+def test_hamburg_reads_official_javascript_catalogue_asset(language) -> None:
     asset = """
       <table id="studiengaenge"><tbody>
         <tr><td><a href="studienangebot/studiengang.html?1">Chemistry Master of Science</a></td>
@@ -89,7 +92,7 @@ def test_hamburg_reads_official_javascript_catalogue_asset() -> None:
       </tbody></table>
     """
     pages = {
-        HAMBURG_CATALOG_URL: '<script src="studiengaenge/indexEN.js"></script>',
+        HAMBURG_CATALOG_URL: f'<script src="studiengaenge/index{language}.js"></script>',
         CATALOG_ASSET_URL: asset,
         HAMBURG_ADMISSIONS_URL: "Master application information",
     }

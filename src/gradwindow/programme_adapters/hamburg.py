@@ -40,7 +40,11 @@ class HamburgAdapter(OfficialCatalogAdapter):
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
         shell = fetcher(CATALOG_URL)
-        if "studiengaenge/indexEN.js" not in shell:
+        # The English shell can reference the German UI asset. Keep the
+        # official English data endpoint so programme names and IDs stay stable.
+        if not any(
+            f"studiengaenge/index{language}.js" in shell for language in ("EN", "DE")
+        ):
             raise ValueError("Hamburg's official catalogue asset is missing")
         entries = self.extract_entries(fetcher(CATALOG_ASSET_URL))
         policy = normalise(

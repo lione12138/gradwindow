@@ -4,6 +4,7 @@ import json
 import re
 import unicodedata
 
+from ..http_client import FetchFailure
 from .base import BaseProgrammeAdapter, DiscoveredCatalog, DiscoveredProgramme, Fetcher
 
 UNIVERSITY_ID = "the-university-of-amsterdam"
@@ -24,15 +25,30 @@ class UvAAdapter(BaseProgrammeAdapter):
         self.minimum_expected_programmes = minimum_expected_programmes
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
-        application_text = fetcher(APPLICATION_URL)
-        if (
-            "Every programme has its own" not in application_text
-            and "Every programme" not in application_text
-        ):
-            raise ValueError(
-                "UvA programme-specific application policy was unavailable"
+        catalog = self.parse_json(fetcher(API_URL))
+        try:
+            application_text = fetcher(APPLICATION_URL)
+        except FetchFailure as exc:
+            warning = f"UvA application guide retrieval failed: {exc}"
+        else:
+            if "Every programme" in application_text:
+                return catalog
+            warning = "UvA programme-specific application policy was not recognised."
+        catalog.warnings.append(
+            {
+                "reason": "APPLICATION_GUIDE_UNAVAILABLE",
+                "message": warning,
+                "sourceUrl": APPLICATION_URL,
+            }
+        )
+        for programme in catalog.programmes:
+            programme.application_url = programme.source_url
+            programme.deadline_text = (
+                "Programme verified in the official catalogue. The central "
+                "application guide could not be verified; consult the programme "
+                "page for application instructions. No dates are inferred."
             )
-        return self.parse_json(fetcher(API_URL))
+        return catalog
 
     def parse_json(self, payload: str) -> DiscoveredCatalog:
         data = json.loads(payload)
