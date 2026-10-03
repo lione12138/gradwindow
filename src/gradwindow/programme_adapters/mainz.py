@@ -12,9 +12,7 @@ CATALOG_URL = (
     "https://www.studium.uni-mainz.de/en/wp-json/"
     "jgu-study-finder/v1/courses-of-study?lang=en"
 )
-APPLICATION_URL = (
-    "https://www.studium.uni-mainz.de/en/your-application/masters-degrees/"
-)
+APPLICATION_URL = "https://www.studium.uni-mainz.de/en/your-application/master/"
 
 
 class MainzAdapter:

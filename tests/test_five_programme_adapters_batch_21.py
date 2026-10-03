@@ -104,6 +104,8 @@ def test_mainz_reads_master_api_records_and_exact_summer_routes() -> None:
     """
 
     def fetcher(url: str) -> str:
+        if "wp-json" not in url:
+            assert url == "https://www.studium.uni-mainz.de/en/your-application/master/"
         return json.dumps(payload) if "wp-json" in url else dates
 
     rows = (
@@ -114,6 +116,13 @@ def test_mainz_reads_master_api_records_and_exact_summer_routes() -> None:
 
     assert {row.name for row in rows if not row.windows} == {"Data Science", "Law"}
     groups = [row for row in rows if row.windows]
+    assert all(
+        row.application_url.endswith("/your-application/master/") for row in rows
+    )
+    assert all(
+        row.windows[0].source_url.endswith("/your-application/master/")
+        for row in groups
+    )
     assert [(row.windows[0].opens_at, row.windows[0].closes_at) for row in groups] == [
         ("2026-11-09", "2026-12-04"),
         ("2026-11-09", "2027-03-01"),
