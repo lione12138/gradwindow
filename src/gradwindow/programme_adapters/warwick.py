@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+import json
 import re
 import unicodedata
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
@@ -11,8 +12,14 @@ from .base import BaseProgrammeAdapter, DiscoveredCatalog, DiscoveredProgramme, 
 UNIVERSITY_ID = "the-university-of-warwick"
 CATALOG_URL = "https://warwick.ac.uk/study/postgraduate/courses/"
 APPLICATION_URL = "https://warwick.ac.uk/study/postgraduate/apply/"
+API_URL = (
+    "https://sitebuilder.warwick.ac.uk/sitebuilder2/api/dataentry/entries.json"
+    "?page=%2Fstudy%2Fpostgraduate%2Fcourses%2Fcourse-list"
+)
 EXISTING_CS_ID = "warwick-computer-science-msc"
-_DEGREE_RE = re.compile(r"\((MSc|MA|LLM|MRes|MPH|MBA|MEd|MFA|MPA|MMath)\)\s*$")
+_DEGREE_RE = re.compile(
+    r"\((MSc|MA|LLM|MRes|MPH|MBA|MEd|MFA|MPA|MMath|MASc|MMedEd)\)\s*$"
+)
 
 
 class WarwickAdapter(BaseProgrammeAdapter):
@@ -39,11 +46,45 @@ class WarwickAdapter(BaseProgrammeAdapter):
             raise ValueError(
                 "Warwick's official application policy could not be verified"
             )
+        if BeautifulSoup(catalogue_html, "html.parser").select_one("#course-container"):
+            return self.parse_json(fetcher(API_URL))
         return self.parse_catalog(catalogue_html)
+
+    def parse_json(self, payload: str) -> DiscoveredCatalog:
+        rows = []
+        for item in json.loads(payload)["items"]:
+            categories = [
+                c if isinstance(c, str) else c.get("name", "")
+                for c in item.get("categories", [])
+            ]
+            if "Visibility: Hidden" in categories or not any(
+                c.startswith("Study level: Postgraduate Taught") for c in categories
+            ):
+                continue
+            card = BeautifulSoup(item.get("parsedContentBody", ""), "html.parser")
+            link = card.select_one("h3 a[href]")
+            qualification = card.select_one(".qualification")
+            if link is None or qualification is None:
+                continue
+            degree_text = _normalise(qualification.get_text(" ", strip=True))
+            degree = _DEGREE_RE.search(degree_text)
+            if not degree or not degree_text.startswith("Master of "):
+                continue
+            name = _normalise(link.get_text(" ", strip=True))
+            name = re.sub(
+                rf"\s+\(?{re.escape(degree.group(1))}"
+                r"(?:\s*/\s*(?:PGDip|PGCert))*\)?$",
+                "",
+                name,
+            ).strip()
+            rows.append(
+                (f"{name} ({degree.group(1)})", urljoin(CATALOG_URL, link["href"]))
+            )
+        return self._catalogue(rows)
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:
         soup = BeautifulSoup(html, "html.parser")
-        programmes_by_url = {}
+        rows = []
         for item in soup.select(".feed-item-list-item"):
             if "postgraduate taught" not in item.get_text(" ", strip=True).lower():
                 continue
@@ -52,9 +93,15 @@ class WarwickAdapter(BaseProgrammeAdapter):
             )
             if link is None:
                 continue
-            name = _normalise(link.get_text(" ", strip=True))
+            rows.append(
+                (_normalise(link.get_text(" ", strip=True)), str(link.get("href", "")))
+            )
+        return self._catalogue(rows)
+
+    def _catalogue(self, rows: list[tuple[str, str]]) -> DiscoveredCatalog:
+        programmes_by_url = {}
+        for name, source_url in rows:
             degree_match = _DEGREE_RE.search(name)
-            source_url = str(link.get("href", ""))
             if degree_match is None or not _is_official(source_url):
                 continue
             degree_type = degree_match.group(1)
