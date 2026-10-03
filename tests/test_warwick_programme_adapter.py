@@ -1,10 +1,59 @@
+import json
+
 import pytest
 
 from gradwindow.programme_adapters.warwick import (
+    API_URL,
     APPLICATION_URL,
     CATALOG_URL,
     WarwickAdapter,
 )
+
+
+def test_warwick_current_json_directory_preserves_ids_and_filters():
+    def item(name="Computer Science MSc", href="msc-computer-science", categories=None):
+        return {
+            "title": name,
+            "categories": categories or ["Study level: Postgraduate Taught (sl02)"],
+            "parsedContentBody": f'<h3><a href="{href}">{name}</a></h3><p class="qualification">Master of Science (MSc)</p>',
+        }
+
+    rows = [
+        item(),
+        item(),
+        item(
+            categories=["Visibility: Hidden", "Study level: Postgraduate Taught (sl02)"]
+        ),
+        item(categories=["Study level: Postgraduate Research (sl03)"]),
+        item(href="https://example.com/course"),
+    ]
+    catalog = WarwickAdapter(1).parse_json(json.dumps({"items": rows}))
+    assert [p.id for p in catalog.programmes] == ["warwick-computer-science-msc"]
+    assert catalog.programmes[0].source_url == CATALOG_URL + "msc-computer-science"
+    assert not catalog.programmes[0].windows
+
+
+def test_warwick_fetches_api_for_current_shell_and_keeps_masters_only():
+    items = [
+        {
+            "categories": ["Study level: Postgraduate Taught (sl02)"],
+            "parsedContentBody": '<h3><a href="msc-data">Data Science (MSc/PGDip/PGCert)</a></h3><p class="qualification">Master of Science (MSc)</p>',
+        },
+        {
+            "categories": ["Study level: Postgraduate Taught (sl02)"],
+            "parsedContentBody": '<h3><a href="certificate">Teaching PGCert</a></h3><p class="qualification">Postgraduate Certificate (PGCert)</p>',
+        },
+    ]
+    pages = {
+        CATALOG_URL: '<div id="course-container"></div>',
+        APPLICATION_URL: "Applications for most courses. The on-time deadline.",
+        API_URL: json.dumps({"items": items}),
+    }
+    catalog = WarwickAdapter(1).parse_catalog_from_fetcher(pages.__getitem__)
+    assert [p.id for p in catalog.programmes] == ["warwick-data-science-msc"]
+    with pytest.raises(ValueError, match="expected at least 2"):
+        WarwickAdapter(2).parse_catalog_from_fetcher(pages.__getitem__)
+
 
 CATALOGUE = """
 <div class="feed-item-list-item"><h2>Advanced Mechanical Engineering MSc</h2>
