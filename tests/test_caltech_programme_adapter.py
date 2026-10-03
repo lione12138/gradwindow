@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from gradwindow.programme_adapters.caltech import (
     AEROSPACE_ADMISSIONS_URL,
     AEROSPACE_URL,
@@ -118,3 +120,37 @@ def test_caltech_adapter_rejects_missing_direct_admission_evidence() -> None:
         assert "direct-entry master's programmes" in str(exc)
     else:
         raise AssertionError("Incomplete Caltech catalogue was accepted")
+
+
+def test_caltech_current_notice_uses_source_cycle_without_guessing_opening():
+    def fetcher(url):
+        if url == APPLICATION_URL:
+            return (
+                "<main>Applications for 2026-2027 admission are now open. "
+                "Deadlines vary by program from December 1 to January 15.</main>"
+            )
+        return _fetcher(url)
+
+    adapter = CaltechAdapter()
+    catalog = adapter.parse_catalog_from_fetcher(fetcher)
+    assert adapter.intake == "Fall 2026"
+    assert len(catalog.programmes) == 3
+    for programme in catalog.programmes:
+        assert "early October" not in programme.deadline_text
+        assert "January 15" in programme.deadline_text
+        for window in programme.windows:
+            assert window.intake == "Fall 2026"
+            assert window.opens_at is None
+            assert window.opens_at_basis == "missing"
+            assert window.closes_at == "2025-12-15"
+
+
+@pytest.mark.parametrize("cycle", ["2026-2029", "2027-2026"])
+def test_caltech_rejects_invalid_academic_year(cycle):
+    def fetcher(url):
+        if url == APPLICATION_URL:
+            return APPLICATION_HTML.replace("2027-2028", cycle)
+        return _fetcher(url)
+
+    with pytest.raises(ValueError, match="academic year"):
+        CaltechAdapter().parse_catalog_from_fetcher(fetcher)
