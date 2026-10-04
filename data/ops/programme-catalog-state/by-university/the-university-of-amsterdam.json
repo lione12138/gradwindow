@@ -2,10 +2,10 @@
   "universities": {
     "the-university-of-amsterdam": {
       "sourceUrl": "https://www.uva.nl/en/education/master-s/master-s-programmes/masters-programmes.html",
-      "checkedAt": "2026-09-25T10:52:39.189116+00:00",
-      "itemCount": 271,
+      "checkedAt": "2026-10-04T11:54:52.002415+00:00",
+      "itemCount": 269,
       "applicationOpensAt": null,
-      "catalogHash": "3b9827c56006f6b8425e9b54f9adc33e54e7a6ce3be8bc64b11f6a274f742299",
+      "catalogHash": "3e6242f3526020b3f1dce358ad102a24c2bcfd9c3a93d74812463650878be840",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,13 +14,13 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 271,
-      "programmesNeedingReview": 271,
+      "programmesWithoutDeadlines": 269,
+      "programmesNeedingReview": 269,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-25T10:52:39.189116+00:00",
-      "windowFingerprint": "7947321d2f1118bdcbbb6247da1eb8bff32af64c3cecb66fe901bbb410e34190",
-      "watchedWindowSourceHash": "25bcfdc4b885603caeda3345bdf747e885fae0ffc224f9afd887f6cd1e7e9a33",
-      "watchedWindowSourceFingerprintVersion": 3,
+      "lastSuccessfulAt": "2026-10-04T11:54:52.002415+00:00",
+      "windowFingerprint": "115c6d5f5d20e6a45c52eeda8129d7d0eba9182663d69d5edc4b02fcd4d5825f",
+      "watchedWindowSourceHash": null,
+      "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
         "uva-ai-for-health-medical-informatics-master": {
           "name": "AI for Health (Medical informatics)",
@@ -52,18 +52,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "uva-actuarial-science-actuarial-science-and-mathematical-finance-master": {
-          "name": "Actuarial Science (Actuarial Science and Mathematical Finance)",
-          "degreeType": "MSC",
-          "faculty": "Economics And Business",
-          "department": "Economics And Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "uva-actuarial-science-and-mathematical-finance-master": {
-          "name": "Actuarial Science and Mathematical Finance",
+        "uva-actuarial-science-and-risk-analytics-master": {
+          "name": "Actuarial Science and Risk Analytics",
           "degreeType": "MSC",
           "faculty": "Economics And Business",
           "department": "Economics And Business",
@@ -624,7 +614,7 @@
         },
         "uva-cultural-and-social-anthropology-master": {
           "name": "Cultural and Social Anthropology",
-          "degreeType": "",
+          "degreeType": "MSC",
           "faculty": "Faculty Of Social And Behavioural Sciences",
           "department": "Faculty Of Social And Behavioural Sciences",
           "parseStatus": "no-deadline",
@@ -2372,16 +2362,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "uva-quantitative-risk-management-actuarial-science-and-mathematical-finance-master": {
-          "name": "Quantitative Risk Management (Actuarial Science and Mathematical Finance)",
-          "degreeType": "MSC",
-          "faculty": "Economics And Business",
-          "department": "Economics And Business",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "uva-quantum-computer-science-master": {
           "name": "Quantum Computer Science",
           "degreeType": "MSC",
@@ -2734,19 +2714,27 @@
         }
       },
       "windows": {},
-      "adapterWarnings": [],
+      "adapterWarnings": [
+        {
+          "reason": "APPLICATION_GUIDE_UNAVAILABLE",
+          "message": "UvA application guide retrieval failed: HTTP 404",
+          "sourceUrl": "https://www.uva.nl/en/education/admissions/masters/applying-for-a-degree-programme.html"
+        }
+      ],
       "adapterDiagnostics": {
         "transport": {
           "requests": 2,
-          "directSuccesses": 2,
-          "directFailures": 0,
+          "directSuccesses": 1,
+          "directFailures": 1,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
           "fallbackAttempts": 0,
           "fallbackSuccesses": 0,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "http": 1
+          }
         }
       }
     }

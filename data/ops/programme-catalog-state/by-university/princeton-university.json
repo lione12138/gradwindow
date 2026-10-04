@@ -2,21 +2,34 @@
   "universities": {
     "princeton-university": {
       "sourceUrl": "https://gradschool.princeton.edu/academics/degrees-requirements/fields-study",
-      "checkedAt": "2026-07-29T07:10:30.551856+00:00",
-      "itemCount": 12,
+      "checkedAt": "2026-10-04T11:31:43.610070+00:00",
+      "itemCount": 13,
       "applicationOpensAt": null,
-      "catalogHash": "5d880a24d06d0abbb2b29d21f3aede03017d7e8c5bb0e0a6d0c747bde1e7cff6",
+      "catalogHash": "8f17cf685000b248ab0eb933a07ea85d9740b4135500dffb51c8f18e24f0cd4d",
       "catalogueStatus": "ok",
+      "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
       "observedWindowCount": 12,
       "exactWindowCount": 0,
+      "recurringPolicyWindowCount": 0,
+      "windowCountsByCycle": {
+        "2027:fall:09": {
+          "intakes": [
+            "Fall 2027"
+          ],
+          "observedWindowCount": 12,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
       "missingOpeningDateCount": 12,
-      "programmesWithoutDeadlines": 0,
-      "programmesNeedingReview": 12,
+      "programmesWithoutDeadlines": 1,
+      "programmesNeedingReview": 13,
       "limitationReason": "12 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-07-29T07:10:30.551856+00:00",
-      "windowFingerprint": "9cf2d0646cdbb70c8d66cad00769f5a409905ccf8201d576a0c482b86b7910fe",
-      "watchedWindowSourceHash": null,
+      "lastSuccessfulAt": "2026-10-04T11:31:43.610070+00:00",
+      "windowFingerprint": "1cae4361e7e53d044a567cf1be0c2a9e2476d4ab1e6fef52bcf603b846580fee",
+      "watchedWindowSourceHash": "05d45d5ab4b80b7cd8468b7070986da90dcdddb79aae0cc7e0721bd4711f3af1",
+      "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "princeton-architecture-march": {
           "name": "M.Arch. in Architecture",
@@ -24,7 +37,10 @@
           "faculty": "Princeton University Graduate School",
           "department": "Architecture",
           "parseStatus": "incomplete",
-          "deadlineHash": "5953bf999c6a4041d1ccdc01cc96aeb7c73a5bc7726c1c231a527a27017bc907"
+          "deadlineHash": "119042556504c7bba82d65a784106e4066d1c4043f37d0522b784719c8102498",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-21",
+          "admissionRoute": "direct-master"
         },
         "princeton-chemical-and-biological-engineering-meng": {
           "name": "M.Eng. in Chemical and Biological Engineering",
@@ -32,7 +48,10 @@
           "faculty": "Princeton University Graduate School",
           "department": "Chemical and Biological Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "f2793e7fdbca2f5df72f9d99f79b285331fd5e40a4b7d6a34a948c980a5b2fc8"
+          "deadlineHash": "6d7f15ae0d4fc02197fc58ae09a8c87f68dcb6cc0a0628e8aba5b1147ddb24aa",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01",
+          "admissionRoute": "direct-master"
         },
         "princeton-chemical-and-biological-engineering-mse": {
           "name": "M.S.E. in Chemical and Biological Engineering",
@@ -40,7 +59,21 @@
           "faculty": "Princeton University Graduate School",
           "department": "Chemical and Biological Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "f2793e7fdbca2f5df72f9d99f79b285331fd5e40a4b7d6a34a948c980a5b2fc8"
+          "deadlineHash": "6d7f15ae0d4fc02197fc58ae09a8c87f68dcb6cc0a0628e8aba5b1147ddb24aa",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01",
+          "admissionRoute": "direct-master"
+        },
+        "princeton-chemistry-ms": {
+          "name": "M.S. in Chemistry",
+          "degreeType": "MS",
+          "faculty": "Princeton University Graduate School",
+          "department": "Chemistry",
+          "parseStatus": "incomplete",
+          "deadlineHash": "6d7f15ae0d4fc02197fc58ae09a8c87f68dcb6cc0a0628e8aba5b1147ddb24aa",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01",
+          "admissionRoute": "restricted-master"
         },
         "princeton-civil-and-environmental-engineering-meng": {
           "name": "M.Eng. in Civil and Environmental Engineering",
@@ -48,7 +81,10 @@
           "faculty": "Princeton University Graduate School",
           "department": "Civil and Environmental Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "bdb99f075579d643869951113b630d56c30982f77241dc2cf69e05f67e2a2205"
+          "deadlineHash": "119042556504c7bba82d65a784106e4066d1c4043f37d0522b784719c8102498",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-21",
+          "admissionRoute": "direct-master"
         },
         "princeton-civil-and-environmental-engineering-mse": {
           "name": "M.S.E. in Civil and Environmental Engineering",
@@ -56,15 +92,24 @@
           "faculty": "Princeton University Graduate School",
           "department": "Civil and Environmental Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "bdb99f075579d643869951113b630d56c30982f77241dc2cf69e05f67e2a2205"
+          "deadlineHash": "119042556504c7bba82d65a784106e4066d1c4043f37d0522b784719c8102498",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-21",
+          "admissionRoute": "direct-master"
         },
         "princeton-computer-science-mse": {
           "name": "MSE in Computer Science",
           "degreeType": "MSE",
           "faculty": "Princeton University Graduate School",
           "department": "Computer Science",
-          "parseStatus": "incomplete",
-          "deadlineHash": "b61eea9d7d961fdf452a53ef53cfab27fc686c7782776fa9e1f96cd99212d41a"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null,
+          "admissionRoute": "direct-master",
+          "admissionStatus": "paused",
+          "moratoriumFrom": null,
+          "moratoriumTo": null
         },
         "princeton-electrical-and-computer-engineering-meng": {
           "name": "M.Eng. in Electrical and Computer Engineering",
@@ -72,7 +117,10 @@
           "faculty": "Princeton University Graduate School",
           "department": "Electrical and Computer Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "facb8e2e5fefe693520c04406dc33845f12d15fe339d4018841a0c8e44a22692"
+          "deadlineHash": "119042556504c7bba82d65a784106e4066d1c4043f37d0522b784719c8102498",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-21",
+          "admissionRoute": "direct-master"
         },
         "princeton-finance-mfin": {
           "name": "M.Fin. in Finance",
@@ -80,7 +128,10 @@
           "faculty": "Princeton University Graduate School",
           "department": "Finance",
           "parseStatus": "incomplete",
-          "deadlineHash": "3922ce759d3159ca5bb89e26d9757d4f1d89724f77af87c30afaa13d239d611a"
+          "deadlineHash": "85b7f76854d9f6ab52e0d76517e4dcfe671830b3525ec5b1d9f5d397d7fc5446",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-15",
+          "admissionRoute": "direct-master"
         },
         "princeton-mechanical-and-aerospace-engineering-meng": {
           "name": "M.Eng. in Mechanical and Aerospace Engineering",
@@ -88,7 +139,10 @@
           "faculty": "Princeton University Graduate School",
           "department": "Mechanical and Aerospace Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "251d67aa604cf5d3facafab9f2fc92de9d5b4bab309e165f148abf1c5aa230b0"
+          "deadlineHash": "6d7f15ae0d4fc02197fc58ae09a8c87f68dcb6cc0a0628e8aba5b1147ddb24aa",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01",
+          "admissionRoute": "direct-master"
         },
         "princeton-mechanical-and-aerospace-engineering-mse": {
           "name": "M.S.E. in Mechanical and Aerospace Engineering",
@@ -96,7 +150,10 @@
           "faculty": "Princeton University Graduate School",
           "department": "Mechanical and Aerospace Engineering",
           "parseStatus": "incomplete",
-          "deadlineHash": "251d67aa604cf5d3facafab9f2fc92de9d5b4bab309e165f148abf1c5aa230b0"
+          "deadlineHash": "6d7f15ae0d4fc02197fc58ae09a8c87f68dcb6cc0a0628e8aba5b1147ddb24aa",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01",
+          "admissionRoute": "direct-master"
         },
         "princeton-school-of-public-and-international-affairs-mpa": {
           "name": "M.P.A. in Princeton School of Public and International Affairs",
@@ -104,7 +161,10 @@
           "faculty": "Princeton University Graduate School",
           "department": "Princeton School of Public and International Affairs",
           "parseStatus": "incomplete",
-          "deadlineHash": "3ec082baeb9b51612ae47d4181db67ed1e1ac730edb9d3c33776b01e741c5774"
+          "deadlineHash": "6d7f15ae0d4fc02197fc58ae09a8c87f68dcb6cc0a0628e8aba5b1147ddb24aa",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01",
+          "admissionRoute": "direct-master"
         },
         "princeton-school-of-public-and-international-affairs-mpp": {
           "name": "M.P.P. in Princeton School of Public and International Affairs",
@@ -112,7 +172,125 @@
           "faculty": "Princeton University Graduate School",
           "department": "Princeton School of Public and International Affairs",
           "parseStatus": "incomplete",
-          "deadlineHash": "3ec082baeb9b51612ae47d4181db67ed1e1ac730edb9d3c33776b01e741c5774"
+          "deadlineHash": "6d7f15ae0d4fc02197fc58ae09a8c87f68dcb6cc0a0628e8aba5b1147ddb24aa",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-01",
+          "admissionRoute": "direct-master"
+        }
+      },
+      "windows": {
+        "princeton-architecture-march::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-architecture-march",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-21",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-chemical-and-biological-engineering-meng::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-chemical-and-biological-engineering-meng",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-chemical-and-biological-engineering-mse::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-chemical-and-biological-engineering-mse",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-chemistry-ms::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-chemistry-ms",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-civil-and-environmental-engineering-meng::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-civil-and-environmental-engineering-meng",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-21",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-civil-and-environmental-engineering-mse::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-civil-and-environmental-engineering-mse",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-21",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-electrical-and-computer-engineering-meng::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-electrical-and-computer-engineering-meng",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-21",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-finance-mfin::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-finance-mfin",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-15",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-mechanical-and-aerospace-engineering-meng::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-mechanical-and-aerospace-engineering-meng",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-mechanical-and-aerospace-engineering-mse::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-mechanical-and-aerospace-engineering-mse",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-school-of-public-and-international-affairs-mpa::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-school-of-public-and-international-affairs-mpa",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        },
+        "princeton-school-of-public-and-international-affairs-mpp::Fall 2027::Main deadline::all": {
+          "programmeId": "princeton-school-of-public-and-international-affairs-mpp",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://gradschool.princeton.edu/admission-onboarding/prepare/application-deadlines",
+          "opensAtBasis": "missing"
+        }
+      },
+      "adapterWarnings": [],
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 2,
+          "directSuccesses": 0,
+          "directFailures": 2,
+          "fallbackEnabled": true,
+          "fallbackLimit": 2,
+          "fallbackAttempts": 2,
+          "fallbackSuccesses": 2,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {
+            "blocked": 2
+          }
         }
       }
     }

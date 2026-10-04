@@ -2,10 +2,10 @@
   "universities": {
     "the-university-of-warwick": {
       "sourceUrl": "https://warwick.ac.uk/study/postgraduate/courses/",
-      "checkedAt": "2026-09-05T09:47:33.393405+00:00",
-      "itemCount": 116,
+      "checkedAt": "2026-10-04T11:55:19.359130+00:00",
+      "itemCount": 132,
       "applicationOpensAt": null,
-      "catalogHash": "41e942cc7b2806f1556b97583753e6d887b810c46adf2bd1c2fd80e788fbfb2a",
+      "catalogHash": "50aa8dc69ee5057f8ad61434bc2c57b07db77474978c75aca522fb2fe7fbffb9",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,14 +14,34 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 116,
-      "programmesNeedingReview": 116,
+      "programmesWithoutDeadlines": 132,
+      "programmesNeedingReview": 132,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-05T09:47:33.393405+00:00",
-      "windowFingerprint": "f9fe05d14f2730a97e7042787dc290e26b4ad0fc21a4141e8a88e87f31ed948c",
+      "lastSuccessfulAt": "2026-10-04T11:55:19.359130+00:00",
+      "windowFingerprint": "52707e2903c7bc560bbaa10c84a46f847eba7d9e454aeb8eb82debbd1ff1f49f",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
+        "warwick-ai-and-society-masc": {
+          "name": "AI and Society (MASc)",
+          "degreeType": "MASc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-ai-driven-manufacturing-systems-msc": {
+          "name": "AI-driven Manufacturing Systems (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "warwick-accounting-financial-management-msc": {
           "name": "Accounting & Financial Management (MSc)",
           "degreeType": "MSc",
@@ -112,16 +132,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-arts-enterprise-and-development-ma": {
-          "name": "Arts, Enterprise and Development (MA)",
-          "degreeType": "MA",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "warwick-behavioural-and-data-science-msc": {
           "name": "Behavioural and Data Science (MSc)",
           "degreeType": "MSc",
@@ -152,8 +162,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-biotechnology-bioprocessing-and-business-management-msc": {
-          "name": "Biotechnology, Bioprocessing and Business Management (MSc)",
+        "warwick-big-data-and-digital-futures-msc": {
+          "name": "Big Data and Digital Futures (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -162,8 +172,18 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-business-finance-msc": {
-          "name": "Business & Finance (MSc)",
+        "warwick-biomedical-engineering-msc": {
+          "name": "Biomedical Engineering (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-biotechnology-bioprocessing-and-business-management-msc": {
+          "name": "Biotechnology, Bioprocessing and Business Management (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -182,8 +202,28 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "warwick-business-with-artificial-intelligence-msc": {
+          "name": "Business with Artificial Intelligence (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "warwick-business-with-consulting-msc": {
           "name": "Business with Consulting (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-business-with-finance-msc": {
+          "name": "Business with Finance (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -204,6 +244,16 @@
         },
         "warwick-business-with-operations-management-msc": {
           "name": "Business with Operations Management (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-business-with-sustainability-msc": {
+          "name": "Business with Sustainability (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -302,8 +352,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-critical-and-cultural-theory-ma": {
-          "name": "Critical and Cultural Theory (MA)",
+        "warwick-cultural-management-and-creative-leadership-ma": {
+          "name": "Cultural Management and Creative Leadership (MA)",
           "degreeType": "MA",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -334,6 +384,66 @@
         },
         "warwick-cyber-security-management-msc": {
           "name": "Cyber Security Management (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-data-visualisation-masc": {
+          "name": "Data Visualisation (MASc)",
+          "degreeType": "MASc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-design-for-sustainability-masc": {
+          "name": "Design for Sustainability (MASc)",
+          "degreeType": "MASc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-diagnostics-data-and-digital-health-msc": {
+          "name": "Diagnostics, Data and Digital Health (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-diagnostics-data-and-digital-health-medical-diagnostics-msc": {
+          "name": "Diagnostics, Data and Digital Health (Medical Diagnostics) (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-diagnostics-data-and-digital-health-medical-imaging-msc": {
+          "name": "Diagnostics, Data and Digital Health (Medical Imaging) (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-digital-ai-leadership-msc": {
+          "name": "Digital & AI Leadership (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -462,6 +572,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "warwick-engineering-business-leadership-part-time-msc": {
+          "name": "Engineering Business Leadership Part-time (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "warwick-engineering-business-management-msc": {
           "name": "Engineering Business Management (MSc)",
           "degreeType": "MSc",
@@ -492,29 +612,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-english-and-drama-ma": {
-          "name": "English and Drama (MA)",
-          "degreeType": "MA",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "warwick-environmental-bioscience-in-a-changing-climate-msc": {
           "name": "Environmental Bioscience in a Changing Climate (MSc)",
           "degreeType": "MSc",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "warwick-environmental-humanities-ma": {
-          "name": "Environmental Humanities (MA)",
-          "degreeType": "MA",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
           "parseStatus": "no-deadline",
@@ -532,8 +632,28 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "warwick-film-and-television-studies-ma-for-research-ma": {
+          "name": "Film and Television Studies MA for Research (MA)",
+          "degreeType": "MA",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "warwick-finance-economics-msc": {
           "name": "Finance & Economics (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-finance-management-msc": {
+          "name": "Finance & Management (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -562,8 +682,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-food-security-msc": {
-          "name": "Food Security (MSc)",
+        "warwick-food-systems-food-production-and-food-security-msc": {
+          "name": "Food Systems, Food Production and Food Security (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -602,6 +722,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "warwick-global-central-banking-and-financial-regulation-msc-pgdip-pgcert-pga-msc": {
+          "name": "Global Central Banking and Financial Regulation MSc/PGDip/PGCert/PGA (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "warwick-global-education-and-international-development-ma": {
           "name": "Global Education and International Development (MA)",
           "degreeType": "MA",
@@ -615,6 +745,76 @@
         "warwick-global-media-and-communication-ma": {
           "name": "Global Media and Communication (MA)",
           "degreeType": "MA",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-global-online-mba-january-2027-entry-mba": {
+          "name": "Global Online MBA (January 2027 entry) (MBA)",
+          "degreeType": "MBA",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-global-online-mba-june-2027-entry-mba": {
+          "name": "Global Online MBA (June 2027 entry) (MBA)",
+          "degreeType": "MBA",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-global-sustainable-development-masc": {
+          "name": "Global Sustainable Development (MASc)",
+          "degreeType": "MASc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-health-and-care-mres": {
+          "name": "Health and Care (MRes)",
+          "degreeType": "MRes",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-healthcare-operational-management-msc": {
+          "name": "Healthcare Operational Management (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-history-ma-pgdip-pgcert-pga-ma": {
+          "name": "History MA/PGDip/PGCert/PGA (MA)",
+          "degreeType": "MA",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-humanitarian-engineering-with-management-msc": {
+          "name": "Humanitarian Engineering (with Management) (MSc)",
+          "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
           "parseStatus": "no-deadline",
@@ -772,6 +972,36 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "warwick-mba-full-time-mba": {
+          "name": "MBA - Full-time (MBA)",
+          "degreeType": "MBA",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-mba-executive-mba": {
+          "name": "MBA Executive (MBA)",
+          "degreeType": "MBA",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "warwick-msc-autonomous-and-electrified-vehicle-technology-msc": {
+          "name": "MSc Autonomous and Electrified Vehicle Technology (MSc)",
+          "degreeType": "MSc",
+          "faculty": "University of Warwick",
+          "department": "University of Warwick",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "warwick-management-msc": {
           "name": "Management (MSc)",
           "degreeType": "MSc",
@@ -784,16 +1014,6 @@
         },
         "warwick-management-for-business-excellence-msc": {
           "name": "Management for Business Excellence (MSc)",
-          "degreeType": "MSc",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "warwick-management-of-information-systems-digital-innovation-msc": {
-          "name": "Management of Information Systems & Digital Innovation (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -842,28 +1062,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-medical-education-for-health-professionals-iheed-msc": {
-          "name": "Medical Education for Health Professionals - iheed (MSc)",
-          "degreeType": "MSc",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "warwick-mental-health-and-wellbeing-msc": {
           "name": "Mental Health and Wellbeing (MSc)",
-          "degreeType": "MSc",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "warwick-neuroscience-and-psychology-of-mental-health-iheed-msc": {
-          "name": "Neuroscience and Psychology of Mental Health - iheed (MSc)",
           "degreeType": "MSc",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -884,16 +1084,6 @@
         },
         "warwick-philosophy-and-the-arts-ma": {
           "name": "Philosophy and the Arts (MA)",
-          "degreeType": "MA",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "warwick-political-and-legal-theory-ma": {
-          "name": "Political and Legal Theory (MA)",
           "degreeType": "MA",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
@@ -1012,16 +1202,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-smart-connected-and-autonomous-vehicles-msc": {
-          "name": "Smart, Connected and Autonomous Vehicles (MSc)",
-          "degreeType": "MSc",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "warwick-social-inequalities-and-research-methods-msc": {
           "name": "Social Inequalities and Research Methods (MSc)",
           "degreeType": "MSc",
@@ -1102,16 +1282,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-sustainable-automotive-electrification-msc": {
-          "name": "Sustainable Automotive Electrification (MSc)",
-          "degreeType": "MSc",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "warwick-teaching-english-to-speakers-of-other-languages-tesol-ma": {
           "name": "Teaching English to Speakers of Other Languages (TESOL) (MA)",
           "degreeType": "MA",
@@ -1142,9 +1312,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "warwick-world-literature-ma": {
-          "name": "World Literature (MA)",
-          "degreeType": "MA",
+        "warwick-weekend-mba": {
+          "name": "Weekend (MBA)",
+          "degreeType": "MBA",
           "faculty": "University of Warwick",
           "department": "University of Warwick",
           "parseStatus": "no-deadline",
@@ -1171,24 +1341,14 @@
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
-        },
-        "warwick-iheed-master-of-public-health-mph": {
-          "name": "iheed Master of Public Health (MPH)",
-          "degreeType": "MPH",
-          "faculty": "University of Warwick",
-          "department": "University of Warwick",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
         }
       },
       "windows": {},
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 2,
-          "directSuccesses": 2,
+          "requests": 3,
+          "directSuccesses": 3,
           "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
