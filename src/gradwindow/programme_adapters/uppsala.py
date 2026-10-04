@@ -11,13 +11,11 @@ from gradwindow.http_client import DEFAULT_USER_AGENT
 from .base import DiscoveredCatalog, Fetcher
 from .official_catalog import CatalogEntry, OfficialCatalogAdapter, degree_from, entry
 
-CATALOG_URL = (
-    "https://www.uu.se/en/study/search?category=internationalMastersProgrammes"
-)
+CATALOG_URL = "https://www.uu.se/en/study/masters-studies/masters-programmes"
 APPLICATION_URL = "https://www.uu.se/en/study/masters-studies/application.html"
 PORTLET_RE = re.compile(
     r"AppRegistry\.registerInitialState\('(?P<id>[^']+)',"
-    r'\{"displayMode":"search","categoryId":"internationalMastersProgrammes"'
+    r'\{"displayMode":"search","categoryId":"educationInternationalMastersProgrammes"'
 )
 
 
@@ -40,7 +38,7 @@ class UppsalaAdapter(OfficialCatalogAdapter):
             )
         portlet_id = match.group("id")
         endpoint = (
-            f"{CATALOG_URL}&sv.target={portlet_id}&sv.{portlet_id}.route=%2Fsearch"
+            f"{CATALOG_URL}?sv.target={portlet_id}&sv.{portlet_id}.route=%2Fsearch"
         )
         headers = {
             "User-Agent": DEFAULT_USER_AGENT,
@@ -57,7 +55,7 @@ class UppsalaAdapter(OfficialCatalogAdapter):
                 response = client.post(
                     endpoint,
                     json={
-                        "category": "internationalMastersProgrammes",
+                        "category": "educationInternationalMastersProgrammes",
                         "query": "",
                         "start": start,
                         "showMore": "true",
@@ -71,9 +69,30 @@ class UppsalaAdapter(OfficialCatalogAdapter):
                     raise ValueError("Uppsala search API returned invalid hits")
                 if expected_count is None:
                     expected_count = int(result.get("count", 0))
+                    if not 0 < expected_count <= 1000:
+                        raise ValueError("Uppsala search API returned invalid count")
+                elif int(result.get("count", 0)) != expected_count:
+                    raise ValueError(
+                        "Uppsala search API count changed during pagination"
+                    )
+                if not hits or len(rows) + len(hits) > expected_count:
+                    raise ValueError(
+                        "Uppsala search API returned incomplete pagination"
+                    )
+                if any(
+                    not isinstance(row, dict) or row.get("type") != "programme"
+                    for row in hits
+                ):
+                    raise ValueError("Uppsala master's search returned non-programmes")
+                seen_urls = {row["uri"] for row in rows}
+                for row in hits:
+                    uri = row.get("uri")
+                    if not uri or uri in seen_urls:
+                        raise ValueError(
+                            "Uppsala search API returned duplicate/missing URLs"
+                        )
+                    seen_urls.add(uri)
                 rows.extend(hits)
-                if not hits:
-                    break
                 start += len(hits)
         fetcher(APPLICATION_URL)
         return self.parse_catalog(json.dumps(rows, ensure_ascii=False))
