@@ -2,7 +2,7 @@
   "universities": {
     "university-of-hamburg": {
       "sourceUrl": "https://www.uni-hamburg.de/en/campuscenter/studienangebot",
-      "checkedAt": "2026-08-26T05:26:46.263233+00:00",
+      "checkedAt": "2026-10-04T11:10:10.622111+00:00",
       "itemCount": 109,
       "applicationOpensAt": null,
       "catalogHash": "c9a28d9dbf37fce41aac7a7760b027e3e4901fa86b22c4c425dda129ee88a2e1",
@@ -17,10 +17,10 @@
       "programmesWithoutDeadlines": 109,
       "programmesNeedingReview": 109,
       "limitationReason": "Hamburg publishes programme-specific application requirements and deadlines. The central catalogue is complete, while programme-level exact opening-and-closing pairs remain monitored. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-26T05:26:46.263233+00:00",
+      "lastSuccessfulAt": "2026-10-04T11:10:10.622111+00:00",
       "windowFingerprint": "79c8830cd10e83a7ed0cf69fb96bac53ce605d3fd206281301d57b1ba05ee8e5",
-      "watchedWindowSourceHash": "063e304c5b223b5a22746f12c3972c0ed612d3d749375fb875a8d0af01b72aed",
-      "watchedWindowSourceFingerprintVersion": 2,
+      "watchedWindowSourceHash": "f2746b1af02546d515c15bf9fb580bd68691d38714d43b3bd938970a7df1a639",
+      "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "hamburg-african-languages-and-cultures-m-a": {
           "name": "African Languages and Cultures",
@@ -1115,7 +1115,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 3,
+          "directSuccesses": 3,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

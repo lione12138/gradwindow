@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-03T11:09:53.860271+00:00",
+    "updatedAt": "2026-10-04T11:57:50.930508+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -17,7 +17,7 @@
     "needsOpeningDate": 612,
     "needsAdapter": 419,
     "comingSoonMonitor": 0,
-    "deadlineUnavailableMonitor": 7
+    "deadlineUnavailableMonitor": 2
   },
   "results": [
     {
@@ -83,7 +83,7 @@
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 657fbc0f-2ca7-4648-8548-7985ad424628)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 023569ae-6a7f-4edf-93cd-76c2f07a5e49)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "dryRun": false,
       "batchStatus": "error"
     },
@@ -91,7 +91,7 @@
       "status": "ok",
       "universityId": "the-university-of-nottingham",
       "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-10-03T11:14:35.789367+00:00",
+      "checkedAt": "2026-10-04T12:01:48.642431+00:00",
       "catalogProgrammes": 14,
       "previousCatalogProgrammes": 14,
       "knownProgrammes": 147,
@@ -9443,51 +9443,6 @@
     ],
     "comingSoonMonitor": [],
     "deadlineUnavailableMonitor": [
-      {
-        "id": "new-programme:manchester-data-science-and-artificial-intelligence-earth-and-environmental-analytics-msc",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "Data Science and Artificial Intelligence (Earth and Environmental Analytics) MSc",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/22196/msc-data-science-and-artificial-intelligence earth-and-environmental-analytics/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:manchester-data-science-and-artificial-intelligence-mathematics-msc",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "Data Science and Artificial Intelligence (Mathematics) MSc",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/22197/msc-data-science-and-artificial-intelligence mathematics/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:manchester-ma-gender-sexuality-and-culture",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MA Gender, Sexuality and Culture",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/01167/ma-gender-sexuality-and-culture/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:manchester-msc-data-science-and-artificial-intelligence-business-and-management-overview",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MSc Data Science and Artificial Intelligence (Business and Management) / Overview",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/22194/msc-data-science-and-artificial-intelligence-business-and-management/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
-      {
-        "id": "new-programme:manchester-msc-data-science-and-artificial-intelligence-computer-science-data-informatics-overview",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MSc Data Science and Artificial Intelligence (Computer Science Data Informatics) / Overview",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/22195/msc-data-science-and-artificial-intelligence-computer-science-data-informatics/",
-        "windowCount": 0,
-        "parseStatus": "no-deadline",
-        "reviewReason": "No application deadline was parsed."
-      },
       {
         "id": "new-programme:nottingham-animal-nutrition-msc-pgdip",
         "universityId": "the-university-of-nottingham",
