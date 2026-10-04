@@ -16,6 +16,11 @@ COURSE_RE = re.compile(
     r"msc|ma|mba|mres|mph|mfa|march|llm|med|mmus|mphil))$",
     re.I,
 )
+TAUGHT_PATH_RE = re.compile(r"^/pgstudy/course/taught/(?P<slug>[^/]+)$", re.I)
+CARD_AWARD_RE = re.compile(
+    r"\b(MSc|MA|MBA|MRes|MPH|MFA|MArch|LLM|MEd|MMus|MPhil|MPA|MMedSci)\b",
+    re.I,
+)
 
 
 class NottinghamAdapter(BaseProgrammeAdapter):
@@ -53,12 +58,28 @@ class NottinghamAdapter(BaseProgrammeAdapter):
                 source_url = (
                     urljoin(CATALOG_URL, str(link["href"])).split("?", 1)[0].rstrip("/")
                 )
-                match = COURSE_RE.fullmatch(urlsplit(source_url).path)
-                if match is None:
+                parsed_url = urlsplit(source_url)
+                if parsed_url.hostname != "www.nottingham.ac.uk":
                     continue
-                slug = match.group("slug").lower()
-                award = match.group("award").upper()
-                name = _normalise(link.get_text(" ", strip=True)) or _title(slug)
+                match = COURSE_RE.fullmatch(parsed_url.path)
+                card = link.find_parent(class_="courseDescription")
+                heading = card.find("h3") if card is not None else None
+                name = _normalise(
+                    heading.get_text(" ", strip=True)
+                    if heading is not None
+                    else link.get_text(" ", strip=True)
+                )
+                if match is not None:
+                    slug = match.group("slug").lower()
+                    award = match.group("award").upper()
+                else:
+                    path_match = TAUGHT_PATH_RE.fullmatch(parsed_url.path)
+                    award_match = CARD_AWARD_RE.search(name)
+                    if heading is None or path_match is None or award_match is None:
+                        continue
+                    slug = path_match.group("slug").lower()
+                    award = award_match.group(1).upper()
+                name = name or _title(slug)
                 programme_id = f"nottingham-{slug}"
                 programmes[programme_id] = DiscoveredProgramme(
                     id=programme_id,
