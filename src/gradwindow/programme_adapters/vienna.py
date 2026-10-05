@@ -1,16 +1,22 @@
 from __future__ import annotations
 
 import re
+from urllib.parse import urljoin, urlsplit
 
 from bs4 import BeautifulSoup
 
 from .official_catalog import CatalogEntry, OfficialCatalogAdapter, entry
 
-CATALOG_URL = "https://studieren.univie.ac.at/en/degree-programmes/master-programmes/"
+CATALOG_URL = (
+    "https://studieren.univie.ac.at/en/find-your-degree-programme/masters-programmes"
+)
 APPLICATION_URL = (
-    "https://studieren.univie.ac.at/en/admission-procedure/master-programmes/"
+    "https://studieren.univie.ac.at/en/applying-for-a-programme/admission-info/mag"
 )
 PATH_RE = re.compile(r"^/en/degree-programmes/master-programmes/[^/?#]+/?$")
+CURRENT_PATH_RE = re.compile(
+    r"^/en/find-your?-degree-programme/masters-programmes/[^/?#]+-masters-programme/?$"
+)
 
 
 class ViennaAdapter(OfficialCatalogAdapter):
@@ -24,13 +30,24 @@ class ViennaAdapter(OfficialCatalogAdapter):
 
     def extract_entries(self, html: str) -> list[CatalogEntry]:
         soup = BeautifulSoup(html, "html.parser")
-        return [
-            entry(
-                name=link.get_text(" ", strip=True).removesuffix(" (Master)"),
-                degree_type="Master",
-                source_url=link["href"],
-                base_url=CATALOG_URL,
+        entries = []
+        for link in soup.find_all("a", href=True):
+            url = urljoin(CATALOG_URL, str(link["href"]))
+            parsed = urlsplit(url)
+            name = link.get_text(" ", strip=True)
+            if parsed.hostname != "studieren.univie.ac.at" or not name:
+                continue
+            if not (
+                CURRENT_PATH_RE.fullmatch(parsed.path)
+                or (PATH_RE.fullmatch(parsed.path) and name.endswith("(Master)"))
+            ):
+                continue
+            entries.append(
+                entry(
+                    name=name.removesuffix(" (Master)"),
+                    degree_type="Master",
+                    source_url=url,
+                    base_url=CATALOG_URL,
+                )
             )
-            for link in soup.find_all("a", href=PATH_RE)
-            if link.get_text(" ", strip=True).endswith("(Master)")
-        ]
+        return entries
