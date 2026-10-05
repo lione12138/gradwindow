@@ -1,9 +1,11 @@
 from __future__ import annotations
 
-from urllib.parse import urljoin
+import re
+from urllib.parse import parse_qs, urljoin, urlsplit
 
 from bs4 import BeautifulSoup
 
+from .base import DiscoveredCatalog, Fetcher
 from .official_catalog import CatalogEntry, OfficialCatalogAdapter, normalise
 
 CATALOG_URL = "https://handbook.deakin.edu.au/courses-search/allcourses.php"
@@ -27,6 +29,61 @@ class DeakinAdapter(OfficialCatalogAdapter):
 
     def __init__(self, minimum_expected_programmes: int = 85) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
+
+    def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
+        html = fetcher(CATALOG_URL)
+        entries = self.extract_entries(html)
+        seen = {item.name for item in entries}
+        soup = BeautifulSoup(html, "html.parser")
+        for table in soup.select("table")[2:4]:
+            for row in table.select("tr"):
+                link = row.select_one("a[href]")
+                if link is None:
+                    continue
+                name = normalise(link.get_text(" ", strip=True))
+                if (
+                    not name.startswith(("Master ", "Executive Master "))
+                    or name in seen
+                ):
+                    continue
+                # A stated end year is not a missing note. Only investigate
+                # catalogue rows whose commencement guidance is absent.
+                if "commenced" in row.get_text(" ", strip=True).casefold():
+                    continue
+                url = urljoin(CATALOG_URL, str(link["href"]))
+                parsed = urlsplit(url)
+                query = parse_qs(parsed.query)
+                code = query.get("course", [""])[0]
+                version = query.get("version", [""])[0]
+                if (
+                    parsed.hostname != "handbook.deakin.edu.au"
+                    or not code
+                    or not version
+                ):
+                    continue
+                detail = BeautifulSoup(fetcher(url), "html.parser")
+                fields = {}
+                for detail_row in detail.select("tr"):
+                    label, value = detail_row.find("th"), detail_row.find("td")
+                    if label is not None and value is not None:
+                        fields[normalise(label.get_text()).casefold()] = normalise(
+                            value.get_text(" ", strip=True)
+                        )
+                if (
+                    fields.get("deakin course code") != code
+                    or fields.get("course version") != version
+                    or not re.fullmatch(
+                        r"For students who commenced from 20\d{2} onwards\.?",
+                        fields.get("course information", ""),
+                        re.I,
+                    )
+                ):
+                    continue
+                entries.append(
+                    CatalogEntry(name=name, degree_type="Master", source_url=url)
+                )
+                seen.add(name)
+        return self._catalog(entries)
 
     def extract_entries(self, html: str) -> list[CatalogEntry]:
         soup = BeautifulSoup(html, "html.parser")
