@@ -1,23 +1,23 @@
 {
   "meta": {
-    "updatedAt": "2026-10-04T11:57:50.930508+00:00",
+    "updatedAt": "2026-10-05T12:46:58.574933+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
   },
   "summary": {
     "schoolsConfigured": 9,
-    "schoolsSucceeded": 1,
+    "schoolsSucceeded": 0,
     "schoolsErrored": 1,
-    "schoolsSkipped": 7,
-    "schoolsSkippedByDedicated": 7,
+    "schoolsSkipped": 8,
+    "schoolsSkippedByDedicated": 8,
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
     "needsOpeningDate": 612,
     "needsAdapter": 419,
     "comingSoonMonitor": 0,
-    "deadlineUnavailableMonitor": 2
+    "deadlineUnavailableMonitor": 12
   },
   "results": [
     {
@@ -77,82 +77,23 @@
       "dryRun": false
     },
     {
+      "batchStatus": "skipped",
+      "status": "skipped",
+      "skipReason": "dedicated-primary-succeeded",
+      "universityId": "the-university-of-nottingham",
+      "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
+      "dryRun": false
+    },
+    {
       "status": "error",
       "universityId": "university-of-oxford",
       "sourceUrl": "https://www.ox.ac.uk/admissions/graduate/courses/find-your-course",
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 023569ae-6a7f-4edf-93cd-76c2f07a5e49)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: a8b59cdb-bbf5-44e0-823d-2752006cabb4)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "dryRun": false,
       "batchStatus": "error"
-    },
-    {
-      "status": "ok",
-      "universityId": "the-university-of-nottingham",
-      "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/courses/courses.aspx?level=taught",
-      "checkedAt": "2026-10-04T12:01:48.642431+00:00",
-      "catalogProgrammes": 14,
-      "previousCatalogProgrammes": 14,
-      "knownProgrammes": 147,
-      "newCandidates": 0,
-      "newGuidanceCandidates": 0,
-      "publishedRecurringPolicyRecords": 0,
-      "newWindowCandidates": 0,
-      "changedWindowCandidates": 0,
-      "pendingWindowCandidates": 0,
-      "pendingCandidates": 1,
-      "pendingGuidanceCandidates": 0,
-      "catalogueStatus": "ok",
-      "catalogueGranularity": "programme-level",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
-      "exactWindowCount": 0,
-      "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {},
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 14,
-      "programmesNeedingReview": 14,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "adapterWarnings": [],
-      "adapterDiagnostics": {
-        "transport": {
-          "requests": 15,
-          "directSuccesses": 15,
-          "directFailures": 0,
-          "fallbackEnabled": true,
-          "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
-          "fallbackFailures": 0,
-          "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
-        }
-      },
-      "recordDiff": {
-        "previous": {
-          "programmes": 14,
-          "windows": 0
-        },
-        "current": {
-          "programmes": 14,
-          "windows": 0
-        },
-        "disappearedProgrammeIds": [],
-        "addedProgrammeIds": [],
-        "changedProgrammeIds": [],
-        "disappearedWindowIds": [],
-        "addedWindowIds": [],
-        "changedWindowIds": []
-      },
-      "windowRemovalAssessmentAvailable": true,
-      "disappearedWindowDetails": {},
-      "disappearedProgrammeDetails": {},
-      "windowFingerprint": "dd6c460cedf736129b388a9898cff657c60b995f5eeef2444f35e20eaade25c3",
-      "watchedWindowSourceHash": null,
-      "watchedWindowSourceFingerprintVersion": null,
-      "dryRun": false,
-      "batchStatus": "ok"
     }
   ],
   "classification": {
@@ -9444,10 +9385,100 @@
     "comingSoonMonitor": [],
     "deadlineUnavailableMonitor": [
       {
-        "id": "new-programme:nottingham-animal-nutrition-msc-pgdip",
+        "id": "new-programme:nottingham-architecture-arb-riba-part-2",
         "universityId": "the-university-of-nottingham",
-        "programmeName": "Animal Nutrition MSc/PGDip",
-        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/animal-nutrition-msc",
+        "programmeName": "Architecture (ARB RIBA Part 2) MArch",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-arb-riba-part-2",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-architecture-with-collaborative-practice-research-arb-riba-part-2",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Architecture with Collaborative Practice Research (ARB/RIBA Part 2) MArch",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/architecture-with-collaborative-practice-research-arb-riba-part-2",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-computer-science-artificial-intelligence",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Advanced Computer Science or Advanced Computer Science (Artificial Intelligence) MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/computer-science-artificial-intelligence",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-computer-science-artificial-intelligence-2-year",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Computer Science or Computer Science (Artificial Intelligence) (2-year) MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/computer-science-artificial-intelligence-2-year",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-cybersecurity",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Cyber Security MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/cybersecurity",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-drug-discovery",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Drug Discovery MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/drug-discovery",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-industrial-management-and-information-systems",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Industrial Management and Information Systems MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/industrial-management-and-information-systems",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-master-of-public-administration-mpa",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Master of Public Administration MPA",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/master-of-public-administration-mpa",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-medical-education-mmedsci",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Medical Education MMedSci/PGDip/PGCert",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/medical-education-mmedsci",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-psychology-conversion-msc-distance",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Psychology (Conversion) Distance Learning MSc",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/psychology-conversion-msc-distance",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:nottingham-sustainable-urban-design",
+        "universityId": "the-university-of-nottingham",
+        "programmeName": "Sustainable Urban Design MArch",
+        "sourceUrl": "https://www.nottingham.ac.uk/pgstudy/course/taught/sustainable-urban-design",
         "windowCount": 0,
         "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."

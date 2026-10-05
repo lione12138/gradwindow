@@ -1,11 +1,11 @@
 {
   "universities": {
     "university-of-washington": {
-      "sourceUrl": "https://webapps.grad.uw.edu/SharedUIComponents/ProgramSearch/getPrograms",
-      "checkedAt": "2026-08-24T06:26:39.832871+00:00",
-      "itemCount": 261,
+      "sourceUrl": "https://webapps.grad.uw.edu/SharedElementsPublic/ProgramSearch/GetPrograms",
+      "checkedAt": "2026-10-05T12:45:10.862137+00:00",
+      "itemCount": 233,
       "applicationOpensAt": null,
-      "catalogHash": "b5058a6f568d6d1772282f8f27dea4eb3c8b035c901a8818206b3a77187fae6a",
+      "catalogHash": "7778aaad6a8116c43ea00fc0297b729ab7e8066093ab5f936fbe24301f0e0e93",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,56 +14,16 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 261,
-      "programmesNeedingReview": 261,
+      "programmesWithoutDeadlines": 233,
+      "programmesNeedingReview": 233,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-24T06:26:39.832871+00:00",
-      "windowFingerprint": "995334571ef211117bdff1495e25c03417e56f70f4a633bab47b2714dd524c7c",
+      "lastSuccessfulAt": "2026-10-05T12:45:10.862137+00:00",
+      "windowFingerprint": "f8a6a08e7049140b5f0abad3fc1d91ebe74c5c8eb286275509d880e2e990caba",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
-        "washington-accounting-mpacc-seattle-master": {
-          "name": "Accounting (MPAcc) - Seattle",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-accounting-ms-in-taxation-seattle-ms": {
-          "name": "Accounting (MS in Taxation) - Seattle",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-accounting-msa-business-administration-bothell-master": {
           "name": "Accounting (MSA) - Business Administration - Bothell",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-accounting-milgard-school-of-business-tacoma-macc-one-year-program-master": {
-          "name": "Accounting - Milgard School of Business (Tacoma) - MAcc One-Year Program",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-accounting-milgard-school-of-business-tacoma-macc-two-year-program-master": {
-          "name": "Accounting - Milgard School of Business (Tacoma) - MAcc Two-Year Program",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -105,6 +65,16 @@
         "washington-aeronautics-astronautics-msaa-master": {
           "name": "Aeronautics & Astronautics (MSAA)",
           "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-anatomic-pathology-ms-ms": {
+          "name": "Anatomic Pathology (MS)",
+          "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -162,8 +132,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-architecture-m-of-architecture-master": {
-          "name": "Architecture (M. of Architecture)",
+        "washington-architecture-masters-of-architecture-3-year-program-master": {
+          "name": "Architecture (Masters of Architecture) - 3-year program",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -172,9 +142,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-architecture-m-s-in-architecture-architecture-history-theory-master": {
-          "name": "Architecture - M S in Architecture (Architecture History & Theory)",
-          "degreeType": "Master",
+        "washington-architecture-ms-in-architecture-design-technology-ms": {
+          "name": "Architecture - MS in Architecture (Design Technology)",
+          "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -182,9 +152,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-architecture-m-s-in-architecture-design-technology-master": {
-          "name": "Architecture - M S in Architecture (Design Technology)",
-          "degreeType": "Master",
+        "washington-architecture-ms-in-architecture-history-theory-ms": {
+          "name": "Architecture - MS in Architecture (History & Theory)",
+          "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -195,16 +165,6 @@
         "washington-art-studio-mfa-mfa": {
           "name": "Art & Studio (MFA)",
           "degreeType": "MFA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-art-design-mdes-master": {
-          "name": "Art Design (MDes)",
-          "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -242,8 +202,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-atmospheric-sciences-ms-ms": {
-          "name": "Atmospheric Sciences (MS)",
+        "washington-atmospheric-climate-science-ms-ms": {
+          "name": "Atmospheric & Climate Science (MS)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -352,16 +312,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-business-administration-bothell-business-leadership-mba-bellevue-mba": {
-          "name": "Business Administration - Bothell Business - (Leadership MBA - Bellevue)",
-          "degreeType": "MBA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-business-administration-bothell-business-mba-mba": {
           "name": "Business Administration - Bothell Business - (MBA)",
           "degreeType": "MBA",
@@ -382,18 +332,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-business-administration-bothell-business-technology-mba-bothell-mba": {
-          "name": "Business Administration - Bothell Business - (Technology MBA, Bothell)",
-          "degreeType": "MBA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-business-administration-foster-school-of-business-consortium-master": {
-          "name": "Business Administration - Foster School of Business - Consortium",
+        "washington-business-foster-school-master-of-professional-accounting-mpacc-master": {
+          "name": "Business- Foster School - Master of Professional Accounting (MPAcc)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -402,58 +342,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-business-administration-foster-school-of-business-executive-mba-mba": {
-          "name": "Business Administration - Foster School of Business - Executive MBA",
-          "degreeType": "MBA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-business-administration-foster-school-of-business-global-executive-mba-mba": {
-          "name": "Business Administration - Foster School of Business - Global Executive MBA",
-          "degreeType": "MBA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-business-administration-foster-school-of-business-global-mba-mba": {
-          "name": "Business Administration - Foster School of Business - Global MBA",
-          "degreeType": "MBA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-business-administration-foster-school-of-business-hybrid-mba-mba": {
-          "name": "Business Administration - Foster School of Business - Hybrid MBA",
-          "degreeType": "MBA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-business-administration-foster-school-of-business-information-systems-ms-ms": {
-          "name": "Business Administration - Foster School of Business - Information Systems MS",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-business-administration-foster-school-of-business-m-of-supply-chain-management-master": {
-          "name": "Business Administration - Foster School of Business - M of Supply Chain Management",
+        "washington-business-foster-school-master-of-science-in-business-analytics-msba-master": {
+          "name": "Business- Foster School - Master of Science in Business Analytics (MSBA)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -462,9 +352,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-business-administration-foster-school-of-business-ms-in-business-analytics-ms": {
-          "name": "Business Administration - Foster School of Business - MS in Business Analytics",
-          "degreeType": "MS",
+        "washington-business-foster-school-master-of-science-in-entrepreneurship-msentre-master": {
+          "name": "Business- Foster School - Master of Science in Entrepreneurship (MSENTRE)",
+          "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -472,9 +362,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-business-administration-foster-school-of-business-ms-in-entrepreneurship-ms": {
-          "name": "Business Administration - Foster School of Business - MS in Entrepreneurship",
-          "degreeType": "MS",
+        "washington-business-foster-school-master-of-science-in-finance-msf-master": {
+          "name": "Business- Foster School - Master of Science in Finance (MSF)",
+          "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -482,8 +372,38 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-business-administration-foster-school-of-business-seattle-evening-mba-mba": {
-          "name": "Business Administration - Foster School of Business - Seattle Evening MBA",
+        "washington-business-foster-school-master-of-science-in-information-systems-msis-master": {
+          "name": "Business- Foster School - Master of Science in Information Systems (MSIS)",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-business-foster-school-master-of-science-in-taxation-mstax-master": {
+          "name": "Business- Foster School - Master of Science in Taxation (MSTax)",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-business-foster-school-master-of-supply-chain-management-mscm-master": {
+          "name": "Business- Foster School - Master of Supply Chain Management (MSCM)",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-business-foster-school-mba-evening-mba-mba": {
+          "name": "Business- Foster School - MBA (Evening MBA)",
           "degreeType": "MBA",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -492,8 +412,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-business-administration-foster-school-of-business-seattle-full-time-mba-mba": {
-          "name": "Business Administration - Foster School of Business - Seattle Full-time MBA",
+        "washington-business-foster-school-mba-executive-mba-mba": {
+          "name": "Business- Foster School - MBA (Executive MBA)",
           "degreeType": "MBA",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -502,8 +422,38 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-business-administration-foster-school-of-business-technology-management-mba-mba": {
-          "name": "Business Administration - Foster School of Business - Technology Management MBA",
+        "washington-business-foster-school-mba-full-time-mba-mba": {
+          "name": "Business- Foster School - MBA (Full-time MBA)",
+          "degreeType": "MBA",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-business-foster-school-mba-global-executive-mba-mba": {
+          "name": "Business- Foster School - MBA (Global Executive MBA)",
+          "degreeType": "MBA",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-business-foster-school-mba-global-mba-mba": {
+          "name": "Business- Foster School - MBA (Global MBA)",
+          "degreeType": "MBA",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-business-foster-school-mba-hybrid-mba-mba": {
+          "name": "Business- Foster School - MBA (Hybrid MBA)",
           "degreeType": "MBA",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -514,16 +464,6 @@
         },
         "washington-chemical-engineering-ms-in-chemical-engineering-ms": {
           "name": "Chemical Engineering (MS in Chemical Engineering)",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-chemical-engineering-ms-in-engineering-ms": {
-          "name": "Chemical Engineering (MS in Engineering)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -562,8 +502,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-civil-environmental-engineering-m-of-sct-l-master": {
-          "name": "Civil & Environmental Engineering - M of SCT&L",
+        "washington-civil-environmental-engineering-master-of-supply-chain-transportation-and-logistics-master": {
+          "name": "Civil & Environmental Engineering - Master of Supply Chain Transportation and Logistics",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -582,8 +522,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-civil-environmental-engineering-ms-in-civil-engineering-online-ms": {
-          "name": "Civil & Environmental Engineering - MS in Civil Engineering (online)",
+        "washington-civil-environmental-engineering-ms-in-civil-engineering-thesis-ms": {
+          "name": "Civil & Environmental Engineering - MS in Civil Engineering (Thesis)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -592,9 +532,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-civil-environmental-engineering-ms-in-civil-engineering-thesis-ms": {
-          "name": "Civil & Environmental Engineering - MS in Civil Engineering (Thesis)",
-          "degreeType": "MS",
+        "washington-civil-environmental-engineering-master-of-science-in-civil-engineering-construction-engineering-master": {
+          "name": "Civil & Environmental Engineering- Master of Science in Civil Engineering: Construction Engineering",
+          "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -622,8 +562,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-communication-ma-or-ma-phd-ma": {
-          "name": "Communication (MA or MA/PhD)",
+        "washington-communication-ma-phd-ma": {
+          "name": "Communication (MA/PhD)",
           "degreeType": "MA",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -654,16 +594,6 @@
         },
         "washington-communication-digital-media-m-of-communications-master": {
           "name": "Communication - Digital Media (M of Communications)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-communication-native-voices-m-of-communication-master": {
-          "name": "Communication - Native Voices (M of Communication)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -712,8 +642,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-computer-science-engineering-paul-g-allen-school-of-computer-science-engineering-seattle-bs-ms-combined-program-ms": {
-          "name": "Computer Science & Engineering - Paul G. Allen School of Computer Science & Engineering (Seattle) - BS/MS combined program",
+        "washington-computer-science-engineering-bs-ms-ms": {
+          "name": "Computer Science & Engineering - BS/MS",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -722,8 +652,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-computer-science-engineering-paul-g-allen-school-of-computer-science-engineering-seattle-evening-professional-masters-master": {
-          "name": "Computer Science & Engineering - Paul G. Allen School of Computer Science & Engineering (Seattle) - Evening Professional Master’s",
+        "washington-computer-science-engineering-evening-pmp-master": {
+          "name": "Computer Science & Engineering - Evening PMP",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -743,7 +673,7 @@
           "latestClosesAt": null
         },
         "washington-computer-science-and-software-engineering-school-of-stem-bothell-ms-ms": {
-          "name": "Computer Science and Software Engineering - School of STEM (Bothell) – MS",
+          "name": "Computer Science and Software Engineering - School of STEM (Bothell) - MS",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -773,7 +703,7 @@
           "latestClosesAt": null
         },
         "washington-creative-writing-poetics-mfa-bothell-campus-mfa": {
-          "name": "Creative Writing & Poetics (MFA)- Bothell campus",
+          "name": "Creative Writing & Poetics (MFA) - Bothell campus",
           "degreeType": "MFA",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -822,9 +752,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-data-science-interdisciplinary-group-ms-in-data-science-ms": {
-          "name": "Data Science - Interdisciplinary Group (MS in Data Science)",
-          "degreeType": "MS",
+        "washington-data-science-master-of-science-master": {
+          "name": "Data Science - Master of Science",
+          "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -892,9 +822,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-drama-acting-prof-actor-training-program-patp-mfa-mfa": {
-          "name": "Drama - Acting (Prof. Actor Training Program/PATP, MFA)",
-          "degreeType": "MFA",
+        "washington-design-mdes-master": {
+          "name": "Design (MDes)",
+          "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -902,38 +832,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-drama-design-costume-mfa-mfa": {
-          "name": "Drama - Design (Costume, MFA)",
-          "degreeType": "MFA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-drama-design-lighting-mfa-mfa": {
-          "name": "Drama - Design (Lighting, MFA)",
-          "degreeType": "MFA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-drama-design-scenery-mfa-mfa": {
-          "name": "Drama - Design (Scenery, MFA)",
-          "degreeType": "MFA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-drama-directing-mfa-mfa": {
-          "name": "Drama - Directing (MFA)",
+        "washington-drama-mfa-in-drama-mfa": {
+          "name": "Drama (MFA in Drama)",
           "degreeType": "MFA",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -992,6 +892,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "washington-education-seattle-med-educational-foundations-leadership-and-policy-med": {
+          "name": "Education - Seattle (MEd - Educational Foundations, Leadership and Policy)",
+          "degreeType": "MEd",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "washington-education-seattle-med-educational-leadership-policy-studies-danforth-educational-leadership-program-med": {
           "name": "Education - Seattle (MEd - Educational Leadership & Policy Studies - Danforth Educational Leadership Program)",
           "degreeType": "MEd",
@@ -1002,38 +912,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-education-seattle-med-educational-leadership-policy-studies-higher-education-med": {
-          "name": "Education - Seattle (MEd - Educational Leadership & Policy Studies - Higher Education)",
-          "degreeType": "MEd",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-education-seattle-med-educational-leadership-policy-studies-intercollegiate-athletic-leadership-administration-med": {
-          "name": "Education - Seattle (MEd - Educational Leadership & Policy Studies - Intercollegiate Athletic Leadership: Administration)",
-          "degreeType": "MEd",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-education-seattle-med-educational-leadership-policy-studies-organization-policy-med": {
-          "name": "Education - Seattle (MEd - Educational Leadership & Policy Studies - Organization & Policy)",
-          "degreeType": "MEd",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-education-seattle-med-educational-leadership-policy-studies-social-cultural-foundations-med": {
-          "name": "Education - Seattle (MEd - Educational Leadership & Policy Studies - Social & Cultural Foundations)",
+        "washington-education-seattle-med-educational-leadership-policy-studies-intercollegiate-athletic-leadership-med": {
+          "name": "Education - Seattle (MEd - Educational Leadership & Policy Studies - Intercollegiate Athletic Leadership)",
           "degreeType": "MEd",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1062,18 +942,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-education-seattle-med-instructional-leadership-med": {
-          "name": "Education - Seattle (MEd - Instructional Leadership)",
-          "degreeType": "MEd",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-education-seattle-med-special-education-applied-behavior-analysis-online-education-med": {
-          "name": "Education - Seattle (MEd - Special Education - Applied Behavior Analysis Online Education)",
+        "washington-education-seattle-med-special-education-applied-behavior-analysis-online-med": {
+          "name": "Education - Seattle (MEd - Special Education - Applied Behavior Analysis Online)",
           "degreeType": "MEd",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1102,28 +972,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-education-seattle-med-special-education-general-special-education-med": {
-          "name": "Education - Seattle (MEd - Special Education - General Special Education)",
-          "degreeType": "MEd",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-education-seattle-med-special-education-high-incidence-program-in-learning-and-emotional-behavioral-disabilities-med": {
           "name": "Education - Seattle (MEd - Special Education - High Incidence Program in Learning and Emotional/Behavioral Disabilities)",
-          "degreeType": "MEd",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-education-seattle-med-special-education-secondary-special-education-med": {
-          "name": "Education - Seattle (MEd - Special Education - Secondary Special Education)",
           "degreeType": "MEd",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1222,16 +1072,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-education-tacoma-med-educational-administration-med": {
-          "name": "Education - Tacoma (MEd - Educational Administration)",
-          "degreeType": "MEd",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-education-tacoma-med-elementary-education-med": {
           "name": "Education - Tacoma (MEd - Elementary Education)",
           "degreeType": "MEd",
@@ -1262,6 +1102,36 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "washington-electrical-computer-engineering-msece-seattle-master": {
+          "name": "Electrical & Computer Engineering (MSECE) - Seattle",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-electrical-computer-engineering-msece-pmp-seattle-master": {
+          "name": "Electrical & Computer Engineering (MSECE) PMP - Seattle",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-electrical-computer-engineering-bothell-master": {
+          "name": "Electrical & Computer Engineering - Bothell",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "washington-electrical-computer-engineering-school-of-engineering-technology-tacoma-ms-ms": {
           "name": "Electrical & Computer Engineering - School of Engineering & Technology (Tacoma) - MS",
           "degreeType": "MS",
@@ -1272,8 +1142,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-electrical-engineering-msee-bothell-master": {
-          "name": "Electrical Engineering (MSEE) - Bothell",
+        "washington-engineering-stacked-degree-ai-ml-for-engineering-master-of-science-master": {
+          "name": "Engineering Stacked Degree - AI & ML for Engineering (Master of Science)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1282,18 +1152,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-electrical-engineering-msee-seattle-master": {
-          "name": "Electrical Engineering (MSEE) - Seattle",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-electrical-engineering-msee-evening-seattle-master": {
-          "name": "Electrical Engineering (MSEE) Evening - Seattle",
+        "washington-english-master-of-arts-for-teachers-esol-master": {
+          "name": "English - Master of Arts for Teachers (ESOL)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1402,29 +1262,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-french-studies-master-of-arts-master": {
-          "name": "French Studies (Master of Arts)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-genetic-counseling-ms-ms": {
           "name": "Genetic Counseling (MS)",
           "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-geographic-information-systems-master": {
-          "name": "Geographic Information Systems",
-          "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -1482,16 +1322,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-global-innovation-exchange-ms-in-technology-innovation-ms": {
-          "name": "Global Innovation Exchange (MS in Technology Innovation)",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-health-metrics-sciences-ms-ms": {
           "name": "Health Metrics Sciences (MS)",
           "degreeType": "MS",
@@ -1522,78 +1352,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-health-services-mph-community-oriented-public-health-practice-mph": {
-          "name": "Health Services (MPH - Community Oriented Public Health Practice)",
-          "degreeType": "MPH",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-health-services-mph-general-mph": {
-          "name": "Health Services (MPH - General)",
-          "degreeType": "MPH",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-health-services-mph-health-systems-policy-mph": {
-          "name": "Health Services (MPH - Health Systems & Policy)",
-          "degreeType": "MPH",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-health-services-mph-online-degree-program-mph": {
-          "name": "Health Services (MPH - Online Degree Program)",
-          "degreeType": "MPH",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-health-services-mph-social-and-behavioral-sciences-mph": {
-          "name": "Health Services (MPH - Social and Behavioral Sciences)",
-          "degreeType": "MPH",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-health-services-ms-clinical-translational-research-ms": {
-          "name": "Health Services (MS - Clinical Translational Research)",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-health-services-ms-general-ms": {
-          "name": "Health Services (MS - General)",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-health-services-administration-executive-program-mha-master": {
-          "name": "Health Services Administration - Executive Program (MHA)",
+        "washington-health-services-administration-in-residence-day-program-mha-master": {
+          "name": "Health Services Administration - In Residence (Day) Program (MHA)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1602,8 +1362,58 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-health-services-administration-in-residence-day-program-mha-master": {
-          "name": "Health Services Administration - In Residence (Day) Program (MHA)",
+        "washington-health-systems-and-population-health-mph-community-oriented-public-health-practice-mph": {
+          "name": "Health Systems and Population Health (MPH - Community Oriented Public Health Practice)",
+          "degreeType": "MPH",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-health-systems-and-population-health-mph-general-mph": {
+          "name": "Health Systems and Population Health (MPH - General)",
+          "degreeType": "MPH",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-health-systems-and-population-health-mph-online-degree-program-mph": {
+          "name": "Health Systems and Population Health (MPH - Online Degree Program)",
+          "degreeType": "MPH",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-health-systems-and-population-health-ms-clinical-translational-research-ms": {
+          "name": "Health Systems and Population Health (MS - Clinical Translational Research)",
+          "degreeType": "MS",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-health-systems-and-population-health-ms-general-ms": {
+          "name": "Health Systems and Population Health (MS - General)",
+          "degreeType": "MS",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-healthcare-simulation-science-educational-design-master": {
+          "name": "Healthcare Simulation Science Educational Design",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1642,8 +1452,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-human-computer-interaction-and-design-mhcid-master": {
-          "name": "Human-Computer Interaction and Design (MHCID)",
+        "washington-human-computer-interaction-and-design-mhci-d-master": {
+          "name": "Human-Computer Interaction and Design (MHCI+D)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1652,8 +1462,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-industrial-systems-engineering-master-of-industrial-and-systems-engineering-master": {
-          "name": "Industrial & Systems Engineering (Master of Industrial and Systems Engineering)",
+        "washington-industrial-systems-engineering-master-of-industrial-systems-engineering-master": {
+          "name": "Industrial & Systems Engineering (Master of Industrial & Systems Engineering)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1672,8 +1482,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-information-school-master-of-library-and-information-science-master": {
-          "name": "Information School - Master of Library and Information Science",
+        "washington-information-school-mlis-master": {
+          "name": "Information School – MLIS",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1682,8 +1492,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-information-school-master-of-library-and-information-science-law-librarianship-master": {
-          "name": "Information School - Master of Library and Information Science (Law Librarianship)",
+        "washington-information-school-mlis-law-librarianship-master": {
+          "name": "Information School – MLIS (Law Librarianship)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1692,8 +1502,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-information-school-master-of-science-in-information-management-early-career-accelerated-online-master": {
-          "name": "Information School - Master of Science in Information Management (Early-Career Accelerated Online)",
+        "washington-information-school-msim-early-career-accelerated-online-master": {
+          "name": "Information School – MSIM (Early-Career Accelerated Online)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1702,8 +1512,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-information-school-master-of-science-in-information-management-early-career-accelerated-residential-master": {
-          "name": "Information School - Master of Science in Information Management (Early-Career Accelerated Residential)",
+        "washington-information-school-msim-early-career-accelerated-residential-master": {
+          "name": "Information School – MSIM (Early-Career Accelerated Residential)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1712,8 +1522,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-information-school-master-of-science-in-information-management-early-career-online-master": {
-          "name": "Information School - Master of Science in Information Management (Early-Career Online)",
+        "washington-information-school-msim-early-career-online-master": {
+          "name": "Information School – MSIM (Early-Career Online)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1722,8 +1532,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-information-school-master-of-science-in-information-management-early-career-residential-master": {
-          "name": "Information School - Master of Science in Information Management (Early-Career Residential)",
+        "washington-information-school-msim-early-career-residential-master": {
+          "name": "Information School – MSIM (Early-Career Residential)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1732,8 +1542,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-information-school-master-of-science-in-information-management-mid-career-online-master": {
-          "name": "Information School - Master of Science in Information Management (Mid-Career Online)",
+        "washington-information-school-msim-mid-career-online-master": {
+          "name": "Information School – MSIM (Mid-Career Online)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1742,8 +1552,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-information-school-master-of-science-in-information-management-mid-career-residential-master": {
-          "name": "Information School - Master of Science in Information Management (Mid-Career Residential)",
+        "washington-information-school-msim-mid-career-residential-master": {
+          "name": "Information School – MSIM (Mid-Career Residential)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1752,49 +1562,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-infrastructure-planning-and-management-ipm-online-master": {
-          "name": "Infrastructure Planning and Management (IPM) Online",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-infrastructure-planning-and-management-flood-risk-ipm-master": {
-          "name": "Infrastructure Planning and Management - Flood Risk (IPM)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-interdisciplinary-studies-tacoma-campus-mais-master": {
-          "name": "Interdisciplinary Studies - Tacoma Campus (MAIS)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-international-studies-applied-international-studies-master": {
-          "name": "International Studies - Applied International Studies",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-international-studies-china-studies-master": {
-          "name": "International Studies - China Studies",
-          "degreeType": "Master",
+        "washington-information-technology-tacoma-ms-ms": {
+          "name": "Information Technology (Tacoma) - MS",
+          "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -1812,38 +1582,28 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "washington-international-studies-east-asia-studies-master": {
+          "name": "International Studies - East Asia Studies",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-international-studies-european-russian-and-eurasian-studies-master": {
+          "name": "International Studies - European, Russian, and Eurasian Studies",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "washington-international-studies-international-studies-master": {
           "name": "International Studies - International Studies",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-international-studies-japan-studies-master": {
-          "name": "International Studies - Japan Studies",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-international-studies-korea-studies-master": {
-          "name": "International Studies - Korea Studies",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-international-studies-middle-east-studies-master": {
-          "name": "International Studies - Middle East Studies",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -1875,16 +1635,6 @@
         "washington-international-studies-southeast-asia-master": {
           "name": "International Studies - Southeast Asia",
           "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-italian-studies-ma-ma": {
-          "name": "Italian Studies (MA)",
-          "degreeType": "MA",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -1982,8 +1732,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-law-master-of-jurisprudence-china-master": {
-          "name": "Law - Master of Jurisprudence China",
+        "washington-law-master-of-jurisprudence-global-cohort-master": {
+          "name": "Law - Master of Jurisprudence Global Cohort",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2003,7 +1753,7 @@
           "latestClosesAt": null
         },
         "washington-linguistics-ms-computational-linguistics-ms": {
-          "name": "Linguistics (MS -Computational Linguistics)",
+          "name": "Linguistics (MS - Computational Linguistics)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2022,6 +1772,46 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "washington-master-of-architecture-advanced-standing-2-year-program-master": {
+          "name": "Master of Architecture - Advanced Standing (2-year program)",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-master-of-arts-in-museology-master": {
+          "name": "Master of Arts in Museology",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-master-of-engineering-in-leadership-systems-innovation-mels-master": {
+          "name": "Master of Engineering in Leadership & Systems Innovation (MELS)",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-master-of-infrastructure-planning-and-management-mipm-master": {
+          "name": "Master of Infrastructure Planning and Management (MIPM)",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "washington-materials-science-engineering-ms-applied-ms": {
           "name": "Materials Science & Engineering (MS - Applied)",
           "degreeType": "MS",
@@ -2032,48 +1822,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-materials-science-engineering-ms-in-materials-science-engineering-ms": {
-          "name": "Materials Science & Engineering (MS in Materials Science & Engineering)",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-mathematics-ma-ma": {
-          "name": "Mathematics (MA)",
-          "degreeType": "MA",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-mathematics-ms-ms": {
           "name": "Mathematics (MS)",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-mechanical-engineering-ms-in-engineering-online-ms": {
-          "name": "Mechanical Engineering (MS in Engineering - Online)",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-mechanical-engineering-ms-in-engineering-ms": {
-          "name": "Mechanical Engineering (MS in Engineering)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2102,16 +1852,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-medex-master-of-clinical-health-services-extended-master": {
-          "name": "MEDEX (Master of Clinical Health Services - Extended)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-medex-master-of-clinical-health-services-master": {
           "name": "MEDEX (Master of Clinical Health Services)",
           "degreeType": "Master",
@@ -2132,9 +1872,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-museology-graduate-program-ma-ma": {
-          "name": "Museology Graduate Program (MA)",
-          "degreeType": "MA",
+        "washington-ms-in-ohs-dental-hygiene-ms": {
+          "name": "MS in OHS (Dental Hygiene)",
+          "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
           "parseStatus": "no-deadline",
@@ -2142,8 +1882,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-music-ma-ethnomusicology-music-education-music-history-or-music-theory-ma": {
-          "name": "Music (MA - Ethnomusicology, Music Education, Music History, or Music Theory)",
+        "washington-music-ma-ethnomusicology-music-education-or-music-history-ma": {
+          "name": "Music (MA - Ethnomusicology, Music Education, or Music History)",
           "degreeType": "MA",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2172,28 +1912,18 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "washington-music-mm-instrumental-conducting-master": {
+          "name": "Music (MM - Instrumental Conducting)",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "washington-music-mm-instrumental-or-vocal-performance-or-jazz-studies-master": {
           "name": "Music (MM - Instrumental or Vocal Performance or Jazz Studies)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-music-mm-orchestral-conducting-master": {
-          "name": "Music (MM - Orchestral Conducting)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-music-mm-wind-conducting-master": {
-          "name": "Music (MM - Wind Conducting)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2212,18 +1942,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-nursing-seattle-campus-m-of-nursing-master": {
-          "name": "Nursing - Seattle Campus (M of Nursing)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-nursing-seattle-campus-ms-ms": {
-          "name": "Nursing - Seattle Campus (MS)",
+        "washington-nursing-seattle-campus-ms-clinical-informatics-pct-ms": {
+          "name": "Nursing - Seattle Campus (MS) - Clinical Informatics & PCT",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2254,16 +1974,6 @@
         },
         "washington-oceanography-ms-ms": {
           "name": "Oceanography (MS)",
-          "degreeType": "MS",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-oral-health-sciences-ms-ms": {
-          "name": "Oral Health Sciences (MS)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2332,16 +2042,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-public-health-nutritional-sciences-mph-mph": {
-          "name": "Public Health - Nutritional Sciences (MPH)",
-          "degreeType": "MPH",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "washington-public-health-public-health-genetics-mph-mph": {
           "name": "Public Health - Public Health Genetics (MPH)",
           "degreeType": "MPH",
@@ -2362,8 +2062,18 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-public-policy-governance-daniel-j-evans-school-executive-master-of-public-administration-master": {
-          "name": "Public Policy & Governance - Daniel J. Evans School - Executive Master of Public Administration",
+        "washington-public-health-nutrition-mph-mph": {
+          "name": "Public Health Nutrition (MPH)",
+          "degreeType": "MPH",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-public-policy-evans-school-empa-master": {
+          "name": "Public Policy - Evans School - EMPA",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2372,8 +2082,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-public-policy-governance-daniel-j-evans-school-master-of-public-administration-master": {
-          "name": "Public Policy & Governance - Daniel J. Evans School - Master of Public Administration",
+        "washington-public-policy-evans-school-mpa-full-time-master": {
+          "name": "Public Policy - Evans School - MPA (Full-time)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2382,18 +2092,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-public-policy-governance-daniel-j-evans-school-master-of-public-administration-accelerated-global-master": {
-          "name": "Public Policy & Governance - Daniel J. Evans School - Master of Public Administration (Accelerated Global)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-public-policy-governance-daniel-j-evans-school-master-of-public-administration-part-time-master": {
-          "name": "Public Policy & Governance - Daniel J. Evans School - Master of Public Administration (Part-Time)",
+        "washington-public-policy-evans-school-mpa-part-time-master": {
+          "name": "Public Policy - Evans School - MPA (Part-Time)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2403,7 +2103,7 @@
           "latestClosesAt": null
         },
         "washington-quantitative-ecology-resource-management-ms-ms": {
-          "name": "Quantitative Ecology & Resource Management ( MS)",
+          "name": "Quantitative Ecology & Resource Management (MS)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2442,6 +2142,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "washington-rehabilitation-medicine-doctor-of-physical-therapy-master": {
+          "name": "Rehabilitation Medicine - Doctor of Physical Therapy",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "washington-rehabilitation-medicine-occupational-therapy-mot-master": {
           "name": "Rehabilitation Medicine - Occupational Therapy (MOT)",
           "degreeType": "Master",
@@ -2452,8 +2162,18 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-rehabilitation-medicine-prosthetics-and-orthotics-master": {
-          "name": "Rehabilitation Medicine - Prosthetics and Orthotics",
+        "washington-rehabilitation-medicine-prosthetics-and-orthotics-mpo-master": {
+          "name": "Rehabilitation Medicine - Prosthetics and Orthotics (MPO)",
+          "degreeType": "Master",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-robotics-master-of-science-master": {
+          "name": "Robotics – Master of Science",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2482,8 +2202,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-social-work-seattle-msw-advanced-standing-full-time-current-seattle-basw-students-master": {
-          "name": "Social Work - Seattle (MSW - Advanced Standing Full-Time - Current Seattle BASW Students)",
+        "washington-social-work-seattle-msw-advanced-standing-program-master": {
+          "name": "Social Work - Seattle (MSW - Advanced Standing Program)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2492,8 +2212,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-social-work-seattle-msw-advanced-standing-part-time-current-seattle-basw-students-master": {
-          "name": "Social Work - Seattle (MSW - Advanced Standing Part-Time - Current Seattle BASW Students)",
+        "washington-social-work-seattle-msw-full-time-program-master": {
+          "name": "Social Work - Seattle (MSW - Full-Time Program)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2502,8 +2222,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-social-work-seattle-msw-advanced-standing-program-full-time-master": {
-          "name": "Social Work - Seattle (MSW - Advanced Standing Program Full-Time)",
+        "washington-social-work-seattle-msw-part-time-evening-on-campus-program-master": {
+          "name": "Social Work - Seattle (MSW - Part-Time Evening (on-campus) Program)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2512,28 +2232,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "washington-social-work-seattle-msw-advanced-standing-program-part-time-master": {
-          "name": "Social Work - Seattle (MSW - Advanced Standing Program Part-Time)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-social-work-seattle-msw-day-program-master": {
-          "name": "Social Work - Seattle (MSW - Day Program)",
-          "degreeType": "Master",
-          "faculty": "University of Washington",
-          "department": "University of Washington",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "washington-social-work-seattle-msw-extended-degree-program-master": {
-          "name": "Social Work - Seattle (MSW - Extended Degree Program)",
+        "washington-social-work-seattle-msw-part-time-online-master": {
+          "name": "Social Work - Seattle (MSW - Part-Time Online)",
           "degreeType": "Master",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2563,7 +2263,7 @@
           "latestClosesAt": null
         },
         "washington-speech-hearing-sciences-ms-educational-speech-language-pathology-ms": {
-          "name": "Speech & Hearing Sciences - MS (Educational Speech Language-Pathology)",
+          "name": "Speech & Hearing Sciences - MS (Educational Speech-Language Pathology)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2573,7 +2273,7 @@
           "latestClosesAt": null
         },
         "washington-speech-hearing-sciences-ms-medical-speech-language-pathology-ms": {
-          "name": "Speech & Hearing Sciences - MS (Medical Speech Language-Pathology)",
+          "name": "Speech & Hearing Sciences - MS (Medical Speech-Language Pathology)",
           "degreeType": "MS",
           "faculty": "University of Washington",
           "department": "University of Washington",
@@ -2612,6 +2312,26 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "washington-technology-innovation-ms-global-innovation-exchange-ms": {
+          "name": "Technology Innovation (MS) - Global Innovation Exchange",
+          "degreeType": "MS",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "washington-technology-innovation-ms-hybrid-global-innovation-exchange-ms": {
+          "name": "Technology Innovation (MS) - Hybrid - Global Innovation Exchange",
+          "degreeType": "MS",
+          "faculty": "University of Washington",
+          "department": "University of Washington",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "washington-urban-design-and-planning-m-of-urban-planning-master": {
           "name": "Urban Design and Planning (M of Urban Planning)",
           "degreeType": "Master",
@@ -2635,7 +2355,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }
