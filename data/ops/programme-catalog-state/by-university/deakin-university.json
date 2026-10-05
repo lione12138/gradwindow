@@ -2,10 +2,10 @@
   "universities": {
     "deakin-university": {
       "sourceUrl": "https://handbook.deakin.edu.au/courses-search/allcourses.php",
-      "checkedAt": "2026-09-23T09:48:50.120212+00:00",
-      "itemCount": 87,
+      "checkedAt": "2026-10-05T11:57:32.478939+00:00",
+      "itemCount": 89,
       "applicationOpensAt": null,
-      "catalogHash": "f79e1b5bd7574ec26057ffe6c31f1245b6aa524db0e37da229ca9cf7e7d11e91",
+      "catalogHash": "b20d3c46ad089c8e50182d870a7b10cb3e951eca98fb7d590bdffea0c11f0e80",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,11 +14,11 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 87,
-      "programmesNeedingReview": 87,
+      "programmesWithoutDeadlines": 89,
+      "programmesNeedingReview": 89,
       "limitationReason": "Deakin's official course handbook identifies current coursework and research master's course versions. Intakes and application timing vary by course and applicant category, so no common exact window is inferred. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-09-23T09:48:50.120212+00:00",
-      "windowFingerprint": "cfd15dce42ac8569f5f000fceb784cbe69091ed715c64e64f2f1314340507266",
+      "lastSuccessfulAt": "2026-10-05T11:57:32.478939+00:00",
+      "windowFingerprint": "f74c492544d271e7b6e21aae5dc51d46907baea1ff7aefb41db17a74f98f0ceb",
       "watchedWindowSourceHash": "c721c49904d4c1e438ddca03fb6cfa0187754d4810e9d9586724a0a9d9d3ddab",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
@@ -404,6 +404,16 @@
         },
         "deakin-master-of-data-science-professional-master": {
           "name": "Master of Data Science (Professional)",
+          "degreeType": "Master",
+          "faculty": "Deakin University",
+          "department": "Deakin University",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "deakin-master-of-dietetics-master": {
+          "name": "Master of Dietetics",
           "degreeType": "Master",
           "faculty": "Deakin University",
           "department": "Deakin University",
@@ -822,6 +832,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "deakin-master-of-social-work-master": {
+          "name": "Master of Social Work",
+          "degreeType": "Master",
+          "faculty": "Deakin University",
+          "department": "Deakin University",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "deakin-master-of-social-work-research-master": {
           "name": "Master of Social Work (Research)",
           "degreeType": "Master",
@@ -897,8 +917,8 @@
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 1,
-          "directSuccesses": 1,
+          "requests": 19,
+          "directSuccesses": 19,
           "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
