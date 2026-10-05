@@ -16,7 +16,9 @@ class PurdueAdapter(OfficialCatalogAdapter):
     catalog_url = CATALOG_URL
     application_url = APPLICATION_URL
     window_watch_urls = (APPLICATION_URL,)
-    minimum_expected_programmes = 120
+    # Complete official directory checked 2026-10-05: 122 cards, 118 distinct
+    # master's names. Art and Design, Art, and Performance need separate review.
+    minimum_expected_programmes = 118
     retrieval_method = "official-main-campus-graduate-program-directory"
 
     def parse_catalog_from_fetcher(self, fetcher: Fetcher) -> DiscoveredCatalog:
@@ -38,10 +40,12 @@ class PurdueAdapter(OfficialCatalogAdapter):
                 "west-lafayette" not in categories
                 or level is None
                 or "Masters" not in level.get_text(" ", strip=True)
-                or heading is None
-                or source is None
             ):
                 continue
+            if heading is None or not heading.get_text(strip=True) or source is None:
+                raise ValueError(
+                    "Purdue master's card is missing title or admissions URL"
+                )
             entries.append(
                 entry(
                     name=heading.get_text(" ", strip=True),
