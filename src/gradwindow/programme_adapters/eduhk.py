@@ -4,7 +4,7 @@ import re
 import ssl
 from collections.abc import Callable
 from io import BytesIO
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 
 import httpx
 import pdfplumber
@@ -14,10 +14,8 @@ from ..http_client import DEFAULT_USER_AGENT
 from .base import DiscoveredCatalog, DiscoveredProgramme, DiscoveredWindow, Fetcher
 from .official_catalog import normalise, slug
 
-CATALOG_URL = "https://www.eduhk.hk/acadprog/postgrad/"
-SCHEDULE_URL = (
-    "https://www.eduhk.hk/acadprog/downloads/Application_Schedule_for_TPg_202609.pdf"
-)
+CATALOG_URL = "https://gs.eduhk.hk/pg-programmes/programme-information.html"
+SCHEDULE_URL = "https://www.eduhk.hk/acadprog/postgrad/schedule_index.html"
 APPLICATION_URL = "https://www.eduhk.hk/onlineappl/"
 
 SourceFetcher = Callable[[str], str]
@@ -27,21 +25,21 @@ class EdUHKAdapter:
     university_id = "education-university-of-hong-kong"
     catalog_url = CATALOG_URL
     application_url = APPLICATION_URL
-    intake = "September 2026"
+    intake = "September 2027"
     application_opens_at_basis = "missing"
     replace_pending_candidates = True
     window_watch_urls: tuple[str, ...] = ()
     known_programme_window_scope_type = "programme-group"
     catalogue_limitation_reason = (
-        "EdUHK's official 2026/27 schedule says applications opened in October "
-        "2025 without an exact day. Its exact closing dates remain review "
-        "guidance rather than publishable exact windows."
+        "EdUHK's general taught postgraduate schedule has programme exceptions "
+        "and permits earlier closure when places fill. Programme-specific "
+        "applicability needs review; general dates are not copied to each course."
     )
 
     def __init__(
         self,
         minimum_expected_programmes: int = 48,
-        maximum_expected_programmes: int = 55,
+        maximum_expected_programmes: int = 65,
         catalogue_fetcher: SourceFetcher | None = None,
         schedule_fetcher: SourceFetcher | None = None,
     ) -> None:
@@ -63,28 +61,77 @@ class EdUHKAdapter:
                 f"expected {self.minimum_expected_programmes}-"
                 f"{self.maximum_expected_programmes}"
             )
-        closings = _closing_dates(self.schedule_fetcher(SCHEDULE_URL))
-        programmes.extend(_review_groups(closings))
+        schedule = self.schedule_fetcher(SCHEDULE_URL)
+        if "2027/28" in schedule:
+            compact = normalise(schedule)
+            for pattern in (
+                r"September 2027 Intake",
+                r"5 Oct 2026 \(Mon\) Open for Applications",
+                r"10 May 2027 \(Mon\) Application Deadline for Non-local Applicants",
+                r"31 May 2027 \(Mon\) Application Deadline for Local Applicants",
+                r"not applicable to PhD, MPhil, EdD, EdD\(Chinese\), MSocSc\(EP\) and PGDE",
+            ):
+                if re.search(pattern, compact) is None:
+                    raise ValueError("EdUHK 2027 schedule dates or scope changed")
+            programmes.extend(
+                _review_groups(
+                    {"non-local": "2027-05-10", "local": "2027-05-31"},
+                    intake_year=2027,
+                    opens_at="2026-10-05",
+                )
+            )
+        else:
+            closings = _closing_dates(schedule)
+            programmes.extend(_review_groups(closings))
         return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
 
 
 def _programmes(html: str) -> list[DiscoveredProgramme]:
     soup = BeautifulSoup(html, "html.parser")
     section = soup.select_one("#content_box_19")
-    if section is None or "Taught Postgraduate Programmes" not in normalise(
+    current = soup.select("#tpp-gs, #tpp-reg")
+    if current:
+        if len(current) != 2:
+            raise ValueError("EdUHK taught catalogue lacked an administering section")
+        links = [
+            link
+            for heading in current
+            for link in heading.parent.select(
+                "details.programme-section .section-body a[href]"
+            )
+        ]
+    elif section is None or "Taught Postgraduate Programmes" not in normalise(
         section.get_text(" ", strip=True)
     ):
         raise ValueError("EdUHK taught postgraduate catalogue was not found")
+    else:
+        links = section.select("a.faq_in_text[href]")
     programmes: dict[str, DiscoveredProgramme] = {}
-    for link in section.select("a.faq_in_text[href]"):
-        name = re.sub(
-            r"\s+#\s*$", "", normalise(link.get_text(" ", strip=True))
-        ).strip()
+    for link in links:
+        parts = []
+        for child in link.children:
+            if getattr(child, "name", None) == "br":
+                break
+            parts.append(
+                child.get_text(" ", strip=True)
+                if hasattr(child, "get_text")
+                else str(child)
+            )
+        label = normalise(" ".join(parts))
+        if "*" in label:
+            continue  # Official footnote: subject to the University's approval.
+        name = re.sub(r"\s+#\s*$", "", label).strip()
         if not name.startswith(("Master", "Executive Master")):
             continue
         source_url = urljoin(CATALOG_URL, str(link.get("href", ""))).rstrip("#")
+        host = urlsplit(source_url).hostname or ""
+        if host != "eduhk.hk" and not host.endswith(".eduhk.hk"):
+            continue
         container = link.find_parent("div", class_="faq_loop")
         heading = container.select_one(".faq_top strong") if container else None
+        if current:
+            container = link.find_parent("details", class_="programme-section")
+            heading = container.select_one("summary strong") if container else None
         faculty = (
             normalise(heading.get_text(" ", strip=True))
             if heading
@@ -102,8 +149,8 @@ def _programmes(html: str) -> list[DiscoveredProgramme]:
             windows=[],
             deadline_text=(
                 "Programme is listed in EdUHK's official taught postgraduate "
-                "directory. The shared opening is month-only and programme "
-                "exceptions exist, so no exact programme window is inferred."
+                "directory. General schedule exceptions exist, so no exact "
+                "programme-specific window is inferred."
             ),
             parse_status="no-deadline",
             retrieval_method="official-taught-postgraduate-directory",
@@ -112,7 +159,9 @@ def _programmes(html: str) -> list[DiscoveredProgramme]:
     return sorted(programmes.values(), key=lambda item: item.name.casefold())
 
 
-def _review_groups(closings: dict[str, str]) -> list[DiscoveredProgramme]:
+def _review_groups(
+    closings: dict[str, str], *, intake_year: int = 2026, opens_at: str | None = None
+) -> list[DiscoveredProgramme]:
     definitions = (
         (
             "eduhk-taught-postgraduate-non-local-admissions",
@@ -142,20 +191,26 @@ def _review_groups(closings: dict[str, str]) -> list[DiscoveredProgramme]:
                 DiscoveredWindow(
                     round=round_name,
                     applicant_categories=[category],
-                    opens_at=None,
+                    opens_at=opens_at,
                     closes_at=closes_at,
-                    intake="September 2026",
+                    intake=f"September {intake_year}",
                     source_url=SCHEDULE_URL,
-                    opens_at_basis="missing",
+                    opens_at_basis="official" if opens_at else "missing",
                 )
             ],
             deadline_text=(
+                "Official 2027/28 general taught postgraduate schedule. Programmes "
+                "may close earlier when places fill. Not applicable to PhD, MPhil, "
+                "EdD, EdD(Chinese), MSocSc(EP) or PGDE. Review programme scope before publication."
+            )
+            if opens_at
+            else (
                 "EdUHK's official 2026/27 schedule gives this exact closing "
                 "date but only says applications opened in October 2025. "
                 "Programme exceptions also apply, so this remains review guidance."
             ),
-            parse_status="incomplete",
-            retrieval_method="official-2026-taught-postgraduate-schedule-pdf",
+            parse_status="parsed" if opens_at else "incomplete",
+            retrieval_method="official-taught-postgraduate-schedule",
             evidence_quality="official-full-text",
         )
         for programme_id, name, round_name, category, closes_at in definitions
@@ -194,6 +249,10 @@ def _fetch_html(url: str) -> str:
 
 
 def _fetch_schedule(url: str) -> str:
+    if not url.lower().endswith(".pdf"):
+        return normalise(
+            BeautifulSoup(_fetch_html(url), "html.parser").get_text(" ", strip=True)
+        )
     with httpx.Client(
         verify=_legacy_ssl_context(),
         follow_redirects=True,
