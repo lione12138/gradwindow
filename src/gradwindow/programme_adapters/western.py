@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 from .base import DiscoveredCatalog, Fetcher
 from .official_catalog import CatalogEntry, OfficialCatalogAdapter, entry, normalise
 
-CATALOG_URL = "https://grad.uwo.ca/admissions/programs/index.cfm"
-APPLICATION_URL = "https://grad.uwo.ca/admissions/apply.html"
+CATALOG_URL = "https://grad.uwo.ca/admissions/explore-our-programs.cfm"
+APPLICATION_URL = "https://grad.uwo.ca/admissions/apply-for-admission/index.cfm"
 EXISTING_COMPUTER_SCIENCE_ID = "western-computer-science-msc"
 
 
@@ -31,11 +31,11 @@ class WesternAdapter(OfficialCatalogAdapter):
         for row in soup.select("#programTable tr.MASTERS"):
             cells = row.find_all("td")
             if len(cells) < 2:
-                continue
+                raise ValueError("Western master's row is missing programme cells")
             name = normalise(cells[0].get_text(" ", strip=True))
             source = cells[1].select_one('a[href*="program.cfm"]')
             if not name or source is None:
-                continue
+                raise ValueError("Western master's row is missing its name or link")
             entries.append(
                 entry(
                     name=name,
