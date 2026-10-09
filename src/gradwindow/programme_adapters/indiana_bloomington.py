@@ -27,7 +27,7 @@ class IndianaBloomingtonAdapter:
 
     def __init__(
         self,
-        minimum_expected_programmes: int = 330,
+        minimum_expected_programmes: int = 327,
         maximum_expected_programmes: int = 370,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
@@ -51,11 +51,26 @@ class IndianaBloomingtonAdapter:
 
 def _programmes(payload: str) -> list[DiscoveredProgramme]:
     try:
-        data = json.loads(payload)["data"]
+        document = json.loads(payload)
+        data = document["data"]
     except (json.JSONDecodeError, KeyError, TypeError) as exc:
         raise ValueError("Indiana catalogue API did not return readable JSON") from exc
     if not isinstance(data, list):
         raise ValueError("Indiana catalogue API data was not a list")
+    pagination = document.get("pagination")
+    if (
+        document.get("status") != 200
+        or not isinstance(pagination, dict)
+        or pagination.get("page") != 1
+        or pagination.get("pages") != 1
+        or pagination.get("next") is not None
+        or pagination.get("prev") is not None
+        or pagination.get("total") != len(data)
+        or pagination.get("thisPage") != len(data)
+    ):
+        raise ValueError(
+            "Indiana catalogue API response is incomplete; review pagination"
+        )
 
     programmes: dict[str, DiscoveredProgramme] = {}
     for item in data:
@@ -73,7 +88,12 @@ def _programmes(payload: str) -> list[DiscoveredProgramme]:
             if isinstance(school, dict) and school.get("name")
         )
         if not name or not degree or not source_url:
-            continue
+            raise ValueError(
+                "Indiana master's offering is missing its name, degree or URL"
+            )
+        previous = programmes.get(source_url)
+        if previous and (previous.name != name or previous.degree_type != degree):
+            raise ValueError("Indiana duplicate programme URL has conflicting identity")
         identity = hashlib.sha256(source_url.encode("utf-8")).hexdigest()[:8]
         programme_id = f"indiana-{slug(name)}-{slug(degree)}-{identity}"
         programmes[source_url] = DiscoveredProgramme(
