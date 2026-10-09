@@ -88,7 +88,7 @@ def test_shandong_keeps_image_only_guide_out_of_deadline_records() -> None:
 def test_indiana_reads_official_public_degree_api_and_department_policy() -> None:
     payload = {
         "status": 200,
-        "pagination": {"total": 2},
+        "pagination": {"total": 2, "thisPage": 2, "page": 1, "pages": 1},
         "data": [
             {
                 "name": "Accounting",
