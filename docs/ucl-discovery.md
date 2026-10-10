@@ -41,6 +41,26 @@ still need systematic checking. Directory intake months are metadata, not
 exact opening dates. No 2026 dates are reused for 2027 entry. Existing public
 windows are not changed by this migration.
 
+A further one-course-per-faculty check on the same date covered all 11 faculty
+groups present in the master's directory. Each sampled page explicitly said
+the course application dates are to be confirmed. Relative to the current
+directory URL, the inspected course slugs were:
+
+- Brain Sciences: `advanced-audiology-msc`
+- Medical Sciences: `advanced-biomedical-imaging-msc`
+- Mathematical and Physical Sciences: `advanced-materials-science-data-driven-innovation-msc`
+- Population Health Sciences: `advanced-musculoskeletal-physiotherapy-clinical-practice-msc`
+- Life Sciences: `advanced-pharmacy-practice-msc`
+- Social and Historical Sciences: `ancient-history-ma`
+- Institute of Education: `applied-linguistics-ma`
+- Built Environment: `architectural-computation-msc`
+- Arts and Humanities: `archives-and-records-management-ma`
+- Engineering Sciences: `artificial-intelligence-and-data-engineering-msc`
+- Laws: `law-and-finance-msc`
+
+This bounded sampling supports a shared detail-page parser as the next step;
+it does not establish the status of every programme or study option.
+
 ## Transport and integration limits
 
 Local HTTP and curl requests returned HTTP 403 while the interactive browser
