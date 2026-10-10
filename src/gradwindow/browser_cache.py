@@ -5,7 +5,6 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-import sqlite3
 import time
 from contextlib import contextmanager
 from pathlib import Path
@@ -30,6 +29,9 @@ class BrowserCache:
 
     @contextmanager
     def connect(self):
+        # Site-build environments can omit _sqlite3; only fetching needs it.
+        import sqlite3
+
         db = sqlite3.connect(self.path, timeout=30)
         try:
             with db:

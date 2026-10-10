@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import subprocess
+import sys
 from pathlib import Path
 
 import httpx
@@ -225,3 +227,20 @@ def test_transport_timeout_retries_without_losing_usage_uncertainty(
     assert cache.summary()["requests"] == 2
     assert cache.summary()["transport_errors"] == 1
     assert cache.summary()["requests_without_usage_header"] == 1
+
+
+def test_cli_import_does_not_require_optional_sqlite_extension():
+    script = """
+import builtins
+original = builtins.__import__
+def without_sqlite(name, *args, **kwargs):
+    if name in {"sqlite3", "_sqlite3"}:
+        raise ModuleNotFoundError("No module named '_sqlite3'")
+    return original(name, *args, **kwargs)
+builtins.__import__ = without_sqlite
+import gradwindow.cli
+"""
+    result = subprocess.run(
+        [sys.executable, "-c", script], capture_output=True, text=True
+    )
+    assert result.returncode == 0, result.stderr
