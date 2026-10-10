@@ -2,7 +2,11 @@
 
 import pytest
 
-from gradwindow.programme_adapters.ucl import CATALOG_URL, UCLAdapter
+from gradwindow.programme_adapters.ucl import (
+    CATALOG_URL,
+    UCLAdapter,
+    programme_name_key,
+)
 
 
 def card(
@@ -157,3 +161,38 @@ def test_same_non_master_title_with_different_degree_is_not_a_repeated_page():
         minimum_expected_courses=3, minimum_expected_programmes=1
     ).parse_catalog_from_fetcher(lambda _: source)
     assert len(catalog.programmes) == 1
+
+
+@pytest.mark.parametrize(
+    "old,new",
+    [
+        ("Health in Urban Development MSc", "MSc Health in Urban Development"),
+        (
+            "Bioscience (Research and Development) MSc",
+            "Bioscience: Research & Development MSc",
+        ),
+        ("Translation: Translation Studies MA", "Translation (Translation Studies) MA"),
+    ],
+)
+def test_typographical_renames_retain_previous_ids(old, new):
+    instance = UCLAdapter(minimum_expected_courses=1, minimum_expected_programmes=1)
+    instance.prepare_discovery({"programmes": {"ucl-established-id": {"name": old}}})
+    catalog = instance.parse_catalog_from_fetcher(lambda _: page(card(new), total=1))
+    assert catalog.programmes[0].id == "ucl-established-id"
+    assert catalog.programmes[0].department == ""
+
+
+def test_identity_matching_does_not_merge_semantic_or_ambiguous_renames():
+    assert programme_name_key(
+        "Advanced Critical Care Practice MSc"
+    ) != programme_name_key("Advanced Clinical Practice MSc")
+    instance = adapter()
+    instance.prepare_discovery(
+        {
+            "programmes": {
+                "ucl-one": {"name": "Audiology MSc"},
+                "ucl-two": {"name": "MSc Audiology"},
+            }
+        }
+    )
+    assert instance.previous_ids == {}
