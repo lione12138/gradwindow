@@ -13,12 +13,16 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: programme-discovery-${{ inputs.university }}
+  group: application-data-state-writes
   cancel-in-progress: false
+  queue: max
 
 jobs:
   discover:
     runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_BROWSER_CACHE_DIR: .cache/browser-fetch
+      CLOUDFLARE_BROWSER_MIN_INTERVAL_SECONDS: "12"
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v6
@@ -27,12 +31,19 @@ jobs:
           cache: pip
       - name: Install
         run: pip install -e ".[dev]"
+      - uses: ./.github/actions/browser-checkpoint
+        with:
+          mode: restore
       - name: Run selected programme adapter
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_BROWSER_API_TOKEN: ${{ secrets.CLOUDFLARE_BROWSER_API_TOKEN }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: gradwindow discover-programmes --university "${{ inputs.university }}"
+      - uses: ./.github/actions/browser-checkpoint
+        if: always()
+        with:
+          mode: save
       - name: Validate discovery outputs
         run: |
           gradwindow validate

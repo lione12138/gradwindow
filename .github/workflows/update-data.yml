@@ -39,6 +39,7 @@ permissions:
 concurrency:
   group: application-data-state-writes
   cancel-in-progress: false
+  queue: max
 
 jobs:
   update:
@@ -46,6 +47,8 @@ jobs:
     timeout-minutes: 240
     env:
       PYTHONUNBUFFERED: "1"
+      CLOUDFLARE_BROWSER_CACHE_DIR: .cache/browser-fetch
+      CLOUDFLARE_BROWSER_MIN_INTERVAL_SECONDS: "12"
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
@@ -66,6 +69,9 @@ jobs:
           gradwindow validate
           gradwindow coverage
 
+      - uses: ./.github/actions/browser-checkpoint
+        with:
+          mode: restore
       - name: Run daily pipeline
         if: github.event_name != 'push' && !inputs.translation_only
         id: daily_pipeline
@@ -78,6 +84,10 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL }}
         run: gradwindow pipeline --skip-build
+      - uses: ./.github/actions/browser-checkpoint
+        if: always()
+        with:
+          mode: save
 
       - name: Summarize dedicated adapter health
         if: >-
