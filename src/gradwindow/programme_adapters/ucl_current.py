@@ -43,7 +43,9 @@ def discover_current_catalogue(
             expected = total
         if total != expected or total < minimum_courses:
             raise ValueError(
-                "UCL current directory total changed or is below the expected minimum"
+                "UCL current directory total changed or is below the expected minimum: "
+                f"page={pages + 1}, url={url}, total={total}, "
+                f"first_page_total={expected}, minimum={minimum_courses}"
             )
         cards = soup.select("article.course-feed-listing-item")
         if not cards:
