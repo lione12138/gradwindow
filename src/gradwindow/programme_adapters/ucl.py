@@ -49,6 +49,31 @@ _EXISTING_IDS = {
 CatalogFallbackFetcher = Callable[[str], str]
 
 
+def programme_name_key(name: str) -> str:
+    """Match typography and degree placement, never fuzzy semantic renames."""
+    tokens = re.findall(r"\w+", name.casefold().replace("&", " and "))
+    degrees = {
+        "msc",
+        "ma",
+        "mres",
+        "march",
+        "mclindent",
+        "mph",
+        "mpa",
+        "mfa",
+        "masc",
+        "mplan",
+        "mba",
+        "llm",
+        "ms",
+        "mla",
+        "mphil",
+    }
+    if tokens and tokens[0] in degrees:
+        tokens = tokens[1:] + tokens[:1]
+    return " ".join(tokens)
+
+
 class UCLAdapter(BaseProgrammeAdapter):
     """Discover UCL master's courses from its official taught-course finder."""
 
@@ -74,9 +99,9 @@ class UCLAdapter(BaseProgrammeAdapter):
     def prepare_discovery(self, previous_state: dict) -> None:
         names: dict[str, list[str]] = {}
         for programme_id, item in previous_state.get("programmes", {}).items():
-            names.setdefault(_normalise(item.get("name")).casefold(), []).append(
-                programme_id
-            )
+            names.setdefault(
+                programme_name_key(_normalise(item.get("name"))), []
+            ).append(programme_id)
         self.previous_ids = {
             name: ids[0] for name, ids in names.items() if name and len(ids) == 1
         }

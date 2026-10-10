@@ -22,7 +22,11 @@ The official directory contains a same-title PG Cert / PG Dip pair; duplicate
 card detection therefore includes the degree label.
 
 Study-option query parameters are retained. Unique previous names retain their
-programme IDs, with the existing curated overrides as a fallback. Renamed or
+programme IDs, including changes limited to punctuation, `&` versus `and`, and
+moving the degree abbreviation from the end to the beginning. Ambiguous matches
+are rejected and semantic renames are not fuzzy-matched. The first live refresh
+revealed 15 such typographical changes that otherwise became duplicate candidates.
+The existing curated overrides remain a fallback. Renamed or
 removed courses still require review. Coming soon records use the official
 directory as evidence; no detail URL, intake or application date is invented.
 
@@ -66,9 +70,12 @@ it does not establish the status of every programme or study option.
 Local HTTP and curl requests returned HTTP 403 while the interactive browser
 could read the directory. The shared discovery transport supports the existing
 Cloudflare browser fallback; this adapter allows up to 40 fallback pages to
-cover pagination. Local Cloudflare credentials were unavailable, so a complete
-unattended live run has not yet been verified. Fixture tests and browser
-catalogue inspection must not be described as a successful live CLI dry run.
+cover pagination. Local Cloudflare credentials were unavailable. GitHub Actions
+run [38032372262](https://github.com/lione12138/gradwindow/actions/runs/38032372262)
+subsequently completed a full unattended discovery on 2026-10-10: all 35 direct
+requests were blocked, and all 35 browser fallbacks succeeded, producing 553
+records. Validation and 972 tests passed. This confirms catalogue transport;
+it does not validate programme-specific application dates.
 
 Operational candidate/state refresh and translation review should follow a
 successful unattended run. This change does not publish programmes or dates.

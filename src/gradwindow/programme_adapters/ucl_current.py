@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 from .base import DiscoveredCatalog, DiscoveredProgramme, Fetcher
 from .official_catalog import normalise, slug
-from .ucl import _EXISTING_IDS, CATALOG_URL
+from .ucl import _EXISTING_IDS, CATALOG_URL, programme_name_key
 
 _MASTER = re.compile(r"^(?:Master of .+?|International Master of Arts) \((.+)\)$")
 
@@ -115,7 +115,7 @@ def discover_current_catalogue(
                 )
                 if option:
                     default_id += f"-option-{option.lower()}"
-                programme_id = previous_ids.get(name.casefold(), default_id)
+                programme_id = previous_ids.get(programme_name_key(name), default_id)
                 if programme_id in programmes:
                     raise ValueError(
                         "UCL current directory generated duplicate programme IDs"
@@ -125,7 +125,7 @@ def discover_current_catalogue(
                     name=name,
                     degree_type=degree[1],
                     faculty=faculty,
-                    department=faculty,
+                    department="",
                     source_url=source,
                     application_url=source,
                     windows=[],
