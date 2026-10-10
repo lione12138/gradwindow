@@ -192,7 +192,8 @@ def test_post_merge_smoke_runs_changed_adapters_with_production_secrets() -> Non
     )
 
     assert "branches: [main]" in workflow
-    assert "adapter-smoke-${{ github.sha }}" in workflow
+    assert "group: application-data-state-writes" in workflow
+    assert "queue: max" in workflow
     assert "CLOUDFLARE_ACCOUNT_ID" in workflow
     assert "CLOUDFLARE_BROWSER_API_TOKEN" in workflow
     assert (

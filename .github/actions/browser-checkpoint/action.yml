@@ -1,0 +1,27 @@
+name: Browser page checkpoints
+description: Restore or save short-lived public-page checkpoints and usage counters
+inputs:
+  mode:
+    description: restore or save
+    required: true
+runs:
+  using: composite
+  steps:
+    - uses: actions/cache/restore@v5
+      if: inputs.mode == 'restore'
+      with:
+        path: .cache/browser-fetch
+        key: browser-pages-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ env.BROWSER_CACHE_SCOPE }}
+        restore-keys: |
+          browser-pages-v1-${{ runner.os }}-
+    - name: Report measured browser use
+      if: inputs.mode == 'save'
+      shell: bash
+      run: |
+        echo '### Browser fetch usage (milliseconds; missing headers are counted separately)' >> "$GITHUB_STEP_SUMMARY"
+        python -m gradwindow.browser_cache >> "$GITHUB_STEP_SUMMARY"
+    - uses: actions/cache/save@v5
+      if: always() && inputs.mode == 'save'
+      with:
+        path: .cache/browser-fetch
+        key: browser-pages-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ env.BROWSER_CACHE_SCOPE }}
