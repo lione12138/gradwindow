@@ -39,7 +39,23 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_BROWSER_API_TOKEN: ${{ secrets.CLOUDFLARE_BROWSER_API_TOKEN }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: gradwindow discover-programmes --university "${{ inputs.university }}"
+        run: |
+          python - <<'PY'
+          import sqlite3
+          from bs4 import BeautifulSoup
+          db = sqlite3.connect('.cache/browser-fetch/pages.sqlite3')
+          for body, in db.execute('SELECT body FROM pages'):
+              soup = BeautifulSoup(body, 'html.parser')
+              counters = soup.select('.course-feed-listing-view__result-count')
+              if not counters:
+                  continue
+              print({'counts': [c.get_text(' ', strip=True) for c in counters],
+                     'cards': len(soup.select('article.course-feed-listing-item')),
+                     'first': [h.get_text(' ', strip=True) for h in soup.select('.course-feed-listing-item__heading--main')[:1]],
+                     'next': [a.get('href') for a in soup.select('nav.pager a[rel="next"]')]})
+          print('metrics', db.execute('SELECT name,value FROM metrics').fetchall())
+          raise SystemExit('Read-only diagnosis complete; do not create candidate data')
+          PY
       - uses: ./.github/actions/browser-checkpoint
         if: always()
         with:
