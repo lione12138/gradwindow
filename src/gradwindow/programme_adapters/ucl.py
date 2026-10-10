@@ -12,9 +12,7 @@ from ..http_client import FetchFailure
 from .base import BaseProgrammeAdapter, DiscoveredCatalog, DiscoveredProgramme
 
 UNIVERSITY_ID = "ucl-university-college-london"
-CATALOG_URL = (
-    "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees?query="
-)
+CATALOG_URL = "https://www.ucl.ac.uk/study/prospective-students/graduate/courses"
 
 _COURSE_PATH_PREFIX = "/prospective-students/graduate/taught-degrees/"
 _CATALOG_REFERER = "https://www.ucl.ac.uk/study/prospective-students/graduate"
@@ -59,6 +57,8 @@ class UCLAdapter(BaseProgrammeAdapter):
     intake = "Varies by programme"
     application_opens_at_basis = "official"
     replace_pending_candidates = True
+    browser_fallback_limit = 40
+    window_watch_urls = (CATALOG_URL,)
 
     def __init__(
         self,
@@ -69,6 +69,17 @@ class UCLAdapter(BaseProgrammeAdapter):
         self.minimum_expected_courses = minimum_expected_courses
         self.minimum_expected_programmes = minimum_expected_programmes
         self.blocked_catalog_fetcher = blocked_catalog_fetcher or _fetch_with_curl
+        self.previous_ids: dict[str, str] = {}
+
+    def prepare_discovery(self, previous_state: dict) -> None:
+        names: dict[str, list[str]] = {}
+        for programme_id, item in previous_state.get("programmes", {}).items():
+            names.setdefault(_normalise(item.get("name")).casefold(), []).append(
+                programme_id
+            )
+        self.previous_ids = {
+            name: ids[0] for name, ids in names.items() if name and len(ids) == 1
+        }
 
     def parse_catalog_from_fetcher(self, fetcher) -> DiscoveredCatalog:
         try:
@@ -77,6 +88,16 @@ class UCLAdapter(BaseProgrammeAdapter):
             if exc.kind != "blocked":
                 raise
             html = self.blocked_catalog_fetcher(CATALOG_URL)
+        if "course-feed-listing-view__result-count" in html:
+            from .ucl_current import discover_current_catalogue
+
+            return discover_current_catalogue(
+                html,
+                fetcher,
+                previous_ids=self.previous_ids,
+                minimum_courses=self.minimum_expected_courses,
+                minimum_programmes=self.minimum_expected_programmes,
+            )
         return self.parse_catalog(html)
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:
@@ -196,7 +217,13 @@ def _fetch_with_curl(url: str) -> str:
     if len(result.stdout) > 2_000_000:
         raise ValueError("UCL catalogue exceeded the download limit")
     html = result.stdout.decode("utf-8", errors="replace")
-    if "Just a moment" in html or 'id="programme-data-content"' not in html:
+    if "Just a moment" in html or not any(
+        marker in html
+        for marker in (
+            'id="programme-data-content"',
+            "course-feed-listing-view__result-count",
+        )
+    ):
         raise ValueError("UCL catalogue fallback returned a challenge page")
     return html
 
