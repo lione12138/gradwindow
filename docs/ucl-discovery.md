@@ -79,3 +79,26 @@ it does not validate programme-specific application dates.
 
 Operational candidate/state refresh and translation review should follow a
 successful unattended run. This change does not publish programmes or dates.
+
+## Mixed directory snapshots (2026-10-10 UTC)
+
+Run [38087082403](https://github.com/lione12138/gradwindow/actions/runs/38087082403)
+saved two successful HTTP 200 browser responses: the first page advertised 695
+courses, while page 2 advertised 694. Inspecting its saved checkpoint confirmed
+20 cards on each page and the expected first titles/pagination links; this was
+not a 429 or a count parsed from an access-denied page.
+
+A fresh run [38088577107](https://github.com/lione12138/gradwindow/actions/runs/38088577107)
+reproduced the mismatch at page 7 (`?page=6`): 694 versus the first page's 695.
+The interactive browser returned 695 for that same URL. This establishes that
+retrievals can receive different directory versions; upstream cache/update
+propagation is the likely cause, but the responsible cache layer is unconfirmed.
+
+The adapter continues to reject mixed totals, duplicate cards and incomplete
+pagination. These consistency failures now invalidate only the browser page
+keys visited in that snapshot, so a later job fetches fresh pages instead of
+replaying the known-inconsistent six-hour checkpoint. Other schools' cache
+entries and account cooldowns remain intact. There is no immediate retry loop,
+no relaxed minimum/count check and no overwrite of published or operational
+data on failure. Error messages include the page URL, actual count, first-page
+count and minimum to distinguish this case from a genuinely small catalogue.

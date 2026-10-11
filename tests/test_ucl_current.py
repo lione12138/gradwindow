@@ -1,12 +1,16 @@
 """Reduced fixtures from UCL's 2027/28 directory, inspected 2026-10-10."""
 
+import httpx
 import pytest
 
+from gradwindow.browser_rendering import browser_content_fetcher_from_environment
+from gradwindow.http_client import FetchFailure
 from gradwindow.programme_adapters.ucl import (
     CATALOG_URL,
     UCLAdapter,
     programme_name_key,
 )
+from gradwindow.programme_discovery import discover_programmes
 
 
 def card(
@@ -32,6 +36,60 @@ def page(cards, total=3, next_url=None):
 
 def adapter():
     return UCLAdapter(minimum_expected_courses=3, minimum_expected_programmes=2)
+
+
+def test_inconsistent_snapshot_is_evicted_before_next_run(tmp_path, monkeypatch):
+    monkeypatch.setenv("CLOUDFLARE_ACCOUNT_ID", "ucl-test-account")
+    monkeypatch.setenv("CLOUDFLARE_BROWSER_API_TOKEN", "test-token")
+    monkeypatch.setenv("CLOUDFLARE_BROWSER_MIN_INTERVAL_SECONDS", "0")
+    monkeypatch.setenv("CLOUDFLARE_BROWSER_CACHE_DIR", str(tmp_path / "cache"))
+    sources = pages()
+    sources[CATALOG_URL + "?page=1"] = sources[CATALOG_URL + "?page=1"].replace(
+        "3 courses found", "4 courses found"
+    )
+    calls = []
+
+    def post(*args, **kwargs):
+        url = kwargs["json"]["url"]
+        calls.append(url)
+        return httpx.Response(200, json=sources[url])
+
+    def blocked(url):
+        raise FetchFailure("HTTP 403", kind="blocked", status_code=403)
+
+    monkeypatch.setattr("gradwindow.browser_rendering.httpx.post", post)
+    browser = browser_content_fetcher_from_environment()
+    unrelated_url = "https://example.edu/other-school"
+    sources[unrelated_url] = "Other school's official page"
+    browser(unrelated_url)
+    calls.clear()
+    for name, value in [
+        ("programs", '{"programs": []}'),
+        ("applications", '{"applications": []}'),
+    ]:
+        (tmp_path / f"{name}.json").write_text(value)
+    options = dict(
+        programs_path=tmp_path / "programs.json",
+        applications_path=tmp_path / "applications.json",
+        candidates_path=tmp_path / "candidates.json",
+        state_path=tmp_path / "state.json",
+        fetcher=blocked,
+        browser_fetcher=browser,
+        dry_run=True,
+    )
+    with pytest.raises(ValueError, match=r"page=2.*total=4.*first_page_total=3"):
+        discover_programmes(adapter(), **options)
+    assert not (tmp_path / "state.json").exists()
+    assert not (tmp_path / "candidates.json").exists()
+    assert browser.client.cache.summary()["invalidated_pages"] == 2
+    # Reconstruct the client as a subsequent job would, reading the persisted store.
+    monkeypatch.setattr("gradwindow.browser_rendering._clients", {})
+    browser = browser_content_fetcher_from_environment()
+    options["browser_fetcher"] = browser
+    assert browser(unrelated_url) == sources[unrelated_url]
+    sources.update(pages())
+    discover_programmes(adapter(), **options)
+    assert calls == [CATALOG_URL, CATALOG_URL + "?page=1"] * 2
 
 
 def pages():

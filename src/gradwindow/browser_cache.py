@@ -61,6 +61,12 @@ class BrowserCache:
                 "INSERT OR REPLACE INTO pages VALUES (?,?,?)", (key, expires, body)
             )
 
+    def delete(self, keys: set[str]) -> int:
+        with self.connect() as db:
+            before = db.total_changes
+            db.executemany("DELETE FROM pages WHERE key=?", ((key,) for key in keys))
+            return db.total_changes - before
+
     def defer(self, account: str, until: float) -> None:
         with self.connect() as db:
             db.execute(

@@ -19,7 +19,7 @@ runs:
       shell: bash
       run: |
         echo '### Browser fetch usage (milliseconds; missing headers are counted separately)' >> "$GITHUB_STEP_SUMMARY"
-        python -m gradwindow.browser_cache >> "$GITHUB_STEP_SUMMARY"
+        python -m gradwindow.browser_cache | tee -a "$GITHUB_STEP_SUMMARY"
     - uses: actions/cache/save@v5
       if: always() && inputs.mode == 'save'
       with:
