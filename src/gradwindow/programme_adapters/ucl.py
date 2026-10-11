@@ -48,6 +48,22 @@ _EXISTING_IDS = {
 
 CatalogFallbackFetcher = Callable[[str], str]
 
+# Explicit former-name pairs on https://www.ucl.ac.uk/ioe/courses/graduate-taught
+# reviewed 2026-10-11. These override IDs from earlier unreviewed snapshots.
+REVIEWED_IOE_IDENTITIES = {
+    "Citizenship Education MA": "ucl-education-citizenship-ma",
+    "Educational Assessment MA": "ucl-education-assessment-ma",
+    "Geography Education MA": "ucl-education-geography-ma",
+    "History Education MA": "ucl-education-history-ma",
+    "Science Education MA": "ucl-education-science-ma",
+    "Educational Leadership MA": "ucl-educational-leadership-service-ma",
+    "Education, Conflict, Emergencies and Peace MA": (
+        "ucl-education-and-international-development-conflict-emergencies-and-peace-cep-ma"
+    ),
+    "Social Policy and Evidence Synthesis MSc": "ucl-social-policy-evidence-synthesis-msc",
+    "Social Policy and Research Methods MSc": "ucl-social-policy-research-methods-msc",
+}
+
 
 def programme_name_key(name: str) -> str:
     """Match typography and degree placement, never fuzzy semantic renames."""

@@ -32,6 +32,20 @@ directory as evidence; no detail URL, intake or application date is invented.
 
 ## Application-window status
 
+### IOE identity review, 2026-10-11
+
+The official [IOE graduate course list](https://www.ucl.ac.uk/ioe/courses/graduate-taught)
+explicitly identifies former names for nine pending candidates: Citizenship
+Education, Educational Assessment, Geography Education, History Education,
+Science Education, Educational Leadership (formerly In-service), Education,
+Conflict, Emergencies and Peace, Social Policy and Evidence Synthesis, and
+Social Policy and Research Methods. These retain their existing public IDs.
+Current names and official course links are updated without adding programmes
+or dates. The duplicate new-programme candidates are rejected with the source
+recorded in review notes. `REVIEWED_IOE_IDENTITIES` takes precedence over IDs
+from unreviewed discovery snapshots, preventing recurrence on later refreshes.
+The other 84 candidates still require identity/publication review.
+
 **Catalogue parser implemented; systematic detail/window discovery pending.**
 The current Advanced Materials Science MSc and Computer Science MSc pages
 were inspected and explicitly say application dates are to be confirmed:
