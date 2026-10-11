@@ -5,6 +5,7 @@ import os
 import threading
 import time
 from collections.abc import Callable, Mapping
+from dataclasses import dataclass
 from email.utils import parsedate_to_datetime
 
 import httpx
@@ -42,6 +43,17 @@ class CloudflareBrowserClient:
         self._last_request_started_at: float | None = None
         self.cache = cache
         self._blocked_until = 0.0
+        self._cache_keys_by_url: dict[str, set[str]] = {}
+
+    def invalidate(self, urls: tuple[str, ...]) -> None:
+        if self.cache is None:
+            return
+        with self._request_lock:
+            keys = set().union(
+                *(self._cache_keys_by_url.get(url, set()) for url in urls)
+            )
+            removed = self.cache.delete(keys)
+            self.cache.count("invalidated_pages", removed)
 
     @classmethod
     def from_environment(cls) -> CloudflareBrowserClient | None:
@@ -115,6 +127,7 @@ class CloudflareBrowserClient:
             request_body["addScriptTag"] = [{"content": script}]
         key = BrowserCache.key(self.account_id, endpoint, request_body)
         with self._request_lock:
+            self._cache_keys_by_url.setdefault(url, set()).add(key)
             if self.cache and (cached := self.cache.get(key)) is not None:
                 self.cache.count("cache_hits")
                 return cached
@@ -283,23 +296,32 @@ def browser_markdown_fetcher_from_environment() -> Callable[[str], str] | None:
     return client.markdown if client else None
 
 
+@dataclass
+class BrowserContentFetcher:
+    client: CloudflareBrowserClient
+    selectors: Mapping[str, str]
+    scripts: Mapping[str, str]
+
+    def __call__(self, url: str) -> str:
+        return self.client.content(
+            url,
+            wait_for_selector=self.selectors.get(url),
+            script=self.scripts.get(url),
+        )
+
+    def invalidate(self, urls: tuple[str, ...]) -> None:
+        self.client.invalidate(urls)
+
+
 def browser_content_fetcher_from_environment(
     *,
     wait_for_selectors: Mapping[str, str] | None = None,
     scripts: Mapping[str, str] | None = None,
-) -> Callable[[str], str] | None:
+) -> BrowserContentFetcher | None:
     client = CloudflareBrowserClient.from_environment()
     if client is None:
         return None
 
-    selectors = dict(wait_for_selectors or {})
-    page_scripts = dict(scripts or {})
-
-    def fetch(url: str) -> str:
-        return client.content(
-            url,
-            wait_for_selector=selectors.get(url),
-            script=page_scripts.get(url),
-        )
-
-    return fetch
+    return BrowserContentFetcher(
+        client, dict(wait_for_selectors or {}), dict(scripts or {})
+    )

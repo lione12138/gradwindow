@@ -30,7 +30,7 @@ from .paths import (
     WINDOW_CANDIDATES_PATH,
 )
 from .predictions import official_cycle_key
-from .programme_adapters.base import ProgrammeAdapter
+from .programme_adapters.base import InconsistentCatalogueError, ProgrammeAdapter
 from .programme_windows import (
     has_official_exact_window,
     known_programme_window_candidates,
@@ -146,6 +146,10 @@ def discover_programmes(
     try:
         catalog = adapter.parse_catalog_from_fetcher(tracking_fetcher)
     except Exception as exc:
+        if isinstance(exc, InconsistentCatalogueError):
+            invalidate = getattr(browser_fetcher, "invalidate", None)
+            if callable(invalidate):
+                invalidate(exc.urls)
         try:
             exc.transport_diagnostics = transport.diagnostics()
         except (AttributeError, TypeError):

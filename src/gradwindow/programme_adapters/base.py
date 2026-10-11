@@ -23,6 +23,14 @@ class ParserError(ProgrammeAdapterError):
     reason = "PARSER_ERROR"
 
 
+class InconsistentCatalogueError(ParserError):
+    """A mixed/partial snapshot must not be reused on the next discovery run."""
+
+    def __init__(self, message: str, urls: list[str]) -> None:
+        super().__init__(message)
+        self.urls = tuple(urls)
+
+
 @dataclass(slots=True)
 class DiscoveredWindow:
     round: str

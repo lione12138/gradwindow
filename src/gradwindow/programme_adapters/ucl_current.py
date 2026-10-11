@@ -7,7 +7,12 @@ from urllib.parse import parse_qs, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
-from .base import DiscoveredCatalog, DiscoveredProgramme, Fetcher
+from .base import (
+    DiscoveredCatalog,
+    DiscoveredProgramme,
+    Fetcher,
+    InconsistentCatalogueError,
+)
 from .official_catalog import normalise, slug
 from .ucl import _EXISTING_IDS, CATALOG_URL, programme_name_key
 
@@ -29,7 +34,9 @@ def discover_current_catalogue(
     pending: list[str] = []
     master_cards = 0
     option_count = 0
+    visited_urls: list[str] = []
     while True:
+        visited_urls.append(url)
         soup = BeautifulSoup(html, "html.parser")
         counter = soup.select_one(".course-feed-listing-view__result-count")
         match = re.fullmatch(
@@ -42,8 +49,11 @@ def discover_current_catalogue(
         if expected is None:
             expected = total
         if total != expected or total < minimum_courses:
-            raise ValueError(
-                "UCL current directory total changed or is below the expected minimum"
+            raise InconsistentCatalogueError(
+                "UCL current directory total changed or is below the expected minimum: "
+                f"page={pages + 1}, url={url}, total={total}, "
+                f"first_page_total={expected}, minimum={minimum_courses}",
+                visited_urls,
             )
         cards = soup.select("article.course-feed-listing-item")
         if not cards:
@@ -57,7 +67,9 @@ def discover_current_catalogue(
                 raise ValueError("UCL course card lacks title or degree")
             key = (title.casefold(), degree_label)
             if key in seen_cards:
-                raise ValueError("UCL directory repeated a course card across pages")
+                raise InconsistentCatalogueError(
+                    "UCL directory repeated a course card across pages", visited_urls
+                )
             seen_cards.add(key)
             count += 1
             degree = _MASTER.fullmatch(degree_label)
@@ -156,8 +168,9 @@ def discover_current_catalogue(
         url = next_url
         html = fetcher(url)
     if count != expected:
-        raise ValueError(
-            f"UCL incomplete pagination: read {count} of {expected} course cards"
+        raise InconsistentCatalogueError(
+            f"UCL incomplete pagination: read {count} of {expected} course cards",
+            visited_urls,
         )
     if len(programmes) < minimum_programmes:
         raise ValueError("UCL current directory has too few master's programmes")

@@ -37,6 +37,11 @@ On a retry, the parser runs again and reuses successful pages, requesting only
 missing/expired ones. This is page-level recovery, not a saved parser cursor.
 Existing catalogue completeness, duplicate and evidence checks still apply.
 Partial candidates/state are not published merely because some pages were saved.
+Adapters can raise `InconsistentCatalogueError` with the snapshot's visited
+URLs. Discovery then evicts those browser checkpoints before propagating the
+error. UCL uses this for mixed page totals, repeated cards and incomplete
+pagination. A later run retries fresh pages; transport failures such as 429
+still retain completed pages and the account cooldown.
 
 Pages expire after six hours or at the next UTC date boundary, whichever comes
 first. No stale-on-error fallback is allowed. Resume after that boundary must
