@@ -75,7 +75,7 @@ def test_inconsistent_snapshot_is_evicted_before_next_run(tmp_path, monkeypatch)
         state_path=tmp_path / "state.json",
         fetcher=blocked,
         browser_fetcher=browser,
-        dry_run=True,
+        dry_run=False,
     )
     with pytest.raises(ValueError, match=r"page=2.*total=4.*first_page_total=3"):
         discover_programmes(adapter(), **options)
@@ -86,6 +86,7 @@ def test_inconsistent_snapshot_is_evicted_before_next_run(tmp_path, monkeypatch)
     monkeypatch.setattr("gradwindow.browser_rendering._clients", {})
     browser = browser_content_fetcher_from_environment()
     options["browser_fetcher"] = browser
+    options["dry_run"] = True
     assert browser(unrelated_url) == sources[unrelated_url]
     sources.update(pages())
     discover_programmes(adapter(), **options)
