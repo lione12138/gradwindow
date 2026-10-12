@@ -81,6 +81,41 @@ it does not establish the status of every programme or study option.
 
 ## Transport and integration limits
 
+### Physiotherapy pathway review (2026-10-12)
+
+These identity decisions are an inference from matching official curriculum,
+clinical placement and entry requirements, not explicit former-name notices.
+The [department's current pathway guide](https://www.ucl.ac.uk/population-health-sciences/child-health/study/postgraduate-taught-degrees/physiotherapy)
+separates Clinical Practice (placement and experienced practitioners) from the
+academic/research pathway. Matching only the word Advanced would swap records.
+
+- [Advanced Musculoskeletal Physiotherapy MSc](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-musculoskeletal-physiotherapy-msc)
+  retains `ucl-physiotherapy-studies-musculoskeletal-msc`: the
+  [2026 Physiotherapy Studies page](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/physiotherapy-studies-musculoskeletal-msc-2026)
+  agrees on qualification, department, entry requirement, upper/lower quadrant
+  training, research and statistics modules, and academic/research emphasis.
+- [Advanced Musculoskeletal Physiotherapy Clinical Practice MSc](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-musculoskeletal-physiotherapy-clinical-practice-msc)
+  retains `ucl-advanced-physiotherapy-musculoskeletal-msc`: both it and the
+  [old Advanced Physiotherapy course](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/advanced-physiotherapy-musculoskeletal-msc)
+  require the distinctive 150-hour clinical placement, with specialist
+  musculoskeletal training and clinical education.
+- [Advanced Paediatric Physiotherapy Clinical Practice MSc](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-paediatric-physiotherapy-clinical-practice-msc)
+  retains `ucl-advanced-physiotherapy-paediatrics-msc`: the
+  [2026 Advanced Physiotherapy page](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/advanced-physiotherapy-paediatrics-msc-2026)
+  specifies experienced physiotherapists and a compulsory three-week placement;
+  the current course continues that clinical pathway (105 hours) and clinical
+  education module, distinct from Physiotherapy Studies: Paediatrics.
+
+Three duplicate candidates are rejected and public names/URLs updated with IDs
+preserved. A joint fixture tests that the two musculoskeletal pathways do not
+exchange IDs when prior unreviewed snapshots are loaded. No windows are added.
+
+The [old Sustainable Chemical Process Engineering page](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/sustainable-chemical-process-engineering-msc)
+describes both Advanced Chemical Engineering and Research routes. The current
+directory exposes these separately. Mapping the single old ID to either route
+would discard the other scope, so those candidates remain pending a reviewed
+parent/route integration; they are not simple one-to-one renames.
+
 ### Development planning and linguistics review (2026-10-12)
 
 The [Development Policy and Planning MSc page](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/development-policy-and-planning-msc)

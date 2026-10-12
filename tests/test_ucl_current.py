@@ -96,6 +96,33 @@ def test_reviewed_option_keeps_identity_and_route(
     assert not programmes[existing_id].windows
 
 
+def test_physiotherapy_clinical_and_academic_routes_do_not_swap_ids():
+    names = [
+        "Advanced Musculoskeletal Physiotherapy MSc",
+        "Advanced Musculoskeletal Physiotherapy Clinical Practice MSc",
+        "Advanced Paediatric Physiotherapy Clinical Practice MSc",
+    ]
+    instance = UCLAdapter(minimum_expected_courses=3, minimum_expected_programmes=3)
+    instance.prepare_discovery(
+        {
+            "programmes": {
+                f"ucl-unreviewed-{i}": {"name": n} for i, n in enumerate(names)
+            }
+        }
+    )
+    catalog = instance.parse_catalog_from_fetcher(
+        lambda _: page(
+            "".join(card(n, route=f"course-{i}") for i, n in enumerate(names))
+        )
+    )
+    actual = {p.name: p.id for p in catalog.programmes}
+    assert actual == {
+        names[0]: "ucl-physiotherapy-studies-musculoskeletal-msc",
+        names[1]: "ucl-advanced-physiotherapy-musculoskeletal-msc",
+        names[2]: "ucl-advanced-physiotherapy-paediatrics-msc",
+    }
+
+
 def test_inconsistent_snapshot_is_evicted_before_next_run(tmp_path, monkeypatch):
     monkeypatch.setenv("CLOUDFLARE_ACCOUNT_ID", "ucl-test-account")
     monkeypatch.setenv("CLOUDFLARE_BROWSER_API_TOKEN", "test-token")
