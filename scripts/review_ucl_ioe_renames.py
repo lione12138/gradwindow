@@ -10,14 +10,14 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = "https://www.ucl.ac.uk/ioe/courses/graduate-taught"
 
 
-def main():
+def apply_reviewed_renames(identities, sources):
     programs_path = ROOT / "data/programs.json"
     candidates_path = ROOT / "data/ops/programme-candidates.json"
     programs = read_json(programs_path)
     candidates = read_json(candidates_path)
     known = {p["id"]: p for p in programs["programs"]}
     changes = []
-    for name, existing_id in REVIEWED_IOE_IDENTITIES.items():
+    for name, existing_id in identities.items():
         matches = [
             c
             for c in candidates["items"]
@@ -43,7 +43,7 @@ def main():
             status="rejected",
             reviewedBy="Codex official-source review",
             reviewedAt=datetime.now(timezone.utc).isoformat(),
-            reviewNotes=f"Official rename of {previous['id']}; retain existing identity. Former-name evidence: {SOURCE}",
+            reviewNotes=f"Official rename of {previous['id']}; retain existing identity. Identity evidence: {sources[current['name']]}",
         )
     if changes:
         write_json(programs_path, programs)
@@ -52,4 +52,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    apply_reviewed_renames(
+        REVIEWED_IOE_IDENTITIES, dict.fromkeys(REVIEWED_IOE_IDENTITIES, SOURCE)
+    )
