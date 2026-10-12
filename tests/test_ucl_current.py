@@ -7,7 +7,7 @@ from gradwindow.browser_rendering import browser_content_fetcher_from_environmen
 from gradwindow.http_client import FetchFailure
 from gradwindow.programme_adapters.ucl import (
     CATALOG_URL,
-    REVIEWED_IOE_IDENTITIES,
+    REVIEWED_PROGRAMME_IDENTITIES,
     UCLAdapter,
     programme_name_key,
 )
@@ -39,8 +39,8 @@ def adapter():
     return UCLAdapter(minimum_expected_courses=3, minimum_expected_programmes=2)
 
 
-@pytest.mark.parametrize("name,existing_id", REVIEWED_IOE_IDENTITIES.items())
-def test_official_ioe_rename_overrides_unreviewed_snapshot_id(name, existing_id):
+@pytest.mark.parametrize("name,existing_id", REVIEWED_PROGRAMME_IDENTITIES.items())
+def test_official_rename_overrides_unreviewed_snapshot_id(name, existing_id):
     instance = UCLAdapter(minimum_expected_courses=1, minimum_expected_programmes=1)
     instance.prepare_discovery({"programmes": {"ucl-duplicate": {"name": name}}})
     catalog = instance.parse_catalog_from_fetcher(

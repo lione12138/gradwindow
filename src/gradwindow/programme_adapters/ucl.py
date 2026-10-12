@@ -65,6 +65,21 @@ REVIEWED_IOE_IDENTITIES = {
 }
 
 
+# Reviewed against official old/current course pages on 2026-10-12.
+# Evidence and scope are documented in docs/ucl-discovery.md.
+REVIEWED_COURSE_IDENTITIES = {
+    "Energy Systems and Data Analytics MSc": "ucl-energy-systems-and-data-analytics-esda-msc",
+    "Public Health MPH": "ucl-master-public-health-mph",
+    "Manufacturing with Innovation and Entrepreneurship MSc": (
+        "ucl-manufacturing-innovation-and-enterprise-msc"
+    ),
+}
+REVIEWED_PROGRAMME_IDENTITIES = {
+    **REVIEWED_IOE_IDENTITIES,
+    **REVIEWED_COURSE_IDENTITIES,
+}
+
+
 def programme_name_key(name: str) -> str:
     """Match typography and degree placement, never fuzzy semantic renames."""
     tokens = re.findall(r"\w+", name.casefold().replace("&", " and "))

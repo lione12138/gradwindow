@@ -14,7 +14,12 @@ from .base import (
     InconsistentCatalogueError,
 )
 from .official_catalog import normalise, slug
-from .ucl import _EXISTING_IDS, CATALOG_URL, REVIEWED_IOE_IDENTITIES, programme_name_key
+from .ucl import (
+    _EXISTING_IDS,
+    CATALOG_URL,
+    REVIEWED_PROGRAMME_IDENTITIES,
+    programme_name_key,
+)
 
 _MASTER = re.compile(r"^(?:Master of .+?|International Master of Arts) \((.+)\)$")
 
@@ -127,9 +132,9 @@ def discover_current_catalogue(
                 )
                 if option:
                     default_id += f"-option-{option.lower()}"
-                programme_id = REVIEWED_IOE_IDENTITIES.get(name) or previous_ids.get(
-                    programme_name_key(name), default_id
-                )
+                programme_id = REVIEWED_PROGRAMME_IDENTITIES.get(
+                    name
+                ) or previous_ids.get(programme_name_key(name), default_id)
                 if programme_id in programmes:
                     raise ValueError(
                         "UCL current directory generated duplicate programme IDs"

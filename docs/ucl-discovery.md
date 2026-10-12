@@ -81,6 +81,31 @@ it does not establish the status of every programme or study option.
 
 ## Transport and integration limits
 
+### Further course identity review (2026-10-12)
+
+Three current course names retain their existing public IDs:
+
+- Energy Systems and Data Analytics MSc retains the ESDA ID. The
+  [official departmental article](https://www.ucl.ac.uk/bartlett/news/2022/mar/energy-systems-and-data-analytics-msc-students-come-second-energy-idea-challenge)
+  uses both names for the same course.
+- Public Health MPH retains the Master of Public Health MPH ID. The
+  [current page](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/public-health-mph)
+  still identifies its video as Master of Public Health MPH; its online mode,
+  department and curriculum agree with the
+  [2026 page](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/master-public-health-mph-2026).
+- Manufacturing with Innovation and Entrepreneurship MSc retains the Enterprise
+  ID. The [current page](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/manufacturing-innovation-and-entrepreneurship-msc)
+  still names Enterprise in its application guidance; the department, location
+  and curriculum agree with the
+  [2026 page](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/manufacturing-innovation-and-enterprise-msc-2026).
+
+The old pages' generic 2027-entry links lead to the course directory, so those
+links alone are not identity evidence. Exact reviewed names override earlier
+unreviewed snapshot IDs. `scripts/review_ucl_course_renames.py` updates only public
+names and URLs and rejects the three duplicate candidates, preserving existing
+IDs and references. It adds no programmes or windows. Current pages describe
+application dates as to be confirmed; previous-cycle dates are not reused.
+
 Local HTTP and curl requests returned HTTP 403 while the interactive browser
 could read the directory. The shared discovery transport supports the existing
 Cloudflare browser fallback; this adapter allows up to 40 fallback pages to
