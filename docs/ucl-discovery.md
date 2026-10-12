@@ -81,6 +81,39 @@ it does not establish the status of every programme or study option.
 
 ## Transport and integration limits
 
+### Teaching and study-option identity review (2026-10-12)
+
+Five further names retain their existing public IDs. The two TESOL courses
+remain separate: [Pre-Service](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/teaching-english-speakers-other-languages-pre-service-ma)
+is for applicants without professional teaching experience, while
+[In-Service](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/teaching-english-speakers-other-languages-service-ma)
+continues the experienced-teacher route. Their respective 2026 archived pages
+use the longer TESOL names. Department, qualification and route purpose agree.
+
+Three former separately linked courses are now explicitly named study options:
+
+- [Civil Engineering (Integrated Design)](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/civil-engineering-msc?option=TMSENG00123A)
+  retains `ucl-civil-engineering-integrated-design-msc`. Its
+  [2026 page](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/civil-engineering-integrated-design-msc-2026)
+  calls it Civil Engineering (with Integrated Design); both identify the
+  Integrated Design specialism within Civil Engineering.
+- [Crime Science with Serious and Organised Crime](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/crime-science-msc?option=TMSENG00263A)
+  retains `ucl-crime-science-serious-organised-crime-msc`. The current page uses
+  both versions of the name; the department's Crime Science course page also
+  describes the Serious Organised Crime route. It is not the Policing option.
+- [Translation and Technology (Interpreting)](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/translation-and-technology-msc?option=TMSART00032A)
+  retains `ucl-translation-and-technology-interpreting-msc`. The
+  [2026 page](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/translation-and-technology-interpreting-msc-2026)
+  calls it Translation and Technology (with Interpreting). Both describe the
+  interpreting specialism, distinct from Audiovisual and STM translation.
+
+The reviewed migration preserves option query parameters and rejects five
+duplicate candidates; it does not merge options into their parent course.
+Regression fixtures check parent/option separation and exact option URLs.
+The public programme count and application windows are unchanged. Sampled
+current detail pages still say application deadlines are to be confirmed.
+All old/current source pairs are recorded in the review script and candidates.
+
 ### Further course identity review (2026-10-12)
 
 Three current course names retain their existing public IDs:
@@ -141,3 +174,10 @@ entries and account cooldowns remain intact. There is no immediate retry loop,
 no relaxed minimum/count check and no overwrite of published or operational
 data on failure. Error messages include the page URL, actual count, first-page
 count and minimum to distinguish this case from a genuinely small catalogue.
+
+On 2026-10-12, run [38237657012](https://github.com/lione12138/gradwindow/actions/runs/38237657012)
+and its single manual retry both found 695 on the first page and 696 on page 7.
+The retry therefore did not establish a consistent live catalogue. The dry-run
+guard stopped both attempts without writing candidate/state or public data;
+no further immediate retries were made. Individually reviewed identity updates
+remain independent of a successful full-directory refresh.

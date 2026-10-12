@@ -50,6 +50,52 @@ def test_official_rename_overrides_unreviewed_snapshot_id(name, existing_id):
     assert not catalog.programmes[0].windows
 
 
+@pytest.mark.parametrize(
+    "parent,name,route,option,existing_id",
+    [
+        (
+            "Civil Engineering MSc",
+            "Civil Engineering (Integrated Design) MSc",
+            "civil-engineering-msc",
+            "TMSENG00123A",
+            "ucl-civil-engineering-integrated-design-msc",
+        ),
+        (
+            "Crime Science MSc",
+            "Crime Science with Serious and Organised Crime MSc",
+            "crime-science-msc",
+            "TMSENG00263A",
+            "ucl-crime-science-serious-organised-crime-msc",
+        ),
+        (
+            "Translation and Technology MSc",
+            "Translation and Technology (Interpreting) MSc",
+            "translation-and-technology-msc",
+            "TMSART00032A",
+            "ucl-translation-and-technology-interpreting-msc",
+        ),
+    ],
+)
+def test_reviewed_option_keeps_identity_and_route(
+    parent, name, route, option, existing_id
+):
+    source = f"{CATALOG_URL}/{route}?option={option}"
+    instance = UCLAdapter(minimum_expected_courses=1, minimum_expected_programmes=2)
+    instance.prepare_discovery(
+        {"programmes": {"ucl-unreviewed-option": {"name": name}}}
+    )
+    catalog = instance.parse_catalog_from_fetcher(
+        lambda _: page(
+            card(parent, route=route, extra=f'<a href="{source}">{name}</a>'), total=1
+        )
+    )
+    programmes = {p.id: p for p in catalog.programmes}
+    assert set(programmes) == {f"ucl-{route}", existing_id}
+    assert programmes[existing_id].source_url == source
+    assert programmes[existing_id].application_url == source
+    assert not programmes[existing_id].windows
+
+
 def test_inconsistent_snapshot_is_evicted_before_next_run(tmp_path, monkeypatch):
     monkeypatch.setenv("CLOUDFLARE_ACCOUNT_ID", "ucl-test-account")
     monkeypatch.setenv("CLOUDFLARE_BROWSER_API_TOKEN", "test-token")
