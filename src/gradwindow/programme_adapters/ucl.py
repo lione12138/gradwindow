@@ -68,6 +68,21 @@ REVIEWED_IOE_IDENTITIES = {
 # Reviewed against official old/current course pages on 2026-10-12.
 # Evidence and scope are documented in docs/ucl-discovery.md.
 REVIEWED_COURSE_IDENTITIES = {
+    "Teaching of English to Speakers of Other Languages: Pre-Service MA": (
+        "ucl-teaching-english-speakers-other-languages-tesol-pre-service-ma"
+    ),
+    "Teaching of English to Speakers of Other Languages (In-Service) MA": (
+        "ucl-teaching-english-speakers-other-languages-tesol-service-ma"
+    ),
+    "Civil Engineering (Integrated Design) MSc": (
+        "ucl-civil-engineering-integrated-design-msc"
+    ),
+    "Crime Science with Serious and Organised Crime MSc": (
+        "ucl-crime-science-serious-organised-crime-msc"
+    ),
+    "Translation and Technology (Interpreting) MSc": (
+        "ucl-translation-and-technology-interpreting-msc"
+    ),
     "Energy Systems and Data Analytics MSc": "ucl-energy-systems-and-data-analytics-esda-msc",
     "Public Health MPH": "ucl-master-public-health-mph",
     "Manufacturing with Innovation and Entrepreneurship MSc": (
