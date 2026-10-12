@@ -1,10 +1,19 @@
-"""Apply eight official course identity reviews completed on 2026-10-12."""
+"""Apply official course identity reviews completed on 2026-10-12."""
 
 from review_ucl_ioe_renames import apply_reviewed_renames
 
 from gradwindow.programme_adapters.ucl import REVIEWED_COURSE_IDENTITIES
 
 SOURCES = {
+    "Development Policy and Planning MSc": (
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/development-policy-and-planning-msc"
+    ),
+    "Linguistics (Phonology) MA": (
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/linguistics-phonology-ma"
+    ),
+    "Linguistics (Syntax) MA": (
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/linguistics-syntax-ma"
+    ),
     "Teaching of English to Speakers of Other Languages: Pre-Service MA": (
         "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/teaching-english-speakers-other-languages-tesol-pre-service-ma-2026; "
         "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/teaching-english-speakers-other-languages-pre-service-ma"

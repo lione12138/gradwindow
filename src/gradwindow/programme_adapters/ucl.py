@@ -68,6 +68,9 @@ REVIEWED_IOE_IDENTITIES = {
 # Reviewed against official old/current course pages on 2026-10-12.
 # Evidence and scope are documented in docs/ucl-discovery.md.
 REVIEWED_COURSE_IDENTITIES = {
+    "Development Policy and Planning MSc": "ucl-development-administration-and-planning-msc",
+    "Linguistics (Phonology) MA": "ucl-linguistics-specialisation-phonology-ma",
+    "Linguistics (Syntax) MA": "ucl-linguistics-specialisation-syntax-ma",
     "Teaching of English to Speakers of Other Languages: Pre-Service MA": (
         "ucl-teaching-english-speakers-other-languages-tesol-pre-service-ma"
     ),

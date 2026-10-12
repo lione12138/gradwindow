@@ -81,6 +81,24 @@ it does not establish the status of every programme or study option.
 
 ## Transport and integration limits
 
+### Development planning and linguistics review (2026-10-12)
+
+The [Development Policy and Planning MSc page](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/development-policy-and-planning-msc)
+explicitly identifies Development Administration and Planning MSc as its previous
+name. The [Phonology MA page](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/linguistics-phonology-ma)
+and [Syntax MA page](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/linguistics-syntax-ma)
+use their shorter headings alongside the old Linguistics with a Specialisation
+names in their course descriptions and application guidance. These three exact
+names retain their original IDs; only public names and URLs change, and the
+three duplicate candidates are rejected. The generic Linguistics MA and the
+Computational Linguistics candidate remain separate. No dates are promoted:
+all three current pages state that application dates are to be confirmed.
+
+Archaeology and Heritage of the Mediterranean and Middle East and Respiratory
+Medicine were also inspected. This bounded review did not establish sufficiently
+explicit identity evidence to migrate their older similarly named records;
+their candidates remain pending. Similar subject matter alone is insufficient.
+
 ### Teaching and study-option identity review (2026-10-12)
 
 Five further names retain their existing public IDs. The two TESOL courses
