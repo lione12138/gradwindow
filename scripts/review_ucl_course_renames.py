@@ -5,6 +5,20 @@ from review_ucl_ioe_renames import apply_reviewed_renames
 from gradwindow.programme_adapters.ucl import REVIEWED_COURSE_IDENTITIES
 
 SOURCES = {
+    "East European History MA": (
+        "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/history-ssees-ma; "
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/east-european-history-ma; "
+        "https://www.ucl.ac.uk/arts-humanities/ssees/study-us/graduate-taught-ma-and-mres/history-graduate-programmes"
+    ),
+    "Modern European Studies MA": (
+        "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/european-studies-modern-european-studies-ma; "
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/modern-european-studies-ma; "
+        "https://www.ucl.ac.uk/arts-humanities/european-languages-culture/study/postgraduate-taught/european-studies"
+    ),
+    "Urban and Spatial Data Science MSc": (
+        "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/urban-spatial-science-msc; "
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/urban-and-spatial-data-science-msc"
+    ),
     "Advanced Musculoskeletal Physiotherapy MSc": (
         "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/physiotherapy-studies-musculoskeletal-msc-2026; "
         "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-musculoskeletal-physiotherapy-msc; "

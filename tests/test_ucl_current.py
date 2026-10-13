@@ -96,6 +96,56 @@ def test_reviewed_option_keeps_identity_and_route(
     assert not programmes[existing_id].windows
 
 
+def test_reviewed_history_and_spatial_names_keep_neighbouring_courses_separate():
+    records = [
+        ("East European History MA", "ucl-history-ssees-ma", "MA"),
+        ("History MA", "ucl-history-ma", "MA"),
+        (
+            "Modern European Studies MA",
+            "ucl-european-studies-modern-european-studies-ma",
+            "MA",
+        ),
+        ("Urban and Spatial Data Science MSc", "ucl-urban-spatial-science-msc", "MSc"),
+        ("Urban Spatial Science MRes", "ucl-urban-spatial-science-mres", "MRes"),
+        (
+            "Urban Spatial Science (Degree Apprenticeship) MSc",
+            "ucl-urban-spatial-science-degree-apprenticeship-msc",
+            "MSc",
+        ),
+    ]
+    instance = UCLAdapter(minimum_expected_courses=6, minimum_expected_programmes=6)
+    instance.prepare_discovery(
+        {
+            "programmes": {
+                pid: {"name": name}
+                for i, (name, pid, _) in enumerate(records)
+                if i in (1, 4, 5)
+            }
+        }
+    )
+    catalog = instance.parse_catalog_from_fetcher(
+        lambda _: page(
+            "".join(
+                card(
+                    name,
+                    degree={
+                        "MA": "Master of Arts (MA)",
+                        "MSc": "Master of Science (MSc)",
+                        "MRes": "Master of Research (MRes)",
+                    }[degree],
+                    route=f"course-{i}",
+                )
+                for i, (name, _, degree) in enumerate(records)
+            ),
+            total=6,
+        )
+    )
+    assert {p.name: p.id for p in catalog.programmes} == {
+        name: pid for name, pid, _ in records
+    }
+    assert all(not p.windows for p in catalog.programmes)
+
+
 def test_physiotherapy_clinical_and_academic_routes_do_not_swap_ids():
     names = [
         "Advanced Musculoskeletal Physiotherapy MSc",
