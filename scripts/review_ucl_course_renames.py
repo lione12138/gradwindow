@@ -5,6 +5,21 @@ from review_ucl_ioe_renames import apply_reviewed_renames
 from gradwindow.programme_adapters.ucl import REVIEWED_COURSE_IDENTITIES
 
 SOURCES = {
+    "Advanced Musculoskeletal Physiotherapy MSc": (
+        "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/physiotherapy-studies-musculoskeletal-msc-2026; "
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-musculoskeletal-physiotherapy-msc; "
+        "https://www.ucl.ac.uk/population-health-sciences/child-health/study/postgraduate-taught-degrees/physiotherapy"
+    ),
+    "Advanced Musculoskeletal Physiotherapy Clinical Practice MSc": (
+        "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/advanced-physiotherapy-musculoskeletal-msc; "
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-musculoskeletal-physiotherapy-clinical-practice-msc; "
+        "https://www.ucl.ac.uk/population-health-sciences/child-health/study/postgraduate-taught-degrees/physiotherapy"
+    ),
+    "Advanced Paediatric Physiotherapy Clinical Practice MSc": (
+        "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/advanced-physiotherapy-paediatrics-msc-2026; "
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-paediatric-physiotherapy-clinical-practice-msc; "
+        "https://www.ucl.ac.uk/population-health-sciences/child-health/study/postgraduate-taught-degrees/physiotherapy"
+    ),
     "Development Policy and Planning MSc": (
         "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/development-policy-and-planning-msc"
     ),

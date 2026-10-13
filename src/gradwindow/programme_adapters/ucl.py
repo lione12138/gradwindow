@@ -68,6 +68,16 @@ REVIEWED_IOE_IDENTITIES = {
 # Reviewed against official old/current course pages on 2026-10-12.
 # Evidence and scope are documented in docs/ucl-discovery.md.
 REVIEWED_COURSE_IDENTITIES = {
+    # Clinical placement and curriculum, not the word "Advanced", identify these routes.
+    "Advanced Musculoskeletal Physiotherapy MSc": (
+        "ucl-physiotherapy-studies-musculoskeletal-msc"
+    ),
+    "Advanced Musculoskeletal Physiotherapy Clinical Practice MSc": (
+        "ucl-advanced-physiotherapy-musculoskeletal-msc"
+    ),
+    "Advanced Paediatric Physiotherapy Clinical Practice MSc": (
+        "ucl-advanced-physiotherapy-paediatrics-msc"
+    ),
     "Development Policy and Planning MSc": "ucl-development-administration-and-planning-msc",
     "Linguistics (Phonology) MA": "ucl-linguistics-specialisation-phonology-ma",
     "Linguistics (Syntax) MA": "ucl-linguistics-specialisation-syntax-ma",
