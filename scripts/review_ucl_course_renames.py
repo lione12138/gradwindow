@@ -5,6 +5,14 @@ from review_ucl_ioe_renames import apply_reviewed_renames
 from gradwindow.programme_adapters.ucl import REVIEWED_COURSE_IDENTITIES
 
 SOURCES = {
+    "Crime Science with Policing MSc": (
+        "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/policing-msc; "
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/crime-science-msc?option=TMSENG00264A"
+    ),
+    "Advanced Clinical Practice: Critical Care Practitioner MSc": (
+        "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/advanced-critical-care-practice-msc; "
+        "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-clinical-practice-msc?option=TMSMDS00442A"
+    ),
     "East European History MA": (
         "https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/history-ssees-ma; "
         "https://www.ucl.ac.uk/study/prospective-students/graduate/courses/east-european-history-ma; "

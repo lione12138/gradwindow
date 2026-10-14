@@ -65,9 +65,13 @@ REVIEWED_IOE_IDENTITIES = {
 }
 
 
-# Reviewed against official old/current course pages on 2026-10-12 and 2026-10-13.
+# Reviewed against official old/current course pages on 2026-10-12 through 2026-10-14.
 # Evidence and scope are documented in docs/ucl-discovery.md.
 REVIEWED_COURSE_IDENTITIES = {
+    "Crime Science with Policing MSc": "ucl-policing-msc",
+    "Advanced Clinical Practice: Critical Care Practitioner MSc": (
+        "ucl-advanced-critical-care-practice-msc"
+    ),
     "East European History MA": "ucl-history-ssees-ma",
     "Modern European Studies MA": "ucl-european-studies-modern-european-studies-ma",
     "Urban and Spatial Data Science MSc": "ucl-urban-spatial-science-msc",

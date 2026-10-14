@@ -54,6 +54,20 @@ def test_official_rename_overrides_unreviewed_snapshot_id(name, existing_id):
     "parent,name,route,option,existing_id",
     [
         (
+            "Crime Science MSc",
+            "Crime Science with Policing MSc",
+            "crime-science-msc",
+            "TMSENG00264A",
+            "ucl-policing-msc",
+        ),
+        (
+            "Advanced Clinical Practice MSc",
+            "Advanced Clinical Practice: Critical Care Practitioner MSc",
+            "advanced-clinical-practice-msc",
+            "TMSMDS00442A",
+            "ucl-advanced-critical-care-practice-msc",
+        ),
+        (
             "Civil Engineering MSc",
             "Civil Engineering (Integrated Design) MSc",
             "civil-engineering-msc",
