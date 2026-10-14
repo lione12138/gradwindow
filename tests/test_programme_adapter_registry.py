@@ -9,6 +9,16 @@ from gradwindow.programme_adapters.base import BaseProgrammeAdapter, ProgrammeAd
 from gradwindow.programme_adapters.registry import PROGRAMME_ADAPTERS
 
 
+def test_school_helper_changes_trigger_only_the_matching_adapter():
+    assert adapter_keys_for_paths(
+        [
+            "src/gradwindow/programme_adapters/ucl_detail.py",
+            "src/gradwindow/programme_adapters/ucl_current.py",
+        ]
+    ) == ["ucl"]
+    assert adapter_keys_for_paths(["tests/test_ucl_detail.py"]) == []
+
+
 def test_registry_is_the_complete_unique_source_of_dedicated_adapters() -> None:
     assert set(PROGRAMME_ADAPTERS) >= {
         "adelaide",

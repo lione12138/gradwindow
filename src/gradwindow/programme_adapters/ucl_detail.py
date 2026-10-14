@@ -1,14 +1,14 @@
 """Bounded monitoring of UCL's current course application-date sections.
 
 This monitor records evidence for review, never generates application windows.
-Option routes need their own scope parser and are deliberately excluded.
+Course-option sections are isolated before reading any application evidence.
 """
 
 from __future__ import annotations
 
 import hashlib
 from datetime import datetime, timezone
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
@@ -21,12 +21,46 @@ from .ucl import CATALOG_URL, programme_name_key
 def inspect_detail(html: str, programme: DiscoveredProgramme) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     heading = soup.select_one("h1.course-hero__title")
+    option = parse_qs(urlparse(programme.source_url).query).get("option", [])
+    scope = None
+    if heading and heading.select("[data-course-option]"):
+        matches = [
+            node
+            for node in heading.select("[data-course-option]")
+            if programme_name_key(node.get_text(" ", strip=True))
+            == programme_name_key(programme.name)
+            and (not option or option == [node.get("data-course-option")])
+        ]
+        if len(matches) != 1:
+            raise ValueError(
+                "UCL detail course option identity is ambiguous or missing"
+            )
+        heading = matches[0]
+        scope = heading["data-course-option"]
+    elif option:
+        raise ValueError("UCL detail option scope is missing")
     if not heading or programme_name_key(heading.get_text(" ", strip=True)) != (
         programme_name_key(programme.name)
     ):
         raise ValueError("UCL detail course identity does not match the catalogue")
+
+    def section(selector):
+        root = soup.select_one(selector)
+        if root is None:
+            raise ValueError("UCL detail application-date sections are missing")
+        if scope:
+            matches = root.find_all(attrs={"data-course-option": scope})
+            if len(matches) != 1:
+                raise ValueError(
+                    "UCL detail section option scope is missing or ambiguous"
+                )
+            return matches[0]
+        if root.select("[data-course-option]"):
+            raise ValueError("UCL detail section has an unidentified option scope")
+        return root
+
     fields: dict[str, list[str]] = {}
-    for item in soup.select("#key-information .key-info-item"):
+    for item in section("#key-information").select(".key-info-item"):
         label = item.select_one(".key-info-item__label")
         value = item.select_one(".key-info-item__value")
         if label and value:
@@ -37,7 +71,35 @@ def inspect_detail(html: str, programme: DiscoveredProgramme) -> dict:
     if not starts or set(starts) != set(programme.available_intakes):
         raise ValueError("UCL detail intake does not match the catalogue")
     deadlines = fields.get("Application deadlines", [])
-    apply = soup.select_one("#apply .apply-chooser")
+    apply_section = section("#apply")
+    apply = apply_section.select_one(".apply-chooser")
+    if option and deadlines and apply is None:
+        text = normalise(apply_section.get_text(" ", strip=True))
+        links = apply_section.select("a[href]")
+        if len(links) == 1:
+            parent = urljoin(programme.source_url, links[0]["href"])
+            parsed = urlparse(parent)
+            expected = urlparse(programme.source_url)
+            if (
+                parsed.scheme == expected.scheme == "https"
+                and parsed.netloc == expected.netloc == "www.ucl.ac.uk"
+                and parsed.path == expected.path
+                and not parsed.query
+                and parsed.fragment == "apply"
+                and text.startswith("Apply for ")
+                and " to access this study option." in text
+            ):
+                return {
+                    "status": "apply-via-parent",
+                    "parentApplicationUrl": parent,
+                    "deadlineText": " | ".join(deadlines),
+                    "applicationText": text,
+                    "evidenceHash": hashlib.sha256(
+                        "\n".join(
+                            [programme.name, scope, *starts, *deadlines, text, parent]
+                        ).encode()
+                    ).hexdigest(),
+                }
     if not deadlines or not apply:
         raise ValueError("UCL detail application-date sections are missing")
     apply_text = normalise(apply.get_text(" ", strip=True))
@@ -67,9 +129,7 @@ def monitor_details(
     budget: int,
 ) -> None:
     eligible = {
-        p.source_url: p
-        for p in catalog.programmes
-        if p.source_url != CATALOG_URL and not urlparse(p.source_url).query
+        p.source_url: p for p in catalog.programmes if p.source_url != CATALOG_URL
     }
     # A previous cycle or changed programme identity must never supply current evidence.
     state = {
@@ -118,7 +178,7 @@ def monitor_details(
     catalog.diagnostics["detailWindowDiscovery"] = "bounded-monitor-only"
     catalog.diagnostics["detailMonitor"] = {
         "eligiblePages": len(eligible),
-        "excludedOptionRoutes": sum(
+        "eligibleOptionRoutes": sum(
             bool(urlparse(p.source_url).query) for p in catalog.programmes
         ),
         "attemptedThisRun": attempted,
@@ -130,6 +190,7 @@ def monitor_details(
                 "needs-date-review",
                 "needs-page-review",
                 "fetch-failed",
+                "apply-via-parent",
             )
         },
     }

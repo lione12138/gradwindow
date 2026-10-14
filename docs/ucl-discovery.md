@@ -338,3 +338,26 @@ coming-soon catalogue-only entries have no detail URL. At five pages per run,
 initial coverage takes many runs; inspect `unvisitedPages`, excluded-option
 counts and each `checkedAt` before drawing coverage conclusions. No programme,
 application-window candidate or published deadline is created by this monitor.
+
+### Option-scope follow-up (2026-10-14)
+
+The monitor now includes option URLs within the same five-request budget. UCL
+renders multiple titles, key-information panels and application sections in one
+HTML document, using `data-course-option` to identify each course. The parser
+matches the requested option code and programme name, then reads only that code's
+sections. For parent URLs it resolves the unique matching title's code. It does
+not depend on which panel JavaScript currently makes visible. Missing or
+ambiguous scope fails to page review rather than falling back to parent content.
+
+The official Crime Science page was inspected with `?option=TMSENG00264A` on
+2026-10-14. Parsing its actual DOM verified three records: Crime Science MSc has
+dates to be confirmed; Policing (`TMSENG00264A`) and Serious and Organised Crime
+(`TMSENG00263A`) explicitly link to the main course's application section.
+Those options receive `apply-via-parent` with the official parent application
+URL, retaining their own date text without inheriting any dates. This label
+does not resolve conflicting guidance about when a specialism is selected.
+
+`eligibleOptionRoutes` replaces the earlier excluded-option count. Unknown
+option layouts remain review items. Catalogue and partial detail monitoring are
+implemented; exact-window discovery/publication remains pending. The earlier
+post-merge smoke run 38543292727 was cancelled, not a successful live check.
