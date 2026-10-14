@@ -1864,8 +1864,8 @@ function createSchoolWithoutWindowsRow(university) {
       content.replaceChildren();
       content.appendChild(
         makeElement("p", {
-          className: "date-secondary",
           text: `${programmeCountText(programmes.length)} · ${t("catalogueDatesUnverified")}`,
+          className: "programme-catalogue-note",
         }),
       );
       const list = makeElement("ul", { className: "programme-catalogue-list" });

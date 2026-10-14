@@ -34,6 +34,10 @@ test("UCL exposes its programme catalogue when no verified windows are visible",
   await expect(ucl.locator(".programme-catalogue-list a")).toHaveCount(40);
   await page.setViewportSize({ width: 390, height: 844 });
   await ucl.scrollIntoViewIfNeeded();
+  await expect(ucl.locator(".programme-catalogue-note")).toBeVisible();
+  expect(
+    (await ucl.locator(".programme-catalogue-more").boundingBox()).width,
+  ).toBeGreaterThan(100);
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,
