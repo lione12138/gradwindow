@@ -65,6 +65,7 @@ const recordSearchTextCache = new WeakMap();
 const recordIntakeCache = new WeakMap();
 let selectedRankingCache = null;
 let programmeTranslationsPromise = null;
+let programmeCataloguePromise = null;
 const recordDetailPromises = new Map();
 const LIVE_RANKINGS = new Set(["qs", "the", "arwu"]);
 
@@ -1823,6 +1824,83 @@ function createSchoolWithoutWindowsRow(university) {
   });
   reviewActions.appendChild(makeReviewButton(university));
   source.appendChild(reviewActions);
+  const programmeInfo = makeElement("div");
+  programmeInfo.appendChild(
+    makeTextStack(
+      t("noVerifiedWindows"),
+      t("catalogueDatesUnverified"),
+      "date-primary",
+    ),
+  );
+  const catalogue = makeElement("details", {
+    className: "programme-catalogue",
+  });
+  const summary = makeElement("summary", {
+    className: "programme-catalogue-toggle",
+    text: t("viewProgrammeCatalogue"),
+  });
+  const content = makeElement("div");
+  catalogue.append(summary, content);
+  let loaded = false;
+  let loading = false;
+  catalogue.addEventListener("toggle", async () => {
+    if (!catalogue.open || loaded || loading) return;
+    loading = true;
+    content.textContent = t("catalogueLoading");
+    try {
+      if (!programmeCataloguePromise) {
+        programmeCataloguePromise = fetchRequiredJson(
+          "./data/programs.json",
+        ).catch((error) => {
+          programmeCataloguePromise = null;
+          throw error;
+        });
+      }
+      const payload = await programmeCataloguePromise;
+      const programmes = payload.programs.filter(
+        (p) => p.universityId === university.id,
+      );
+      programmes.sort((a, b) => a.name.localeCompare(b.name));
+      content.replaceChildren();
+      content.appendChild(
+        makeElement("p", {
+          text: `${programmeCountText(programmes.length)} · ${t("catalogueDatesUnverified")}`,
+          className: "programme-catalogue-note",
+        }),
+      );
+      const list = makeElement("ul", { className: "programme-catalogue-list" });
+      const more = makeElement("button", {
+        className: "icon-button programme-catalogue-more",
+        text: t("catalogueMore"),
+      });
+      more.type = "button";
+      let visible = 0;
+      const appendPage = () => {
+        programmes.slice(visible, visible + 20).forEach((p) => {
+          const item = makeElement("li");
+          item.appendChild(
+            makeLink(
+              programmeLabel(p.id, p.name, state.language),
+              p.sourceUrl || p.applicationUrl,
+              "source-link",
+            ),
+          );
+          list.appendChild(item);
+        });
+        visible += 20;
+        more.hidden = visible >= programmes.length;
+      };
+      more.addEventListener("click", appendPage);
+      content.append(list, more);
+      appendPage();
+      loaded = true;
+    } catch {
+      content.textContent = t("catalogueLoadError");
+    } finally {
+      loading = false;
+    }
+  });
+  programmeInfo.appendChild(catalogue);
   row.append(
     makeCell(
       t("rank"),
@@ -1832,14 +1910,7 @@ function createSchoolWithoutWindowsRow(university) {
       }),
     ),
     makeCell(t("university"), school),
-    makeCell(
-      t("programme"),
-      makeTextStack(
-        t("noVerifiedWindows"),
-        policyDescription(university).join(" · "),
-        "date-primary",
-      ),
-    ),
+    makeCell(t("programme"), programmeInfo),
     makeCell(t("applicantGroup"), makeElement("span", { text: "—" })),
     makeCell(
       t("opens"),
