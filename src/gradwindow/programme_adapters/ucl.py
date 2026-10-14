@@ -65,9 +65,12 @@ REVIEWED_IOE_IDENTITIES = {
 }
 
 
-# Reviewed against official old/current course pages on 2026-10-12.
+# Reviewed against official old/current course pages on 2026-10-12 and 2026-10-13.
 # Evidence and scope are documented in docs/ucl-discovery.md.
 REVIEWED_COURSE_IDENTITIES = {
+    "East European History MA": "ucl-history-ssees-ma",
+    "Modern European Studies MA": "ucl-european-studies-modern-european-studies-ma",
+    "Urban and Spatial Data Science MSc": "ucl-urban-spatial-science-msc",
     # Clinical placement and curriculum, not the word "Advanced", identify these routes.
     "Advanced Musculoskeletal Physiotherapy MSc": (
         "ucl-physiotherapy-studies-musculoskeletal-msc"

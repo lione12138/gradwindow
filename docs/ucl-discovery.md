@@ -205,6 +205,42 @@ it does not validate programme-specific application dates.
 Operational candidate/state refresh and translation review should follow a
 successful unattended run. This change does not publish programmes or dates.
 
+### History and spatial science identity review (2026-10-13)
+
+Three further current names retain existing public identities. This is a
+reviewed continuity inference from official old/current course descriptions
+and departmental guidance, not an explicit former-name announcement:
+
+- [East European History MA](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/east-european-history-ma)
+  retains `ucl-history-ssees-ma`. The
+  [old History (SSEES) page](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/history-ssees-ma)
+  and current page describe the same SSEES regional scope, early-modern-to-present
+  history, and power/culture focus. The
+  [department's history page](https://www.ucl.ac.uk/arts-humanities/ssees/study-us/graduate-taught-ma-and-mres/history-graduate-programmes)
+  calls its programme History MA while linking East European History MA.
+  The separate History department's History MA retains its own ID.
+- [Modern European Studies MA](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/modern-european-studies-ma)
+  retains `ucl-european-studies-modern-european-studies-ma`. The
+  [old course](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/european-studies-modern-european-studies-ma)
+  shares the Global Europe and Questions of European Integration core modules,
+  the CMII department, and taught/research dissertation pathways. This does not
+  merge European Society or either European Culture and Thought record.
+- [Urban and Spatial Data Science MSc](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/urban-and-spatial-data-science-msc)
+  retains `ucl-urban-spatial-science-msc`. The
+  [old Urban Spatial Science MSc](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/urban-spatial-science-msc)
+  shares CASA, GIS/quantitative methods/urban systems foundations and four
+  thematic pathways: big data, smart cities/policy, modelling/simulation and
+  visualisation. The MRes and degree apprenticeship remain distinct.
+
+The fee tables were inspected but were not used as identity proof: course
+codes changed between years and some old codes were shared across routes.
+The migration updates names and official URLs only, rejects three duplicate
+candidates (70 pending becomes 67), and publishes no new programmes or dates.
+Current 2027 course pages still list application dates as to be confirmed.
+A joint regression fixture protects the neighbouring History, MRes and
+apprenticeship identities; the existing parameterized test also verifies that
+reviewed names override unreviewed snapshot IDs.
+
 ## Mixed directory snapshots (2026-10-10 UTC)
 
 Run [38087082403](https://github.com/lione12138/gradwindow/actions/runs/38087082403)
@@ -234,3 +270,10 @@ The retry therefore did not establish a consistent live catalogue. The dry-run
 guard stopped both attempts without writing candidate/state or public data;
 no further immediate retries were made. Individually reviewed identity updates
 remain independent of a successful full-directory refresh.
+
+On 2026-10-13, post-merge dry run
+[38429532874](https://github.com/lione12138/gradwindow/actions/runs/38429532874)
+passed all 35 pages with a consistent total of 696 course cards, yielding 499
+master's cards plus 56 study options (555 records). All 35 browser fallbacks
+succeeded. This establishes a consistent catalogue read for that run, not
+programme-detail deadline coverage; `detailWindowDiscovery` remains pending.
