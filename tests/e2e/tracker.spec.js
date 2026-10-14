@@ -17,6 +17,33 @@ async function firstWindowFavorite(page) {
   return favorite;
 }
 
+test("UCL exposes its programme catalogue when no verified windows are visible", async ({
+  page,
+}) => {
+  await openTracker(page);
+  await page.locator('.status-tab[data-status="all"]').click();
+  const ucl = page.locator('[data-school-id="ucl-university-college-london"]');
+  await ucl.locator(".programme-catalogue-toggle").click();
+  await expect(
+    ucl.locator(".programme-catalogue-list a").first(),
+  ).toBeVisible();
+  await expect(ucl.locator(".programme-catalogue-list a")).toHaveCount(20);
+  await expect(ucl).toContainText("Dates not verified");
+  await expect(ucl.locator(".calendar-menu-trigger")).toHaveCount(0);
+  await ucl.locator(".programme-catalogue-more").click();
+  await expect(ucl.locator(".programme-catalogue-list a")).toHaveCount(40);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await ucl.scrollIntoViewIfNeeded();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "test-results/ucl-programme-catalogue-mobile.png",
+  });
+});
+
 test("homepage loads the tracker without runtime errors", async ({ page }) => {
   const pageErrors = [];
   page.on("pageerror", (error) => pageErrors.push(error.message));
