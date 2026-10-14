@@ -156,13 +156,19 @@ class UCLAdapter(BaseProgrammeAdapter):
         minimum_expected_courses: int = 550,
         minimum_expected_programmes: int = 500,
         blocked_catalog_fetcher: CatalogFallbackFetcher | None = None,
+        detail_refresh_budget: int = 5,
     ) -> None:
         self.minimum_expected_courses = minimum_expected_courses
         self.minimum_expected_programmes = minimum_expected_programmes
         self.blocked_catalog_fetcher = blocked_catalog_fetcher or _fetch_with_curl
         self.previous_ids: dict[str, str] = {}
+        self.detail_refresh_budget = max(0, min(detail_refresh_budget, 5))
+        self.detail_monitor: dict = {}
 
     def prepare_discovery(self, previous_state: dict) -> None:
+        self.detail_monitor = previous_state.get("adapterState", {}).get(
+            "detailMonitor", {}
+        )
         names: dict[str, list[str]] = {}
         for programme_id, item in previous_state.get("programmes", {}).items():
             names.setdefault(
@@ -181,14 +187,23 @@ class UCLAdapter(BaseProgrammeAdapter):
             html = self.blocked_catalog_fetcher(CATALOG_URL)
         if "course-feed-listing-view__result-count" in html:
             from .ucl_current import discover_current_catalogue
+            from .ucl_detail import monitor_details
 
-            return discover_current_catalogue(
+            catalog = discover_current_catalogue(
                 html,
                 fetcher,
                 previous_ids=self.previous_ids,
                 minimum_courses=self.minimum_expected_courses,
                 minimum_programmes=self.minimum_expected_programmes,
             )
+            if self.detail_refresh_budget:
+                monitor_details(
+                    catalog,
+                    fetcher,
+                    self.detail_monitor,
+                    budget=self.detail_refresh_budget,
+                )
+            return catalog
         return self.parse_catalog(html)
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:

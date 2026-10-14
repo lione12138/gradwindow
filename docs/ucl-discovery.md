@@ -306,3 +306,35 @@ passed all 35 pages with a consistent total of 696 course cards, yielding 499
 master's cards plus 56 study options (555 records). All 35 browser fallbacks
 succeeded. This establishes a consistent catalogue read for that run, not
 programme-detail deadline coverage; `detailWindowDiscovery` remains pending.
+
+## Bounded detail monitoring (2026-10-14)
+
+The current-directory adapter now checks at most five non-option detail URLs
+after completing the catalogue. This stays within the existing 40 browser
+fallback allowance for the observed 35 directory pages. A transport failure
+stops the detail batch; it does not trigger an immediate retry or remove the
+successfully discovered catalogue. `detail_refresh_budget=0` disables this
+optional monitor for catalogue-only investigations.
+
+The reduced test fixture comes from the official Advanced Materials Science MSc
+detail page inspected on 2026-10-14. Its key-information section says application
+deadlines are "To be confirmed." and its application chooser independently says
+the course application dates are to be confirmed. Both signals, the matching
+course title and matching September 2027 intake are required for that status.
+Other date wording is flagged for manual date review, not parsed into windows.
+Missing sections and identity/intake mismatches require page review.
+
+`adapterState.detailMonitor` records per-URL attempts, successful check times,
+scoped text and evidence hashes. Runs prioritise unvisited URLs, then the oldest
+attempt, including failed attempts so one blocked URL cannot starve all others.
+Evidence from a different programme ID/intake is discarded. A failed refresh
+does not retain its previous successful status. Diagnostic counts describe the
+**last observation**, not a claim that all cached pages were verified today.
+Only non-dry runs persist progress through the normal discovery-state writer.
+
+This is partial window-discovery monitoring, not a completed deadline adapter.
+Option routes remain excluded until their independent page scope is implemented;
+coming-soon catalogue-only entries have no detail URL. At five pages per run,
+initial coverage takes many runs; inspect `unvisitedPages`, excluded-option
+counts and each `checkedAt` before drawing coverage conclusions. No programme,
+application-window candidate or published deadline is created by this monitor.
