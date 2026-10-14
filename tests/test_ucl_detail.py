@@ -70,7 +70,7 @@ def test_changed_deadline_needs_review_never_creates_window():
     assert catalog.programmes[0].windows == []
 
 
-def test_budget_rotation_and_option_exclusion():
+def test_budget_rotation_includes_options_but_excludes_catalogue():
     records = [programme(str(i)) for i in range(3)]
     records += [
         programme("parent?option=TMS123"),
@@ -87,8 +87,77 @@ def test_budget_rotation_and_option_exclusion():
     previous = catalog.adapter_state["detailMonitor"]
     monitor_details(catalog, fetch, previous, budget=1)
     assert calls == [records[0].source_url, records[1].source_url]
-    assert catalog.diagnostics["detailMonitor"]["unvisitedPages"] == 1
-    assert catalog.diagnostics["detailMonitor"]["excludedOptionRoutes"] == 1
+    assert catalog.diagnostics["detailMonitor"]["unvisitedPages"] == 2
+    assert catalog.diagnostics["detailMonitor"]["eligibleOptionRoutes"] == 1
+
+
+def option_html():
+    # Reduced from Crime Science's official DOM inspected 2026-10-14.
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(HTML, "html.parser")
+    key = str(soup.select_one("#key-information")).replace('id="key-information"', "")
+    chooser = str(soup.select_one(".apply-chooser"))
+    return f"""<h1 class="course-hero__title">
+    <span data-course-option="TMSENG002618-2027">Crime Science MSc</span>
+    <span data-course-option="TMSENG00264A" hidden>Crime Science with Policing MSc</span></h1>
+    <div id="key-information">
+    <div data-course-option="TMSENG002618-2027">{key}</div>
+    <div data-course-option="TMSENG00264A" hidden>{key}</div></div>
+    <section id="apply">
+    <div data-course-option="TMSENG002618-2027">{chooser}</div>
+    <div data-course-option="TMSENG00264A" hidden><p>Apply for
+    <a href="/study/prospective-students/graduate/courses/crime-science-msc#apply">Crime Science MSc</a>
+    to access this study option. Please note that you will need to meet any additional requirements for this study option to be considered.</p></div></section>"""
+
+
+def test_option_reads_its_own_scope_and_records_parent_route():
+    p = replace(
+        programme("crime-science-msc?option=TMSENG00264A"),
+        name="Crime Science with Policing MSc",
+    )
+    result = inspect_detail(option_html(), p)
+    assert result["status"] == "apply-via-parent"
+    assert result["parentApplicationUrl"].endswith("/crime-science-msc#apply")
+    assert p.windows == []
+
+
+def test_parent_ignores_hidden_option_title_and_date_sections():
+    p = replace(programme("crime-science-msc"), name="Crime Science MSc")
+    assert inspect_detail(option_html(), p)["status"] == "dates-to-be-confirmed"
+
+
+def test_option_does_not_read_parent_intake_or_deadline():
+    p = replace(
+        programme("crime-science-msc?option=TMSENG00264A"),
+        name="Crime Science with Policing MSc",
+    )
+    # Deliberately conflicting synthetic parent values must not leak to the option.
+    html = option_html().replace("September 2027", "September 2026", 1)
+    html = html.replace("To be confirmed.", "30 June 2026", 1)
+    result = inspect_detail(html, p)
+    assert result["status"] == "apply-via-parent"
+    assert result["deadlineText"] == "To be confirmed."
+
+
+@pytest.mark.parametrize(
+    "old,new",
+    [
+        ("TMSENG00264A", "TMSENG99999A"),
+        (
+            'data-course-option="TMSENG00264A" hidden><p>',
+            'data-course-option="other" hidden><p>',
+        ),
+        ("crime-science-msc#apply", "unrelated-msc#apply"),
+    ],
+)
+def test_option_never_falls_back_to_parent_evidence(old, new):
+    p = replace(
+        programme("crime-science-msc?option=TMSENG00264A"),
+        name="Crime Science with Policing MSc",
+    )
+    with pytest.raises(ValueError):
+        inspect_detail(option_html().replace(old, new), p)
 
 
 def test_transport_failure_stops_batch_and_does_not_reuse_success():
