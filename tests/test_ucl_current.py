@@ -36,12 +36,20 @@ def page(cards, total=3, next_url=None):
 
 
 def adapter():
-    return UCLAdapter(minimum_expected_courses=3, minimum_expected_programmes=2)
+    return UCLAdapter(
+        detail_refresh_budget=0,
+        minimum_expected_courses=3,
+        minimum_expected_programmes=2,
+    )
 
 
 @pytest.mark.parametrize("name,existing_id", REVIEWED_PROGRAMME_IDENTITIES.items())
 def test_official_rename_overrides_unreviewed_snapshot_id(name, existing_id):
-    instance = UCLAdapter(minimum_expected_courses=1, minimum_expected_programmes=1)
+    instance = UCLAdapter(
+        detail_refresh_budget=0,
+        minimum_expected_courses=1,
+        minimum_expected_programmes=1,
+    )
     instance.prepare_discovery({"programmes": {"ucl-duplicate": {"name": name}}})
     catalog = instance.parse_catalog_from_fetcher(
         lambda _: page(card(name, degree="Master of Arts (MA)"), total=1)
@@ -94,7 +102,11 @@ def test_reviewed_option_keeps_identity_and_route(
     parent, name, route, option, existing_id
 ):
     source = f"{CATALOG_URL}/{route}?option={option}"
-    instance = UCLAdapter(minimum_expected_courses=1, minimum_expected_programmes=2)
+    instance = UCLAdapter(
+        detail_refresh_budget=0,
+        minimum_expected_courses=1,
+        minimum_expected_programmes=2,
+    )
     instance.prepare_discovery(
         {"programmes": {"ucl-unreviewed-option": {"name": name}}}
     )
@@ -127,7 +139,11 @@ def test_reviewed_history_and_spatial_names_keep_neighbouring_courses_separate()
             "MSc",
         ),
     ]
-    instance = UCLAdapter(minimum_expected_courses=6, minimum_expected_programmes=6)
+    instance = UCLAdapter(
+        detail_refresh_budget=0,
+        minimum_expected_courses=6,
+        minimum_expected_programmes=6,
+    )
     instance.prepare_discovery(
         {
             "programmes": {
@@ -166,7 +182,11 @@ def test_physiotherapy_clinical_and_academic_routes_do_not_swap_ids():
         "Advanced Musculoskeletal Physiotherapy Clinical Practice MSc",
         "Advanced Paediatric Physiotherapy Clinical Practice MSc",
     ]
-    instance = UCLAdapter(minimum_expected_courses=3, minimum_expected_programmes=3)
+    instance = UCLAdapter(
+        detail_refresh_budget=0,
+        minimum_expected_courses=3,
+        minimum_expected_programmes=3,
+    )
     instance.prepare_discovery(
         {
             "programmes": {
@@ -349,7 +369,9 @@ def test_current_directory_preserves_nested_degree_label():
         total=1,
     )
     catalog = UCLAdapter(
-        minimum_expected_courses=1, minimum_expected_programmes=1
+        detail_refresh_budget=0,
+        minimum_expected_courses=1,
+        minimum_expected_programmes=1,
     ).parse_catalog_from_fetcher(lambda _: source)
     assert catalog.programmes[0].degree_type == "MA (International)"
 
@@ -366,7 +388,9 @@ def test_same_non_master_title_with_different_degree_is_not_a_repeated_page():
         )
     )
     catalog = UCLAdapter(
-        minimum_expected_courses=3, minimum_expected_programmes=1
+        detail_refresh_budget=0,
+        minimum_expected_courses=3,
+        minimum_expected_programmes=1,
     ).parse_catalog_from_fetcher(lambda _: source)
     assert len(catalog.programmes) == 1
 
@@ -383,7 +407,11 @@ def test_same_non_master_title_with_different_degree_is_not_a_repeated_page():
     ],
 )
 def test_typographical_renames_retain_previous_ids(old, new):
-    instance = UCLAdapter(minimum_expected_courses=1, minimum_expected_programmes=1)
+    instance = UCLAdapter(
+        detail_refresh_budget=0,
+        minimum_expected_courses=1,
+        minimum_expected_programmes=1,
+    )
     instance.prepare_discovery({"programmes": {"ucl-established-id": {"name": old}}})
     catalog = instance.parse_catalog_from_fetcher(lambda _: page(card(new), total=1))
     assert catalog.programmes[0].id == "ucl-established-id"
