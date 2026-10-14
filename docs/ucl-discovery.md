@@ -241,6 +241,35 @@ A joint regression fixture protects the neighbouring History, MRes and
 apprenticeship identities; the existing parameterized test also verifies that
 reviewed names override unreviewed snapshot IDs.
 
+### Policing and critical care study options (2026-10-14)
+
+Two formerly standalone listings now retain their public identities on the
+specific current study option, rather than on the broader parent course:
+
+- [Crime Science with Policing MSc](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/crime-science-msc?option=TMSENG00264A)
+  retains `ucl-policing-msc`. The
+  [old Policing MSc](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/policing-msc)
+  and current option share the practitioner co-designed course description,
+  policing ethics/public relations focus and quantitative research training.
+  It remains distinct from Crime Science and Serious and Organised Crime.
+- [Advanced Clinical Practice: Critical Care Practitioner MSc](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-clinical-practice-msc?option=TMSMDS00442A)
+  retains `ucl-advanced-critical-care-practice-msc`. The
+  [old Advanced Critical Care Practice MSc](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/advanced-critical-care-practice-msc)
+  and current critical care specialism share trainee ACCP employment at partner
+  institutions, three-year study, critical illness/clinical assessment and
+  non-medical prescribing training, and the FICM professional pathway. The
+  broader parent and Perioperative Care Practitioner option remain separate
+  pending candidates; neither receives the critical care ID.
+
+These are reviewed continuity inferences from official course content, not
+explicit former-name statements. Option query parameters are retained in both
+official URLs. Regression fixtures verify the parent/option separation and
+override of unreviewed snapshot IDs. The migration rejects two duplicates
+(67 pending becomes 65), with no new programmes or application windows. Current
+pages still state that application dates are to be confirmed. The clinical page
+contains differing descriptions of when specialisms are chosen; this review
+does not infer separate application windows from those descriptions.
+
 ## Mixed directory snapshots (2026-10-10 UTC)
 
 Run [38087082403](https://github.com/lione12138/gradwindow/actions/runs/38087082403)
