@@ -1184,8 +1184,8 @@ function updateStatusTabs(focusStatus = "") {
 }
 
 function recordsForCurrentView(baseRecords) {
-  if (state.status === "all") return baseRecords.filter(isCurrentRecord);
-  if (hasActiveSearch() || state.favoritesOnly) return baseRecords;
+  if (state.status === "all" || hasActiveSearch() || state.favoritesOnly)
+    return baseRecords.filter(isCurrentRecord);
   return baseRecords.filter(
     (record) => isCurrentRecord(record) && getStatus(record) === state.status,
   );
@@ -1991,7 +1991,110 @@ function appendCatalogueRows(tbody, university) {
   }
 }
 
-function createAllSchoolsGroup(universities, records) {
+// Audit-quarantined records remain reference material, never actionable windows.
+function appendReviewRows(tbody, university, records) {
+  if (!records.length) return;
+  const key = `review:${university.id}`;
+  const expanded = state.expandedUniversityGroups.has(key);
+  const parent = document.createElement("tr");
+  parent.dataset.reviewSchool = university.id;
+  parent.className = "review-window-heading";
+  const cell = document.createElement("td");
+  cell.colSpan = 8;
+  const toggle = makeElement("button", {
+    className: "window-group-toggle",
+    text: `${t("historicalDatesReview")} · ${records.length} · ${expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed")}`,
+  });
+  toggle.type = "button";
+  toggle.setAttribute("aria-expanded", String(expanded));
+  toggle.addEventListener("click", () => {
+    if (expanded) state.expandedUniversityGroups.delete(key);
+    else state.expandedUniversityGroups.add(key);
+    render();
+  });
+  cell.append(
+    toggle,
+    makeElement("span", {
+      className: "date-secondary",
+      text: t("historicalDatesNotice"),
+    }),
+  );
+  parent.appendChild(cell);
+  tbody.appendChild(parent);
+  if (!expanded) return;
+  const limit = cataloguePageSizes.get(key) || 20;
+  records.slice(0, limit).forEach((record) => {
+    const row = document.createElement("tr");
+    row.className = "window-card-row review-window-row";
+    row.dataset.universityId = university.id;
+    const [label, badge] = sourcePresentation(record);
+    const source = document.createDocumentFragment();
+    source.append(
+      makeLink(sourceLinkLabel(record), record.sourceUrl, "source-link"),
+      makeElement("span", { className: `source-badge ${badge}`, text: label }),
+      makeElement("span", {
+        className: "date-secondary",
+        text: sourceEvidenceText(record),
+      }),
+    );
+    row.append(
+      makeCell(
+        t("rank"),
+        makeElement("span", {
+          className: "rank-cell",
+          text: formatRank(university.rankDisplay),
+        }),
+      ),
+      makeCell(t("university"), makeSchoolDisplay(record)),
+      makeCell(
+        t("programme"),
+        makeLinkedTextStack(
+          programmeLabel(record.scopeId, record.program, state.language),
+          record.sourceUrl,
+          intakeLabel(recordIntake(record), state.language),
+          "program-link date-primary",
+        ),
+      ),
+      makeCell(
+        t("applicantGroup"),
+        makeElement("span", {
+          className: "applicant-category",
+          text: applicantCategoryText(record.applicantCategories),
+        }),
+      ),
+      makeCell(
+        t("opens"),
+        makeTextStack(formatDate(record.opensAt), t("lastVerifiedDates")),
+      ),
+      makeCell(
+        t("deadline"),
+        makeTextStack(formatDate(record.closesAt), t("lastVerifiedDates")),
+      ),
+      makeActionsCell(makeFavoriteButton(favoriteKey("window", record.id))),
+      makeSourceCell(source),
+    );
+    tbody.appendChild(row);
+  });
+  if (records.length > limit) {
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+    cell.colSpan = 8;
+    const more = makeElement("button", {
+      className: "window-group-toggle",
+      text: t("reviewMore"),
+    });
+    more.type = "button";
+    more.addEventListener("click", () => {
+      cataloguePageSizes.set(key, limit + 20);
+      render();
+    });
+    cell.appendChild(more);
+    row.appendChild(cell);
+    tbody.appendChild(row);
+  }
+}
+
+function createAllSchoolsGroup(universities, records, reviewRecords) {
   const { section, tbody } = createTableSection(
     "all",
     statusLabels().all,
@@ -2017,6 +2120,11 @@ function createAllSchoolsGroup(universities, records) {
     if (group) appendUniversityRows(tbody, group, "all");
     else appendCatalogueRows(tbody, university);
     tbody.children[start].dataset.schoolId = university.id;
+    appendReviewRows(
+      tbody,
+      university,
+      reviewRecords.filter((record) => record.universityId === university.id),
+    );
   });
   section.appendChild(createPagination("all", pagination));
   return section;
@@ -2162,10 +2270,16 @@ function renderCounts(records, universities) {
 
 function render() {
   const baseRecords = filteredRecords();
+  const reviewRecords = baseRecords.filter(
+    (record) =>
+      !isCurrentRecord(record) &&
+      !isPredictedRecord(record) &&
+      !isRecurringPolicyRecord(record),
+  );
   let baseUniversities = filteredUniversities();
   if (state.status === "all") {
     const matchingIds = new Set(
-      baseRecords.filter(isCurrentRecord).map((record) => record.universityId),
+      baseRecords.map((record) => record.universityId),
     );
     const directoryIds = new Set(
       baseUniversities.map((university) => university.id),
@@ -2188,7 +2302,9 @@ function render() {
   document.body.dataset.viewStatus = state.status;
   container.replaceChildren();
   if (state.status === "all" && baseUniversities.length) {
-    container.appendChild(createAllSchoolsGroup(baseUniversities, records));
+    container.appendChild(
+      createAllSchoolsGroup(baseUniversities, records, reviewRecords),
+    );
   }
 
   ["open", "upcoming", "future", "closed"].forEach((status) => {
@@ -2202,6 +2318,26 @@ function render() {
       container.appendChild(createGroup(status, records, kind));
     });
   });
+  if (
+    state.status !== "all" &&
+    (hasActiveSearch() || state.favoritesOnly) &&
+    reviewRecords.length
+  ) {
+    const { section, tbody } = createTableSection(
+      "review",
+      t("historicalDatesReview"),
+      t("historicalDatesNotice"),
+      applicationColumns(),
+    );
+    selectedDirectoryUniversities().forEach((university) =>
+      appendReviewRows(
+        tbody,
+        university,
+        reviewRecords.filter((record) => record.universityId === university.id),
+      ),
+    );
+    container.appendChild(section);
+  }
   if (state.status === "exception" && exceptionUniversities.length) {
     container.appendChild(
       createUniversityGroup([...exceptionUniversities], "exception"),
@@ -2218,6 +2354,7 @@ function render() {
   emptyState.hidden =
     !activeNonStatusFilter() ||
     records.length > 0 ||
+    ((hasActiveSearch() || state.favoritesOnly) && reviewRecords.length > 0) ||
     (state.status === "exception" && exceptionUniversities.length > 0) ||
     ((state.status === "all" ||
       state.status === "unknown" ||

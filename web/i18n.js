@@ -321,6 +321,11 @@ export const I18N = {
     noVerifiedWindows: "No verified application windows",
     viewProgrammeCatalogue: "View programme catalogue",
     programmeCatalogue: "Programme catalogue",
+    historicalDatesReview: "Historical dates · pending review",
+    historicalDatesNotice:
+      "Reference only: these dates need rechecking and do not indicate that applications are open. Calendar export is unavailable.",
+    lastVerifiedDates: "Last verified dates · pending review",
+    reviewMore: "Show 20 more historical records",
     catalogueDatesUnverified:
       "Dates not verified · check the official course page",
     catalogueLoading: "Loading programmes…",
@@ -871,6 +876,11 @@ export const I18N = {
     viewProgrammeCatalogue: "展开课程目录",
     programmeCatalogue: "学校课程目录",
     catalogueDatesUnverified: "申请日期待核实 · 请查看课程官网",
+    historicalDatesReview: "历史日期 · 待复核",
+    historicalDatesNotice:
+      "仅供参考：这些日期需要重新核验，不代表当前可以申请，暂不支持添加日历。",
+    lastVerifiedDates: "上次核验日期 · 待复核",
+    reviewMore: "再显示 20 条历史记录",
     catalogueLoading: "正在加载课程…",
     catalogueMore: "再显示 20 个项目",
     catalogueLoadError: "课程加载失败，请收起后重新展开重试。",

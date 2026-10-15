@@ -17,6 +17,46 @@ async function firstWindowFavorite(page) {
   return favorite;
 }
 
+test("MIT retains unavailable-source dates only in a separate review section", async ({
+  page,
+}) => {
+  await openTracker(page);
+  await page.locator('.status-tab[data-status="all"]').click();
+  const review = page.locator(
+    '[data-review-school="massachusetts-institute-of-technology-mit"]',
+  );
+  await expect(review).toContainText("Historical dates · pending review");
+  await review.getByRole("button").click();
+  const rows = page.locator(
+    '.review-window-row[data-university-id="massachusetts-institute-of-technology-mit"]',
+  );
+  await expect(rows.first()).toBeVisible();
+  await expect(rows.first()).toContainText("Last verified dates");
+  await expect(rows.first()).toContainText("Source unavailable");
+  await expect(rows.first().locator("td").nth(4)).toContainText(/2026/);
+  await expect(rows.first().locator(".calendar-menu-trigger")).toHaveCount(0);
+  await expect(rows.first()).not.toContainText("Open now");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await rows.first().scrollIntoViewIfNeeded();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({ path: "test-results/mit-review-mobile.png" });
+  await review.getByRole("button").click();
+  await expect(rows).toHaveCount(0);
+  await page.locator('.status-tab[data-status="open"]').click();
+  await expect(page.locator(".review-window-row")).toHaveCount(0);
+  await page.goto("/?q=MIT");
+  await expect(review).toBeVisible();
+  await review.getByRole("button").click();
+  await expect(rows.first()).toBeVisible();
+  await expect(
+    page.locator(".review-window-row .calendar-menu-trigger"),
+  ).toHaveCount(0);
+});
+
 test("UCL exposes its programme catalogue when no verified windows are visible", async ({
   page,
 }) => {
