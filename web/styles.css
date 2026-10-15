@@ -6872,3 +6872,41 @@ footer p {
 }
 
 .catalogue-pagination-row td { text-align: center; }
+
+.review-window-heading td { white-space: normal; }
+.review-window-heading .date-secondary { margin-top: 8px; }
+
+@media (max-width: 720px) {
+  .application-table:not(.university-table) .review-window-heading,
+  .application-table:not(.university-table) .review-window-heading > td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .application-table:not(.university-table) tr.review-window-row {
+    grid-template-areas:
+      "school school rank"
+      "program program program"
+      "applicant applicant applicant"
+      "opening opening opening"
+      "deadline deadline deadline"
+      "source source source"
+      "actions actions actions";
+    cursor: default;
+  }
+
+  .application-table:not(.university-table) tr.review-window-row td:nth-child(4) {
+    display: block;
+    grid-area: applicant;
+  }
+
+  .application-table:not(.university-table) tr.review-window-row td:nth-child(5) {
+    display: block;
+    grid-area: opening;
+  }
+
+  .application-table:not(.university-table) tr.review-window-row .source-link,
+  .application-table:not(.university-table) tr.review-window-row .date-secondary {
+    display: block;
+  }
+}
