@@ -66,6 +66,7 @@ const recordIntakeCache = new WeakMap();
 let selectedRankingCache = null;
 let programmeTranslationsPromise = null;
 let programmeCataloguePromise = null;
+const cataloguePageSizes = new Map();
 const recordDetailPromises = new Map();
 const LIVE_RANKINGS = new Set(["qs", "the", "arwu"]);
 
@@ -90,6 +91,17 @@ async function ensureProgrammeTranslations() {
 }
 
 async function ensureClosedRecords() {
+  if (!programmeCataloguePromise) {
+    programmeCataloguePromise = fetchRequiredJson("./data/programs.json")
+      .then((payload) => {
+        state.programs = payload.programs || [];
+      })
+      .catch((error) => {
+        programmeCataloguePromise = null;
+        console.warn("Programme catalogue unavailable", error);
+      });
+  }
+  await programmeCataloguePromise;
   if (state.closedLoaded) return;
   const payload = await fetchRequiredJson("./data/frontend-closed.json");
   state.data = [
@@ -1832,75 +1844,6 @@ function createSchoolWithoutWindowsRow(university) {
       "date-primary",
     ),
   );
-  const catalogue = makeElement("details", {
-    className: "programme-catalogue",
-  });
-  const summary = makeElement("summary", {
-    className: "programme-catalogue-toggle",
-    text: t("viewProgrammeCatalogue"),
-  });
-  const content = makeElement("div");
-  catalogue.append(summary, content);
-  let loaded = false;
-  let loading = false;
-  catalogue.addEventListener("toggle", async () => {
-    if (!catalogue.open || loaded || loading) return;
-    loading = true;
-    content.textContent = t("catalogueLoading");
-    try {
-      if (!programmeCataloguePromise) {
-        programmeCataloguePromise = fetchRequiredJson(
-          "./data/programs.json",
-        ).catch((error) => {
-          programmeCataloguePromise = null;
-          throw error;
-        });
-      }
-      const payload = await programmeCataloguePromise;
-      const programmes = payload.programs.filter(
-        (p) => p.universityId === university.id,
-      );
-      programmes.sort((a, b) => a.name.localeCompare(b.name));
-      content.replaceChildren();
-      content.appendChild(
-        makeElement("p", {
-          text: `${programmeCountText(programmes.length)} · ${t("catalogueDatesUnverified")}`,
-          className: "programme-catalogue-note",
-        }),
-      );
-      const list = makeElement("ul", { className: "programme-catalogue-list" });
-      const more = makeElement("button", {
-        className: "icon-button programme-catalogue-more",
-        text: t("catalogueMore"),
-      });
-      more.type = "button";
-      let visible = 0;
-      const appendPage = () => {
-        programmes.slice(visible, visible + 20).forEach((p) => {
-          const item = makeElement("li");
-          item.appendChild(
-            makeLink(
-              programmeLabel(p.id, p.name, state.language),
-              p.sourceUrl || p.applicationUrl,
-              "source-link",
-            ),
-          );
-          list.appendChild(item);
-        });
-        visible += 20;
-        more.hidden = visible >= programmes.length;
-      };
-      more.addEventListener("click", appendPage);
-      content.append(list, more);
-      appendPage();
-      loaded = true;
-    } catch {
-      content.textContent = t("catalogueLoadError");
-    } finally {
-      loading = false;
-    }
-  });
-  programmeInfo.appendChild(catalogue);
   row.append(
     makeCell(
       t("rank"),
@@ -1928,6 +1871,126 @@ function createSchoolWithoutWindowsRow(university) {
   return row;
 }
 
+function appendCatalogueRows(tbody, university) {
+  const programmes = state.programs
+    .filter((p) => p.universityId === university.id)
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const parent = createSchoolWithoutWindowsRow(university);
+  tbody.appendChild(parent);
+  if (!programmes.length) return;
+  const key = `catalogue:${university.id}`;
+  const expanded = state.expandedUniversityGroups.has(key);
+  parent.classList.add(
+    "university-group-parent",
+    "catalogue-group-parent",
+    `university-group-parent--${expanded ? "expanded" : "collapsed"}`,
+  );
+  parent.dataset.groupKey = key;
+  parent.dataset.groupState = expanded ? "expanded" : "collapsed";
+  const summary = makeElement("div", { className: "school-group-summary" });
+  const heading = makeElement("div", {
+    className: "school-group-summary-heading",
+  });
+  heading.append(
+    makeElement("span", {
+      className: "school-group-kicker",
+      text: t("programmeCatalogue"),
+    }),
+    makeElement("span", {
+      className: "school-group-state",
+      text: expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed"),
+    }),
+  );
+  const counts = makeElement("div", { className: "school-group-counts" });
+  counts.appendChild(
+    makeElement("strong", {
+      className: "school-group-programme-count",
+      text: programmeCountText(programmes.length),
+    }),
+  );
+  const toggle = makeElement("button", {
+    className: "window-group-toggle university-group-toggle",
+  });
+  toggle.type = "button";
+  toggle.setAttribute("aria-expanded", String(expanded));
+  toggle.append(
+    makeElement("span", {
+      text: expanded
+        ? t("collapseSchoolWindows")
+        : `${t("expandSchoolWindows")} ${programmeCountText(programmes.length)}`,
+    }),
+    makeElement("span", { className: "school-group-chevron", text: "›" }),
+  );
+  const toggleGroup = () => {
+    if (expanded) state.expandedUniversityGroups.delete(key);
+    else state.expandedUniversityGroups.add(key);
+    render();
+  };
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleGroup();
+  });
+  parent.addEventListener("click", (event) => {
+    if (!event.target.closest("a, button")) toggleGroup();
+  });
+  summary.append(
+    heading,
+    counts,
+    toggle,
+    makeElement("span", {
+      className: "application-trust-summary school-group-trust",
+      text: t("catalogueDatesUnverified"),
+    }),
+  );
+  parent.children[2].replaceChildren(summary);
+  if (!expanded) return;
+  const limit = cataloguePageSizes.get(university.id) || 20;
+  programmes.slice(0, limit).forEach((p, index) => {
+    const row = createSchoolWithoutWindowsRow(university);
+    row.className =
+      "window-card-row university-group-child catalogue-programme-row";
+    if (index === 0) row.classList.add("university-group-child--first");
+    if (index === Math.min(limit, programmes.length) - 1)
+      row.classList.add("university-group-child--last");
+    row.dataset.catalogueSchool = university.id;
+    row.children[2].replaceChildren(
+      makeLinkedTextStack(
+        programmeLabel(p.id, p.name, state.language),
+        p.applicationUrl || p.sourceUrl,
+        t("catalogueDatesUnverified"),
+        "program-link date-primary",
+      ),
+    );
+    row.children[6].replaceChildren(makeElement("span", { text: "—" }));
+    row.children[7].replaceChildren(
+      makeLink(
+        t("officialWebsite"),
+        p.sourceUrl || p.applicationUrl,
+        "source-link",
+      ),
+    );
+    tbody.appendChild(row);
+  });
+  if (limit < programmes.length) {
+    const row = document.createElement("tr");
+    row.className = "catalogue-pagination-row";
+    const cell = document.createElement("td");
+    cell.colSpan = 8;
+    const more = makeElement("button", {
+      className: "window-group-toggle programme-catalogue-more",
+      text: t("catalogueMore"),
+    });
+    more.type = "button";
+    more.addEventListener("click", () => {
+      cataloguePageSizes.set(university.id, limit + 20);
+      render();
+    });
+    cell.appendChild(more);
+    row.appendChild(cell);
+    tbody.appendChild(row);
+  }
+}
+
 function createAllSchoolsGroup(universities, records) {
   const { section, tbody } = createTableSection(
     "all",
@@ -1952,7 +2015,7 @@ function createAllSchoolsGroup(universities, records) {
     const group = groups.get(university.id);
     const start = tbody.children.length;
     if (group) appendUniversityRows(tbody, group, "all");
-    else tbody.appendChild(createSchoolWithoutWindowsRow(university));
+    else appendCatalogueRows(tbody, university);
     tbody.children[start].dataset.schoolId = university.id;
   });
   section.appendChild(createPagination("all", pagination));
