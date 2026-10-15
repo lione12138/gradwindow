@@ -44,7 +44,8 @@ test("MIT retains unavailable-source dates only in a separate review section", a
     ),
   ).toBe(true);
   await page.screenshot({ path: "test-results/mit-review-mobile.png" });
-  await review.getByRole("button").click();
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.locator("#collapse-visible-groups").click();
   await expect(rows).toHaveCount(0);
   await page.locator('.status-tab[data-status="open"]').click();
   await expect(page.locator(".review-window-row")).toHaveCount(0);

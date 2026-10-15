@@ -1141,7 +1141,9 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
   }
 
   const groupRows = [
-    ...document.querySelectorAll(".university-group-parent[data-group-key]"),
+    ...document.querySelectorAll(
+      ".university-group-parent[data-group-key], .review-window-heading[data-group-key]",
+    ),
   ];
   const groupActions = document.getElementById("group-view-actions");
   groupActions.hidden = groupRows.length === 0;
@@ -1158,7 +1160,9 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
 
 function setVisibleUniversityGroups(expanded) {
   document
-    .querySelectorAll(".university-group-parent[data-group-key]")
+    .querySelectorAll(
+      ".university-group-parent[data-group-key], .review-window-heading[data-group-key]",
+    )
     .forEach((row) => {
       if (expanded) state.expandedUniversityGroups.add(row.dataset.groupKey);
       else state.expandedUniversityGroups.delete(row.dataset.groupKey);
@@ -1998,6 +2002,8 @@ function appendReviewRows(tbody, university, records) {
   const expanded = state.expandedUniversityGroups.has(key);
   const parent = document.createElement("tr");
   parent.dataset.reviewSchool = university.id;
+  parent.dataset.groupKey = key;
+  parent.dataset.groupState = expanded ? "expanded" : "collapsed";
   parent.className = "review-window-heading";
   const cell = document.createElement("td");
   cell.colSpan = 8;
