@@ -23,29 +23,43 @@ test("UCL exposes its programme catalogue when no verified windows are visible",
   await openTracker(page);
   await page.locator('.status-tab[data-status="all"]').click();
   const ucl = page.locator('[data-school-id="ucl-university-college-london"]');
-  await ucl.locator(".programme-catalogue-toggle").click();
-  await expect(
-    ucl.locator(".programme-catalogue-list a").first(),
-  ).toBeVisible();
-  await expect(ucl.locator(".programme-catalogue-list a")).toHaveCount(20);
-  await expect(ucl).toContainText("Dates not verified");
-  await expect(ucl.locator(".calendar-menu-trigger")).toHaveCount(0);
-  await ucl.locator(".programme-catalogue-more").click();
-  await expect(ucl.locator(".programme-catalogue-list a")).toHaveCount(40);
-  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(ucl).toHaveClass(/university-group-parent--collapsed/);
+  await ucl.locator(".university-group-toggle").click();
+  await expect(ucl).toHaveAttribute("data-group-state", "expanded");
+  const children = page.locator(
+    '[data-catalogue-school="ucl-university-college-london"]',
+  );
+  await expect(children).toHaveCount(20);
+  await expect(children.first().locator("td")).toHaveCount(8);
+  await expect(children.first().locator("td").nth(2)).toContainText(
+    "Advanced Audiology",
+  );
+  await expect(children.first().locator("td").nth(4)).toHaveText("—");
+  await expect(children.first().locator(".calendar-menu-trigger")).toHaveCount(
+    0,
+  );
+  await expect(page.locator(".programme-catalogue-list")).toHaveCount(0);
+  await ucl
+    .locator(
+      "xpath=following-sibling::tr[contains(@class,'catalogue-pagination-row')][1]",
+    )
+    .getByRole("button")
+    .click();
+  await expect(children).toHaveCount(40);
+  await page.locator("#collapse-visible-groups").click();
+  await expect(children).toHaveCount(0);
+  await ucl.locator(".university-group-toggle").click();
+  await expect(children).toHaveCount(40);
   await ucl.scrollIntoViewIfNeeded();
-  await expect(ucl.locator(".programme-catalogue-note")).toBeVisible();
-  expect(
-    (await ucl.locator(".programme-catalogue-more").boundingBox()).width,
-  ).toBeGreaterThan(100);
+  await page.screenshot({ path: "test-results/ucl-unified-desktop.png" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await children.first().scrollIntoViewIfNeeded();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true);
-  await page.screenshot({
-    path: "test-results/ucl-programme-catalogue-mobile.png",
-  });
+  await page.screenshot({ path: "test-results/ucl-unified-mobile.png" });
 });
 
 test("homepage loads the tracker without runtime errors", async ({ page }) => {
@@ -120,9 +134,11 @@ test("All universities lists schools in rank order with mixed window statuses", 
   const positions = ranks.map((rank) => Number(rank.replace(/\D/g, "")));
   expect(positions).toEqual([...positions].sort((a, b) => a - b));
   await expect(page.locator(".university-table")).toHaveCount(0);
-  await expect(page.locator(".school-without-windows").first()).toContainText(
-    "No verified application windows",
-  );
+  await expect(
+    page
+      .locator(".school-without-windows:not(.catalogue-group-parent)")
+      .first(),
+  ).toContainText("No verified application windows");
   await expect(
     page.locator(".school-without-windows").first().locator("td").nth(4),
   ).toHaveText("—");
@@ -133,7 +149,9 @@ test("All universities lists schools in rank order with mixed window statuses", 
   await expect(page.locator("#application-groups")).toContainText(
     /Opening soon|Future/,
   );
-  const schoolGroup = page.locator(".university-group-parent").first();
+  const schoolGroup = page
+    .locator(".university-group-parent:not(.catalogue-group-parent)")
+    .first();
   await expect(schoolGroup).toHaveClass(/university-group-parent--collapsed/);
   await schoolGroup.locator(".university-group-toggle").click();
   await expect(schoolGroup).toHaveAttribute("data-group-state", "expanded");

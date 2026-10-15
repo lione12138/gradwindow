@@ -320,6 +320,7 @@ export const I18N = {
       "Universities in ranking order, across all application statuses. Expand a university to view its windows.",
     noVerifiedWindows: "No verified application windows",
     viewProgrammeCatalogue: "View programme catalogue",
+    programmeCatalogue: "Programme catalogue",
     catalogueDatesUnverified:
       "Dates not verified · check the official course page",
     catalogueLoading: "Loading programmes…",
@@ -868,6 +869,7 @@ export const I18N = {
       "按排名查看所有申请状态的学校，展开学校可查看具体申请窗口。",
     noVerifiedWindows: "暂无已核实的申请窗口",
     viewProgrammeCatalogue: "展开课程目录",
+    programmeCatalogue: "学校课程目录",
     catalogueDatesUnverified: "申请日期待核实 · 请查看课程官网",
     catalogueLoading: "正在加载课程…",
     catalogueMore: "再显示 20 个项目",
