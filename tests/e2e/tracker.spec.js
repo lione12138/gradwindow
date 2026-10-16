@@ -17,6 +17,89 @@ async function firstWindowFavorite(page) {
   return favorite;
 }
 
+test("deadline-only facts remain visible alongside a school's full windows", async ({
+  page,
+}) => {
+  const { programs } = await (
+    await page.request.get("/data/programs.json")
+  ).json();
+  const programme = programs.find(
+    (p) => p.universityId === "imperial-college-london",
+  );
+  await page.route("**/data/reviewed-deadlines.json", (route) =>
+    route.fulfill({
+      json: {
+        deadlines: [
+          {
+            id: "fixture-deadline",
+            universityId: programme.universityId,
+            programmeId: programme.id,
+            intake: "2027",
+            round: "Fixture round",
+            applicantCategories: ["all"],
+            closesAt: "2026-12-01",
+            opensAt: null,
+            sourceUrl: programme.sourceUrl,
+            verifiedAt: "2026-10-15",
+            dataStatus: "deadline-only",
+          },
+        ],
+      },
+    }),
+  );
+  await openTracker(page);
+  await page.locator('.status-tab[data-status="all"]').click();
+  await expect(
+    page.locator('[data-school-id="imperial-college-london"]'),
+  ).not.toHaveClass(/catalogue-group-parent/);
+  await page
+    .locator(
+      '[data-group-key="catalogue:imperial-college-london"] .university-group-toggle',
+    )
+    .click();
+  await expect(
+    page.locator('[data-deadline-only="fixture-deadline"]'),
+  ).toBeVisible();
+});
+
+test("reviewed deadline-only facts do not invent openings or calendar events", async ({
+  page,
+}) => {
+  await openTracker(page);
+  const openCount = await page
+    .locator('.status-tab[data-status="open"]')
+    .textContent();
+  await page.locator('.status-tab[data-status="all"]').click();
+  await page
+    .locator('[data-school-id="harvard-university"] .university-group-toggle')
+    .click();
+  const row = page.locator(
+    '[data-deadline-only="harvard-data-science-sm-2027-deadline"]',
+  );
+  await expect(row).toBeVisible();
+  await expect(row.locator("td").nth(4)).toContainText(
+    "Exact opening date not verified",
+  );
+  await expect(row.locator("td").nth(5)).toContainText("1 Dec 2026");
+  await expect(row).toContainText("Reviewed deadline only");
+  await expect(row.locator(".calendar-menu")).toHaveCount(0);
+  await expect(page.locator('.status-tab[data-status="open"]')).toHaveText(
+    openCount,
+  );
+  await page.setViewportSize({ width: 390, height: 844 });
+  await row.scrollIntoViewIfNeeded();
+  await expect(row.locator("td").nth(4)).toBeVisible();
+  await expect(row.locator("td").nth(7)).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({ path: "test-results/deadline-only-mobile.png" });
+  await page.locator('.status-tab[data-status="open"]').click();
+  await expect(page.locator(".deadline-only-row")).toHaveCount(0);
+});
+
 test("MIT retains unavailable-source dates only in a separate review section", async ({
   page,
 }) => {

@@ -67,6 +67,7 @@ let selectedRankingCache = null;
 let programmeTranslationsPromise = null;
 let programmeCataloguePromise = null;
 const cataloguePageSizes = new Map();
+let reviewedDeadlinePromise = null;
 const recordDetailPromises = new Map();
 const LIVE_RANKINGS = new Set(["qs", "the", "arwu"]);
 
@@ -102,6 +103,19 @@ async function ensureClosedRecords() {
       });
   }
   await programmeCataloguePromise;
+  if (!reviewedDeadlinePromise) {
+    reviewedDeadlinePromise = fetchRequiredJson(
+      "./data/reviewed-deadlines.json",
+    )
+      .then((payload) => {
+        state.reviewedDeadlines = payload.deadlines || [];
+      })
+      .catch((error) => {
+        reviewedDeadlinePromise = null;
+        console.warn("Reviewed deadlines unavailable", error);
+      });
+  }
+  await reviewedDeadlinePromise;
   if (state.closedLoaded) return;
   const payload = await fetchRequiredJson("./data/frontend-closed.json");
   state.data = [
@@ -1875,9 +1889,63 @@ function createSchoolWithoutWindowsRow(university) {
   return row;
 }
 
-function appendCatalogueRows(tbody, university) {
+function appendDeadlineOnlyRows(tbody, university, programme, deadlines) {
+  deadlines.forEach((deadline) => {
+    const row = createSchoolWithoutWindowsRow(university);
+    row.className =
+      "window-card-row university-group-child review-window-row catalogue-programme-row deadline-only-row";
+    row.dataset.catalogueSchool = university.id;
+    row.dataset.deadlineOnly = deadline.id;
+    row.children[2].replaceChildren(
+      makeLinkedTextStack(
+        programmeLabel(programme.id, programme.name, state.language),
+        programme.applicationUrl || deadline.sourceUrl,
+        `${deadline.intake} · ${deadline.round}`,
+        "program-link date-primary",
+      ),
+    );
+    row.children[3].replaceChildren(
+      makeElement("span", {
+        className: "applicant-category",
+        text: applicantCategoryText(deadline.applicantCategories),
+      }),
+    );
+    row.children[4].replaceChildren(
+      makeTextStack("—", t("openingNotVerified")),
+    );
+    row.children[5].replaceChildren(
+      makeTextStack(
+        formatDeadlineDate(
+          deadline,
+          formatDate(deadline.closesAt),
+          state.language,
+        ),
+        t("reviewedDeadlineOnly"),
+      ),
+    );
+    row.children[6].replaceChildren(makeElement("span", { text: "—" }));
+    row.children[7].replaceChildren(
+      makeLink(t("officialWebsite"), deadline.sourceUrl, "source-link"),
+      makeElement("span", {
+        className: "date-secondary",
+        text: `${t("verifiedOn")} ${deadline.verifiedAt}`,
+      }),
+      makeElement("span", {
+        className: "date-secondary",
+        text: t("deadlineOnlyNotice"),
+      }),
+    );
+    tbody.appendChild(row);
+  });
+}
+
+function appendCatalogueRows(tbody, university, programmeIds = null) {
   const programmes = state.programs
-    .filter((p) => p.universityId === university.id)
+    .filter(
+      (p) =>
+        p.universityId === university.id &&
+        (!programmeIds || programmeIds.has(p.id)),
+    )
     .sort((a, b) => a.name.localeCompare(b.name));
   const parent = createSchoolWithoutWindowsRow(university);
   tbody.appendChild(parent);
@@ -1898,7 +1966,7 @@ function appendCatalogueRows(tbody, university) {
   heading.append(
     makeElement("span", {
       className: "school-group-kicker",
-      text: t("programmeCatalogue"),
+      text: t(programmeIds ? "reviewedDeadlineOnly" : "programmeCatalogue"),
     }),
     makeElement("span", {
       className: "school-group-state",
@@ -1937,19 +2005,34 @@ function appendCatalogueRows(tbody, university) {
   parent.addEventListener("click", (event) => {
     if (!event.target.closest("a, button")) toggleGroup();
   });
+  const reviewedCount = state.reviewedDeadlines.filter(
+    (deadline) => deadline.universityId === university.id,
+  ).length;
   summary.append(
     heading,
     counts,
     toggle,
     makeElement("span", {
       className: "application-trust-summary school-group-trust",
-      text: t("catalogueDatesUnverified"),
+      text: reviewedCount
+        ? `${reviewedCount} · ${t("reviewedDeadlineOnly")} · ${t("openingNotVerified")}`
+        : t("catalogueDatesUnverified"),
     }),
   );
   parent.children[2].replaceChildren(summary);
   if (!expanded) return;
   const limit = cataloguePageSizes.get(university.id) || 20;
   programmes.slice(0, limit).forEach((p, index) => {
+    const deadlines = state.reviewedDeadlines.filter(
+      (d) =>
+        d.programmeId === p.id &&
+        d.universityId === university.id &&
+        d.dataStatus === "deadline-only",
+    );
+    if (deadlines.length) {
+      appendDeadlineOnlyRows(tbody, university, p, deadlines);
+      return;
+    }
     const row = createSchoolWithoutWindowsRow(university);
     row.className =
       "window-card-row university-group-child catalogue-programme-row";
@@ -2123,8 +2206,16 @@ function createAllSchoolsGroup(universities, records, reviewRecords) {
   pagination.items.forEach((university) => {
     const group = groups.get(university.id);
     const start = tbody.children.length;
-    if (group) appendUniversityRows(tbody, group, "all");
-    else appendCatalogueRows(tbody, university);
+    if (group) {
+      appendUniversityRows(tbody, group, "all");
+      const deadlineProgrammeIds = new Set(
+        state.reviewedDeadlines
+          .filter((deadline) => deadline.universityId === university.id)
+          .map((deadline) => deadline.programmeId),
+      );
+      if (deadlineProgrammeIds.size)
+        appendCatalogueRows(tbody, university, deadlineProgrammeIds);
+    } else appendCatalogueRows(tbody, university);
     tbody.children[start].dataset.schoolId = university.id;
     appendReviewRows(
       tbody,

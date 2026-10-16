@@ -7,7 +7,8 @@ from gradwindow.schemas import export_schemas
 
 def test_export_schemas_uses_public_aliases(tmp_path) -> None:
     written = export_schemas(tmp_path)
-    assert len(written) == 10
+    assert len(written) == 11
+    assert (tmp_path / "reviewed-deadline.schema.json").exists()
     application = json.loads(
         (tmp_path / "application-window.schema.json").read_text(encoding="utf-8")
     )

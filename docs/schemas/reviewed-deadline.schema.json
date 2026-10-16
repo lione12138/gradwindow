@@ -1,0 +1,127 @@
+{
+  "$defs": {
+    "DeadlineEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "sourceUrl": {
+          "format": "uri",
+          "minLength": 1,
+          "title": "Sourceurl",
+          "type": "string"
+        },
+        "excerpt": {
+          "minLength": 10,
+          "title": "Excerpt",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sourceUrl",
+        "excerpt"
+      ],
+      "title": "DeadlineEvidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "universityId": {
+      "title": "Universityid",
+      "type": "string"
+    },
+    "programmeId": {
+      "title": "Programmeid",
+      "type": "string"
+    },
+    "intake": {
+      "minLength": 4,
+      "title": "Intake",
+      "type": "string"
+    },
+    "round": {
+      "minLength": 1,
+      "title": "Round",
+      "type": "string"
+    },
+    "applicantCategories": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Applicantcategories",
+      "type": "array"
+    },
+    "closesAt": {
+      "format": "date",
+      "title": "Closesat",
+      "type": "string"
+    },
+    "deadlineSemantics": {
+      "default": "on",
+      "enum": [
+        "on",
+        "before"
+      ],
+      "title": "Deadlinesemantics",
+      "type": "string"
+    },
+    "opensAt": {
+      "default": null,
+      "title": "Opensat",
+      "type": "null"
+    },
+    "dataStatus": {
+      "const": "deadline-only",
+      "default": "deadline-only",
+      "enum": [
+        "deadline-only"
+      ],
+      "title": "Datastatus",
+      "type": "string"
+    },
+    "sourceUrl": {
+      "format": "uri",
+      "minLength": 1,
+      "title": "Sourceurl",
+      "type": "string"
+    },
+    "verifiedAt": {
+      "format": "date",
+      "title": "Verifiedat",
+      "type": "string"
+    },
+    "reviewedBy": {
+      "minLength": 1,
+      "title": "Reviewedby",
+      "type": "string"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/DeadlineEvidence"
+      },
+      "minItems": 1,
+      "title": "Evidence",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "universityId",
+    "programmeId",
+    "intake",
+    "round",
+    "applicantCategories",
+    "closesAt",
+    "sourceUrl",
+    "verifiedAt",
+    "reviewedBy",
+    "evidence"
+  ],
+  "title": "ReviewedDeadline",
+  "type": "object"
+}

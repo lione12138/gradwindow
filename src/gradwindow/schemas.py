@@ -16,8 +16,10 @@ from .models import (
     WindowPolicy,
 )
 from .paths import SCHEMA_DIR
+from .reviewed_deadlines import ReviewedDeadline
 
 SCHEMA_MODELS = {
+    "reviewed-deadline.schema.json": ReviewedDeadline,
     "applicant-category.schema.json": ApplicantCategory,
     "application-window.schema.json": ApplicationWindow,
     "evidence-snapshot.schema.json": EvidenceSnapshot,
