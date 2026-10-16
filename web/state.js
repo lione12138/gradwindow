@@ -5,6 +5,7 @@ export const state = {
   data: [],
   universities: [],
   programs: [],
+  reviewedDeadlines: [],
   programmeGroups: [],
   applicantCategoryLabels: {},
   policies: [],

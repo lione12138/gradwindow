@@ -33,6 +33,7 @@ from .paths import (
     WINDOW_POLICIES_PATH,
 )
 from .published_data_audit import audit_published_data
+from .reviewed_deadlines import REVIEWED_DEADLINES_PATH, load_reviewed_deadlines
 
 PUBLIC_FILES = (
     "CNAME",
@@ -98,6 +99,7 @@ CLOUDFLARE_ANALYTICS = (
     "</script>"
 )
 PUBLIC_DATA = (
+    REVIEWED_DEADLINES_PATH,
     UNIVERSITIES_PATH,
     APPLICATIONS_PATH,
     PREDICTIONS_PATH,
@@ -142,6 +144,7 @@ def _safe_build_output_dir(output_dir: Path) -> Path:
 
 
 def build_site(output_dir: Path = SITE_DIR) -> Path:
+    load_reviewed_deadlines()
     output_dir = _safe_build_output_dir(output_dir)
     public_site_url = site_url()
     build_date = date.today()

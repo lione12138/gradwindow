@@ -38,6 +38,7 @@ from .predictions import (
     shift_date_one_year,
     shift_intake_one_year,
 )
+from .reviewed_deadlines import load_reviewed_deadlines
 
 APPLICATION_FIELDS = {
     "id",
@@ -451,4 +452,9 @@ def validate_data(
             for item in applications
         ),
     }
+    if programs_path == PROGRAMS_PATH and universities_path == UNIVERSITIES_PATH:
+        try:
+            load_reviewed_deadlines()
+        except ValueError as exc:
+            errors.append(str(exc))
     return errors, summary

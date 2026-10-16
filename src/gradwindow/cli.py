@@ -46,6 +46,7 @@ from .readme import generate_readmes
 from .recurring_windows import generate_recurring_windows
 from .refresh_status import generate_refresh_status
 from .review import generate_review_outputs
+from .reviewed_deadlines import approve_deadline_file
 from .schemas import export_schemas
 from .site import build_site
 from .source_monitor import DEFAULT_MAX_SOURCE_URLS, monitor_application_sources
@@ -193,6 +194,11 @@ def main() -> None:
     )
     approve.add_argument("candidate_id")
     approve.add_argument("--reviewer", required=True)
+    approve_deadline = subparsers.add_parser(
+        "approve-deadline", help="Publish a manually reviewed deadline-only fact"
+    )
+    approve_deadline.add_argument("draft", type=Path)
+    approve_deadline.add_argument("--reviewer", required=True)
     approve_programmes = subparsers.add_parser(
         "approve-programmes",
         help="Promote reviewed programme candidates with exact windows",
@@ -353,6 +359,11 @@ def main() -> None:
     elif args.command == "readme":
         written = generate_readmes()
         print(f"Wrote README dashboards: {written[0].name}, {written[1].name}.")
+    elif args.command == "approve-deadline":
+        record = approve_deadline_file(args.draft, args.reviewer)
+        print(
+            f"Approved deadline-only fact {record['id']}; no application window created."
+        )
     elif args.command == "approve-window":
         record = approve_window(args.candidate_id, args.reviewer)
         generate_predictions()
