@@ -1939,9 +1939,13 @@ function appendDeadlineOnlyRows(tbody, university, programme, deadlines) {
   });
 }
 
-function appendCatalogueRows(tbody, university) {
+function appendCatalogueRows(tbody, university, programmeIds = null) {
   const programmes = state.programs
-    .filter((p) => p.universityId === university.id)
+    .filter(
+      (p) =>
+        p.universityId === university.id &&
+        (!programmeIds || programmeIds.has(p.id)),
+    )
     .sort((a, b) => a.name.localeCompare(b.name));
   const parent = createSchoolWithoutWindowsRow(university);
   tbody.appendChild(parent);
@@ -1962,7 +1966,7 @@ function appendCatalogueRows(tbody, university) {
   heading.append(
     makeElement("span", {
       className: "school-group-kicker",
-      text: t("programmeCatalogue"),
+      text: t(programmeIds ? "reviewedDeadlineOnly" : "programmeCatalogue"),
     }),
     makeElement("span", {
       className: "school-group-state",
@@ -2202,8 +2206,16 @@ function createAllSchoolsGroup(universities, records, reviewRecords) {
   pagination.items.forEach((university) => {
     const group = groups.get(university.id);
     const start = tbody.children.length;
-    if (group) appendUniversityRows(tbody, group, "all");
-    else appendCatalogueRows(tbody, university);
+    if (group) {
+      appendUniversityRows(tbody, group, "all");
+      const deadlineProgrammeIds = new Set(
+        state.reviewedDeadlines
+          .filter((deadline) => deadline.universityId === university.id)
+          .map((deadline) => deadline.programmeId),
+      );
+      if (deadlineProgrammeIds.size)
+        appendCatalogueRows(tbody, university, deadlineProgrammeIds);
+    } else appendCatalogueRows(tbody, university);
     tbody.children[start].dataset.schoolId = university.id;
     appendReviewRows(
       tbody,
