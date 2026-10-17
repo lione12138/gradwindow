@@ -455,8 +455,23 @@ def test_search_landing_pages_and_thin_university_indexing(tmp_path) -> None:
         / "national-university-of-singapore-nus"
         / "deadlines.ics"
     ).read_text(encoding="utf-8")
-    stanford_html = (
-        tmp_path / "university" / "stanford-university" / "index.html"
+    # Pick a genuinely empty school; a real university may gain dates over time.
+    schools_with_dates = {
+        record["universityId"]
+        for path, key in (
+            (site.APPLICATIONS_PATH, "applications"),
+            (site.PREDICTIONS_PATH, "predictions"),
+            (site.RECURRING_WINDOWS_PATH, "recurringWindows"),
+        )
+        for record in site.read_json(path)[key]
+    }
+    empty_school_id = next(
+        school["id"]
+        for school in site.read_json(site.UNIVERSITIES_PATH)["universities"]
+        if school["id"] not in schools_with_dates
+    )
+    empty_school_html = (
+        tmp_path / "university" / empty_school_id / "index.html"
     ).read_text(encoding="utf-8")
     aalto_html = (
         tmp_path / "university" / "aalto-university" / "index.html"
@@ -504,12 +519,12 @@ def test_search_landing_pages_and_thin_university_indexing(tmp_path) -> None:
         in sitemap
     )
 
-    assert 'content="noindex, follow"' in stanford_html
+    assert 'content="noindex, follow"' in empty_school_html
     assert (
         "no verified, recurring-policy, or estimated application windows"
-        in stanford_html
+        in empty_school_html
     )
-    assert "https://gradwindow.com/university/stanford-university/" not in sitemap
+    assert f"https://gradwindow.com/university/{empty_school_id}/" not in sitemap
     assert 'href="../../intake/2027-fall/"' in aalto_html
 
     assert "September 2026 Master's Applications Opening Dates" in opening_html
