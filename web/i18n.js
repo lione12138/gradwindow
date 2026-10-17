@@ -326,6 +326,8 @@ export const I18N = {
     deadlineOnlyNotice:
       "Opening date unknown; this does not confirm that applications are open. Check the official page before applying.",
     historicalDatesReview: "Historical dates · pending review",
+    viewHistoricalDates: "View historical dates",
+    hideHistoricalDates: "Hide historical dates",
     historicalDatesNotice:
       "Reference only: these dates need rechecking and do not indicate that applications are open. Calendar export is unavailable.",
     lastVerifiedDates: "Last verified dates · pending review",
@@ -885,6 +887,8 @@ export const I18N = {
     deadlineOnlyNotice:
       "开放日期未知，不代表当前可以申请；申请前请查看官网确认。",
     historicalDatesReview: "历史日期 · 待复核",
+    viewHistoricalDates: "查看历史日期",
+    hideHistoricalDates: "收起历史日期",
     historicalDatesNotice:
       "仅供参考：这些日期需要重新核验，不代表当前可以申请，暂不支持添加日历。",
     lastVerifiedDates: "上次核验日期 · 待复核",

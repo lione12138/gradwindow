@@ -1156,7 +1156,7 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
 
   const groupRows = [
     ...document.querySelectorAll(
-      ".university-group-parent[data-group-key], .review-window-heading[data-group-key]",
+      ".university-group-parent[data-group-key], .review-window-heading[data-group-key], .school-history-entry[data-group-key]",
     ),
   ];
   const groupActions = document.getElementById("group-view-actions");
@@ -1165,8 +1165,11 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
     const expandedCount = groupRows.filter(
       (row) => row.dataset.groupState === "expanded",
     ).length;
-    document.getElementById("expand-visible-groups").disabled =
-      expandedCount === groupRows.length;
+    document.getElementById("expand-visible-groups").disabled = !groupRows.some(
+      (row) =>
+        row.classList.contains("university-group-parent") &&
+        row.dataset.groupState !== "expanded",
+    );
     document.getElementById("collapse-visible-groups").disabled =
       expandedCount === 0;
   }
@@ -1175,9 +1178,11 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
 function setVisibleUniversityGroups(expanded) {
   document
     .querySelectorAll(
-      ".university-group-parent[data-group-key], .review-window-heading[data-group-key]",
+      ".university-group-parent[data-group-key], .review-window-heading[data-group-key], .school-history-entry[data-group-key]",
     )
     .forEach((row) => {
+      if (expanded && !row.classList.contains("university-group-parent"))
+        return;
       if (expanded) state.expandedUniversityGroups.add(row.dataset.groupKey);
       else state.expandedUniversityGroups.delete(row.dataset.groupKey);
     });
@@ -2079,20 +2084,24 @@ function appendCatalogueRows(tbody, university, programmeIds = null) {
 }
 
 // Audit-quarantined records remain reference material, never actionable windows.
-function appendReviewRows(tbody, university, records) {
+function appendReviewRows(tbody, university, records, schoolCell = null) {
   if (!records.length) return;
   const key = `review:${university.id}`;
   const expanded = state.expandedUniversityGroups.has(key);
-  const parent = document.createElement("tr");
+  const parent = document.createElement(schoolCell ? "div" : "tr");
   parent.dataset.reviewSchool = university.id;
   parent.dataset.groupKey = key;
   parent.dataset.groupState = expanded ? "expanded" : "collapsed";
-  parent.className = "review-window-heading";
-  const cell = document.createElement("td");
-  cell.colSpan = 8;
+  parent.className = schoolCell
+    ? "school-history-entry"
+    : "review-window-heading";
+  const cell = schoolCell ? parent : document.createElement("td");
+  if (!schoolCell) cell.colSpan = 8;
   const toggle = makeElement("button", {
-    className: "window-group-toggle",
-    text: `${t("historicalDatesReview")} · ${records.length} · ${expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed")}`,
+    className: schoolCell ? "school-history-toggle" : "window-group-toggle",
+    text: schoolCell
+      ? `${t(expanded ? "hideHistoricalDates" : "viewHistoricalDates")} (${records.length})`
+      : `${t("historicalDatesReview")} · ${records.length} · ${expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed")}`,
   });
   toggle.type = "button";
   toggle.setAttribute("aria-expanded", String(expanded));
@@ -2101,16 +2110,25 @@ function appendReviewRows(tbody, university, records) {
     else state.expandedUniversityGroups.add(key);
     render();
   });
-  cell.append(
-    toggle,
+  cell.appendChild(toggle);
+  if (schoolCell) schoolCell.appendChild(parent);
+  else {
+    parent.appendChild(cell);
+    tbody.appendChild(parent);
+  }
+  if (!expanded) return;
+  const noticeRow = document.createElement("tr");
+  noticeRow.className = "review-window-heading";
+  const noticeCell = document.createElement("td");
+  noticeCell.colSpan = 8;
+  noticeCell.appendChild(
     makeElement("span", {
       className: "date-secondary",
       text: t("historicalDatesNotice"),
     }),
   );
-  parent.appendChild(cell);
-  tbody.appendChild(parent);
-  if (!expanded) return;
+  noticeRow.appendChild(noticeCell);
+  tbody.appendChild(noticeRow);
   const limit = cataloguePageSizes.get(key) || 20;
   records.slice(0, limit).forEach((record) => {
     const row = document.createElement("tr");
@@ -2221,6 +2239,7 @@ function createAllSchoolsGroup(universities, records, reviewRecords) {
       tbody,
       university,
       reviewRecords.filter((record) => record.universityId === university.id),
+      tbody.children[start].children[1],
     );
   });
   section.appendChild(createPagination("all", pagination));
