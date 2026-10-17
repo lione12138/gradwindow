@@ -188,10 +188,13 @@ test("MIT retains unavailable-source dates only in a separate review section", a
   await expect(rows.first().locator(".calendar-menu-trigger")).toHaveCount(0);
   await page.setViewportSize({ width: 390, height: 844 });
   await historyToggle.click();
-  await historyToggle.scrollIntoViewIfNeeded();
+  await historyToggle.evaluate((button) =>
+    button.scrollIntoView({ block: "center" }),
+  );
+  await expect(historyToggle).toBeVisible();
+  await historyToggle.click({ trial: true });
   await page.screenshot({
     path: "test-results/saved-history-collapsed-mobile.png",
-    fullPage: true,
   });
   expect(
     await page.evaluate(
