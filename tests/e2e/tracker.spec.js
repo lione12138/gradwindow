@@ -108,7 +108,29 @@ test("MIT retains unavailable-source dates only in a separate review section", a
   const review = page.locator(
     '[data-review-school="massachusetts-institute-of-technology-mit"]',
   );
-  await expect(review).toContainText("Historical dates · pending review");
+  await expect(review).toContainText("View historical dates");
+  await expect(
+    page
+      .locator(
+        '[data-school-id="massachusetts-institute-of-technology-mit"] td',
+      )
+      .nth(1)
+      .locator("[data-review-school]"),
+  ).toHaveCount(1);
+  await expect(page.locator(".review-window-heading")).toHaveCount(0);
+  await page.locator("#expand-visible-groups").click();
+  await expect(review.getByRole("button")).toHaveAttribute(
+    "aria-expanded",
+    "false",
+  );
+  await expect(page.locator(".review-window-heading")).toHaveCount(0);
+  await page.locator("#collapse-visible-groups").click();
+  await page.screenshot({ path: "test-results/history-entry-desktop.png" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await review.scrollIntoViewIfNeeded();
+  await expect(review.getByRole("button")).toBeVisible();
+  await page.screenshot({ path: "test-results/history-entry-mobile.png" });
+  await page.setViewportSize({ width: 1440, height: 900 });
   await review.getByRole("button").click();
   const rows = page.locator(
     '.review-window-row[data-university-id="massachusetts-institute-of-technology-mit"]',

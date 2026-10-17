@@ -6873,6 +6873,24 @@ footer p {
 
 .catalogue-pagination-row td { text-align: center; }
 
+.school-history-entry { margin-top: 8px; }
+.school-history-toggle {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.school-history-toggle:hover { color: var(--green); }
+.school-history-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
 .review-window-heading td { white-space: normal; }
 .review-window-heading .date-secondary { margin-top: 8px; }
 
