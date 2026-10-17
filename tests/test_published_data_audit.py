@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from datetime import date
 
+import pytest
+
 from gradwindow.published_data_audit import audit_published_data
 
 
@@ -97,6 +99,35 @@ def test_audit_does_not_reconcile_against_an_unavailable_adapter() -> None:
     )
 
     assert payload["issues"] == []
+
+
+@pytest.mark.parametrize(
+    ("snapshot_at", "expected"),
+    [
+        ("2026-10-05T07:00:00+00:00", "current"),
+        ("2026-10-17T07:00:00+00:00", "stale"),
+        ("2026-10-18T07:00:00+00:00", "stale"),
+        (None, "stale"),
+        ("invalid", "stale"),
+    ],
+)
+def test_snapshot_must_not_predate_a_newer_official_review(snapshot_at, expected):
+    item = _window(closesAt="2027-09-01", verifiedAt="2026-10-17")
+    payload = audit_published_data(
+        [item],
+        catalog_state={
+            "example-university": {"windows": {}, "lastSuccessfulAt": snapshot_at}
+        },
+        # Health timestamps do not establish when the catalogue was captured.
+        adapter_health={
+            "example-university": {
+                "healthStatus": "ok",
+                "lastSuccessfulAt": "2026-10-18T07:00:00+00:00",
+            }
+        },
+        today=date(2026, 10, 18),
+    )
+    assert payload["recordTrustStatuses"][item["id"]] == expected
 
 
 def test_audit_detects_a_changed_published_window() -> None:

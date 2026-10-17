@@ -72,6 +72,20 @@ def audit_published_data(
             or date.fromisoformat(item["closesAt"]) < today
         ):
             continue
+        # A catalogue captured before a subsequent official review cannot
+        # invalidate that review. Same-day checks remain eligible because
+        # verifiedAt has day precision and cannot establish ordering.
+        snapshot_at = state.get("lastSuccessfulAt") or state.get("checkedAt")
+        verified_at = item.get("verifiedAt")
+        if snapshot_at and verified_at:
+            try:
+                snapshot_day = date.fromisoformat(str(snapshot_at)[:10])
+                verified_day = date.fromisoformat(str(verified_at)[:10])
+            except ValueError:
+                pass
+            else:
+                if snapshot_day < verified_day <= today:
+                    continue
         snapshot = state["windows"]
         identity = _published_window_identity(item)
         current = snapshot.get(identity)
