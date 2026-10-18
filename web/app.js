@@ -1156,7 +1156,7 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
 
   const groupRows = [
     ...document.querySelectorAll(
-      ".university-group-parent[data-group-key], .review-window-heading[data-group-key], .school-history-entry[data-group-key]",
+      ".university-group-parent[data-group-key], .review-window-heading[data-group-key], .school-history-entry[data-group-key], .history-results[data-group-key]",
     ),
   ];
   const groupActions = document.getElementById("group-view-actions");
@@ -1178,7 +1178,7 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
 function setVisibleUniversityGroups(expanded) {
   document
     .querySelectorAll(
-      ".university-group-parent[data-group-key], .review-window-heading[data-group-key], .school-history-entry[data-group-key]",
+      ".university-group-parent[data-group-key], .review-window-heading[data-group-key], .school-history-entry[data-group-key], .history-results[data-group-key]",
     )
     .forEach((row) => {
       if (expanded && !row.classList.contains("university-group-parent"))
@@ -2101,7 +2101,7 @@ function appendReviewRows(tbody, university, records, schoolCell = null) {
     className: schoolCell ? "school-history-toggle" : "window-group-toggle",
     text: schoolCell
       ? `${t(expanded ? "hideHistoricalDates" : "viewHistoricalDates")} (${records.length})`
-      : `${t("historicalDatesReview")} · ${records.length} · ${expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed")}`,
+      : `${schoolLabels(university, state.language).primary} · ${records.length} · ${expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed")}`,
   });
   toggle.type = "button";
   toggle.setAttribute("aria-expanded", String(expanded));
@@ -2439,20 +2439,52 @@ function render() {
     (hasActiveSearch() || state.favoritesOnly) &&
     reviewRecords.length
   ) {
-    const { section, tbody } = createTableSection(
-      "review",
-      t("historicalDatesReview"),
-      t("historicalDatesNotice"),
-      applicationColumns(),
-    );
-    selectedDirectoryUniversities().forEach((university) =>
-      appendReviewRows(
-        tbody,
-        university,
-        reviewRecords.filter((record) => record.universityId === university.id),
-      ),
-    );
-    container.appendChild(section);
+    const key = "history-results";
+    const expanded = state.expandedUniversityGroups.has(key);
+    const history = makeElement("section", { className: "history-results" });
+    history.dataset.groupKey = key;
+    history.dataset.groupState = expanded ? "expanded" : "collapsed";
+    const toggle = makeElement("button", {
+      className: "school-history-toggle history-results-toggle",
+      text: `${t(expanded ? "hideHistoricalDates" : "viewHistoricalDates")} (${reviewRecords.length})`,
+    });
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", String(expanded));
+    toggle.setAttribute("aria-controls", "history-results-content");
+    toggle.addEventListener("click", () => {
+      if (expanded) state.expandedUniversityGroups.delete(key);
+      else state.expandedUniversityGroups.add(key);
+      render();
+      document
+        .querySelector(".history-results-toggle")
+        ?.focus({ preventScroll: true });
+    });
+    const content = makeElement("div");
+    content.id = "history-results-content";
+    content.hidden = !expanded;
+    if (expanded) {
+      const { section, tbody } = createTableSection(
+        "review",
+        {
+          title: t("historicalDatesReview"),
+          description: t("historicalDatesNotice"),
+        },
+        `${reviewRecords.length} ${t("windows")}`,
+        applicationColumns(),
+      );
+      selectedDirectoryUniversities().forEach((university) =>
+        appendReviewRows(
+          tbody,
+          university,
+          reviewRecords.filter(
+            (record) => record.universityId === university.id,
+          ),
+        ),
+      );
+      content.appendChild(section);
+    }
+    history.append(toggle, content);
+    container.appendChild(history);
   }
   if (state.status === "exception" && exceptionUniversities.length) {
     container.appendChild(

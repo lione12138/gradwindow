@@ -155,12 +155,52 @@ test("MIT retains unavailable-source dates only in a separate review section", a
   await page.locator('.status-tab[data-status="open"]').click();
   await expect(page.locator(".review-window-row")).toHaveCount(0);
   await page.goto("/?q=MIT");
+  const historyToggle = page.locator(".history-results-toggle");
+  await expect(historyToggle).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator("#history-results-content")).toBeHidden();
+  await historyToggle.focus();
+  await page.keyboard.press("Enter");
+  await expect(historyToggle).toHaveAttribute("aria-expanded", "true");
+  await expect(historyToggle).toBeFocused();
   await expect(review).toBeVisible();
+  await expect(review).toContainText("Massachusetts Institute of Technology");
+  await expect(page.locator("#history-results-content")).not.toContainText(
+    "undefined",
+  );
   await review.getByRole("button").click();
   await expect(rows.first()).toBeVisible();
   await expect(
     page.locator(".review-window-row .calendar-menu-trigger"),
   ).toHaveCount(0);
+  await page.locator("#collapse-visible-groups").click();
+  await expect(historyToggle).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator("#history-results-content")).toBeHidden();
+  await historyToggle.click();
+  await review.getByRole("button").click();
+  await rows.first().locator(".favorite-button").click();
+  await page.goto("/?saved=1");
+  await expect(historyToggle).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator("#history-results-content")).toBeHidden();
+  await historyToggle.click();
+  await expect(review).toContainText("Massachusetts Institute of Technology");
+  await review.getByRole("button").click();
+  await expect(rows).toHaveCount(1);
+  await expect(rows.first().locator(".calendar-menu-trigger")).toHaveCount(0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await historyToggle.click();
+  await historyToggle.evaluate((button) =>
+    button.scrollIntoView({ block: "center" }),
+  );
+  await expect(historyToggle).toBeVisible();
+  await historyToggle.click({ trial: true });
+  await page.screenshot({
+    path: "test-results/saved-history-collapsed-mobile.png",
+  });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
 });
 
 test("UCL exposes its programme catalogue when no verified windows are visible", async ({
