@@ -191,6 +191,7 @@ def discover_current_catalogue(
             "additionalStudyOptions": option_count,
             "comingSoonCourses": pending,
             "detailWindowDiscovery": "pending",
+            "catalogueComplete": True,
         },
     )
 

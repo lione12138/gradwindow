@@ -1,21 +1,23 @@
 """Bounded monitoring of UCL's current course application-date sections.
 
-This monitor records evidence for review, never generates application windows.
+This monitor generates review candidates, never publishes application windows.
 Course-option sections are isolated before reading any application evidence.
 """
 
 from __future__ import annotations
 
 import hashlib
+from dataclasses import asdict
 from datetime import datetime, timezone
 from urllib.parse import parse_qs, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
 from ..http_client import FetchFailure
-from .base import DiscoveredCatalog, DiscoveredProgramme, Fetcher
+from .base import DiscoveredCatalog, DiscoveredProgramme, DiscoveredWindow, Fetcher
 from .official_catalog import normalise
 from .ucl import CATALOG_URL, programme_name_key
+from .ucl_windows import exact_windows
 
 
 def inspect_detail(html: str, programme: DiscoveredProgramme) -> dict:
@@ -60,7 +62,8 @@ def inspect_detail(html: str, programme: DiscoveredProgramme) -> dict:
         return root
 
     fields: dict[str, list[str]] = {}
-    for item in section("#key-information").select(".key-info-item"):
+    key_information = section("#key-information")
+    for item in key_information.select(".key-info-item"):
         label = item.select_one(".key-info-item__label")
         value = item.select_one(".key-info-item__value")
         if label and value:
@@ -110,15 +113,25 @@ def inspect_detail(html: str, programme: DiscoveredProgramme) -> dict:
     pending = (
         set(deadlines) == {"To be confirmed."}
         and messages == ["The course application dates are to be confirmed."]
-        and not apply.select("form, time")
+        and not apply.select(
+            "form, time, [data-application-windows], .apply-chooser__button, .apply-chooser__fallback-link"
+        )
     )
     evidence = "\n".join([programme.name, *starts, *deadlines, apply_text])
-    return {
+    result = {
         "status": "dates-to-be-confirmed" if pending else "needs-date-review",
         "deadlineText": " | ".join(deadlines),
         "applicationText": apply_text,
         "evidenceHash": hashlib.sha256(evidence.encode()).hexdigest(),
     }
+    if not pending:
+        try:
+            windows = exact_windows(key_information, apply, programme)
+        except ValueError as exc:
+            result["reviewReason"] = str(exc)
+        else:
+            result.update(status="exact-windows", windows=[asdict(w) for w in windows])
+    return result
 
 
 def monitor_details(
@@ -127,7 +140,14 @@ def monitor_details(
     previous: dict,
     *,
     budget: int,
+    programme_ids: set[str] | None = None,
 ) -> None:
+    if programme_ids is not None and not programme_ids <= {
+        p.id for p in catalog.programmes
+    }:
+        raise ValueError(
+            "UCL requested detail programmes are absent from the catalogue"
+        )
     eligible = {
         p.source_url: p for p in catalog.programmes if p.source_url != CATALOG_URL
     }
@@ -140,8 +160,17 @@ def monitor_details(
         and previous[url].get("programmeId") == p.id
     }
     order = sorted(
-        eligible, key=lambda url: (state.get(url, {}).get("attemptedAt", ""), url)
+        (
+            url
+            for url, p in eligible.items()
+            if programme_ids is None or p.id in programme_ids
+        ),
+        key=lambda url: (state.get(url, {}).get("attemptedAt", ""), url),
     )
+    succeeded, failed = set(), set()
+    for p in catalog.programmes:
+        p.windows = []
+        p.parse_status = "catalogue-only"
     attempted = 0
     for url in order[: max(0, budget)]:
         p = eligible[url]
@@ -163,19 +192,36 @@ def monitor_details(
             entry["error"] = str(exc)[:500]
             catalog.warnings.append({"sourceUrl": url, "reason": entry["status"]})
             state[url] = entry
+            failed.add(p.id)
             # Stop after transport failure: do not consume the remaining fallback
             # allowance against a blocked/rate-limited upstream.
             if isinstance(exc, FetchFailure):
                 break
         else:
-            entry.update(result, checkedAt=now)
+            windows = result.pop("windows", [])
+            entry.update(result, checkedAt=now, windowCount=len(windows))
             state[url] = entry
-            if result["status"] == "needs-date-review":
-                catalog.warnings.append(
-                    {"sourceUrl": url, "reason": "needs-date-review"}
-                )
+            p.deadline_text = result["deadlineText"]
+            p.evidence_document_hash = result["evidenceHash"]
+            if result["status"] in {"exact-windows", "dates-to-be-confirmed"}:
+                succeeded.add(p.id)
+                p.windows = [DiscoveredWindow(**w) for w in windows]
+                p.parse_status = "parsed" if windows else "no-deadline"
+                p.application_url = p.source_url + "#apply"
+                p.retrieval_method = "official-course-detail-html"
+            else:
+                failed.add(p.id)
+                p.parse_status = "needs-review"
+                catalog.warnings.append({"sourceUrl": url, "reason": result["status"]})
     catalog.adapter_state["detailMonitor"] = state
-    catalog.diagnostics["detailWindowDiscovery"] = "bounded-monitor-only"
+    catalog.diagnostics.update(
+        detailWindowDiscovery="bounded-exact-window-discovery",
+        detailSucceededProgrammeIds=sorted(succeeded),
+        detailFailedProgrammeIds=sorted(failed),
+        detailUnvisitedProgrammeIds=sorted(
+            {p.id for p in catalog.programmes} - succeeded - failed
+        ),
+    )
     catalog.diagnostics["detailMonitor"] = {
         "eligiblePages": len(eligible),
         "eligibleOptionRoutes": sum(
@@ -191,6 +237,7 @@ def monitor_details(
                 "needs-page-review",
                 "fetch-failed",
                 "apply-via-parent",
+                "exact-windows",
             )
         },
     }

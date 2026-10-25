@@ -157,6 +157,7 @@ class UCLAdapter(BaseProgrammeAdapter):
         minimum_expected_programmes: int = 500,
         blocked_catalog_fetcher: CatalogFallbackFetcher | None = None,
         detail_refresh_budget: int = 5,
+        detail_programme_ids: set[str] | None = None,
     ) -> None:
         self.minimum_expected_courses = minimum_expected_courses
         self.minimum_expected_programmes = minimum_expected_programmes
@@ -164,6 +165,7 @@ class UCLAdapter(BaseProgrammeAdapter):
         self.previous_ids: dict[str, str] = {}
         self.detail_refresh_budget = max(0, min(detail_refresh_budget, 5))
         self.detail_monitor: dict = {}
+        self.detail_programme_ids = detail_programme_ids
 
     def prepare_discovery(self, previous_state: dict) -> None:
         self.detail_monitor = previous_state.get("adapterState", {}).get(
@@ -196,13 +198,13 @@ class UCLAdapter(BaseProgrammeAdapter):
                 minimum_courses=self.minimum_expected_courses,
                 minimum_programmes=self.minimum_expected_programmes,
             )
-            if self.detail_refresh_budget:
-                monitor_details(
-                    catalog,
-                    fetcher,
-                    self.detail_monitor,
-                    budget=self.detail_refresh_budget,
-                )
+            monitor_details(
+                catalog,
+                fetcher,
+                self.detail_monitor,
+                budget=self.detail_refresh_budget,
+                programme_ids=self.detail_programme_ids,
+            )
             return catalog
         return self.parse_catalog(html)
 
@@ -233,7 +235,16 @@ class UCLAdapter(BaseProgrammeAdapter):
             )
         if len({programme.id for programme in programmes}) != len(programmes):
             raise ValueError("UCL official catalogue generated duplicate programme IDs")
-        return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=programmes,
+            diagnostics={
+                "catalogueComplete": True,
+                "detailSucceededProgrammeIds": [],
+                "detailFailedProgrammeIds": [],
+                "detailUnvisitedProgrammeIds": [p.id for p in programmes],
+            },
+        )
 
 
 def _result_count(soup: BeautifulSoup) -> int:
