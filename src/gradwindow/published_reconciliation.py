@@ -14,7 +14,7 @@ from .paths import (
     PROGRAMME_CATALOG_STATE_PATH,
     PUBLISHED_RECONCILIATION_CANDIDATES_PATH,
 )
-from .published_data_audit import audit_published_data
+from .published_data_audit import audit_published_data, snapshot_covers_programme
 
 ISSUE_ACTIONS = {
     "published-record-changed-from-snapshot": "date-change-review",
@@ -178,6 +178,7 @@ def _is_reconciliation_eligible(
         item.get("scopeType") == "programme"
         and health.get("healthStatus") == "ok"
         and isinstance(state.get("windows"), dict)
+        and snapshot_covers_programme(state, item.get("scopeId", ""))
         and date.fromisoformat(item["closesAt"]) >= today
     )
 

@@ -159,6 +159,9 @@ def discover_programmes(
         **catalog.diagnostics,
         "transport": transport.diagnostics(),
     }
+    deferred_detail_ids = set(
+        catalog.diagnostics.get("detailUnvisitedProgrammeIds", [])
+    ) | set(catalog.diagnostics.get("detailFailedProgrammeIds", []))
     _validate_recurring_applicant_categories(catalog, applicant_categories_path)
     programs_payload = read_json(programs_path)
     known_programmes = {
@@ -185,6 +188,8 @@ def discover_programmes(
             candidate_id: item
             for candidate_id, item in existing.items()
             if item.get("universityId") != adapter.university_id
+            or item.get("programme", {}).get("id") in deferred_detail_ids
+            or item.get("programmeId") in deferred_detail_ids
             or (
                 item.get("status", "pending") != "pending"
                 and item.get("type") != "known-programme-recurring-policy"
@@ -220,6 +225,7 @@ def discover_programmes(
             candidate_id: item
             for candidate_id, item in existing_window_candidates.items()
             if item.get("universityId") != adapter.university_id
+            or item.get("record", {}).get("scopeId") in deferred_detail_ids
             or item.get("status", "pending") != "pending"
         }
     original_window_candidates_by_id = {
@@ -237,6 +243,12 @@ def discover_programmes(
     changed_window_candidates = 0
     discovered_window_cycles: set[tuple] = set()
     for programme in catalog.programmes:
+        # Catalogue presence is not a new observation of its dates. Keep the
+        # original candidate and verification/confirmation timestamps unchanged.
+        if programme.id in deferred_detail_ids and (
+            programme.id in known_ids or f"new-programme:{programme.id}" in existing
+        ):
+            continue
         if programme.id in known_ids:
             for candidate in known_programme_window_candidates(
                 adapter,
@@ -465,7 +477,12 @@ def discover_programmes(
                 for programme_id in previous_programme_ids & current_programme_ids
                 if previous_programmes[programme_id] != snapshot_items[programme_id]
             ),
-            "disappearedWindowIds": sorted(previous_window_ids - current_window_ids),
+            "disappearedWindowIds": sorted(
+                window_id
+                for window_id in previous_window_ids - current_window_ids
+                if previous_windows[window_id].get("programmeId")
+                not in deferred_detail_ids
+            ),
             "addedWindowIds": sorted(current_window_ids - previous_window_ids),
             "changedWindowIds": sorted(
                 window_id

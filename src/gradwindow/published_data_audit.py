@@ -36,6 +36,16 @@ TRUST_STATUS_PRIORITY = {
 }
 
 
+def snapshot_covers_programme(state: dict, programme_id: str) -> bool:
+    """A bounded/failed detail fetch cannot establish that dates disappeared."""
+    diagnostics = state.get("adapterDiagnostics") or {}
+    return (
+        diagnostics.get("catalogueComplete") is not False
+        and programme_id not in diagnostics.get("detailUnvisitedProgrammeIds", [])
+        and programme_id not in diagnostics.get("detailFailedProgrammeIds", [])
+    )
+
+
 def audit_published_data(
     applications: list[dict],
     *,
@@ -69,6 +79,7 @@ def audit_published_data(
             item.get("scopeType") != "programme"
             or health.get("healthStatus") != "ok"
             or not isinstance(state.get("windows"), dict)
+            or not snapshot_covers_programme(state, item.get("scopeId", ""))
             or date.fromisoformat(item["closesAt"]) < today
         ):
             continue

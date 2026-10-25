@@ -89,3 +89,33 @@ def test_data_workflows_maintain_failure_issues_without_comment_spam() -> None:
     assert "Maintain monitoring workflow failure issue" in monitor_workflow
     assert 'title="Monitoring-status publication failed"' in monitor_workflow
     assert "gh issue comment" not in monitor_workflow
+
+
+def test_pipeline_diagnostics_survive_failure_without_allowing_publication() -> None:
+    workflow = Path(".github/workflows/update-data.yml").read_text(encoding="utf-8")
+    pipeline = workflow.split("- name: Run daily pipeline", 1)[1].split("- uses:", 1)[0]
+    collect = workflow.split("- name: Collect daily pipeline diagnostics", 1)[1].split(
+        "- name:", 1
+    )[0]
+    upload = workflow.split("- name: Retain daily pipeline diagnostics", 1)[1].split(
+        "- name:", 1
+    )[0]
+    publication = workflow.split(
+        "- name: Open or update automated data publication pull request", 1
+    )[1].split("- name:", 1)[0]
+
+    assert "set -o pipefail" in pipeline
+    assert '2>&1 | tee "$RUNNER_TEMP/daily-pipeline.log"' in pipeline
+    assert "continue-on-error" not in pipeline
+    assert "always() &&" in collect
+    assert "steps.daily_pipeline.outcome != 'skipped'" in collect
+    assert "always() &&" in upload
+    assert "steps.pipeline_diagnostics.outcome == 'success'" in upload
+    assert "actions/upload-artifact@v7" in upload
+    assert "retention-days: 14" in upload
+    assert "path: ${{ runner.temp }}/daily-pipeline-diagnostics/" in upload
+    assert "always()" not in publication
+    assert "continue-on-error" not in publication
+    assert workflow.index("- name: Retain daily pipeline diagnostics") < workflow.index(
+        "- name: Open or update automated data publication pull request"
+    )

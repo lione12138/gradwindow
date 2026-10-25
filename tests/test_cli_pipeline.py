@@ -3,7 +3,10 @@ from __future__ import annotations
 import json
 import subprocess
 
+import pytest
+
 from gradwindow import cli
+from gradwindow.io import read_json
 
 
 class FakeAdapter:
@@ -227,3 +230,35 @@ def test_auto_approve_programmes_isolates_one_university_failure(monkeypatch) ->
         "promotedProgrammes": 2,
         "promotedWindows": 1,
     }
+
+
+def test_dedicated_progress_survives_interruption_and_starts_fresh(
+    monkeypatch, tmp_path
+):
+    path = tmp_path / "dedicated-discovery.json"
+    monkeypatch.setattr(
+        cli, "PROGRAMME_ADAPTERS", {"first": FakeAdapter, "second": FakeAdapter}
+    )
+
+    def run(name, _factory, **_kwargs):
+        snapshot = read_json(path)
+        assert snapshot["activeAdapter"] == name
+        if name == "second":
+            raise KeyboardInterrupt
+        return {"status": "ok", "adapter": name, "universityId": "first-university"}
+
+    monkeypatch.setattr(cli, "_run_dedicated_adapter_process", run)
+    with pytest.raises(KeyboardInterrupt):
+        cli._run_dedicated_discovery(report_path=path)
+    partial = read_json(path)
+    assert partial["status"] == "running"
+    assert partial["completed"] == 1
+    assert partial["activeAdapter"] == "second"
+    assert partial["results"][0]["adapter"] == "first"
+
+    monkeypatch.setattr(cli, "PROGRAMME_ADAPTERS", {})
+    cli._run_dedicated_discovery(report_path=path)
+    finished = read_json(path)
+    assert finished["status"] == "completed"
+    assert finished["activeAdapter"] is None
+    assert finished["results"] == []

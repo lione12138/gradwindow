@@ -83,11 +83,51 @@ jobs:
           CLOUDFLARE_BROWSER_API_TOKEN: ${{ secrets.CLOUDFLARE_BROWSER_API_TOKEN }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL }}
-        run: gradwindow pipeline --skip-build
+        shell: bash
+        run: |
+          set -o pipefail
+          gradwindow pipeline --skip-build 2>&1 | tee "$RUNNER_TEMP/daily-pipeline.log"
       - uses: ./.github/actions/browser-checkpoint
         if: always()
         with:
           mode: save
+
+      - name: Collect daily pipeline diagnostics
+        if: >-
+          always() &&
+          github.event_name != 'push' &&
+          !inputs.translation_only &&
+          steps.daily_pipeline.outcome != 'skipped'
+        id: pipeline_diagnostics
+        continue-on-error: true
+        env:
+          PIPELINE_OUTCOME: ${{ steps.daily_pipeline.outcome }}
+          SERPER_SEARCH_API_KEY: ${{ secrets.SERPER_SEARCH_API_KEY }}
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_BROWSER_API_TOKEN: ${{ secrets.CLOUDFLARE_BROWSER_API_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        shell: bash
+        run: |
+          python scripts/collect_pipeline_diagnostics.py \
+            --log "$RUNNER_TEMP/daily-pipeline.log" \
+            --output "$RUNNER_TEMP/daily-pipeline-diagnostics" \
+            --outcome "$PIPELINE_OUTCOME"
+          cat "$RUNNER_TEMP/daily-pipeline-diagnostics/summary.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Retain daily pipeline diagnostics
+        if: >-
+          always() &&
+          steps.pipeline_diagnostics.outcome == 'success'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: daily-pipeline-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/daily-pipeline-diagnostics/
+          include-hidden-files: true
+          retention-days: 14
+          if-no-files-found: error
 
       - name: Summarize dedicated adapter health
         if: >-

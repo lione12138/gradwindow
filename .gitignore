@@ -18,3 +18,6 @@ subscriptions/.dev.vars
 playwright-report/
 test-results/
 .cache/browser-fetch/
+.cache/pipeline-run/
+# A terminated candidate refresh can leave an uncommitted staging file.
+.candidate-refresh-*.json
