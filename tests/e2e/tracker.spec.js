@@ -206,6 +206,23 @@ test("MIT retains unavailable-source dates only in a separate review section", a
 test("UCL exposes its programme catalogue when no verified windows are visible", async ({
   page,
 }) => {
+  const index = await (
+    await page.request.get("/data/frontend-index.json")
+  ).json();
+  const uclIndex = index.universities.findIndex(
+    (school) => school.id === "ucl-university-college-london",
+  );
+  expect(uclIndex).toBeGreaterThanOrEqual(0);
+  for (const file of ["frontend-index.json", "frontend-closed.json"]) {
+    await page.route(`**/data/${file}`, async (route) => {
+      const response = await route.fetch();
+      const payload = await response.json();
+      payload.records.rows = payload.records.rows.filter(
+        (row) => row[1] !== uclIndex,
+      );
+      await route.fulfill({ response, json: payload });
+    });
+  }
   await openTracker(page);
   await page.locator('.status-tab[data-status="all"]').click();
   const ucl = page.locator('[data-school-id="ucl-university-college-london"]');
@@ -246,6 +263,39 @@ test("UCL exposes its programme catalogue when no verified windows are visible",
     ),
   ).toBe(true);
   await page.screenshot({ path: "test-results/ucl-unified-mobile.png" });
+});
+
+test("UCL reviewed 2027 windows show visa-specific dates and calendar actions", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2026-10-26T12:00:00Z"));
+  await openTracker(page);
+  await page.locator('.status-tab[data-status="all"]').click();
+  const ucl = page.locator('[data-school-id="ucl-university-college-london"]');
+  await expect(ucl).toContainText("School application group");
+  await ucl.locator(".university-group-toggle").click();
+  const rows = page.locator(".university-group-child").filter({
+    has: page.getByRole("link", {
+      name: "Advanced Materials Science MSc",
+      exact: true,
+    }),
+  });
+  await expect(rows).toHaveCount(2);
+  for (const [category, deadline] of [
+    ["Applicants requiring a UK Student visa", "25 Jun 2027"],
+    ["Applicants not requiring a UK Student visa", "27 Aug 2027"],
+  ]) {
+    const row = rows.filter({
+      has: page.getByRole("cell", { name: category, exact: true }),
+    });
+    await expect(row.locator("td").nth(4)).toContainText("19 Oct 2026");
+    await expect(row.locator("td").nth(5)).toContainText(deadline);
+    await expect(row.locator(".calendar-menu-trigger")).toBeVisible();
+    await row.getByRole("button", { name: /Show .* more programmes/ }).click();
+  }
+  await expect(
+    page.getByRole("link", { name: "Law and Finance MSc", exact: true }),
+  ).toHaveCount(2);
 });
 
 test("homepage loads the tracker without runtime errors", async ({ page }) => {
