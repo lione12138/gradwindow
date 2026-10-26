@@ -292,7 +292,7 @@ def test_current_directory_follows_pages_options_and_preserves_identity():
         "ucl-environmental-anthropology-msc",
     }
     assert all(
-        not p.windows and p.parse_status == "no-deadline" for p in catalog.programmes
+        not p.windows and p.parse_status == "catalogue-only" for p in catalog.programmes
     )
     pending = next(p for p in catalog.programmes if "Anthropology" in p.name)
     assert pending.source_url == CATALOG_URL

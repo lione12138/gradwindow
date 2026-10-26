@@ -24,12 +24,13 @@ from .generic_discovery_batch import (
 )
 from .generic_seed_discovery import run_generic_seed_discovery
 from .intakes import migrate_application_intakes
-from .io import read_json
+from .io import read_json, write_json
 from .monitor import monitor_universities, print_summary
 from .paths import (
     APPLICATION_SOURCE_STATE_PATH,
     GENERIC_PROGRAMME_DISCOVERY_CONFIG_PATH,
     PROGRAMME_CANDIDATES_PATH,
+    ROOT,
     SITE_DIR,
     UNIVERSITIES_PATH,
 )
@@ -447,10 +448,15 @@ def main() -> None:
                     ensure_ascii=False,
                 )
             )
+            _print_pipeline_progress("generic-discovery", "started")
             generic_report = run_generic_discovery_batch(
                 successful_dedicated_university_ids=successful_dedicated_ids
             )
+            _print_pipeline_progress(
+                "generic-discovery", "completed", summary=generic_report["summary"]
+            )
             print(json.dumps(generic_report["summary"], ensure_ascii=False))
+            _print_pipeline_progress("candidate-approval", "started")
             auto_programme_report = _auto_approve_programmes(
                 successful_dedicated_ids,
                 reviewer="automated-official-source-policy",
@@ -469,9 +475,20 @@ def main() -> None:
                 )
             )
             generate_recurring_windows()
+            _print_pipeline_progress("candidate-approval", "completed")
+        _print_pipeline_progress("deadline-update", "started")
         report = update_deadlines()
         if any(item["status"] == "error" for item in report["results"]):
+            _print_pipeline_progress(
+                "deadline-update",
+                "failed",
+                errors=[
+                    item for item in report["results"] if item["status"] == "error"
+                ],
+            )
             raise SystemExit(1)
+        _print_pipeline_progress("deadline-update", "completed")
+        _print_pipeline_progress("validate-and-generate", "started")
         generate_predictions()
         generate_recurring_windows()
         _validate_or_exit()
@@ -506,6 +523,7 @@ def main() -> None:
             )
         if not args.skip_build:
             print(f"Wrote site: {build_site()}")
+        _print_pipeline_progress("validate-and-generate", "completed")
 
 
 def _validate_or_exit() -> dict[str, int]:
@@ -570,11 +588,35 @@ def _pipeline_discovery_report(
 def _run_dedicated_discovery(
     *,
     dry_run: bool = False,
+    report_path: Path | None = None,
 ) -> tuple[list[dict], set[str]]:
     timeout_seconds = _dedicated_adapter_timeout_seconds()
     reports = []
     total = len(PROGRAMME_ADAPTERS)
+    if report_path is None and not dry_run:
+        report_path = ROOT / ".cache" / "pipeline-run" / "dedicated-discovery.json"
+    started_at = datetime.now(timezone.utc).isoformat()
+
+    def save_progress(active_adapter=None, *, complete=False):
+        if report_path is not None:
+            write_json(
+                report_path,
+                {
+                    "startedAt": started_at,
+                    "updatedAt": datetime.now(timezone.utc).isoformat(),
+                    "status": "completed" if complete else "running",
+                    "activeAdapter": active_adapter,
+                    "total": total,
+                    "completed": len(reports),
+                    "failed": sum(report.get("status") != "ok" for report in reports),
+                    "dryRun": dry_run,
+                    "results": reports,
+                },
+            )
+
+    save_progress()
     for index, (name, adapter_factory) in enumerate(PROGRAMME_ADAPTERS.items(), 1):
+        save_progress(name)
         _print_pipeline_progress(
             "dedicated-adapter",
             "started",
@@ -591,6 +633,7 @@ def _run_dedicated_discovery(
             timeout_seconds=timeout_seconds,
         )
         reports.append(report)
+        save_progress()
         _print_pipeline_progress(
             "dedicated-adapter",
             "completed",
@@ -600,6 +643,7 @@ def _run_dedicated_discovery(
             total=total,
             durationSeconds=round(time.monotonic() - started, 1),
         )
+    save_progress(complete=True)
     successful_university_ids = {
         report["universityId"]
         for report in reports

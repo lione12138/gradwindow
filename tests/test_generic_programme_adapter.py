@@ -78,6 +78,7 @@ def test_generic_adapter_follows_official_masters_links_and_extracts_dates() -> 
 
     assert [programme.id for programme in catalog.programmes] == [
         "example-master-of-computer-science",
+        "example-master-of-stale-page",
         "example-msc-data-science",
     ]
     computer_science = catalog.programmes[0]
@@ -87,7 +88,9 @@ def test_generic_adapter_follows_official_masters_links_and_extracts_dates() -> 
         for window in computer_science.windows
     ] == [("Application deadline", "2026-09-01", "2027-01-14")]
     assert computer_science.windows[0].intake == "Fall 2027"
-    assert catalog.programmes[1].parse_status == "no-deadline"
+    assert catalog.programmes[1].parse_status == "catalogue-only"
+    assert catalog.programmes[1].windows == []
+    assert catalog.programmes[2].parse_status == "no-deadline"
 
 
 def test_generic_adapter_uses_configured_opening_date_when_page_only_has_deadline() -> (

@@ -125,6 +125,21 @@ def test_reconcile_published_dry_run_classifies_changes_without_writing(
     assert not candidates_path.exists()
 
 
+def test_reconciliation_excludes_unchecked_details_but_compares_checked_ones(tmp_path):
+    paths = _write_inputs(tmp_path)
+    payload = read_json(paths["catalog_state_path"])
+    payload["universities"]["example-university"]["adapterDiagnostics"] = {
+        "detailUnvisitedProgrammeIds": ["missing-msc"],
+        "detailFailedProgrammeIds": ["changed-msc"],
+    }
+    write_json(paths["catalog_state_path"], payload)
+    result = reconcile_published(**paths, dry_run=True, today=date(2026, 8, 30))
+    assert result["summary"]["recordsCompared"] == 2
+    assert result["summary"]["disappeared"] == 0
+    assert result["summary"]["deadlineChanged"] == 0
+    assert result["summary"]["sourceUrlOnlyChanged"] == 1
+
+
 def test_reconcile_published_writes_stable_candidates_and_preserves_other_schools(
     tmp_path,
 ) -> None:

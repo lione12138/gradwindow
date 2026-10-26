@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 from typing import Any
 
 from .assisted_discovery import (
@@ -61,8 +62,6 @@ def run_generic_discovery_batch(
         and entry["universityId"] in successful_dedicated_university_ids
     ]
     runnable_entries = [entry for entry in entries if entry not in skipped_entries]
-    if replace_existing and not dry_run:
-        _remove_pending_batch_candidates(candidates_path, runnable_entries)
     checked_at = datetime.now(timezone.utc).isoformat()
     results = [
         {
@@ -79,11 +78,19 @@ def run_generic_discovery_batch(
         university_id = entry["universityId"]
         if entry.get("accessStatus") == "blocked":
             if entry.get("assistedDiscovery", {}).get("enabled", False):
-                result = run_assisted_discovery_entry(
+                result = _refresh_candidates(
                     entry,
-                    universities[university_id],
-                    candidates_path=candidates_path,
-                    dry_run=dry_run,
+                    candidates_path,
+                    replace_existing,
+                    dry_run,
+                    lambda path, entry=entry, university_id=university_id: (
+                        run_assisted_discovery_entry(
+                            entry,
+                            universities[university_id],
+                            candidates_path=path,
+                            dry_run=dry_run,
+                        )
+                    ),
                 )
                 result["batchStatus"] = _assisted_batch_status(result)
             else:
@@ -126,19 +133,33 @@ def run_generic_discovery_batch(
                     detail_url_replacements=_detail_url_replacements(entry),
                 )
             )
-            result = discover_programmes(
-                adapter,
-                candidates_path=candidates_path,
-                dry_run=dry_run,
+            result = _refresh_candidates(
+                entry,
+                candidates_path,
+                replace_existing,
+                dry_run,
+                lambda path, adapter=adapter: discover_programmes(
+                    adapter,
+                    candidates_path=path,
+                    dry_run=dry_run,
+                ),
             )
             result["batchStatus"] = "ok"
         except Exception as exc:
             if _should_use_assisted_fallback(entry, exc):
-                result = run_assisted_discovery_entry(
+                result = _refresh_candidates(
                     entry,
-                    universities[university_id],
-                    candidates_path=candidates_path,
-                    dry_run=dry_run,
+                    candidates_path,
+                    replace_existing,
+                    dry_run,
+                    lambda path, entry=entry, university_id=university_id: (
+                        run_assisted_discovery_entry(
+                            entry,
+                            universities[university_id],
+                            candidates_path=path,
+                            dry_run=dry_run,
+                        )
+                    ),
                 )
                 result["batchStatus"] = _assisted_batch_status(result)
                 result["directFetchError"] = {
@@ -324,6 +345,87 @@ def _blocked_skip_report(entry: dict[str, Any], dry_run: bool) -> dict[str, Any]
         ),
         "dryRun": dry_run,
     }
+
+
+def _refresh_candidates(entry, candidates_path, replace_existing, dry_run, operation):
+    """Commit a school's replacement only after discovery returns successfully.
+
+    The temporary candidate file is a sibling so discovery's separate window
+    candidate path still resolves normally. This is not a multi-file transaction.
+    """
+    if not replace_existing or dry_run:
+        return operation(candidates_path)
+    original = read_json(candidates_path, {"meta": {}, "items": []})
+    candidates_path.parent.mkdir(parents=True, exist_ok=True)
+    with NamedTemporaryFile(
+        dir=candidates_path.parent,
+        prefix=".candidate-refresh-",
+        suffix=".json",
+        delete=False,
+    ) as handle:
+        handle.write(b"{}")
+        staged_path = Path(handle.name)
+    try:
+        write_json(
+            staged_path,
+            {
+                "meta": dict(original.get("meta", {})),
+                "items": [
+                    item
+                    for item in original.get("items", [])
+                    if item.get("universityId") == entry["universityId"]
+                ],
+            },
+        )
+        _remove_pending_batch_candidates(staged_path, [entry])
+        result = operation(staged_path)
+        if result.get("status") != "ok":
+            return result
+        diagnostics = result.get("adapterDiagnostics", {})
+        unfinished = set(diagnostics.get("detailFailedProgrammeIds", [])) | set(
+            diagnostics.get("detailUnvisitedProgrammeIds", [])
+        )
+        complete = diagnostics.get("catalogueComplete") is True and not unfinished
+        university_id = entry["universityId"]
+        prefix = entry.get("prefix") or _generic_prefix(university_id)
+        refreshed = {
+            item["id"]: item
+            for item in read_json(staged_path, {"items": []}).get("items", [])
+            if item.get("universityId") == university_id
+        }
+        merged = []
+        removed = 0
+        for old in original.get("items", []):
+            candidate_id = old["id"]
+            new = refreshed.pop(candidate_id, None)
+            programme_id = candidate_id.removeprefix("new-programme:")
+            if (
+                old.get("universityId") != university_id
+                or old.get("status", "pending") != "pending"
+            ):
+                merged.append(old)
+            elif programme_id in unfinished:
+                merged.append(old)
+            elif new is not None:
+                for key in ("detectedAt", "reviewedAt", "reviewedBy", "reviewNotes"):
+                    if key in old:
+                        new[key] = old[key]
+                merged.append(new)
+            elif complete and candidate_id.startswith(f"new-programme:{prefix}-"):
+                removed += 1
+            else:
+                merged.append(old)
+        merged.extend(refreshed.values())
+        if merged != original.get("items", []):
+            original["items"] = merged
+            original.setdefault("meta", {})["updatedAt"] = datetime.now(
+                timezone.utc
+            ).isoformat()
+            write_json(candidates_path, original)
+        result["candidateReplacement"] = {"removed": removed, "complete": complete}
+        return result
+    finally:
+        staged_path.unlink(missing_ok=True)
 
 
 def _remove_pending_batch_candidates(

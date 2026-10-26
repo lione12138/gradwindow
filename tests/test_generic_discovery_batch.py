@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 
+import pytest
+
 import gradwindow.generic_discovery_batch as generic_discovery_batch
 from gradwindow.generic_discovery_batch import (
     classify_generic_candidates,
@@ -9,6 +11,221 @@ from gradwindow.generic_discovery_batch import (
     run_assisted_discovery_entry,
     run_generic_discovery_batch,
 )
+from gradwindow.io import partition_json_file, read_json, write_json
+
+
+def _replacement_fixture(monkeypatch, tmp_path, *, blocked=False, assisted=False):
+    config_path = tmp_path / "config.json"
+    universities_path = tmp_path / "universities.json"
+    candidates_path = tmp_path / "candidates.json"
+    write_json(
+        config_path,
+        {
+            "schools": [
+                {
+                    "universityId": "example-university",
+                    "prefix": "example",
+                    "seedUrls": ["https://example.edu/programmes"],
+                    "accessStatus": "blocked" if blocked else "available",
+                    "assistedDiscovery": {"enabled": assisted},
+                }
+            ]
+        },
+    )
+    write_json(
+        universities_path,
+        {
+            "universities": [
+                {"id": "example-university", "officialDomains": ["example.edu"]}
+            ]
+        },
+    )
+    original = {
+        "meta": {"updatedAt": "2026-10-01"},
+        "items": [
+            _candidate("old"),
+            _candidate("reviewed", status="approved"),
+            _candidate("rejected", status="rejected"),
+            _candidate("unrelated", university_id="other-university"),
+        ],
+    }
+    write_json(candidates_path, original)
+    monkeypatch.setattr(generic_discovery_batch, "UNIVERSITIES_PATH", universities_path)
+    return {
+        "config_path": config_path,
+        "candidates_path": candidates_path,
+        "report_path": tmp_path / "report.json",
+        "replace_existing": True,
+    }, original
+
+
+def _candidate(name, *, status="pending", university_id="example-university"):
+    return {
+        "id": f"new-programme:example-{name}",
+        "universityId": university_id,
+        "status": status,
+        "programme": {"name": name},
+        "windows": [{"opensAt": "2026-09-01", "closesAt": "2027-01-31"}],
+        "parseStatus": "parsed",
+    }
+
+
+@pytest.mark.parametrize("outcome", ["blocked", "error", "write-then-error"])
+def test_replace_preserves_candidates_when_refresh_fails(
+    monkeypatch, tmp_path, outcome
+):
+    kwargs, original = _replacement_fixture(
+        monkeypatch, tmp_path, blocked=outcome == "blocked"
+    )
+
+    def fail(_adapter, *, candidates_path, **_kwargs):
+        if outcome == "write-then-error":
+            write_json(candidates_path, {"items": [_candidate("partial")]})
+        raise RuntimeError("Official source unavailable")
+
+    monkeypatch.setattr(generic_discovery_batch, "discover_programmes", fail)
+    report = run_generic_discovery_batch(**kwargs)
+
+    assert read_json(kwargs["candidates_path"]) == original
+    assert report["results"][0]["batchStatus"] == (
+        "skipped" if outcome == "blocked" else "error"
+    )
+    assert not list(tmp_path.glob(".candidate-refresh-*.json"))
+
+
+def test_replace_preserves_candidates_when_assisted_refresh_has_no_results(
+    monkeypatch, tmp_path
+):
+    kwargs, original = _replacement_fixture(
+        monkeypatch, tmp_path, blocked=True, assisted=True
+    )
+    monkeypatch.setattr(
+        generic_discovery_batch,
+        "run_assisted_discovery_entry",
+        lambda *_args, **_kwargs: {"status": "no-results"},
+    )
+
+    run_generic_discovery_batch(**kwargs)
+
+    assert read_json(kwargs["candidates_path"]) == original
+
+
+def test_replace_prunes_only_pending_school_candidates_after_complete_refresh(
+    monkeypatch, tmp_path
+):
+    kwargs, original = _replacement_fixture(monkeypatch, tmp_path)
+
+    def succeed(_adapter, *, candidates_path, **_kwargs):
+        write_json(
+            candidates_path,
+            {"items": [_candidate("new"), _candidate("reviewed")]},
+        )
+        return {
+            "status": "ok",
+            "adapterDiagnostics": {
+                "catalogueComplete": True,
+                "detailSucceededProgrammeIds": ["example-new", "example-reviewed"],
+                "detailFailedProgrammeIds": [],
+                "detailUnvisitedProgrammeIds": [],
+            },
+        }
+
+    monkeypatch.setattr(generic_discovery_batch, "discover_programmes", succeed)
+    report = run_generic_discovery_batch(**kwargs)
+
+    items = read_json(kwargs["candidates_path"])["items"]
+    assert {item["id"] for item in items} == {
+        "new-programme:example-new",
+        *(item["id"] for item in original["items"][1:]),
+    }
+    for item in original["items"][1:]:
+        assert item in items
+    assert report["results"][0]["candidateReplacement"]["removed"] == 1
+
+
+@pytest.mark.parametrize(
+    "unfinished", ["detailFailedProgrammeIds", "detailUnvisitedProgrammeIds"]
+)
+def test_replace_preserves_unvisited_and_failed_detail_candidates(
+    monkeypatch, tmp_path, unfinished
+):
+    kwargs, original = _replacement_fixture(monkeypatch, tmp_path)
+
+    def partial(_adapter, *, candidates_path, **_kwargs):
+        catalog_only = {
+            **_candidate("old"),
+            "windows": [],
+            "parseStatus": "catalogue-only",
+        }
+        write_json(candidates_path, {"items": [catalog_only, _candidate("new")]})
+        return {
+            "status": "ok",
+            "adapterDiagnostics": {
+                "catalogueComplete": True,
+                "detailSucceededProgrammeIds": ["example-new"],
+                "detailFailedProgrammeIds": [],
+                "detailUnvisitedProgrammeIds": [],
+                unfinished: ["example-old"],
+            },
+        }
+
+    monkeypatch.setattr(generic_discovery_batch, "discover_programmes", partial)
+    run_generic_discovery_batch(**kwargs)
+
+    items = read_json(kwargs["candidates_path"])["items"]
+    assert _candidate("new") in items
+    for item in original["items"]:
+        assert item in items
+
+
+def test_replace_without_complete_catalogue_evidence_does_not_prune(
+    monkeypatch, tmp_path
+):
+    kwargs, original = _replacement_fixture(monkeypatch, tmp_path)
+
+    def partial(_adapter, *, candidates_path, **_kwargs):
+        write_json(candidates_path, {"items": [_candidate("new")]})
+        return {"status": "ok"}
+
+    monkeypatch.setattr(generic_discovery_batch, "discover_programmes", partial)
+    run_generic_discovery_batch(**kwargs)
+
+    items = read_json(kwargs["candidates_path"])["items"]
+    assert _candidate("new") in items
+    for item in original["items"]:
+        assert item in items
+
+
+def test_replace_changes_only_target_school_shard(monkeypatch, tmp_path):
+    kwargs, original = _replacement_fixture(monkeypatch, tmp_path)
+    original["items"][0]["detectedAt"] = "2026-10-01T00:00:00+00:00"
+    write_json(kwargs["candidates_path"], original)
+    partition_json_file(
+        kwargs["candidates_path"], collection_key="items", group_key="universityId"
+    )
+    unrelated = next(tmp_path.rglob("other-university.json"))
+    before = unrelated.read_bytes(), unrelated.stat().st_mtime_ns
+
+    def succeed(_adapter, *, candidates_path, **_kwargs):
+        updated = {
+            **_candidate("old"),
+            "detectedAt": "2026-10-24T00:00:00+00:00",
+            "evidenceExcerpt": "New official observation",
+        }
+        write_json(candidates_path, {"items": [updated]})
+        return {"status": "ok"}
+
+    monkeypatch.setattr(generic_discovery_batch, "discover_programmes", succeed)
+    run_generic_discovery_batch(**kwargs)
+    refreshed = next(
+        item
+        for item in read_json(kwargs["candidates_path"])["items"]
+        if item["id"] == "new-programme:example-old"
+    )
+    assert refreshed["evidenceExcerpt"] == "New official observation"
+    assert refreshed["detectedAt"] == "2026-10-01T00:00:00+00:00"
+    assert (unrelated.read_bytes(), unrelated.stat().st_mtime_ns) == before
+    assert not list(tmp_path.glob(".candidate-refresh-*.json"))
 
 
 def test_assisted_entry_passes_configured_search_priority(monkeypatch) -> None:

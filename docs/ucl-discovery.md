@@ -361,3 +361,56 @@ does not resolve conflicting guidance about when a specialism is selected.
 option layouts remain review items. Catalogue and partial detail monitoring are
 implemented; exact-window discovery/publication remains pending. The earlier
 post-merge smoke run 38543292727 was cancelled, not a successful live check.
+
+## Exact-date extraction and first reviewed windows (2026-10-25)
+
+The current course pages now publish exact dates for September 2027. The
+Advanced Materials Science MSc and Law and Finance MSc pages were inspected
+directly in a browser on 2026-10-25. Both specify opening on 19 October 2026,
+closing on 25 June 2027 for applicants requiring a UK study visa, and closing
+on 27 August 2027 for applicants not requiring one. The deadline is 5pm UK time.
+These visa categories are not nationality categories.
+
+Sources:
+
+- https://www.ucl.ac.uk/study/prospective-students/graduate/courses/advanced-materials-science-msc
+- https://www.ucl.ac.uk/study/prospective-students/graduate/courses/law-and-finance-msc
+- https://www.ucl.ac.uk/study/prospective-students/graduate/courses/crime-science-msc
+
+`ucl_windows.py` accepts full date ranges only after checking the course title,
+one explicit intake, applicant labels, deadline badges and application gate.
+Application routes must belong to UCL and identify the same course and intake.
+Repeated study-mode panels must agree; different dates, unknown categories,
+rolling wording, partial dates or missing application routes stay in review.
+The two reduced real DOM fixtures cover a single study mode and matching
+full-time/part-time panels. Synthetic mutations test unsafe alternatives.
+
+Crime Science's parent page currently has dates in its key information but says
+online application routes are unavailable. Its specialisms point to the parent
+application section. These remain review-only; neither inherits a parent's
+dates or a neighbouring specialism's scope.
+
+The monitor now produces exact windows through the shared candidate pipeline.
+It still checks at most five detail pages per run. `detail_programme_ids` can
+restrict a targeted investigation to existing catalogue IDs, within that budget.
+Zero budget emits coverage markers without making requests. Unvisited, failed,
+ambiguous and parent-route-only records cannot erase prior pending candidates,
+increase their observation counts or invalidate published dates. An explicit
+TBC observation is distinct from a failed parse. Older legacy catalogue layouts
+also mark all details unvisited rather than claiming dates disappeared.
+
+The live 36-page directory on 2026-10-25 reported 707 courses throughout, but
+contained repeated cards across page boundaries (for example Advanced Pharmacy
+Practice and Chemical Research). The complete-directory dry run correctly raised
+`InconsistentCatalogueError`. That snapshot was **not** written to canonical
+catalogue state or used to replace candidates. The two individually verified
+course pages were therefore reviewed separately, using the existing
+`known_programme_window_candidates` builder and explicit `approve_window` flow.
+No programme catalogue was manufactured from the inconsistent pages.
+
+Completion scope: catalogue discovery remains implemented with a strict
+completeness guard; exact-window extraction is implemented for the verified
+current layout, with four reviewed windows for two courses. Full-school window
+coverage is still incomplete and awaits consistent catalogue refreshes and
+continued bounded detail checks. This is not a claim that every UCL course has
+been checked or has the same dates.

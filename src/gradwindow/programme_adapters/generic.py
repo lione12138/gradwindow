@@ -5,7 +5,7 @@ import re
 import unicodedata
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, replace
-from datetime import datetime
+from datetime import datetime, timezone
 from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
@@ -97,6 +97,12 @@ class GenericProgrammeAdapter(BaseProgrammeAdapter):
         self.catalog_url = config.seed_urls[0]
         self.application_opens_at_basis = config.application_opens_at_basis
         self.intake = config.default_intake
+        self.detail_monitor: dict[str, dict] = {}
+
+    def prepare_discovery(self, previous_state: dict) -> None:
+        self.detail_monitor = previous_state.get("adapterState", {}).get(
+            "detailMonitor", {}
+        )
 
     def parse_catalog_from_fetcher(self, fetcher) -> DiscoveredCatalog:
         candidates: dict[str, DiscoveredProgramme] = {}
@@ -111,33 +117,102 @@ class GenericProgrammeAdapter(BaseProgrammeAdapter):
             if seed_programme is not None:
                 candidates.setdefault(seed_programme.id, seed_programme)
 
-        programmes = sorted(candidates.values(), key=lambda item: item.id)[
-            : self.config.max_detail_pages
-        ]
-
-        def parse_one(programme: DiscoveredProgramme) -> DiscoveredProgramme | None:
-            try:
-                html = fetcher(programme.source_url)
-                return self._parse_detail(programme, html, fetcher)
-            except Exception:
-                return None
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-            detailed = [
-                programme
-                for programme in executor.map(parse_one, programmes)
-                if programme is not None
-            ]
-
-        if len(detailed) < self.config.minimum_expected_programmes:
+        # The detail budget limits requests, not catalogue coverage. A failed or
+        # deferred detail remains visible as an unverified catalogue candidate.
+        eligible = {
+            programme.source_url: programme
+            for programme in sorted(candidates.values(), key=lambda item: item.id)
+        }
+        if len(eligible) < self.config.minimum_expected_programmes:
             raise ValueError(
-                f"Generic crawler for {self.university_id} found {len(detailed)} "
+                f"Generic crawler for {self.university_id} found {len(eligible)} "
                 f"candidate programmes; expected at least "
                 f"{self.config.minimum_expected_programmes}"
             )
+        state = {
+            url: dict(previous)
+            for url, programme in eligible.items()
+            if isinstance(previous := self.detail_monitor.get(url), dict)
+            and previous.get("catalogueId") == programme.id
+            and previous.get("intake") == self.intake
+        }
+        programmes = {
+            url: replace(
+                programme,
+                id=state.get(url, {}).get("programmeId") or programme.id,
+                windows=[],
+                parse_status="catalogue-only",
+                evidence_quality="catalogue-only",
+            )
+            for url, programme in eligible.items()
+        }
+        order = sorted(
+            eligible,
+            key=lambda url: (state.get(url, {}).get("attemptedAt", ""), url),
+        )
+        selected = order[: max(0, self.config.max_detail_pages)]
+
+        def parse_one(url: str) -> tuple[DiscoveredProgramme | None, str | None]:
+            try:
+                html = fetcher(url)
+            except Exception:
+                return None, "detail-fetch-failed"
+            try:
+                programme = eligible[url]
+                # Do not reuse prior windows or evidence when revisiting a URL.
+                # A current successful detail is authoritative even if dates vanish.
+                return self._parse_detail(programme, html, fetcher), None
+            except Exception:
+                return None, "detail-parse-failed"
+
+        attempted_at = datetime.now(timezone.utc).isoformat()
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+            results = list(executor.map(parse_one, selected))
+        warnings = []
+        succeeded_ids = []
+        failed_ids = []
+        for url, (detailed, error) in zip(selected, results, strict=True):
+            if detailed is not None:
+                programmes[url] = detailed
+                succeeded_ids.append(detailed.id)
+            else:
+                failed_ids.append(programmes[url].id)
+                warnings.append({"sourceUrl": url, "reason": error})
+            state[url] = {
+                "catalogueId": eligible[url].id,
+                "programmeId": programmes[url].id,
+                "intake": self.intake,
+                "attemptedAt": attempted_at,
+                "status": error or "checked",
+                **({"checkedAt": attempted_at} if detailed is not None else {}),
+            }
+        unvisited_ids = [programmes[url].id for url in order[len(selected) :]]
+        # Different catalogue labels can converge to one canonical detail title.
+        # Prefer the current detailed record when deduplicating those identities.
+        by_id = {programme.id: programme for programme in programmes.values()}
+        by_id.update(
+            (detailed.id, detailed) for detailed, _ in results if detailed is not None
+        )
+        succeeded = set(succeeded_ids)
         return DiscoveredCatalog(
             application_opens_at=self.config.default_application_opens_at,
-            programmes=detailed,
+            programmes=sorted(by_id.values(), key=lambda programme: programme.id),
+            warnings=warnings,
+            diagnostics={
+                "catalogueComplete": True,
+                "detailSucceededProgrammeIds": sorted(succeeded),
+                "detailFailedProgrammeIds": sorted(set(failed_ids) - succeeded),
+                "detailUnvisitedProgrammeIds": sorted(set(unvisited_ids) - succeeded),
+                "detailMonitor": {
+                    "eligiblePages": len(eligible),
+                    "attemptedThisRun": len(selected),
+                    "succeededThisRun": len(succeeded_ids),
+                    "failedThisRun": len(failed_ids),
+                    "deferredThisRun": len(eligible) - len(selected),
+                    "unvisitedPages": len(eligible) - len(state),
+                },
+            },
+            adapter_state={"detailMonitor": state},
         )
 
     def _candidate_links(

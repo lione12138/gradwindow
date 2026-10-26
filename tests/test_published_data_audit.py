@@ -102,6 +102,25 @@ def test_audit_does_not_reconcile_against_an_unavailable_adapter() -> None:
 
 
 @pytest.mark.parametrize(
+    "key", ["detailUnvisitedProgrammeIds", "detailFailedProgrammeIds"]
+)
+def test_partial_detail_snapshot_cannot_retire_an_unchecked_programme(key):
+    payload = audit_published_data(
+        [_window(closesAt="2027-09-01")],
+        catalog_state={
+            "example-university": {
+                "windows": {},
+                "adapterDiagnostics": {key: ["example-msc"]},
+            }
+        },
+        adapter_health={"example-university": {"healthStatus": "ok"}},
+        today=date(2026, 8, 26),
+    )
+    assert payload["issues"] == []
+    assert payload["quarantinedRecordIds"] == []
+
+
+@pytest.mark.parametrize(
     ("snapshot_at", "expected"),
     [
         ("2026-10-05T07:00:00+00:00", "current"),
