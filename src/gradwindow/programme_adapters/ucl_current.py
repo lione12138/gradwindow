@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from urllib.parse import parse_qs, urljoin, urlparse
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 
 from .base import (
     DiscoveredCatalog,
@@ -49,7 +49,9 @@ def discover_current_catalogue(
             normalise(counter.get_text(" ", strip=True)) if counter else "",
         )
         if not match:
-            raise ValueError("UCL current directory result count missing")
+            raise ValueError(
+                f"UCL current directory result count missing: page={pages + 1}, url={url}"
+            )
         total = int(match[1])
         if expected is None:
             expected = total
@@ -62,25 +64,35 @@ def discover_current_catalogue(
             )
         cards = soup.select("article.course-feed-listing-item")
         if not cards:
-            raise ValueError("UCL current directory page has no course cards")
+            raise ValueError(
+                f"UCL current directory page has no course cards: page={pages + 1}, url={url}"
+            )
         for card in cards:
             heading = card.select_one(".course-feed-listing-item__heading--main")
             badge = card.select_one(".course-feed-listing-item__degree-level")
             title = normalise(heading.get_text(" ", strip=True)) if heading else ""
             degree_label = normalise(badge.get_text(" ", strip=True)) if badge else ""
+            context = f"page={pages + 1}, url={url}, title={title!r}"
+            if not degree_label and _explicit_unlabelled_doctoral_card(card, title):
+                # Match labelled PhD cards for duplicate detection, but never emit
+                # this combined doctoral route as a standalone master's programme.
+                degree_label = "Doctor of Philosophy (PhD)"
             if not title or not degree_label:
-                raise ValueError("UCL course card lacks title or degree")
+                raise ValueError(f"UCL course card lacks title or degree: {context}")
             key = (title.casefold(), degree_label)
             if key in seen_cards:
                 raise InconsistentCatalogueError(
-                    "UCL directory repeated a course card across pages", visited_urls
+                    f"UCL directory repeated a course card across pages: {context}",
+                    visited_urls,
                 )
             seen_cards.add(key)
             count += 1
             degree = _MASTER.fullmatch(degree_label)
             if degree is None:
                 if not degree_label.startswith(("Doctor", "Postgraduate")):
-                    raise ValueError(f"UCL unknown degree label: {degree_label}")
+                    raise ValueError(
+                        f"UCL unknown degree label: {degree_label}, {context}"
+                    )
                 continue
             master_cards += 1
             faculty_node = card.select_one(".course-feed-listing-item__faculty")
@@ -90,14 +102,14 @@ def discover_current_catalogue(
                 else ""
             )
             if not faculty:
-                raise ValueError("UCL master's card lacks faculty")
+                raise ValueError(f"UCL master's card lacks faculty: {context}")
             links = card.select("a[href]")
             coming = "course-feed-listing-item--coming-soon-restricted" in card.get(
                 "class", []
             )
             if not links and not coming:
                 raise ValueError(
-                    "UCL master's card has no link or explicit coming-soon status"
+                    f"UCL master's card has no link or explicit coming-soon status: {context}"
                 )
             intake_node = card.select_one(".course-feed-listing-item__start-dates")
             intakes = re.findall(
@@ -105,7 +117,9 @@ def discover_current_catalogue(
                 normalise(intake_node.get_text(" ", strip=True)) if intake_node else "",
             )
             if links and not intakes:
-                raise ValueError("UCL linked master's course has no explicit intake")
+                raise ValueError(
+                    f"UCL linked master's course has no explicit intake: {context}"
+                )
             if coming:
                 pending.append(title)
             routes = (
@@ -114,7 +128,7 @@ def discover_current_catalogue(
                 else [
                     (
                         normalise(link.get_text(" ", strip=True)),
-                        _course_url(str(link["href"])),
+                        _course_url(str(link["href"]), context=context),
                     )
                     for link in links
                 ]
@@ -122,7 +136,7 @@ def discover_current_catalogue(
             option_count += max(0, len(routes) - 1)
             for name, source in routes:
                 if not name:
-                    raise ValueError("UCL empty course route name")
+                    raise ValueError(f"UCL empty course route name: {context}")
                 path_slug = urlparse(source).path.rsplit("/", 1)[-1]
                 option = parse_qs(urlparse(source).query).get("option", [None])[0]
                 default_id = (
@@ -137,7 +151,7 @@ def discover_current_catalogue(
                 ) or previous_ids.get(programme_name_key(name), default_id)
                 if programme_id in programmes:
                     raise ValueError(
-                        "UCL current directory generated duplicate programme IDs"
+                        f"UCL current directory generated duplicate programme IDs: {context}"
                     )
                 programmes[programme_id] = DiscoveredProgramme(
                     id=programme_id,
@@ -196,7 +210,30 @@ def discover_current_catalogue(
     )
 
 
-def _course_url(href: str) -> str:
+def _explicit_unlabelled_doctoral_card(card: Tag, title: str) -> bool:
+    """Accept only an unambiguous combined doctoral route when its badge is absent."""
+    if not title.endswith(" MPhil/PhD"):
+        return False
+    headings = card.select(".course-feed-listing-item__heading--main")
+    links = card.select("a[href]")
+    if len(headings) != 1 or len(links) != 1:
+        return False
+    heading_links = headings[0].select("a[href]")
+    if (
+        len(heading_links) != 1
+        or heading_links[0] is not links[0]
+        or normalise(links[0].get_text(" ", strip=True)) != title
+    ):
+        return False
+    try:
+        url = _course_url(str(links[0]["href"]))
+    except ValueError:
+        return False
+    parsed = urlparse(url)
+    return parsed.path.endswith("-mphilphd") and not parsed.query
+
+
+def _course_url(href: str, *, context: str = "") -> str:
     url = urljoin(CATALOG_URL, href)
     parsed = urlparse(url)
     if (
@@ -205,12 +242,14 @@ def _course_url(href: str) -> str:
         or parsed.fragment
         or not parsed.path.startswith(urlparse(CATALOG_URL).path + "/")
     ):
-        raise ValueError("UCL current directory has a non-official course URL")
+        raise ValueError(
+            f"UCL current directory has a non-official course URL: {context}"
+        )
     query = parse_qs(parsed.query)
     if query and (
         set(query) != {"option"}
         or len(query["option"]) != 1
         or not re.fullmatch(r"[A-Z0-9]+", query["option"][0])
     ):
-        raise ValueError("UCL course route has an unexpected option query")
+        raise ValueError(f"UCL course route has an unexpected option query: {context}")
     return url

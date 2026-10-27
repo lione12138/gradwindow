@@ -414,3 +414,24 @@ current layout, with four reviewed windows for two courses. Full-school window
 coverage is still incomplete and awaits consistent catalogue refreshes and
 continued bounded detail checks. This is not a claim that every UCL course has
 been checked or has the same dates.
+
+## Missing doctoral degree badge (2026-10-26)
+
+Post-merge smoke run
+[40264505442](https://github.com/lione12138/gradwindow/actions/runs/40264505442)
+stopped on a course card without its degree badge. The official
+[Education, Practice and Society with integrated research methods training MPhil/PhD](https://www.ucl.ac.uk/study/prospective-students/graduate/courses/education-practice-and-society-integrated-research-methods-training-mphilphd)
+page identifies a four-year doctoral route. It is not a standalone master's
+programme, even though its initial research training includes master's credits.
+
+The parser can exclude such a card only when its title explicitly ends in
+MPhil/PhD, its unique heading link agrees with that title, and its official UCL
+course URL ends in `mphilphd`. The card still counts toward the advertised
+directory total and duplicate checks. Missing badges on MSc, standalone MPhil
+or ambiguous courses still stop discovery; errors include the page and title
+for follow-up. This classification adds no programmes or application windows.
+
+This fixes the observed missing-field failure, not the separate inconsistent
+pagination observed on 2026-10-25. That completeness guard remains in force;
+full-school date coverage still requires a successful catalogue run and
+continued detail checks.
