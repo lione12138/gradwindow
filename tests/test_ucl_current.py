@@ -1,5 +1,7 @@
 """Reduced fixtures from UCL's 2027/28 directory, inspected 2026-10-10."""
 
+from pathlib import Path
+
 import httpx
 import pytest
 
@@ -41,6 +43,99 @@ def adapter():
         minimum_expected_courses=3,
         minimum_expected_programmes=2,
     )
+
+
+def doctoral_card():
+    return (
+        Path(__file__).parent / "fixtures/ucl/education-integrated-doctoral-card.html"
+    ).read_text(encoding="utf-8")
+
+
+def catalogue_with_doctoral_card(html, total=3):
+    return {
+        CATALOG_URL: page(card("Advanced Audiology MSc"), total, next_url="?page=1"),
+        CATALOG_URL + "?page=1": page(
+            card("Environmental Anthropology MSc", coming=True) + html, total
+        ),
+    }
+
+
+def test_unlabelled_explicit_doctoral_card_is_counted_but_not_a_masters_programme():
+    catalog = adapter().parse_catalog_from_fetcher(
+        catalogue_with_doctoral_card(doctoral_card()).__getitem__
+    )
+    assert {p.name for p in catalog.programmes} == {
+        "Advanced Audiology MSc",
+        "Environmental Anthropology MSc",
+    }
+    assert catalog.diagnostics["directoryCourses"] == 3
+    assert catalog.diagnostics["masterCourseCards"] == 2
+    assert catalog.diagnostics["catalogueComplete"] is True
+    assert all(not p.windows for p in catalog.programmes)
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        lambda text: text.replace("MPhil/PhD", "MSc"),
+        lambda text: text.replace("MPhil/PhD", "MPhil"),
+        lambda text: text.replace("MPhil/PhD", "Unknown degree"),
+        lambda text: text.replace("course-feed-listing-item__heading--main", ""),
+        lambda text: text.replace("href=", "data-href="),
+        lambda text: text.replace('href="/study/', 'href="https://example.org/study/'),
+        lambda text: text.replace('mphilphd"', 'mphilphd?option=UNKNOWN"'),
+        lambda text: text.replace('mphilphd"', 'mphilphd#apply"'),
+        lambda text: text.replace("training-mphilphd", "training-msc"),
+        lambda text: text.replace("</a>", "</a> Extra MPhil/PhD"),
+        lambda text: text.replace("</h2>", '<a href="/other">Other route</a></h2>'),
+    ],
+    ids=[
+        "msc",
+        "standalone-mphil",
+        "unknown",
+        "missing-heading",
+        "missing-link",
+        "external-link",
+        "unreviewed-option",
+        "fragment-link",
+        "non-doctoral-route",
+        "inconsistent-heading",
+        "ambiguous-links",
+    ],
+)
+def test_unlabelled_course_requires_explicit_consistent_doctoral_identity(change):
+    with pytest.raises(ValueError) as error:
+        adapter().parse_catalog_from_fetcher(
+            catalogue_with_doctoral_card(change(doctoral_card())).__getitem__
+        )
+    assert "lacks title or degree" in str(error.value)
+    assert f"page=2, url={CATALOG_URL}?page=1" in str(error.value)
+    assert "title=" in str(error.value)
+
+
+@pytest.mark.parametrize("with_badge", [False, True])
+def test_unlabelled_doctoral_card_preserves_duplicate_guard(with_badge):
+    duplicate = doctoral_card()
+    if with_badge:
+        duplicate = duplicate.replace(
+            '<div class="course-feed-listing-item__content">',
+            '<div class="course-feed-listing-item__content">'
+            '<span class="course-feed-listing-item__degree-level">'
+            "Doctor of Philosophy (PhD)</span>",
+        )
+    sources = catalogue_with_doctoral_card(duplicate, total=4)
+    sources[CATALOG_URL] = page(
+        card("Advanced Audiology MSc") + doctoral_card(), total=4, next_url="?page=1"
+    )
+    with pytest.raises(ValueError, match="repeated"):
+        adapter().parse_catalog_from_fetcher(sources.__getitem__)
+
+
+def test_unlabelled_doctoral_card_does_not_hide_missing_pages():
+    with pytest.raises(ValueError, match="read 3 of 4"):
+        adapter().parse_catalog_from_fetcher(
+            catalogue_with_doctoral_card(doctoral_card(), total=4).__getitem__
+        )
 
 
 @pytest.mark.parametrize("name,existing_id", REVIEWED_PROGRAMME_IDENTITIES.items())
