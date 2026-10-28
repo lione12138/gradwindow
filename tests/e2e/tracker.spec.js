@@ -178,7 +178,7 @@ test("MIT retains unavailable-source dates only in a separate review section", a
   await expect(rows.first()).toBeVisible();
   await expect(rows.first()).toContainText("Last verified dates");
   await expect(rows.first()).toContainText("Source unavailable");
-  await expect(rows.first().locator("td").nth(4)).toContainText(/2026/);
+  await expect(rows.first().locator("td").nth(4)).toContainText("1 Sept 2025");
   await expect(rows.first().locator(".calendar-menu-trigger")).toHaveCount(0);
   await expect(rows.first()).not.toContainText("Open now");
   await page.setViewportSize({ width: 390, height: 844 });
@@ -386,6 +386,7 @@ test("UCL blocked current-cycle sources remain reviewable without becoming histo
   await expect(page.locator("#export-favorites")).toBeDisabled();
   await page.locator('.status-tab[data-status="exception"]').click();
   await expect(pending).toBeVisible();
+  await pending.getByRole("button").click();
   await expect(pendingRows).toHaveCount(4);
   await expect(page.locator("#results-school-count")).toHaveAttribute(
     "data-count",
@@ -483,12 +484,26 @@ test("saved calendar export excludes pending review dates from mixed favorites",
   await pendingFavorite.click();
   await page.locator("#mobile-filter-toggle").click();
   await expect(page.locator("#export-favorites")).toBeEnabled();
+  // Inspect the real export payload without relying on OS download permissions.
+  await page.evaluate(() => {
+    const createObjectURL = URL.createObjectURL.bind(URL);
+    window.calendarExportPayloads = [];
+    URL.createObjectURL = (blob) => {
+      window.calendarExportPayloads.push(blob.text());
+      return createObjectURL(blob);
+    };
+  });
   const downloadEvent = page.waitForEvent("download");
   await page.locator("#export-favorites").click();
   const download = await downloadEvent;
-  const stream = await download.createReadStream();
-  let calendar = "";
-  for await (const chunk of stream) calendar += chunk.toString();
+  expect(download.suggestedFilename()).toBe(
+    "gradwindow-favorite-deadlines.ics",
+  );
+  const payloads = await page.evaluate(() =>
+    Promise.all(window.calendarExportPayloads),
+  );
+  expect(payloads).toHaveLength(1);
+  const [calendar] = payloads;
   expect(calendar).toContain(`UID:${currentId}@gradwindow`);
   expect(calendar).not.toContain(pendingId);
   expect(calendar.match(/BEGIN:VEVENT/g)).toHaveLength(1);
