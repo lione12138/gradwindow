@@ -149,7 +149,9 @@ def monitor_details(
             "UCL requested detail programmes are absent from the catalogue"
         )
     eligible = {
-        p.source_url: p for p in catalog.programmes if p.source_url != CATALOG_URL
+        p.source_url: p
+        for p in catalog.programmes
+        if p.source_url != CATALOG_URL and p.available_intakes
     }
     # A previous cycle or changed programme identity must never supply current evidence.
     state = {
@@ -170,7 +172,14 @@ def monitor_details(
     succeeded, failed = set(), set()
     for p in catalog.programmes:
         p.windows = []
-        p.parse_status = "catalogue-only"
+        # Missing intake is a catalogue review issue, not evidence of removed
+        # dates. Leave these IDs unvisited so shared replacement preserves prior
+        # candidates, and reserve detail requests for courses we can validate.
+        p.parse_status = (
+            "needs-review"
+            if p.source_url != CATALOG_URL and not p.available_intakes
+            else "catalogue-only"
+        )
     attempted = 0
     for url in order[: max(0, budget)]:
         p = eligible[url]

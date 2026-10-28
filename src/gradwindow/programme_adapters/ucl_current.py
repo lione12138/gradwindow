@@ -42,6 +42,8 @@ def discover_current_catalogue(
     seen_cards: set[tuple[str, str]] = set()
     programmes: dict[str, DiscoveredProgramme] = {}
     pending: list[str] = []
+    intake_review: list[str] = []
+    warnings: list[dict[str, object]] = []
     master_cards = 0
     option_count = 0
     visited_urls: list[str] = []
@@ -124,10 +126,6 @@ def discover_current_catalogue(
                 r"(?:January|February|March|April|May|June|July|August|September|October|November|December) 20\d{2}",
                 normalise(intake_node.get_text(" ", strip=True)) if intake_node else "",
             )
-            if links and not intakes:
-                raise ValueError(
-                    f"UCL linked master's course has no explicit intake: {context}"
-                )
             if coming:
                 pending.append(title)
             routes = (
@@ -161,6 +159,9 @@ def discover_current_catalogue(
                     raise ValueError(
                         f"UCL current directory generated duplicate programme IDs: {context}"
                     )
+                if links and not intakes:
+                    intake_review.append(programme_id)
+                    warnings.append({"sourceUrl": source, "reason": "missing-intake"})
                 programmes[programme_id] = DiscoveredProgramme(
                     id=programme_id,
                     name=name,
@@ -174,9 +175,13 @@ def discover_current_catalogue(
                     deadline_text=(
                         "UCL explicitly marks this course Coming soon; its new-cycle detail page and dates are not published."
                         if coming
+                        else "UCL's current directory confirms this course but does not specify its intake. The intake requires review before application dates can be checked; no intake or dates were inferred."
+                        if not intakes
                         else "UCL's current directory confirms this course and intake. Application dates require programme-specific detail review; directory availability does not mean applications are open."
                     ),
-                    parse_status="no-deadline",
+                    parse_status="needs-review"
+                    if links and not intakes
+                    else "no-deadline",
                     retrieval_method="official-current-graduate-directory-html",
                     evidence_quality="official-full-text",
                 )
@@ -206,12 +211,14 @@ def discover_current_catalogue(
     return DiscoveredCatalog(
         application_opens_at=None,
         programmes=sorted(programmes.values(), key=lambda p: p.id),
+        warnings=warnings,
         diagnostics={
             "directoryPages": pages,
             "directoryCourses": count,
             "masterCourseCards": master_cards,
             "additionalStudyOptions": option_count,
             "comingSoonCourses": pending,
+            "intakeReviewProgrammeIds": sorted(intake_review),
             "detailWindowDiscovery": "pending",
             "catalogueComplete": True,
         },
