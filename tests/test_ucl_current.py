@@ -489,7 +489,6 @@ def test_current_directory_rejects_partial_or_changed_pages(change, message):
 @pytest.mark.parametrize(
     "change, message",
     [
-        (lambda text: text.replace("September 2027", ""), "explicit intake"),
         (
             lambda text: text.replace(CATALOG_URL + "/", "https://example.org/"),
             "non-official",
@@ -505,6 +504,54 @@ def test_current_directory_rejects_unreviewable_cards(change, message):
     sources[CATALOG_URL] = change(sources[CATALOG_URL])
     with pytest.raises(ValueError, match=message):
         adapter().parse_catalog_from_fetcher(sources.__getitem__)
+
+
+@pytest.mark.parametrize("budget", [0, 2])
+def test_missing_intake_keeps_catalogue_and_continues_other_detail_checks(budget):
+    from test_ucl_detail import HTML
+
+    missing = (
+        Path(__file__).parent / "fixtures/ucl/supply-chain-missing-intake-card.html"
+    ).read_text(encoding="utf-8")
+    missing_id = "ucl-supply-chain-management-sustainability-and-analytics-msc"
+    valid_id = "ucl-advanced-materials-science-msc"
+    calls = []
+
+    def fetch(url):
+        calls.append(url)
+        if url == CATALOG_URL:
+            return page(missing, total=2, next_url="?page=1")
+        if url == CATALOG_URL + "?page=1":
+            return page(
+                card(
+                    "Advanced Materials Science MSc",
+                    route="advanced-materials-science-msc",
+                ),
+                total=2,
+            )
+        assert url == CATALOG_URL + "/advanced-materials-science-msc"
+        return HTML
+
+    catalog = UCLAdapter(2, 2, detail_refresh_budget=budget).parse_catalog_from_fetcher(
+        fetch
+    )
+    by_id = {p.id: p for p in catalog.programmes}
+    assert set(by_id) == {missing_id, valid_id}
+    assert catalog.diagnostics["catalogueComplete"] is True
+    assert catalog.diagnostics["directoryCourses"] == 2
+    assert catalog.diagnostics["intakeReviewProgrammeIds"] == [missing_id]
+    assert by_id[missing_id].available_intakes == []
+    assert by_id[missing_id].parse_status == "needs-review"
+    assert "intake" in by_id[missing_id].deadline_text
+    assert by_id[missing_id].windows == []
+    assert missing_id in catalog.diagnostics["detailUnvisitedProgrammeIds"]
+    assert catalog.warnings == [
+        {"sourceUrl": by_id[missing_id].source_url, "reason": "missing-intake"}
+    ]
+    assert len(calls) == (3 if budget else 2)
+    assert catalog.diagnostics["detailSucceededProgrammeIds"] == (
+        [valid_id] if budget else []
+    )
 
 
 def test_current_directory_preserves_nested_degree_label():

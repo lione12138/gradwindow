@@ -89,8 +89,9 @@ def test_conflicting_study_mode_panels_are_not_collapsed():
     assert result["status"] == "needs-date-review"
 
 
-def test_multiple_intakes_are_not_given_the_same_dates():
-    p = replace(record(), available_intakes=["September 2027", "January 2028"])
+@pytest.mark.parametrize("intakes", [[], ["September 2027", "January 2028"]])
+def test_unknown_or_multiple_intakes_are_not_given_the_same_dates(intakes):
+    p = replace(record(), available_intakes=intakes)
     with pytest.raises(ValueError, match="intake"):
         inspect_detail(html(), p)
 
@@ -111,7 +112,7 @@ def test_monitor_tracks_only_current_successes_and_never_reuses_windows():
     assert catalog.adapter_state["detailMonitor"] == previous
 
 
-@pytest.mark.parametrize("failure", ["budget", "transport", "parse"])
+@pytest.mark.parametrize("failure", ["budget", "transport", "parse", "missing-intake"])
 @pytest.mark.parametrize("known", [True, False])
 def test_replacement_preserves_deferred_candidates_and_confirmation(
     tmp_path, failure, known
@@ -158,19 +159,66 @@ def test_replacement_preserves_deferred_candidates_and_confirmation(
 
     def incomplete(url):
         if url == CATALOG_URL:
+            if failure == "missing-intake":
+                return directory.replace("September 2027", "")
             return directory
         if failure == "transport":
             raise FetchFailure("rate limited", kind="blocked", status_code=429)
+        if failure == "missing-intake":
+            pytest.fail("Unknown intake must not consume the detail fetch budget")
         return html().replace("Applicants who require a visa", "Unknown category")
 
-    discover_programmes(
+    report = discover_programmes(
         UCLAdapter(1, 1, detail_refresh_budget=0 if failure == "budget" else 1),
         fetcher=incomplete,
         **paths,
     )
     assert read_json(path)["items"] == before
+    assert report["recordDiff"]["disappearedWindowIds"] == []
+    assert report["newWindowCandidates"] == 0
     if known:
         discover_programmes(UCLAdapter(1, 1), fetcher=fetch, **paths)
         after = read_json(path)["items"]
         assert all(c["confirmation"]["observationCount"] == 2 for c in after)
         assert [c["detectedAt"] for c in after] == [c["detectedAt"] for c in before]
+
+
+def test_new_course_without_intake_is_only_a_review_candidate(tmp_path):
+    directory = (
+        '<p class="course-feed-listing-view__result-count">1 courses found</p>'
+        + (FIXTURES / "supply-chain-missing-intake-card.html").read_text(
+            encoding="utf-8"
+        )
+    )
+    paths = dict(
+        programs_path=tmp_path / "programs.json",
+        applications_path=tmp_path / "applications.json",
+        candidates_path=tmp_path / "programme-candidates.json",
+        state_path=tmp_path / "state.json",
+    )
+    write_json(paths["programs_path"], {"programs": []})
+
+    def fetch(url):
+        assert url == CATALOG_URL
+        return directory
+
+    for dry_run in [True, False]:
+        report = discover_programmes(
+            UCLAdapter(1, 1), fetcher=fetch, dry_run=dry_run, **paths
+        )
+        assert report["catalogProgrammes"] == 1
+        assert report["newCandidates"] == 1
+        assert report["programmesNeedingReview"] == 1
+        assert report["exactWindowCount"] == report["newWindowCandidates"] == 0
+        if dry_run:
+            assert not paths["state_path"].exists()
+            assert not paths["candidates_path"].exists()
+    candidate = read_json(paths["candidates_path"])["items"][0]
+    assert candidate["status"] == "pending"
+    assert candidate["parseStatus"] == "needs-review"
+    assert candidate["windows"] == []
+    assert "availableIntakes" not in candidate["programme"]
+    assert "intake requires review" in candidate["evidenceExcerpt"]
+    assert not paths["applications_path"].exists()
+    assert not (tmp_path / "window-candidates.json").exists()
+    assert read_json(paths["programs_path"]) == {"programs": []}

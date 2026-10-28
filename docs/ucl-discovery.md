@@ -471,3 +471,28 @@ its degree. Regression tests cover the reviewed BSc card, the diploma label,
 unknown labels, duplicate cards and incomplete pagination. This classification
 does not publish programmes or dates, and full-school window coverage remains
 incomplete.
+
+## Missing intake isolated from catalogue discovery (2026-10-29)
+
+Live smoke run
+[40662703576](https://github.com/lione12138/gradwindow/actions/runs/40662703576)
+passed the non-master qualification cards but stopped on page 34. The official
+Supply Chain Management with Sustainability and Analytics MSc card provides a
+title, MSc badge, faculty and course URL, but no start-date field. Its detail
+page has application dates and 2027/28 fees, neither of which establishes the
+missing intake month. No intake is inferred from those values.
+
+A linked course without a parseable intake now remains in the catalogue as
+metadata requiring review. `intakeReviewProgrammeIds` and a `missing-intake`
+warning identify it; the shared candidate queue uses `needs-review` with an
+explicit evidence note. It consumes no detail request until the directory
+provides an intake. The monitor treats it as unvisited, preserving existing
+programme/window candidates and their observation and verification timestamps.
+Restored intake evidence makes the course eligible for detail checking again.
+
+Missing title, degree, faculty or official link and incomplete or duplicated
+pagination remain errors. Exact date parsing still requires matching explicit
+intake evidence on the course page. Tests exercise subsequent catalogue pages,
+unaffected detail checks, dry-run/write candidate flows, existing-candidate
+preservation and intake recovery. This change does not publish dates or imply
+that every course's application windows have been checked.
