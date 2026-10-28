@@ -138,6 +138,57 @@ def test_unlabelled_doctoral_card_does_not_hide_missing_pages():
         )
 
 
+def bachelor_card():
+    return (
+        Path(__file__).parent / "fixtures/ucl/teacher-apprenticeship-bsc-card.html"
+    ).read_text(encoding="utf-8")
+
+
+@pytest.mark.parametrize(
+    "html",
+    [
+        bachelor_card(),
+        card("Diploma route", degree="Graduate Diploma (Grad Dip)"),
+    ],
+    ids=["official-bsc-apprenticeship", "graduate-diploma-label"],
+)
+def test_explicit_non_masters_labels_are_counted_without_emitting_programmes(html):
+    catalog = adapter().parse_catalog_from_fetcher(
+        catalogue_with_doctoral_card(html).__getitem__
+    )
+    assert {p.name for p in catalog.programmes} == {
+        "Advanced Audiology MSc",
+        "Environmental Anthropology MSc",
+    }
+    assert catalog.diagnostics["directoryCourses"] == 3
+    assert catalog.diagnostics["masterCourseCards"] == 2
+    assert catalog.diagnostics["catalogueComplete"] is True
+    assert all(not p.windows for p in catalog.programmes)
+
+
+def test_bachelor_card_preserves_duplicate_and_incomplete_catalogue_guards():
+    sources = catalogue_with_doctoral_card(bachelor_card(), total=4)
+    with pytest.raises(ValueError, match="read 3 of 4"):
+        adapter().parse_catalog_from_fetcher(sources.__getitem__)
+    sources[CATALOG_URL] = page(
+        card("Advanced Audiology MSc") + bachelor_card(), total=4, next_url="?page=1"
+    )
+    with pytest.raises(ValueError, match="repeated"):
+        adapter().parse_catalog_from_fetcher(sources.__getitem__)
+
+
+@pytest.mark.parametrize(
+    "degree",
+    ["", "Bachelor", "Bachelor of Unknown Studies (Unknown)", "Graduate Unknown"],
+)
+def test_non_masters_course_title_cannot_replace_a_reviewed_degree_label(degree):
+    html = bachelor_card().replace("Bachelor of Science (BSc)", degree)
+    with pytest.raises(ValueError, match="lacks title or degree|unknown degree"):
+        adapter().parse_catalog_from_fetcher(
+            catalogue_with_doctoral_card(html).__getitem__
+        )
+
+
 @pytest.mark.parametrize("name,existing_id", REVIEWED_PROGRAMME_IDENTITIES.items())
 def test_official_rename_overrides_unreviewed_snapshot_id(name, existing_id):
     instance = UCLAdapter(

@@ -22,6 +22,11 @@ from .ucl import (
 )
 
 _MASTER = re.compile(r"^(?:Master of .+?|International Master of Arts) \((.+)\)$")
+# Explicit non-master labels exposed by the current graduate directory.
+# Keep exact matches so an unfamiliar degree still requires review.
+_OTHER_REVIEWED_DEGREES = frozenset(
+    {"Bachelor of Science (BSc)", "Graduate Diploma (Grad Dip)"}
+)
 
 
 def discover_current_catalogue(
@@ -89,7 +94,10 @@ def discover_current_catalogue(
             count += 1
             degree = _MASTER.fullmatch(degree_label)
             if degree is None:
-                if not degree_label.startswith(("Doctor", "Postgraduate")):
+                if not (
+                    degree_label.startswith(("Doctor", "Postgraduate"))
+                    or degree_label in _OTHER_REVIEWED_DEGREES
+                ):
                     raise ValueError(
                         f"UCL unknown degree label: {degree_label}, {context}"
                     )

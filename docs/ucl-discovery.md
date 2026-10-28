@@ -452,3 +452,22 @@ verification date. Historical dates remain collapsed. This does not restore
 `current` trust, add to open-window counts, permit calendar export or change SEO
 eligibility. A successful source retrieval and any required date review are
 still separate from displaying the last verified facts.
+
+## Non-master qualifications in the graduate directory (2026-10-28)
+
+Post-merge smoke run
+[40660603939](https://github.com/lione12138/gradwindow/actions/runs/40660603939)
+passed the previously failing doctoral card and reached page 23, then stopped
+on `Bachelor of Science (BSc)`. The official
+[directory page](https://www.ucl.ac.uk/study/prospective-students/graduate/courses?page=22)
+explicitly lists Mathematics and Secondary Mathematics Education Teacher Degree
+Apprenticeship BSc with that label. Its degree filter also explicitly lists
+`Graduate Diploma (Grad Dip)`. Neither qualification is a master's degree.
+
+These two exact labels are now counted toward directory completeness and
+duplicate detection, then excluded from master's programme output. Unknown or
+missing degree labels remain errors; a course title alone does not establish
+its degree. Regression tests cover the reviewed BSc card, the diploma label,
+unknown labels, duplicate cards and incomplete pagination. This classification
+does not publish programmes or dates, and full-school window coverage remains
+incomplete.
