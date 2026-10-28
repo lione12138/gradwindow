@@ -327,6 +327,7 @@ export const I18N = {
       "Opening date unknown; this does not confirm that applications are open. Check the official page before applying.",
     historicalDatesReview: "Historical dates · pending review",
     pendingReviewDates: "Dates pending recheck",
+    pendingReviewDatesDescription: "Recorded dates; recheck required",
     viewPendingReviewDates: "View dates pending recheck",
     hidePendingReviewDates: "Hide dates pending recheck",
     pendingReviewDatesNotice:
@@ -894,6 +895,7 @@ export const I18N = {
       "开放日期未知，不代表当前可以申请；申请前请查看官网确认。",
     historicalDatesReview: "历史日期 · 待复核",
     pendingReviewDates: "申请日期 · 待复核",
+    pendingReviewDatesDescription: "保留最近核验日期，申请前请确认官网",
     viewPendingReviewDates: "查看待复核日期",
     hidePendingReviewDates: "收起待复核日期",
     pendingReviewDatesNotice:

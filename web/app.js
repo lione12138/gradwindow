@@ -2515,7 +2515,7 @@ function render() {
       "pending-review",
       {
         title: t("pendingReviewDates"),
-        description: t("pendingReviewDatesNotice"),
+        description: t("pendingReviewDatesDescription"),
       },
       `${pendingReviewRecords.length} ${t("windows")}`,
       applicationColumns(),
