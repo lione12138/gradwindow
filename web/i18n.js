@@ -326,6 +326,12 @@ export const I18N = {
     deadlineOnlyNotice:
       "Opening date unknown; this does not confirm that applications are open. Check the official page before applying.",
     historicalDatesReview: "Historical dates · pending review",
+    pendingReviewDates: "Dates pending recheck",
+    viewPendingReviewDates: "View dates pending recheck",
+    hidePendingReviewDates: "Hide dates pending recheck",
+    pendingReviewDatesNotice:
+      "These recorded deadlines have not passed, but need rechecking. A blocked or unavailable source does not confirm a date change. Check the official page before applying; calendar export is unavailable.",
+    pendingReviewMore: "Show 20 more records pending recheck",
     viewHistoricalDates: "View historical dates",
     hideHistoricalDates: "Hide historical dates",
     historicalDatesNotice:
@@ -887,6 +893,12 @@ export const I18N = {
     deadlineOnlyNotice:
       "开放日期未知，不代表当前可以申请；申请前请查看官网确认。",
     historicalDatesReview: "历史日期 · 待复核",
+    pendingReviewDates: "申请日期 · 待复核",
+    viewPendingReviewDates: "查看待复核日期",
+    hidePendingReviewDates: "收起待复核日期",
+    pendingReviewDatesNotice:
+      "已记录的截止日期尚未过去，但仍需重新核验。来源访问受阻或暂不可用，不代表日期已变更。申请前请查看官网确认，暂不支持添加日历。",
+    pendingReviewMore: "再显示 20 条待复核记录",
     viewHistoricalDates: "查看历史日期",
     hideHistoricalDates: "收起历史日期",
     historicalDatesNotice:

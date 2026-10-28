@@ -435,3 +435,20 @@ This fixes the observed missing-field failure, not the separate inconsistent
 pagination observed on 2026-10-25. That completeness guard remains in force;
 full-school date coverage still requires a successful catalogue run and
 continued detail checks.
+
+## Source availability and date display (2026-10-27)
+
+The 2026-10-26 source-monitor run received HTTP 403 for the four recently
+reviewed 2027 windows. Their dates and `verifiedAt` values were unchanged, but
+the audit correctly recorded `source-unavailable`. The frontend had placed
+every non-current trust status under "Historical dates", even when its recorded
+deadline was still in the future. This made a failed retrieval look like an
+expired application cycle.
+
+The board now separates unexpired records pending recheck from expired
+historical records. Pending dates remain accessible through the school row,
+search, favourites and the manual-check view, with source status and original
+verification date. Historical dates remain collapsed. This does not restore
+`current` trust, add to open-window counts, permit calendar export or change SEO
+eligibility. A successful source retrieval and any required date review are
+still separate from displaying the last verified facts.

@@ -282,6 +282,14 @@ function isCurrentRecord(record) {
   return (record.trustStatus || "current") === "current";
 }
 
+function requiresReview(record) {
+  return (
+    !isCurrentRecord(record) &&
+    !isPredictedRecord(record) &&
+    !isRecurringPolicyRecord(record)
+  );
+}
+
 function daysUntil(dateValue) {
   return Math.ceil((parseDate(dateValue) - todayUtc()) / 86_400_000);
 }
@@ -573,8 +581,10 @@ function setupWindowDetailPanel() {
 }
 
 function downloadFavoriteCalendars() {
-  const records = state.data.filter((record) =>
-    state.favorites.has(favoriteKey("window", record.id)),
+  const records = state.data.filter(
+    (record) =>
+      isCurrentRecord(record) &&
+      state.favorites.has(favoriteKey("window", record.id)),
   );
   if (!records.length) return;
   const events = records.flatMap((record) => {
@@ -1112,9 +1122,16 @@ function makeFilterChip(item) {
   return button;
 }
 
-function updateResultsToolbar(records, universities, exceptionUniversities) {
+function updateResultsToolbar(
+  records,
+  universities,
+  exceptionUniversities,
+  pendingReviewRecords = [],
+) {
   const universityIds = new Set(
-    records.map((record) => record.universityId).filter(Boolean),
+    [...records, ...pendingReviewRecords]
+      .map((record) => record.universityId)
+      .filter(Boolean),
   );
   if (state.status === "exception") {
     exceptionUniversities.forEach((university) =>
@@ -1135,7 +1152,7 @@ function updateResultsToolbar(records, universities, exceptionUniversities) {
   );
   resultCount.dataset.count = String(universityIds.size);
   document.getElementById("results-window-count").textContent = windowCountText(
-    records.length,
+    records.length + pendingReviewRecords.length,
   );
 
   const chipContainer = document.getElementById("active-filter-chips");
@@ -2083,13 +2100,22 @@ function appendCatalogueRows(tbody, university, programmeIds = null) {
   }
 }
 
-// Audit-quarantined records remain reference material, never actionable windows.
-function appendReviewRows(tbody, university, records, schoolCell = null) {
+// Availability and trust are independent: an inaccessible source does not make
+// an unexpired date historical. Review rows remain non-actionable in both cases.
+function appendReviewRows(
+  tbody,
+  university,
+  records,
+  schoolCell = null,
+  kind = "history",
+) {
   if (!records.length) return;
-  const key = `review:${university.id}`;
+  const historical = kind === "history";
+  const key = `${kind}:${university.id}`;
   const expanded = state.expandedUniversityGroups.has(key);
   const parent = document.createElement(schoolCell ? "div" : "tr");
   parent.dataset.reviewSchool = university.id;
+  parent.dataset.reviewKind = kind;
   parent.dataset.groupKey = key;
   parent.dataset.groupState = expanded ? "expanded" : "collapsed";
   parent.className = schoolCell
@@ -2100,7 +2126,15 @@ function appendReviewRows(tbody, university, records, schoolCell = null) {
   const toggle = makeElement("button", {
     className: schoolCell ? "school-history-toggle" : "window-group-toggle",
     text: schoolCell
-      ? `${t(expanded ? "hideHistoricalDates" : "viewHistoricalDates")} (${records.length})`
+      ? `${t(
+          historical
+            ? expanded
+              ? "hideHistoricalDates"
+              : "viewHistoricalDates"
+            : expanded
+              ? "hidePendingReviewDates"
+              : "viewPendingReviewDates",
+        )} (${records.length})`
       : `${schoolLabels(university, state.language).primary} · ${records.length} · ${expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed")}`,
   });
   toggle.type = "button";
@@ -2124,7 +2158,9 @@ function appendReviewRows(tbody, university, records, schoolCell = null) {
   noticeCell.appendChild(
     makeElement("span", {
       className: "date-secondary",
-      text: t("historicalDatesNotice"),
+      text: t(
+        historical ? "historicalDatesNotice" : "pendingReviewDatesNotice",
+      ),
     }),
   );
   noticeRow.appendChild(noticeCell);
@@ -2134,6 +2170,8 @@ function appendReviewRows(tbody, university, records, schoolCell = null) {
     const row = document.createElement("tr");
     row.className = "window-card-row review-window-row";
     row.dataset.universityId = university.id;
+    row.dataset.reviewKind = kind;
+    row.dataset.recordId = record.id;
     const [label, badge] = sourcePresentation(record);
     const source = document.createDocumentFragment();
     source.append(
@@ -2188,7 +2226,7 @@ function appendReviewRows(tbody, university, records, schoolCell = null) {
     cell.colSpan = 8;
     const more = makeElement("button", {
       className: "window-group-toggle",
-      text: t("reviewMore"),
+      text: t(historical ? "reviewMore" : "pendingReviewMore"),
     });
     more.type = "button";
     more.addEventListener("click", () => {
@@ -2201,7 +2239,12 @@ function appendReviewRows(tbody, university, records, schoolCell = null) {
   }
 }
 
-function createAllSchoolsGroup(universities, records, reviewRecords) {
+function createAllSchoolsGroup(
+  universities,
+  records,
+  pendingReviewRecords,
+  historicalRecords,
+) {
   const { section, tbody } = createTableSection(
     "all",
     statusLabels().all,
@@ -2238,7 +2281,18 @@ function createAllSchoolsGroup(universities, records, reviewRecords) {
     appendReviewRows(
       tbody,
       university,
-      reviewRecords.filter((record) => record.universityId === university.id),
+      pendingReviewRecords.filter(
+        (record) => record.universityId === university.id,
+      ),
+      tbody.children[start].children[1],
+      "pending",
+    );
+    appendReviewRows(
+      tbody,
+      university,
+      historicalRecords.filter(
+        (record) => record.universityId === university.id,
+      ),
       tbody.children[start].children[1],
     );
   });
@@ -2357,13 +2411,20 @@ function renderCounts(records, universities) {
     getStatus,
   );
   const allUniversityIds = new Set([
-    ...trustedRecords.map((record) => record.universityId).filter(Boolean),
+    ...records.map((record) => record.universityId).filter(Boolean),
     ...universities.map((university) => university.id).filter(Boolean),
   ]);
   const counts = {
     all: allUniversityIds.size,
     ...applicationCounts,
-    exception: universities.filter(isExceptionUniversity).length,
+    exception: new Set([
+      ...universities.filter(isExceptionUniversity).map((item) => item.id),
+      ...records
+        .filter(
+          (record) => requiresReview(record) && getStatus(record) !== "closed",
+        )
+        .map((record) => record.universityId),
+    ]).size,
     unknown: universities.length,
   };
   if (!state.closedLoaded && !activeNonStatusFilter()) {
@@ -2386,11 +2447,12 @@ function renderCounts(records, universities) {
 
 function render() {
   const baseRecords = filteredRecords();
-  const reviewRecords = baseRecords.filter(
-    (record) =>
-      !isCurrentRecord(record) &&
-      !isPredictedRecord(record) &&
-      !isRecurringPolicyRecord(record),
+  const reviewRecords = baseRecords.filter(requiresReview);
+  const pendingReviewRecords = reviewRecords.filter(
+    (record) => getStatus(record) !== "closed",
+  );
+  const historicalRecords = reviewRecords.filter(
+    (record) => getStatus(record) === "closed",
   );
   let baseUniversities = filteredUniversities();
   if (state.status === "all") {
@@ -2413,13 +2475,23 @@ function render() {
   renderCounts(baseRecords, baseUniversities);
   const records = recordsForCurrentView(baseRecords);
   const exceptionUniversities = baseUniversities.filter(isExceptionUniversity);
+  const showPendingReview =
+    state.status === "all" ||
+    state.status === "exception" ||
+    hasActiveSearch() ||
+    state.favoritesOnly;
   const container = document.getElementById("application-groups");
   const emptyState = document.getElementById("empty-state");
   document.body.dataset.viewStatus = state.status;
   container.replaceChildren();
   if (state.status === "all" && baseUniversities.length) {
     container.appendChild(
-      createAllSchoolsGroup(baseUniversities, records, reviewRecords),
+      createAllSchoolsGroup(
+        baseUniversities,
+        records,
+        pendingReviewRecords,
+        historicalRecords,
+      ),
     );
   }
 
@@ -2436,8 +2508,35 @@ function render() {
   });
   if (
     state.status !== "all" &&
+    showPendingReview &&
+    pendingReviewRecords.length
+  ) {
+    const { section, tbody } = createTableSection(
+      "pending-review",
+      {
+        title: t("pendingReviewDates"),
+        description: t("pendingReviewDatesNotice"),
+      },
+      `${pendingReviewRecords.length} ${t("windows")}`,
+      applicationColumns(),
+    );
+    selectedDirectoryUniversities().forEach((university) =>
+      appendReviewRows(
+        tbody,
+        university,
+        pendingReviewRecords.filter(
+          (record) => record.universityId === university.id,
+        ),
+        null,
+        "pending",
+      ),
+    );
+    container.appendChild(section);
+  }
+  if (
+    state.status !== "all" &&
     (hasActiveSearch() || state.favoritesOnly) &&
-    reviewRecords.length
+    historicalRecords.length
   ) {
     const key = "history-results";
     const expanded = state.expandedUniversityGroups.has(key);
@@ -2446,7 +2545,7 @@ function render() {
     history.dataset.groupState = expanded ? "expanded" : "collapsed";
     const toggle = makeElement("button", {
       className: "school-history-toggle history-results-toggle",
-      text: `${t(expanded ? "hideHistoricalDates" : "viewHistoricalDates")} (${reviewRecords.length})`,
+      text: `${t(expanded ? "hideHistoricalDates" : "viewHistoricalDates")} (${historicalRecords.length})`,
     });
     toggle.type = "button";
     toggle.setAttribute("aria-expanded", String(expanded));
@@ -2469,14 +2568,14 @@ function render() {
           title: t("historicalDatesReview"),
           description: t("historicalDatesNotice"),
         },
-        `${reviewRecords.length} ${t("windows")}`,
+        `${historicalRecords.length} ${t("windows")}`,
         applicationColumns(),
       );
       selectedDirectoryUniversities().forEach((university) =>
         appendReviewRows(
           tbody,
           university,
-          reviewRecords.filter(
+          historicalRecords.filter(
             (record) => record.universityId === university.id,
           ),
         ),
@@ -2486,22 +2585,34 @@ function render() {
     history.append(toggle, content);
     container.appendChild(history);
   }
-  if (state.status === "exception" && exceptionUniversities.length) {
+  const pendingReviewUniversityIds = new Set(
+    pendingReviewRecords.map((record) => record.universityId),
+  );
+  const exceptionDirectory = exceptionUniversities.filter(
+    (university) => !pendingReviewUniversityIds.has(university.id),
+  );
+  if (state.status === "exception" && exceptionDirectory.length) {
     container.appendChild(
-      createUniversityGroup([...exceptionUniversities], "exception"),
+      createUniversityGroup([...exceptionDirectory], "exception"),
     );
   }
+  const directoryUniversities = showPendingReview
+    ? baseUniversities.filter(
+        (university) => !pendingReviewUniversityIds.has(university.id),
+      )
+    : baseUniversities;
   if (
     state.status !== "all" &&
     (state.status === "unknown" || hasActiveSearch()) &&
-    baseUniversities.length
+    directoryUniversities.length
   ) {
-    container.appendChild(createUniversityGroup([...baseUniversities]));
+    container.appendChild(createUniversityGroup([...directoryUniversities]));
   }
 
   emptyState.hidden =
     !activeNonStatusFilter() ||
     records.length > 0 ||
+    (showPendingReview && pendingReviewRecords.length > 0) ||
     ((hasActiveSearch() || state.favoritesOnly) && reviewRecords.length > 0) ||
     (state.status === "exception" && exceptionUniversities.length > 0) ||
     ((state.status === "all" ||
@@ -2511,7 +2622,12 @@ function render() {
   document.querySelectorAll("[data-mobile-sort]").forEach((button) => {
     button.classList.toggle("active", button.dataset.mobileSort === state.sort);
   });
-  updateResultsToolbar(records, baseUniversities, exceptionUniversities);
+  updateResultsToolbar(
+    records,
+    baseUniversities,
+    exceptionUniversities,
+    showPendingReview ? pendingReviewRecords : [],
+  );
   updateStatusTabs();
   updateMobileFilterToggle();
   updateFavoriteControls();
@@ -2605,7 +2721,9 @@ function updateFavoriteControls() {
     .getElementById("favorites-toggle")
     .classList.toggle("active", state.favoritesOnly);
   document.getElementById("export-favorites").disabled = !state.data.some(
-    (record) => state.favorites.has(favoriteKey("window", record.id)),
+    (record) =>
+      isCurrentRecord(record) &&
+      state.favorites.has(favoriteKey("window", record.id)),
   );
   document
     .querySelectorAll(".favorite-button[data-favorite-key]")
