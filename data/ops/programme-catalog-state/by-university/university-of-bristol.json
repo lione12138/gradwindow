@@ -2,14 +2,14 @@
   "universities": {
     "university-of-bristol": {
       "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/search/",
-      "checkedAt": "2026-10-05T11:44:03.985078+00:00",
+      "checkedAt": "2026-10-30T11:01:58.321980+00:00",
       "itemCount": 142,
       "applicationOpensAt": null,
-      "catalogHash": "3cb5f9095a7bbe96bef3323d3640e24dd00b61d54f045911715dc650565c2b4c",
+      "catalogHash": "369781a1a5ab0d8359ec86afabbc01b626f3ae80f1956e640e11ede5c63ecfb6",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 282,
+      "observedWindowCount": 278,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -25,17 +25,17 @@
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 280,
+          "observedWindowCount": 276,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 282,
-      "programmesWithoutDeadlines": 1,
+      "missingOpeningDateCount": 278,
+      "programmesWithoutDeadlines": 3,
       "programmesNeedingReview": 142,
-      "limitationReason": "282 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-10-05T11:44:03.985078+00:00",
-      "windowFingerprint": "16e1d3587fd1d661acdacb4a7f810cd81e07276faffae5de262c96780c8950d2",
+      "limitationReason": "278 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-10-30T11:01:58.321980+00:00",
+      "windowFingerprint": "0bd66cb832aaff54e006b3d5de15bc8f0225734b2cc2f96947c77984c8906533",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -384,10 +384,10 @@
           "degreeType": "MRes",
           "faculty": "Arts Law and Social Sciences",
           "department": "School of Education",
-          "parseStatus": "incomplete",
-          "deadlineHash": "0fac1b29cbe03aeecae46f6983767c23116754aa3905609f64cc11cbfec9a44d",
-          "windowCount": 2,
-          "latestClosesAt": "2027-09-09"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "bristol-mres-health-sciences-research": {
           "name": "MRes Health Sciences Research",
@@ -634,10 +634,10 @@
           "degreeType": "MSc",
           "faculty": "Science and Engineering",
           "department": "School of Civil, Aerospace and Design Engineering",
-          "parseStatus": "incomplete",
-          "deadlineHash": "a58d6fa680daa7f67d43522221e5fad51055ac2bdf9151721365933ce97873cd",
-          "windowCount": 2,
-          "latestClosesAt": "2027-09-09"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "bristol-msc-conflict-resolution-and-peacebuilding": {
           "name": "MSc Conflict Resolution and Peacebuilding",
@@ -1032,22 +1032,22 @@
         "bristol-msc-management": {
           "name": "MSc Management",
           "degreeType": "MSc",
+          "faculty": "Arts Law and Social Sciences",
+          "department": "University of Bristol Business School",
+          "parseStatus": "incomplete",
+          "deadlineHash": "d1e4be16f9274dd6091157220bdb358e334b38b90c11eeef9e408dd2855b1f29",
+          "windowCount": 2,
+          "latestClosesAt": "2027-09-09"
+        },
+        "bristol-msc-management-digitalisation-and-big-data": {
+          "name": "MSc Management (Digitalisation and Big Data)",
+          "degreeType": "MSc",
           "faculty": "",
           "department": "",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
-        },
-        "bristol-msc-management-digitalisation-and-big-data": {
-          "name": "MSc Management (Digitalisation and Big Data)",
-          "degreeType": "MSc",
-          "faculty": "Arts Law and Social Sciences",
-          "department": "University of Bristol Business School",
-          "parseStatus": "incomplete",
-          "deadlineHash": "d37ccb2739e1854cb981be712cd29f6d190ec587befb933e1f9842079c821b4c",
-          "windowCount": 2,
-          "latestClosesAt": "2027-09-09"
         },
         "bristol-msc-management-entrepreneurship-and-innovation": {
           "name": "MSc Management (Entrepreneurship and Innovation)",
@@ -2005,22 +2005,6 @@
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/mres-economics/",
           "opensAtBasis": null
         },
-        "bristol-mres-education::September 2027::Home applicants::home": {
-          "programmeId": "bristol-mres-education",
-          "intake": "September 2027",
-          "opensAt": null,
-          "closesAt": "2027-09-09",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/mres-education/",
-          "opensAtBasis": null
-        },
-        "bristol-mres-education::September 2027::Overseas applicants::international": {
-          "programmeId": "bristol-mres-education",
-          "intake": "September 2027",
-          "opensAt": null,
-          "closesAt": "2027-08-12",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/mres-education/",
-          "opensAtBasis": null
-        },
         "bristol-mres-health-sciences-research::September 2027::Home applicants::home": {
           "programmeId": "bristol-mres-health-sciences-research",
           "intake": "September 2027",
@@ -2403,22 +2387,6 @@
           "opensAt": null,
           "closesAt": "2027-08-12",
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-communication-networks-and-signal-processing/",
-          "opensAtBasis": null
-        },
-        "bristol-msc-composites-engineering::September 2027::Home applicants::home": {
-          "programmeId": "bristol-msc-composites-engineering",
-          "intake": "September 2027",
-          "opensAt": null,
-          "closesAt": "2027-09-09",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-composites-engineering/",
-          "opensAtBasis": null
-        },
-        "bristol-msc-composites-engineering::September 2027::Overseas applicants::international": {
-          "programmeId": "bristol-msc-composites-engineering",
-          "intake": "September 2027",
-          "opensAt": null,
-          "closesAt": "2027-08-12",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-composites-engineering/",
           "opensAtBasis": null
         },
         "bristol-msc-conflict-resolution-and-peacebuilding::September 2027::Home applicants::home": {
@@ -3045,20 +3013,20 @@
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-internet-of-things-with-ai/",
           "opensAtBasis": null
         },
-        "bristol-msc-management-digitalisation-and-big-data::September 2027::Home applicants::home": {
-          "programmeId": "bristol-msc-management-digitalisation-and-big-data",
+        "bristol-msc-management::September 2027::Home applicants::home": {
+          "programmeId": "bristol-msc-management",
           "intake": "September 2027",
           "opensAt": null,
           "closesAt": "2027-09-09",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management-digitalisation-and-big-data/",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management/",
           "opensAtBasis": null
         },
-        "bristol-msc-management-digitalisation-and-big-data::September 2027::Overseas applicants::international": {
-          "programmeId": "bristol-msc-management-digitalisation-and-big-data",
+        "bristol-msc-management::September 2027::Overseas applicants::international": {
+          "programmeId": "bristol-msc-management",
           "intake": "September 2027",
           "opensAt": null,
           "closesAt": "2027-08-12",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management-digitalisation-and-big-data/",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management/",
           "opensAtBasis": null
         },
         "bristol-msc-management-entrepreneurship-and-innovation::September 2027::Home applicants::home": {

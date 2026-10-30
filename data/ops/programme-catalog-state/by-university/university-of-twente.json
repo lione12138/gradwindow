@@ -2,40 +2,40 @@
   "universities": {
     "university-of-twente": {
       "sourceUrl": "https://www.utwente.nl/en/education/master/programmes/",
-      "checkedAt": "2026-10-05T12:32:26.164310+00:00",
-      "itemCount": 36,
+      "checkedAt": "2026-10-30T11:55:15.932435+00:00",
+      "itemCount": 37,
       "applicationOpensAt": null,
-      "catalogHash": "0e3457a76499a670f392802a28a8b8d05cba3526f62d58cb7dbb5b9516fdefb3",
+      "catalogHash": "6869b137df067e73a3d53a4d94598f5b508a64bc338e46e01f2eacd4d3a2ae32",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "recurring-policy-partial",
-      "observedWindowCount": 140,
+      "observedWindowCount": 144,
       "exactWindowCount": 0,
-      "recurringPolicyWindowCount": 140,
+      "recurringPolicyWindowCount": 144,
       "windowCountsByCycle": {
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 70,
+          "observedWindowCount": 72,
           "exactWindowCount": 0,
-          "recurringPolicyWindowCount": 70
+          "recurringPolicyWindowCount": 72
         },
         "2027:other:02": {
           "intakes": [
             "February 2027"
           ],
-          "observedWindowCount": 70,
+          "observedWindowCount": 72,
           "exactWindowCount": 0,
-          "recurringPolicyWindowCount": 70
+          "recurringPolicyWindowCount": 72
         }
       },
       "missingOpeningDateCount": 0,
       "programmesWithoutDeadlines": 1,
       "programmesNeedingReview": 1,
-      "limitationReason": "Twente's official study finder provides the master's catalogue. The standard EEA and non-EEA application periods are published as annual rules; programmes explicitly listed with deviating deadlines are kept in monitoring until their separate rules are parsed. 140 window(s) use an official recurring day/month policy; GradWindow maps the cycle year. 1 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-10-05T12:32:26.164310+00:00",
-      "windowFingerprint": "2c923a30dc132aa219bb604df81190d22e26495da2f65a500fae635bca599947",
+      "limitationReason": "Twente's official study finder provides the master's catalogue. The standard EEA and non-EEA application periods are published as annual rules; programmes explicitly listed with deviating deadlines are kept in monitoring until their separate rules are parsed. 144 window(s) use an official recurring day/month policy; GradWindow maps the cycle year. 1 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-10-30T11:55:15.932435+00:00",
+      "windowFingerprint": "7f2538cff60604739411e40752b593fff46bdade2640cc149b268552da39c64a",
       "watchedWindowSourceHash": "f8798748caa39b455fc7d57ca3b1b2322ed1b7135d0c4f6838c5594394c289e0",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
@@ -391,6 +391,16 @@
         },
         "twente-water-technology-msc": {
           "name": "Water Technology",
+          "degreeType": "MSc",
+          "faculty": "University of Twente",
+          "department": "University of Twente",
+          "parseStatus": "recurring-policy",
+          "deadlineHash": "2647018062b4d165425aca2e1368272f08d06e8e8570d660ea81d96dad436030",
+          "windowCount": 4,
+          "latestClosesAt": "2027-07-01"
+        },
+        "twente-water-vulnerability-engineering-in-spatial-sciences-msc": {
+          "name": "Water Vulnerability Engineering in Spatial Sciences",
           "degreeType": "MSc",
           "faculty": "University of Twente",
           "department": "University of Twente",
@@ -1654,6 +1664,42 @@
         },
         "twente-water-technology-msc::September 2027::Standard application deadline::non-eu-efta": {
           "programmeId": "twente-water-technology-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-05-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-water-vulnerability-engineering-in-spatial-sciences-msc::February 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-water-vulnerability-engineering-in-spatial-sciences-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-water-vulnerability-engineering-in-spatial-sciences-msc::February 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-water-vulnerability-engineering-in-spatial-sciences-msc",
+          "intake": "February 2027",
+          "opensAt": "2026-03-01",
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-water-vulnerability-engineering-in-spatial-sciences-msc::September 2027::Standard application deadline::eu-efta": {
+          "programmeId": "twente-water-vulnerability-engineering-in-spatial-sciences-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-10-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.utwente.nl/en/education/master/application-admission/master-deadlines/",
+          "opensAtBasis": "official-recurring-policy",
+          "deadlineSemantics": "before"
+        },
+        "twente-water-vulnerability-engineering-in-spatial-sciences-msc::September 2027::Standard application deadline::non-eu-efta": {
+          "programmeId": "twente-water-vulnerability-engineering-in-spatial-sciences-msc",
           "intake": "September 2027",
           "opensAt": "2026-10-01",
           "closesAt": "2027-05-01",

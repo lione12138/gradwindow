@@ -2,10 +2,10 @@
   "universities": {
     "vienna-university-of-technology": {
       "sourceUrl": "https://www.tuwien.at/en/studies/studies/master-programmes",
-      "checkedAt": "2026-08-24T06:11:04.801811+00:00",
-      "itemCount": 37,
+      "checkedAt": "2026-10-30T11:55:25.779094+00:00",
+      "itemCount": 40,
       "applicationOpensAt": null,
-      "catalogHash": "08f5605bd1f015c3b09c3d9278470886e9fd8a2391c84c219e6e48bc9792e46a",
+      "catalogHash": "38f2fb280ab85eec1e61508941051650bf95bde360f20e406d962a0cb85367ee",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,11 +14,11 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 37,
-      "programmesNeedingReview": 37,
+      "programmesWithoutDeadlines": 40,
+      "programmesNeedingReview": 40,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-08-24T06:11:04.801811+00:00",
-      "windowFingerprint": "47e57aef09d18283969afe3b6a5db2869775b338610133b52d3d42b0adc46909",
+      "lastSuccessfulAt": "2026-10-30T11:55:25.779094+00:00",
+      "windowFingerprint": "94a684422c053be4cb6d595bb2a8c7d359d8b1aa3ee176b75cbaf6cafcbcb3bd",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -62,8 +62,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "tu-wien-building-science-and-environment-master": {
-          "name": "Building Science and Environment",
+        "tu-wien-building-sciences-and-environment-master": {
+          "name": "Building Sciences and Environment",
           "degreeType": "Master",
           "faculty": "TU Wien",
           "department": "TU Wien",
@@ -92,8 +92,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "tu-wien-chemical-and-process-engineering-master": {
-          "name": "Chemical and Process Engineering",
+        "tu-wien-chemical-and-process-engineering-for-sustainable-production-master": {
+          "name": "Chemical and Process Engineering for Sustainable Production",
           "degreeType": "Master",
           "faculty": "TU Wien",
           "department": "TU Wien",
@@ -102,8 +102,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "tu-wien-chemistry-and-technology-of-materials-master": {
-          "name": "Chemistry and Technology of Materials",
+        "tu-wien-chemistry-and-materials-technology-master": {
+          "name": "Chemistry and Materials Technology",
           "degreeType": "Master",
           "faculty": "TU Wien",
           "department": "TU Wien",
@@ -142,6 +142,36 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "tu-wien-digital-civil-engineering-science-master": {
+          "name": "Digital Civil Engineering Science",
+          "degreeType": "Master",
+          "faculty": "TU Wien",
+          "department": "TU Wien",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "tu-wien-double-degree-it-security-master": {
+          "name": "Double Degree IT Security",
+          "degreeType": "Master",
+          "faculty": "TU Wien",
+          "department": "TU Wien",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "tu-wien-double-degree-logic-and-computation-master": {
+          "name": "Double Degree Logic and Computation",
+          "degreeType": "Master",
+          "faculty": "TU Wien",
+          "department": "TU Wien",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "tu-wien-electrical-power-engineering-and-sustainable-energy-systems-master": {
           "name": "Electrical Power Engineering and Sustainable Energy Systems",
           "degreeType": "Master",
@@ -152,8 +182,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "tu-wien-embedded-computing-system-master": {
-          "name": "Embedded Computing System",
+        "tu-wien-embedded-computing-systems-master": {
+          "name": "Embedded Computing Systems",
           "degreeType": "Master",
           "faculty": "TU Wien",
           "department": "TU Wien",
@@ -322,8 +352,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "tu-wien-software-engineering-internet-computing-master": {
-          "name": "Software Engineering & Internet Computing",
+        "tu-wien-software-engineering-master": {
+          "name": "Software Engineering",
           "degreeType": "Master",
           "faculty": "TU Wien",
           "department": "TU Wien",
@@ -395,7 +425,20 @@
       },
       "windows": {},
       "adapterWarnings": [],
-      "adapterDiagnostics": {}
+      "adapterDiagnostics": {
+        "transport": {
+          "requests": 3,
+          "directSuccesses": 3,
+          "directFailures": 0,
+          "fallbackEnabled": true,
+          "fallbackLimit": 3,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
+          "fallbackFailures": 0,
+          "fallbackBudgetExhausted": 0,
+          "failureKinds": {}
+        }
+      }
     }
   }
 }

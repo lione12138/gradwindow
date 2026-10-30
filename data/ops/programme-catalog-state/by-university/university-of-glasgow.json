@@ -2,32 +2,23 @@
   "universities": {
     "university-of-glasgow": {
       "sourceUrl": "https://www.gla.ac.uk/postgraduate/taught/",
-      "checkedAt": "2026-10-05T12:00:36.266556+00:00",
-      "itemCount": 241,
+      "checkedAt": "2026-10-30T11:16:37.186878+00:00",
+      "itemCount": 240,
       "applicationOpensAt": null,
-      "catalogHash": "69f5401ae8d7c4edd2d5259278d3b1543321c9c074841d28087f691551c37abe",
+      "catalogHash": "7e4743ecc7084e2bd2523982b24fdf8a93d17c638a227ede1a0233350db70792",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "needs-opening-date",
-      "observedWindowCount": 2,
+      "windowStatus": "monitoring",
+      "observedWindowCount": 0,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {
-        "2026:fall:09": {
-          "intakes": [
-            "September 2026"
-          ],
-          "observedWindowCount": 2,
-          "exactWindowCount": 0,
-          "recurringPolicyWindowCount": 0
-        }
-      },
-      "missingOpeningDateCount": 2,
-      "programmesWithoutDeadlines": 239,
-      "programmesNeedingReview": 241,
-      "limitationReason": "2 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-10-05T12:00:36.266556+00:00",
-      "windowFingerprint": "1da8d768af848d7e9467ff5ce375d3e627c11c599f089bc6903cf8d4a1c7246a",
+      "windowCountsByCycle": {},
+      "missingOpeningDateCount": 0,
+      "programmesWithoutDeadlines": 240,
+      "programmesNeedingReview": 240,
+      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
+      "lastSuccessfulAt": "2026-10-30T11:16:37.186878+00:00",
+      "windowFingerprint": "51fd485d55f0e2f25bdad7b0d333830433180943cc7552e4ace2932ba7a50c64",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -526,10 +517,10 @@
           "degreeType": "MSc",
           "faculty": "",
           "department": "",
-          "parseStatus": "incomplete",
-          "deadlineHash": "38632c89c7bf2bbb36e8a02aeb7c1206b53551dea9882d269bc857420c2f48e1",
-          "windowCount": 1,
-          "latestClosesAt": "2026-08-24"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "glasgow-computational-geoscience-universitas-gadjah-mada-dual-degree-msc": {
           "name": "MSc Computational Geoscience (Universitas Gadjah Mada dual degree)",
@@ -711,8 +702,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "glasgow-digital-society-msc": {
-          "name": "MSc Digital Society",
+        "glasgow-digital-society-critical-ai-msc": {
+          "name": "MSc Digital Society & Critical AI",
           "degreeType": "MSc",
           "faculty": "",
           "department": "",
@@ -863,16 +854,6 @@
         },
         "glasgow-electronics-photonics-manufacturing-msc": {
           "name": "MSc Electronics & Photonics Manufacturing",
-          "degreeType": "MSc",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "glasgow-end-of-life-studies-msc": {
-          "name": "MSc End of Life Studies",
           "degreeType": "MSc",
           "faculty": "",
           "department": "",
@@ -1286,10 +1267,10 @@
           "degreeType": "MSc",
           "faculty": "",
           "department": "",
-          "parseStatus": "incomplete",
-          "deadlineHash": "38632c89c7bf2bbb36e8a02aeb7c1206b53551dea9882d269bc857420c2f48e1",
-          "windowCount": 1,
-          "latestClosesAt": "2026-08-24"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "glasgow-human-geography-critical-research-encounters-msc": {
           "name": "MSc Human Geography: Critical Research Encounters",
@@ -2442,29 +2423,12 @@
           "latestClosesAt": null
         }
       },
-      "windows": {
-        "glasgow-computational-geoscience-msc::September 2026::Home applicants::domestic-students": {
-          "programmeId": "glasgow-computational-geoscience-msc",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-08-24",
-          "sourceUrl": "https://www.gla.ac.uk/postgraduate/taught/computational-geoscience/",
-          "opensAtBasis": null
-        },
-        "glasgow-human-computer-interaction-msc::September 2026::Home applicants::domestic-students": {
-          "programmeId": "glasgow-human-computer-interaction-msc",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-08-24",
-          "sourceUrl": "https://www.gla.ac.uk/postgraduate/taught/human-computer-interaction/",
-          "opensAtBasis": null
-        }
-      },
+      "windows": {},
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 242,
-          "directSuccesses": 242,
+          "requests": 241,
+          "directSuccesses": 241,
           "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
