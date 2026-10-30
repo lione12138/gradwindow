@@ -2,7 +2,7 @@
   "universities": {
     "california-institute-of-technology-caltech": {
       "sourceUrl": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/aerospace-ae/",
-      "checkedAt": "2026-10-03T13:39:37.945534+00:00",
+      "checkedAt": "2026-10-30T11:02:38.280770+00:00",
       "itemCount": 3,
       "applicationOpensAt": null,
       "catalogHash": "08e7ed9ff0ce5a2d04bb93b04244e0a20dd7c5afa4bb80343910f7ab5a2005a1",
@@ -26,7 +26,7 @@
       "programmesWithoutDeadlines": 1,
       "programmesNeedingReview": 3,
       "limitationReason": "2 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-10-03T13:39:37.945534+00:00",
+      "lastSuccessfulAt": "2026-10-30T11:02:38.280770+00:00",
       "windowFingerprint": "6673af9763426d34c045292a0582f6914d8a6bddd0b9466fd989da8328afedd4",
       "watchedWindowSourceHash": "6cc5b4c5b01d9409ef9de44a7395efded05ada10e4a78044ad9e52502957d1fd",
       "watchedWindowSourceFingerprintVersion": 3,
@@ -84,15 +84,17 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 4,
-          "directSuccesses": 4,
-          "directFailures": 0,
-          "fallbackEnabled": false,
+          "directSuccesses": 1,
+          "directFailures": 3,
+          "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 3,
+          "fallbackSuccesses": 3,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "blocked": 3
+          }
         }
       }
     }

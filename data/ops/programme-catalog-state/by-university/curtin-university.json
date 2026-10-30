@@ -2,10 +2,10 @@
   "universities": {
     "curtin-university": {
       "sourceUrl": "https://www.curtin.edu.au/study/courses/",
-      "checkedAt": "2026-10-05T11:57:13.631191+00:00",
-      "itemCount": 25,
+      "checkedAt": "2026-10-30T11:13:11.367925+00:00",
+      "itemCount": 27,
       "applicationOpensAt": null,
-      "catalogHash": "ec5fee2d1733c9e36d7c57ebd9438e0b7944130e32ba8342f2c4943002585e9a",
+      "catalogHash": "8c2b7467375375779afbc320ce609b1a8660087ce75a874ac1108195002a81a7",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -14,14 +14,24 @@
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {},
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 25,
-      "programmesNeedingReview": 25,
+      "programmesWithoutDeadlines": 27,
+      "programmesNeedingReview": 27,
       "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-10-05T11:57:13.631191+00:00",
-      "windowFingerprint": "bc38bab74409601197ff919487f2cdb4ac985d008d7a266fac4764994c46f8fc",
-      "watchedWindowSourceHash": "05573b8efa8035504058e92e4b7e9d60db18d606869d9dc22230c17a36e8397f",
+      "lastSuccessfulAt": "2026-10-30T11:13:11.367925+00:00",
+      "windowFingerprint": "319d23b49ca0d2e7fb0c77b0d7d69fb8bc8c05dbd98aaa9f3b1343d0788beede",
+      "watchedWindowSourceHash": "fc53a8f4ae868e50c43ba6a4a87ceca965ff6bdcaabbcd5853dacbaabf261da2",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
+        "curtin-master-of-advanced-allied-health-practice-master": {
+          "name": "Master of Advanced Allied Health Practice",
+          "degreeType": "Master",
+          "faculty": "Curtin University",
+          "department": "Curtin University",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "curtin-master-of-advanced-practice-master": {
           "name": "Master of Advanced Practice",
           "degreeType": "Master",
@@ -114,6 +124,16 @@
         },
         "curtin-master-of-health-administration-master": {
           "name": "Master of Health Administration",
+          "degreeType": "Master",
+          "faculty": "Curtin University",
+          "department": "Curtin University",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "curtin-master-of-health-services-management-and-leadership-master": {
+          "name": "Master of Health Services Management and Leadership",
           "degreeType": "Master",
           "faculty": "Curtin University",
           "department": "Curtin University",
@@ -277,8 +297,8 @@
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 19,
-          "directSuccesses": 19,
+          "requests": 20,
+          "directSuccesses": 20,
           "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,

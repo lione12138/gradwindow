@@ -2,23 +2,32 @@
   "universities": {
     "psl-university": {
       "sourceUrl": "https://psl.eu/formations?field_niveau%5B30%5D=30",
-      "checkedAt": "2026-10-05T12:22:00.042004+00:00",
+      "checkedAt": "2026-10-30T11:40:56.380819+00:00",
       "itemCount": 58,
       "applicationOpensAt": null,
-      "catalogHash": "762b9e65b818fec6109dd2bbb479af8d8f0ba86304e42cd3a7366760f74c5379",
+      "catalogHash": "b84893f4b42ad7ed2d82db212f3449428f641fbbb88c23ba554e402b115cc5ba",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
-      "exactWindowCount": 0,
+      "windowStatus": "partial",
+      "observedWindowCount": 4,
+      "exactWindowCount": 4,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {},
+      "windowCountsByCycle": {
+        "2027:fall:09": {
+          "intakes": [
+            "Fall 2027"
+          ],
+          "observedWindowCount": 4,
+          "exactWindowCount": 4,
+          "recurringPolicyWindowCount": 0
+        }
+      },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 58,
-      "programmesNeedingReview": 58,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-10-05T12:22:00.042004+00:00",
-      "windowFingerprint": "04e0ccc6ad149e4a3f2d96c1af83780ca2ad47d88e5b108320656f6a609b0a87",
+      "programmesWithoutDeadlines": 55,
+      "programmesNeedingReview": 55,
+      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 55 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-10-30T11:40:56.380819+00:00",
+      "windowFingerprint": "4217eddf3d45859e2b9dc0f0a86ac785d561763baa02e7e11be0473b057a189f",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -157,10 +166,10 @@
           "degreeType": "Master",
           "faculty": "Chimie ParisTech PSL",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "85b9a9d6d066b1455bc76ea567fcedfea5d16f4098ab6b13bbe6a2e14f058ef3",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-24"
         },
         "psl-master-civilisations-cultures-et-societes": {
           "name": "Master Civilisations, cultures et sociétés",
@@ -277,10 +286,10 @@
           "degreeType": "Master",
           "faculty": "Mines Paris PSL",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "74ec642ce8b197dad46b6b985c6bb7300a53f67b3113889a7b6e7578d86e9af5",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-24"
         },
         "psl-master-etudes-approfondies-en-management": {
           "name": "Master Etudes approfondies en management",
@@ -527,10 +536,10 @@
           "degreeType": "Master",
           "faculty": "ENS PSL",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "d46ef9edbe6cea2c9593ead2c434c786cdf266209ba8a51533bdb6b49e51668b",
+          "windowCount": 2,
+          "latestClosesAt": "2027-02-24"
         },
         "psl-master-sciences-de-l-univers-et-technologies-spatiales": {
           "name": "Master Sciences de l'Univers et Technologies spatiales",
@@ -603,7 +612,40 @@
           "latestClosesAt": null
         }
       },
-      "windows": {},
+      "windows": {
+        "psl-master-chimie::Fall 2027::Fall 2027 M2::all": {
+          "programmeId": "psl-master-chimie",
+          "intake": "Fall 2027",
+          "opensAt": "2027-01-14",
+          "closesAt": "2027-02-24",
+          "sourceUrl": "https://psl.eu/formation/master-chimie",
+          "opensAtBasis": null
+        },
+        "psl-master-energie::Fall 2027::Fall 2027 m2::all": {
+          "programmeId": "psl-master-energie",
+          "intake": "Fall 2027",
+          "opensAt": "2027-01-14",
+          "closesAt": "2027-02-24",
+          "sourceUrl": "https://psl.eu/formation/master-energie",
+          "opensAtBasis": null
+        },
+        "psl-master-sciences-cognitives::Fall 2027::Fall 2027 M1::all": {
+          "programmeId": "psl-master-sciences-cognitives",
+          "intake": "Fall 2027",
+          "opensAt": "2027-01-14",
+          "closesAt": "2027-02-24",
+          "sourceUrl": "https://psl.eu/formation/master-sciences-cognitives",
+          "opensAtBasis": null
+        },
+        "psl-master-sciences-cognitives::Fall 2027::Fall 2027 m2::all": {
+          "programmeId": "psl-master-sciences-cognitives",
+          "intake": "Fall 2027",
+          "opensAt": "2027-01-14",
+          "closesAt": "2027-02-24",
+          "sourceUrl": "https://psl.eu/formation/master-sciences-cognitives",
+          "opensAtBasis": null
+        }
+      },
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {

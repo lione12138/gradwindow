@@ -2,10 +2,10 @@
   "universities": {
     "university-of-helsinki": {
       "sourceUrl": "https://www.helsinki.fi/sitemap.xml",
-      "checkedAt": "2026-10-05T12:03:18.472324+00:00",
-      "itemCount": 46,
+      "checkedAt": "2026-10-30T11:21:14.581489+00:00",
+      "itemCount": 47,
       "applicationOpensAt": null,
-      "catalogHash": "2c090968880f25fdce860f9a2e0d18aed86d62517302e77748843cdba8c7572e",
+      "catalogHash": "a3747f5aa7bd82dbe28545773fa39395c79315377edee4a3fcf32a60ce7440c0",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
@@ -23,11 +23,11 @@
         }
       },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 7,
-      "programmesNeedingReview": 7,
-      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 7 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-10-05T12:03:18.472324+00:00",
-      "windowFingerprint": "eea0e65e7a6d79908e859a7192db9b6c593f4e50d36f6e3931d074c1a56fa8dc",
+      "programmesWithoutDeadlines": 8,
+      "programmesNeedingReview": 8,
+      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 8 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-10-30T11:21:14.581489+00:00",
+      "windowFingerprint": "6c75324551e8c498437d9ff38209b4e0cab93a69ab0090d9effd0ea978cfac4c",
       "watchedWindowSourceHash": "010cf55e6901e30d261d5ac0cafb7a3762d5fd9b7e9ab7160280c92d057b6b1d",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
@@ -322,6 +322,16 @@
           "windowCount": 1,
           "latestClosesAt": "2027-01-19",
           "admissionRoute": "direct-master"
+        },
+        "helsinki-master-s-programme-in-leadership-education-and-learning-master": {
+          "name": "Master's Programme in Leadership Education And Learning",
+          "degreeType": "Master",
+          "faculty": "University of Helsinki",
+          "department": "University of Helsinki",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "helsinki-master-s-programme-in-life-science-informatics-master": {
           "name": "Master's Programme in Life Science Informatics",
@@ -848,8 +858,8 @@
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "transport": {
-          "requests": 28,
-          "directSuccesses": 28,
+          "requests": 29,
+          "directSuccesses": 29,
           "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
