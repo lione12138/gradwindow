@@ -16,9 +16,9 @@
 - 搜索、状态筛选、收藏、提醒和日历导出组成完整申请流程。
 - QS 是默认视图，THE 与软科前 200 视图已经上线；U.S. News 暂不标为已上线。
 
-**当前覆盖：**302 所标准化大学 · 30,044 个项目 · 6,302 条官网精确窗口
+**当前覆盖：**302 所标准化大学 · 30,045 个项目 · 6,304 条官网精确窗口
 
-状态日期：**2026-10-30**
+状态日期：**2026-10-31**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -30,7 +30,7 @@
 | =2 | Imperial College London / 帝国理工学院 | 181 个当前开放窗口 | 2027-01-06 | 官网核验 + 预测参考 | [招生官网](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [查看全部项目](https://gradwindow.com/?q=Imperial%20College%20London) |
 | =2 | Stanford University / 斯坦福大学 | 1 个当前开放窗口 | 2026-12-08 | 官网核验 | [招生官网](https://gradadmissions.stanford.edu/apply) · [查看全部项目](https://gradwindow.com/?q=Stanford%20University) |
 | 6 | University of Cambridge / 剑桥大学 | 159 个当前开放窗口 | 2026-11-18 | 官网核验 + 预测参考 | [招生官网](https://www.postgraduate.study.cam.ac.uk/application-process) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Cambridge) |
-| =8 | UCL / 伦敦大学学院 | 24 个当前开放窗口 | 2027-03-27 | 官网核验 + 预测参考 | [招生官网](https://www.ucl.ac.uk/prospective-students/graduate/applying-graduate-study) · [查看全部项目](https://gradwindow.com/?q=UCL) |
+| =8 | UCL / 伦敦大学学院 | 26 个当前开放窗口 | 2027-03-27 | 官网核验 + 预测参考 | [招生官网](https://www.ucl.ac.uk/prospective-students/graduate/applying-graduate-study) · [查看全部项目](https://gradwindow.com/?q=UCL) |
 
 [在 GradWindow 查看全部正在开放的窗口 →](https://gradwindow.com/?status=open)
 
