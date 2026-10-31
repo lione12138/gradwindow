@@ -1,11 +1,11 @@
 {
   "items": [
     {
-      "id": "new-programme:caltech-aeronautics-ms",
-      "type": "new-programme",
+      "id": "known-programme-guidance:caltech-aeronautics-ms",
+      "type": "known-programme-window-guidance",
       "status": "pending",
       "universityId": "california-institute-of-technology-caltech",
-      "detectedAt": "2026-10-30T11:02:38.280770+00:00",
+      "detectedAt": "2026-10-31T10:39:25.389034+00:00",
       "sourceUrl": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/aerospace-ae/",
       "programme": {
         "id": "caltech-aeronautics-ms",
@@ -36,43 +36,14 @@
         "retrievalMethod": "official-page",
         "evidenceQuality": "official-full-text",
         "documentHash": null
-      },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
+      }
     },
     {
-      "id": "new-programme:caltech-electrical-engineering-ms",
-      "type": "new-programme",
-      "status": "approved",
-      "universityId": "california-institute-of-technology-caltech",
-      "detectedAt": "2026-10-30T11:02:38.280770+00:00",
-      "sourceUrl": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/electrical-engineering-ee/",
-      "programme": {
-        "id": "caltech-electrical-engineering-ms",
-        "universityId": "california-institute-of-technology-caltech",
-        "name": "MS Electrical Engineering",
-        "degreeType": "MS",
-        "faculty": "Division of Engineering and Applied Science | Electrical Engineering",
-        "applicationUrl": "https://gradoffice.caltech.edu/admissions/applyonline",
-        "sourceUrl": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/electrical-engineering-ee/"
-      },
-      "windows": [],
-      "parseStatus": "no-deadline",
-      "reviewReason": "No application deadline was parsed.",
-      "evidenceExcerpt": "The current Caltech Catalog verifies this as a direct-entry master's programme for the 2026-2027 application cycle. The Graduate Studies Office states: Deadlines vary by program from December 1 to January 15. No programme-specific exact deadline is published for this route, so no application window is inferred.",
-      "discoveryEvidence": {
-        "retrievalMethod": "official-page",
-        "evidenceQuality": "official-full-text",
-        "documentHash": null
-      },
-      "reviewedBy": "automated-official-source-policy",
-      "reviewedAt": "2026-10-30T12:12:59.899825+00:00"
-    },
-    {
-      "id": "new-programme:caltech-space-engineering-ms",
-      "type": "new-programme",
+      "id": "known-programme-guidance:caltech-space-engineering-ms",
+      "type": "known-programme-window-guidance",
       "status": "pending",
       "universityId": "california-institute-of-technology-caltech",
-      "detectedAt": "2026-10-30T11:02:38.280770+00:00",
+      "detectedAt": "2026-10-31T10:39:25.389034+00:00",
       "sourceUrl": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/aerospace-ae/",
       "programme": {
         "id": "caltech-space-engineering-ms",
@@ -103,8 +74,35 @@
         "retrievalMethod": "official-page",
         "evidenceQuality": "official-full-text",
         "documentHash": null
+      }
+    },
+    {
+      "id": "new-programme:caltech-electrical-engineering-ms",
+      "type": "new-programme",
+      "status": "approved",
+      "universityId": "california-institute-of-technology-caltech",
+      "detectedAt": "2026-10-30T11:02:38.280770+00:00",
+      "sourceUrl": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/electrical-engineering-ee/",
+      "programme": {
+        "id": "caltech-electrical-engineering-ms",
+        "universityId": "california-institute-of-technology-caltech",
+        "name": "MS Electrical Engineering",
+        "degreeType": "MS",
+        "faculty": "Division of Engineering and Applied Science | Electrical Engineering",
+        "applicationUrl": "https://gradoffice.caltech.edu/admissions/applyonline",
+        "sourceUrl": "https://catalog.caltech.edu/current/information-for-graduate-students/special-regulations-for-graduate-options/electrical-engineering-ee/"
       },
-      "reviewNotes": "Official exact windows were promoted, but at least one window is missing an official opening or closing date and still needs review."
+      "windows": [],
+      "parseStatus": "no-deadline",
+      "reviewReason": "No application deadline was parsed.",
+      "evidenceExcerpt": "The current Caltech Catalog verifies this as a direct-entry master's programme for the 2026-2027 application cycle. The Graduate Studies Office states: Deadlines vary by program from December 1 to January 15. No programme-specific exact deadline is published for this route, so no application window is inferred.",
+      "discoveryEvidence": {
+        "retrievalMethod": "official-page",
+        "evidenceQuality": "official-full-text",
+        "documentHash": null
+      },
+      "reviewedBy": "automated-official-source-policy",
+      "reviewedAt": "2026-10-30T12:12:59.899825+00:00"
     }
   ]
 }
