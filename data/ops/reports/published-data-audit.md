@@ -1,13 +1,13 @@
 # Published data audit
 
-Generated for 2026-10-31.
+Generated for 2026-11-01.
 
-- Active issues: 713
+- Active issues: 711
 - Universities needing review: 13
-- Records quarantined from SEO aggregates: 465
+- Records quarantined from SEO aggregates: 463
 - Suspicious intake/deadline mappings: 219
 - Published records missing from a healthy current snapshot: 32
-- Published records changed from a healthy current snapshot: 414
+- Published records changed from a healthy current snapshot: 412
 - Published records with source URL-only changes: 48
 
 ## Maintenance queue
@@ -106,7 +106,6 @@ Generated for 2026-10-31.
 - `cuhk-advertising-mssc-2026-final-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-01-18) — correct-intake-or-document-flexible-entry
 - `cuhk-advertising-mssc-2026-priority-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-07) — correct-published-record-review
 - `cuhk-advertising-mssc-2026-priority-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
-- `cuhk-anthropology-ma-2026-2nd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-10-31) — correct-published-record-review
 - `cuhk-anthropology-ma-2026-3rd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-11-30) — correct-published-record-review
 - `cuhk-anthropology-ma-2026-3rd-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2026-11-30) — correct-intake-or-document-flexible-entry
 - `cuhk-anthropology-ma-2026-4th-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-31) — correct-published-record-review
@@ -355,7 +354,6 @@ Generated for 2026-10-31.
 - `cuhk-mathematics-msc-2026-final-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-03-31) — correct-intake-or-document-flexible-entry
 - `cuhk-mathematics-msc-2026-priority-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2027-01-31) — correct-published-record-review
 - `cuhk-mathematics-msc-2026-priority-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2027-01-31) — correct-intake-or-document-flexible-entry
-- `cuhk-mba-2026-1st-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-10-31) — correct-published-record-review
 - `cuhk-mba-2026-2nd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-15) — correct-published-record-review
 - `cuhk-mba-2026-2nd-round` — **suspicious-intake-window** (the-chinese-university-of-hong-kong, September 2026, closes 2026-12-15) — correct-intake-or-document-flexible-entry
 - `cuhk-mba-2026-3rd-round` — **published-record-changed-from-snapshot** (the-chinese-university-of-hong-kong, September 2026, closes 2027-01-31) — correct-published-record-review
