@@ -272,8 +272,9 @@ def test_toronto_adapter_reuses_fresh_details_when_api_modified_time_is_unchange
     second = adapter.parse_catalog_from_fetcher(api_only_fetcher)
 
     assert len(second.programmes) == 4
-    assert second.diagnostics == {
-        "apiPages": 1,
-        "detailPagesFetched": 0,
-        "detailCacheHits": 3,
-    }
+    assert second.diagnostics["apiPages"] == 1
+    assert second.diagnostics["detailPagesFetched"] == 0
+    assert second.diagnostics["detailCacheHits"] == 3
+    assert second.diagnostics["detailQueue"]["attemptedThisRun"] == 0
+    assert len(second.diagnostics["detailUnvisitedProgrammeIds"]) == 4
+    assert all(not p.windows for p in second.programmes)

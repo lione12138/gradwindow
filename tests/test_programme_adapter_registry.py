@@ -9,6 +9,12 @@ from gradwindow.programme_adapters.base import BaseProgrammeAdapter, ProgrammeAd
 from gradwindow.programme_adapters.registry import PROGRAMME_ADAPTERS
 
 
+def test_shared_queue_change_smokes_all_opted_in_adapters():
+    assert adapter_keys_for_paths(
+        ["src/gradwindow/programme_adapters/detail_queue.py"]
+    ) == ["edinburgh", "toronto", "ucl"]
+
+
 def test_school_helper_changes_trigger_only_the_matching_adapter():
     assert adapter_keys_for_paths(
         [

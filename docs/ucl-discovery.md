@@ -496,3 +496,13 @@ intake evidence on the course page. Tests exercise subsequent catalogue pages,
 unaffected detail checks, dry-run/write candidate flows, existing-candidate
 preservation and intake recovery. This change does not publish dates or imply
 that every course's application windows have been checked.
+
+## Shared detail scheduling (2026-11-02)
+
+UCL now uses the [shared queue and catalogue checkpoint](detail-discovery-queue.md)
+alongside Edinburgh and Toronto. A successful directory snapshot is reused for
+seven days. Directory-refresh runs check up to five details; runs reusing the
+directory check up to 24. Queue progress is persisted only by non-dry-run
+discovery. Failed or unvisited courses preserve previous review candidates and
+verification timestamps. This replaces the earlier five-detail limit on every
+run and avoids repeatedly spending the browser budget on the same directory.

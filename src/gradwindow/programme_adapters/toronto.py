@@ -2,12 +2,9 @@ from __future__ import annotations
 
 import hashlib
 import json
-import random
 import re
-import threading
-import time
 from collections.abc import Callable
-from concurrent.futures import ThreadPoolExecutor
+from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urlparse
 
@@ -19,6 +16,7 @@ from .base import (
     DiscoveredProgramme,
     DiscoveredWindow,
 )
+from .detail_queue import DetailQueue, fingerprint
 
 UNIVERSITY_ID = "university-of-toronto"
 CATALOG_URL = "https://www.sgs.utoronto.ca/programs/"
@@ -65,6 +63,7 @@ class TorontoAdapter(BaseProgrammeAdapter):
     intake = "Fall 2027"
     application_opens_at_basis = "missing"
     replace_pending_candidates = True
+    uses_shared_detail_queue = True
     browser_fallback_limit = 3
 
     def __init__(
@@ -75,6 +74,7 @@ class TorontoAdapter(BaseProgrammeAdapter):
         detail_interval_seconds: float = 0.8,
         detail_jitter_seconds: float = 0.7,
         cache_max_age_days: int = 14,
+        detail_refresh_budget: int = 24,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.workers = workers
@@ -84,9 +84,12 @@ class TorontoAdapter(BaseProgrammeAdapter):
         self.detail_jitter_seconds = detail_jitter_seconds
         self.cache_max_age_days = cache_max_age_days
         self._previous_cache: dict[str, dict] = {}
+        self.detail_refresh_budget = detail_refresh_budget
+        self.previous_adapter_state: dict = {}
 
     def prepare_discovery(self, previous_state: dict) -> None:
         adapter_state = previous_state.get("adapterState", {})
+        self.previous_adapter_state = adapter_state
         cache = adapter_state.get("detailCache", {})
         self._previous_cache = cache if isinstance(cache, dict) else {}
 
@@ -99,39 +102,65 @@ class TorontoAdapter(BaseProgrammeAdapter):
         fetched_at = datetime.now(timezone.utc)
         details: dict[str, list[DiscoveredProgramme]] = {}
         cache_hits = 0
-        urls_to_fetch = []
         rows_by_url = {row["url"]: row for row in rows}
+        tasks = {url: [row, self.intake_year] for url, row in rows_by_url.items()}
+        directory_programmes = [
+            _catalogue_programme(row, degree)
+            for row in rows
+            for degree in row["degrees"]
+        ]
+        if len(directory_programmes) < self.minimum_expected_programmes:
+            raise ValueError(
+                "U of T's official SGS directory only contained "
+                f"{len(directory_programmes)} master's programmes; expected at least "
+                f"{self.minimum_expected_programmes}"
+            )
+        if len({p.id for p in directory_programmes}) != len(directory_programmes):
+            raise ValueError(
+                "U of T's official SGS directory contains duplicate programme IDs"
+            )
+        queue_state = dict(self.previous_adapter_state.get("detailQueue", {}))
         for url in detail_urls:
             row = rows_by_url[url]
             cached = self._previous_cache.get(url)
-            if _cache_is_fresh(
-                cached,
-                modified_at=row["modified_at"],
-                now=fetched_at,
-                max_age_days=self.cache_max_age_days,
+            if (
+                isinstance(cached, dict)
+                and cached.get("taskFingerprint") == fingerprint(tasks[url])
+                and _cache_is_fresh(
+                    cached,
+                    modified_at=row["modified_at"],
+                    now=fetched_at,
+                    max_age_days=self.cache_max_age_days,
+                )
             ):
                 details[url] = [
                     _programme_from_cache(item) for item in cached["programmes"]
                 ]
                 cache_hits += 1
-            else:
-                urls_to_fetch.append(url)
-
-        pacer = _RequestPacer(
-            interval_seconds=self.detail_interval_seconds,
-            jitter_seconds=self.detail_jitter_seconds,
+                # Migrate existing successful cache observations without resetting
+                # their verification age or refetching the entire school.
+                if url not in queue_state:
+                    queue_state[url] = {
+                        "fingerprint": fingerprint(tasks[url]),
+                        "attemptedAt": cached["fetchedAt"],
+                        "checkedAt": cached["fetchedAt"],
+                        "status": "checked",
+                        "nextAttemptAt": (
+                            datetime.fromisoformat(cached["fetchedAt"])
+                            + timedelta(days=self.cache_max_age_days)
+                        ).isoformat(),
+                    }
+        queue = DetailQueue(
+            tasks,
+            queue_state,
+            budget=self.detail_refresh_budget,
+            refresh_days=self.cache_max_age_days,
         )
 
-        def fetch_detail(url: str) -> tuple[str, str]:
-            pacer.wait()
-            return url, fetcher(url)
-
-        with ThreadPoolExecutor(max_workers=self.workers) as executor:
-            pages = dict(executor.map(fetch_detail, urls_to_fetch))
-
-        for url, html in pages.items():
+        def inspect(url):
+            html = fetcher(url)
             row = rows_by_url[url]
-            details[url] = [
+            return [
                 _programme(
                     row,
                     degree_type,
@@ -141,38 +170,49 @@ class TorontoAdapter(BaseProgrammeAdapter):
                 for degree_type in row["degrees"]
             ]
 
+        fetched, errors = queue.run(
+            inspect,
+            interval_seconds=self.detail_interval_seconds,
+            jitter_seconds=self.detail_jitter_seconds,
+        )
+        details.update(fetched)
+        for url, row in rows_by_url.items():
+            if url not in details:
+                # Directory metadata is useful while queued, but is not evidence
+                # that the official detail page has no dates.
+                details[url] = [
+                    _catalogue_programme(row, degree) for degree in row["degrees"]
+                ]
         programmes = [programme for row in rows for programme in details[row["url"]]]
         programmes.sort(key=lambda item: item.id)
-        if len(programmes) < self.minimum_expected_programmes:
-            raise ValueError(
-                "U of T's official SGS directory only contained "
-                f"{len(programmes)} master's programmes; expected at least "
-                f"{self.minimum_expected_programmes}"
-            )
-        detail_cache = {
-            row["url"]: {
-                "modifiedAt": row["modified_at"],
-                "fetchedAt": (
-                    self._previous_cache[row["url"]]["fetchedAt"]
-                    if row["url"] not in pages
-                    else fetched_at.isoformat()
-                ),
-                "programmes": [
-                    _programme_to_cache(programme) for programme in details[row["url"]]
-                ],
-            }
-            for row in rows
-        }
-        return DiscoveredCatalog(
+        detail_cache = {}
+        for url, row in rows_by_url.items():
+            if url in fetched:
+                detail_cache[url] = {
+                    "taskFingerprint": fingerprint(tasks[url]),
+                    "modifiedAt": row["modified_at"],
+                    "fetchedAt": fetched_at.isoformat(),
+                    "programmes": [_programme_to_cache(p) for p in fetched[url]],
+                }
+            elif url in self._previous_cache:
+                detail_cache[url] = self._previous_cache[url]
+        catalog = DiscoveredCatalog(
             application_opens_at=None,
             programmes=programmes,
             diagnostics={
                 "apiPages": api_pages,
-                "detailPagesFetched": len(pages),
+                "detailPagesFetched": len(fetched),
                 "detailCacheHits": cache_hits,
+                "detailFailures": len(errors),
             },
             adapter_state={"detailCache": detail_cache},
+            warnings=[
+                {"sourceUrl": url, "reason": queue.state[url]["status"]}
+                for url in errors
+            ],
         )
+        queue.attach(catalog)
+        return catalog
 
 
 def _api_rows(fetcher: Callable[[str], str]) -> tuple[list[dict], int]:
@@ -215,27 +255,6 @@ def _api_rows(fetcher: Callable[[str], str]) -> tuple[list[dict], int]:
         page += 1
 
 
-class _RequestPacer:
-    def __init__(self, *, interval_seconds: float, jitter_seconds: float) -> None:
-        self.interval_seconds = max(0.0, interval_seconds)
-        self.jitter_seconds = max(0.0, jitter_seconds)
-        self._lock = threading.Lock()
-        self._next_request_at = 0.0
-
-    def wait(self) -> None:
-        with self._lock:
-            now = time.monotonic()
-            request_at = max(now, self._next_request_at)
-            self._next_request_at = (
-                request_at
-                + self.interval_seconds
-                + random.uniform(0.0, self.jitter_seconds)
-            )
-        delay = request_at - now
-        if delay > 0:
-            time.sleep(delay)
-
-
 def _cache_is_fresh(
     cached: object,
     *,
@@ -255,7 +274,7 @@ def _cache_is_fresh(
         return False
     if fetched_at.tzinfo is None:
         fetched_at = fetched_at.replace(tzinfo=timezone.utc)
-    return now - fetched_at <= timedelta(days=max_age_days)
+    return timedelta(0) <= now - fetched_at < timedelta(days=max_age_days)
 
 
 def _is_master_degree(value: str) -> bool:
@@ -284,6 +303,18 @@ def _programme(
             source_url=row["url"],
             intake_year=intake_year,
         )
+    return replace(
+        _catalogue_programme(row, degree_type),
+        windows=windows,
+        deadline_text=deadline_text,
+        parse_status="incomplete" if windows else "no-deadline",
+        retrieval_method="official-html",
+        evidence_quality="official-full-text",
+        evidence_document_hash=hashlib.sha256(html.encode("utf-8")).hexdigest(),
+    )
+
+
+def _catalogue_programme(row: dict, degree_type: str) -> DiscoveredProgramme:
     page_slug = urlparse(row["url"]).path.rstrip("/").rsplit("/", 1)[-1]
     degree_slug = _slug(degree_type)
     programme_id = f"toronto-{page_slug}-{degree_slug}"
@@ -301,12 +332,9 @@ def _programme(
         department="",
         source_url=row["url"],
         application_url=APPLICATION_URL,
-        windows=windows,
-        deadline_text=deadline_text,
-        parse_status="incomplete" if windows else "no-deadline",
-        retrieval_method="official-html",
-        evidence_quality="official-full-text",
-        evidence_document_hash=hashlib.sha256(html.encode("utf-8")).hexdigest(),
+        windows=[],
+        deadline_text="Official programme detail is queued for date review.",
+        parse_status="catalogue-only",
     )
 
 

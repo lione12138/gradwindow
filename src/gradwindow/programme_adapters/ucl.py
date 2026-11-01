@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 
 from ..http_client import FetchFailure
 from .base import BaseProgrammeAdapter, DiscoveredCatalog, DiscoveredProgramme
+from .detail_queue import CatalogueCheckpoint
 
 UNIVERSITY_ID = "ucl-university-college-london"
 CATALOG_URL = "https://www.ucl.ac.uk/study/prospective-students/graduate/courses"
@@ -148,7 +149,9 @@ class UCLAdapter(BaseProgrammeAdapter):
     intake = "Varies by programme"
     application_opens_at_basis = "official"
     replace_pending_candidates = True
-    browser_fallback_limit = 40
+    uses_shared_detail_queue = True
+    # Up to 40 directory pages plus a separate five-detail slice on refresh days.
+    browser_fallback_limit = 45
     window_watch_urls = (CATALOG_URL,)
 
     def __init__(
@@ -156,18 +159,22 @@ class UCLAdapter(BaseProgrammeAdapter):
         minimum_expected_courses: int = 550,
         minimum_expected_programmes: int = 500,
         blocked_catalog_fetcher: CatalogFallbackFetcher | None = None,
-        detail_refresh_budget: int = 5,
+        detail_refresh_budget: int = 24,
         detail_programme_ids: set[str] | None = None,
+        catalogue_max_age_days: int = 7,
     ) -> None:
         self.minimum_expected_courses = minimum_expected_courses
         self.minimum_expected_programmes = minimum_expected_programmes
         self.blocked_catalog_fetcher = blocked_catalog_fetcher or _fetch_with_curl
         self.previous_ids: dict[str, str] = {}
-        self.detail_refresh_budget = max(0, min(detail_refresh_budget, 5))
+        self.detail_refresh_budget = max(0, min(detail_refresh_budget, 24))
         self.detail_monitor: dict = {}
         self.detail_programme_ids = detail_programme_ids
+        self.catalogue_max_age_days = catalogue_max_age_days
+        self.previous_adapter_state: dict = {}
 
     def prepare_discovery(self, previous_state: dict) -> None:
+        self.previous_adapter_state = previous_state.get("adapterState", {})
         self.detail_monitor = previous_state.get("adapterState", {}).get(
             "detailMonitor", {}
         )
@@ -181,6 +188,32 @@ class UCLAdapter(BaseProgrammeAdapter):
         }
 
     def parse_catalog_from_fetcher(self, fetcher) -> DiscoveredCatalog:
+        from .ucl_detail import monitor_details
+
+        checkpoint = CatalogueCheckpoint(
+            self.previous_adapter_state.get("catalogueCheckpoint", {}),
+            key=f"ucl-directory-v1:{self.minimum_expected_courses}:{self.minimum_expected_programmes}",
+            max_age_days=self.catalogue_max_age_days,
+        )
+        catalog = checkpoint.load(lambda: self._discover_directory(fetcher))
+        # The legacy directory has no current option/intake contract.
+        if catalog.diagnostics.get("catalogueVersion") == "current-course-feed":
+            monitor_details(
+                catalog,
+                fetcher,
+                self.detail_monitor,
+                budget=(
+                    self.detail_refresh_budget
+                    if checkpoint.reused
+                    else min(self.detail_refresh_budget, 5)
+                ),
+                programme_ids=self.detail_programme_ids,
+                queue_state=self.previous_adapter_state.get("detailQueue", {}),
+            )
+        checkpoint.attach(catalog)
+        return catalog
+
+    def _discover_directory(self, fetcher) -> DiscoveredCatalog:
         try:
             html = fetcher(CATALOG_URL)
         except FetchFailure as exc:
@@ -189,7 +222,6 @@ class UCLAdapter(BaseProgrammeAdapter):
             html = self.blocked_catalog_fetcher(CATALOG_URL)
         if "course-feed-listing-view__result-count" in html:
             from .ucl_current import discover_current_catalogue
-            from .ucl_detail import monitor_details
 
             catalog = discover_current_catalogue(
                 html,
@@ -198,13 +230,7 @@ class UCLAdapter(BaseProgrammeAdapter):
                 minimum_courses=self.minimum_expected_courses,
                 minimum_programmes=self.minimum_expected_programmes,
             )
-            monitor_details(
-                catalog,
-                fetcher,
-                self.detail_monitor,
-                budget=self.detail_refresh_budget,
-                programme_ids=self.detail_programme_ids,
-            )
+            catalog.diagnostics["catalogueVersion"] = "current-course-feed"
             return catalog
         return self.parse_catalog(html)
 
