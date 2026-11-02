@@ -1,6 +1,6 @@
 # Published data audit
 
-Generated for 2026-11-01.
+Generated for 2026-11-02.
 
 - Active issues: 711
 - Universities needing review: 13
