@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { uclWindowRows } from "./ucl-windows.fixture.js";
 
 async function openTracker(page) {
   await page.route("https://static.cloudflareinsights.com/**", (route) =>
@@ -17,7 +18,7 @@ async function firstWindowFavorite(page) {
   return favorite;
 }
 
-async function overrideSchoolWindows(page, schoolId, updateRow) {
+async function overrideSchoolWindows(page, schoolId, updateRow, fixtureRows) {
   const index = await (
     await page.request.get("/data/frontend-index.json")
   ).json();
@@ -30,6 +31,13 @@ async function overrideSchoolWindows(page, schoolId, updateRow) {
       const response = await route.fetch();
       const payload = await response.json();
       const dictionaries = payload.records.dictionaries;
+      if (fixtureRows) {
+        payload.records.rows = payload.records.rows.filter(
+          (row) => row[1] !== schoolIndex,
+        );
+        if (file === "frontend-index.json")
+          payload.records.rows.push(...fixtureRows(schoolIndex, dictionaries));
+      }
       const trustIndex = (status) => {
         if (!dictionaries.trustStatuses.includes(status))
           dictionaries.trustStatuses.push(status);
@@ -45,6 +53,15 @@ async function overrideSchoolWindows(page, schoolId, updateRow) {
       await route.fulfill({ response, json: payload });
     });
   }
+}
+
+async function overrideUclWindows(page, updateRow) {
+  await overrideSchoolWindows(
+    page,
+    "ucl-university-college-london",
+    updateRow,
+    uclWindowRows,
+  );
 }
 
 test("deadline-only facts remain visible alongside a school's full windows", async ({
@@ -309,13 +326,9 @@ test("UCL reviewed 2027 windows show visa-specific dates and calendar actions", 
   page,
 }) => {
   await page.clock.setFixedTime(new Date("2026-10-26T12:00:00Z"));
-  await overrideSchoolWindows(
-    page,
-    "ucl-university-college-london",
-    (row, trustIndex) => {
-      if (row[0].includes("-2027-")) row[18] = trustIndex("current");
-    },
-  );
+  await overrideUclWindows(page, (row, trustIndex) => {
+    if (row[0].includes("-2027-")) row[18] = trustIndex("current");
+  });
   await openTracker(page);
   await page.locator('.status-tab[data-status="all"]').click();
   const ucl = page.locator('[data-school-id="ucl-university-college-london"]');
@@ -349,13 +362,9 @@ test("UCL blocked current-cycle sources remain reviewable without becoming histo
   page,
 }) => {
   await page.clock.setFixedTime(new Date("2026-10-26T12:00:00Z"));
-  await overrideSchoolWindows(
-    page,
-    "ucl-university-college-london",
-    (row, trustIndex) => {
-      row[18] = trustIndex("source-unavailable");
-    },
-  );
+  await overrideUclWindows(page, (row, trustIndex) => {
+    row[18] = trustIndex("source-unavailable");
+  });
   await page.goto("/?university=ucl-university-college-london&status=all");
   const pending = page.locator(
     '[data-review-school="ucl-university-college-london"][data-review-kind="pending"]',
@@ -367,7 +376,7 @@ test("UCL blocked current-cycle sources remain reviewable without becoming histo
     '.review-window-row[data-university-id="ucl-university-college-london"][data-review-kind="pending"]',
   );
   await expect(pending).toContainText("View dates pending recheck (4)");
-  await expect(historical).toContainText("View historical dates (20)");
+  await expect(historical).toContainText("View historical dates (2)");
   await expect(page.locator("#count-open")).toHaveText("0");
   await expect(page.locator("#count-exception")).toHaveText("1");
   await pending.getByRole("button").click();
@@ -431,26 +440,22 @@ test("review dates use deadline semantics rather than trust status to decide his
   page,
 }) => {
   await page.clock.setFixedTime(new Date("2026-10-26T12:00:00Z"));
-  await overrideSchoolWindows(
-    page,
-    "ucl-university-college-london",
-    (row, trustIndex, dictionaries) => {
-      row[18] = trustIndex("stale");
-      if (!row[0].includes("-2027-")) return;
-      row[6] = "2026-10-01";
-      row[7] = "2026-10-26";
-      const semantics = row[0].includes("does-not-require") ? "on" : "before";
-      if (!dictionaries.deadlineSemantics.includes(semantics))
-        dictionaries.deadlineSemantics.push(semantics);
-      row[17] = dictionaries.deadlineSemantics.indexOf(semantics);
-    },
-  );
+  await overrideUclWindows(page, (row, trustIndex, dictionaries) => {
+    row[18] = trustIndex("stale");
+    if (!row[0].includes("-2027-")) return;
+    row[6] = "2026-10-01";
+    row[7] = "2026-10-26";
+    const semantics = row[0].includes("does-not-require") ? "on" : "before";
+    if (!dictionaries.deadlineSemantics.includes(semantics))
+      dictionaries.deadlineSemantics.push(semantics);
+    row[17] = dictionaries.deadlineSemantics.indexOf(semantics);
+  });
   await page.goto("/?university=ucl-university-college-london&status=all");
   await expect(page.locator('[data-review-kind="pending"]')).toContainText(
     "View dates pending recheck (2)",
   );
   await expect(page.locator('[data-review-kind="history"]')).toContainText(
-    "View historical dates (22)",
+    "View historical dates (4)",
   );
   await expect(page.locator("#count-open")).toHaveText("0");
 });
@@ -461,15 +466,11 @@ test("saved calendar export excludes pending review dates from mixed favorites",
   const currentId =
     "ucl-advanced-materials-science-msc-2027-application-period-requires-uk-study-visa";
   await page.clock.setFixedTime(new Date("2026-10-26T12:00:00Z"));
-  await overrideSchoolWindows(
-    page,
-    "ucl-university-college-london",
-    (row, trustIndex) => {
-      row[18] = trustIndex(
-        row[0] === currentId ? "current" : "source-unavailable",
-      );
-    },
-  );
+  await overrideUclWindows(page, (row, trustIndex) => {
+    row[18] = trustIndex(
+      row[0] === currentId ? "current" : "source-unavailable",
+    );
+  });
   await page.goto("/?university=ucl-university-college-london&status=all");
   await page
     .locator(`.favorite-button[data-favorite-key="window:${currentId}"]`)
