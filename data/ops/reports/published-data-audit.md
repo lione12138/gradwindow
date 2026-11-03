@@ -1,13 +1,13 @@
 # Published data audit
 
-Generated for 2026-11-02.
+Generated for 2026-11-03.
 
-- Active issues: 711
+- Active issues: 713
 - Universities needing review: 13
-- Records quarantined from SEO aggregates: 463
+- Records quarantined from SEO aggregates: 465
 - Suspicious intake/deadline mappings: 219
 - Published records missing from a healthy current snapshot: 32
-- Published records changed from a healthy current snapshot: 412
+- Published records changed from a healthy current snapshot: 414
 - Published records with source URL-only changes: 48
 
 ## Maintenance queue
@@ -573,6 +573,8 @@ Generated for 2026-11-02.
 - `polyu-fire-and-safety-engineering-msc-2027-main-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2027-02-25) — correct-published-record-review
 - `polyu-generative-ai-and-the-humanities-msc-2027-main-round-domestic-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2027-02-25) — correct-published-record-review
 - `polyu-generative-ai-and-the-humanities-msc-2027-main-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2027-02-25) — correct-published-record-review
+- `polyu-generative-artificial-intelligence-msc-2027-main-round-domestic-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2027-02-25) — correct-published-record-review
+- `polyu-generative-artificial-intelligence-msc-2027-main-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2027-02-25) — correct-published-record-review
 - `polyu-geomatics-msc-2027-main-round-domestic-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2027-02-25) — correct-published-record-review
 - `polyu-geomatics-msc-2027-main-round-international-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2027-02-25) — correct-published-record-review
 - `polyu-global-business-and-decision-analysis-msc-2027-main-round-domestic-students` — **published-record-changed-from-snapshot** (the-hong-kong-polytechnic-university, September 2027, closes 2027-02-25) — correct-published-record-review
