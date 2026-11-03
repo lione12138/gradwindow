@@ -95,6 +95,26 @@ def seed_candidates(tmp_path):
         write_json(tmp_path / filename, payload)
 
 
+def test_deferred_runs_keep_baseline_for_later_confirmed_window_removal(tmp_path):
+    seed_candidates(tmp_path)
+    path = tmp_path / "programme-catalog-state.json"
+    before = read_json(path)["universities"]["example-university"]["windows"]
+    deferred = {
+        "detailUnvisitedProgrammeIds": [
+            f"example-{name}-msc" for name in ("new", "known", "guidance")
+        ]
+    }
+    for _ in range(2):
+        discover(tmp_path, PartialDedicatedAdapter(deferred, include_windows=False))
+        state = read_json(path)["universities"]["example-university"]
+        assert state["windowBaseline"] == before
+        assert state["windows"] == {}
+    observed_removal = discover(
+        tmp_path, PartialDedicatedAdapter(include_windows=False)
+    )
+    assert set(observed_removal["recordDiff"]["disappearedWindowIds"]) == set(before)
+
+
 @pytest.mark.parametrize(
     "diagnostic", ["detailUnvisitedProgrammeIds", "detailFailedProgrammeIds"]
 )

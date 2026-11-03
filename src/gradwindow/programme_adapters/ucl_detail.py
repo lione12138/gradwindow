@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup
 
 from ..http_client import FetchFailure
 from .base import DiscoveredCatalog, DiscoveredProgramme, DiscoveredWindow, Fetcher
+from .detail_queue import DetailQueue
 from .official_catalog import normalise
 from .ucl import CATALOG_URL, programme_name_key
 from .ucl_windows import exact_windows
@@ -141,6 +142,7 @@ def monitor_details(
     *,
     budget: int,
     programme_ids: set[str] | None = None,
+    queue_state: dict | None = None,
 ) -> None:
     if programme_ids is not None and not programme_ids <= {
         p.id for p in catalog.programmes
@@ -161,14 +163,18 @@ def monitor_details(
         and previous[url].get("intakes") == p.available_intakes
         and previous[url].get("programmeId") == p.id
     }
-    order = sorted(
-        (
-            url
-            for url, p in eligible.items()
-            if programme_ids is None or p.id in programme_ids
-        ),
-        key=lambda url: (state.get(url, {}).get("attemptedAt", ""), url),
+    queue = DetailQueue(
+        {url: [p.id, p.name, p.available_intakes] for url, p in eligible.items()},
+        queue_state or {},
+        budget=budget if programme_ids is None else len(eligible),
+        legacy_attempts={
+            url: entry.get("attemptedAt", "") for url, entry in state.items()
+        },
     )
+    if programme_ids is not None:
+        queue.selected = [
+            url for url in queue.selected if eligible[url].id in programme_ids
+        ][: max(0, budget)]
     succeeded, failed = set(), set()
     for p in catalog.programmes:
         p.windows = []
@@ -181,7 +187,7 @@ def monitor_details(
             else "catalogue-only"
         )
     attempted = 0
-    for url in order[: max(0, budget)]:
+    for url in queue.selected:
         p = eligible[url]
         now = datetime.now(timezone.utc).isoformat()
         entry = {
@@ -202,6 +208,7 @@ def monitor_details(
             catalog.warnings.append({"sourceUrl": url, "reason": entry["status"]})
             state[url] = entry
             failed.add(p.id)
+            queue.record_error(url, exc)
             # Stop after transport failure: do not consume the remaining fallback
             # allowance against a blocked/rate-limited upstream.
             if isinstance(exc, FetchFailure):
@@ -222,6 +229,7 @@ def monitor_details(
                 failed.add(p.id)
                 p.parse_status = "needs-review"
                 catalog.warnings.append({"sourceUrl": url, "reason": result["status"]})
+            queue.record(url, result["status"], checked=p.id in succeeded)
     catalog.adapter_state["detailMonitor"] = state
     catalog.diagnostics.update(
         detailWindowDiscovery="bounded-exact-window-discovery",
@@ -250,3 +258,4 @@ def monitor_details(
             )
         },
     }
+    queue.attach(catalog)

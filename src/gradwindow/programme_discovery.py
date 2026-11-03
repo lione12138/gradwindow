@@ -450,15 +450,24 @@ def discover_programmes(
                 ),
             }
     previous_programmes = previous_state.get("programmes")
-    previous_windows = previous_state.get("windows")
+    previous_windows = previous_state.get(
+        "windowBaseline", previous_state.get("windows")
+    )
+    window_baseline_items = dict(window_snapshot_items)
     has_record_baseline = isinstance(previous_programmes, dict) and isinstance(
         previous_windows, dict
     )
     if has_record_baseline:
+        # Keep the last checked baseline across queue slices. Otherwise an
+        # unvisited run would erase the evidence needed to detect a later real
+        # removal. These retained rows are not fresh window observations.
+        for window_id, item in previous_windows.items():
+            if item.get("programmeId") in deferred_detail_ids:
+                window_baseline_items.setdefault(window_id, item)
         previous_programme_ids = set(previous_programmes)
         current_programme_ids = set(snapshot_items)
         previous_window_ids = set(previous_windows)
-        current_window_ids = set(window_snapshot_items)
+        current_window_ids = set(window_baseline_items)
         record_diff = {
             "previous": {
                 "programmes": len(previous_programmes),
@@ -466,7 +475,7 @@ def discover_programmes(
             },
             "current": {
                 "programmes": len(snapshot_items),
-                "windows": len(window_snapshot_items),
+                "windows": len(window_baseline_items),
             },
             "disappearedProgrammeIds": sorted(
                 previous_programme_ids - current_programme_ids
@@ -487,7 +496,7 @@ def discover_programmes(
             "changedWindowIds": sorted(
                 window_id
                 for window_id in previous_window_ids & current_window_ids
-                if previous_windows[window_id] != window_snapshot_items[window_id]
+                if previous_windows[window_id] != window_baseline_items[window_id]
             ),
         }
         disappeared_window_details = {
@@ -576,6 +585,16 @@ def discover_programmes(
         if watched_source_hashes
         else None
     )
+    if (
+        not watched_source_hashes
+        and watched_urls
+        and catalog.diagnostics.get("catalogueCheckpoint", {}).get("reused")
+    ):
+        # A reused directory is not an observation that its watched source vanished.
+        watched_source_fingerprint = previous_state.get("watchedWindowSourceHash")
+        watched_source_fingerprint_version = previous_state.get(
+            "watchedWindowSourceFingerprintVersion"
+        )
     programmes_without_deadlines = sum(
         not programme.windows for programme in catalog.programmes
     )
@@ -633,6 +652,7 @@ def discover_programmes(
         "watchedWindowSourceFingerprintVersion": (watched_source_fingerprint_version),
         "programmes": snapshot_items,
         "windows": window_snapshot_items,
+        "windowBaseline": window_baseline_items,
         "adapterWarnings": catalog.warnings,
         "adapterDiagnostics": catalog.diagnostics,
         **({"adapterState": catalog.adapter_state} if catalog.adapter_state else {}),

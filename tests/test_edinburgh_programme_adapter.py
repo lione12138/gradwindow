@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from gradwindow.programme_adapters.base import OfficialSourceTransportError
+from gradwindow.http_client import FetchFailure
 from gradwindow.programme_adapters.edinburgh import (
     CATALOG_URL,
     EdinburghAdapter,
@@ -110,7 +110,7 @@ def test_edinburgh_adapter_reads_catalogue_and_deadline_table_variants() -> None
     ]
 
 
-def test_edinburgh_adapter_hard_fails_when_more_than_twenty_percent_of_details_fail() -> (
+def test_edinburgh_adapter_checkpoints_blocked_details_without_erasing_candidates() -> (
     None
 ):
     adapter = EdinburghAdapter(
@@ -122,10 +122,14 @@ def test_edinburgh_adapter_hard_fails_when_more_than_twenty_percent_of_details_f
     def fetcher(url: str) -> str:
         if url == CATALOG_URL:
             return CATALOGUE
-        raise RuntimeError("temporary block")
+        raise FetchFailure("temporary block", kind="blocked")
 
-    with pytest.raises(OfficialSourceTransportError, match="3 of 3"):
-        adapter.parse_catalog_from_fetcher(fetcher)
+    catalog = adapter.parse_catalog_from_fetcher(fetcher)
+    assert adapter.catalogue_status == "degraded"
+    assert catalog.diagnostics["detailQueue"]["attemptedThisRun"] == 1
+    assert catalog.diagnostics["detailQueue"]["deferredThisRun"] == 2
+    assert len(catalog.diagnostics["detailFailedProgrammeIds"]) == 1
+    assert all(not p.windows for p in catalog.programmes)
 
 
 def test_edinburgh_adapter_rejects_implausibly_small_catalogue() -> None:
@@ -178,6 +182,8 @@ def test_edinburgh_adapter_refreshes_only_a_bounded_cache_slice() -> None:
         detail_interval_seconds=0,
     )
     adapter.prepare_discovery({"adapterState": first.adapter_state})
+    for entry in first.adapter_state["detailQueue"].values():
+        entry["nextAttemptAt"] = "2020-01-01T00:00:00+00:00"
     detail_calls = []
 
     def fetcher(url: str) -> str:

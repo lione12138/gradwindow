@@ -17,7 +17,11 @@ def adapter_keys_for_paths(paths: list[str]) -> list[str]:
     return sorted(
         key
         for key, factory in PROGRAMME_ADAPTERS.items()
-        if any(
+        if (
+            "detail_queue" in changed_modules
+            and getattr(factory, "uses_shared_detail_queue", False)
+        )
+        or any(
             module == factory.__module__.rsplit(".", 1)[-1]
             or module.startswith(factory.__module__.rsplit(".", 1)[-1] + "_")
             for module in changed_modules

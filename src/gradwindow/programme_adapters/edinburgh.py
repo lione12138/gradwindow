@@ -1,11 +1,7 @@
 from __future__ import annotations
 
-import concurrent.futures
 import hashlib
-import random
 import re
-import threading
-import time
 import unicodedata
 from collections.abc import Callable
 from dataclasses import replace
@@ -19,8 +15,8 @@ from .base import (
     DiscoveredCatalog,
     DiscoveredProgramme,
     DiscoveredWindow,
-    OfficialSourceTransportError,
 )
+from .detail_queue import CatalogueCheckpoint, DetailQueue
 
 UNIVERSITY_ID = "university-of-edinburgh"
 CATALOG_URL = "https://study.ed.ac.uk/programmes/postgraduate-taught-a-z"
@@ -66,6 +62,7 @@ class EdinburghAdapter(BaseProgrammeAdapter):
     application_url = APPLICATION_GUIDANCE_URL
     application_opens_at_basis = "missing"
     replace_pending_candidates = True
+    uses_shared_detail_queue = True
     intake = DEFAULT_INTAKE
     browser_fallback_limit = 6
 
@@ -77,6 +74,7 @@ class EdinburghAdapter(BaseProgrammeAdapter):
         detail_interval_seconds: float = 0.8,
         detail_jitter_seconds: float = 0.7,
         maximum_detail_failure_ratio: float = 0.2,
+        catalogue_max_age_days: int = 7,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
         self.detail_workers = detail_workers
@@ -86,9 +84,12 @@ class EdinburghAdapter(BaseProgrammeAdapter):
         self.maximum_detail_failure_ratio = maximum_detail_failure_ratio
         self._previous_cache: dict[str, dict] = {}
         self.catalogue_status = "ok"
+        self.catalogue_max_age_days = catalogue_max_age_days
+        self.previous_adapter_state: dict = {}
 
     def prepare_discovery(self, previous_state: dict) -> None:
         adapter_state = previous_state.get("adapterState", {})
+        self.previous_adapter_state = adapter_state
         cache = adapter_state.get("detailCache", {})
         self._previous_cache = cache if isinstance(cache, dict) else {}
 
@@ -96,17 +97,24 @@ class EdinburghAdapter(BaseProgrammeAdapter):
         self,
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
-        programmes = {
-            programme.id: programme
-            for programme in _catalogue_programmes(fetcher(CATALOG_URL))
-        }
-        catalogue = sorted(programmes.values(), key=lambda item: item.id)
-        if len(catalogue) < self.minimum_expected_programmes:
-            raise ValueError(
-                "University of Edinburgh catalogue only contained "
-                f"{len(catalogue)} master's programmes; expected at least "
-                f"{self.minimum_expected_programmes} from the official A-Z list"
-            )
+        def load_directory():
+            programmes = {p.id: p for p in _catalogue_programmes(fetcher(CATALOG_URL))}
+            catalogue = sorted(programmes.values(), key=lambda p: p.id)
+            if len(catalogue) < self.minimum_expected_programmes:
+                raise ValueError(
+                    "University of Edinburgh catalogue only contained "
+                    f"{len(catalogue)} master's programmes; expected at least "
+                    f"{self.minimum_expected_programmes} from the official A-Z list"
+                )
+            return DiscoveredCatalog(None, catalogue)
+
+        checkpoint = CatalogueCheckpoint(
+            self.previous_adapter_state.get("catalogueCheckpoint", {}),
+            key=f"edinburgh-directory-v1:{self.minimum_expected_programmes}",
+            max_age_days=self.catalogue_max_age_days,
+        )
+        catalog = checkpoint.load(load_directory)
+        catalogue = catalog.programmes
 
         cached_programmes = {}
         uncached = []
@@ -118,53 +126,29 @@ class EdinburghAdapter(BaseProgrammeAdapter):
                 )
             else:
                 uncached.append(programme)
-        refreshable = sorted(
-            (
-                programme
-                for programme in catalogue
-                if programme.source_url in cached_programmes
-            ),
-            key=lambda item: (
-                self._previous_cache[item.source_url].get("fetchedAt", ""),
-                item.source_url,
-            ),
-        )[: self.detail_refresh_budget]
-        to_fetch = [*uncached, *refreshable]
-        pacer = _RequestPacer(
+        by_url = {p.source_url: p for p in catalogue}
+        queue = DetailQueue(
+            {url: [p.id, p.name, p.degree_type] for url, p in by_url.items()},
+            self.previous_adapter_state.get("detailQueue", {}),
+            budget=self.detail_refresh_budget,
+            legacy_attempts={
+                url: item.get("fetchedAt", "")
+                for url, item in self._previous_cache.items()
+            },
+        )
+        fetched, errors = queue.run(
+            lambda url: _parse_detail(by_url[url], fetcher(url)),
             interval_seconds=self.detail_interval_seconds,
             jitter_seconds=self.detail_jitter_seconds,
         )
-
-        def parse_one(
-            programme: DiscoveredProgramme,
-        ) -> tuple[DiscoveredProgramme, Exception | None]:
-            try:
-                pacer.wait()
-                return _parse_detail(programme, fetcher(programme.source_url)), None
-            except Exception as exc:
-                fallback = cached_programmes.get(programme.source_url, programme)
-                return fallback, exc
-
-        with concurrent.futures.ThreadPoolExecutor(
-            max_workers=self.detail_workers
-        ) as executor:
-            results = list(executor.map(parse_one, to_fetch))
-        fetched = {
-            programme.source_url: programme
-            for programme, error in results
-            if error is None
-        }
-        failures = [error for _programme, error in results if error is not None]
-        failure_ratio = len(failures) / len(to_fetch) if to_fetch else 0.0
-        if failure_ratio > self.maximum_detail_failure_ratio:
-            raise OfficialSourceTransportError(
-                "University of Edinburgh detail refresh failed for "
-                f"{len(failures)} of {len(to_fetch)} programme pages "
-                f"({failure_ratio:.1%}); previous exact windows were preserved"
-            )
-        warnings = _detail_failure_warnings(len(failures), len(to_fetch))
-        if failure_ratio >= 0.05:
-            self.catalogue_status = "degraded"
+        attempted = len(queue.attempted)
+        failure_ratio = len(errors) / attempted if attempted else 0.0
+        warnings = _detail_failure_warnings(len(errors), attempted)
+        self.catalogue_status = (
+            "degraded"
+            if failure_ratio >= min(0.05, self.maximum_detail_failure_ratio) and errors
+            else "ok"
+        )
 
         fetched_at = datetime.now().astimezone().isoformat()
         detailed = []
@@ -176,27 +160,29 @@ class EdinburghAdapter(BaseProgrammeAdapter):
             )
             detailed.append(detail)
             previous = self._previous_cache.get(programme.source_url, {})
-            detail_cache[programme.source_url] = {
-                "fetchedAt": (
-                    fetched_at
-                    if programme.source_url in fetched
-                    else previous.get("fetchedAt", "")
-                ),
-                "detail": _programme_to_cache(detail),
-            }
-        return DiscoveredCatalog(
+            if programme.source_url in fetched:
+                detail_cache[programme.source_url] = {
+                    "fetchedAt": fetched_at,
+                    "detail": _programme_to_cache(detail),
+                }
+            elif previous:
+                detail_cache[programme.source_url] = previous
+        catalog = DiscoveredCatalog(
             application_opens_at=None,
             programmes=detailed,
             warnings=warnings,
             diagnostics={
-                "catalogueRequests": 1,
+                "catalogueRequests": int(not checkpoint.reused),
                 "detailPagesFetched": len(fetched),
                 "detailCacheHits": len(catalogue) - len(uncached),
-                "detailFailures": len(failures),
+                "detailFailures": len(errors),
                 "detailFailureRatio": round(failure_ratio, 4),
             },
             adapter_state={"detailCache": detail_cache},
         )
+        checkpoint.attach(catalog)
+        queue.attach(catalog)
+        return catalog
 
 
 def _catalogue_programmes(html: str) -> list[DiscoveredProgramme]:
@@ -236,27 +222,6 @@ def _catalogue_programmes(html: str) -> list[DiscoveredProgramme]:
             )
         )
     return programmes
-
-
-class _RequestPacer:
-    def __init__(self, *, interval_seconds: float, jitter_seconds: float) -> None:
-        self.interval_seconds = max(0.0, interval_seconds)
-        self.jitter_seconds = max(0.0, jitter_seconds)
-        self._lock = threading.Lock()
-        self._next_request_at = 0.0
-
-    def wait(self) -> None:
-        with self._lock:
-            now = time.monotonic()
-            request_at = max(now, self._next_request_at)
-            self._next_request_at = (
-                request_at
-                + self.interval_seconds
-                + random.uniform(0.0, self.jitter_seconds)
-            )
-        delay = request_at - now
-        if delay > 0:
-            time.sleep(delay)
 
 
 def _detail_failure_warnings(failures: int, attempted: int) -> list[dict[str, object]]:

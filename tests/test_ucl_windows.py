@@ -168,8 +168,21 @@ def test_replacement_preserves_deferred_candidates_and_confirmation(
             pytest.fail("Unknown intake must not consume the detail fetch budget")
         return html().replace("Applicants who require a visa", "Unknown category")
 
+    def make_due():
+        state = read_json(paths["state_path"])
+        entries = state["universities"][UNIVERSITY_ID]["adapterState"]["detailQueue"]
+        for entry in entries.values():
+            entry["nextAttemptAt"] = "2020-01-01T00:00:00+00:00"
+        write_json(paths["state_path"], state)
+
+    make_due()
     report = discover_programmes(
-        UCLAdapter(1, 1, detail_refresh_budget=0 if failure == "budget" else 1),
+        UCLAdapter(
+            1,
+            1,
+            detail_refresh_budget=0 if failure == "budget" else 1,
+            catalogue_max_age_days=0,
+        ),
         fetcher=incomplete,
         **paths,
     )
@@ -177,7 +190,10 @@ def test_replacement_preserves_deferred_candidates_and_confirmation(
     assert report["recordDiff"]["disappearedWindowIds"] == []
     assert report["newWindowCandidates"] == 0
     if known:
-        discover_programmes(UCLAdapter(1, 1), fetcher=fetch, **paths)
+        make_due()
+        discover_programmes(
+            UCLAdapter(1, 1, catalogue_max_age_days=0), fetcher=fetch, **paths
+        )
         after = read_json(path)["items"]
         assert all(c["confirmation"]["observationCount"] == 2 for c in after)
         assert [c["detectedAt"] for c in after] == [c["detectedAt"] for c in before]
