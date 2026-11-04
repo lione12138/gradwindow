@@ -2,14 +2,14 @@
   "universities": {
     "tufts-university": {
       "sourceUrl": "https://www.tufts.edu/graduate-programs",
-      "checkedAt": "2026-08-29T19:50:46.458846+00:00",
-      "itemCount": 93,
+      "checkedAt": "2026-11-04T13:00:22.408269+00:00",
+      "itemCount": 94,
       "applicationOpensAt": null,
-      "catalogHash": "6e330612e39f45d0dba54b621c0557dc3f2e8b0512ea9414025e0151f1c9d509",
+      "catalogHash": "ccf96837d7489784065245df70575da7ac2150f4a360463924932dbed2d13a42",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 226,
+      "observedWindowCount": 235,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -17,7 +17,7 @@
           "intakes": [
             "Fall 2027"
           ],
-          "observedWindowCount": 158,
+          "observedWindowCount": 163,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         },
@@ -25,7 +25,7 @@
           "intakes": [
             "Spring 2027"
           ],
-          "observedWindowCount": 64,
+          "observedWindowCount": 66,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         },
@@ -33,19 +33,19 @@
           "intakes": [
             "Summer 2027"
           ],
-          "observedWindowCount": 4,
+          "observedWindowCount": 6,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 226,
-      "programmesWithoutDeadlines": 37,
-      "programmesNeedingReview": 93,
-      "limitationReason": "Tufts' university-wide directory supplies canonical identities. The central A&S/Engineering table supplies recurring month-and-day deadlines; other graduate schools remain programme-level deadline monitors. 226 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-08-29T19:50:46.458846+00:00",
-      "windowFingerprint": "0f06d7ed71017abcc87b715c708ac01279ef57bbd7393e4cf894620f2f91c6a9",
+      "missingOpeningDateCount": 235,
+      "programmesWithoutDeadlines": 36,
+      "programmesNeedingReview": 94,
+      "limitationReason": "Tufts' university-wide directory supplies canonical identities. The central A&S/Engineering table supplies recurring month-and-day deadlines; other graduate schools remain programme-level deadline monitors. 235 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-11-04T13:00:22.408269+00:00",
+      "windowFingerprint": "d445909e5c65847196a1c409da6582717912f8bc73ae4762159ae2916364e922",
       "watchedWindowSourceHash": "c5469de3ec9764e7983b7e97313784d9e5b45ea0184055a42fd40bde5975a12c",
-      "watchedWindowSourceFingerprintVersion": 2,
+      "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "tufts-animals-and-public-policy-master": {
           "name": "Animals and Public Policy",
@@ -56,6 +56,16 @@
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master": {
+          "name": "Applied AI for Food and Nutrition",
+          "degreeType": "Master",
+          "faculty": "School of Engineering Friedman School of Nutrition Science and Policy",
+          "department": "School of Engineering Friedman School of Nutrition Science and Policy",
+          "parseStatus": "incomplete",
+          "deadlineHash": "dbb02b78cde2f0f50375b0733dcb78cbbc1c23ab06a3de2903f506229f4080fa",
+          "windowCount": 6,
+          "latestClosesAt": "2027-08-01"
         },
         "tufts-art-education-master": {
           "name": "Art Education",
@@ -115,6 +125,16 @@
           "parseStatus": "incomplete",
           "deadlineHash": "0eacdb007860b83502556799e4d4d2d6c569ceefa99194e76fc5b0be0466e07b",
           "windowCount": 5,
+          "latestClosesAt": "2027-08-01"
+        },
+        "tufts-bioinformatics-master": {
+          "name": "Bioinformatics",
+          "degreeType": "Master",
+          "faculty": "Graduate School of Arts and Sciences",
+          "department": "Graduate School of Arts and Sciences",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0a9b9919a3d7ce6c652ffd04c69cc07931417021ef555d59e3f876f72400cadc",
+          "windowCount": 3,
           "latestClosesAt": "2027-08-01"
         },
         "tufts-biology-master": {
@@ -887,16 +907,6 @@
           "windowCount": 3,
           "latestClosesAt": "2027-08-01"
         },
-        "tufts-technology-management-and-leadership-master": {
-          "name": "Technology Management and Leadership",
-          "degreeType": "Master",
-          "faculty": "School of Engineering",
-          "department": "School of Engineering",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "tufts-urban-and-environmental-policy-and-planning-master": {
           "name": "Urban and Environmental Policy and Planning",
           "degreeType": "Master",
@@ -979,6 +989,54 @@
         }
       },
       "windows": {
+        "tufts-applied-ai-for-food-and-nutrition-master::Fall 2027::Final deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Summer 2027::Final deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Summer 2027::Priority deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
         "tufts-art-education-master::Fall 2027::Priority deadline::all": {
           "programmeId": "tufts-art-education-master",
           "intake": "Fall 2027",
@@ -1120,6 +1178,1912 @@
           "intake": "Spring 2027",
           "opensAt": null,
           "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioinformatics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-bioinformatics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioinformatics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-bioinformatics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioinformatics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-bioinformatics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biology-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-biology-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biomedical-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-biomedical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-biophotonics-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-biophotonics-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemical-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemistry-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-chemistry-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-chemistry-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemistry-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-and-biotechnology-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemistry-and-biotechnology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-and-biotechnology-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-chemistry-and-biotechnology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-and-biotechnology-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-chemistry-and-biotechnology-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-chemistry-and-biotechnology-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-chemistry-and-biotechnology-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-child-study-and-human-development-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-child-study-and-human-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-child-study-and-human-development-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-child-study-and-human-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-civil-and-environmental-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-civil-and-environmental-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-classics-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-classics-with-teaching-licensure-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-classics-with-teaching-licensure-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-and-digital-humanities-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computational-and-digital-humanities-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-and-digital-humanities-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-computational-and-digital-humanities-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-and-digital-humanities-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-computational-and-digital-humanities-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-cognitive-science-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computational-cognitive-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-cognitive-science-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-computational-cognitive-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computational-cognitive-science-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-computational-cognitive-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Fall 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Summer 2027::Final deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-computer-science-online-master::Summer 2027::Priority deadline::all": {
+          "programmeId": "tufts-computer-science-online-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-cybersecurity-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-cybersecurity-and-public-policy-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-cybersecurity-and-public-policy-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-analytics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-analytics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-analytics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-data-analytics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-analytics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-data-analytics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Fall 2027::Final deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Summer 2027::Final deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-data-science-master-s-online-master::Summer 2027::Priority deadline::all": {
+          "programmeId": "tufts-data-science-master-s-online-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-dual-degree-ms-msim-msem-or-mstml-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-dual-degree-ms-msim-msem-or-mstml-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-dual-degree-ms-msim-msem-or-mstml-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-dual-degree-ms-msim-msem-or-mstml-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-dual-degree-ms-msim-msem-or-mstml-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-dual-degree-ms-msim-msem-or-mstml-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-economics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-economics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-economics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-economics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-economics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-economics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-educational-studies-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-educational-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-educational-studies-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-educational-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-educational-studies-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-educational-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-electrical-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-electrical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-engineering-management-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-engineering-management-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-economics-and-urban-planning-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-environmental-economics-and-urban-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-economics-and-urban-planning-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-environmental-economics-and-urban-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-economics-and-urban-planning-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-environmental-economics-and-urban-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-engineering-policy-and-planning-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-environmental-engineering-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-engineering-policy-and-planning-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-environmental-engineering-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-engineering-policy-and-planning-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-environmental-engineering-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-environmental-policy-and-planning-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-environmental-policy-and-planning-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-and-museum-studies-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-and-museum-studies-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-history-and-museum-studies-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-factors-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-human-factors-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-human-robot-interaction-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-human-robot-interaction-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-materials-science-and-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-materials-science-and-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mathematics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-mathematics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mathematics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-mathematics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mathematics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-mathematics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-mechanical-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-mechanical-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-middle-and-high-school-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-middle-and-high-school-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-middle-and-high-school-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-middle-and-high-school-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-middle-and-high-school-education-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-middle-and-high-school-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-museum-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-museum-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-museum-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-museum-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-music-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-music-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-music-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-music-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-music-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-music-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-occupational-therapy-post-professional-master-s-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-occupational-therapy-post-professional-master-s-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-offshore-wind-energy-engineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-offshore-wind-energy-engineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-philosophy-master::Fall 2027::Final deadline::all": {
+          "programmeId": "tufts-philosophy-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-and-physics-astrophysics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-physics-and-physics-astrophysics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-and-physics-astrophysics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-physics-and-physics-astrophysics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-and-physics-astrophysics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-physics-and-physics-astrophysics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-physics-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-physics-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-physics-education-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-physics-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-school-psychology-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-school-psychology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-school-psychology-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-school-psychology-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-software-systems-development-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-software-systems-development-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-stem-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-stem-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-stem-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-stem-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-stem-education-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-stem-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-sustainability-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-sustainability-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-sustainability-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-sustainability-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-sustainability-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-sustainability-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-agriculture-food-and-environment-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-food-and-nutrition-policy-and-programs-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-urban-and-environmental-policy-and-planning-and-law-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-urban-and-environmental-policy-and-planning-and-law-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        }
+      },
+      "windowBaseline": {
+        "tufts-applied-ai-for-food-and-nutrition-master::Fall 2027::Final deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Summer 2027::Final deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-applied-ai-for-food-and-nutrition-master::Summer 2027::Priority deadline::all": {
+          "programmeId": "tufts-applied-ai-for-food-and-nutrition-master",
+          "intake": "Summer 2027",
+          "opensAt": null,
+          "closesAt": "2027-02-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-education-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-art-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-education-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-art-education-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-art-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-art-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-art-history-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-and-museum-studies-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-art-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-and-museum-studies-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-art-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-art-history-and-museum-studies-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-art-history-and-museum-studies-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-artificial-intelligence-computer-science-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-artificial-intelligence-computer-science-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Spring 2027::Final deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioengineering-master::Spring 2027::Priority deadline::all": {
+          "programmeId": "tufts-bioengineering-master",
+          "intake": "Spring 2027",
+          "opensAt": null,
+          "closesAt": "2026-10-01",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioinformatics-master::Fall 2027::Priority deadline::all": {
+          "programmeId": "tufts-bioinformatics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-01-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioinformatics-master::Fall 2027::Regular deadline::all": {
+          "programmeId": "tufts-bioinformatics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-15",
+          "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
+          "opensAtBasis": null
+        },
+        "tufts-bioinformatics-master::Fall 2027::Rolling final deadline::all": {
+          "programmeId": "tufts-bioinformatics-master",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-01",
           "sourceUrl": "https://asegrad.tufts.edu/applying/application-deadlines",
           "opensAtBasis": null
         },
@@ -2794,7 +4758,7 @@
           "requests": 14,
           "directSuccesses": 14,
           "directFailures": 0,
-          "fallbackEnabled": false,
+          "fallbackEnabled": true,
           "fallbackLimit": 2,
           "fallbackAttempts": 0,
           "fallbackSuccesses": 0,

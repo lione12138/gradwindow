@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-03T13:23:59.002412+00:00",
+    "updatedAt": "2026-11-04T13:14:38.077998+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -14,10 +14,10 @@
     "schoolsAssisted": 1,
     "readyToApprove": 0,
     "needsOpeningReview": 0,
-    "needsOpeningDate": 613,
+    "needsOpeningDate": 611,
     "needsAdapter": 644,
     "comingSoonMonitor": 0,
-    "deadlineUnavailableMonitor": 1
+    "deadlineUnavailableMonitor": 3
   },
   "results": [
     {
@@ -83,7 +83,7 @@
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: eaf5193e-3ee4-42ab-b115-1cc3023c5099)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 70e5daed-2f77-44b4-9b4b-e2d96857802f)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "dryRun": false,
       "batchStatus": "error"
     },
@@ -91,11 +91,11 @@
       "status": "ok",
       "universityId": "university-of-southampton",
       "sourceUrl": "https://www.southampton.ac.uk/courses/postgraduate-taught",
-      "checkedAt": "2026-11-03T13:27:04.248506+00:00",
+      "checkedAt": "2026-11-04T13:17:24.139390+00:00",
       "catalogProgrammes": 218,
-      "previousCatalogProgrammes": 219,
+      "previousCatalogProgrammes": 218,
       "knownProgrammes": 202,
-      "newCandidates": 8,
+      "newCandidates": 0,
       "newGuidanceCandidates": 0,
       "publishedRecurringPolicyRecords": 0,
       "newWindowCandidates": 0,
@@ -106,7 +106,7 @@
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 27,
+      "observedWindowCount": 39,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -114,39 +114,39 @@
           "intakes": [
             "September 2026"
           ],
-          "observedWindowCount": 27,
+          "observedWindowCount": 39,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 27,
-      "programmesWithoutDeadlines": 206,
+      "missingOpeningDateCount": 39,
+      "programmesWithoutDeadlines": 198,
       "programmesNeedingReview": 218,
-      "limitationReason": "27 parsed deadline(s) lack an official exact opening date.",
+      "limitationReason": "39 parsed deadline(s) lack an official exact opening date.",
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "catalogueComplete": true,
         "detailSucceededProgrammeIds": [
-          "southampton-economics-msc",
-          "southampton-education-management-and-leadership-msc",
-          "southampton-education-msc",
-          "southampton-education-online-msc",
-          "southampton-education-practice-and-innovation-msc",
-          "southampton-electrical-and-electronic-engineering-meng",
-          "southampton-electrical-engineering-meng",
-          "southampton-electrical-power-systems-msc",
-          "southampton-electrochemistry-and-battery-technologies-msc",
-          "southampton-electronic-engineering-meng",
-          "southampton-electronic-engineering-msc",
-          "southampton-electronic-engineering-with-artificial-intelligence-meng",
-          "southampton-electronic-engineering-with-computer-systems-meng",
-          "southampton-electronic-engineering-with-nanotechnology-meng",
-          "southampton-electronic-engineering-with-photonics-meng",
-          "southampton-electronic-engineering-with-wireless-communications-meng",
-          "southampton-energy-and-sustainability-energy-environment-and-buildings-msc",
-          "southampton-energy-and-sustainability-energy-resources-and-climate-change-msc",
-          "southampton-engineering-materials-advanced-mechanical-engineering-science-msc",
-          "southampton-english-literature-ma"
+          "southampton-environmental-and-spatial-design-ma",
+          "southampton-environmental-management-and-sustainability-msc",
+          "southampton-evolution-from-the-galapagos-to-the-21st-century-mres",
+          "southampton-fashion-design-ma",
+          "southampton-fashion-management-ma",
+          "southampton-fashion-marketing-and-branding-ma",
+          "southampton-film-and-cultural-management-ma",
+          "southampton-film-studies-ma",
+          "southampton-finance-and-econometrics-msc",
+          "southampton-finance-and-economics-msc",
+          "southampton-finance-and-investment-msc",
+          "southampton-finance-msc",
+          "southampton-financial-technology-fintech-and-ai-msc",
+          "southampton-fine-art-ma",
+          "southampton-genomics-msc",
+          "southampton-geographical-information-systems-and-remote-sensing-msc",
+          "southampton-geophysics-msc",
+          "southampton-gerontology-distance-learning-msc",
+          "southampton-gerontology-msc",
+          "southampton-gerontology-research-msc"
         ],
         "detailFailedProgrammeIds": [],
         "detailUnvisitedProgrammeIds": [
@@ -227,17 +227,30 @@
           "southampton-e-textiles-and-wearable-technologies-msc",
           "southampton-earn-your-online-master-s-with-the-university-of-southampton",
           "southampton-economics-mres",
+          "southampton-economics-msc",
+          "southampton-education-management-and-leadership-msc",
+          "southampton-education-msc",
+          "southampton-education-online-msc",
+          "southampton-education-practice-and-innovation-msc",
+          "southampton-electrical-and-electronic-engineering-meng",
+          "southampton-electrical-engineering-meng",
+          "southampton-electrical-power-systems-msc",
+          "southampton-electrochemistry-and-battery-technologies-msc",
+          "southampton-electronic-engineering-meng",
+          "southampton-electronic-engineering-msc",
+          "southampton-electronic-engineering-with-artificial-intelligence-meng",
+          "southampton-electronic-engineering-with-computer-systems-meng",
+          "southampton-electronic-engineering-with-nanotechnology-meng",
+          "southampton-electronic-engineering-with-photonics-meng",
+          "southampton-electronic-engineering-with-wireless-communications-meng",
+          "southampton-energy-and-sustainability-energy-environment-and-buildings-msc",
+          "southampton-energy-and-sustainability-energy-resources-and-climate-change-msc",
+          "southampton-engineering-materials-advanced-mechanical-engineering-science-msc",
+          "southampton-english-literature-ma",
           "southampton-llm-laws-typical-offer-2-1-degree-duration-1-year",
           "southampton-llm-maritime-law-typical-offer-2-1-degree-duration-1-year",
           "southampton-ma-cultural-heritage-studies-heritage-and-public-history-typical-offer-2-2-degree-duration-1-year",
           "southampton-ma-cultural-heritage-studies-heritage-and-the-arts-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-environmental-and-spatial-design-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-fashion-design-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-fashion-management-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-fashion-marketing-and-branding-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-film-and-cultural-management-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-film-studies-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-fine-art-typical-offer-2-2-degree-duration-1-to-2-years",
           "southampton-ma-global-advertising-and-branding-typical-offer-2-2-degree-duration-1-year",
           "southampton-ma-global-business-ethics-and-philosophy-of-management-typical-offer-2-2-degree-duration-1-year",
           "southampton-ma-global-challenges-history-policy-and-practice-typical-offer-2-2-degree-duration-1-year",
@@ -268,20 +281,7 @@
           "southampton-meng-software-engineering-typical-offer-aaa-ucas-course-code-g600-duration-4-years",
           "southampton-mpa-public-administration-typical-offer-2-1-degree-duration-1-year",
           "southampton-mph-public-health-typical-offer-2-2-degree-duration-1-year",
-          "southampton-mres-evolution-from-the-galapagos-to-the-21st-century-typical-offer-2-1-degree-duration-1-year",
           "southampton-mres-wildlife-conservation-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-environmental-management-and-sustainability-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-finance-and-econometrics-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-finance-and-economics-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-finance-and-investment-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-finance-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-financial-technology-fintech-and-ai-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-genomics-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-geographical-information-systems-and-remote-sensing-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-geophysics-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-gerontology-distance-learning-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-gerontology-research-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-gerontology-typical-offer-2-1-degree-duration-1-year",
           "southampton-msc-global-ageing-and-policy-distance-learning-typical-offer-2-1-degree-duration-1-year",
           "southampton-msc-global-health-typical-offer-2-1-degree-duration-1-year",
           "southampton-msc-global-marine-resource-management-typical-offer-2-2-degree-duration-1-year",
@@ -355,7 +355,7 @@
           "succeededThisRun": 20,
           "failedThisRun": 0,
           "deferredThisRun": 198,
-          "unvisitedPages": 119
+          "unvisitedPages": 99
         },
         "transport": {
           "requests": 21,
@@ -372,37 +372,58 @@
       },
       "recordDiff": {
         "previous": {
-          "programmes": 219,
-          "windows": 36
-        },
-        "current": {
           "programmes": 218,
           "windows": 27
         },
+        "current": {
+          "programmes": 218,
+          "windows": 66
+        },
         "disappearedProgrammeIds": [
-          "southampton-chemistry-by-research-msc",
-          "southampton-ma-english-literature-typical-offer-2-2-degree-duration-1-year",
-          "southampton-meng-electrical-and-electronic-engineering-typical-offer-a-aa-ucas-course-code-h602-duration-4-years",
-          "southampton-meng-electrical-engineering-typical-offer-a-aa-ucas-course-code-h601-duration-4-years",
-          "southampton-meng-electronic-engineering-typical-offer-a-aa-ucas-course-code-h603-duration-4-years",
-          "southampton-meng-electronic-engineering-with-artificial-intelligence-typical-offer-a-aa-ucas-course-code-h6g7-duration-4-years",
-          "southampton-meng-electronic-engineering-with-computer-systems-typical-offer-a-aa-ucas-course-code-h6g4-duration-4-years",
-          "southampton-meng-electronic-engineering-with-nanotechnology-typical-offer-a-aa-ucas-course-code-h611-duration-4-years",
-          "southampton-meng-electronic-engineering-with-photonics-typical-offer-a-aa-ucas-course-code-h680-duration-4-years",
-          "southampton-meng-electronic-engineering-with-wireless-communications-typical-offer-a-aa-ucas-course-code-h641-duration-4-years",
-          "southampton-msc-economics-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-education-management-and-leadership-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-education-online-typical-offer-2-1-degree-duration-3-years",
-          "southampton-msc-education-practice-and-innovation-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-education-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-electrical-power-systems-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-electrochemistry-and-battery-technologies-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-electronic-engineering-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-energy-and-sustainability-energy-environment-and-buildings-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-energy-and-sustainability-energy-resources-and-climate-change-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-engineering-materials-advanced-mechanical-engineering-science-typical-offer-2-1-degree-duration-1-year"
+          "southampton-ma-environmental-and-spatial-design-typical-offer-2-2-degree-duration-1-year",
+          "southampton-ma-fashion-design-typical-offer-2-2-degree-duration-1-year",
+          "southampton-ma-fashion-management-typical-offer-2-2-degree-duration-1-year",
+          "southampton-ma-fashion-marketing-and-branding-typical-offer-2-2-degree-duration-1-year",
+          "southampton-ma-film-and-cultural-management-typical-offer-2-2-degree-duration-1-year",
+          "southampton-ma-film-studies-typical-offer-2-2-degree-duration-1-year",
+          "southampton-ma-fine-art-typical-offer-2-2-degree-duration-1-to-2-years",
+          "southampton-mres-evolution-from-the-galapagos-to-the-21st-century-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-environmental-management-and-sustainability-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-finance-and-econometrics-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-finance-and-economics-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-finance-and-investment-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-finance-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-financial-technology-fintech-and-ai-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-genomics-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-geographical-information-systems-and-remote-sensing-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-geophysics-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-gerontology-distance-learning-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-gerontology-research-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-gerontology-typical-offer-2-1-degree-duration-1-year"
         ],
         "addedProgrammeIds": [
+          "southampton-environmental-and-spatial-design-ma",
+          "southampton-environmental-management-and-sustainability-msc",
+          "southampton-evolution-from-the-galapagos-to-the-21st-century-mres",
+          "southampton-fashion-design-ma",
+          "southampton-fashion-management-ma",
+          "southampton-fashion-marketing-and-branding-ma",
+          "southampton-film-and-cultural-management-ma",
+          "southampton-film-studies-ma",
+          "southampton-finance-and-econometrics-msc",
+          "southampton-finance-and-economics-msc",
+          "southampton-finance-and-investment-msc",
+          "southampton-finance-msc",
+          "southampton-financial-technology-fintech-and-ai-msc",
+          "southampton-fine-art-ma",
+          "southampton-genomics-msc",
+          "southampton-geographical-information-systems-and-remote-sensing-msc",
+          "southampton-geophysics-msc",
+          "southampton-gerontology-distance-learning-msc",
+          "southampton-gerontology-msc",
+          "southampton-gerontology-research-msc"
+        ],
+        "changedProgrammeIds": [
           "southampton-economics-msc",
           "southampton-education-management-and-leadership-msc",
           "southampton-education-msc",
@@ -424,75 +445,55 @@
           "southampton-engineering-materials-advanced-mechanical-engineering-science-msc",
           "southampton-english-literature-ma"
         ],
-        "changedProgrammeIds": [
-          "southampton-creative-technologies-msc",
-          "southampton-creative-writing-ma",
-          "southampton-cultural-heritage-studies-heritage-and-museums-ma",
-          "southampton-cultural-heritage-studies-ma",
-          "southampton-cyber-security-msc",
-          "southampton-data-and-decision-analytics-msc",
-          "southampton-data-science-msc",
-          "southampton-design-innovation-and-technology-ma",
-          "southampton-design-innovation-and-technology-msc",
-          "southampton-design-management-ma",
-          "southampton-digital-business-msc",
-          "southampton-digital-chemistry-msc",
-          "southampton-digital-humanities-data-science-msc",
-          "southampton-digital-marketing-msc",
-          "southampton-digital-media-ma",
-          "southampton-digital-strategy-and-information-systems-msc",
-          "southampton-e-textiles-and-wearable-technologies-msc",
-          "southampton-economics-mres",
-          "southampton-ma-cultural-heritage-studies-heritage-and-public-history-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-cultural-heritage-studies-heritage-and-the-arts-typical-offer-2-2-degree-duration-1-year"
-        ],
         "disappearedWindowIds": [],
         "addedWindowIds": [
-          "southampton-economics-msc::September 2026::International students::international-students",
-          "southampton-economics-msc::September 2026::UK students::domestic-students",
-          "southampton-education-management-and-leadership-msc::September 2026::International students::international-students",
-          "southampton-education-management-and-leadership-msc::September 2026::UK students::domestic-students",
-          "southampton-education-msc::September 2026::International students::international-students",
-          "southampton-education-msc::September 2026::UK students::domestic-students",
-          "southampton-education-online-msc::September 2026::International students::international-students",
-          "southampton-education-online-msc::September 2026::UK students::domestic-students",
-          "southampton-education-practice-and-innovation-msc::September 2026::International students::international-students",
-          "southampton-education-practice-and-innovation-msc::September 2026::UK students::domestic-students",
-          "southampton-electrical-power-systems-msc::September 2026::International students::international-students",
-          "southampton-electrical-power-systems-msc::September 2026::UK students::domestic-students",
-          "southampton-electrochemistry-and-battery-technologies-msc::September 2026::International students::international-students",
-          "southampton-electrochemistry-and-battery-technologies-msc::September 2026::UK students::domestic-students",
-          "southampton-electronic-engineering-msc::September 2026::International students::international-students",
-          "southampton-electronic-engineering-msc::September 2026::UK students::domestic-students",
-          "southampton-energy-and-sustainability-energy-environment-and-buildings-msc::September 2026::Application deadline::all",
-          "southampton-energy-and-sustainability-energy-environment-and-buildings-msc::September 2026::International students::international-students",
-          "southampton-energy-and-sustainability-energy-environment-and-buildings-msc::September 2026::UK students::domestic-students",
-          "southampton-energy-and-sustainability-energy-resources-and-climate-change-msc::September 2026::Application deadline::all",
-          "southampton-energy-and-sustainability-energy-resources-and-climate-change-msc::September 2026::International students::international-students",
-          "southampton-energy-and-sustainability-energy-resources-and-climate-change-msc::September 2026::UK students::domestic-students",
-          "southampton-engineering-materials-advanced-mechanical-engineering-science-msc::September 2026::Application deadline::all",
-          "southampton-engineering-materials-advanced-mechanical-engineering-science-msc::September 2026::International students::international-students",
-          "southampton-engineering-materials-advanced-mechanical-engineering-science-msc::September 2026::UK students::domestic-students",
-          "southampton-english-literature-ma::September 2026::International students::international-students",
-          "southampton-english-literature-ma::September 2026::UK students::domestic-students"
+          "southampton-environmental-and-spatial-design-ma::September 2026::International students::international-students",
+          "southampton-environmental-and-spatial-design-ma::September 2026::UK students::domestic-students",
+          "southampton-environmental-management-and-sustainability-msc::September 2026::International students::international-students",
+          "southampton-environmental-management-and-sustainability-msc::September 2026::UK students::domestic-students",
+          "southampton-evolution-from-the-galapagos-to-the-21st-century-mres::September 2026::International students::international-students",
+          "southampton-evolution-from-the-galapagos-to-the-21st-century-mres::September 2026::International students::international-students::2",
+          "southampton-fashion-design-ma::September 2026::International students::international-students",
+          "southampton-fashion-design-ma::September 2026::UK students::domestic-students",
+          "southampton-fashion-management-ma::September 2026::International students::international-students",
+          "southampton-fashion-management-ma::September 2026::UK students::domestic-students",
+          "southampton-fashion-marketing-and-branding-ma::September 2026::International students::international-students",
+          "southampton-fashion-marketing-and-branding-ma::September 2026::UK students::domestic-students",
+          "southampton-film-and-cultural-management-ma::September 2026::International students::international-students",
+          "southampton-film-and-cultural-management-ma::September 2026::UK students::domestic-students",
+          "southampton-film-studies-ma::September 2026::International students::international-students",
+          "southampton-film-studies-ma::September 2026::UK students::domestic-students",
+          "southampton-finance-and-econometrics-msc::September 2026::International students::international-students",
+          "southampton-finance-and-econometrics-msc::September 2026::UK students::domestic-students",
+          "southampton-finance-and-economics-msc::September 2026::International students::international-students",
+          "southampton-finance-and-economics-msc::September 2026::UK students::domestic-students",
+          "southampton-finance-and-investment-msc::September 2026::International applicants::international-students",
+          "southampton-finance-and-investment-msc::September 2026::International applicants::international-students::2",
+          "southampton-finance-msc::September 2026::International students::international-students",
+          "southampton-finance-msc::September 2026::UK students::domestic-students",
+          "southampton-financial-technology-fintech-and-ai-msc::September 2026::International students::international-students",
+          "southampton-financial-technology-fintech-and-ai-msc::September 2026::UK students::domestic-students",
+          "southampton-fine-art-ma::September 2026::International students::international-students",
+          "southampton-fine-art-ma::September 2026::UK students::domestic-students",
+          "southampton-genomics-msc::September 2026::International students::international-students",
+          "southampton-genomics-msc::September 2026::UK students::domestic-students",
+          "southampton-geographical-information-systems-and-remote-sensing-msc::September 2026::International students::international-students",
+          "southampton-geographical-information-systems-and-remote-sensing-msc::September 2026::UK students::domestic-students",
+          "southampton-geophysics-msc::September 2026::Application deadline::all",
+          "southampton-gerontology-distance-learning-msc::September 2026::International students::international-students",
+          "southampton-gerontology-distance-learning-msc::September 2026::UK students::domestic-students",
+          "southampton-gerontology-msc::September 2026::International students::international-students",
+          "southampton-gerontology-msc::September 2026::UK students::domestic-students",
+          "southampton-gerontology-research-msc::September 2026::International students::international-students",
+          "southampton-gerontology-research-msc::September 2026::UK students::domestic-students"
         ],
         "changedWindowIds": []
       },
       "windowRemovalAssessmentAvailable": true,
       "disappearedWindowDetails": {},
       "disappearedProgrammeDetails": {
-        "southampton-chemistry-by-research-msc": {
-          "name": "MSc Chemistry by Research Typical offer: 2:1 degree Duration: 1 year",
-          "degreeType": "MSC",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "southampton-ma-english-literature-typical-offer-2-2-degree-duration-1-year": {
-          "name": "MA English Literature Typical offer: 2:2 degree Duration: 1 year",
+        "southampton-ma-environmental-and-spatial-design-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MA Environmental and Spatial Design Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MA",
           "faculty": "",
           "department": "",
@@ -501,9 +502,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-electrical-and-electronic-engineering-typical-offer-a-aa-ucas-course-code-h602-duration-4-years": {
-          "name": "MEng Electrical and Electronic Engineering Typical offer: A*AA UCAS course code: H602 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-ma-fashion-design-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MA Fashion Design Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MA",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -511,9 +512,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-electrical-engineering-typical-offer-a-aa-ucas-course-code-h601-duration-4-years": {
-          "name": "MEng Electrical Engineering Typical offer: A*AA UCAS course code: H601 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-ma-fashion-management-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MA Fashion Management Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MA",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -521,9 +522,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-electronic-engineering-typical-offer-a-aa-ucas-course-code-h603-duration-4-years": {
-          "name": "MEng Electronic Engineering Typical offer: A*AA UCAS course code: H603 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-ma-fashion-marketing-and-branding-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MA Fashion Marketing and Branding Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MA",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -531,9 +532,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-electronic-engineering-with-artificial-intelligence-typical-offer-a-aa-ucas-course-code-h6g7-duration-4-years": {
-          "name": "MEng Electronic Engineering with Artificial Intelligence Typical offer: A*AA UCAS course code: H6G7 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-ma-film-and-cultural-management-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MA Film and Cultural Management Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MA",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -541,9 +542,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-electronic-engineering-with-computer-systems-typical-offer-a-aa-ucas-course-code-h6g4-duration-4-years": {
-          "name": "MEng Electronic Engineering with Computer Systems Typical offer: A*AA UCAS course code: H6G4 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-ma-film-studies-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MA Film Studies Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MA",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -551,9 +552,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-electronic-engineering-with-nanotechnology-typical-offer-a-aa-ucas-course-code-h611-duration-4-years": {
-          "name": "MEng Electronic Engineering with Nanotechnology Typical offer: A*AA UCAS course code: H611 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-ma-fine-art-typical-offer-2-2-degree-duration-1-to-2-years": {
+          "name": "MA Fine Art Typical offer: 2:2 degree Duration: 1 to 2 years",
+          "degreeType": "MA",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -561,9 +562,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-electronic-engineering-with-photonics-typical-offer-a-aa-ucas-course-code-h680-duration-4-years": {
-          "name": "MEng Electronic Engineering with Photonics Typical offer: A*AA UCAS course code: H680 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-mres-evolution-from-the-galapagos-to-the-21st-century-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MRes Evolution: From the Galapagos to the 21st Century Typical offer: 2:1 degree Duration: 1 year",
+          "degreeType": "MRES",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -571,18 +572,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-electronic-engineering-with-wireless-communications-typical-offer-a-aa-ucas-course-code-h641-duration-4-years": {
-          "name": "MEng Electronic Engineering with Wireless Communications Typical offer: A*AA UCAS course code: H641 Duration: 4 years",
-          "degreeType": "MENG",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "southampton-msc-economics-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Economics Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-environmental-management-and-sustainability-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Environmental Management and Sustainability Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -591,8 +582,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-education-management-and-leadership-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Education Management and Leadership Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-finance-and-econometrics-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Finance and Econometrics Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -601,8 +592,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-education-online-typical-offer-2-1-degree-duration-3-years": {
-          "name": "MSc Education (Online) Typical offer: 2:1 degree Duration: 3 years",
+        "southampton-msc-finance-and-economics-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Finance and Economics Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -611,8 +602,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-education-practice-and-innovation-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Education Practice and Innovation Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-finance-and-investment-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Finance and Investment Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -621,8 +612,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-education-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Education Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-finance-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Finance Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -631,8 +622,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-electrical-power-systems-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Electrical Power Systems Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-financial-technology-fintech-and-ai-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Financial Technology (FinTech) and AI Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -641,8 +632,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-electrochemistry-and-battery-technologies-typical-offer-2-2-degree-duration-1-year": {
-          "name": "MSc Electrochemistry and Battery Technologies Typical offer: 2:2 degree Duration: 1 year",
+        "southampton-msc-genomics-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Genomics Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -651,8 +642,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-electronic-engineering-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Electronic Engineering Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-geographical-information-systems-and-remote-sensing-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Geographical Information Systems and Remote Sensing Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -661,8 +652,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-energy-and-sustainability-energy-environment-and-buildings-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Energy and Sustainability: Energy, Environment and Buildings Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-geophysics-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Geophysics Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -671,8 +662,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-energy-and-sustainability-energy-resources-and-climate-change-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Energy and Sustainability: Energy, Resources and Climate Change Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-gerontology-distance-learning-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Gerontology (Distance Learning) Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -681,8 +672,18 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-engineering-materials-advanced-mechanical-engineering-science-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Engineering Materials (Advanced Mechanical Engineering Science) Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-gerontology-research-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Gerontology: Research Typical offer: 2:1 degree Duration: 1 year",
+          "degreeType": "MSC",
+          "faculty": "",
+          "department": "",
+          "parseStatus": "catalogue-only",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "southampton-msc-gerontology-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Gerontology Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -692,7 +693,7 @@
           "latestClosesAt": null
         }
       },
-      "windowFingerprint": "28d70cc132ede716d3d0e73d036056eae813b04587c3c7e949f9cb9e52d6a917",
+      "windowFingerprint": "99a2b21166c9e18278fc530bb5fd2392ce5831b284c346f5c9a8b0ea202a956c",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "dryRun": false,
@@ -1032,24 +1033,6 @@
         "universityId": "the-university-of-manchester",
         "programmeName": "MSc Global Development (Development Management)",
         "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20472/msc-global-development-development-management/",
-        "windowCount": 5,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "known-programme-guidance:manchester-msc-global-development-globalisation-trade-industry",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MSc Global Development (Globalisation, Trade & Industry)",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20490/msc-global-development-globalisation-trade-and-industry/",
-        "windowCount": 5,
-        "parseStatus": "incomplete",
-        "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
-      },
-      {
-        "id": "known-programme-guidance:manchester-msc-human-resource-development-international-development",
-        "universityId": "the-university-of-manchester",
-        "programmeName": "MSc Human Resource Development (International Development)",
-        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
         "windowCount": 5,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
@@ -12021,6 +12004,24 @@
     ],
     "comingSoonMonitor": [],
     "deadlineUnavailableMonitor": [
+      {
+        "id": "new-programme:manchester-msc-global-development-globalisation-trade-industry-overview",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MSc Global Development (Globalisation, Trade & Industry) / Overview",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20490/msc-global-development-globalisation-trade-and-industry/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:manchester-msc-human-resource-development-international-development-overview",
+        "universityId": "the-university-of-manchester",
+        "programmeName": "MSc Human Resource Development (International Development) / Overview",
+        "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
       {
         "id": "new-programme:oxford-mphil-in-english-studies-medieval-period",
         "universityId": "university-of-oxford",

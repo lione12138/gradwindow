@@ -1,13 +1,13 @@
 # Published data audit
 
-Generated for 2026-11-03.
+Generated for 2026-11-04.
 
-- Active issues: 713
+- Active issues: 714
 - Universities needing review: 13
-- Records quarantined from SEO aggregates: 465
+- Records quarantined from SEO aggregates: 466
 - Suspicious intake/deadline mappings: 219
 - Published records missing from a healthy current snapshot: 32
-- Published records changed from a healthy current snapshot: 414
+- Published records changed from a healthy current snapshot: 415
 - Published records with source URL-only changes: 48
 
 ## Maintenance queue
@@ -704,6 +704,7 @@ Generated for 2026-11-03.
 - `ubc-master-of-engineering-in-geological-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-01-15) — retire-or-correct-review
 - `ubc-master-of-engineering-in-mining-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-02-05) — retire-or-correct-review
 - `ubc-master-of-music-in-conducting-emphasis-wind-conducting-mmus-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — retire-or-correct-review
+- `ubc-master-of-science-in-zoology-msc-2027-application-deadline-497cee80` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-01-01) — correct-published-record-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry
