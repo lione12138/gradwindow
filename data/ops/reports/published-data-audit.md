@@ -1,21 +1,17 @@
 # Published data audit
 
-Generated for 2026-11-04.
+Generated for 2026-11-05.
 
-- Active issues: 714
-- Universities needing review: 13
-- Records quarantined from SEO aggregates: 466
+- Active issues: 709
+- Universities needing review: 12
+- Records quarantined from SEO aggregates: 461
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 32
-- Published records changed from a healthy current snapshot: 415
+- Published records missing from a healthy current snapshot: 28
+- Published records changed from a healthy current snapshot: 414
 - Published records with source URL-only changes: 48
 
 ## Maintenance queue
 
-- `tu-delft-applied-geophysics-explore-the-earths-subsurface-tu-delft-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
-- `tu-delft-civil-engineering-tu-delft-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
-- `tu-delft-geomatics-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
-- `tu-delft-transport-infrastructure-and-logistcs-tu-delft-msc-2027-main-msc-deadline` — **published-record-missing-from-snapshot** (delft-university-of-technology, September 2027, closes 2027-04-01) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **published-record-missing-from-snapshot** (imperial-college-london, October 2026, closes 2027-01-06) — retire-or-correct-review
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-2-803f88fb` — **suspicious-intake-window** (imperial-college-london, October 2026, closes 2027-01-06) — correct-intake-or-document-flexible-entry
 - `imperial-advanced-materials-for-sustainable-infrastructure-msc-2026-round-3-fad24373` — **published-record-missing-from-snapshot** (imperial-college-london, October 2026, closes 2027-03-10) — retire-or-correct-review
@@ -704,7 +700,6 @@ Generated for 2026-11-04.
 - `ubc-master-of-engineering-in-geological-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-01-15) — retire-or-correct-review
 - `ubc-master-of-engineering-in-mining-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-02-05) — retire-or-correct-review
 - `ubc-master-of-music-in-conducting-emphasis-wind-conducting-mmus-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — retire-or-correct-review
-- `ubc-master-of-science-in-zoology-msc-2027-application-deadline-497cee80` — **published-record-changed-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-01-01) — correct-published-record-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2026-12-07) — correct-intake-or-document-flexible-entry

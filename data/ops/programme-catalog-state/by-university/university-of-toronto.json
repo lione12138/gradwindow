@@ -2,23 +2,32 @@
   "universities": {
     "university-of-toronto": {
       "sourceUrl": "https://www.sgs.utoronto.ca/programs/",
-      "checkedAt": "2026-11-04T12:57:55.252073+00:00",
+      "checkedAt": "2026-11-05T13:12:52.713158+00:00",
       "itemCount": 155,
       "applicationOpensAt": null,
-      "catalogHash": "72707652fd2843f4a7963ca28a37abfa8ab257f8302c36f44e2b959386fb9c57",
+      "catalogHash": "baa825ccd748fdc3d0d7b49c1328fb6a7540cf984dd6f564a0e167964e0ae858",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "monitoring",
-      "observedWindowCount": 0,
+      "windowStatus": "needs-opening-date",
+      "observedWindowCount": 2,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {},
-      "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 155,
+      "windowCountsByCycle": {
+        "2027:fall:09": {
+          "intakes": [
+            "Fall 2027"
+          ],
+          "observedWindowCount": 2,
+          "exactWindowCount": 0,
+          "recurringPolicyWindowCount": 0
+        }
+      },
+      "missingOpeningDateCount": 2,
+      "programmesWithoutDeadlines": 154,
       "programmesNeedingReview": 155,
-      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-11-04T12:57:55.252073+00:00",
-      "windowFingerprint": "d9a35588864626cfa2694569e1b54a7b8e91099bffe609c6bc0ac71deda9942f",
+      "limitationReason": "2 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-11-05T13:12:52.713158+00:00",
+      "windowFingerprint": "01e74dfe651012c48d8eb669994c3dc5bc3f693a9ae40c7f62f14bbd3723e633",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -27,7 +36,7 @@
           "degreeType": "MAccFin",
           "faculty": "Management, University of Toronto Scarborough",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -37,7 +46,7 @@
           "degreeType": "MA",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -47,7 +56,7 @@
           "degreeType": "MEd",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -57,7 +66,7 @@
           "degreeType": "MASc",
           "faculty": "Aerospace Studies",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -67,7 +76,7 @@
           "degreeType": "MEng",
           "faculty": "Aerospace Studies",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -77,7 +86,7 @@
           "degreeType": "MA",
           "faculty": "Anthropology",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -87,7 +96,7 @@
           "degreeType": "MSc",
           "faculty": "Anthropology",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -97,7 +106,7 @@
           "degreeType": "MScAC",
           "faculty": "Computer Science",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -107,7 +116,7 @@
           "degreeType": "MArch",
           "faculty": "Architecture, Landscape, and Design",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -117,7 +126,7 @@
           "degreeType": "MA",
           "faculty": "Art History",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -127,7 +136,7 @@
           "degreeType": "MSc",
           "faculty": "Astronomy and Astrophysics",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -137,7 +146,7 @@
           "degreeType": "MSc",
           "faculty": "Biochemistry",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -147,7 +156,7 @@
           "degreeType": "MHSc",
           "faculty": "Public Health Sciences",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -157,7 +166,7 @@
           "degreeType": "MScBMC",
           "faculty": "Medical Science",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -167,7 +176,7 @@
           "degreeType": "MASc",
           "faculty": "Biomedical Engineering",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -177,7 +186,7 @@
           "degreeType": "MEng",
           "faculty": "Biomedical Engineering",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -187,7 +196,7 @@
           "degreeType": "MBiotech",
           "faculty": "Management &amp; Innovation",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -197,7 +206,7 @@
           "degreeType": "MSc",
           "faculty": "Cell and Systems Biology",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -207,7 +216,7 @@
           "degreeType": "MASc",
           "faculty": "Chemical Engineering and Applied Chemistry",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -217,7 +226,7 @@
           "degreeType": "MEng",
           "faculty": "Chemical Engineering and Applied Chemistry",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -227,7 +236,7 @@
           "degreeType": "MSc",
           "faculty": "Chemistry",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -237,7 +246,7 @@
           "degreeType": "MA",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -247,7 +256,7 @@
           "degreeType": "MA",
           "faculty": "Cinema Studies",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -257,7 +266,7 @@
           "degreeType": "MEngCEM",
           "faculty": "Civil and Mineral Engineering",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -267,7 +276,7 @@
           "degreeType": "MASc",
           "faculty": "Civil and Mineral Engineering",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -277,7 +286,7 @@
           "degreeType": "MEng",
           "faculty": "Civil and Mineral Engineering",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -287,7 +296,7 @@
           "degreeType": "MA",
           "faculty": "Classics",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -297,7 +306,7 @@
           "degreeType": "MScCH",
           "faculty": "Public Health Sciences",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -307,7 +316,7 @@
           "degreeType": "MA",
           "faculty": "Comparative Literature",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -317,7 +326,7 @@
           "degreeType": "MSc",
           "faculty": "Department of Computer Science",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -327,7 +336,7 @@
           "degreeType": "MA",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -337,17 +346,17 @@
           "degreeType": "MA",
           "faculty": "Psychological Clinical Science",
           "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "f2b89f91288439407a47f723942075da6851e2791fc9ff57f69d46952118a62f",
+          "windowCount": 2,
+          "latestClosesAt": "2026-12-01"
         },
         "toronto-counselling-psychology-med": {
           "name": "Counselling Psychology (MEd)",
           "degreeType": "MEd",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -357,7 +366,7 @@
           "degreeType": "MA",
           "faculty": "Criminology and Sociolegal Studies",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -367,7 +376,7 @@
           "degreeType": "MA",
           "faculty": "Curriculum, Teaching and Learning",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -377,7 +386,7 @@
           "degreeType": "MEd",
           "faculty": "Curriculum, Teaching and Learning",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -387,7 +396,7 @@
           "degreeType": "MSc",
           "faculty": "Dentistry",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -397,7 +406,7 @@
           "degreeType": "MSc",
           "faculty": "Dentistry",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -407,7 +416,7 @@
           "degreeType": "MA",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -417,7 +426,7 @@
           "degreeType": "MEd",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -427,7 +436,7 @@
           "degreeType": "MA",
           "faculty": "Drama, Theatre and Performance Studies",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -437,7 +446,7 @@
           "degreeType": "MASc",
           "faculty": "Earth Sciences",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -447,7 +456,7 @@
           "degreeType": "MSc",
           "faculty": "Earth Sciences",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -457,7 +466,7 @@
           "degreeType": "MA",
           "faculty": "East Asian Studies",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -467,7 +476,7 @@
           "degreeType": "MSc",
           "faculty": "Ecology and Evolutionary Biology",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -477,7 +486,7 @@
           "degreeType": "MA",
           "faculty": "Economics",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -487,7 +496,7 @@
           "degreeType": "MA",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -497,7 +506,7 @@
           "degreeType": "MEd",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -507,7 +516,7 @@
           "degreeType": "MASc",
           "faculty": "Electrical and Computer Engineering",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -517,7 +526,7 @@
           "degreeType": "MEng",
           "faculty": "Electrical and Computer Engineering",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -527,7 +536,7 @@
           "degreeType": "MA",
           "faculty": "English",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -537,7 +546,7 @@
           "degreeType": "MA (Creative Writing)",
           "faculty": "English",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -547,7 +556,7 @@
           "degreeType": "MES",
           "faculty": "Environment",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -557,7 +566,7 @@
           "degreeType": "MEnvSc",
           "faculty": "Physical and Environmental Sciences",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -567,7 +576,7 @@
           "degreeType": "MSc",
           "faculty": "Physical and Environmental Sciences",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -577,7 +586,7 @@
           "degreeType": "MA",
           "faculty": "European, Russian, and Eurasian Studies",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -587,7 +596,7 @@
           "degreeType": "MBA (EMBA)",
           "faculty": "Management, Rotman School of",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -597,7 +606,7 @@
           "degreeType": "MF",
           "faculty": "Management, Rotman School of",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -607,7 +616,7 @@
           "degreeType": "MFE",
           "faculty": "Economics",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -617,7 +626,7 @@
           "degreeType": "MFI",
           "faculty": "Statistical Sciences",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -627,7 +636,7 @@
           "degreeType": "MFRM",
           "faculty": "Management, Rotman School of",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -1573,7 +1582,24 @@
           "latestClosesAt": null
         }
       },
-      "windows": {},
+      "windows": {
+        "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma::Fall 2027::Fall 2027 domestic deadline::domestic": {
+          "programmeId": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
+          "opensAtBasis": null
+        },
+        "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma::Fall 2027::Fall 2027 international deadline::international": {
+          "programmeId": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
+          "intake": "Fall 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-01",
+          "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
+          "opensAtBasis": null
+        }
+      },
       "windowBaseline": {
         "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma::Fall 2027::Fall 2027 domestic deadline::domestic": {
           "programmeId": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
@@ -1596,7 +1622,7 @@
       "adapterDiagnostics": {
         "apiPages": 2,
         "detailPagesFetched": 24,
-        "detailCacheHits": 0,
+        "detailCacheHits": 24,
         "detailFailures": 0,
         "detailQueue": {
           "eligibleTasks": 128,
@@ -1604,46 +1630,13 @@
           "checkedThisRun": 24,
           "failedThisRun": 0,
           "deferredThisRun": 104,
-          "neverChecked": 104,
+          "neverChecked": 80,
           "lastOutcomeCounts": {
-            "checked": 24,
-            "unvisited": 104
+            "checked": 48,
+            "unvisited": 80
           }
         },
         "detailSucceededProgrammeIds": [
-          "toronto-accounting-and-finance-maccfin",
-          "toronto-adult-education-and-community-development-ma",
-          "toronto-adult-education-and-community-development-med",
-          "toronto-aerospace-and-engineering-masc",
-          "toronto-aerospace-and-engineering-meng",
-          "toronto-anthropology-ma",
-          "toronto-anthropology-msc",
-          "toronto-applied-computing-mscac",
-          "toronto-architecture-march",
-          "toronto-art-history-ma",
-          "toronto-astronomy-and-astrophysics-msc",
-          "toronto-biochemistry-msc",
-          "toronto-bioethics-mhsc",
-          "toronto-biomedical-communications-mscbmc",
-          "toronto-biomedical-engineering-masc",
-          "toronto-biomedical-engineering-meng",
-          "toronto-biotechnology-mbiotech",
-          "toronto-cell-and-systems-biology-msc",
-          "toronto-chemical-engineering-and-applied-chemistry-masc",
-          "toronto-chemical-engineering-and-applied-chemistry-meng",
-          "toronto-chemistry-msc",
-          "toronto-child-study-and-education-ma",
-          "toronto-cinema-studies-ma",
-          "toronto-cities-engineering-and-management-mengcem",
-          "toronto-civil-engineering-masc",
-          "toronto-civil-engineering-meng",
-          "toronto-classics-ma",
-          "toronto-community-health-mscch",
-          "toronto-comparative-literature-ma",
-          "toronto-computer-science-msc"
-        ],
-        "detailFailedProgrammeIds": [],
-        "detailUnvisitedProgrammeIds": [
           "toronto-counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology-ma",
           "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
           "toronto-counselling-psychology-med",
@@ -1674,7 +1667,40 @@
           "toronto-finance-mf",
           "toronto-financial-economics-mfe",
           "toronto-financial-insurance-mfi",
-          "toronto-financial-risk-management-mfrm",
+          "toronto-financial-risk-management-mfrm"
+        ],
+        "detailFailedProgrammeIds": [],
+        "detailUnvisitedProgrammeIds": [
+          "toronto-accounting-and-finance-maccfin",
+          "toronto-adult-education-and-community-development-ma",
+          "toronto-adult-education-and-community-development-med",
+          "toronto-aerospace-and-engineering-masc",
+          "toronto-aerospace-and-engineering-meng",
+          "toronto-anthropology-ma",
+          "toronto-anthropology-msc",
+          "toronto-applied-computing-mscac",
+          "toronto-architecture-march",
+          "toronto-art-history-ma",
+          "toronto-astronomy-and-astrophysics-msc",
+          "toronto-biochemistry-msc",
+          "toronto-bioethics-mhsc",
+          "toronto-biomedical-communications-mscbmc",
+          "toronto-biomedical-engineering-masc",
+          "toronto-biomedical-engineering-meng",
+          "toronto-biotechnology-mbiotech",
+          "toronto-cell-and-systems-biology-msc",
+          "toronto-chemical-engineering-and-applied-chemistry-masc",
+          "toronto-chemical-engineering-and-applied-chemistry-meng",
+          "toronto-chemistry-msc",
+          "toronto-child-study-and-education-ma",
+          "toronto-cinema-studies-ma",
+          "toronto-cities-engineering-and-management-mengcem",
+          "toronto-civil-engineering-masc",
+          "toronto-civil-engineering-meng",
+          "toronto-classics-ma",
+          "toronto-community-health-mscch",
+          "toronto-comparative-literature-ma",
+          "toronto-computer-science-msc",
           "toronto-forensic-accounting-mfacc",
           "toronto-forest-conservation-mfc",
           "toronto-forestry-mscf",
@@ -1933,8 +1959,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/dentistry-research/": {
+            "taskFingerprint": "57f261bd6d119a50c99e80f75de2ff76d604b6d6a62760c17b6e92c96c04bb03",
             "modifiedAt": "2025-11-03T11:44:25",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-dentistry-research-msc",
@@ -1948,14 +1975,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "6c63f7224617ed940dd1773897fc298c968536739dd2ce32dd5eccf06ca3811b",
+                "evidenceDocumentHash": "8abf03b9589ef460d38b82505a8dd1f9b48fabf004cd75aab63b2f71ef262c89",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/dentistry-with-specialty-training/": {
+            "taskFingerprint": "9b013efdd859245fcc2c7793b04007d8f6765fe51cbaad2f4990ef86e131d0da",
             "modifiedAt": "2025-11-03T11:44:31",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-dentistry-with-specialty-training-msc",
@@ -1969,14 +1997,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "4f89b1ce812d91af24f503199d1ff709cc1a9bc1fcbb0f16b2a158f8776aba6d",
+                "evidenceDocumentHash": "ca4b553e2c48f8427f5c7640565800bd05df964a366df2e30ee6caf8a56e2933",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/east-asian-studies/": {
+            "taskFingerprint": "bcb34cd86aa285d425bbcc97eb92d370327be28b3ecba65806e8803c107369cd",
             "modifiedAt": "2025-12-22T13:09:58",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-east-asian-studies-ma",
@@ -1990,7 +2019,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "2e06c9818a83c4e55c076f90f452f966cc14be7287168f197d8a6ad82e4d43ba",
+                "evidenceDocumentHash": "4bf15b67c2fabb0535866f0fc72bddc147aade2d31c203de9f5b614f82618598",
                 "windows": []
               }
             ]
@@ -2159,8 +2188,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/financial-risk-management/": {
+            "taskFingerprint": "4a054e8907211e33faa7b15a30998613038be08b45407290284152387fa9f8ed",
             "modifiedAt": "2025-11-03T13:14:03",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-financial-risk-management-mfrm",
@@ -2174,14 +2204,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "0dc4f88fd4b5c10f1d0be25187f3596344e950aa3cf87e5a945cceac6c9d968f",
+                "evidenceDocumentHash": "3f6881b242430f9a797ba382700f3ac5ecd6769e8e4a7cce41dd50b5c371eed4",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/curriculum-and-pedagogy/": {
-            "modifiedAt": "2026-03-05T16:28:18",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "39a9b66c9a76311b873ac1951faadfcf0304ca640c96ea0b0c65c0474c70a39e",
+            "modifiedAt": "2026-09-01T11:27:47",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-curriculum-and-pedagogy-ma",
@@ -2195,7 +2226,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "bad435820a6e0125bf0fd80ef82ac8458bc98ffe6902c7a7e50708f658a15fe5",
+                "evidenceDocumentHash": "3ca9a7382ce78533cba9c79d7b2ededa370295c760790f0ef552f7ae23a1c85e",
                 "windows": []
               },
               {
@@ -2210,7 +2241,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "bad435820a6e0125bf0fd80ef82ac8458bc98ffe6902c7a7e50708f658a15fe5",
+                "evidenceDocumentHash": "3ca9a7382ce78533cba9c79d7b2ededa370295c760790f0ef552f7ae23a1c85e",
                 "windows": []
               }
             ]
@@ -2623,8 +2654,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/finance/": {
+            "taskFingerprint": "e6fb2e2807d2a35ff008eb871a7c603d4379dc2b3c3e64b5f8834b7b1f1f5ee3",
             "modifiedAt": "2025-11-03T13:16:34",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-finance-mf",
@@ -2638,7 +2670,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "eea3c779686cbb17e8c220c2639dded19d36f5dd6e80e1e96f18add5b1ee73af",
+                "evidenceDocumentHash": "2ef79d7d5904a528d9f74f3b9e14f5e005ad84ac797429d4cc4f3da9fceeface",
                 "windows": []
               }
             ]
@@ -2725,8 +2757,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/educational-leadership-and-policy/": {
+            "taskFingerprint": "13eebd4a61073b8b773ff1127279112fac0027cb68afc29c713defbd34f78730",
             "modifiedAt": "2026-03-05T16:27:07",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-educational-leadership-and-policy-ma",
@@ -2740,7 +2773,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "b2bac0d93b1d6d7afabc6e134fbc5d579c520d5b5739f1936200cb891cc40350",
+                "evidenceDocumentHash": "fedb5d03ca8d709b7b3a9b549507b7fa8aa62cfea2c5370bd7b6b00a979d4bb4",
                 "windows": []
               },
               {
@@ -2755,14 +2788,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "b2bac0d93b1d6d7afabc6e134fbc5d579c520d5b5739f1936200cb891cc40350",
+                "evidenceDocumentHash": "fedb5d03ca8d709b7b3a9b549507b7fa8aa62cfea2c5370bd7b6b00a979d4bb4",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/developmental-psychology-and-education/": {
+            "taskFingerprint": "e1858e65546325033cb44ad4efb3258c0a0af1850c323ec115d5348da7e6eb38",
             "modifiedAt": "2025-12-16T15:37:45",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-developmental-psychology-and-education-ma",
@@ -2776,7 +2810,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "6a2e61751134870eb72851efb1d2393eb0a6cc07a458fedd817bdabeef00e029",
+                "evidenceDocumentHash": "a038bfb297dd8bba053803b998e42530f7bbcc9e95e827d35a1bd84af1a0c5eb",
                 "windows": []
               },
               {
@@ -2791,14 +2825,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "6a2e61751134870eb72851efb1d2393eb0a6cc07a458fedd817bdabeef00e029",
+                "evidenceDocumentHash": "a038bfb297dd8bba053803b998e42530f7bbcc9e95e827d35a1bd84af1a0c5eb",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology/": {
+            "taskFingerprint": "a6039dca9e616edf6f2caeca6a4331d2ee6923877f5189c7801d46ed436f09ce",
             "modifiedAt": "2025-12-22T13:04:42",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology-ma",
@@ -2812,14 +2847,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "53b5759e1c960954a2a88335e1ebee962cd9af823865367ccbfe228ca410fde7",
+                "evidenceDocumentHash": "9fccf180289896a8f65bc06a25f2c9020b2574ef520a6fad78dd8bf8b21b0f63",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/": {
+            "taskFingerprint": "40827773b8e4630a126746ee7374f46652930c12ade7deb43a4b8db8de2e1633",
             "modifiedAt": "2025-12-18T14:32:02",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
@@ -2833,7 +2869,7 @@
                 "parseStatus": "incomplete",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "f8ff6c556a145742d67414b5627e60a430eb67a12dd877d24f12b5f048ea706d",
+                "evidenceDocumentHash": "1e0e3316d5885fc2c985573b198a48c7622d53b37bd4c5320997d78dc99cae5a",
                 "windows": [
                   {
                     "round": "Fall 2027 domestic deadline",
@@ -3020,8 +3056,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/drama-theatre-and-performance-studies/": {
-            "modifiedAt": "2025-11-03T11:45:09",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "3f518785d832e7a5e4073e808fe110fa9323478408e9d6fec508f252913d8b85",
+            "modifiedAt": "2026-11-03T15:27:44",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-drama-theatre-and-performance-studies-ma",
@@ -3031,11 +3068,11 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/drama-theatre-and-performance-studies/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MA, PhD: Fall 2026 Entry 14-Jan-2026 International: MA, PhD: Fall 2026 Entry 14-Jan-2026",
+                "deadlineText": "Domestic: MA, PhD: Application Deadline – MA Application Deadline – PhD International: MA, PhD: Application Deadline – MA Application Deadline – PhD",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "1d97b52eacf538411738c03dd9f289e5acee00d710dec979da826729adb20aad",
+                "evidenceDocumentHash": "ba2cbf0b71a89e44dc4047a4396ed7b08ad12cf6128b12940649a19c8769b3eb",
                 "windows": []
               }
             ]
@@ -3100,8 +3137,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/counselling-psychology/": {
+            "taskFingerprint": "9db1e7611170c305add27cf3628b1ba0387cbd4b43d0a2aa29fe3025d658be35",
             "modifiedAt": "2026-01-07T15:29:59",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-counselling-psychology-med",
@@ -3115,7 +3153,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "c487be8dd522e501c71658eab51747e3c4c51d06c65ed0db833fab04cf512424",
+                "evidenceDocumentHash": "05c3ac0c5522f29923c65441be31d7f0d47081494074ba586e01949427850bf4",
                 "windows": []
               }
             ]
@@ -3855,8 +3893,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/financial-economics/": {
+            "taskFingerprint": "32bd95414ace008a05c6a59e10e68ff8d635c4b8d2ea0a536253bcba7feb5667",
             "modifiedAt": "2025-11-03T13:16:29",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-financial-economics-mfe",
@@ -3870,7 +3909,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "ef97d3a8466126c3c5cfb9f6f38901ff87e2462a7282e669eae0b046b0cee483",
+                "evidenceDocumentHash": "f6f38b786c1c22e0e11cce4d0df8df793d8d7472b22d37c1fa570a9788b87cf8",
                 "windows": []
               }
             ]
@@ -4207,8 +4246,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/financial-insurance/": {
+            "taskFingerprint": "ffc672a9923cd30d79131227e6d9cb81a0d18e5df7334a0f9fd34183d049115c",
             "modifiedAt": "2026-06-23T16:28:05",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-financial-insurance-mfi",
@@ -4222,7 +4262,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "cad67c862f16ad028f833eefcc733a4ba0a8ae82e889199d039e28ce1fc3c49b",
+                "evidenceDocumentHash": "c1a0846e3e92d930aadcbdbfda6514078fa027081dc56724b807663c172fab5a",
                 "windows": []
               }
             ]
@@ -4249,8 +4289,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/environmental-science/": {
-            "modifiedAt": "2025-11-03T12:17:22",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "49c78c575ad3e277349eab53ceb9114758fc1b874c4a24aef15104726e552a83",
+            "modifiedAt": "2026-11-03T15:21:49",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-environmental-science-menvsc",
@@ -4260,11 +4301,11 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/environmental-science/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MEnvSc: Fall 2026 entry Entrance Scholarship consideration deadline: 11-Feb-2026 Final deadline: 15-May-2026 MSc: May 2026 entry Final Deadline 15-Mar-2026 PhD: Fall 2026 entry Final deadline: 15-May-2026 International: MEnvSc: Fall 2026 entry 11-Feb-2026 PhD: Fall 2026 entry 15-Jan-2026",
+                "deadlineText": "Domestic: MEnvSc: Application Deadline MSc: Application Deadline PhD: Application Deadline International: MEnvSc: Application Deadline PhD: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "535ec10c9ecba64ef1cf9aaf31c6b7eaa5037708429f140ddf29f55781dba909",
+                "evidenceDocumentHash": "4716bc9fa25d6b310ec415b24c7d64e6b24beb1fecc3626948f71c8db868b235",
                 "windows": []
               },
               {
@@ -4275,18 +4316,19 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/environmental-science/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MEnvSc: Fall 2026 entry Entrance Scholarship consideration deadline: 11-Feb-2026 Final deadline: 15-May-2026 MSc: May 2026 entry Final Deadline 15-Mar-2026 PhD: Fall 2026 entry Final deadline: 15-May-2026 International: MEnvSc: Fall 2026 entry 11-Feb-2026 PhD: Fall 2026 entry 15-Jan-2026",
+                "deadlineText": "Domestic: MEnvSc: Application Deadline MSc: Application Deadline PhD: Application Deadline International: MEnvSc: Application Deadline PhD: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "535ec10c9ecba64ef1cf9aaf31c6b7eaa5037708429f140ddf29f55781dba909",
+                "evidenceDocumentHash": "4716bc9fa25d6b310ec415b24c7d64e6b24beb1fecc3626948f71c8db868b235",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/ecology-and-evolutionary-biology/": {
+            "taskFingerprint": "1e3ce6bae692c9db3dc45caf8a8dac1f11d7fff3096e0b8543841deb9f41ab8d",
             "modifiedAt": "2025-11-03T11:56:48",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-ecology-and-evolutionary-biology-msc",
@@ -4300,14 +4342,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "f0e43bddd3e6c34ec16b2870048b3be8def2b036097404bebd477ea56ea41148",
+                "evidenceDocumentHash": "3e3504881e2e72b873bcfb676230e12f27efe9b7d7710958fac5e4a03101837b",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/earth-sciences/": {
-            "modifiedAt": "2025-11-03T11:55:14",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "19faf8a60422a0f45efdc86adc27932722b307b9d845b3055f7565379816299c",
+            "modifiedAt": "2026-11-03T15:31:49",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-earth-sciences-masc",
@@ -4317,11 +4360,11 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/earth-sciences/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MASc, MSc, PhD: Fall 2026 Entry 15-Jan-2026 International: MASc, MSc, PhD: Fall 2026 Entry 15-Jan-2026",
+                "deadlineText": "Domestic: MASc, MSc, PhD: Application Deadline International: MASc, MSc, PhD: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "c8b2110dc1f9bacc0775bbc841e69bc6b7c28ad394fa2cd025a8d7f6d76e11f1",
+                "evidenceDocumentHash": "3bf3b6953ae19e4b68099c9bd6b8105ddfbd85d83de627069d38277dcd16b0c4",
                 "windows": []
               },
               {
@@ -4332,11 +4375,11 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/earth-sciences/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MASc, MSc, PhD: Fall 2026 Entry 15-Jan-2026 International: MASc, MSc, PhD: Fall 2026 Entry 15-Jan-2026",
+                "deadlineText": "Domestic: MASc, MSc, PhD: Application Deadline International: MASc, MSc, PhD: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "c8b2110dc1f9bacc0775bbc841e69bc6b7c28ad394fa2cd025a8d7f6d76e11f1",
+                "evidenceDocumentHash": "3bf3b6953ae19e4b68099c9bd6b8105ddfbd85d83de627069d38277dcd16b0c4",
                 "windows": []
               }
             ]
@@ -4364,8 +4407,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/environment-and-sustainability/": {
+            "taskFingerprint": "4e4642fbe11683eb2cf268448836ee82dace30465024f8db1b6f5f204d0ec11e",
             "modifiedAt": "2026-07-30T12:09:56",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-environment-and-sustainability-mes",
@@ -4379,7 +4423,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "6b98f30ca2b8422013449faa3a2e2597c7221249e618ddccdc0e6f587bed5486",
+                "evidenceDocumentHash": "2d6ae6cb59896899e27cb146d6cf770ba7b27ec5f5938086a62b77181f1181a3",
                 "windows": []
               }
             ]
@@ -4611,8 +4655,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/european-and-russian-affairs/": {
+            "taskFingerprint": "7ea2326cb60f82b2c4c66454413e3dc975ba5ed7e6cc198b8ad6919ed40ae37b",
             "modifiedAt": "2025-11-03T12:17:48",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-european-and-russian-affairs-ma",
@@ -4626,14 +4671,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "e6e5d4ca26a5f313a8ea337e0a314a52b2080eda836fbdb83a7075d637384910",
+                "evidenceDocumentHash": "e3b482f3c65fb0121e9d1fdb24a4378c15ed2ea70c20c7ecf4346cfbf01d5cac",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/economics/": {
-            "modifiedAt": "2025-11-03T11:57:03",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "4e7711a69a77c3c7049065a7881a3e7e30873918b245c9d23ee16d3c06ca7fcb",
+            "modifiedAt": "2026-09-01T11:53:41",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-economics-ma",
@@ -4643,18 +4689,19 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/economics/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MA, PhD: Fall 2026 Entry 16-Jan-2026 International: MA, PhD: Fall 2026 Entry 16-Jan-2026",
+                "deadlineText": "Domestic: MA, PhD: Application Deadline International: MA, PhD: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "387ec1af39f3af3fa6cae8ed06b527e20e423e6542700ae1161d789038ec4f17",
+                "evidenceDocumentHash": "f697103de56a019ae33ae31024a18b2ac66b7de53b126b16028679d5c2c29c39",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/english/": {
+            "taskFingerprint": "e30390c6b9c15b78b6d9c32e5e1826ca4a081678b087f03f48a9facf5949e3ac",
             "modifiedAt": "2026-08-28T14:57:38",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-english-ma",
@@ -4668,7 +4715,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "d42a4dc47aec1675c73e49bfe000e8371c4ab9407e1a90062b2d022b3ce6d265",
+                "evidenceDocumentHash": "ffc4bb03c228fe0db12c1ec24dce839dc78c13fac49ceaeac0d8679f33b2109f",
                 "windows": []
               },
               {
@@ -4683,14 +4730,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "d42a4dc47aec1675c73e49bfe000e8371c4ab9407e1a90062b2d022b3ce6d265",
+                "evidenceDocumentHash": "ffc4bb03c228fe0db12c1ec24dce839dc78c13fac49ceaeac0d8679f33b2109f",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/electrical-and-computer-engineering/": {
+            "taskFingerprint": "1e053b6362ed9103630a6fcdea01d32a7ead354425e9fd3b66208a4e6e3f56a0",
             "modifiedAt": "2025-12-22T13:12:53",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-electrical-and-computer-engineering-masc",
@@ -4704,7 +4752,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "e2cbafba71db0ec115b90f687750bcfa5967590f85bc6fcf36d05d52d85ee61b",
+                "evidenceDocumentHash": "940dce69010a8ff260394b7555e219a55ea9c7e94d92c52713f36f2dcf665527",
                 "windows": []
               },
               {
@@ -4719,14 +4767,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "e2cbafba71db0ec115b90f687750bcfa5967590f85bc6fcf36d05d52d85ee61b",
+                "evidenceDocumentHash": "940dce69010a8ff260394b7555e219a55ea9c7e94d92c52713f36f2dcf665527",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/criminology-and-sociolegal-studies/": {
+            "taskFingerprint": "d5bbd35496a960440c82120e55f540c0fa7f131abe3e9a8192695842b9bcee61",
             "modifiedAt": "2025-12-22T13:07:44",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-criminology-and-sociolegal-studies-ma",
@@ -4740,7 +4789,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "db90efa98c2422018685fbf1a74549e3d0e30f4e9f14c66436517d7b5299e1d8",
+                "evidenceDocumentHash": "8f806cb76371855b7447d7b1ef6331fb01a6f329a1146caef3097844b4e7d610",
                 "windows": []
               }
             ]
@@ -4812,8 +4861,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/executive-master-of-business-administration/": {
+            "taskFingerprint": "3d39a0765eea8acb5aed7e4ffd4c430e05b4c3f383c45fd4cefbd9500ff22e64",
             "modifiedAt": "2025-12-15T15:00:02",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
             "programmes": [
               {
                 "id": "toronto-executive-master-of-business-administration-mba-emba",
@@ -4827,7 +4877,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "553ae45ffb65bcdf98ebe5c180d7537a2fc595c073a10616da4cce76f17dfc64",
+                "evidenceDocumentHash": "3ebe6d6f5c18de5f6f89bb582078d8ffe8182e1b490633bb7ba55320d86e28ca",
                 "windows": []
               }
             ]
@@ -4951,13 +5001,28 @@
             "fingerprint": "235046ace2eab62a589121cd88e314f38ff9fdf674ec49cc62825b647ecb270d"
           },
           "https://www.sgs.utoronto.ca/programs/dentistry-research/": {
-            "fingerprint": "57f261bd6d119a50c99e80f75de2ff76d604b6d6a62760c17b6e92c96c04bb03"
+            "fingerprint": "57f261bd6d119a50c99e80f75de2ff76d604b6d6a62760c17b6e92c96c04bb03",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/dentistry-with-specialty-training/": {
-            "fingerprint": "9b013efdd859245fcc2c7793b04007d8f6765fe51cbaad2f4990ef86e131d0da"
+            "fingerprint": "9b013efdd859245fcc2c7793b04007d8f6765fe51cbaad2f4990ef86e131d0da",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/east-asian-studies/": {
-            "fingerprint": "bcb34cd86aa285d425bbcc97eb92d370327be28b3ecba65806e8803c107369cd"
+            "fingerprint": "bcb34cd86aa285d425bbcc97eb92d370327be28b3ecba65806e8803c107369cd",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/civil-engineering/": {
             "fingerprint": "0520fc07f2c06c4d43cbdf07f8109806c7f9eba729329a2565cf209248f62254",
@@ -4986,10 +5051,20 @@
             "fingerprint": "5f770732776e370b3cdfaa5c82ddfc3e655b0ff4b85f99fe6025e498a1778c9c"
           },
           "https://www.sgs.utoronto.ca/programs/financial-risk-management/": {
-            "fingerprint": "4a054e8907211e33faa7b15a30998613038be08b45407290284152387fa9f8ed"
+            "fingerprint": "4a054e8907211e33faa7b15a30998613038be08b45407290284152387fa9f8ed",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/curriculum-and-pedagogy/": {
-            "fingerprint": "39a9b66c9a76311b873ac1951faadfcf0304ca640c96ea0b0c65c0474c70a39e"
+            "fingerprint": "39a9b66c9a76311b873ac1951faadfcf0304ca640c96ea0b0c65c0474c70a39e",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/political-science/": {
             "fingerprint": "1f5e51b4fca05dcc3447c37ac03737b617a484251113533cce33b9cd6e4e4b42"
@@ -5047,22 +5122,47 @@
             "fingerprint": "fe3ca160242956636a21bd08e32346c5535f8d9908cd56f5a59e49207b6a398e"
           },
           "https://www.sgs.utoronto.ca/programs/finance/": {
-            "fingerprint": "e6fb2e2807d2a35ff008eb871a7c603d4379dc2b3c3e64b5f8834b7b1f1f5ee3"
+            "fingerprint": "e6fb2e2807d2a35ff008eb871a7c603d4379dc2b3c3e64b5f8834b7b1f1f5ee3",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/kinesiology/": {
             "fingerprint": "bf5af473f08820958d9162237a982163ade6719289961d4974c1c6d856b72bae"
           },
           "https://www.sgs.utoronto.ca/programs/educational-leadership-and-policy/": {
-            "fingerprint": "13eebd4a61073b8b773ff1127279112fac0027cb68afc29c713defbd34f78730"
+            "fingerprint": "13eebd4a61073b8b773ff1127279112fac0027cb68afc29c713defbd34f78730",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/developmental-psychology-and-education/": {
-            "fingerprint": "e1858e65546325033cb44ad4efb3258c0a0af1850c323ec115d5348da7e6eb38"
+            "fingerprint": "e1858e65546325033cb44ad4efb3258c0a0af1850c323ec115d5348da7e6eb38",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology/": {
-            "fingerprint": "a6039dca9e616edf6f2caeca6a4331d2ee6923877f5189c7801d46ed436f09ce"
+            "fingerprint": "a6039dca9e616edf6f2caeca6a4331d2ee6923877f5189c7801d46ed436f09ce",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/": {
-            "fingerprint": "40827773b8e4630a126746ee7374f46652930c12ade7deb43a4b8db8de2e1633"
+            "fingerprint": "40827773b8e4630a126746ee7374f46652930c12ade7deb43a4b8db8de2e1633",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/urban-design/": {
             "fingerprint": "fb8dc367d1bea40c40febc86025a9c9fc386a5190b151bb8ade620f9a87d6f14"
@@ -5083,7 +5183,12 @@
             "fingerprint": "29ad4cee12d166d0556e88fe313aac6f37f020c8482ad870256faaae7c55763d"
           },
           "https://www.sgs.utoronto.ca/programs/drama-theatre-and-performance-studies/": {
-            "fingerprint": "3f518785d832e7a5e4073e808fe110fa9323478408e9d6fec508f252913d8b85"
+            "fingerprint": "3f518785d832e7a5e4073e808fe110fa9323478408e9d6fec508f252913d8b85",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/chemical-engineering-and-applied-chemistry/": {
             "fingerprint": "b54c9b9e78fd262d6380e48e47e62b79b919c533cc00d1c60b3804546ef822c7",
@@ -5102,7 +5207,12 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/counselling-psychology/": {
-            "fingerprint": "9db1e7611170c305add27cf3628b1ba0387cbd4b43d0a2aa29fe3025d658be35"
+            "fingerprint": "9db1e7611170c305add27cf3628b1ba0387cbd4b43d0a2aa29fe3025d658be35",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/biochemistry/": {
             "fingerprint": "0a03a57608413d14e004854c9506f6036bb6bafdff90d822a313d04c6237a856",
@@ -5259,7 +5369,12 @@
             "fingerprint": "7800835891650ad97b9352602bb4edf7d23a8c7a7f5aabf92b3b916df01f380a"
           },
           "https://www.sgs.utoronto.ca/programs/financial-economics/": {
-            "fingerprint": "32bd95414ace008a05c6a59e10e68ff8d635c4b8d2ea0a536253bcba7feb5667"
+            "fingerprint": "32bd95414ace008a05c6a59e10e68ff8d635c4b8d2ea0a536253bcba7feb5667",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/cities-engineering-and-management/": {
             "fingerprint": "f351e96160d5b264bfb59413e55217be4dc855942dc1c110ed0ce9b798b3c05b",
@@ -5312,19 +5427,39 @@
             "fingerprint": "5e4e0367f4832b5f1db226a3bb78b38c726087a7ac482ba9d74b2ecba7e76953"
           },
           "https://www.sgs.utoronto.ca/programs/financial-insurance/": {
-            "fingerprint": "ffc672a9923cd30d79131227e6d9cb81a0d18e5df7334a0f9fd34183d049115c"
+            "fingerprint": "ffc672a9923cd30d79131227e6d9cb81a0d18e5df7334a0f9fd34183d049115c",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/women-and-gender-studies/": {
             "fingerprint": "91598c3e71c6d52eac68073bab345283963ad68874611ad57fe268b9b98cf249"
           },
           "https://www.sgs.utoronto.ca/programs/environmental-science/": {
-            "fingerprint": "49c78c575ad3e277349eab53ceb9114758fc1b874c4a24aef15104726e552a83"
+            "fingerprint": "49c78c575ad3e277349eab53ceb9114758fc1b874c4a24aef15104726e552a83",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/ecology-and-evolutionary-biology/": {
-            "fingerprint": "1e3ce6bae692c9db3dc45caf8a8dac1f11d7fff3096e0b8543841deb9f41ab8d"
+            "fingerprint": "1e3ce6bae692c9db3dc45caf8a8dac1f11d7fff3096e0b8543841deb9f41ab8d",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/earth-sciences/": {
-            "fingerprint": "19faf8a60422a0f45efdc86adc27932722b307b9d845b3055f7565379816299c"
+            "fingerprint": "19faf8a60422a0f45efdc86adc27932722b307b9d845b3055f7565379816299c",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/comparative-literature/": {
             "fingerprint": "03226942fc57b6287b107412758c88f6626ef3985322586e68de3363e5bb2547",
@@ -5335,7 +5470,12 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/environment-and-sustainability/": {
-            "fingerprint": "4e4642fbe11683eb2cf268448836ee82dace30465024f8db1b6f5f204d0ec11e"
+            "fingerprint": "4e4642fbe11683eb2cf268448836ee82dace30465024f8db1b6f5f204d0ec11e",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/chemistry/": {
             "fingerprint": "8c8eed584e4c41e20865eda5f1e69c7c89e57930f9f15e22e55714741b011fa6",
@@ -5373,19 +5513,44 @@
             "fingerprint": "3f8a8935fb87c952f88fdce9dd9fb9d2db5074f7cfbdd9c1ec467378a447a717"
           },
           "https://www.sgs.utoronto.ca/programs/european-and-russian-affairs/": {
-            "fingerprint": "7ea2326cb60f82b2c4c66454413e3dc975ba5ed7e6cc198b8ad6919ed40ae37b"
+            "fingerprint": "7ea2326cb60f82b2c4c66454413e3dc975ba5ed7e6cc198b8ad6919ed40ae37b",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/economics/": {
-            "fingerprint": "4e7711a69a77c3c7049065a7881a3e7e30873918b245c9d23ee16d3c06ca7fcb"
+            "fingerprint": "4e7711a69a77c3c7049065a7881a3e7e30873918b245c9d23ee16d3c06ca7fcb",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/english/": {
-            "fingerprint": "e30390c6b9c15b78b6d9c32e5e1826ca4a081678b087f03f48a9facf5949e3ac"
+            "fingerprint": "e30390c6b9c15b78b6d9c32e5e1826ca4a081678b087f03f48a9facf5949e3ac",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/electrical-and-computer-engineering/": {
-            "fingerprint": "1e053b6362ed9103630a6fcdea01d32a7ead354425e9fd3b66208a4e6e3f56a0"
+            "fingerprint": "1e053b6362ed9103630a6fcdea01d32a7ead354425e9fd3b66208a4e6e3f56a0",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/criminology-and-sociolegal-studies/": {
-            "fingerprint": "d5bbd35496a960440c82120e55f540c0fa7f131abe3e9a8192695842b9bcee61"
+            "fingerprint": "d5bbd35496a960440c82120e55f540c0fa7f131abe3e9a8192695842b9bcee61",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/cell-and-systems-biology/": {
             "fingerprint": "8d580c78be3a28c29b378d74c595157967e1d99135d6e2138a21b7bbafc3d0d8",
@@ -5412,7 +5577,12 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/executive-master-of-business-administration/": {
-            "fingerprint": "3d39a0765eea8acb5aed7e4ffd4c430e05b4c3f383c45fd4cefbd9500ff22e64"
+            "fingerprint": "3d39a0765eea8acb5aed7e4ffd4c430e05b4c3f383c45fd4cefbd9500ff22e64",
+            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/aerospace-and-engineering/": {
             "fingerprint": "e4c4a123365b5145f23557f7fcc69dea363b2b8377cf7b4db5beed64d62e574e",

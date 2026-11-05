@@ -2,7 +2,7 @@
   "universities": {
     "aix-marseille-university": {
       "sourceUrl": "https://formations.univ-amu.fr/rechercher",
-      "checkedAt": "2026-11-04T12:14:52.667990+00:00",
+      "checkedAt": "2026-11-05T12:28:11.771702+00:00",
       "itemCount": 119,
       "applicationOpensAt": null,
       "catalogHash": "16e79b69b3cded208beab16ddd27dc9de82b637a096c767f00f48c66a823b148",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 119,
       "programmesNeedingReview": 119,
       "limitationReason": "Aix-Marseille publishes more than one hundred master mentions in its official directory. M1 Mon Master, M2 eCandidat, and international routes use different calendars, so no single date pair is inferred. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-11-04T12:14:52.667990+00:00",
+      "lastSuccessfulAt": "2026-11-05T12:28:11.771702+00:00",
       "windowFingerprint": "d82b2a6a3416bf214a189fdc1789d3765aa2f711472df9c93781e6807b46579d",
       "watchedWindowSourceHash": "dd46b0644ad130837aae784ae105b243b52b91b6e68754a0fb51483eee2fb3fc",
       "watchedWindowSourceFingerprintVersion": 3,
@@ -1219,17 +1219,15 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 1,
-          "directSuccesses": 0,
-          "directFailures": 1,
+          "directSuccesses": 1,
+          "directFailures": 0,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 1,
-          "fallbackSuccesses": 1,
+          "fallbackAttempts": 0,
+          "fallbackSuccesses": 0,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {
-            "network": 1
-          }
+          "failureKinds": {}
         }
       }
     }
