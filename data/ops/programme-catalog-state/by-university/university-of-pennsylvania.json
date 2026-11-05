@@ -2,7 +2,7 @@
   "universities": {
     "university-of-pennsylvania": {
       "sourceUrl": "https://catalog.upenn.edu/programs/",
-      "checkedAt": "2026-11-04T13:09:48.562216+00:00",
+      "checkedAt": "2026-11-05T13:26:18.739949+00:00",
       "itemCount": 159,
       "applicationOpensAt": null,
       "catalogHash": "1e28a8ad7de25851ae14677561fd2411a81a69f674bb080f54f244111932da32",
@@ -34,7 +34,7 @@
       "programmesWithoutDeadlines": 130,
       "programmesNeedingReview": 143,
       "limitationReason": "13 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-11-04T13:09:48.562216+00:00",
+      "lastSuccessfulAt": "2026-11-05T13:26:18.739949+00:00",
       "windowFingerprint": "a819b7970eb2c8d024d9c6baa936e800151e30ddc5b4995ead1ef3f96e4b918a",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
@@ -2326,15 +2326,17 @@
       "adapterDiagnostics": {
         "transport": {
           "requests": 3,
-          "directSuccesses": 3,
-          "directFailures": 0,
+          "directSuccesses": 2,
+          "directFailures": 1,
           "fallbackEnabled": true,
           "fallbackLimit": 3,
-          "fallbackAttempts": 0,
-          "fallbackSuccesses": 0,
+          "fallbackAttempts": 1,
+          "fallbackSuccesses": 1,
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
-          "failureKinds": {}
+          "failureKinds": {
+            "blocked": 1
+          }
         }
       }
     }
