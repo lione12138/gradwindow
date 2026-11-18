@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
 import re
 from collections.abc import Callable
 from dataclasses import replace
@@ -10,6 +9,7 @@ from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 
+from .api_payload import decode_api_json
 from .base import (
     BaseProgrammeAdapter,
     DiscoveredCatalog,
@@ -219,7 +219,7 @@ def _api_rows(fetcher: Callable[[str], str]) -> tuple[list[dict], int]:
     rows = []
     page = 1
     while True:
-        payload = json.loads(fetcher(PROGRAMS_API_URL.format(page=page)))
+        payload = decode_api_json(fetcher(PROGRAMS_API_URL.format(page=page)))
         if not isinstance(payload, list):
             raise ValueError("U of T programmes API did not return a list")
         for item in payload:

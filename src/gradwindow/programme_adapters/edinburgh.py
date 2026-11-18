@@ -68,7 +68,7 @@ class EdinburghAdapter(BaseProgrammeAdapter):
 
     def __init__(
         self,
-        minimum_expected_programmes: int = 250,
+        minimum_expected_programmes: int = 200,
         detail_workers: int = 2,
         detail_refresh_budget: int = 24,
         detail_interval_seconds: float = 0.8,
@@ -98,7 +98,18 @@ class EdinburghAdapter(BaseProgrammeAdapter):
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
         def load_directory():
-            programmes = {p.id: p for p in _catalogue_programmes(fetcher(CATALOG_URL))}
+            html = fetcher(CATALOG_URL)
+            soup = BeautifulSoup(html, "html.parser")
+            declared = soup.select_one("#psw-search-result-count")
+            links = soup.select(
+                "div.result h3 a[href], h3.field-content a[href*='/programmes/postgraduate-taught/']"
+            )
+            if declared and declared.get_text(strip=True).isdigit():
+                if int(declared.get_text(strip=True)) != len(links):
+                    raise ValueError(
+                        "Edinburgh directory result count did not match its course links"
+                    )
+            programmes = {p.id: p for p in _catalogue_programmes(html)}
             catalogue = sorted(programmes.values(), key=lambda p: p.id)
             if len(catalogue) < self.minimum_expected_programmes:
                 raise ValueError(
@@ -110,7 +121,7 @@ class EdinburghAdapter(BaseProgrammeAdapter):
 
         checkpoint = CatalogueCheckpoint(
             self.previous_adapter_state.get("catalogueCheckpoint", {}),
-            key=f"edinburgh-directory-v1:{self.minimum_expected_programmes}",
+            key=f"edinburgh-directory-v2:{self.minimum_expected_programmes}",
             max_age_days=self.catalogue_max_age_days,
         )
         catalog = checkpoint.load(load_directory)
