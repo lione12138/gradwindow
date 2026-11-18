@@ -143,6 +143,15 @@ def test_edinburgh_adapter_rejects_implausibly_small_catalogue() -> None:
         adapter.parse_catalog_from_fetcher(lambda url: CATALOGUE)
 
 
+def test_edinburgh_rejects_partial_directory_before_detail_requests() -> None:
+    adapter = EdinburghAdapter(minimum_expected_programmes=3)
+    partial = CATALOGUE.replace(
+        'id="psw-search-result-count">4', 'id="psw-search-result-count">5'
+    )
+    with pytest.raises(ValueError, match="result count"):
+        adapter.parse_catalog_from_fetcher(lambda url: partial)
+
+
 def test_edinburgh_catalogue_keeps_online_variant_and_edition_path() -> None:
     html = """
     <h3 class="field-content"><a href="/programmes/postgraduate-taught/267-business-administration-master-of">Business Administration, Master of MBA</a></h3>

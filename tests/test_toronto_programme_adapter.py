@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from html import escape
 
 import pytest
 from bs4 import BeautifulSoup
@@ -9,8 +10,22 @@ from gradwindow.programme_adapters.toronto import (
     APPLICATION_URL,
     PROGRAMS_API_URL,
     TorontoAdapter,
+    _api_rows,
     _deadline_windows,
 )
+
+
+def test_toronto_reads_browser_rendered_api_document() -> None:
+    rows, pages = _api_rows(
+        lambda url: (
+            f"<html><body><pre>{escape(json.dumps(API_PAYLOAD))}</pre></body></html>"
+        )
+    )
+    direct, _ = _api_rows(lambda url: json.dumps(API_PAYLOAD))
+    assert rows == direct
+    assert rows
+    assert pages == 1
+
 
 COMPUTER_SCIENCE_URL = "https://www.sgs.utoronto.ca/programs/computer-science/"
 INFORMATION_URL = "https://www.sgs.utoronto.ca/programs/information/"
