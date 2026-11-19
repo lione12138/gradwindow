@@ -102,6 +102,38 @@ def test_audit_does_not_reconcile_against_an_unavailable_adapter() -> None:
 
 
 @pytest.mark.parametrize(
+    "deadline,category,expected",
+    [
+        ("2027-09-01", "all", "current"),
+        ("2027-08-01", "all", "stale"),
+        ("2027-09-01", "international", "stale"),
+    ],
+)
+def test_deadline_only_round_cannot_refute_matching_reviewed_window(
+    deadline, category, expected
+):
+    item = _window(closesAt="2027-09-01")
+    report = audit_published_data(
+        [item],
+        catalog_state={
+            "example-university": {
+                "windows": {
+                    f"example-msc::September 2027::Full-Time Program::{category}": {
+                        "programmeId": "example-msc",
+                        "intake": "September 2027",
+                        "opensAt": None,
+                        "closesAt": deadline,
+                    },
+                }
+            }
+        },
+        adapter_health={"example-university": {"healthStatus": "ok"}},
+        today=date(2026, 11, 19),
+    )
+    assert report["recordTrustStatuses"][item["id"]] == expected
+
+
+@pytest.mark.parametrize(
     "key", ["detailUnvisitedProgrammeIds", "detailFailedProgrammeIds"]
 )
 def test_partial_detail_snapshot_cannot_retire_an_unchecked_programme(key):
