@@ -2278,12 +2278,35 @@ function createAllSchoolsGroup(
         appendCatalogueRows(tbody, university, deadlineProgrammeIds);
     } else appendCatalogueRows(tbody, university);
     tbody.children[start].dataset.schoolId = university.id;
+    const schoolReviewRecords = pendingReviewRecords.filter(
+      (record) => record.universityId === university.id,
+    );
+    if (!group && schoolReviewRecords.length) {
+      const parent = tbody.children[start];
+      const opening = [...schoolReviewRecords].sort((a, b) =>
+        a.opensAt.localeCompare(b.opensAt),
+      )[0];
+      const closing = [...schoolReviewRecords].sort((a, b) =>
+        a.closesAt.localeCompare(b.closesAt),
+      )[0];
+      parent.dataset.recordedDates = "pending";
+      parent.children[4].replaceChildren(
+        makeTextStack(formatDate(opening.opensAt), t("lastVerifiedDates")),
+      );
+      parent.children[5].replaceChildren(
+        makeTextStack(formatDate(closing.closesAt), t("lastVerifiedDates")),
+      );
+      parent.children[7].appendChild(
+        makeElement("span", {
+          className: "date-secondary",
+          text: t("pendingReviewDatesDescription"),
+        }),
+      );
+    }
     appendReviewRows(
       tbody,
       university,
-      pendingReviewRecords.filter(
-        (record) => record.universityId === university.id,
-      ),
+      schoolReviewRecords,
       tbody.children[start].children[1],
       "pending",
     );

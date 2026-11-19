@@ -376,6 +376,13 @@ test("UCL blocked current-cycle sources remain reviewable without becoming histo
     '.review-window-row[data-university-id="ucl-university-college-london"][data-review-kind="pending"]',
   );
   await expect(pending).toContainText("View dates pending recheck (4)");
+  const summary = page.locator(
+    '[data-school-id="ucl-university-college-london"][data-recorded-dates="pending"]',
+  );
+  await expect(summary.locator("td").nth(4)).toContainText("19 Oct 2026");
+  await expect(summary.locator("td").nth(5)).toContainText("25 Jun 2027");
+  await expect(summary.locator("td").nth(5)).toContainText("pending review");
+  await expect(summary.locator(".calendar-menu-trigger")).toHaveCount(0);
   await expect(historical).toContainText("View historical dates (2)");
   await expect(page.locator("#count-open")).toHaveText("0");
   await expect(page.locator("#count-exception")).toHaveText("1");

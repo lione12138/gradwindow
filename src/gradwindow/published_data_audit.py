@@ -101,6 +101,22 @@ def audit_published_data(
         identity = _published_window_identity(item)
         current = snapshot.get(identity)
         if current is None:
+            # A deadline-only catalogue with differently named rounds cannot
+            # refute a reviewed full window corroborated by that same deadline.
+            # Keep applicant categories scoped; a different audience is not proof.
+            partial_matches = [
+                value
+                for key, value in snapshot.items()
+                if value.get("programmeId") == item.get("scopeId")
+                and value.get("intake") == item.get("intake")
+                and key.rsplit("::", 1)[-1] == identity.rsplit("::", 1)[-1]
+            ]
+            if partial_matches and all(
+                not value.get("opensAt")
+                and value.get("closesAt") == item.get("closesAt")
+                for value in partial_matches
+            ):
+                continue
             issues.append(
                 {
                     "type": "published-record-missing-from-snapshot",
