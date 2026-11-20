@@ -5,7 +5,7 @@ import json
 import re
 from collections import Counter
 from collections.abc import Callable
-from datetime import date
+from datetime import date, datetime
 from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
@@ -24,6 +24,7 @@ CATALOG_URL = (
 )
 APPLICATION_URL = "https://www.studyatpku.com"
 STANDARD_GUIDE_URL = "https://www.isd.pku.edu.cn/cn/detail.php?id=725"
+CURRENT_STANDARD_GUIDE_URL = "https://www.isd.pku.edu.cn/en/detail.php?id=839"
 YENCHING_PROGRAMME_ID = "pku-yenching-china-studies-master"
 YENCHING_SOURCE_URL = "https://yenchingacademy.pku.edu.cn/ADMISSIONS.htm"
 YENCHING_APPLICATION_URL = "https://apply.yca.pku.edu.cn/"
@@ -43,6 +44,7 @@ _MONTHS = {
     "december": 12,
 }
 _MONTH_PATTERN = "|".join(month.title() for month in _MONTHS)
+_ENGLISH_DATE = rf"(?:{_MONTH_PATTERN})\s+\d{{1,2}},\s*20\d{{2}}"
 _ENGLISH_RANGE = re.compile(
     rf"(?P<sm>{_MONTH_PATTERN})\s+(?P<sd>\d{{1,2}})(?:st|nd|rd|th)?\s*,?\s*"
     rf"(?P<sy>20\d{{2}})\s*(?:-|–|—|to|until)\s*"
@@ -65,6 +67,7 @@ class PekingAdapter(BaseProgrammeAdapter):
     intake = "Autumn 2026"
     application_opens_at_basis = "official"
     replace_pending_candidates = True
+    window_watch_urls = (CURRENT_STANDARD_GUIDE_URL, YENCHING_SOURCE_URL)
 
     def __init__(self, minimum_expected_programmes: int = 180) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
@@ -94,7 +97,7 @@ class PekingAdapter(BaseProgrammeAdapter):
             variant for variant in variants if variant["department_name"] == "燕京学堂"
         ]
         if yenching_rows:
-            programmes.append(_yenching_programme(yenching_rows, fetcher, guide_cache))
+            programmes.append(_yenching_programme(fetcher))
 
         for variant in variants:
             if variant["department_name"] == "燕京学堂":
@@ -176,6 +179,8 @@ def _programme(
     language = _normalise(row.get("language_text"))
     mode = _normalise(row.get("learningstyle_text"))
     guide_url = _normalise(row.get("recruitment1")) or CATALOG_URL
+    if _is_standard_guide(guide_url):
+        guide_url = CURRENT_STANDARD_GUIDE_URL
     name = major
     qualifiers = []
     if show_language:
@@ -210,23 +215,17 @@ def _programme(
 
 
 def _yenching_programme(
-    rows: list[dict[str, str]],
     fetcher: Callable[[str], str],
-    guide_cache: dict[str, str | None],
 ) -> DiscoveredProgramme:
-    guide_url = _normalise(rows[0].get("recruitment1")) or YENCHING_SOURCE_URL
-    windows, deadline_text = _windows_for_guide(
-        guide_url,
-        language="英文",
-        fetcher=fetcher,
-        guide_cache=guide_cache,
-    )
-    if not windows and "opening year" not in deadline_text:
-        deadline_text = (
-            "The official Yenching Academy 2026 guide gives an opening month and "
-            "day but the opening year is not explicit in the same date range, so "
-            "GradWindow does not infer an exact opening date."
+    text = _page_text(fetcher(YENCHING_SOURCE_URL))
+    windows = _yenching_windows(text)
+    deadline_text = (
+        " ".join(
+            f"{w.applicant_categories[0]}, {w.intake}: {w.opens_at} to {w.closes_at}, Beijing time."
+            for w in windows
         )
+        or "The official Yenching page lacks a complete audience-specific application period."
+    )
     return DiscoveredProgramme(
         id=YENCHING_PROGRAMME_ID,
         name="Yenching Academy Master's in China Studies",
@@ -241,6 +240,90 @@ def _yenching_programme(
         retrieval_method="official-api+page",
         evidence_quality="official-full-text",
     )
+
+
+def _yenching_windows(text: str) -> list[DiscoveredWindow]:
+    text = re.sub(r"\ba\s+pplications\b", "applications", text, flags=re.I)
+    sections = re.split(
+        r"For (Mainland Chinese Candidates|International Candidates|Candidates from China[’']s Hong Kong, Macao and Taiwan Regions)\s*:",
+        text,
+        flags=re.I,
+    )
+    windows = []
+    for heading, section in zip(sections[1::2], sections[2::2], strict=True):
+        if heading.casefold().startswith("mainland"):
+            continue
+        opening = re.search(
+            rf"applications for the (20\d{{2}}) cohort of Yenching Scholars starting ({_ENGLISH_DATE})",
+            section,
+            re.I,
+        )
+        closing = (
+            re.match(
+                rf"\s*\.?\s*Application deadline\s*:\s*({_ENGLISH_DATE})",
+                section[opening.end() :],
+                re.I,
+            )
+            if opening
+            else None
+        )
+        if not opening or not closing:
+            continue
+        year = int(opening[1])
+        opens_at = datetime.strptime(opening[2], "%B %d, %Y").date()
+        closes_at = datetime.strptime(closing[1], "%B %d, %Y").date()
+        if not (
+            opens_at.year == year - 1
+            and opens_at <= closes_at
+            and closes_at.year in {year - 1, year}
+        ):
+            continue
+        category = (
+            "international-students"
+            if heading.casefold().startswith("international")
+            else "pku-hong-kong-macao-taiwan"
+        )
+        windows.append(
+            DiscoveredWindow(
+                round="Main round",
+                intake=f"Autumn {year}",
+                opens_at=opens_at.isoformat(),
+                closes_at=closes_at.isoformat(),
+                applicant_categories=[category],
+                source_url=YENCHING_SOURCE_URL,
+                opens_at_basis="official",
+            )
+        )
+    return windows
+
+
+def _is_standard_guide(url: str) -> bool:
+    return _is_isd_page(url) and urlparse(url).query in {"id=725", "id=839"}
+
+
+def standard_international_period(html: str) -> tuple[str, str, str]:
+    text = _page_text(html)
+    title = re.search(
+        r"(20\d{2}) Application Information for International Students", text, re.I
+    )
+    period = re.search(
+        r"Application Period \(Beijing time\)\s+(.+?)\s+(?:Note:|\d+\. Application Materials)",
+        text,
+        re.I,
+    )
+    ranges = _date_ranges(period[1], "中文") if period else []
+    if not title or len(ranges) != 1:
+        raise ValueError(
+            "PKU standard guide lacks a single official international application period"
+        )
+    opens, closes = ranges[0]
+    if (
+        opens > closes
+        or opens[:4] != str(int(title[1]) - 1)
+        or closes[:4] not in {opens[:4], title[1]}
+    ):
+        raise ValueError("PKU standard guide dates do not match the intake")
+    return f"Autumn {title[1]}", opens, closes
 
 
 def _windows_for_guide(
@@ -269,20 +352,25 @@ def _windows_for_guide(
         )
 
     text = _page_text(html)
-    if guide_url == STANDARD_GUIDE_URL and language == "英文":
+    if _is_standard_guide(guide_url) and language != "中文":
         return [], (
             "PKU's standard international guide explicitly says English-taught "
             "master's programmes use their own deadlines; no separate exact "
             "range was found for this catalogue record."
         )
-    ranges = _date_ranges(text, language)
+    if guide_url == CURRENT_STANDARD_GUIDE_URL:
+        intake, opens_at, closes_at = standard_international_period(html)
+        ranges = [(opens_at, closes_at)]
+    else:
+        intake = None
+        ranges = _date_ranges(text, language)
     if not ranges:
         return [], (
             "The official programme guide was checked, but it did not provide a "
             "fully explicit opening-and-closing date range. No dates were inferred."
         )
 
-    intake = _intake_from_guide(text)
+    intake = intake or _intake_from_guide(text)
     windows = [
         DiscoveredWindow(
             round=("Main round" if len(ranges) == 1 else f"Round {index}"),
