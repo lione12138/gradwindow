@@ -246,6 +246,7 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     data_lastmod = public_data_lastmod()
     sitemap_urls: list[str | tuple[str, str | None]] = [
         (public_site_url, data_lastmod),
+        f"{public_site_url}/undergraduate.html",
         (f"{public_site_url}/calendar.html", data_lastmod),
         f"{public_site_url}/contact.html",
         f"{public_site_url}/roadmap.html",
