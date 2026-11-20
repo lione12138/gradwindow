@@ -56,6 +56,7 @@ PUBLIC_FILES = (
     "frontend-data.js",
     "deadline-semantics.js",
     "status.js",
+    "tracker-table.js",
     "intake-filter.js",
     "ranking-filter.js",
     "university-deep-link.js",

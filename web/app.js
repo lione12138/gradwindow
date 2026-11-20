@@ -18,6 +18,13 @@ import {
 } from "./review.js";
 import { acronym, makeElement, makeLink, parseDate } from "./dom.js";
 import {
+  createTrackerTable,
+  formatRank,
+  makeCell,
+  makeSchoolDisplay,
+  makeSchoolGroupSummary,
+} from "./tracker-table.js";
+import {
   deadlineDaysRemaining,
   formatDeadlineDate,
 } from "./deadline-semantics.js";
@@ -184,13 +191,6 @@ function dateFormatter() {
   return dateFormatters.get(locale);
 }
 
-function makeCell(label, ...children) {
-  const cell = document.createElement("td");
-  cell.dataset.label = label;
-  children.filter(Boolean).forEach((child) => cell.appendChild(child));
-  return cell;
-}
-
 function makeActionsCell(...children) {
   const stack = makeElement("div", { className: "application-actions" });
   stack.append(...children);
@@ -304,30 +304,6 @@ function formatRecordDeadline(record) {
     formatDate(record.closesAt),
     state.language,
   );
-}
-
-function makeSchoolDisplay(record) {
-  const school = document.createDocumentFragment();
-  const schoolText = schoolLabels(record, state.language);
-  const country = countryLabel(record.country, state.language);
-  school.appendChild(
-    makeLink(schoolText.primary, record.applicationUrl, "school-link"),
-  );
-  if (country) {
-    school.appendChild(
-      makeElement("span", {
-        className: "school-country-inline",
-        text: `(${country})`,
-      }),
-    );
-  }
-  school.appendChild(
-    makeElement("span", {
-      className: "school-meta",
-      text: [schoolText.secondary, country].filter(Boolean).join(" · "),
-    }),
-  );
-  return school;
 }
 
 function makeResponsiveDeadline(
@@ -803,10 +779,6 @@ function rankRangeLabel(limit) {
     .replace("{limit}", limit);
 }
 
-function formatRank(rankDisplay) {
-  return String(rankDisplay).startsWith("=") ? rankDisplay : `#${rankDisplay}`;
-}
-
 function refreshFilterOptions() {
   populateSelect(
     "region-filter",
@@ -1249,7 +1221,7 @@ function createRow(record, status, windowGroup = null) {
         record.qsRank,
     ),
   });
-  const school = makeSchoolDisplay(record);
+  const school = makeSchoolDisplay(record, state.language);
   const intake = intakeLabel(recordIntake(record), state.language);
   const programme = makeLinkedTextStack(
     programmeLabel(record.scopeId, record.program, state.language),
@@ -1375,56 +1347,14 @@ function createUniversityGroupRow(universityGroup, status) {
         representative.qsRank,
     ),
   });
-  const school = makeSchoolDisplay(representative);
+  const school = makeSchoolDisplay(representative, state.language);
 
   const programmes = new Set(records.map((record) => record.scopeId));
-  const programmeSummary = makeElement("div", {
-    className: "school-group-summary",
-  });
-  const summaryHeading = makeElement("div", {
-    className: "school-group-summary-heading",
-  });
-  summaryHeading.append(
-    makeElement("span", {
-      className: "school-group-kicker",
-      text: t("schoolWindowGroup"),
-    }),
-    makeElement("span", {
-      className: "school-group-state",
-      text: expanded ? t("schoolGroupExpanded") : t("schoolGroupCollapsed"),
-    }),
-  );
-  const summaryCounts = makeElement("div", {
-    className: "school-group-counts",
-  });
-  summaryCounts.append(
-    makeElement("strong", {
-      className: "school-group-programme-count",
-      text: programmeCountText(programmes.size),
-    }),
-    makeElement("span", {
-      className: "school-group-window-count",
-      text: windowCountText(records.length),
-    }),
-  );
-  const toggle = makeElement("button", {
-    className: "window-group-toggle university-group-toggle",
-    title: expanded
-      ? t("collapseSchoolWindows")
-      : `${t("expandSchoolWindows")} ${programmeCountText(programmes.size)}`,
-  });
-  toggle.type = "button";
-  toggle.setAttribute("aria-expanded", String(expanded));
-  toggle.append(
-    makeElement("span", {
-      text: expanded
-        ? t("collapseSchoolWindows")
-        : `${t("expandSchoolWindows")} ${programmeCountText(programmes.size)}`,
-    }),
-    makeElement("span", {
-      className: "school-group-chevron",
-      text: "›",
-    }),
+  const { summary: programmeSummary, toggle } = makeSchoolGroupSummary(
+    programmes.size,
+    records.length,
+    expanded,
+    t,
   );
   const toggleGroup = () => {
     if (expanded) state.expandedUniversityGroups.delete(universityGroup.key);
@@ -1435,7 +1365,6 @@ function createUniversityGroupRow(universityGroup, status) {
     event.stopPropagation();
     toggleGroup();
   });
-  programmeSummary.append(summaryHeading, summaryCounts, toggle);
   programmeSummary.appendChild(
     makeElement("span", {
       className: "application-trust-summary school-group-trust",
@@ -1693,60 +1622,20 @@ function createTableSection(
   columns,
   tableClass = "",
 ) {
-  const section = makeElement("section", { className: "application-group" });
-  section.dataset.status = status;
-
-  const groupHeading = makeElement("div", { className: "group-heading" });
-  const title = makeElement("h3");
-  title.append(
-    makeElement("span", { className: `status-indicator ${status}` }),
-    document.createTextNode(heading.title),
-  );
-  groupHeading.append(
-    title,
-    makeElement("p", { text: `${heading.description} · ${countLabel}` }),
-  );
-
-  const wrapper = makeElement("div", { className: "table-wrap" });
-  const table = makeElement("table", {
-    className: `application-table ${tableClass}`.trim(),
+  return createTrackerTable({
+    status,
+    heading,
+    countLabel,
+    columns,
+    tableClass,
+    sort: state.sort,
+    onSort: (sort) => {
+      state.sort = sort;
+      resetPages();
+      syncUrl();
+      render();
+    },
   });
-  const head = document.createElement("thead");
-  const headRow = document.createElement("tr");
-  columns.forEach((column) => {
-    const th = document.createElement("th");
-    if (typeof column === "object" && column.sort) {
-      const button = makeElement("button", {
-        className:
-          `table-sort-button ${state.sort === column.sort ? "active" : ""}`.trim(),
-      });
-      button.type = "button";
-      button.dataset.sort = column.sort;
-      button.append(
-        makeElement("span", { text: column.label }),
-        makeElement("span", {
-          className: "sort-indicator",
-          text: state.sort === column.sort ? "↑" : "↕",
-        }),
-      );
-      button.addEventListener("click", () => {
-        state.sort = column.sort;
-        resetPages();
-        syncUrl();
-        render();
-      });
-      th.appendChild(button);
-    } else {
-      th.textContent = typeof column === "object" ? column.label : column;
-    }
-    headRow.appendChild(th);
-  });
-  head.appendChild(headRow);
-  const tbody = document.createElement("tbody");
-  table.append(head, tbody);
-  wrapper.appendChild(table);
-  section.append(groupHeading, wrapper);
-  return { section, tbody };
 }
 
 function directoryStatus(university) {
@@ -2190,7 +2079,7 @@ function appendReviewRows(
           text: formatRank(university.rankDisplay),
         }),
       ),
-      makeCell(t("university"), makeSchoolDisplay(record)),
+      makeCell(t("university"), makeSchoolDisplay(record, state.language)),
       makeCell(
         t("programme"),
         makeLinkedTextStack(

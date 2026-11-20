@@ -45,27 +45,69 @@
         <a href="./undergraduate.html" aria-current="page" data-i18n="navUndergraduate">Undergraduate</a>
       </nav>
 
-      <main class="undergraduate-main">
-        <h1 data-i18n="undergraduateTitle">Undergraduate application tracker</h1>
-        <p data-i18n="undergraduateIntro">Browse verified application windows open to international applicants.</p>
-        <div class="undergraduate-filters">
-          <label>
-            <span data-i18n="undergraduateSearch">Search universities, programmes or countries</span>
-            <input id="undergraduate-search" type="search" autocomplete="off" />
-          </label>
-          <label>
-            <span data-i18n="undergraduateStatus">Application status</span>
-            <select id="undergraduate-status">
-              <option value="all" data-i18n="undergraduateAllStatuses">All statuses</option>
-              <option value="open" data-i18n="statusOpen">Open now</option>
-              <option value="upcoming" data-i18n="statusUpcoming">Opening soon</option>
-              <option value="future" data-i18n="statusFuture">Future</option>
-              <option value="closed" data-i18n="undergraduateDeadlinePassed">Deadline passed</option>
-            </select>
-          </label>
-        </div>
-        <p id="undergraduate-count" class="undergraduate-count" role="status" data-i18n="undergraduateLoading">Loading application windows…</p>
-        <ul id="undergraduate-results" class="undergraduate-results" aria-label="Application windows"></ul>
+      <main>
+        <section class="board-section undergraduate-board" id="application-board" aria-labelledby="undergraduate-title">
+          <div class="section-heading">
+            <div>
+              <h1 id="undergraduate-title" data-i18n="undergraduateTitle">Undergraduate application tracker</h1>
+              <p data-i18n="undergraduateIntro">Browse verified application windows open to international applicants.</p>
+            </div>
+          </div>
+          <div class="tracker-workspace">
+            <aside class="tracker-sidebar" aria-label="Filters and sorting" data-i18n-aria-label="undergraduateFilters">
+              <div class="quick-filter-panel">
+                <div class="quick-filter-heading">
+                  <strong data-i18n="quickView">Find your next application</strong>
+                  <span data-i18n="quickViewDescription">Search first, then refine only when you need to.</span>
+                </div>
+                <div class="toolbar">
+                  <div id="undergraduate-status" class="status-tabs primary-status-tabs" role="group" aria-label="Application status" data-i18n-aria-label="statusTabsLabel"></div>
+                  <div class="primary-filter-row">
+                    <label class="search-box">
+                      <span aria-hidden="true">⌕</span>
+                      <span class="sr-only" data-i18n="searchPlaceholder">Search university, programme, or country</span>
+                      <input id="undergraduate-search" type="search" autocomplete="off" placeholder="Search university, programme, or country" data-i18n-placeholder="searchPlaceholder" />
+                    </label>
+                    <label class="select-wrap primary-select">
+                      <span class="sr-only" data-i18n="regionFilterLabel">Region</span>
+                      <select id="undergraduate-region">
+                        <option value="all" data-i18n="allRegions">All regions</option>
+                      </select>
+                    </label>
+                    <label class="select-wrap primary-select">
+                      <span class="sr-only" data-i18n="intakeFilterLabel">Intake</span>
+                      <select id="undergraduate-intake">
+                        <option value="all" data-i18n="allIntakes">All intakes</option>
+                      </select>
+                    </label>
+                    <label class="select-wrap primary-select">
+                      <span class="sr-only" data-i18n="mobileSortLabel">Sort</span>
+                      <select id="undergraduate-sort">
+                        <option value="rank" data-i18n="undergraduateQsRank">QS rank</option>
+                        <option value="opens" data-i18n="opens">Opening date</option>
+                        <option value="deadline" data-i18n="deadline">Deadline</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </aside>
+            <div class="tracker-results">
+              <div class="results-toolbar">
+                <div class="results-counts" id="undergraduate-count" role="status" data-i18n="undergraduateLoading">Loading application windows…</div>
+                <div class="group-view-actions" id="undergraduate-group-actions" hidden>
+                  <button id="undergraduate-expand" type="button" data-i18n="expandVisibleSchools">Expand schools on this page</button>
+                  <button id="undergraduate-collapse" type="button" data-i18n="collapseVisibleSchools">Collapse all</button>
+                </div>
+              </div>
+              <div id="undergraduate-results" class="application-groups"></div>
+              <div class="empty-state" id="undergraduate-empty" hidden>
+                <strong data-i18n="emptyTitle">No matching application windows</strong>
+                <span data-i18n="emptyText">Adjust your search or filters and try again.</span>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
     <script src="./undergraduate.js" type="module"></script>
