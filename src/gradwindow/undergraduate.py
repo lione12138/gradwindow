@@ -94,6 +94,7 @@ def load_undergraduate_windows(path: Path = UNDERGRADUATE_PATH) -> list[dict]:
                         "school",
                         "schoolZh",
                         "country",
+                        "region",
                         "qsRank",
                         "rankDisplay",
                     )

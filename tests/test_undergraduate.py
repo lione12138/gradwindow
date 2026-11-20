@@ -17,7 +17,7 @@ from gradwindow.undergraduate import load_undergraduate_windows
 def test_undergraduate_feed_rejects_unpublishable_windows(tmp_path, changes, message):
     path = tmp_path / "undergraduate.json"
     record = load_undergraduate_windows()[0]
-    for key in ("school", "schoolZh", "country", "qsRank", "rankDisplay"):
+    for key in ("school", "schoolZh", "country", "region", "qsRank", "rankDisplay"):
         record.pop(key)
     write_json(path, [{**record, **changes}])
 
