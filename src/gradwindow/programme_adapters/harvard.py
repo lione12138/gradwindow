@@ -34,11 +34,11 @@ class HarvardAdapter(BaseProgrammeAdapter):
     application_url = APPLICATION_URL
     intake = "Fall 2027"
     application_opens_at_basis = "missing"
-    browser_fallback_limit = len(MASTER_FILTER_URLS)
+    browser_fallback_limit = len(MASTER_FILTER_URLS) + 1
     browser_wait_for_selectors = {
         url: ".views-row .paragraph--type--degree" for url in MASTER_FILTER_URLS
     }
-    window_watch_urls = MASTER_FILTER_URLS
+    window_watch_urls = (*MASTER_FILTER_URLS, APPLICATION_URL)
 
     def __init__(self, minimum_expected_programmes: int = 12) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
@@ -47,13 +47,21 @@ class HarvardAdapter(BaseProgrammeAdapter):
         self,
         fetcher: Callable[[str], str],
     ) -> DiscoveredCatalog:
+        self.intake = _official_intake(fetcher(APPLICATION_URL))
         html_pages = [fetcher(url) for url in MASTER_FILTER_URLS]
         programmes = [
             programme
             for html in html_pages
             for programme in self._parse_programmes(html)
         ]
-        return self._catalog_from_programmes(programmes)
+        catalog = self._catalog_from_programmes(programmes)
+        catalog.diagnostics = {
+            "applicationCycle": self.intake,
+            "cycleSourceUrl": APPLICATION_URL,
+            "openingDateStatus": "not-exact",
+            "coverageScope": "Harvard Griffin GSAS master's degrees only",
+        }
+        return catalog
 
     def parse_catalog(self, html: str) -> DiscoveredCatalog:
         return self._catalog_from_programmes(self._parse_programmes(html))
@@ -97,6 +105,13 @@ class HarvardAdapter(BaseProgrammeAdapter):
             if degree_type is None:
                 continue
             deadline = _deadline(degree)
+            if deadline and int(deadline[:4]) not in {
+                int(self.intake[-4:]) - 1,
+                int(self.intake[-4:]),
+            }:
+                raise ValueError(
+                    "Harvard deadline did not match the official application cycle"
+                )
             windows = (
                 [
                     DiscoveredWindow(
@@ -125,6 +140,25 @@ class HarvardAdapter(BaseProgrammeAdapter):
                 )
             )
         return programmes
+
+
+def _official_intake(html: str) -> str:
+    soup = BeautifulSoup(html, "html.parser")
+    text = _normalise_text((soup.find("main") or soup).get_text(" ", strip=True))
+    matches = re.findall(
+        r"\b(20\d{2})\s*[-–]\s*(20\d{2})\s+academic year application "
+        r"to degree programs is open\b",
+        text,
+        re.I,
+    )
+    if len(set(matches)) != 1:
+        raise ValueError(
+            "Harvard application page lacked one explicit open academic cycle"
+        )
+    start, end = map(int, matches[0])
+    if end != start + 1:
+        raise ValueError("Harvard application cycle was not consecutive")
+    return f"Fall {start}"
 
 
 def _degree_type(degree) -> str | None:
