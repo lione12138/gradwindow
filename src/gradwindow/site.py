@@ -73,6 +73,7 @@ PUBLIC_FILES = (
     "review.js",
     "styles.css",
     "og-image-multiranking.png",
+    "og-image-undergraduate.png",
     "favicon.svg",
     "cat-avatar.svg",
 )
