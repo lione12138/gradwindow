@@ -72,12 +72,13 @@ def test_current_windows_generate_next_cycle_predictions(tmp_path) -> None:
     tsinghua = next(
         item
         for item in payload["predictions"]
-        if item["basedOnRecordId"] == "tsinghua-advanced-computing-autumn-2026-round-2"
+        if item["basedOnRecordId"]
+        == "tsinghua-advanced-computing-master-2027-second-application-round-international-students"
     )
-    assert tsinghua["intake"] == "Autumn 2027"
-    assert tsinghua["opensAt"] == "2027-01-01"
-    assert tsinghua["closesAt"] == "2027-02-27"
-    assert tsinghua["confidence"] == "low"
+    assert tsinghua["intake"] == "Autumn 2028"
+    assert tsinghua["opensAt"] == "2028-01-01"
+    assert tsinghua["closesAt"] == "2028-02-27"
+    assert tsinghua["evidenceCycleCount"] == 2
     kth = next(
         item
         for item in payload["predictions"]
