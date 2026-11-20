@@ -1,8 +1,12 @@
 from __future__ import annotations
 
+import pytest
+
 from gradwindow.programme_adapters.harvard import (
+    APPLICATION_URL,
     MASTER_FILTER_URLS,
     HarvardAdapter,
+    _official_intake,
 )
 
 FIRST_PAGE_HTML = """
@@ -54,6 +58,8 @@ def test_harvard_adapter_extracts_master_degree_deadlines_across_pages() -> None
 
     def fetcher(url: str) -> str:
         fetched.append(url)
+        if url == APPLICATION_URL:
+            return "<main>The 2027–2028 academic year application to degree programs is open.</main>"
         if url == MASTER_FILTER_URLS[2]:
             return SECOND_PAGE_HTML
         return FIRST_PAGE_HTML
@@ -84,4 +90,39 @@ def test_harvard_adapter_extracts_master_degree_deadlines_across_pages() -> None
     assert msmba.name == "SM MS/MBA"
     assert msmba.parse_status == "no-deadline"
     assert msmba.windows == []
-    assert fetched == list(MASTER_FILTER_URLS)
+    assert fetched == [APPLICATION_URL, *MASTER_FILTER_URLS]
+
+
+@pytest.mark.parametrize("years", ["2027–2028", "2028-2029"])
+def test_harvard_cycle_comes_from_explicit_open_notice(years):
+    assert (
+        _official_intake(
+            f"<main>The {years} academic year application to degree programs is open.</main>"
+        )
+        == f"Fall {years[:4]}"
+    )
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "Applications become available in September.",
+        "2027–2029 academic year application to degree programs is open",
+        "2026–2027 academic year application to degree programs is open. 2027–2028 academic year application to degree programs is open",
+    ],
+)
+def test_harvard_rejects_missing_or_ambiguous_cycle(text):
+    with pytest.raises(ValueError):
+        _official_intake(f"<main>{text}</main>")
+
+
+def test_harvard_rejects_deadlines_from_previous_cycle():
+    adapter = HarvardAdapter(minimum_expected_programmes=1)
+    with pytest.raises(ValueError, match="deadline did not match"):
+        adapter.parse_catalog_from_fetcher(
+            lambda url: (
+                "<main>2028–2029 academic year application to degree programs is open</main>"
+                if url == APPLICATION_URL
+                else FIRST_PAGE_HTML
+            )
+        )
