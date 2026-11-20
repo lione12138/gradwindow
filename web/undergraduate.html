@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Undergraduate application tracker | GradWindow</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell undergraduate-page">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="GradWindow home">
+          <span class="brand-mark">G</span>
+          <span>GradWindow</span>
+        </a>
+        <div class="header-controls">
+          <button class="header-control" id="language-toggle" type="button" aria-label="Switch language">中文</button>
+          <button class="header-control" id="theme-toggle" type="button" aria-label="Switch color theme">◐</button>
+        </div>
+      </header>
+
+      <nav class="degree-nav" aria-label="Study level" data-i18n-aria-label="degreeNavigation">
+        <a href="./" data-i18n="navMasters">Master’s</a>
+        <a href="./undergraduate.html" aria-current="page" data-i18n="navUndergraduate">Undergraduate</a>
+      </nav>
+
+      <main class="undergraduate-main">
+        <h1 data-i18n="undergraduateTitle">Undergraduate application tracker</h1>
+        <p data-i18n="undergraduateIntro">Browse verified application windows open to international applicants.</p>
+        <div class="undergraduate-filters">
+          <label>
+            <span data-i18n="undergraduateSearch">Search universities, programmes or countries</span>
+            <input id="undergraduate-search" type="search" autocomplete="off" />
+          </label>
+          <label>
+            <span data-i18n="undergraduateStatus">Application status</span>
+            <select id="undergraduate-status">
+              <option value="all" data-i18n="undergraduateAllStatuses">All statuses</option>
+              <option value="open" data-i18n="statusOpen">Open now</option>
+              <option value="upcoming" data-i18n="statusUpcoming">Opening soon</option>
+              <option value="future" data-i18n="statusFuture">Future</option>
+              <option value="closed" data-i18n="undergraduateDeadlinePassed">Deadline passed</option>
+            </select>
+          </label>
+        </div>
+        <p id="undergraduate-count" class="undergraduate-count" role="status" data-i18n="undergraduateLoading">Loading application windows…</p>
+        <ul id="undergraduate-results" class="undergraduate-results" aria-label="Application windows"></ul>
+      </main>
+    </div>
+    <script src="./undergraduate.js" type="module"></script>
+  </body>
+</html>
