@@ -189,9 +189,11 @@ items as candidates.
 ## Current adapter notes
 
 - HKU uses official `SavedQueryService/Execute` catalogue endpoints and
-  programme detail pages. The detail pages publish exact deadline rounds, but
-  not exact opening dates, so HKU discoveries remain `incomplete` candidates
-  until an official opening date is confirmed.
+  the full-time programme details for deadlines and local/non-local scope.
+  For Artificial Intelligence, Applied Geosciences, Public Health and Physics,
+  the adapter checks a separate official programme source for the exact opening
+  date and requires its academic year to match the intake on the portal.
+  Other portal deadlines remain incomplete until an exact opening is verified.
 - Edinburgh publishes programme-level deadlines in the degree finder, but the
   general applying page does not publish an exact taught-postgraduate opening
   date. Those candidates should not be promoted without a confirmed opening

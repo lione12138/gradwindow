@@ -2,62 +2,62 @@
   "universities": {
     "the-university-of-hong-kong": {
       "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-listing",
-      "checkedAt": "2026-11-05T12:41:15.072102+00:00",
+      "checkedAt": "2026-11-20T14:54:00.740712+00:00",
       "itemCount": 156,
-      "applicationOpensAt": "2025-09-01",
-      "catalogHash": "94fa5cf81bf313306c6eebda9bb2febfac2f879c3677cf378f285c456a749591",
+      "applicationOpensAt": null,
+      "catalogHash": "fea90df7bc806bf45a77a45cb1ed6ba93c03577641b37d1e11415c6305892291",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "needs-opening-date",
-      "observedWindowCount": 118,
-      "exactWindowCount": 0,
+      "windowStatus": "partial",
+      "observedWindowCount": 90,
+      "exactWindowCount": 8,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
-        "2026:fall:09": {
-          "intakes": [
-            "September 2026"
-          ],
-          "observedWindowCount": 41,
-          "exactWindowCount": 0,
-          "recurringPolicyWindowCount": 0
-        },
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 77,
+          "observedWindowCount": 89,
+          "exactWindowCount": 8,
+          "recurringPolicyWindowCount": 0
+        },
+        "2027:other:08": {
+          "intakes": [
+            "August 2027"
+          ],
+          "observedWindowCount": 1,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 118,
-      "programmesWithoutDeadlines": 98,
-      "programmesNeedingReview": 98,
-      "limitationReason": "118 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-11-05T12:41:15.072102+00:00",
-      "windowFingerprint": "b0c7893a3cf4ed95402207e80c2f6bd24bd17d15d441af8b66a54448324ae40e",
-      "watchedWindowSourceHash": null,
-      "watchedWindowSourceFingerprintVersion": null,
+      "missingOpeningDateCount": 82,
+      "programmesWithoutDeadlines": 111,
+      "programmesNeedingReview": 152,
+      "limitationReason": "82 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-11-20T14:54:00.740712+00:00",
+      "windowFingerprint": "d29fe6c4d7c41af59347d74a790edf3be7ad53dbe6a01f8b0f46df6a6dc0ad16",
+      "watchedWindowSourceHash": "50733a632ab5ea79226d3817c4f2afaa4ae03684d6f39fc5da9e5e91cb8b8141",
+      "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "hku-accounting-analytics-master": {
           "name": "Master of Accounting Analytics",
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-accounting-master": {
           "name": "Master of Accounting",
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-advanced-architectural-design-msc": {
           "name": "Master of Science in Advanced Architectural Design (September 2026)",
@@ -84,8 +84,8 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "d208d0a69cd0416cb8488b72ba3eb0dd7eae6da4788eee50d9613b6671d30491",
+          "parseStatus": "incomplete",
+          "deadlineHash": "a3e7add6ddc9e012cf2029108622acb3ffdf8379bf415067f8e53e35ae0cd9f4",
           "windowCount": 2,
           "latestClosesAt": "2027-02-24"
         },
@@ -134,10 +134,10 @@
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-artificial-intelligence-msc": {
           "name": "Master of Science in Artificial Intelligence",
@@ -145,7 +145,7 @@
           "faculty": "Faculty of Science",
           "department": "",
           "parseStatus": "parsed",
-          "deadlineHash": "667cffd2c842fff6457a56040a8a2cdd9e0f4e828ee3fc2e81366512adc40435",
+          "deadlineHash": "7dc4d177b9547ab240940cc2056951ecd9bf879a5dd860fd374635e37a398bbb",
           "windowCount": 2,
           "latestClosesAt": "2027-02-01"
         },
@@ -184,8 +184,8 @@
           "degreeType": "Master",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "ab5c304f8b3ef88e5e04cf46c1fbb968a3c703958fec53d4effcfeb888745999",
+          "parseStatus": "incomplete",
+          "deadlineHash": "ba836ec831774df51e332c42758d9dccd2e8dbd555d4113650b515a1de28350c",
           "windowCount": 2,
           "latestClosesAt": "2027-02-26"
         },
@@ -214,10 +214,10 @@
           "degreeType": "MSc",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-china-development-studies-master": {
           "name": "Master of China Development Studies",
@@ -294,10 +294,10 @@
           "degreeType": "Master",
           "faculty": "LKS Faculty of Medicine",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "350acef6921aab69f480c1787b657a8941f25de8fdbc9b99a1b050816c144d0d",
+          "windowCount": 3,
+          "latestClosesAt": "2027-06-30"
         },
         "hku-compliance-and-regulation-llm": {
           "name": "Master of Laws in Compliance and Regulation",
@@ -394,8 +394,8 @@
           "degreeType": "Master",
           "faculty": "School of Computing and Data Science",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "0766e07f9917356f0d80f77dcfc3b5a2155b423aa653cea4d24474d4bd078c03",
+          "parseStatus": "incomplete",
+          "deadlineHash": "ce4bd417fa9fb6ae2d0e882b18a65b2b06e45d058f60b525dfeeaab5998aa95d",
           "windowCount": 2,
           "latestClosesAt": "2027-04-30"
         },
@@ -494,18 +494,18 @@
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-electronic-commerce-and-internet-computing-msc": {
           "name": "Master of Science in Electronic Commerce and Internet Computing",
           "degreeType": "MSc",
           "faculty": "School of Computing and Data Science",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "0766e07f9917356f0d80f77dcfc3b5a2155b423aa653cea4d24474d4bd078c03",
+          "parseStatus": "incomplete",
+          "deadlineHash": "fb1489003bbd8d4e155bd2edbd150b58cb4c40e251368504061860bce4912738",
           "windowCount": 2,
           "latestClosesAt": "2027-04-30"
         },
@@ -514,8 +514,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "4988b305f1df9c6359f6bb6b3ee6b750300d0c1854996bc9b01ee2d0601f2314",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -524,8 +524,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "1e447ff4049daf42822d55e2bb2582eee4eed3703e036e1965d61aeebf325e66",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -534,8 +534,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "503c67d5b824dc7ffcb19f8b3f1a8bea5da231ec24ab395caa8d5243098463fa",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -544,8 +544,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "dd1eee410c3a66a6ed4de1378c59cf0171abd30a2d2093d1c13bc5e7a3560baf",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -554,8 +554,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "30205d26e40219077d79f8d8ff50029387fe1f9695612592f3c93db35937af67",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -564,8 +564,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7e80ff8d20abb4f85d4059ef2e4f9de491e003e18eaa93cb87e41151a782b153",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -574,8 +574,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "200923709ddf5720599a9697e5469e62537a103e397f8ab983b4d2d289fedaab",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -584,8 +584,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "5f21c205c3d9dbf4e1a9283c6ae5e07cb73a126dd4c47b0bcf2738eced85d12b",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -594,8 +594,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "ccab7d2f2e19b4f4b1f0578c03076409481e0e995e103faea4da10348d1003af",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -604,8 +604,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "9d14bbe603437edaa592dffd2985853f0104780eabdce4a8f6b9ad52581b35a5",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -614,8 +614,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b5e448290f2160fcddaf49206781b0df31dac6d20199991187c558576d9b9f1e",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -624,8 +624,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f851678313fcfeb768fe17156573a933fad2d6ceb035ac1dda0638a3f134a5f7",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -634,8 +634,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "798a1daad3ed4e21314c7bc650aa09bbbd8b20906e9a78909ab511c98672efab",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -644,8 +644,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "0f788f793cf24c8a489bdea0fe1cf6f2b3b7b015560b2380a0896363703475f1",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -654,8 +654,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "611a7f9c88a6ed2faaf3a872662fe5366bbc1895adcae382ea516caedaa3204f",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -664,8 +664,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "9ff57555d2387d2466825a759f61c969ece04d75098f171a4891b47ba9886dfb",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -674,8 +674,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "af61b81c08d3877c0195c742ccf0a1c262a02b72eec5cd54aeb35bdee8fe93a0",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -684,8 +684,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b2e765ea393532340b9b8d2a189797b95e2d73bbdb8f6ef2df3037b2d67e29e3",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -694,8 +694,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "fb19c080b0ab3f2b35b4d6fad7d0ff185bcf8b10699aed362901f36d15caf98f",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -704,8 +704,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "2296ab0c1b720f3eafe770272c2ce3229c427712c86da49caf68b8acf14b3bdb",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -714,8 +714,8 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Engineering",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "5679615b1fe2480e6568fb0f5152ceccf9444a7b86e44edea02d0d2da46625fe",
+          "parseStatus": "incomplete",
+          "deadlineHash": "f4d55d6a6f82d190558677e8f58c505f1362a6130f8dec9e0f50a0345c06511b",
           "windowCount": 2,
           "latestClosesAt": "2027-04-09"
         },
@@ -724,10 +724,10 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Science",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "0947755b85a60789a276ff277c8035a96ffeac6e0a1b3c0cad7cf061f620b4dc",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-30"
         },
         "hku-expressive-arts-therapy-master": {
           "name": "Master of Expressive Arts Therapy",
@@ -744,30 +744,30 @@
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-finance-in-financial-technology-master": {
           "name": "Master of Finance in Financial Technology",
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-finance-master": {
           "name": "Master of Finance",
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-financial-technology-and-data-analytics-msc": {
           "name": "Master of Science in Financial Technology and Data Analytics",
@@ -784,8 +784,8 @@
           "degreeType": "Master",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "45cb07ad460401dadd72e1c2f0fc95b67d743c76897eb88041961f4afaee6642",
+          "parseStatus": "incomplete",
+          "deadlineHash": "820a500561860407351d0b301c692009387cab74f2b8aa84715353221a66ad07",
           "windowCount": 2,
           "latestClosesAt": "2027-03-19"
         },
@@ -804,10 +804,10 @@
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-governance-and-policy-master": {
           "name": "Master of Governance and Policy",
@@ -854,10 +854,10 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Science",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "59e27898e2659ff57fd6299c669df7175eba6388021e3413cf55363fecab92d2",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-29"
         },
         "hku-international-and-public-affairs-master": {
           "name": "Master of International and Public Affairs",
@@ -924,20 +924,20 @@
           "degreeType": "MSc",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-master-of-business-administration-mba": {
           "name": "Master of Business Administration",
           "degreeType": "MBA",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "6c1315a8be7e38048a17b16f63c2cc5c463448f338e111f055e1b33569868619",
+          "windowCount": 1,
+          "latestClosesAt": "2026-12-30"
         },
         "hku-master-of-education-med": {
           "name": "Master of Education",
@@ -955,9 +955,9 @@
           "faculty": "LKS Faculty of Medicine",
           "department": "",
           "parseStatus": "parsed",
-          "deadlineHash": "8a289bab260388ee55834d2b8edd61db4c81a60adc046fcf7fef4c926fbcd8c7",
-          "windowCount": 1,
-          "latestClosesAt": "2027-04-30"
+          "deadlineHash": "04a2ef251c4dab3049bf5caf1d1a387da429aef7ced850eae17199c60d20e728",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-30"
         },
         "hku-medical-sciences-master": {
           "name": "Master of Medical Sciences",
@@ -984,8 +984,8 @@
           "degreeType": "Master",
           "faculty": "LKS Faculty of Medicine",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "1e721ef828f03ea1ebbf52bdbe868d1d449887d13d1254a9cece49a607300bb7",
+          "parseStatus": "incomplete",
+          "deadlineHash": "2336c7ab254da0baed9ab71e469aa37ab67397ef03fff6acdace89a536054148",
           "windowCount": 2,
           "latestClosesAt": "2027-03-08"
         },
@@ -1064,10 +1064,10 @@
           "degreeType": "Master",
           "faculty": "Faculty of Social Sciences",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "2b2610865a8e15ab2e643110046d2907183c6ca10c9e8a003a296add1f7fe9e7",
-          "windowCount": 2,
-          "latestClosesAt": "2026-02-02"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-social-sciences-in-the-field-of-clinical-psychology-master": {
           "name": "Master of Social Sciences in the field of Clinical Psychology",
@@ -1114,10 +1114,10 @@
           "degreeType": "Master",
           "faculty": "Faculty of Social Sciences",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "7df6b80371a0cb2634d65b12bb292e198bebff03030426c71e00ed96c0f9de05",
-          "windowCount": 3,
-          "latestClosesAt": "2027-04-30"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-social-sciences-in-the-field-of-media-culture-and-creative-cities-master": {
           "name": "Master of Social Sciences in the field of Media, Culture and Creative Cities",
@@ -1144,18 +1144,18 @@
           "degreeType": "Master",
           "faculty": "Faculty of Social Sciences",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "8b6f509e45dc803be558f1863732fd57354a2d98ba5aa3771b0796eb2a8da4ed",
-          "windowCount": 3,
-          "latestClosesAt": "2027-04-30"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-social-sciences-in-the-field-of-population-and-policy-analysis-master": {
           "name": "Master of Social Sciences in the field of Population and Policy Analysis",
           "degreeType": "Master",
           "faculty": "Faculty of Social Sciences",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "7a0efcf1fddda407bee797125cd6724107b630a0d2e01bb4e3709293548f8569",
+          "parseStatus": "incomplete",
+          "deadlineHash": "7e46438363b8850c9335364b5c02dee6d3fd4c26670d393573eb9d4acd61cb7e",
           "windowCount": 1,
           "latestClosesAt": "2027-03-01"
         },
@@ -1174,10 +1174,10 @@
           "degreeType": "Master",
           "faculty": "Faculty of Social Sciences",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "c2e93477a0f5898bb17a91e6cd1fcf40e57b3fb88d5454e61c8540b3e11fbca4",
-          "windowCount": 3,
-          "latestClosesAt": "2027-03-01"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-social-sciences-in-the-field-of-social-service-management-master": {
           "name": "Master of Social Sciences in the field of Social Service Management",
@@ -1214,18 +1214,18 @@
           "degreeType": "Master",
           "faculty": "Faculty of Social Sciences",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "87bc3b196f8482de3f6a887e1650dd84f34671d4cf1d37461f049b7f4180fc95",
-          "windowCount": 2,
-          "latestClosesAt": "2027-02-22"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-statistics-master": {
           "name": "Master of Statistics",
           "degreeType": "Master",
           "faculty": "School of Computing and Data Science",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "0766e07f9917356f0d80f77dcfc3b5a2155b423aa653cea4d24474d4bd078c03",
+          "parseStatus": "incomplete",
+          "deadlineHash": "78bebef1c241543af54cd34ec5587b44d88932c610154bfb5e07dd36afc85bba",
           "windowCount": 2,
           "latestClosesAt": "2027-04-30"
         },
@@ -1234,10 +1234,10 @@
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-sustainable-environmental-design-msc": {
           "name": "Master of Science in Sustainable Environmental Design",
@@ -1254,8 +1254,8 @@
           "degreeType": "MA",
           "faculty": "Faculty of Education",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "8b31e63aff0a358bc48270159af02cbf4d807e7054d1db919961adf55c70eeac",
+          "parseStatus": "incomplete",
+          "deadlineHash": "02de062118972deafcf5d9c888fed17343a5b2a324be8f3c4b723d3b573553e4",
           "windowCount": 1,
           "latestClosesAt": "2026-12-21"
         },
@@ -1284,8 +1284,8 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6b31d237ec391476966295615440af998b2747f21085e9535db30d4fb751a65a",
+          "parseStatus": "incomplete",
+          "deadlineHash": "9bb7a1e9286e03825400a24569d310bf1c0a63d73aa89a11464c1ac94c776982",
           "windowCount": 3,
           "latestClosesAt": "2027-06-30"
         },
@@ -1295,7 +1295,7 @@
           "faculty": "Faculty of Science",
           "department": "",
           "parseStatus": "parsed",
-          "deadlineHash": "051b2ff4c57a77839fd5fdbe2d2f0bd3191db7bdcf1ae2a5048a0beff2b0f07d",
+          "deadlineHash": "6459c24a1d73f24117c29632618cd6a8177e0eba005411e051e39a89c05c6f02",
           "windowCount": 2,
           "latestClosesAt": "2027-04-30"
         },
@@ -1314,18 +1314,18 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Science",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "c1f9df297f56dc548c09d1ebc7ea5d128e6a8cf346db8453308aaa3f2e356522",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-30"
         },
         "hku-the-field-of-chinese-historical-studies-ma": {
           "name": "Master of Arts in the field of Chinese Historical Studies",
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "59f0ea8814a11a8a864fae58f704ddefcf7c0dc6ae551180f1d083be45ca1eb7",
+          "parseStatus": "incomplete",
+          "deadlineHash": "3356fd236d1c701a82cd9c74de231846bcefca05ffe9b58d61f1028e15f91b42",
           "windowCount": 2,
           "latestClosesAt": "2027-04-30"
         },
@@ -1334,18 +1334,18 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "051b2ff4c57a77839fd5fdbe2d2f0bd3191db7bdcf1ae2a5048a0beff2b0f07d",
-          "windowCount": 2,
-          "latestClosesAt": "2027-04-30"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-the-field-of-creative-communications-ma": {
           "name": "Master of Arts in the field of Creative Communications",
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "45cb07ad460401dadd72e1c2f0fc95b67d743c76897eb88041961f4afaee6642",
+          "parseStatus": "incomplete",
+          "deadlineHash": "b1b8b7c7067323c6cc1f68d0b162d84e4cf9afb55b0119ca4c7a31abfca31deb",
           "windowCount": 2,
           "latestClosesAt": "2027-03-19"
         },
@@ -1364,8 +1364,8 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "45cb07ad460401dadd72e1c2f0fc95b67d743c76897eb88041961f4afaee6642",
+          "parseStatus": "incomplete",
+          "deadlineHash": "31b6fb23e9131614afda343e72a86225056634ffa57892b1d73aa96ce134f2c7",
           "windowCount": 2,
           "latestClosesAt": "2027-03-19"
         },
@@ -1434,10 +1434,10 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "edaad3b7a58827432ea3a1ca412e091b5f7cbec82f49f1d4fd7a9e90411d5f2b",
-          "windowCount": 2,
-          "latestClosesAt": "2027-03-30"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "hku-the-field-of-museum-studies-ma": {
           "name": "Master of Arts in the field of Museum Studies",
@@ -1464,8 +1464,8 @@
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6b31d237ec391476966295615440af998b2747f21085e9535db30d4fb751a65a",
+          "parseStatus": "incomplete",
+          "deadlineHash": "8ecd0eafc0577d9689dc8bb43718c313a1233de92a4b31c43707ac489a390080",
           "windowCount": 3,
           "latestClosesAt": "2027-06-30"
         },
@@ -1474,18 +1474,18 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Science",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "6770aa3400d72b78fd9a9ad03ee32d05156b461bf96c2ae8dd9cadb9e8cfcdef",
+          "windowCount": 2,
+          "latestClosesAt": "2027-06-30"
         },
         "hku-the-field-of-translation-ma": {
           "name": "Master of Arts in the field of Translation",
           "degreeType": "MA",
           "faculty": "Faculty of Arts",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "59f0ea8814a11a8a864fae58f704ddefcf7c0dc6ae551180f1d083be45ca1eb7",
+          "parseStatus": "incomplete",
+          "deadlineHash": "1b8de01b338f3efeb32c5271811743e82cad6a450b5425678fd0c7e4761ced84",
           "windowCount": 2,
           "latestClosesAt": "2027-04-30"
         },
@@ -1594,52 +1594,20 @@
           "degreeType": "Master",
           "faculty": "HKU Business School",
           "department": "",
-          "parseStatus": "parsed",
-          "deadlineHash": "6681b8b5d459a1ea8dffbb37cd0df12137bbf6341b2565da1d16da89de7d3020",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-04"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         }
       },
       "windows": {
-        "hku-accounting-analytics-master::September 2026::Round 1::all": {
-          "programmeId": "hku-accounting-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-accounting-analytics-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-accounting-analytics-master::September 2026::Round 2::all": {
-          "programmeId": "hku-accounting-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-accounting-analytics-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-accounting-master::September 2026::Round 1::all": {
-          "programmeId": "hku-accounting-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-accounting-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-accounting-master::September 2026::Round 2::all": {
-          "programmeId": "hku-accounting-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-accounting-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
         "hku-applied-linguistics-ma::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-applied-linguistics-ma",
           "intake": "September 2027",
           "opensAt": null,
           "closesAt": "2026-12-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-applied-linguistics-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-applied-linguistics-ma::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-applied-linguistics-ma",
@@ -1647,39 +1615,23 @@
           "opensAt": null,
           "closesAt": "2027-02-24",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-applied-linguistics-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-artificial-intelligence-in-business-master::September 2026::Round 1::all": {
-          "programmeId": "hku-artificial-intelligence-in-business-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-artificial-intelligence-in-business-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-artificial-intelligence-in-business-master::September 2026::Round 2::all": {
-          "programmeId": "hku-artificial-intelligence-in-business-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-artificial-intelligence-in-business-hkubs&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-artificial-intelligence-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-artificial-intelligence-msc",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-09-21",
           "closesAt": "2026-11-16",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-artificial-intelligence-sci&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
         },
         "hku-artificial-intelligence-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-artificial-intelligence-msc",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-09-21",
           "closesAt": "2027-02-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-artificial-intelligence-sci&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
         },
         "hku-buddhist-studies-master::September 2027::Round 1::all": {
           "programmeId": "hku-buddhist-studies-master",
@@ -1687,7 +1639,7 @@
           "opensAt": null,
           "closesAt": "2026-12-14",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-buddhist-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-buddhist-studies-master::September 2027::Round 2::all": {
           "programmeId": "hku-buddhist-studies-master",
@@ -1695,23 +1647,31 @@
           "opensAt": null,
           "closesAt": "2027-02-26",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-buddhist-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
-        "hku-business-analytics-msc::September 2026::Round 1::all": {
-          "programmeId": "hku-business-analytics-msc",
-          "intake": "September 2026",
+        "hku-community-health-care-master::September 2027::Local applicants::hku-local": {
+          "programmeId": "hku-community-health-care-master",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-business-analytics-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-03-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-community-health-care-med&mode=FT",
+          "opensAtBasis": "missing"
         },
-        "hku-business-analytics-msc::September 2026::Round 2::all": {
-          "programmeId": "hku-business-analytics-msc",
-          "intake": "September 2026",
+        "hku-community-health-care-master::September 2027::Local applicants::hku-local::2": {
+          "programmeId": "hku-community-health-care-master",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-business-analytics-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-05-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-community-health-care-med&mode=FT",
+          "opensAtBasis": "missing"
+        },
+        "hku-community-health-care-master::September 2027::Local applicants::hku-local::3": {
+          "programmeId": "hku-community-health-care-master",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-community-health-care-med&mode=FT",
+          "opensAtBasis": "missing"
         },
         "hku-data-science-master::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-data-science-master",
@@ -1719,7 +1679,7 @@
           "opensAt": null,
           "closesAt": "2026-12-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-data-science-cds&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-data-science-master::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-data-science-master",
@@ -1727,23 +1687,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-data-science-cds&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-economics-master::September 2026::Round 1::all": {
-          "programmeId": "hku-economics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-economics-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-economics-master::September 2026::Round 2::all": {
-          "programmeId": "hku-economics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-economics-hkubs&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-electronic-commerce-and-internet-computing-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-electronic-commerce-and-internet-computing-msc",
@@ -1751,7 +1695,7 @@
           "opensAt": null,
           "closesAt": "2026-12-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-electronic-commerce-and-internet-computing-cds&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-electronic-commerce-and-internet-computing-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-electronic-commerce-and-internet-computing-msc",
@@ -1759,7 +1703,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-electronic-commerce-and-internet-computing-cds&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-building-services-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-building-services-engineering-msc",
@@ -1767,7 +1711,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28building-services-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-building-services-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-building-services-engineering-msc",
@@ -1775,7 +1719,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28building-services-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-environmental-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-civil-engineering-environmental-engineering-msc",
@@ -1783,7 +1727,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-environmental-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-environmental-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-civil-engineering-environmental-engineering-msc",
@@ -1791,7 +1735,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-environmental-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-general-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-civil-engineering-general-msc",
@@ -1799,7 +1743,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-general-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-general-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-civil-engineering-general-msc",
@@ -1807,7 +1751,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-general-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-geotechnical-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-civil-engineering-geotechnical-engineering-msc",
@@ -1815,7 +1759,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-geotechnical-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-geotechnical-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-civil-engineering-geotechnical-engineering-msc",
@@ -1823,7 +1767,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-geotechnical-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-structural-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-civil-engineering-structural-engineering-msc",
@@ -1831,7 +1775,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-structural-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-structural-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-civil-engineering-structural-engineering-msc",
@@ -1839,7 +1783,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-structural-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-communications-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-communications-engineering-msc",
@@ -1847,7 +1791,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-communications-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-communications-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-communications-engineering-msc",
@@ -1855,7 +1799,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-communications-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-general-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-general-msc",
@@ -1863,7 +1807,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-general-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-general-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-general-msc",
@@ -1871,7 +1815,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-general-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-power-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-power-engineering-msc",
@@ -1879,7 +1823,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-power-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-power-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-power-engineering-msc",
@@ -1887,7 +1831,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-power-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-energy-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-energy-engineering-msc",
@@ -1895,7 +1839,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28energy-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-energy-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-energy-engineering-msc",
@@ -1903,7 +1847,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28energy-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-industrial-engineering-and-logistics-management-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-industrial-engineering-and-logistics-management-msc",
@@ -1911,7 +1855,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28industrial-engineering-and-logistics-management%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-industrial-engineering-and-logistics-management-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-industrial-engineering-and-logistics-management-msc",
@@ -1919,7 +1863,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28industrial-engineering-and-logistics-management%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-infrastructure-engineering-and-management-digital-infrastructure-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-infrastructure-engineering-and-management-digital-infrastructure-msc",
@@ -1927,7 +1871,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28infrastructure-engineering-and-management%29-digital-infrastructure-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-infrastructure-engineering-and-management-digital-infrastructure-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-infrastructure-engineering-and-management-digital-infrastructure-msc",
@@ -1935,7 +1879,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28infrastructure-engineering-and-management%29-digital-infrastructure-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-infrastructure-engineering-and-management-infrastructure-project-management-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-infrastructure-engineering-and-management-infrastructure-project-management-msc",
@@ -1943,7 +1887,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28infrastructure-engineering-and-management%29-infrastructure-project-management-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-infrastructure-engineering-and-management-infrastructure-project-management-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-infrastructure-engineering-and-management-infrastructure-project-management-msc",
@@ -1951,7 +1895,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28infrastructure-engineering-and-management%29-infrastructure-project-management-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-innovative-design-and-technology-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-innovative-design-and-technology-msc",
@@ -1959,7 +1903,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28innovative-design-and-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-innovative-design-and-technology-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-innovative-design-and-technology-msc",
@@ -1967,7 +1911,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28innovative-design-and-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-integrated-circuits-and-electronic-systems-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-integrated-circuits-and-electronic-systems-msc",
@@ -1975,7 +1919,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28integrated-circuits-and-electronic-systems%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-integrated-circuits-and-electronic-systems-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-integrated-circuits-and-electronic-systems-msc",
@@ -1983,7 +1927,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28integrated-circuits-and-electronic-systems%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-intelligent-networks-and-information-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-intelligent-networks-and-information-engineering-msc",
@@ -1991,7 +1935,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28intelligent-networks-and-information-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-intelligent-networks-and-information-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-intelligent-networks-and-information-engineering-msc",
@@ -1999,7 +1943,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28intelligent-networks-and-information-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-low-altitude-technology-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-low-altitude-technology-msc",
@@ -2007,7 +1951,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28low-altitude-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-low-altitude-technology-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-low-altitude-technology-msc",
@@ -2015,7 +1959,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28low-altitude-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-materials-engineering-and-advanced-manufacturing-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-materials-engineering-and-advanced-manufacturing-msc",
@@ -2023,7 +1967,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28materials-engineering-and-advanced-manufacturing%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-materials-engineering-and-advanced-manufacturing-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-materials-engineering-and-advanced-manufacturing-msc",
@@ -2031,7 +1975,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28materials-engineering-and-advanced-manufacturing%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-mechanical-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-mechanical-engineering-msc",
@@ -2039,7 +1983,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28mechanical-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-mechanical-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-mechanical-engineering-msc",
@@ -2047,7 +1991,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28mechanical-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-microelectronics-science-and-technology-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-microelectronics-science-and-technology-msc",
@@ -2055,7 +1999,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28microelectronics-science-and-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-microelectronics-science-and-technology-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-microelectronics-science-and-technology-msc",
@@ -2063,7 +2007,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28microelectronics-science-and-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-robotics-and-intelligent-systems-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-robotics-and-intelligent-systems-msc",
@@ -2071,7 +2015,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28robotics-and-intelligent-systems%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-robotics-and-intelligent-systems-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-robotics-and-intelligent-systems-msc",
@@ -2079,7 +2023,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28robotics-and-intelligent-systems%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-sustainability-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-sustainability-engineering-msc",
@@ -2087,7 +2031,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28sustainability-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-sustainability-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-sustainability-engineering-msc",
@@ -2095,55 +2039,23 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28sustainability-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
-        "hku-family-wealth-management-master::September 2026::Round 1::all": {
-          "programmeId": "hku-family-wealth-management-master",
-          "intake": "September 2026",
+        "hku-environmental-management-msc::September 2027::Local Students::hku-local": {
+          "programmeId": "hku-environmental-management-msc",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-family-wealth-management-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-environmental-management-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
-        "hku-family-wealth-management-master::September 2026::Round 2::all": {
-          "programmeId": "hku-family-wealth-management-master",
-          "intake": "September 2026",
+        "hku-environmental-management-msc::September 2027::Non-local Students::hku-non-local": {
+          "programmeId": "hku-environmental-management-msc",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-family-wealth-management-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-finance-in-financial-technology-master::September 2026::Round 1::all": {
-          "programmeId": "hku-finance-in-financial-technology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-finance-in-financial-technology-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-finance-in-financial-technology-master::September 2026::Round 2::all": {
-          "programmeId": "hku-finance-in-financial-technology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-finance-in-financial-technology-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-finance-master::September 2026::Round 1::all": {
-          "programmeId": "hku-finance-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-finance-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-finance-master::September 2026::Round 2::all": {
-          "programmeId": "hku-finance-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-finance-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-environmental-management-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
         "hku-fine-arts-in-the-field-of-creative-writing-in-english-master::September 2027::Round 1::all": {
           "programmeId": "hku-fine-arts-in-the-field-of-creative-writing-in-english-master",
@@ -2151,7 +2063,7 @@
           "opensAt": null,
           "closesAt": "2026-11-27",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-fine-arts-in-the-field-of-creative-writing-in-english-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-fine-arts-in-the-field-of-creative-writing-in-english-master::September 2027::Round 2::all": {
           "programmeId": "hku-fine-arts-in-the-field-of-creative-writing-in-english-master",
@@ -2159,47 +2071,47 @@
           "opensAt": null,
           "closesAt": "2027-03-19",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-fine-arts-in-the-field-of-creative-writing-in-english-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
-        "hku-global-management-master::September 2026::Round 1::all": {
-          "programmeId": "hku-global-management-master",
-          "intake": "September 2026",
+        "hku-integrative-marine-ecology-and-conservation-msc::September 2027::Local Students::hku-local": {
+          "programmeId": "hku-integrative-marine-ecology-and-conservation-msc",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-global-management-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-06-29",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-integrative-marine-ecology-and-conservation-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
-        "hku-global-management-master::September 2026::Round 2::all": {
-          "programmeId": "hku-global-management-master",
-          "intake": "September 2026",
+        "hku-integrative-marine-ecology-and-conservation-msc::September 2027::Non-local Students::hku-non-local": {
+          "programmeId": "hku-integrative-marine-ecology-and-conservation-msc",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-global-management-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-05-31",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-integrative-marine-ecology-and-conservation-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
-        "hku-marketing-msc::September 2026::Round 1::all": {
-          "programmeId": "hku-marketing-msc",
-          "intake": "September 2026",
+        "hku-master-of-business-administration-mba::August 2027::Round 1::all": {
+          "programmeId": "hku-master-of-business-administration-mba",
+          "intake": "August 2027",
           "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-marketing-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-marketing-msc::September 2026::Round 2::all": {
-          "programmeId": "hku-marketing-msc",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-marketing-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2026-12-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-business-administration-hkubs&mode=FT",
+          "opensAtBasis": "missing"
         },
         "hku-master-of-public-health-mph::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-master-of-public-health-mph",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-11-02",
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-public-health-med&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
+        },
+        "hku-master-of-public-health-mph::September 2027::Round 2 (Clearing)::hku-local": {
+          "programmeId": "hku-master-of-public-health-mph",
+          "intake": "September 2027",
+          "opensAt": "2026-11-02",
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-public-health-med&mode=FT",
+          "opensAtBasis": "official"
         },
         "hku-nursing-master::September 2027::Round 1::all": {
           "programmeId": "hku-nursing-master",
@@ -2207,7 +2119,7 @@
           "opensAt": null,
           "closesAt": "2027-01-15",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-nursing-med&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-nursing-master::September 2027::Round 2::all": {
           "programmeId": "hku-nursing-master",
@@ -2215,71 +2127,7 @@
           "opensAt": null,
           "closesAt": "2027-03-08",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-nursing-med&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-behavioral-health-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-behavioral-health-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2025-12-01",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-behavioral-health-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-behavioral-health-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-behavioral-health-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-02-02",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-behavioral-health-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-gerontology-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-gerontology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-gerontology-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-gerontology-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-gerontology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-01-29",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-gerontology-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-gerontology-master::September 2026::Round 3::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-gerontology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-04-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-gerontology-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-nonprofit-management-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-nonprofit-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-11-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-nonprofit-management-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-nonprofit-management-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-nonprofit-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-02-15",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-nonprofit-management-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-nonprofit-management-master::September 2026::Round 3::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-nonprofit-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-04-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-nonprofit-management-socsc&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-social-sciences-in-the-field-of-population-and-policy-analysis-master::September 2027::Round 3 (Clearing Round)::all": {
           "programmeId": "hku-social-sciences-in-the-field-of-population-and-policy-analysis-master",
@@ -2287,47 +2135,7 @@
           "opensAt": null,
           "closesAt": "2027-03-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-population-and-policy-analysis-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-social-data-analytics-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-social-data-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-01",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-social-data-analytics-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-social-data-analytics-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-social-data-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-01-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-social-data-analytics-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-social-data-analytics-master::September 2026::Round 3::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-social-data-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-03-01",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-social-data-analytics-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-work-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-work-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-11-02",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-work-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-work-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-work-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-02-22",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-work-socsc&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-statistics-master::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-statistics-master",
@@ -2335,7 +2143,7 @@
           "opensAt": null,
           "closesAt": "2026-12-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-statistics-cds&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-statistics-master::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-statistics-master",
@@ -2343,23 +2151,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-statistics-cds&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-sustainable-accounting-and-finance-master::September 2026::Round 1::all": {
-          "programmeId": "hku-sustainable-accounting-and-finance-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-sustainable-accounting-and-finance-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-sustainable-accounting-and-finance-master::September 2026::Round 2::all": {
-          "programmeId": "hku-sustainable-accounting-and-finance-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-sustainable-accounting-and-finance-hkubs&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-teaching-english-to-speakers-of-other-languages-ma::September 2027::Round 1 (if all places are filled in Round 1, there may not be a 2nd round of applications)::all": {
           "programmeId": "hku-teaching-english-to-speakers-of-other-languages-ma",
@@ -2367,7 +2159,7 @@
           "opensAt": null,
           "closesAt": "2026-12-21",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-teaching-english-to-speakers-of-other-languages-edu&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-ai-ethics-and-society-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-ai-ethics-and-society-ma",
@@ -2375,7 +2167,7 @@
           "opensAt": null,
           "closesAt": "2027-01-22",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-ai%2C-ethics-and-society-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-ai-ethics-and-society-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-ai-ethics-and-society-ma",
@@ -2383,7 +2175,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-ai%2C-ethics-and-society-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-ai-ethics-and-society-ma::September 2027::Round 3::all": {
           "programmeId": "hku-the-field-of-ai-ethics-and-society-ma",
@@ -2391,23 +2183,39 @@
           "opensAt": null,
           "closesAt": "2027-06-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-ai%2C-ethics-and-society-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-applied-geosciences-msc::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-applied-geosciences-msc",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-09-25",
           "closesAt": "2027-01-29",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=msc-in-the-field-of-applied-geosciences-sci&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
         },
         "hku-the-field-of-applied-geosciences-msc::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-applied-geosciences-msc",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-09-25",
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=msc-in-the-field-of-applied-geosciences-sci&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
+        },
+        "hku-the-field-of-chemical-technologies-for-health-and-materials-msc::September 2027::Local students::hku-local": {
+          "programmeId": "hku-the-field-of-chemical-technologies-for-health-and-materials-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-the-field-of-chemical-technologies-for-health-and-materials-sci&mode=FT",
+          "opensAtBasis": "missing"
+        },
+        "hku-the-field-of-chemical-technologies-for-health-and-materials-msc::September 2027::Non-local students::hku-non-local": {
+          "programmeId": "hku-the-field-of-chemical-technologies-for-health-and-materials-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-the-field-of-chemical-technologies-for-health-and-materials-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-chinese-historical-studies-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-chinese-historical-studies-ma",
@@ -2415,7 +2223,7 @@
           "opensAt": null,
           "closesAt": "2027-02-02",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-chinese-historical-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-chinese-historical-studies-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-chinese-historical-studies-ma",
@@ -2423,23 +2231,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-chinese-historical-studies-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-the-field-of-chinese-language-and-literature-ma::September 2026::Round 1::all": {
-          "programmeId": "hku-the-field-of-chinese-language-and-literature-ma",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-01-29",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-chinese-language-and-literature-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-the-field-of-chinese-language-and-literature-ma::September 2026::Round 2::all": {
-          "programmeId": "hku-the-field-of-chinese-language-and-literature-ma",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-04-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-chinese-language-and-literature-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-creative-communications-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-creative-communications-ma",
@@ -2447,7 +2239,7 @@
           "opensAt": null,
           "closesAt": "2026-11-27",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-creative-communications-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-creative-communications-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-creative-communications-ma",
@@ -2455,7 +2247,7 @@
           "opensAt": null,
           "closesAt": "2027-03-19",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-creative-communications-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-english-studies-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-english-studies-ma",
@@ -2463,7 +2255,7 @@
           "opensAt": null,
           "closesAt": "2026-11-27",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-english-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-english-studies-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-english-studies-ma",
@@ -2471,23 +2263,7 @@
           "opensAt": null,
           "closesAt": "2027-03-19",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-english-studies-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-the-field-of-literary-and-cultural-studies-ma::September 2026::Round 1::all": {
-          "programmeId": "hku-the-field-of-literary-and-cultural-studies-ma",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-01-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-literary-and-cultural-studies-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-the-field-of-literary-and-cultural-studies-ma::September 2026::Round 2::all": {
-          "programmeId": "hku-the-field-of-literary-and-cultural-studies-ma",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-03-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-literary-and-cultural-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-philosophy-politics-and-economics-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-philosophy-politics-and-economics-ma",
@@ -2495,7 +2271,7 @@
           "opensAt": null,
           "closesAt": "2027-01-22",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-philosophy%2C-politics-and-economics-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-philosophy-politics-and-economics-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-philosophy-politics-and-economics-ma",
@@ -2503,7 +2279,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-philosophy%2C-politics-and-economics-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-philosophy-politics-and-economics-ma::September 2027::Round 3::all": {
           "programmeId": "hku-the-field-of-philosophy-politics-and-economics-ma",
@@ -2511,7 +2287,23 @@
           "opensAt": null,
           "closesAt": "2027-06-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-philosophy%2C-politics-and-economics-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
+        },
+        "hku-the-field-of-physics-msc::September 2027::Local students::hku-local": {
+          "programmeId": "hku-the-field-of-physics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-11-02",
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-the-field-of-physics-sci&mode=FT",
+          "opensAtBasis": "official"
+        },
+        "hku-the-field-of-physics-msc::September 2027::Non-local students::hku-non-local": {
+          "programmeId": "hku-the-field-of-physics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-11-02",
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-the-field-of-physics-sci&mode=FT",
+          "opensAtBasis": "official"
         },
         "hku-the-field-of-translation-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-translation-ma",
@@ -2519,7 +2311,7 @@
           "opensAt": null,
           "closesAt": "2027-02-02",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-translation-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-translation-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-translation-ma",
@@ -2527,65 +2319,17 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-translation-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-wealth-management-master::September 2026::Round 1::all": {
-          "programmeId": "hku-wealth-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-wealth-management-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-wealth-management-master::September 2026::Round 2::all": {
-          "programmeId": "hku-wealth-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-wealth-management-hkubs&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         }
       },
       "windowBaseline": {
-        "hku-accounting-analytics-master::September 2026::Round 1::all": {
-          "programmeId": "hku-accounting-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-accounting-analytics-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-accounting-analytics-master::September 2026::Round 2::all": {
-          "programmeId": "hku-accounting-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-accounting-analytics-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-accounting-master::September 2026::Round 1::all": {
-          "programmeId": "hku-accounting-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-accounting-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-accounting-master::September 2026::Round 2::all": {
-          "programmeId": "hku-accounting-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-accounting-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
         "hku-applied-linguistics-ma::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-applied-linguistics-ma",
           "intake": "September 2027",
           "opensAt": null,
           "closesAt": "2026-12-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-applied-linguistics-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-applied-linguistics-ma::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-applied-linguistics-ma",
@@ -2593,39 +2337,23 @@
           "opensAt": null,
           "closesAt": "2027-02-24",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-applied-linguistics-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-artificial-intelligence-in-business-master::September 2026::Round 1::all": {
-          "programmeId": "hku-artificial-intelligence-in-business-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-artificial-intelligence-in-business-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-artificial-intelligence-in-business-master::September 2026::Round 2::all": {
-          "programmeId": "hku-artificial-intelligence-in-business-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-artificial-intelligence-in-business-hkubs&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-artificial-intelligence-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-artificial-intelligence-msc",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-09-21",
           "closesAt": "2026-11-16",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-artificial-intelligence-sci&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
         },
         "hku-artificial-intelligence-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-artificial-intelligence-msc",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-09-21",
           "closesAt": "2027-02-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-artificial-intelligence-sci&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
         },
         "hku-buddhist-studies-master::September 2027::Round 1::all": {
           "programmeId": "hku-buddhist-studies-master",
@@ -2633,7 +2361,7 @@
           "opensAt": null,
           "closesAt": "2026-12-14",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-buddhist-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-buddhist-studies-master::September 2027::Round 2::all": {
           "programmeId": "hku-buddhist-studies-master",
@@ -2641,23 +2369,31 @@
           "opensAt": null,
           "closesAt": "2027-02-26",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-buddhist-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
-        "hku-business-analytics-msc::September 2026::Round 1::all": {
-          "programmeId": "hku-business-analytics-msc",
-          "intake": "September 2026",
+        "hku-community-health-care-master::September 2027::Local applicants::hku-local": {
+          "programmeId": "hku-community-health-care-master",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-business-analytics-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-03-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-community-health-care-med&mode=FT",
+          "opensAtBasis": "missing"
         },
-        "hku-business-analytics-msc::September 2026::Round 2::all": {
-          "programmeId": "hku-business-analytics-msc",
-          "intake": "September 2026",
+        "hku-community-health-care-master::September 2027::Local applicants::hku-local::2": {
+          "programmeId": "hku-community-health-care-master",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-business-analytics-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-05-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-community-health-care-med&mode=FT",
+          "opensAtBasis": "missing"
+        },
+        "hku-community-health-care-master::September 2027::Local applicants::hku-local::3": {
+          "programmeId": "hku-community-health-care-master",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-community-health-care-med&mode=FT",
+          "opensAtBasis": "missing"
         },
         "hku-data-science-master::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-data-science-master",
@@ -2665,7 +2401,7 @@
           "opensAt": null,
           "closesAt": "2026-12-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-data-science-cds&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-data-science-master::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-data-science-master",
@@ -2673,23 +2409,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-data-science-cds&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-economics-master::September 2026::Round 1::all": {
-          "programmeId": "hku-economics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-economics-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-economics-master::September 2026::Round 2::all": {
-          "programmeId": "hku-economics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-economics-hkubs&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-electronic-commerce-and-internet-computing-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-electronic-commerce-and-internet-computing-msc",
@@ -2697,7 +2417,7 @@
           "opensAt": null,
           "closesAt": "2026-12-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-electronic-commerce-and-internet-computing-cds&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-electronic-commerce-and-internet-computing-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-electronic-commerce-and-internet-computing-msc",
@@ -2705,7 +2425,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-electronic-commerce-and-internet-computing-cds&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-building-services-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-building-services-engineering-msc",
@@ -2713,7 +2433,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28building-services-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-building-services-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-building-services-engineering-msc",
@@ -2721,7 +2441,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28building-services-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-environmental-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-civil-engineering-environmental-engineering-msc",
@@ -2729,7 +2449,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-environmental-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-environmental-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-civil-engineering-environmental-engineering-msc",
@@ -2737,7 +2457,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-environmental-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-general-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-civil-engineering-general-msc",
@@ -2745,7 +2465,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-general-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-general-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-civil-engineering-general-msc",
@@ -2753,7 +2473,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-general-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-geotechnical-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-civil-engineering-geotechnical-engineering-msc",
@@ -2761,7 +2481,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-geotechnical-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-geotechnical-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-civil-engineering-geotechnical-engineering-msc",
@@ -2769,7 +2489,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-geotechnical-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-structural-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-civil-engineering-structural-engineering-msc",
@@ -2777,7 +2497,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-structural-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-civil-engineering-structural-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-civil-engineering-structural-engineering-msc",
@@ -2785,7 +2505,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28civil-engineering%29-structural-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-communications-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-communications-engineering-msc",
@@ -2793,7 +2513,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-communications-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-communications-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-communications-engineering-msc",
@@ -2801,7 +2521,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-communications-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-general-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-general-msc",
@@ -2809,7 +2529,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-general-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-general-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-general-msc",
@@ -2817,7 +2537,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-general-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-power-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-power-engineering-msc",
@@ -2825,7 +2545,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-power-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-electrical-and-electronic-engineering-power-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-electrical-and-electronic-engineering-power-engineering-msc",
@@ -2833,7 +2553,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28electrical-and-electronic-engineering%29-power-engineering-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-energy-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-energy-engineering-msc",
@@ -2841,7 +2561,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28energy-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-energy-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-energy-engineering-msc",
@@ -2849,7 +2569,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28energy-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-industrial-engineering-and-logistics-management-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-industrial-engineering-and-logistics-management-msc",
@@ -2857,7 +2577,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28industrial-engineering-and-logistics-management%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-industrial-engineering-and-logistics-management-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-industrial-engineering-and-logistics-management-msc",
@@ -2865,7 +2585,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28industrial-engineering-and-logistics-management%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-infrastructure-engineering-and-management-digital-infrastructure-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-infrastructure-engineering-and-management-digital-infrastructure-msc",
@@ -2873,7 +2593,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28infrastructure-engineering-and-management%29-digital-infrastructure-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-infrastructure-engineering-and-management-digital-infrastructure-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-infrastructure-engineering-and-management-digital-infrastructure-msc",
@@ -2881,7 +2601,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28infrastructure-engineering-and-management%29-digital-infrastructure-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-infrastructure-engineering-and-management-infrastructure-project-management-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-infrastructure-engineering-and-management-infrastructure-project-management-msc",
@@ -2889,7 +2609,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28infrastructure-engineering-and-management%29-infrastructure-project-management-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-infrastructure-engineering-and-management-infrastructure-project-management-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-infrastructure-engineering-and-management-infrastructure-project-management-msc",
@@ -2897,7 +2617,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28infrastructure-engineering-and-management%29-infrastructure-project-management-stream-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-innovative-design-and-technology-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-innovative-design-and-technology-msc",
@@ -2905,7 +2625,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28innovative-design-and-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-innovative-design-and-technology-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-innovative-design-and-technology-msc",
@@ -2913,7 +2633,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28innovative-design-and-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-integrated-circuits-and-electronic-systems-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-integrated-circuits-and-electronic-systems-msc",
@@ -2921,7 +2641,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28integrated-circuits-and-electronic-systems%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-integrated-circuits-and-electronic-systems-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-integrated-circuits-and-electronic-systems-msc",
@@ -2929,7 +2649,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28integrated-circuits-and-electronic-systems%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-intelligent-networks-and-information-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-intelligent-networks-and-information-engineering-msc",
@@ -2937,7 +2657,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28intelligent-networks-and-information-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-intelligent-networks-and-information-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-intelligent-networks-and-information-engineering-msc",
@@ -2945,7 +2665,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28intelligent-networks-and-information-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-low-altitude-technology-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-low-altitude-technology-msc",
@@ -2953,7 +2673,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28low-altitude-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-low-altitude-technology-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-low-altitude-technology-msc",
@@ -2961,7 +2681,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28low-altitude-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-materials-engineering-and-advanced-manufacturing-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-materials-engineering-and-advanced-manufacturing-msc",
@@ -2969,7 +2689,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28materials-engineering-and-advanced-manufacturing%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-materials-engineering-and-advanced-manufacturing-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-materials-engineering-and-advanced-manufacturing-msc",
@@ -2977,7 +2697,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28materials-engineering-and-advanced-manufacturing%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-mechanical-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-mechanical-engineering-msc",
@@ -2985,7 +2705,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28mechanical-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-mechanical-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-mechanical-engineering-msc",
@@ -2993,7 +2713,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28mechanical-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-microelectronics-science-and-technology-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-microelectronics-science-and-technology-msc",
@@ -3001,7 +2721,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28microelectronics-science-and-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-microelectronics-science-and-technology-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-microelectronics-science-and-technology-msc",
@@ -3009,7 +2729,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28microelectronics-science-and-technology%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-robotics-and-intelligent-systems-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-robotics-and-intelligent-systems-msc",
@@ -3017,7 +2737,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28robotics-and-intelligent-systems%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-robotics-and-intelligent-systems-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-robotics-and-intelligent-systems-msc",
@@ -3025,7 +2745,7 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28robotics-and-intelligent-systems%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-sustainability-engineering-msc::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-engineering-sustainability-engineering-msc",
@@ -3033,7 +2753,7 @@
           "opensAt": null,
           "closesAt": "2027-01-04",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28sustainability-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-engineering-sustainability-engineering-msc::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-engineering-sustainability-engineering-msc",
@@ -3041,55 +2761,23 @@
           "opensAt": null,
           "closesAt": "2027-04-09",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-engineering-%28sustainability-engineering%29-engg&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
-        "hku-family-wealth-management-master::September 2026::Round 1::all": {
-          "programmeId": "hku-family-wealth-management-master",
-          "intake": "September 2026",
+        "hku-environmental-management-msc::September 2027::Local Students::hku-local": {
+          "programmeId": "hku-environmental-management-msc",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-family-wealth-management-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-environmental-management-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
-        "hku-family-wealth-management-master::September 2026::Round 2::all": {
-          "programmeId": "hku-family-wealth-management-master",
-          "intake": "September 2026",
+        "hku-environmental-management-msc::September 2027::Non-local Students::hku-non-local": {
+          "programmeId": "hku-environmental-management-msc",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-family-wealth-management-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-finance-in-financial-technology-master::September 2026::Round 1::all": {
-          "programmeId": "hku-finance-in-financial-technology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-finance-in-financial-technology-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-finance-in-financial-technology-master::September 2026::Round 2::all": {
-          "programmeId": "hku-finance-in-financial-technology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-finance-in-financial-technology-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-finance-master::September 2026::Round 1::all": {
-          "programmeId": "hku-finance-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-finance-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-finance-master::September 2026::Round 2::all": {
-          "programmeId": "hku-finance-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-finance-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-environmental-management-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
         "hku-fine-arts-in-the-field-of-creative-writing-in-english-master::September 2027::Round 1::all": {
           "programmeId": "hku-fine-arts-in-the-field-of-creative-writing-in-english-master",
@@ -3097,7 +2785,7 @@
           "opensAt": null,
           "closesAt": "2026-11-27",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-fine-arts-in-the-field-of-creative-writing-in-english-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-fine-arts-in-the-field-of-creative-writing-in-english-master::September 2027::Round 2::all": {
           "programmeId": "hku-fine-arts-in-the-field-of-creative-writing-in-english-master",
@@ -3105,47 +2793,47 @@
           "opensAt": null,
           "closesAt": "2027-03-19",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-fine-arts-in-the-field-of-creative-writing-in-english-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
-        "hku-global-management-master::September 2026::Round 1::all": {
-          "programmeId": "hku-global-management-master",
-          "intake": "September 2026",
+        "hku-integrative-marine-ecology-and-conservation-msc::September 2027::Local Students::hku-local": {
+          "programmeId": "hku-integrative-marine-ecology-and-conservation-msc",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-global-management-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-06-29",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-integrative-marine-ecology-and-conservation-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
-        "hku-global-management-master::September 2026::Round 2::all": {
-          "programmeId": "hku-global-management-master",
-          "intake": "September 2026",
+        "hku-integrative-marine-ecology-and-conservation-msc::September 2027::Non-local Students::hku-non-local": {
+          "programmeId": "hku-integrative-marine-ecology-and-conservation-msc",
+          "intake": "September 2027",
           "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-global-management-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2027-05-31",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-integrative-marine-ecology-and-conservation-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
-        "hku-marketing-msc::September 2026::Round 1::all": {
-          "programmeId": "hku-marketing-msc",
-          "intake": "September 2026",
+        "hku-master-of-business-administration-mba::August 2027::Round 1::all": {
+          "programmeId": "hku-master-of-business-administration-mba",
+          "intake": "August 2027",
           "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-marketing-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-marketing-msc::September 2026::Round 2::all": {
-          "programmeId": "hku-marketing-msc",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-marketing-hkubs&mode=FT",
-          "opensAtBasis": null
+          "closesAt": "2026-12-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-business-administration-hkubs&mode=FT",
+          "opensAtBasis": "missing"
         },
         "hku-master-of-public-health-mph::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-master-of-public-health-mph",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-11-02",
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-public-health-med&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
+        },
+        "hku-master-of-public-health-mph::September 2027::Round 2 (Clearing)::hku-local": {
+          "programmeId": "hku-master-of-public-health-mph",
+          "intake": "September 2027",
+          "opensAt": "2026-11-02",
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-public-health-med&mode=FT",
+          "opensAtBasis": "official"
         },
         "hku-nursing-master::September 2027::Round 1::all": {
           "programmeId": "hku-nursing-master",
@@ -3153,7 +2841,7 @@
           "opensAt": null,
           "closesAt": "2027-01-15",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-nursing-med&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-nursing-master::September 2027::Round 2::all": {
           "programmeId": "hku-nursing-master",
@@ -3161,71 +2849,7 @@
           "opensAt": null,
           "closesAt": "2027-03-08",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-nursing-med&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-behavioral-health-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-behavioral-health-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2025-12-01",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-behavioral-health-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-behavioral-health-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-behavioral-health-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-02-02",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-behavioral-health-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-gerontology-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-gerontology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-gerontology-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-gerontology-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-gerontology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-01-29",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-gerontology-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-gerontology-master::September 2026::Round 3::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-gerontology-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-04-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-gerontology-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-nonprofit-management-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-nonprofit-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-11-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-nonprofit-management-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-nonprofit-management-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-nonprofit-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-02-15",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-nonprofit-management-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-nonprofit-management-master::September 2026::Round 3::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-nonprofit-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-04-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-nonprofit-management-socsc&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-social-sciences-in-the-field-of-population-and-policy-analysis-master::September 2027::Round 3 (Clearing Round)::all": {
           "programmeId": "hku-social-sciences-in-the-field-of-population-and-policy-analysis-master",
@@ -3233,47 +2857,7 @@
           "opensAt": null,
           "closesAt": "2027-03-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-population-and-policy-analysis-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-social-data-analytics-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-social-data-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-01",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-social-data-analytics-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-social-data-analytics-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-social-data-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-01-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-social-data-analytics-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-sciences-in-the-field-of-social-data-analytics-master::September 2026::Round 3::all": {
-          "programmeId": "hku-social-sciences-in-the-field-of-social-data-analytics-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-03-01",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-sciences-in-the-field-of-social-data-analytics-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-work-master::September 2026::Round 1::all": {
-          "programmeId": "hku-social-work-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-11-02",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-work-socsc&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-social-work-master::September 2026::Round 2::all": {
-          "programmeId": "hku-social-work-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-02-22",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-social-work-socsc&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-statistics-master::September 2027::Round 1 (Main)::all": {
           "programmeId": "hku-statistics-master",
@@ -3281,7 +2865,7 @@
           "opensAt": null,
           "closesAt": "2026-12-01",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-statistics-cds&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-statistics-master::September 2027::Round 2 (Clearing)::all": {
           "programmeId": "hku-statistics-master",
@@ -3289,23 +2873,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-statistics-cds&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-sustainable-accounting-and-finance-master::September 2026::Round 1::all": {
-          "programmeId": "hku-sustainable-accounting-and-finance-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-sustainable-accounting-and-finance-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-sustainable-accounting-and-finance-master::September 2026::Round 2::all": {
-          "programmeId": "hku-sustainable-accounting-and-finance-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-sustainable-accounting-and-finance-hkubs&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-teaching-english-to-speakers-of-other-languages-ma::September 2027::Round 1 (if all places are filled in Round 1, there may not be a 2nd round of applications)::all": {
           "programmeId": "hku-teaching-english-to-speakers-of-other-languages-ma",
@@ -3313,7 +2881,7 @@
           "opensAt": null,
           "closesAt": "2026-12-21",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-teaching-english-to-speakers-of-other-languages-edu&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-ai-ethics-and-society-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-ai-ethics-and-society-ma",
@@ -3321,7 +2889,7 @@
           "opensAt": null,
           "closesAt": "2027-01-22",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-ai%2C-ethics-and-society-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-ai-ethics-and-society-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-ai-ethics-and-society-ma",
@@ -3329,7 +2897,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-ai%2C-ethics-and-society-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-ai-ethics-and-society-ma::September 2027::Round 3::all": {
           "programmeId": "hku-the-field-of-ai-ethics-and-society-ma",
@@ -3337,23 +2905,39 @@
           "opensAt": null,
           "closesAt": "2027-06-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-ai%2C-ethics-and-society-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-applied-geosciences-msc::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-applied-geosciences-msc",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-09-25",
           "closesAt": "2027-01-29",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=msc-in-the-field-of-applied-geosciences-sci&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
         },
         "hku-the-field-of-applied-geosciences-msc::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-applied-geosciences-msc",
           "intake": "September 2027",
-          "opensAt": null,
+          "opensAt": "2026-09-25",
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=msc-in-the-field-of-applied-geosciences-sci&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "official"
+        },
+        "hku-the-field-of-chemical-technologies-for-health-and-materials-msc::September 2027::Local students::hku-local": {
+          "programmeId": "hku-the-field-of-chemical-technologies-for-health-and-materials-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-the-field-of-chemical-technologies-for-health-and-materials-sci&mode=FT",
+          "opensAtBasis": "missing"
+        },
+        "hku-the-field-of-chemical-technologies-for-health-and-materials-msc::September 2027::Non-local students::hku-non-local": {
+          "programmeId": "hku-the-field-of-chemical-technologies-for-health-and-materials-msc",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-the-field-of-chemical-technologies-for-health-and-materials-sci&mode=FT",
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-chinese-historical-studies-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-chinese-historical-studies-ma",
@@ -3361,7 +2945,7 @@
           "opensAt": null,
           "closesAt": "2027-02-02",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-chinese-historical-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-chinese-historical-studies-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-chinese-historical-studies-ma",
@@ -3369,23 +2953,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-chinese-historical-studies-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-the-field-of-chinese-language-and-literature-ma::September 2026::Round 1::all": {
-          "programmeId": "hku-the-field-of-chinese-language-and-literature-ma",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-01-29",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-chinese-language-and-literature-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-the-field-of-chinese-language-and-literature-ma::September 2026::Round 2::all": {
-          "programmeId": "hku-the-field-of-chinese-language-and-literature-ma",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-04-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-chinese-language-and-literature-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-creative-communications-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-creative-communications-ma",
@@ -3393,7 +2961,7 @@
           "opensAt": null,
           "closesAt": "2026-11-27",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-creative-communications-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-creative-communications-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-creative-communications-ma",
@@ -3401,7 +2969,7 @@
           "opensAt": null,
           "closesAt": "2027-03-19",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-creative-communications-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-english-studies-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-english-studies-ma",
@@ -3409,7 +2977,7 @@
           "opensAt": null,
           "closesAt": "2026-11-27",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-english-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-english-studies-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-english-studies-ma",
@@ -3417,23 +2985,7 @@
           "opensAt": null,
           "closesAt": "2027-03-19",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-english-studies-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-the-field-of-literary-and-cultural-studies-ma::September 2026::Round 1::all": {
-          "programmeId": "hku-the-field-of-literary-and-cultural-studies-ma",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-01-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-literary-and-cultural-studies-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-the-field-of-literary-and-cultural-studies-ma::September 2026::Round 2::all": {
-          "programmeId": "hku-the-field-of-literary-and-cultural-studies-ma",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2027-03-30",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-literary-and-cultural-studies-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-philosophy-politics-and-economics-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-philosophy-politics-and-economics-ma",
@@ -3441,7 +2993,7 @@
           "opensAt": null,
           "closesAt": "2027-01-22",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-philosophy%2C-politics-and-economics-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-philosophy-politics-and-economics-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-philosophy-politics-and-economics-ma",
@@ -3449,7 +3001,7 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-philosophy%2C-politics-and-economics-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-philosophy-politics-and-economics-ma::September 2027::Round 3::all": {
           "programmeId": "hku-the-field-of-philosophy-politics-and-economics-ma",
@@ -3457,7 +3009,23 @@
           "opensAt": null,
           "closesAt": "2027-06-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-philosophy%2C-politics-and-economics-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
+        },
+        "hku-the-field-of-physics-msc::September 2027::Local students::hku-local": {
+          "programmeId": "hku-the-field-of-physics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-11-02",
+          "closesAt": "2027-06-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-the-field-of-physics-sci&mode=FT",
+          "opensAtBasis": "official"
+        },
+        "hku-the-field-of-physics-msc::September 2027::Non-local students::hku-non-local": {
+          "programmeId": "hku-the-field-of-physics-msc",
+          "intake": "September 2027",
+          "opensAt": "2026-11-02",
+          "closesAt": "2027-04-30",
+          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-the-field-of-physics-sci&mode=FT",
+          "opensAtBasis": "official"
         },
         "hku-the-field-of-translation-ma::September 2027::Round 1::all": {
           "programmeId": "hku-the-field-of-translation-ma",
@@ -3465,7 +3033,7 @@
           "opensAt": null,
           "closesAt": "2027-02-02",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-translation-arts&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         },
         "hku-the-field-of-translation-ma::September 2027::Round 2::all": {
           "programmeId": "hku-the-field-of-translation-ma",
@@ -3473,32 +3041,18 @@
           "opensAt": null,
           "closesAt": "2027-04-30",
           "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-arts-in-the-field-of-translation-arts&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-wealth-management-master::September 2026::Round 1::all": {
-          "programmeId": "hku-wealth-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-09-28",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-wealth-management-hkubs&mode=FT",
-          "opensAtBasis": null
-        },
-        "hku-wealth-management-master::September 2026::Round 2::all": {
-          "programmeId": "hku-wealth-management-master",
-          "intake": "September 2026",
-          "opensAt": null,
-          "closesAt": "2026-12-04",
-          "sourceUrl": "https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-wealth-management-hkubs&mode=FT",
-          "opensAtBasis": null
+          "opensAtBasis": "missing"
         }
       },
       "adapterWarnings": [],
       "adapterDiagnostics": {
+        "officialOpeningSourceFailures": {},
+        "detailFailedProgrammeIds": [],
         "transport": {
-          "requests": 164,
-          "directSuccesses": 164,
+          "requests": 168,
+          "directSuccesses": 168,
           "directFailures": 0,
-          "fallbackEnabled": true,
+          "fallbackEnabled": false,
           "fallbackLimit": 3,
           "fallbackAttempts": 0,
           "fallbackSuccesses": 0,
