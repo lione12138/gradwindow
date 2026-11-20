@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -11,6 +11,9 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).parents[1]
 DATA_DIR = ROOT / "data"
 MAX_EVENTS_PER_DIGEST = 1000
+# A daily run can pick up yesterday's openings after a missed run. The
+# notification service already deduplicates deliveries across overlapping runs.
+OPENING_LOOKBACK_DAYS = 1
 sys.path.insert(0, str(ROOT / "src"))
 
 from gradwindow.io import read_json as read_project_json  # noqa: E402
@@ -27,12 +30,13 @@ def read_json(name: str) -> dict:
     return json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
 
 
-def current_open_events(
+def recently_opened_events(
     today: date | None = None,
     *,
     record_trust_statuses: dict[str, str] | None = None,
 ) -> list[dict]:
     today = today or date.today()
+    earliest_opening = today - timedelta(days=OPENING_LOOKBACK_DAYS)
     if record_trust_statuses is None:
         record_trust_statuses = _current_record_trust_statuses(today)
     universities = {
@@ -51,7 +55,9 @@ def current_open_events(
             continue
         opens = date.fromisoformat(record["opensAt"])
         closes = date.fromisoformat(record["closesAt"])
-        if not opens <= today <= closes:
+        if not earliest_opening <= opens <= today <= closes:
+            continue
+        if record.get("deadlineSemantics") == "before" and today == closes:
             continue
         university = universities[record["universityId"]]
         if record["scopeType"] == "programme":
@@ -96,6 +102,9 @@ def _current_record_trust_statuses(today: date) -> dict[str, str]:
 
 
 def notify(events: list[dict]) -> bool:
+    if not events:
+        print("No newly opened official application windows.")
+        return True
     endpoint = os.environ.get("GRADWINDOW_SUBSCRIBE_URL", "").strip().rstrip("/")
     raw_api_key = os.environ.get("GRADWINDOW_NOTIFY_API_KEY", "").strip()
     api_key = (
@@ -106,9 +115,6 @@ def notify(events: list[dict]) -> bool:
     if not endpoint or not api_key:
         print("Subscriber notification service is not configured; skipping.")
         return False
-    if not events:
-        print("No official application windows are currently open.")
-        return True
     if len(events) > MAX_EVENTS_PER_DIGEST:
         print(
             f"Refusing to split {len(events)} events into multiple emails; "
@@ -149,7 +155,7 @@ def notify(events: list[dict]) -> bool:
     total_sent = result.get("sent", 0)
     total_failed = result.get("failed", 0)
     print(
-        f"Processed {len(events)} open official windows; "
+        f"Processed {len(events)} newly opened official windows; "
         f"sent {total_sent} digest emails; "
         f"{total_failed} deliveries failed."
     )
@@ -157,7 +163,7 @@ def notify(events: list[dict]) -> bool:
 
 
 def main() -> None:
-    events = current_open_events()
+    events = recently_opened_events()
     if "--dry-run" in sys.argv:
         print(json.dumps({"events": events}, ensure_ascii=False, indent=2))
         return
