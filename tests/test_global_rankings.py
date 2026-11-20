@@ -322,8 +322,10 @@ def test_extended_ranking_views_reuse_shared_application_windows() -> None:
 
 def test_table_headers_own_application_sorting() -> None:
     app_js = (ROOT / "web" / "app.js").read_text(encoding="utf-8")
+    table_js = (ROOT / "web" / "tracker-table.js").read_text(encoding="utf-8")
 
     assert '{ label: rankColumnLabel(), sort: "rank" }' in app_js
     assert '{ label: t("opens"), sort: "opens" }' in app_js
     assert '{ label: t("deadline"), sort: "deadline" }' in app_js
-    assert "table-sort-button" in app_js
+    assert "return createTrackerTable({" in app_js
+    assert "table-sort-button" in table_js
