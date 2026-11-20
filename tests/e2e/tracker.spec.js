@@ -589,14 +589,17 @@ test("All universities lists schools in rank order with mixed window statuses", 
   const positions = ranks.map((rank) => Number(rank.replace(/\D/g, "")));
   expect(positions).toEqual([...positions].sort((a, b) => a - b));
   await expect(page.locator(".university-table")).toHaveCount(0);
-  await expect(
-    page
-      .locator(".school-without-windows:not(.catalogue-group-parent)")
-      .first(),
-  ).toContainText("No verified application windows");
-  await expect(
-    page.locator(".school-without-windows").first().locator("td").nth(4),
-  ).toHaveText("—");
+  const oxford = page.locator('[data-school-id="university-of-oxford"]');
+  await expect(oxford).toHaveClass(/catalogue-group-parent/);
+  await expect(oxford.locator("td").nth(4)).toHaveText("—");
+  const oxfordToggle = oxford.locator(".university-group-toggle");
+  await oxfordToggle.click();
+  const oxfordDeadline = page.locator(
+    '[data-deadline-only="oxford-advanced-computer-science-msc-full-time-2027-final-deadline"]',
+  );
+  await expect(oxfordDeadline.locator("td").nth(5)).toContainText("6 Jan 2027");
+  await expect(oxfordDeadline.locator(".calendar-menu-trigger")).toHaveCount(0);
+  await oxfordToggle.click();
   const allHeaders = await page
     .locator(".application-table th")
     .allTextContents();
