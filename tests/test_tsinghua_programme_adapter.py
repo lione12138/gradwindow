@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 
+import pytest
+
 from gradwindow.programme_adapters.tsinghua import (
     APPLICATION_URL,
     CATALOG_URL,
@@ -196,3 +198,32 @@ def test_tsinghua_adapter_rejects_truncated_catalogue() -> None:
         assert "only contained 3" in str(exc)
     else:
         raise AssertionError("Truncated Tsinghua catalogue was accepted")
+
+
+def test_tsinghua_allows_inactive_faculties_but_rejects_missing_active_results():
+    queries = []
+
+    def fetcher(url):
+        if url == CATALOG_DETAIL_URL:
+            return DETAIL_HTML.replace(
+                "</ul>", '<li data-value="099">Inactive</li></ul>'
+            )
+        body = _fetcher(url)
+        if url.startswith("https://yzbm.tsinghua.edu.cn/publish/s05/s0503/querydetail"):
+            queries.append(url)
+            data = json.loads(body)
+            data["datas"]["yxsxxs"] = [{"zsyxsdm": "024"}, {"zsyxsdm": "066"}]
+            return json.dumps(data)
+        return body
+
+    adapter = TsinghuaAdapter(minimum_expected_programmes=3, minimum_expected_schools=2)
+    assert len(adapter.parse_catalog_from_fetcher(fetcher).programmes) == 3
+    assert len(queries) == 2
+
+    def missing(url):
+        if url == catalog_query_url(CATALOG_ID, "066"):
+            return json.dumps({"code": 200, "datas": {"zsnd": "2026", "zsmlYxs": []}})
+        return fetcher(url)
+
+    with pytest.raises(ValueError, match="incomplete data for school 066"):
+        adapter.parse_catalog_from_fetcher(missing)

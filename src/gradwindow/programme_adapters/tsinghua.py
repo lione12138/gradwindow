@@ -46,7 +46,7 @@ class TsinghuaAdapter(BaseProgrammeAdapter):
 
     def __init__(
         self,
-        minimum_expected_programmes: int = 220,
+        minimum_expected_programmes: int = 200,
         minimum_expected_schools: int = 30,
     ) -> None:
         self.minimum_expected_programmes = minimum_expected_programmes
@@ -68,22 +68,55 @@ class TsinghuaAdapter(BaseProgrammeAdapter):
             )
 
         programmes = []
+        active_schools = None
+        populated_schools = set()
         for school_code in school_codes:
-            payload = _catalog_payload(
-                fetcher(catalog_query_url(catalog_id, school_code))
-            )
+            if active_schools is not None and school_code not in active_schools:
+                continue
+            source_url = catalog_query_url(catalog_id, school_code)
+            payload = _catalog_payload(fetcher(source_url))
             if str(payload.get("zsnd")) != str(catalog_year):
                 raise ValueError(
                     "Tsinghua catalogue query returned an unexpected intake year"
                 )
-            for school in payload.get("zsmlYxs") or []:
-                programmes.extend(
-                    _school_programmes(
-                        school,
-                        catalog_year=catalog_year,
-                        detail_url=detail_url,
-                    )
+            if payload.get("yxsdm", school_code) != school_code:
+                raise ValueError(
+                    "Tsinghua catalogue query returned an unexpected school code"
                 )
+            if "yxsxxs" in payload:
+                indexed = {str(item["zsyxsdm"]) for item in payload["yxsxxs"]}
+                if (
+                    not indexed.issubset(school_codes)
+                    or len(indexed) < self.minimum_expected_schools
+                    or (active_schools is not None and active_schools != indexed)
+                ):
+                    raise ValueError(
+                        "Tsinghua catalogue query returned an inconsistent active-school index"
+                    )
+                active_schools = indexed
+            schools = payload.get("zsmlYxs") or []
+            if any(school.get("zsyxsdm") != school_code for school in schools) or (
+                active_schools is not None
+                and school_code in active_schools
+                and not schools
+            ):
+                raise ValueError(
+                    f"Tsinghua catalogue returned incomplete data for school {school_code}"
+                )
+            for school in schools:
+                school_programmes = _school_programmes(
+                    school,
+                    catalog_year=catalog_year,
+                    detail_url=source_url,
+                )
+                if school_programmes:
+                    populated_schools.add(school_code)
+                programmes.extend(school_programmes)
+
+        if active_schools is not None and populated_schools != active_schools:
+            raise ValueError(
+                "Tsinghua programme results did not cover the active-school index"
+            )
 
         programmes_by_id = {programme.id: programme for programme in programmes}
         programmes = sorted(programmes_by_id.values(), key=lambda item: item.name)
@@ -93,7 +126,16 @@ class TsinghuaAdapter(BaseProgrammeAdapter):
                 f"{len(programmes)} unique programmes; expected at least "
                 f"{self.minimum_expected_programmes}"
             )
-        return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=programmes,
+            diagnostics={
+                "catalogueYear": catalog_year,
+                "activeCatalogueSchools": len(active_schools)
+                if active_schools is not None
+                else None,
+            },
+        )
 
 
 def catalog_query_url(catalog_id: str, school_code: str) -> str:

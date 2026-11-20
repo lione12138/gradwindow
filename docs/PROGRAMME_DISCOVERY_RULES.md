@@ -188,6 +188,14 @@ items as candidates.
 
 ## Current adapter notes
 
+- Peking University's 2027 central international guide applies to the standard
+  route, with separate guides for English-taught master's programmes. Yenching
+  uses its own admissions page and distinct international and Hong Kong, Macao
+  and Taiwan applicant windows. Do not substitute either for Mainland admissions.
+- Tsinghua's international master's API lists the active schools for the intake.
+  For 2027, 41 active schools returned 219 programmes. Require results for
+  every active school and use the individual school response as date evidence.
+  A round starting "now" has no exact opening date.
 - HKU uses official `SavedQueryService/Execute` catalogue endpoints and
   the full-time programme details for deadlines and local/non-local scope.
   For Artificial Intelligence, Applied Geosciences, Public Health and Physics,

@@ -5,6 +5,8 @@ import json
 from gradwindow.programme_adapters.peking import (
     APPLICATION_URL,
     CATALOG_URL,
+    CURRENT_STANDARD_GUIDE_URL,
+    YENCHING_SOURCE_URL,
     PekingAdapter,
     _date_ranges,
 )
@@ -108,10 +110,11 @@ CATALOG = {
 
 STANDARD_HTML = """
 <main>
-  <h1>北京大学2026年外国留学生研究生招生简章</h1>
-  <p>四、申请时间（北京时间）</p>
-  <p>2025 年10月20日至2025年12月23日</p>
-  <p>注：各英文授课硕士项目的申请截止日期见相应招生说明。</p>
+  <h1>2027 Application Information for International Students</h1>
+  <p>4. Application Period (Beijing time)</p>
+  <p>October 26, 2026 – December 25, 2026</p>
+  <p>Note: For English-taught programmes see the individual guide.</p>
+  <p>Scholarships: January 1, 2027 – March 1, 2027</p>
 </main>
 """
 
@@ -126,8 +129,12 @@ COMPUTER_HTML = """
 
 YENCHING_HTML = """
 <main>
-  <p>Application for the 2026 cohort is open on September 10 until
-  December 1, 2025.</p>
+  <h2>For Candidates from China’s Hong Kong, Macao and Taiwan Regions:</h2>
+  <p>We accept a pplications for the 202 7 cohort of Yenching Scholars starting September 1, 202 6.</p>
+  <p>Application deadline: January 8, 2027</p>
+  <h2>For International Candidates:</h2>
+  <p>We accept applications for the 2027 cohort of Yenching Scholars starting September 1, 2026.</p>
+  <p>Application deadline: November 30, 2026</p>
 </main>
 """
 
@@ -135,11 +142,11 @@ YENCHING_HTML = """
 def _fetcher(url: str) -> str:
     if url == CATALOG_URL:
         return json.dumps(CATALOG, ensure_ascii=False)
-    if url == STANDARD_GUIDE:
+    if url == CURRENT_STANDARD_GUIDE_URL:
         return STANDARD_HTML
     if url == COMPUTER_GUIDE:
         return COMPUTER_HTML
-    if url == YENCHING_GUIDE:
+    if url == YENCHING_SOURCE_URL:
         return YENCHING_HTML
     raise AssertionError(url)
 
@@ -178,9 +185,9 @@ def test_peking_adapter_uses_only_fully_explicit_official_date_ranges() -> None:
         for window in chinese.windows
     ] == [
         (
-            "Autumn 2026",
-            "2025-10-20",
-            "2025-12-23",
+            "Autumn 2027",
+            "2026-10-26",
+            "2026-12-25",
             ["international-students"],
         )
     ]
@@ -190,9 +197,13 @@ def test_peking_adapter_uses_only_fully_explicit_official_date_ranges() -> None:
     assert english.windows[0].closes_at == "2026-01-10"
 
     yenching = by_name["Yenching Academy Master's in China Studies"]
-    assert yenching.windows == []
-    assert yenching.parse_status == "no-deadline"
-    assert "opening year is not explicit" in yenching.deadline_text
+    assert yenching.parse_status == "parsed"
+    assert [
+        (w.opens_at, w.closes_at, w.applicant_categories) for w in yenching.windows
+    ] == [
+        ("2026-09-01", "2027-01-08", ["pku-hong-kong-macao-taiwan"]),
+        ("2026-09-01", "2026-11-30", ["international-students"]),
+    ]
 
 
 def test_peking_adapter_rejects_a_truncated_or_invalid_catalogue() -> None:
