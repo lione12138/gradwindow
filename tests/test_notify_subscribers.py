@@ -19,31 +19,67 @@ def load_module():
     return module
 
 
-def test_current_open_events_only_returns_official_open_windows() -> None:
+def test_recently_opened_events_excludes_old_closed_and_untrusted_windows(monkeypatch):
     module = load_module()
-    events = module.current_open_events(date(2026, 6, 15), record_trust_statuses={})
-    ids = {event["id"] for event in events}
-    assert "ucl-advanced-materials-science-2026-visa" in ids
-    assert "um-coursework-postgraduate-october-2026" in ids
-    assert "glasgow-computing-science-september-2026-round-6" in ids
-    assert "kth-computer-science-autumn-2027" not in ids
-    assert "snu-international-graduate-spring-2027" not in ids
-    assert all(event["applicationUrl"].startswith("https://") for event in events)
-
-
-def test_current_open_events_excludes_records_that_are_not_current() -> None:
-    module = load_module()
-
-    events = module.current_open_events(
-        date(2026, 6, 15),
-        record_trust_statuses={
-            "ucl-advanced-materials-science-2026-visa": "needs-review"
+    window = {
+        "universityId": "example-university",
+        "scopeType": "programme",
+        "scopeId": "example-programme",
+        "opensAt": "2026-11-20",
+        "closesAt": "2026-12-01",
+        "applicationUrl": "https://example.edu/apply",
+        "sourceUrl": "https://example.edu/dates",
+    }
+    records = [
+        {**window, "id": "today"},
+        {**window, "id": "yesterday", "opensAt": "2026-11-19"},
+        {**window, "id": "old", "opensAt": "2026-11-18"},
+        {**window, "id": "future", "opensAt": "2026-11-21"},
+        {
+            **window,
+            "id": "closed",
+            "opensAt": "2026-11-19",
+            "closesAt": "2026-11-19",
         },
+        {
+            **window,
+            "id": "closes-before-today",
+            "opensAt": "2026-11-19",
+            "closesAt": "2026-11-20",
+            "deadlineSemantics": "before",
+        },
+        {**window, "id": "needs-review"},
+    ]
+    files = {
+        "applications.json": {"applications": records},
+        "universities.json": {
+            "universities": [
+                {"id": "example-university", "school": "Example University"}
+            ]
+        },
+        "programs.json": {
+            "programs": [{"id": "example-programme", "name": "Example Programme"}]
+        },
+        "programme-groups.json": {"groups": []},
+    }
+    monkeypatch.setattr(module, "read_json", files.__getitem__)
+
+    events = module.recently_opened_events(
+        date(2026, 11, 20), record_trust_statuses={"needs-review": "needs-review"}
     )
 
-    assert "ucl-advanced-materials-science-2026-visa" not in {
-        event["id"] for event in events
-    }
+    assert [event["id"] for event in events] == ["today", "yesterday"]
+    assert all(event["program"] == "Example Programme" for event in events)
+    assert all(event["applicationUrl"] == window["applicationUrl"] for event in events)
+
+
+def test_empty_digest_succeeds_without_service_configuration(monkeypatch, capsys):
+    module = load_module()
+    monkeypatch.delenv("GRADWINDOW_SUBSCRIBE_URL", raising=False)
+    monkeypatch.delenv("GRADWINDOW_NOTIFY_API_KEY", raising=False)
+
+    assert module.notify([])
+    assert "No newly opened" in capsys.readouterr().out
 
 
 def test_notify_http_error_is_reported(
@@ -128,7 +164,7 @@ def test_notify_reports_provider_delivery_failures(monkeypatch, capsys) -> None:
 
 def test_main_exits_nonzero_when_notification_fails(monkeypatch) -> None:
     module = load_module()
-    monkeypatch.setattr(module, "current_open_events", lambda: [{"id": "window-1"}])
+    monkeypatch.setattr(module, "recently_opened_events", lambda: [{"id": "window-1"}])
     monkeypatch.setattr(module, "notify", lambda _events: False)
     monkeypatch.setattr(module.sys, "argv", ["notify_subscribers.py"])
 
@@ -174,3 +210,18 @@ def test_notify_sends_a_large_event_set_in_one_digest_request(monkeypatch) -> No
 
     assert module.notify(events) is True
     assert requests == [events]
+
+
+def test_oversized_digest_is_rejected_before_request(monkeypatch, capsys) -> None:
+    module = load_module()
+
+    def unexpected_request(*args, **kwargs):
+        pytest.fail("An oversized digest must not make a notification request")
+
+    monkeypatch.setenv("GRADWINDOW_SUBSCRIBE_URL", "https://notify.example")
+    monkeypatch.setenv("GRADWINDOW_NOTIFY_API_KEY", "shared-key")
+    monkeypatch.setattr(module, "urlopen", unexpected_request)
+    events = [{"id": f"window-{index}"} for index in range(1001)]
+
+    assert module.notify(events) is False
+    assert "digest limit is 1000" in capsys.readouterr().err
