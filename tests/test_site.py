@@ -557,6 +557,11 @@ def test_build_site_uses_configured_public_url(tmp_path, monkeypatch) -> None:
 
     assert f'href="{public_url}/"' in index_html
     assert f"<loc>{public_url}</loc>" in sitemap
+    undergraduate_html = (tmp_path / "undergraduate.html").read_text(encoding="utf-8")
+    assert (
+        f'rel="canonical" href="{public_url}/undergraduate.html"' in undergraduate_html
+    )
+    assert f"<loc>{public_url}/undergraduate.html</loc>" in sitemap
     assert f"Sitemap: {public_url}/sitemap.xml" in robots
     assert f'href="{public_url}/university/university-of-cambridge/"' in university_page
     for page_name in (

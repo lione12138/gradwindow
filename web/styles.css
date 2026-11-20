@@ -156,6 +156,169 @@ a {
   align-items: center;
 }
 
+.degree-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-inline: clamp(24px, 4vw, 72px);
+}
+
+.degree-nav a {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--green-dark);
+  background: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.degree-nav a[aria-current="page"] {
+  border-color: var(--green);
+  color: var(--white);
+  background: var(--green);
+}
+
+.undergraduate-main {
+  padding: 32px clamp(24px, 4vw, 72px) 64px;
+}
+
+.undergraduate-main h1 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 54px);
+  line-height: 1.1;
+}
+
+.undergraduate-main > p,
+.undergraduate-school,
+.undergraduate-round,
+.undergraduate-dates dt {
+  color: var(--muted);
+}
+
+.undergraduate-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(160px, 1fr);
+  gap: 14px;
+  max-width: 760px;
+  margin-top: 28px;
+}
+
+.undergraduate-filters label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.undergraduate-filters input,
+.undergraduate-filters select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  background: var(--white);
+}
+
+.undergraduate-count {
+  margin: 20px 0 14px;
+  font-size: 14px;
+}
+
+.undergraduate-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.undergraduate-window {
+  padding: clamp(18px, 3vw, 26px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+  overflow-wrap: anywhere;
+}
+
+.undergraduate-window h2 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.undergraduate-school,
+.undergraduate-round {
+  margin: 0;
+  font-size: 14px;
+}
+
+.undergraduate-badges,
+.undergraduate-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.undergraduate-badges span {
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: var(--green-dark);
+  background: var(--green-pale);
+}
+
+.undergraduate-badges[data-status="closed"] span:last-child {
+  color: var(--muted);
+  background: var(--paper);
+}
+
+.undergraduate-dates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+  padding-block: 12px;
+  border-block: 1px solid var(--line);
+}
+
+.undergraduate-dates dt {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.undergraduate-dates dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.undergraduate-links a {
+  color: var(--green-dark);
+  padding-block: 6px;
+}
+
+.undergraduate-links .undergraduate-apply {
+  padding-inline: 12px;
+  border-radius: 8px;
+  color: var(--white);
+  background: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 680px) {
+  .undergraduate-filters,
+  .undergraduate-results {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .header-actions {
   display: flex;
   gap: 18px;

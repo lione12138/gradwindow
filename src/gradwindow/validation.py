@@ -39,6 +39,7 @@ from .predictions import (
     shift_intake_one_year,
 )
 from .reviewed_deadlines import load_reviewed_deadlines
+from .undergraduate import load_undergraduate_windows
 
 APPLICATION_FIELDS = {
     "id",
@@ -455,6 +456,10 @@ def validate_data(
     if programs_path == PROGRAMS_PATH and universities_path == UNIVERSITIES_PATH:
         try:
             load_reviewed_deadlines()
+        except ValueError as exc:
+            errors.append(str(exc))
+        try:
+            summary["undergraduateWindows"] = len(load_undergraduate_windows())
         except ValueError as exc:
             errors.append(str(exc))
     return errors, summary

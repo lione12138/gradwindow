@@ -34,17 +34,20 @@ from .paths import (
 )
 from .published_data_audit import audit_published_data
 from .reviewed_deadlines import REVIEWED_DEADLINES_PATH, load_reviewed_deadlines
+from .undergraduate import load_undergraduate_windows
 
 PUBLIC_FILES = (
     "CNAME",
     "ffcdfa5871ff4d52aed733120c248bf8.txt",
     "index.html",
+    "undergraduate.html",
     "calendar.html",
     "contact.html",
     "roadmap.html",
     "admin.html",
     "privacy.html",
     "app.js",
+    "undergraduate.js",
     "calendar.js",
     "contact.js",
     "roadmap.js",
@@ -70,6 +73,7 @@ PUBLIC_FILES = (
     "review.js",
     "styles.css",
     "og-image-multiranking.png",
+    "og-image-undergraduate.png",
     "favicon.svg",
     "cat-avatar.svg",
 )
@@ -145,6 +149,7 @@ def _safe_build_output_dir(output_dir: Path) -> Path:
 
 def build_site(output_dir: Path = SITE_DIR) -> Path:
     load_reviewed_deadlines()
+    undergraduate_windows = load_undergraduate_windows()
     output_dir = _safe_build_output_dir(output_dir)
     public_site_url = site_url()
     build_date = date.today()
@@ -167,6 +172,7 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
         shutil.copy2(WEB_DIR / filename, output_dir / filename)
     for page_name in (
         "index.html",
+        "undergraduate.html",
         "calendar.html",
         "contact.html",
         "roadmap.html",
@@ -199,6 +205,9 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     data_dir.mkdir()
     for source in PUBLIC_DATA:
         shutil.copy2(source, data_dir / source.name)
+    write_compact_json(
+        data_dir / "undergraduate-applications.json", undergraduate_windows
+    )
     published_audit = audit_published_data(
         read_json(APPLICATIONS_PATH)["applications"],
         catalog_state=read_json(
@@ -238,6 +247,7 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     data_lastmod = public_data_lastmod()
     sitemap_urls: list[str | tuple[str, str | None]] = [
         (public_site_url, data_lastmod),
+        f"{public_site_url}/undergraduate.html",
         (f"{public_site_url}/calendar.html", data_lastmod),
         f"{public_site_url}/contact.html",
         f"{public_site_url}/roadmap.html",
