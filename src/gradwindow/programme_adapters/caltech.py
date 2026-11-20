@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import re
 from collections.abc import Callable
+from datetime import date
+from urllib.parse import urljoin, urlsplit
 
 from bs4 import BeautifulSoup
 
@@ -21,7 +23,11 @@ AEROSPACE_URL = f"{CATALOG_PREFIX}aerospace-ae/"
 ELECTRICAL_ENGINEERING_URL = f"{CATALOG_PREFIX}electrical-engineering-ee/"
 CATALOG_URL = AEROSPACE_URL
 APPLICATION_URL = "https://gradoffice.caltech.edu/admissions/applyonline"
-AEROSPACE_ADMISSIONS_URL = "https://aerospace.caltech.edu/academics/admissions"
+DEADLINE_OPTIONS = (
+    "Aeronautics (AE)",
+    "Space Engineering (SE)",
+    "Electrical Engineering (EE)",
+)
 
 
 class CaltechAdapter(BaseProgrammeAdapter):
@@ -31,7 +37,7 @@ class CaltechAdapter(BaseProgrammeAdapter):
     intake = "Fall 2027"
     application_opens_at_basis = "missing"
     replace_pending_candidates = True
-    window_watch_urls = (APPLICATION_URL, AEROSPACE_ADMISSIONS_URL)
+    window_watch_urls = (APPLICATION_URL,)
 
     def parse_catalog_from_fetcher(
         self,
@@ -39,12 +45,12 @@ class CaltechAdapter(BaseProgrammeAdapter):
     ) -> DiscoveredCatalog:
         aerospace_text = _page_text(fetcher(AEROSPACE_URL))
         electrical_text = _page_text(fetcher(ELECTRICAL_ENGINEERING_URL))
-        intake_year, deadline_policy = _application_policy(
-            fetcher(self.application_url)
-        )
+        application_html = fetcher(self.application_url)
+        intake_year, deadline_policy = _application_policy(application_html)
         self.intake = f"Fall {intake_year}"
-        aerospace_deadline = _aerospace_deadline(
-            fetcher(AEROSPACE_ADMISSIONS_URL), intake_year
+        deadline_url = _deadline_table_url(application_html, intake_year)
+        deadlines = (
+            _deadline_table(fetcher(deadline_url), intake_year) if deadline_url else {}
         )
         programmes = []
         if _is_direct_aerospace(aerospace_text):
@@ -57,7 +63,8 @@ class CaltechAdapter(BaseProgrammeAdapter):
                         source_url=AEROSPACE_URL,
                         deadline_policy=deadline_policy,
                         intake_year=intake_year,
-                        closes_at=aerospace_deadline,
+                        closes_at=deadlines.get("Aeronautics (AE)"),
+                        deadline_url=deadline_url,
                     ),
                     _programme(
                         programme_id="caltech-space-engineering-ms",
@@ -66,7 +73,8 @@ class CaltechAdapter(BaseProgrammeAdapter):
                         source_url=AEROSPACE_URL,
                         deadline_policy=deadline_policy,
                         intake_year=intake_year,
-                        closes_at=aerospace_deadline,
+                        closes_at=deadlines.get("Space Engineering (SE)"),
+                        deadline_url=deadline_url,
                     ),
                 )
             )
@@ -79,6 +87,8 @@ class CaltechAdapter(BaseProgrammeAdapter):
                     source_url=ELECTRICAL_ENGINEERING_URL,
                     deadline_policy=deadline_policy,
                     intake_year=intake_year,
+                    closes_at=deadlines.get("Electrical Engineering (EE)"),
+                    deadline_url=deadline_url,
                 )
             )
         programmes.sort(key=lambda item: item.id)
@@ -87,7 +97,17 @@ class CaltechAdapter(BaseProgrammeAdapter):
                 "Caltech catalogue only verified "
                 f"{len(programmes)} direct-entry master's programmes; expected 3"
             )
-        return DiscoveredCatalog(application_opens_at=None, programmes=programmes)
+        return DiscoveredCatalog(
+            application_opens_at=None,
+            programmes=programmes,
+            diagnostics={
+                "applicationCycle": self.intake,
+                "deadlineTableUrl": deadline_url,
+                "deadlineTableStatus": "matched-cycle"
+                if deadline_url
+                else "no-matching-cycle-table",
+            },
+        )
 
 
 def _page_text(html: str) -> str:
@@ -137,16 +157,61 @@ def _application_policy(html: str) -> tuple[int, str]:
     return int(cycle.group(1)), match.group(0).rstrip(".")
 
 
-def _aerospace_deadline(html: str, intake_year: int) -> str:
-    text = _page_text(html)
+def _deadline_table_url(html: str, intake_year: int) -> str | None:
+    soup = BeautifulSoup(html, "html.parser")
+    links = set()
+    for link in (soup.find("main") or soup).find_all("a", href=True):
+        if (
+            _normalise(link.get_text(" ", strip=True)).casefold()
+            != "application deadlines"
+        ):
+            continue
+        url = urljoin(APPLICATION_URL, link["href"])
+        parts = urlsplit(url)
+        if parts.scheme != "https" or parts.netloc != "gradoffice.caltech.edu":
+            continue
+        cycle = re.search(
+            r"(?<!\d)(20\d{2})[-–](20\d{2}|\d{2})(?!\d).*\.pdf$", parts.path, re.I
+        )
+        if (
+            cycle
+            and int(cycle[1]) == intake_year
+            and cycle[2]
+            in {
+                str(intake_year + 1),
+                str(intake_year + 1)[-2:],
+            }
+        ):
+            links.add(url)
+    if len(links) > 1:
+        raise ValueError(
+            "Caltech application page linked multiple deadline tables for the same cycle"
+        )
+    return next(iter(links), None)
+
+
+def _deadline_table(text: str, intake_year: int) -> dict[str, str]:
     if not re.search(
-        r"academic year beginning in September;?\s+"
-        r"the deadline for applications is December 15",
-        text,
-        re.I,
+        r"Department\s*\(All degree programs\)\s*Application Deadline", text, re.I
     ):
-        raise ValueError("Caltech Aerospace page lacked its December 15 deadline")
-    return f"{intake_year - 1}-12-15"
+        raise ValueError("Caltech deadline PDF lacked the all-degree deadline table")
+    dates = {}
+    for option in DEADLINE_OPTIONS:
+        rows = re.findall(
+            rf"^\s*{re.escape(option)}[ \t]+(December|January)[ \t]+(\d{{1,2}})[ \t]*$",
+            text,
+            re.M | re.I,
+        )
+        if len(rows) != 1:
+            raise ValueError(
+                f"Caltech deadline PDF lacked a unique deadline for {option}"
+            )
+        month, day = rows[0]
+        january = month.casefold() == "january"
+        dates[option] = date(
+            intake_year if january else intake_year - 1, 1 if january else 12, int(day)
+        ).isoformat()
+    return dates
 
 
 def _programme(
@@ -158,6 +223,7 @@ def _programme(
     deadline_policy: str,
     intake_year: int,
     closes_at: str | None = None,
+    deadline_url: str | None = None,
 ) -> DiscoveredProgramme:
     windows = []
     parse_status = "no-deadline"
@@ -168,7 +234,7 @@ def _programme(
                 opens_at=None,
                 closes_at=closes_at,
                 intake=f"Fall {intake_year}",
-                source_url=AEROSPACE_ADMISSIONS_URL,
+                source_url=deadline_url,
                 opens_at_basis="missing",
             )
         )
@@ -183,16 +249,14 @@ def _programme(
         application_url=APPLICATION_URL,
         windows=windows,
         deadline_text=(
-            "The current Caltech Catalog verifies this as a direct-entry master's "
-            f"programme for the {intake_year}-{intake_year + 1} application cycle. "
+            "The Caltech Catalog verifies this as a direct-entry master's programme. "
+            f"The application notice identifies the {intake_year}-{intake_year + 1} cycle. "
             f"The Graduate Studies Office states: {deadline_policy}. "
             + (
-                "The Aerospace department publishes a December 15 deadline, but "
-                "the application notice supplies no exact opening date, so no "
-                "opening date is inferred."
+                f"The linked all-degree deadline table lists {closes_at} for this option. "
+                "The application notice supplies no exact opening date."
                 if closes_at is not None
-                else "No programme-specific exact deadline is published for this "
-                "route, so no application window is inferred."
+                else "A matching-cycle official deadline table was not found."
             )
         ),
         parse_status=parse_status,

@@ -3,12 +3,21 @@ from __future__ import annotations
 import pytest
 
 from gradwindow.programme_adapters.caltech import (
-    AEROSPACE_ADMISSIONS_URL,
     AEROSPACE_URL,
     APPLICATION_URL,
     ELECTRICAL_ENGINEERING_URL,
     CaltechAdapter,
 )
+
+DEADLINE_PDF = (
+    "https://gradoffice.caltech.edu/documents/42/Application_Deadlines_2027-28.pdf"
+)
+DEADLINE_TEXT = """APPLICATION DEADLINES
+Department (All degree programs) Application Deadline
+Aeronautics (AE) December 15
+Electrical Engineering (EE) January 15
+Space Engineering (SE) December 10
+"""
 
 AEROSPACE_HTML = """
 <html><body><main>
@@ -39,15 +48,8 @@ APPLICATION_HTML = """
   <p>Our application for the 2027-2028 academic year will be available in
   early October.</p>
   <p>Check the Application Deadlines for the particular academic program.</p>
+  <a href="/documents/42/Application_Deadlines_2027-28.pdf">Application Deadlines</a>
   <p>Deadlines vary by program from December 1 to December 15.</p>
-</main></body></html>
-"""
-
-AEROSPACE_ADMISSIONS_HTML = """
-<html><body><main>
-  <h1>Admissions</h1>
-  <p>Students are admitted only for the academic year beginning in September;
-  the deadline for applications is December 15.</p>
 </main></body></html>
 """
 
@@ -59,8 +61,8 @@ def _fetcher(url: str) -> str:
         return ELECTRICAL_ENGINEERING_HTML
     if url == APPLICATION_URL:
         return APPLICATION_HTML
-    if url == AEROSPACE_ADMISSIONS_URL:
-        return AEROSPACE_ADMISSIONS_HTML
+    if url == DEADLINE_PDF:
+        return DEADLINE_TEXT
     raise AssertionError(url)
 
 
@@ -79,15 +81,18 @@ def test_caltech_adapter_keeps_only_direct_entry_masters_programmes() -> None:
         "MS Space Engineering",
     ]
     programmes = {programme.id: programme for programme in catalog.programmes}
-    assert programmes["caltech-electrical-engineering-ms"].windows == []
-    assert programmes["caltech-electrical-engineering-ms"].parse_status == "no-deadline"
-    for programme_id in ("caltech-aeronautics-ms", "caltech-space-engineering-ms"):
+    for programme_id, deadline in {
+        "caltech-aeronautics-ms": "2026-12-15",
+        "caltech-space-engineering-ms": "2026-12-10",
+        "caltech-electrical-engineering-ms": "2027-01-15",
+    }.items():
         programme = programmes[programme_id]
         assert programme.parse_status == "incomplete"
         assert len(programme.windows) == 1
         assert programme.windows[0].intake == "Fall 2027"
         assert programme.windows[0].opens_at is None
-        assert programme.windows[0].closes_at == "2026-12-15"
+        assert programme.windows[0].closes_at == deadline
+        assert programme.windows[0].source_url == DEADLINE_PDF
 
 
 def test_caltech_does_not_fetch_the_blocked_xml_sitemap() -> None:
@@ -104,7 +109,7 @@ def test_caltech_does_not_fetch_the_blocked_xml_sitemap() -> None:
         AEROSPACE_URL,
         ELECTRICAL_ENGINEERING_URL,
         APPLICATION_URL,
-        AEROSPACE_ADMISSIONS_URL,
+        DEADLINE_PDF,
     ]
 
 
@@ -127,8 +132,10 @@ def test_caltech_current_notice_uses_source_cycle_without_guessing_opening():
         if url == APPLICATION_URL:
             return (
                 "<main>Applications for 2026-2027 admission are now open. "
-                "Deadlines vary by program from December 1 to January 15.</main>"
+                "Deadlines vary by program from December 1 to January 15."
+                f'<a href="{DEADLINE_PDF}">Application Deadlines</a></main>'
             )
+        assert url != DEADLINE_PDF
         return _fetcher(url)
 
     adapter = CaltechAdapter()
@@ -138,11 +145,19 @@ def test_caltech_current_notice_uses_source_cycle_without_guessing_opening():
     for programme in catalog.programmes:
         assert "early October" not in programme.deadline_text
         assert "January 15" in programme.deadline_text
-        for window in programme.windows:
-            assert window.intake == "Fall 2026"
-            assert window.opens_at is None
-            assert window.opens_at_basis == "missing"
-            assert window.closes_at == "2025-12-15"
+        assert programme.windows == []
+    assert catalog.diagnostics["deadlineTableStatus"] == "no-matching-cycle-table"
+
+
+def test_caltech_rejects_ambiguous_department_deadline():
+    with pytest.raises(ValueError, match="unique deadline for Electrical Engineering"):
+        CaltechAdapter().parse_catalog_from_fetcher(
+            lambda url: (
+                DEADLINE_TEXT + "Electrical Engineering (EE) December 15\n"
+                if url == DEADLINE_PDF
+                else _fetcher(url)
+            )
+        )
 
 
 @pytest.mark.parametrize("cycle", ["2026-2029", "2027-2026"])

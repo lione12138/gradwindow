@@ -113,9 +113,9 @@ OXFORD_DETAIL = """
       <h2>Part time</h2>
       <div><span>Open</span></div>
       <div class="application-status">
-        <p>Application deadline: Wednesday 6 January 2027 at 12:00 midday UK time.</p>
+        <p>Application deadline: Wednesday, 6 January, 2027 at 12:00 midday UK time.</p>
       </div>
-      <dl><dt>Expected start date</dt><dd>October 2027</dd></dl>
+      <dl><dt>Expected start date</dt><dd>10 October 2027</dd></dl>
     </div>
   </div>
   <section>

@@ -60,7 +60,7 @@ DATE_RE = re.compile(
     r"\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)?\s*"
     r"(?P<day>\d{1,2})\s+"
     r"(?P<month>January|February|March|April|May|June|July|August|"
-    r"September|October|November|December)\s+"
+    r"September|October|November|December),?\s+"
     r"(?P<year>20\d{2})\b",
     flags=re.IGNORECASE,
 )
@@ -71,7 +71,7 @@ US_DATE_RE = re.compile(
     flags=re.IGNORECASE,
 )
 EXPECTED_START_RE = re.compile(
-    r"Expected\s+start\s+date\s+"
+    r"Expected\s+start\s+date\s*:?\s+(?:\d{1,2}\s+)?"
     r"(?P<month>January|February|March|April|May|June|July|August|"
     r"September|October|November|December)\s+(?P<year>20\d{2})",
     flags=re.IGNORECASE,
