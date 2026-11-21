@@ -30,6 +30,7 @@ class UndergraduateWindow(DataModel):
         "first-round-review",
         "first-round",
         "second-round",
+        "third-round",
         "advance-offer",
         "priority-round",
         "early-round",

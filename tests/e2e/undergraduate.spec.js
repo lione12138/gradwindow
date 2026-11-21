@@ -246,3 +246,25 @@ test("Helsinki keeps the SAT or ACT and diploma application windows separate", a
     /helsinki\.fi\/.+\/required-application-enclosures$/,
   );
 });
+
+test("French bachelor rounds show their own deadlines in both languages", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2026-11-21T12:00:00Z"));
+  await page.goto("/undergraduate.html");
+  await page
+    .locator("#undergraduate-search")
+    .fill("Institut Polytechnique de Paris");
+  await page.locator(".university-group-toggle").click();
+
+  const rows = page.locator(".undergraduate-window-row");
+  await expect(rows).toHaveCount(3);
+  const thirdRound = rows.filter({
+    has: page.locator('time[datetime="2027-02-08"]'),
+  });
+  await expect(thirdRound.getByText("Fall 2027 · Third round")).toBeVisible();
+  await expect(thirdRound.locator('time[datetime="2027-01-07"]')).toBeVisible();
+
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(thirdRound.getByText("2027 年秋季 · 第三轮")).toBeVisible();
+});
