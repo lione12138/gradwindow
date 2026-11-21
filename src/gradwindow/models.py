@@ -75,6 +75,7 @@ class University(DataModel):
     qs_rank: int | None = Field(default=None, alias="qsRank", ge=1)
     qs_position: int | None = Field(default=None, alias="qsPosition", ge=1, le=200)
     rank_display: str | None = Field(default=None, alias="rankDisplay")
+    undergraduate_only: bool = Field(default=False, alias="undergraduateOnly")
     school: str
     school_zh: str = Field(alias="schoolZh")
     school_aliases_zh: list[str] = Field(default_factory=list, alias="schoolAliasesZh")
