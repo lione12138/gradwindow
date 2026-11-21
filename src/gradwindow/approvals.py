@@ -13,12 +13,13 @@ from .paths import (
     APPLICATIONS_PATH,
     PREDICTIONS_PATH,
     PROGRAMME_CANDIDATES_PATH,
+    PROGRAMME_GROUPS_PATH,
     PROGRAMS_PATH,
     WINDOW_CANDIDATES_PATH,
 )
 from .predictions import generate_predictions, official_cycle_key
 from .programme_windows import has_official_exact_window, programme_window_record_id
-from .validation import validate_data
+from .validation import validate_data, window_scope_issue
 
 
 def approve_window(
@@ -140,6 +141,11 @@ def approve_official_adapter_window_candidates(
     resolved_candidates: list[dict] = []
     candidate_records_changed = False
     candidates_by_cycle: dict[tuple, list[tuple[dict, dict]]] = {}
+    programs_payload = read_json(PROGRAMS_PATH)
+    programmes = {item["id"]: item for item in programs_payload.get("programs", [])}
+    groups = {
+        item["id"]: item for item in read_json(PROGRAMME_GROUPS_PATH).get("groups", [])
+    }
 
     for candidate in candidates.get("items", []):
         if candidate.get("status", "pending") != "pending":
@@ -177,6 +183,14 @@ def approve_official_adapter_window_candidates(
                 "sourceUrl",
             )
         ):
+            continue
+
+        scope_issue = window_scope_issue(record, programmes, groups)
+        if scope_issue:
+            note = f"Programme scope needs review before publication: {scope_issue}."
+            if candidate.get("reviewNotes") != note:
+                candidate["reviewNotes"] = note
+                candidate_records_changed = True
             continue
 
         record = with_intake_details(record)
@@ -255,7 +269,7 @@ def approve_official_adapter_window_candidates(
                 ),
             ),
         }
-        _validate_programme_promotion(read_json(PROGRAMS_PATH), proposed_payload)
+        _validate_programme_promotion(programs_payload, proposed_payload)
 
         write_json(applications_path, proposed_payload)
         if applications_path == APPLICATIONS_PATH:

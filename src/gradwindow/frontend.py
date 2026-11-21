@@ -23,6 +23,7 @@ from .paths import (
     UNIVERSITIES_PATH,
     WINDOW_POLICIES_PATH,
 )
+from .refresh_status import published_refresh_status
 
 LIVE_RANKINGS = {"the", "arwu"}
 UPCOMING_WINDOW_DAYS = 30
@@ -208,7 +209,12 @@ def build_frontend_payloads(
         {"meta": {}},
     )
     source_monitor_payload = read_json(APPLICATION_SOURCE_STATE_PATH)
-    refresh_payload = read_json(REFRESH_STATUS_PATH)
+    refresh_payload = published_refresh_status(
+        read_json(REFRESH_STATUS_PATH, {}),
+        applications_payload,
+        monitor_payload,
+        source_monitor_payload,
+    )
     rankings_payload = read_json(GLOBAL_RANKINGS_PATH)
     categories_payload = read_json(APPLICANT_CATEGORIES_PATH)
     trust_statuses = (published_audit or {}).get("recordTrustStatuses", {})

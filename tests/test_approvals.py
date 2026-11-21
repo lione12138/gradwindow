@@ -430,6 +430,22 @@ def test_batch_approval_only_promotes_official_adapter_windows(tmp_path) -> None
                         "openingBasis": "official",
                         "record": {**base_record, "id": "batch-parser-window"},
                     },
+                    {
+                        "id": "eduhk-unregistered-group",
+                        "type": "adapter-new-window",
+                        "status": "pending",
+                        "openingBasis": "official",
+                        "record": {
+                            **base_record,
+                            "id": "batch-eduhk-window",
+                            "universityId": "education-university-of-hong-kong",
+                            "scopeType": "programme-group",
+                            "scopeId": "eduhk-taught-postgraduate-non-local-admissions",
+                            "applicantCategories": ["international-students"],
+                            "applicationUrl": "https://www.eduhk.hk/onlineappl/",
+                            "sourceUrl": "https://www.eduhk.hk/acadprog/postgrad/schedule_index.html",
+                        },
+                    },
                 ],
             }
         ),
@@ -438,22 +454,28 @@ def test_batch_approval_only_promotes_official_adapter_windows(tmp_path) -> None
 
     report = approve_official_adapter_window_candidates(
         reviewer="automated-policy",
-        university_ids={"eth-zurich-swiss-federal-institute-of-technology"},
+        university_ids={
+            "eth-zurich-swiss-federal-institute-of-technology",
+            "education-university-of-hong-kong",
+        },
         candidates_path=candidates_path,
         applications_path=applications_path,
     )
 
-    assert report == {"promotedWindows": 1, "remainingPending": 1}
+    assert report == {"promotedWindows": 1, "remainingPending": 2}
     applications = json.loads(applications_path.read_text(encoding="utf-8"))[
         "applications"
     ]
     assert any(item["id"] == "batch-official-window" for item in applications)
     assert not any(item["id"] == "batch-inferred-window" for item in applications)
+    assert not any(item["id"] == "batch-eduhk-window" for item in applications)
     candidates = json.loads(candidates_path.read_text(encoding="utf-8"))["items"]
     assert candidates[0]["status"] == "approved"
     assert candidates[0]["reviewedBy"] == "automated-policy"
     assert candidates[1]["status"] == "pending"
     assert candidates[2]["status"] == "pending"
+    assert candidates[3]["status"] == "pending"
+    assert "unknown group" in candidates[3]["reviewNotes"]
 
 
 def test_batch_approval_resolves_identical_semantic_candidates_once(tmp_path) -> None:
