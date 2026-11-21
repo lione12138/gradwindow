@@ -12,10 +12,14 @@ test("mobile visitors can switch to the undergraduate board and expand a school"
     "Undergraduate application tracker",
   );
   const rows = page.locator(".undergraduate-table tbody tr");
-  await expect(rows).toHaveCount(5);
-  await expect(rows.first()).toContainText("Imperial College London");
-  await expect(rows.first()).toContainText("International applicants eligible");
-  await expect(rows.first().locator("time").last()).toHaveAttribute(
+  const imperial = rows.filter({
+    has: page.getByRole("link", {
+      name: "Imperial College London",
+      exact: true,
+    }),
+  });
+  await expect(imperial).toContainText("International applicants eligible");
+  await expect(imperial.locator("time").last()).toHaveAttribute(
     "datetime",
     "2027-01-13",
   );
@@ -59,11 +63,16 @@ test("wide undergraduate board shares the tracker sidebar and ranked table", asy
   await expect(
     table.getByRole("columnheader", { name: /QS rank/ }),
   ).toHaveAttribute("aria-sort", "ascending");
-  await expect(table.locator("tbody tr").first()).toContainText(
-    "Imperial College London",
+  const ranks = (await table.locator("tbody .rank-cell").allTextContents()).map(
+    (rank) => Number(rank.replace(/^[#=]/, "")),
   );
+  expect(ranks).toEqual([...ranks].sort((a, b) => a - b));
   await page.locator("#undergraduate-region").selectOption("Europe");
-  await expect(table.locator("tbody tr")).toHaveCount(3);
+  await expect(
+    table.getByRole("link", { name: "Harvard University", exact: true }),
+  ).toHaveCount(0);
+  await page.locator("#undergraduate-search").fill("UCL");
+  await expect(table.locator("tbody tr")).toHaveCount(1);
   await page
     .getByRole("button", { name: "Expand schools on this page" })
     .click();

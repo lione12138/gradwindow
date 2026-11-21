@@ -27,6 +27,8 @@ class UndergraduateWindow(DataModel):
     )
     round: Literal[
         "standard",
+        "first-round-review",
+        "final-deadline",
         "equal-consideration",
         "restrictive-early-action",
         "early-decision",
