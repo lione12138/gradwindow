@@ -174,6 +174,12 @@ test("undergraduate country choices follow the region and filter schools", async
   await expect(country.locator('option[value="France"]')).toHaveCount(0);
   await expect(country.locator('option[value="Japan"]')).toHaveText("日本");
   await expect(schools.filter({ hasText: "EDHEC" })).toHaveCount(0);
+
+  await page.setViewportSize({ width: 820, height: 900 });
+  for (const filter of await page.locator(".primary-filter-row select").all()) {
+    const bounds = await filter.boundingBox();
+    expect(bounds?.width).toBeGreaterThan(100);
+  }
 });
 
 test("UCAS windows show the submission dates and the official application route", async ({

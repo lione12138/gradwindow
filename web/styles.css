@@ -7110,6 +7110,12 @@ footer p {
   border-color: var(--green);
 }
 
+@media (min-width: 721px) and (max-width: 980px) {
+  .undergraduate-board .quick-filter-panel .toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 720px) {
   .undergraduate-board .primary-filter-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
