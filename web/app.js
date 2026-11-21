@@ -18,11 +18,13 @@ import {
 } from "./review.js";
 import { acronym, makeElement, makeLink, parseDate } from "./dom.js";
 import {
+  createSchoolPagination,
   createTrackerTable,
   formatRank,
   makeCell,
   makeSchoolDisplay,
   makeSchoolGroupSummary,
+  paginateSchools,
 } from "./tracker-table.js";
 import {
   deadlineDaysRemaining,
@@ -66,7 +68,6 @@ import {
   turnstileToken,
 } from "./turnstile.js";
 
-const PAGE_SIZE = 20;
 const dateFormatters = new Map();
 const recordSearchTextCache = new WeakMap();
 const recordIntakeCache = new WeakMap();
@@ -1567,52 +1568,16 @@ function createGroup(status, records, kind) {
 }
 
 function paginate(key, items) {
-  const total = items.length;
-  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-  const page = Math.min(Math.max(state.pages[key] || 1, 1), totalPages);
-  state.pages[key] = page;
-  const startIndex = (page - 1) * PAGE_SIZE;
-  return {
-    items: items.slice(startIndex, startIndex + PAGE_SIZE),
-    start: total ? startIndex + 1 : 0,
-    end: Math.min(startIndex + PAGE_SIZE, total),
-    total,
-    page,
-    totalPages,
-  };
+  const pagination = paginateSchools(items, state.pages[key]);
+  state.pages[key] = pagination.page;
+  return pagination;
 }
 
 function createPagination(key, pagination) {
-  if (pagination.total <= PAGE_SIZE) return document.createDocumentFragment();
-  const wrapper = makeElement("div", { className: "table-pagination" });
-  const label = makeElement("span", {
-    className: "pagination-summary",
-    text: `${pagination.start}-${pagination.end} / ${pagination.total}`,
-  });
-  const previous = makeElement("button", {
-    className: "pagination-button",
-    text: "‹",
-    title: t("paginationPrevious"),
-  });
-  const next = makeElement("button", {
-    className: "pagination-button",
-    text: "›",
-    title: t("paginationNext"),
-  });
-  previous.type = "button";
-  next.type = "button";
-  previous.disabled = pagination.page <= 1;
-  next.disabled = pagination.page >= pagination.totalPages;
-  previous.addEventListener("click", () => {
-    state.pages[key] = Math.max(1, pagination.page - 1);
+  return createSchoolPagination(pagination, t, (page) => {
+    state.pages[key] = page;
     render();
   });
-  next.addEventListener("click", () => {
-    state.pages[key] = Math.min(pagination.totalPages, pagination.page + 1);
-    render();
-  });
-  wrapper.append(label, previous, next);
-  return wrapper;
 }
 
 function createTableSection(

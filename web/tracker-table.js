@@ -1,6 +1,53 @@
 import { makeElement, makeLink } from "./dom.js";
 import { countryLabel, schoolLabels } from "./localization.js";
 
+const SCHOOLS_PER_PAGE = 20;
+
+export function paginateSchools(items, requestedPage = 1) {
+  const total = items.length;
+  const totalPages = Math.max(1, Math.ceil(total / SCHOOLS_PER_PAGE));
+  const page = Math.min(Math.max(requestedPage, 1), totalPages);
+  const startIndex = (page - 1) * SCHOOLS_PER_PAGE;
+  return {
+    items: items.slice(startIndex, startIndex + SCHOOLS_PER_PAGE),
+    start: total ? startIndex + 1 : 0,
+    end: Math.min(startIndex + SCHOOLS_PER_PAGE, total),
+    total,
+    page,
+    totalPages,
+  };
+}
+
+export function createSchoolPagination(pagination, t, onPageChange) {
+  const { start, end, total, page, totalPages } = pagination;
+  if (totalPages <= 1) return document.createDocumentFragment();
+  const wrapper = makeElement("div", { className: "table-pagination" });
+  const label = makeElement("span", {
+    className: "pagination-summary",
+    text: `${start}-${end} / ${total}`,
+  });
+  const previous = makeElement("button", {
+    className: "pagination-button",
+    text: "‹",
+    title: t("paginationPrevious"),
+  });
+  const next = makeElement("button", {
+    className: "pagination-button",
+    text: "›",
+    title: t("paginationNext"),
+  });
+  previous.type = "button";
+  next.type = "button";
+  previous.setAttribute("aria-label", previous.title);
+  next.setAttribute("aria-label", next.title);
+  previous.disabled = page <= 1;
+  next.disabled = page >= totalPages;
+  previous.addEventListener("click", () => onPageChange(page - 1));
+  next.addEventListener("click", () => onPageChange(page + 1));
+  wrapper.append(label, previous, next);
+  return wrapper;
+}
+
 export function makeCell(label, ...children) {
   const cell = document.createElement("td");
   cell.dataset.label = label;

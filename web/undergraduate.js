@@ -4,11 +4,13 @@ import { translate } from "./i18n.js";
 import { countryLabel, regionLabel, schoolLabels } from "./localization.js";
 import { countUniversitiesByStatus, getApplicationStatus } from "./status.js";
 import {
+  createSchoolPagination,
   createTrackerTable,
   formatRank,
   makeCell,
   makeSchoolDisplay,
   makeSchoolGroupSummary,
+  paginateSchools,
 } from "./tracker-table.js";
 import { groupWindowRecordsForDisplay } from "./window-grouping.js";
 
@@ -39,6 +41,7 @@ let language =
   localStorage.getItem("gradwindow:language") === "zh" ? "zh" : "en";
 let records = null;
 let loadFailed = false;
+let currentPage = 1;
 let visibleGroups = [];
 
 function t(key) {
@@ -341,6 +344,20 @@ function compareWindows(a, b) {
   );
 }
 
+function renderFirstPage() {
+  currentPage = 1;
+  render();
+}
+
+function changePage(page) {
+  currentPage = page;
+  render();
+  const heading = results.querySelector(".group-heading h3");
+  heading.tabIndex = -1;
+  heading.focus({ preventScroll: true });
+  heading.scrollIntoView({ block: "start" });
+}
+
 function render() {
   if (records === null) {
     updateStatusButtons([]);
@@ -359,7 +376,9 @@ function render() {
     )
     .sort(compareWindows);
   const groups = groupWindowRecordsForDisplay(matches);
-  visibleGroups = groups.filter(({ collapsible }) => collapsible);
+  const pagination = paginateSchools(groups, currentPage);
+  currentPage = pagination.page;
+  visibleGroups = pagination.items.filter(({ collapsible }) => collapsible);
   groupActions.hidden = visibleGroups.length === 0;
   expand.disabled = visibleGroups.every(({ key }) => expandedGroups.has(key));
   collapse.disabled = visibleGroups.every(
@@ -400,13 +419,16 @@ function render() {
     sort: sortFilter.value,
     onSort(sort) {
       sortFilter.value = sort;
-      render();
+      renderFirstPage();
       results
         .querySelector(`[data-sort="${sort}"]`)
         ?.focus({ preventScroll: true });
     },
   });
-  groups.forEach((group) => renderUniversity(tbody, group, formatter));
+  pagination.items.forEach((group) =>
+    renderUniversity(tbody, group, formatter),
+  );
+  section.append(createSchoolPagination(pagination, t, changePage));
   results.append(section);
 }
 
@@ -429,7 +451,7 @@ Object.keys(statusLabels).forEach((status) => {
   button.append(makeElement("span"), makeElement("span"));
   button.addEventListener("click", () => {
     selectedStatus = status;
-    render();
+    renderFirstPage();
   });
   statusButtons.set(status, button);
   statusFilter.append(button);
@@ -456,9 +478,9 @@ collapse.addEventListener("click", () => {
   render();
   expand.focus();
 });
-search.addEventListener("input", render);
+search.addEventListener("input", renderFirstPage);
 [regionFilter, intakeFilter, sortFilter].forEach((filter) =>
-  filter.addEventListener("change", render),
+  filter.addEventListener("change", renderFirstPage),
 );
 applyLanguage();
 applyTheme(
