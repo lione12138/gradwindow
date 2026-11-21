@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Business schools and programmes | GradWindow</title>
+    <meta name="description" content="Browse business schools in the Paris region, elsewhere in France and internationally. Find official links for undergraduate, master’s and MBA programmes." />
+    <link rel="canonical" href="https://gradwindow.com/business-schools.html" />
+    <meta property="og:title" content="Business schools and programmes | GradWindow" />
+    <meta property="og:description" content="Find official undergraduate, master’s and MBA programme links from business schools in France and internationally." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gradwindow.com/business-schools.html" />
+    <meta property="og:image" content="https://gradwindow.com/og-image-business-schools.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Business schools and programmes | GradWindow" />
+    <meta name="twitter:description" content="Find official undergraduate, master’s and MBA programme links from business schools in France and internationally." />
+    <meta name="twitter:image" content="https://gradwindow.com/og-image-business-schools.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Business school directory",
+        "url": "https://gradwindow.com/business-schools.html",
+        "isPartOf": { "@type": "WebSite", "name": "GradWindow", "url": "https://gradwindow.com/" }
+      }
+    </script>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="GradWindow home">
+          <span class="brand-mark">G</span>
+          <span>GradWindow</span>
+        </a>
+        <div class="header-controls">
+          <button class="header-control" id="language-toggle" type="button" aria-label="Switch language">中文</button>
+          <button class="header-control" id="theme-toggle" type="button" aria-label="Switch color theme">◐</button>
+        </div>
+      </header>
+      <nav class="degree-nav" aria-label="Study boards" data-i18n-aria-label="degreeNavigation">
+        <a href="./" data-i18n="navMasters">Master’s</a>
+        <a href="./undergraduate.html" data-i18n="navUndergraduate">Undergraduate</a>
+        <a href="./business-schools.html" aria-current="page" data-i18n="navBusinessSchools">Business schools</a>
+      </nav>
+      <main>
+        <section class="board-section business-directory" aria-labelledby="business-title">
+          <div class="section-heading">
+            <div>
+              <h1 id="business-title" data-i18n="businessTitle">Business school directory</h1>
+              <p data-i18n="businessIntro">Find programmes by location and degree. Follow the official links for application dates and requirements.</p>
+            </div>
+          </div>
+          <div id="business-filters" class="business-filters" hidden>
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <span class="sr-only" data-i18n="businessSearch">Search school, location, or programme</span>
+              <input id="business-search" type="search" autocomplete="off" placeholder="Search school, location, or programme" />
+            </label>
+            <label class="select-wrap">
+              <span class="sr-only" data-i18n="regionFilterLabel">Region</span>
+              <select id="business-region">
+                <option value="all" data-i18n="allRegions">All regions</option>
+                <option value="paris" data-i18n="businessParis">Paris region</option>
+                <option value="france" data-i18n="businessFrance">France</option>
+                <option value="other" data-i18n="businessOtherLocations">Outside France</option>
+              </select>
+            </label>
+            <label class="select-wrap">
+              <span class="sr-only" data-i18n="businessDegree">Degree level</span>
+              <select id="business-level">
+                <option value="all" data-i18n="businessAllDegrees">All degrees</option>
+                <option value="undergraduate" data-i18n="businessLevel-undergraduate">Undergraduate</option>
+                <option value="masters" data-i18n="businessLevel-masters">Master’s</option>
+                <option value="mba" data-i18n="businessLevel-mba">MBA</option>
+              </select>
+            </label>
+          </div>
+          <p id="business-count" class="results-counts" role="status"></p>
+          <div class="business-school-list">
+            <!-- BUSINESS_SCHOOLS -->
+          </div>
+          <div id="business-empty" class="empty-state" hidden>
+            <strong data-i18n="businessEmpty">No matching business schools</strong>
+            <span data-i18n="emptyText">Adjust your search or filters and try again.</span>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./business-schools.js" type="module"></script>
+  </body>
+</html>

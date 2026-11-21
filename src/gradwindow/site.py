@@ -10,6 +10,7 @@ from collections import Counter, defaultdict
 from datetime import date, timedelta
 from pathlib import Path
 
+from .business_schools import render_business_schools
 from .frontend import build_frontend_payloads, write_compact_json
 from .io import read_json
 from .paths import (
@@ -42,6 +43,7 @@ PUBLIC_FILES = (
     "ffcdfa5871ff4d52aed733120c248bf8.txt",
     "index.html",
     "undergraduate.html",
+    "business-schools.html",
     "calendar.html",
     "contact.html",
     "roadmap.html",
@@ -49,6 +51,7 @@ PUBLIC_FILES = (
     "privacy.html",
     "app.js",
     "undergraduate.js",
+    "business-schools.js",
     "calendar.js",
     "contact.js",
     "roadmap.js",
@@ -76,6 +79,7 @@ PUBLIC_FILES = (
     "styles.css",
     "og-image-multiranking.png",
     "og-image-undergraduate.png",
+    "og-image-business-schools.png",
     "favicon.svg",
     "cat-avatar.svg",
 )
@@ -151,6 +155,7 @@ def _safe_build_output_dir(output_dir: Path) -> Path:
 def build_site(output_dir: Path = SITE_DIR) -> Path:
     load_reviewed_deadlines()
     undergraduate_windows = load_undergraduate_windows()
+    business_school_list = render_business_schools()
     output_dir = _safe_build_output_dir(output_dir)
     public_site_url = site_url()
     build_date = date.today()
@@ -174,6 +179,7 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     for page_name in (
         "index.html",
         "undergraduate.html",
+        "business-schools.html",
         "calendar.html",
         "contact.html",
         "roadmap.html",
@@ -197,6 +203,13 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
             ),
             encoding="utf-8",
         )
+    business_schools_path = output_dir / "business-schools.html"
+    business_schools_path.write_text(
+        business_schools_path.read_text(encoding="utf-8").replace(
+            "<!-- BUSINESS_SCHOOLS -->", business_school_list
+        ),
+        encoding="utf-8",
+    )
     index_path = output_dir / "index.html"
     index_path.write_text(
         render_home_snapshot(index_path.read_text(encoding="utf-8"), build_date),
@@ -252,6 +265,7 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     sitemap_urls: list[str | tuple[str, str | None]] = [
         (public_site_url, data_lastmod),
         f"{public_site_url}/undergraduate.html",
+        f"{public_site_url}/business-schools.html",
         (f"{public_site_url}/calendar.html", data_lastmod),
         f"{public_site_url}/contact.html",
         f"{public_site_url}/roadmap.html",
