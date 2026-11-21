@@ -2,10 +2,10 @@
   "universities": {
     "johannes-gutenberg-university-mainz": {
       "sourceUrl": "https://www.studium.uni-mainz.de/en/wp-json/jgu-study-finder/v1/courses-of-study?lang=en",
-      "checkedAt": "2026-11-03T12:36:39.016069+00:00",
-      "itemCount": 139,
+      "checkedAt": "2026-11-21T06:40:33.541026+00:00",
+      "itemCount": 140,
       "applicationOpensAt": "2026-11-09",
-      "catalogHash": "b5dd1b6efb517f63d89aa06df11575c2163c9faf57a927ea8de50c38ec8093e2",
+      "catalogHash": "0d2a66cbd8fb2b19dd8b7ba6640a86c0b2970861d9d48f9579acfb7da83e5db7",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
@@ -23,12 +23,12 @@
         }
       },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 137,
-      "programmesNeedingReview": 137,
-      "limitationReason": "JGU's official API enumerates master's programmes. Its exact summer 2027 periods differ by restricted and unrestricted routes; other cycles and programme exceptions remain route-specific. Observed dates are incomplete or not safe for automatic publication. 137 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-11-03T12:36:39.016069+00:00",
-      "windowFingerprint": "e7d955a577e0fcb0f562eda828d589ddd13005ba85b048e36591746c4d0a3bf1",
-      "watchedWindowSourceHash": "d1892e85253188e0290c5fa41a933b10ba23d3468fab96b52b76f6cc297c1211",
+      "programmesWithoutDeadlines": 138,
+      "programmesNeedingReview": 138,
+      "limitationReason": "JGU's official API enumerates master's programmes. Its exact summer 2027 periods differ by restricted and unrestricted routes; other cycles and programme exceptions remain route-specific. Observed dates are incomplete or not safe for automatic publication. 138 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-11-21T06:40:33.541026+00:00",
+      "windowFingerprint": "6c624900d6a01eb00e58baae5ae631b55bc1f77910ea68f9183d731d67fd134a",
+      "watchedWindowSourceHash": "6aa005a01c4235211fa0af85a467bc3fde801a472cdbff86588b858829f98d9b",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
         "mainz-w60638-master-of-science": {
@@ -284,8 +284,8 @@
         "mainz-w31567-master-of-science": {
           "name": "Epidemiologie",
           "degreeType": "Master of Science",
-          "faculty": "Medizin, Gesundheitswissenschaften",
-          "department": "Medizin, Gesundheitswissenschaften",
+          "faculty": "Medizin, Gesundheitswissenschaften;Gesellschafts- und Sozialwissenschaften;Mathematik, Naturwissenschaften",
+          "department": "Medizin, Gesundheitswissenschaften;Gesellschafts- und Sozialwissenschaften;Mathematik, Naturwissenschaften",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
@@ -294,8 +294,8 @@
         "mainz-w7831-master-of-science": {
           "name": "Epidemiologie (berufsbegleitend)",
           "degreeType": "Master of Science",
-          "faculty": "Medizin, Gesundheitswissenschaften",
-          "department": "Medizin, Gesundheitswissenschaften",
+          "faculty": "Medizin, Gesundheitswissenschaften;Gesellschafts- und Sozialwissenschaften;Mathematik, Naturwissenschaften",
+          "department": "Medizin, Gesundheitswissenschaften;Gesellschafts- und Sozialwissenschaften;Mathematik, Naturwissenschaften",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
@@ -331,6 +331,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "mainz-w68194-master-of-theological-studies": {
+          "name": "Evangelisch-Theologische Studien",
+          "degreeType": "Master of Theological Studies",
+          "faculty": "Gesellschafts- und Sozialwissenschaften",
+          "department": "Gesellschafts- und Sozialwissenschaften",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "mainz-w23820-master-of-education": {
           "name": "Evangelische Religionslehre",
           "degreeType": "Master of Education",
@@ -346,6 +356,16 @@
           "degreeType": "Master of Science",
           "faculty": "Mathematik, Naturwissenschaften",
           "department": "Mathematik, Naturwissenschaften",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "mainz-w78719-master": {
+          "name": "Executive Master in Global Sport Governance",
+          "degreeType": "Master",
+          "faculty": "Wirtschaftswissenschaften, Rechtswissenschaften;Gesellschafts- und Sozialwissenschaften",
+          "department": "Wirtschaftswissenschaften, Rechtswissenschaften;Gesellschafts- und Sozialwissenschaften",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
@@ -1391,16 +1411,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "mainz-w49023-master-of-science": {
-          "name": "Wirtschaftswissenschaftliche Informatik",
-          "degreeType": "Master of Science",
-          "faculty": "Mathematik, Naturwissenschaften",
-          "department": "Mathematik, Naturwissenschaften",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "mainz-summer-2027-restricted-master-admissions": {
           "name": "Summer 2027 restricted master's admissions",
           "degreeType": "Master",
@@ -1423,6 +1433,24 @@
         }
       },
       "windows": {
+        "mainz-summer-2027-restricted-master-admissions::Summer 2027::Restricted admission (including aptitude test or interview)::all": {
+          "programmeId": "mainz-summer-2027-restricted-master-admissions",
+          "intake": "Summer 2027",
+          "opensAt": "2026-11-09",
+          "closesAt": "2026-12-04",
+          "sourceUrl": "https://www.studium.uni-mainz.de/en/your-application/master/",
+          "opensAtBasis": "official"
+        },
+        "mainz-summer-2027-unrestricted-master-admissions::Summer 2027::Without admission restrictions::all": {
+          "programmeId": "mainz-summer-2027-unrestricted-master-admissions",
+          "intake": "Summer 2027",
+          "opensAt": "2026-11-09",
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://www.studium.uni-mainz.de/en/your-application/master/",
+          "opensAtBasis": "official"
+        }
+      },
+      "windowBaseline": {
         "mainz-summer-2027-restricted-master-admissions::Summer 2027::Restricted admission (including aptitude test or interview)::all": {
           "programmeId": "mainz-summer-2027-restricted-master-admissions",
           "intake": "Summer 2027",

@@ -2,14 +2,14 @@
   "universities": {
     "the-university-of-manchester": {
       "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/basic/",
-      "checkedAt": "2026-11-05T12:50:56.364866+00:00",
+      "checkedAt": "2026-11-21T06:39:47.383278+00:00",
       "itemCount": 269,
       "applicationOpensAt": null,
-      "catalogHash": "3f02de306f1123eb3676f15b3de8a250dede28df79594cedb1d80b1322a97046",
+      "catalogHash": "ac222f1f02d2b7c9705c324d6e9b260b4f8ca645d75c6d3cdf5cdcb4086148b9",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 266,
+      "observedWindowCount": 275,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -25,17 +25,17 @@
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 265,
+          "observedWindowCount": 274,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 266,
-      "programmesWithoutDeadlines": 204,
+      "missingOpeningDateCount": 275,
+      "programmesWithoutDeadlines": 202,
       "programmesNeedingReview": 269,
-      "limitationReason": "266 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-11-05T12:50:56.364866+00:00",
-      "windowFingerprint": "fa87e939235773a6f6af0a42dc597ae960188fd365ded00a68d35d93063b7356",
+      "limitationReason": "275 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-11-21T06:39:47.383278+00:00",
+      "windowFingerprint": "e1d8c93beeaba34e20ea99bf0f3a8acfdb860f220a9743ea5dd66739718f9ca7",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -739,8 +739,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-msc-pgdip-deaf-education": {
-          "name": "MSc/PGDip Deaf Education",
+        "manchester-msc-pgdip-deaf-education-overview": {
+          "name": "MSc/PGDip Deaf Education / Overview",
           "degreeType": "MSc",
           "faculty": "Faculty of Biology, Medicine and Health",
           "department": "",
@@ -1329,15 +1329,15 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-msc-human-resource-development-international-development-overview": {
-          "name": "MSc Human Resource Development (International Development) / Overview",
+        "manchester-msc-human-resource-development-international-development": {
+          "name": "MSc Human Resource Development (International Development)",
           "degreeType": "MSc",
           "faculty": "School of Environment, Education and Development",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "e1a6e665fe1585c65a1c18daa0cc5fcc45613798b273a46aca3218e38f3ea7ae",
+          "windowCount": 5,
+          "latestClosesAt": "2027-08-23"
         },
         "manchester-msc-human-resource-management-and-employment-relations": {
           "name": "MSc Human Resource Management and Employment Relations",
@@ -2709,15 +2709,15 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "manchester-msc-urban-studies-overview": {
-          "name": "MSc Urban Studies / Overview",
+        "manchester-msc-urban-studies": {
+          "name": "MSc Urban Studies",
           "degreeType": "MSc",
           "faculty": "School of Environment, Education and Development",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "incomplete",
+          "deadlineHash": "961beb474ef0bc6c5985be298b565a2d77eacc1ab74fe1b8005d7ba65c32ddff",
+          "windowCount": 4,
+          "latestClosesAt": "2026-07-05"
         },
         "manchester-ma-visual-anthropology": {
           "name": "MA Visual Anthropology",
@@ -3571,6 +3571,46 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20472/msc-global-development-development-management/",
           "opensAtBasis": null
         },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 1::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-06",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 2::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 3::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-04",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 4::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-07-04",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 5::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-23",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
         "manchester-msc-human-resource-management-international-development::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-human-resource-management-international-development",
           "intake": "September 2027",
@@ -4857,6 +4897,38 @@
           "opensAt": null,
           "closesAt": "2027-08-23",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/09915/msc-urban-design-and-international-planning/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-urban-studies::September 2027::Stage 1::all": {
+          "programmeId": "manchester-msc-urban-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2025-12-07",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20299/msc-urban-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-urban-studies::September 2027::Stage 2::all": {
+          "programmeId": "manchester-msc-urban-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-03-01",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20299/msc-urban-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-urban-studies::September 2027::Stage 3::all": {
+          "programmeId": "manchester-msc-urban-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-05-03",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20299/msc-urban-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-urban-studies::September 2027::Stage 4::all": {
+          "programmeId": "manchester-msc-urban-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-07-05",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20299/msc-urban-studies/",
           "opensAtBasis": null
         }
       },
@@ -5701,6 +5773,46 @@
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20472/msc-global-development-development-management/",
           "opensAtBasis": null
         },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 1::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-12-06",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 2::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-03-01",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 3::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-05-04",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 4::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-07-04",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-human-resource-development-international-development::September 2027::Stage 5::all": {
+          "programmeId": "manchester-msc-human-resource-development-international-development",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-23",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/07862/msc-human-resource-development-international-development/",
+          "opensAtBasis": null
+        },
         "manchester-msc-human-resource-management-international-development::September 2027::Stage 1::all": {
           "programmeId": "manchester-msc-human-resource-management-international-development",
           "intake": "September 2027",
@@ -6987,6 +7099,38 @@
           "opensAt": null,
           "closesAt": "2027-08-23",
           "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/09915/msc-urban-design-and-international-planning/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-urban-studies::September 2027::Stage 1::all": {
+          "programmeId": "manchester-msc-urban-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2025-12-07",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20299/msc-urban-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-urban-studies::September 2027::Stage 2::all": {
+          "programmeId": "manchester-msc-urban-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-03-01",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20299/msc-urban-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-urban-studies::September 2027::Stage 3::all": {
+          "programmeId": "manchester-msc-urban-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-05-03",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20299/msc-urban-studies/",
+          "opensAtBasis": null
+        },
+        "manchester-msc-urban-studies::September 2027::Stage 4::all": {
+          "programmeId": "manchester-msc-urban-studies",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2026-07-05",
+          "sourceUrl": "https://www.manchester.ac.uk/study/masters/courses/list/20299/msc-urban-studies/",
           "opensAtBasis": null
         }
       },

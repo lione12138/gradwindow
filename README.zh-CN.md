@@ -16,9 +16,9 @@
 - 搜索、状态筛选、收藏、提醒和日历导出组成完整申请流程。
 - QS 是默认视图，THE 与软科前 200 视图已经上线；U.S. News 暂不标为已上线。
 
-**当前覆盖：**302 所标准化大学 · 30,231 个项目 · 6,315 条官网精确窗口
+**当前覆盖：**302 所标准化大学 · 30,453 个项目 · 6,589 条官网精确窗口
 
-状态日期：**2026-11-05**
+状态日期：**2026-11-21**
 
 > **预测参考**表示日期由最近一个官网核验周期平移一年得到，不是学校官方预测。申请前请始终核对表格中的官网来源。
 
@@ -27,9 +27,9 @@
 | QS | 大学 | 覆盖范围 | 最近截止 | 数据类型 | 链接 |
 |---:|---|---|---|---|---|
 | 1 | Massachusetts Institute of Technology (MIT) / 麻省理工学院 | 23 个当前开放窗口 | 2026-12-01 | 官网核验 | [招生官网](https://oge.mit.edu/graduate-admissions/) · [查看全部项目](https://gradwindow.com/?q=Massachusetts%20Institute%20of%20Technology%20%28MIT%29) |
-| =2 | Imperial College London / 帝国理工学院 | 181 个当前开放窗口 | 2027-01-06 | 官网核验 + 预测参考 | [招生官网](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [查看全部项目](https://gradwindow.com/?q=Imperial%20College%20London) |
+| =2 | Imperial College London / 帝国理工学院 | 184 个当前开放窗口 | 2027-01-06 | 官网核验 + 预测参考 | [招生官网](https://www.imperial.ac.uk/study/apply/postgraduate-taught/) · [查看全部项目](https://gradwindow.com/?q=Imperial%20College%20London) |
 | =2 | Stanford University / 斯坦福大学 | 1 个当前开放窗口 | 2026-12-08 | 官网核验 | [招生官网](https://gradadmissions.stanford.edu/apply) · [查看全部项目](https://gradwindow.com/?q=Stanford%20University) |
-| 6 | University of Cambridge / 剑桥大学 | 159 个当前开放窗口 | 2026-11-18 | 官网核验 + 预测参考 | [招生官网](https://www.postgraduate.study.cam.ac.uk/application-process) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Cambridge) |
+| 6 | University of Cambridge / 剑桥大学 | 158 个当前开放窗口 | 2026-12-03 | 官网核验 + 预测参考 | [招生官网](https://www.postgraduate.study.cam.ac.uk/application-process) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Cambridge) |
 | =8 | ETH Zurich / 苏黎世联邦理工学院 | 学校级窗口 | 2026-11-30 | 预测参考 | [招生官网](https://ethz.ch/en/studies/master/application.html) · [查看全部项目](https://gradwindow.com/?q=ETH%20Zurich) |
 
 [在 GradWindow 查看全部正在开放的窗口 →](https://gradwindow.com/?status=open)
@@ -38,11 +38,11 @@
 
 | QS | 大学 | 覆盖范围 | 最近开放 | 数据类型 | 链接 |
 |---:|---|---|---|---|---|
-| =22 | EPFL – École polytechnique fédérale de Lausanne / 洛桑联邦理工学院 | 1 个即将开放窗口 | 2026-11-15 | 预测参考 | [招生官网](https://www.epfl.ch/education/admission/admission-2/master-admission-criteria-application/) · [查看全部项目](https://gradwindow.com/?q=EPFL%20%E2%80%93%20%C3%89cole%20polytechnique%20f%C3%A9d%C3%A9rale%20de%20Lausanne) |
-| 30 | McGill University / 麦吉尔大学 | 2 个即将开放窗口 | 2026-11-15 | 预测参考 | [招生官网](https://www.mcgill.ca/gradapplicants/how-apply) · [查看全部项目](https://gradwindow.com/?q=McGill%20University) |
-| 39 | The University of Tokyo / 东京大学 | 2 个即将开放窗口 | 2026-11-11 | 官网核验 | [招生官网](https://www.i.u-tokyo.ac.jp/edu/entra/entra_e.shtml) · [查看全部项目](https://gradwindow.com/?q=The%20University%20of%20Tokyo) |
-| 45 | University of British Columbia / 不列颠哥伦比亚大学 | 5 个即将开放窗口 | 2026-11-15 | 官网核验 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
+| 14 | Tsinghua University / 清华大学 | 18 个即将开放窗口 | 2026-12-12 | 预测参考 | [招生官网](https://yz.tsinghua.edu.cn/en/) · [查看全部项目](https://gradwindow.com/?q=Tsinghua%20University) |
+| =22 | EPFL – École polytechnique fédérale de Lausanne / 洛桑联邦理工学院 | 1 个即将开放窗口 | 2026-12-16 | 预测参考 | [招生官网](https://www.epfl.ch/education/admission/admission-2/master-admission-criteria-application/) · [查看全部项目](https://gradwindow.com/?q=EPFL%20%E2%80%93%20%C3%89cole%20polytechnique%20f%C3%A9d%C3%A9rale%20de%20Lausanne) |
+| 45 | University of British Columbia / 不列颠哥伦比亚大学 | 6 个即将开放窗口 | 2026-12-01 | 官网核验 + 预测参考 | [招生官网](https://www.grad.ubc.ca/prospective-students/application-admission) · [查看全部项目](https://gradwindow.com/?q=University%20of%20British%20Columbia) |
 | 54 | National Taiwan University (NTU) / 台湾大学 | 1 个即将开放窗口 | 2026-12-01 | 预测参考 | [招生官网](https://admissions.ntu.edu.tw/apply/degree-students/international-students/) · [查看全部项目](https://gradwindow.com/?q=National%20Taiwan%20University%20%28NTU%29) |
+| 80 | University of Glasgow / 格拉斯哥大学 | 196 个即将开放窗口 | 2026-12-18 | 预测参考 | [招生官网](https://www.gla.ac.uk/postgraduate/howtoapplyforataughtdegree/) · [查看全部项目](https://gradwindow.com/?q=University%20of%20Glasgow) |
 
 [在 GradWindow 查看全部即将开放的窗口 →](https://gradwindow.com/?status=upcoming)
 

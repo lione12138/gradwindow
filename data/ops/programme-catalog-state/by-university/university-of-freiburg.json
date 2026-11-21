@@ -2,7 +2,7 @@
   "universities": {
     "university-of-freiburg": {
       "sourceUrl": "https://uni-freiburg.de/wp-json/study-search/v1/studies",
-      "checkedAt": "2026-11-05T12:38:43.791139+00:00",
+      "checkedAt": "2026-11-21T06:29:21.514811+00:00",
       "itemCount": 130,
       "applicationOpensAt": null,
       "catalogHash": "f30c919edcdead084d9f821032be18745273a7b6c2465d1469d32f0e5ef40fea",
@@ -17,7 +17,7 @@
       "programmesWithoutDeadlines": 130,
       "programmesNeedingReview": 130,
       "limitationReason": "Freiburg's first-party study-search API identifies active master's programmes and their programme detail pages. The university directs applicants to programme-specific periods, so no common window is inferred. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-11-05T12:38:43.791139+00:00",
+      "lastSuccessfulAt": "2026-11-21T06:29:21.514811+00:00",
       "windowFingerprint": "41efa7b6966a341bcb395e861d3daffefa9c99028affe6ff3299d1595078c86e",
       "watchedWindowSourceHash": "d0830dff41e5ca7fdb3e97a3e495612747d8ca5347f60af6836969e85abce7f4",
       "watchedWindowSourceFingerprintVersion": 3,
@@ -92,9 +92,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "freiburg-biology-master-of-science-m-sc": {
+        "freiburg-biology-master-of-education-m-ed": {
           "name": "Biology",
-          "degreeType": "Master of Science (M.Sc.)",
+          "degreeType": "Master of Education (M.Ed.)",
           "faculty": "University of Freiburg",
           "department": "University of Freiburg",
           "parseStatus": "no-deadline",
@@ -102,9 +102,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "freiburg-biology-master-of-education-m-ed": {
+        "freiburg-biology-master-of-science-m-sc": {
           "name": "Biology",
-          "degreeType": "Master of Education (M.Ed.)",
+          "degreeType": "Master of Science (M.Sc.)",
           "faculty": "University of Freiburg",
           "department": "University of Freiburg",
           "parseStatus": "no-deadline",
@@ -182,9 +182,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "freiburg-chemistry-master-of-science-m-sc": {
+        "freiburg-chemistry-master-of-education-m-ed": {
           "name": "Chemistry",
-          "degreeType": "Master of Science (M.Sc.)",
+          "degreeType": "Master of Education (M.Ed.)",
           "faculty": "University of Freiburg",
           "department": "University of Freiburg",
           "parseStatus": "no-deadline",
@@ -192,9 +192,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "freiburg-chemistry-master-of-education-m-ed": {
+        "freiburg-chemistry-master-of-science-m-sc": {
           "name": "Chemistry",
-          "degreeType": "Master of Education (M.Ed.)",
+          "degreeType": "Master of Science (M.Sc.)",
           "faculty": "University of Freiburg",
           "department": "University of Freiburg",
           "parseStatus": "no-deadline",
@@ -242,16 +242,6 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "freiburg-computer-science-master-of-science-m-sc": {
-          "name": "Computer Science",
-          "degreeType": "Master of Science (M.Sc.)",
-          "faculty": "University of Freiburg",
-          "department": "University of Freiburg",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "freiburg-computer-science-master-of-education-m-ed": {
           "name": "Computer Science",
           "degreeType": "Master of Education (M.Ed.)",
@@ -265,6 +255,16 @@
         "freiburg-computer-science-master-s-degree-programme-for-teaching-at-secondary-school-dual": {
           "name": "Computer Science",
           "degreeType": "Master's degree programme for teaching at secondary school - dual",
+          "faculty": "University of Freiburg",
+          "department": "University of Freiburg",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "freiburg-computer-science-master-of-science-m-sc": {
+          "name": "Computer Science",
+          "degreeType": "Master of Science (M.Sc.)",
           "faculty": "University of Freiburg",
           "department": "University of Freiburg",
           "parseStatus": "no-deadline",
@@ -802,6 +802,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "freiburg-mathematics-master-of-science-m-sc": {
+          "name": "Mathematics",
+          "degreeType": "Master of Science (M.Sc.)",
+          "faculty": "University of Freiburg",
+          "department": "University of Freiburg",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "freiburg-mathematics-master-of-education-m-ed": {
           "name": "Mathematics",
           "degreeType": "Master of Education (M.Ed.)",
@@ -815,16 +825,6 @@
         "freiburg-mathematics-master-s-degree-programme-for-teaching-at-secondary-school-dual": {
           "name": "Mathematics",
           "degreeType": "Master's degree programme for teaching at secondary school - dual",
-          "faculty": "University of Freiburg",
-          "department": "University of Freiburg",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "freiburg-mathematics-master-of-science-m-sc": {
-          "name": "Mathematics",
-          "degreeType": "Master of Science (M.Sc.)",
           "faculty": "University of Freiburg",
           "department": "University of Freiburg",
           "parseStatus": "no-deadline",
@@ -1032,9 +1032,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "freiburg-physics-master-of-education-m-ed": {
+        "freiburg-physics-master-of-science-m-sc": {
           "name": "Physics",
-          "degreeType": "Master of Education (M.Ed.)",
+          "degreeType": "Master of Science (M.Sc.)",
           "faculty": "University of Freiburg",
           "department": "University of Freiburg",
           "parseStatus": "no-deadline",
@@ -1042,9 +1042,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "freiburg-physics-master-of-science-m-sc": {
+        "freiburg-physics-master-of-education-m-ed": {
           "name": "Physics",
-          "degreeType": "Master of Science (M.Sc.)",
+          "degreeType": "Master of Education (M.Ed.)",
           "faculty": "University of Freiburg",
           "department": "University of Freiburg",
           "parseStatus": "no-deadline",
