@@ -6,20 +6,28 @@ import { calendarTitlePrefix, calendarWarning } from "./window-provenance.js";
 // Pure with respect to page state: everything derives from the record. The
 // URL builders and icsFileBody are exported for the frontend contract tests.
 
-export function googleCalendarUrl(record) {
+function calendarText(record, { title, notes = [] } = {}) {
+  const eventTitle =
+    title ?? `${record.school} ${record.program} application deadline`;
+  return {
+    title: `${calendarTitlePrefix(record)}${eventTitle}`,
+    details: [
+      calendarWarning(record),
+      ...notes,
+      `Application: ${record.applicationUrl}`,
+      `Source: ${record.sourceUrl}`,
+    ]
+      .filter(Boolean)
+      .join("\n"),
+  };
+}
+
+export function googleCalendarUrl(record, content) {
   const start = record.closesAt.replaceAll("-", "");
   const endDate = parseDate(record.closesAt);
   endDate.setUTCDate(endDate.getUTCDate() + 1);
   const end = endDate.toISOString().slice(0, 10).replaceAll("-", "");
-  const prefix = calendarTitlePrefix(record);
-  const title = `${prefix}${record.school} ${record.program} application deadline`;
-  const details = [
-    calendarWarning(record),
-    `Application: ${record.applicationUrl}`,
-    `Source: ${record.sourceUrl}`,
-  ]
-    .filter(Boolean)
-    .join("\n");
+  const { title, details } = calendarText(record, content);
   const params = new URLSearchParams({
     action: "TEMPLATE",
     text: title,
@@ -29,37 +37,30 @@ export function googleCalendarUrl(record) {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-export function outlookCalendarUrl(record) {
+export function outlookCalendarUrl(record, content) {
   const start = `${record.closesAt}T00:00:00Z`;
   const endDate = parseDate(record.closesAt);
   endDate.setUTCDate(endDate.getUTCDate() + 1);
   const end = `${endDate.toISOString().slice(0, 10)}T00:00:00Z`;
-  const prefix = calendarTitlePrefix(record);
-  const title = `${prefix}${record.school} ${record.program} application deadline`;
-  const body = [
-    calendarWarning(record),
-    `Application: ${record.applicationUrl}`,
-    `Source: ${record.sourceUrl}`,
-  ]
-    .filter(Boolean)
-    .join("\n");
+  const { title, details } = calendarText(record, content);
   const params = new URLSearchParams({
     path: "/calendar/action/compose",
     rru: "addevent",
     startdt: start,
     enddt: end,
     subject: title,
-    body,
+    body: details,
     allday: "true",
   });
   return `https://outlook.live.com/calendar/0/deeplink/compose?${params.toString()}`;
 }
 
-export function icsFileBody(record, now = new Date()) {
+export function icsFileBody(record, now = new Date(), content) {
   const start = record.closesAt.replaceAll("-", "");
   const endDate = parseDate(record.closesAt);
   endDate.setUTCDate(endDate.getUTCDate() + 1);
   const end = endDate.toISOString().slice(0, 10).replaceAll("-", "");
+  const { title, details } = calendarText(record, content);
   const escapeIcs = (value) =>
     value
       .replaceAll("\\", "\\\\")
@@ -75,16 +76,16 @@ export function icsFileBody(record, now = new Date()) {
     `DTSTAMP:${now.toISOString().replaceAll(/[-:]/g, "").split(".")[0]}Z`,
     `DTSTART;VALUE=DATE:${start}`,
     `DTEND;VALUE=DATE:${end}`,
-    `SUMMARY:${escapeIcs(`${calendarTitlePrefix(record)}${record.school} ${record.program} application deadline`)}`,
-    `DESCRIPTION:${escapeIcs(`${calendarWarning(record) ? `${calendarWarning(record)}\n` : ""}Application: ${record.applicationUrl}\nSource: ${record.sourceUrl}`)}`,
+    `SUMMARY:${escapeIcs(title)}`,
+    `DESCRIPTION:${escapeIcs(details)}`,
     `URL:${record.applicationUrl}`,
     "END:VEVENT",
     "END:VCALENDAR",
   ].join("\r\n");
 }
 
-function downloadIcs(record) {
-  const body = icsFileBody(record);
+function downloadIcs(record, content) {
+  const body = icsFileBody(record, new Date(), content);
   const blob = new Blob([body], { type: "text/calendar;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
@@ -96,17 +97,18 @@ function downloadIcs(record) {
   URL.revokeObjectURL(url);
 }
 
-export function makeCalendarMenu(record) {
+export function makeCalendarMenu(record, { translate = t, ...content } = {}) {
   const menu = makeElement("details", { className: "calendar-menu" });
   const summary = makeElement("summary", {
     className: "calendar-menu-trigger",
-    title: t("calendarOptions"),
+    title: translate("calendarOptions"),
   });
+  summary.setAttribute("aria-label", translate("addCalendar"));
   summary.append(
     makeElement("span", { className: "calendar-menu-icon" }),
     makeElement("span", {
       className: "calendar-menu-label",
-      text: t("addCalendar"),
+      text: translate("addCalendar"),
     }),
   );
   const options = makeElement("div", { className: "calendar-menu-options" });
@@ -114,41 +116,30 @@ export function makeCalendarMenu(record) {
     const button = makeElement("button", {
       className: "calendar-menu-item",
       text: label,
-      title: t("downloadIcs"),
+      title: translate("downloadIcs"),
     });
     button.type = "button";
     button.addEventListener("click", () => {
-      downloadIcs(record);
+      downloadIcs(record, content);
       menu.open = false;
+      summary.focus();
     });
     return button;
   };
-  const apple = makeDownloadOption(t("appleCalendar"));
-  const android = makeDownloadOption(t("androidCalendar"));
-  const ics = makeElement("button", {
-    className: "calendar-menu-item",
-    text: t("downloadIcs"),
-    title: t("downloadIcs"),
-  });
-  ics.type = "button";
-  ics.addEventListener("click", () => {
-    downloadIcs(record);
-    menu.open = false;
-  });
   options.append(
     makeLink(
-      t("googleCalendar"),
-      googleCalendarUrl(record),
+      translate("googleCalendar"),
+      googleCalendarUrl(record, content),
       "calendar-menu-item",
     ),
     makeLink(
-      t("outlookCalendar"),
-      outlookCalendarUrl(record),
+      translate("outlookCalendar"),
+      outlookCalendarUrl(record, content),
       "calendar-menu-item",
     ),
-    apple,
-    android,
-    ics,
+    makeDownloadOption(translate("appleCalendar")),
+    makeDownloadOption(translate("androidCalendar")),
+    makeDownloadOption(translate("downloadIcs")),
   );
   menu.append(summary, options);
   return menu;
