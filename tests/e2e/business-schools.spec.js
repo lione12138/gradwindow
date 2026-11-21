@@ -7,8 +7,12 @@ test("visitors can find Paris-area undergraduate business programmes", async ({
   await page.goto("/undergraduate.html");
   await page.getByRole("link", { name: "Business schools" }).click();
   await expect(page).toHaveURL(/\/business-schools\.html$/);
-  await page.getByLabel("Region", { exact: true }).selectOption("paris");
-  await page.getByLabel("Degree level").selectOption("undergraduate");
+  await page
+    .getByRole("combobox", { name: "Region", exact: true })
+    .selectOption("paris");
+  await page
+    .getByRole("combobox", { name: "Degree level", exact: true })
+    .selectOption("undergraduate");
 
   const schools = page.locator(".business-school:visible");
   await expect(schools).toHaveCount(4);
