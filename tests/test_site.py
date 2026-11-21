@@ -603,6 +603,13 @@ def test_build_site_uses_configured_public_url(tmp_path, monkeypatch) -> None:
         f'rel="canonical" href="{public_url}/undergraduate.html"' in undergraduate_html
     )
     assert f"<loc>{public_url}/undergraduate.html</loc>" in sitemap
+    business_html = (tmp_path / "business-schools.html").read_text(encoding="utf-8")
+    assert f'rel="canonical" href="{public_url}/business-schools.html"' in business_html
+    assert f"<loc>{public_url}/business-schools.html</loc>" in sitemap
+    assert 'href="./business-schools.html"' in index_html
+    assert 'href="./business-schools.html"' in undergraduate_html
+    assert 'href="https://www.hec.edu/en/bachelor-programs/admissions"' in business_html
+    assert "Bachelor in Data, Society and Organisations (with Bocconi)" in business_html
     assert f"Sitemap: {public_url}/sitemap.xml" in robots
     assert f'href="{public_url}/university/university-of-cambridge/"' in university_page
     for page_name in (
