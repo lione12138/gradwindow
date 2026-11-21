@@ -1,6 +1,7 @@
+import { makeCalendarMenu } from "./calendar-export.js";
 import { makeElement, makeLink, parseDate } from "./dom.js";
 import { translate } from "./i18n.js";
-import { countryLabel, regionLabel } from "./localization.js";
+import { countryLabel, regionLabel, schoolLabels } from "./localization.js";
 import { countUniversitiesByStatus, getApplicationStatus } from "./status.js";
 import {
   createTrackerTable,
@@ -114,19 +115,17 @@ function admissionsStatus(record) {
   );
 }
 
-function programmeContent(record) {
+function programmeContent(record, { scope, intake, round }) {
   const content = document.createDocumentFragment();
-  const title = language === "zh" ? record.scopeZh : record.scope;
-  const intake = language === "zh" ? record.intakeZh : record.intake;
   content.append(
     makeElement("span", {
       className: "application-action-summary",
       text: admissionsStatus(record),
     }),
-    makeLink(title, record.sourceUrl, "program-link date-primary"),
+    makeLink(scope, record.sourceUrl, "program-link date-primary"),
     makeElement("span", {
       className: "date-secondary",
-      text: `${intake} · ${t(`undergraduateRound-${record.round}`)}`,
+      text: `${intake} · ${round}`,
     }),
   );
   return content;
@@ -192,15 +191,40 @@ function applicationRow(
 }
 
 function renderWindow(record, formatter) {
-  const row = applicationRow(record, {
-    programme: programmeContent(record),
-    opening: dateStack(record.opensAt, t("undergraduateOpens"), formatter),
-    deadline: dateStack(record.closesAt, "", formatter),
-    action: makeLink(
+  const scope = language === "zh" ? record.scopeZh : record.scope;
+  const intake = language === "zh" ? record.intakeZh : record.intake;
+  const round = t(`undergraduateRound-${record.round}`);
+  const equalConsideration = record.round === "equal-consideration";
+  const deadlineLabel = t(
+    equalConsideration
+      ? "undergraduateEqualConsiderationCloses"
+      : "undergraduateCloses",
+  );
+  const school = schoolLabels(record, language).primary;
+  const action = makeElement("div", {
+    className: "undergraduate-window-actions",
+  });
+  action.append(
+    makeLink(
       t("undergraduateApply"),
       record.applicationUrl,
       "undergraduate-apply",
     ),
+    makeCalendarMenu(record, {
+      translate: t,
+      title: `${school} · ${scope} · ${deadlineLabel}`,
+      notes: [`${intake} · ${round}`, t("undergraduateCalendarTimeNote")],
+    }),
+  );
+  const row = applicationRow(record, {
+    programme: programmeContent(record, { scope, intake, round }),
+    opening: dateStack(record.opensAt, t("undergraduateOpens"), formatter),
+    deadline: dateStack(
+      record.closesAt,
+      equalConsideration ? deadlineLabel : "",
+      formatter,
+    ),
+    action,
     source: sourceLinks(record),
   });
   row.classList.add("undergraduate-window-row");

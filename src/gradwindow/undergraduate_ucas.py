@@ -32,6 +32,7 @@ class UcasRoute(DataModel):
     )
     source_url: AnyHttpUrl = Field(alias="sourceUrl")
     eligibility_url: AnyHttpUrl = Field(alias="eligibilityUrl")
+    application_url: AnyHttpUrl | None = Field(default=None, alias="applicationUrl")
     deadline_pattern: str = Field(alias="deadlinePattern", min_length=1)
     eligibility_pattern: str = Field(alias="eligibilityPattern", min_length=1)
 
@@ -64,7 +65,7 @@ def _source_content(
     if page.truncated or not same_official_domain(page.final_url, domains):
         raise ValueError(f"incomplete or off-domain source: {url}")
     soup = BeautifulSoup(page.body, "html.parser")
-    content = soup.find("main") or soup
+    content = soup.select_one("#main") or soup.find("main") or soup
     for element in content.select("script, style, noscript"):
         element.decompose()
     return content
@@ -130,7 +131,7 @@ def _route_record(
             "sourceUrl": route.source_url,
             "openingSourceUrl": sources.submission_event,
             "eligibilitySourceUrl": route.eligibility_url,
-            "applicationUrl": route.source_url,
+            "applicationUrl": route.application_url or route.source_url,
             "verifiedAt": date.today(),
             "evidence": f"Deadline: {matches[0].group()}. Eligibility: {eligibility_match.group()}.",
         }
@@ -175,6 +176,12 @@ def discover_undergraduate_ucas(
             domains = school_domains.get(route.university_id)
             if not domains:
                 raise ValueError("unknown university or missing official domains")
+            if route.application_url and not same_official_domain(
+                str(route.application_url), [*domains, *UCAS_DOMAINS]
+            ):
+                raise ValueError(
+                    "application URL must be on the university or UCAS domain"
+                )
             source = _text(_source_content(str(route.source_url), domains, fetch_once))
             eligibility = (
                 source

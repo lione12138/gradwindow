@@ -12,6 +12,7 @@ data/
   programme-translations.json cached Chinese programme/scope labels
   applicant-categories.json  canonical applicant category registry
   applications.json          verified scoped application windows
+  undergraduate-applications.json reviewed international undergraduate windows
   predictions.json           generated non-official next-cycle estimates
   evidence/                  source hashes and short evidence excerpts
   window-policies.json       reviewed institution granularity policies
@@ -22,6 +23,7 @@ data/
                               checks for published exact-window sources
     review-queue.json        internal findings awaiting review
     window-candidates.json   exact-window proposals awaiting approval
+    undergraduate-ucas-sources.json configured sources for undergraduate UCAS checks
     programme-candidates.json newly discovered programmes awaiting review
     programme-catalog-state.json latest official catalogue snapshots
     */by-university/        per-university shards referenced by the three
@@ -82,6 +84,28 @@ programs + window policies ----------+--> applications.json
                 v
 validation -> static site build -> GitHub Pages
 ```
+
+## Undergraduate application windows
+
+The undergraduate board uses `data/undergraduate-applications.json` and looks
+up university names, regions, and ranks in the shared university directory.
+Each window includes separate evidence for the application deadline, the
+start of submission, and international eligibility.
+
+Run `gradwindow discover-undergraduate-ucas` to check the routes configured
+in `data/ops/undergraduate-ucas-sources.json`. The report marks new or changed
+records as `pending`, matching public records as `unchanged`, and routes
+with missing or conflicting evidence as `needsReview`.
+
+Before adding a pending record to the undergraduate feed, check the
+university's intake, applicant scope, and course exceptions against the
+official sources. For UCAS, use the date when completed applications can
+first be submitted and the university's equal-consideration deadline for
+that route. Set `applicationUrl` in the route configuration when the
+university provides application instructions on a different page from its
+deadline. Add the date of manual verification and a short evidence summary
+to the reviewed record, then run `gradwindow validate` and
+`gradwindow build-site`.
 
 ## Window inheritance
 

@@ -57,6 +57,134 @@
       "eligibilityUrl": "https://warwick.ac.uk/study/undergraduate/courses/ug-international-qualifications/",
       "deadlinePattern": "guarantee consideration for your preferred course, you must apply by the UCAS deadline at 18:00 on {date}",
       "eligibilityPattern": "may be eligible for direct entry into year 1 of an undergraduate degree at Warwick"
+    },
+    {
+      "universityId": "university-of-birmingham",
+      "routeId": "standard-ucas",
+      "scope": "Standard UCAS entry (most undergraduate courses)",
+      "scopeZh": "本科 UCAS 常规申请（多数专业）",
+      "applicantScope": "international-and-domestic",
+      "sourceUrl": "https://www.birmingham.ac.uk/study/undergraduate/apply",
+      "eligibilityUrl": "https://www.birmingham.ac.uk/study/undergraduate/apply/entry-requirements/international-entry-requirements",
+      "deadlinePattern": "September {year} entry The application deadline for most courses is Wednesday {date}",
+      "eligibilityPattern": "We welcome undergraduate applications from all candidates offering A level or equivalent overseas qualifications"
+    },
+    {
+      "universityId": "university-of-leeds",
+      "routeId": "standard-ucas",
+      "scope": "Standard UCAS entry (excluding early-deadline courses)",
+      "scopeZh": "本科 UCAS 常规申请（提前截止的专业除外）",
+      "applicantScope": "international-and-domestic",
+      "sourceUrl": "https://www.leeds.ac.uk/undergraduate-applying/doc/application-timetable",
+      "eligibilityUrl": "https://www.leeds.ac.uk/howtoapply",
+      "applicationUrl": "https://www.leeds.ac.uk/howtoapply",
+      "deadlinePattern": "{date}\\s*[-–—]\\s*UCAS equal consideration application deadline for all other courses",
+      "eligibilityPattern": "International students should also apply through the UCAS system in the same way as UK students"
+    },
+    {
+      "universityId": "the-university-of-sheffield",
+      "routeId": "standard-ucas",
+      "scope": "Standard UCAS entry (excluding Medicine and Dentistry)",
+      "scopeZh": "本科 UCAS 常规申请（医学、牙医学除外）",
+      "applicantScope": "international-and-domestic",
+      "sourceUrl": "https://sheffield.ac.uk/undergraduate/apply",
+      "eligibilityUrl": "https://sheffield.ac.uk/international/applying/undergraduate",
+      "deadlinePattern": "Applications for courses starting in September {year} \\(except Medicine and Dentistry\\) should be submitted to UCAS between: \\d{1,2} [A-Za-z]+ \\d{4} and {date} to be guaranteed equal consideration",
+      "eligibilityPattern": "All applications for undergraduate study in the UK, including the University of Sheffield, must be made through an organisation called Universities and Colleges Admissions Service"
+    },
+    {
+      "universityId": "queen-mary-university-of-london-qmul",
+      "routeId": "standard-ucas",
+      "scope": "Standard UCAS entry (most undergraduate courses)",
+      "scopeZh": "本科 UCAS 常规申请（多数专业）",
+      "applicantScope": "international-and-domestic",
+      "sourceUrl": "https://www.qmul.ac.uk/undergraduate/apply/deadlines/",
+      "eligibilityUrl": "https://www.qmul.ac.uk/international-students/overseas-faqs/index.html",
+      "applicationUrl": "https://www.qmul.ac.uk/undergraduate/apply/how-to-apply/",
+      "deadlinePattern": "application deadline for equal consideration for the majority of Queen Mary courses is {date}",
+      "eligibilityPattern": "For undergraduate entry, international students can apply to the University either through UCAS"
+    },
+    {
+      "universityId": "university-of-st-andrews",
+      "routeId": "ma-bsc-ucas",
+      "scope": "Undergraduate MA and BSc courses (UCAS)",
+      "scopeZh": "本科 MA 与 BSc 课程（UCAS）",
+      "applicantScope": "international-and-domestic",
+      "sourceUrl": "https://www.st-andrews.ac.uk/study/application-information-guidance/",
+      "eligibilityUrl": "https://www.st-andrews.ac.uk/study/application-information-guidance/",
+      "applicationUrl": "https://www.st-andrews.ac.uk/study/undergraduate/apply/ucas/",
+      "deadlinePattern": "undergraduate MA and BSc courses\\s*: 6pm \\(GMT\\) on Wednesday {date}",
+      "eligibilityPattern": "Overseas applicants can apply through UCAS"
+    },
+    {
+      "universityId": "university-of-bath",
+      "routeId": "standard-ucas",
+      "scope": "Standard undergraduate UCAS entry",
+      "scopeZh": "本科 UCAS 常规申请",
+      "applicantScope": "international-and-domestic",
+      "sourceUrl": "https://www.bath.ac.uk/corporate-information/important-dates-for-undergraduate-applicants-starting-in-2027/",
+      "eligibilityUrl": "https://www.bath.ac.uk/guides/applying-for-an-undergraduate-course/",
+      "applicationUrl": "https://www.bath.ac.uk/guides/applying-for-an-undergraduate-course/",
+      "deadlinePattern": "submit your application by 18:00 \\(GMT\\) on {date} to be guaranteed equal consideration",
+      "eligibilityPattern": "The application process for international students is the same as it is for everyone else\\. You still need to apply through UCAS"
+    },
+    {
+      "universityId": "university-of-edinburgh",
+      "routeId": "computer-science-bsc",
+      "scope": "Computer Science BSc (Hons)",
+      "scopeZh": "计算机科学理学学士（荣誉）",
+      "sourceUrl": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science",
+      "applicantScope": "international-and-domestic",
+      "eligibilityUrl": "https://study.ed.ac.uk/programmes/undergraduate/57-computer-science",
+      "deadlinePattern": "{year} entry UCAS deadline: {date}",
+      "eligibilityPattern": "deadline for all UK, EU and international applicants to non-medicine and veterinary medicine programmes"
+    },
+    {
+      "universityId": "university-of-edinburgh",
+      "routeId": "artificial-intelligence-bsc",
+      "scope": "Artificial Intelligence BSc (Hons)",
+      "scopeZh": "人工智能理学学士（荣誉）",
+      "sourceUrl": "https://study.ed.ac.uk/programmes/undergraduate/388-artificial-intelligence",
+      "applicantScope": "international-and-domestic",
+      "eligibilityUrl": "https://study.ed.ac.uk/programmes/undergraduate/388-artificial-intelligence",
+      "deadlinePattern": "{year} entry UCAS deadline: {date}",
+      "eligibilityPattern": "deadline for all UK, EU and international applicants to non-medicine and veterinary medicine programmes"
+    },
+    {
+      "universityId": "newcastle-university",
+      "routeId": "international-ucas",
+      "scope": "International UCAS entry (most courses, excluding Medicine and Dentistry)",
+      "scopeZh": "国际生本科 UCAS 申请（多数专业，医学及牙医学除外）",
+      "applicantScope": "international",
+      "sourceUrl": "https://www.ncl.ac.uk/undergraduate/applications-offers/international/",
+      "eligibilityUrl": "https://www.ncl.ac.uk/undergraduate/applications-offers/international/",
+      "applicationUrl": "https://www.ncl.ac.uk/undergraduate/applications-offers/international/",
+      "deadlinePattern": "{date} \\(18:00 UK time\\): Equal consideration date for most undergraduate courses",
+      "eligibilityPattern": "need to apply on the UCAS website, using the UCAS Hub"
+    },
+    {
+      "universityId": "university-of-york",
+      "routeId": "standard-ucas",
+      "scope": "Standard UCAS entry (excluding Medicine)",
+      "scopeZh": "本科 UCAS 常规申请（医学除外）",
+      "applicantScope": "international-and-domestic",
+      "sourceUrl": "https://www.york.ac.uk/study/undergraduate/applying/",
+      "eligibilityUrl": "https://www.york.ac.uk/study/international/applying/",
+      "applicationUrl": "https://www.york.ac.uk/study/undergraduate/applying/",
+      "deadlinePattern": "{date} for all other courses\\. Universities treat all applications submitted by these deadlines equally",
+      "eligibilityPattern": "you should apply through the Universities and Colleges Admissions Service \\(UCAS\\)"
+    },
+    {
+      "universityId": "lancaster-university",
+      "routeId": "standard-ucas",
+      "scope": "Standard UCAS entry (excluding Medicine and Surgery)",
+      "scopeZh": "本科 UCAS 常规申请（医学与外科学除外）",
+      "applicantScope": "international-and-domestic",
+      "sourceUrl": "https://www.lancaster.ac.uk/study/undergraduate/how-to-apply/index.php",
+      "eligibilityUrl": "https://www.lancaster.ac.uk/study/international-students/united-states/",
+      "applicationUrl": "https://www.lancaster.ac.uk/study/undergraduate/how-to-apply/index.php",
+      "deadlinePattern": "For all other courses at Lancaster University, the UCAS equal consideration deadline is in January\\..{0,450}?For courses starting in {year} \\(and deferred applications\\), the deadline is {date}",
+      "eligibilityPattern": "All undergraduate applications to the UK should be made through the UCAS website using UCAS Hub"
     }
   ]
 }

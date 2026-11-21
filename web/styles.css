@@ -6970,6 +6970,38 @@ footer p {
   grid-template-columns: minmax(220px, 1.5fr) repeat(3, minmax(0, 1fr));
 }
 
+.undergraduate-window-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.undergraduate-table .undergraduate-window-actions .calendar-menu-trigger {
+  width: auto;
+  min-width: 0;
+  min-height: 36px;
+  padding: 4px 9px;
+}
+
+.undergraduate-table .undergraduate-window-actions .calendar-menu-label {
+  display: inline;
+}
+
+.undergraduate-table .undergraduate-window-actions .calendar-menu-icon {
+  display: none;
+}
+
+.undergraduate-table .undergraduate-window-actions .calendar-menu-options {
+  position: static;
+  min-width: 0;
+  margin-top: 6px;
+}
+
+.undergraduate-window-row:has(.calendar-menu[open]) > td {
+  vertical-align: top;
+}
+
 .undergraduate-apply {
   display: inline-flex;
   align-items: center;
@@ -6990,5 +7022,9 @@ footer p {
 @media (max-width: 720px) {
   .undergraduate-board .primary-filter-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .undergraduate-window-actions {
+    flex-flow: row wrap;
   }
 }

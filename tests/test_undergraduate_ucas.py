@@ -82,6 +82,7 @@ def test_ucas_discovery_uses_submission_date_and_checks_school_deadline(pages):
     assert record["closesAt"] == "2027-01-13"
     assert record["openingSourceUrl"] == SUBMISSION
     assert record["sourceUrl"] == SCHOOL
+    assert record["applicationUrl"] == SCHOOL
     assert "verifiedAt" not in record
 
     reviewed = {
@@ -93,6 +94,45 @@ def test_ucas_discovery_uses_submission_date_and_checks_school_deadline(pages):
         settings(), SCHOOLS, [reviewed], fetcher=fake_fetcher(pages)
     )
     assert refreshed["candidates"][0]["reviewStatus"] == "unchanged"
+
+
+@pytest.mark.parametrize(
+    ("url", "official"),
+    [
+        ("https://example.edu/how-to-apply", True),
+        ("https://www.ucas.com/applying", True),
+        ("https://ucas.com.example.net/apply", False),
+    ],
+)
+def test_ucas_discovery_checks_separate_application_url(pages, url, official):
+    config = settings().model_dump(mode="json", by_alias=True)
+    config["routes"][0]["applicationUrl"] = url
+    report = discover_undergraduate_ucas(
+        UcasSources.model_validate(config), SCHOOLS, [], fetcher=fake_fetcher(pages)
+    )
+
+    if official:
+        (candidate,) = report["candidates"]
+        assert candidate["record"]["applicationUrl"] == url
+        assert candidate["record"]["sourceUrl"] == SCHOOL
+        assert report["needsReview"] == []
+    else:
+        assert report["candidates"] == []
+        assert "application URL" in report["needsReview"][0]["reason"]
+
+
+def test_ucas_discovery_reads_page_content_outside_nested_main(pages):
+    pages[SCHOOL] = """<div id="main">
+        <p>The deadline for equal consideration is 13 January 2027.</p>
+        <p>International applicants apply via UCAS.</p>
+        <main>Other information</main>
+        </div>"""
+    report = discover_undergraduate_ucas(
+        settings(), SCHOOLS, [], fetcher=fake_fetcher(pages)
+    )
+
+    assert report["needsReview"] == []
+    assert len(report["candidates"]) == 1
 
 
 @pytest.mark.parametrize(
