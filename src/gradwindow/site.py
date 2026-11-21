@@ -33,6 +33,7 @@ from .paths import (
     WINDOW_POLICIES_PATH,
 )
 from .published_data_audit import audit_published_data
+from .refresh_status import published_refresh_status
 from .reviewed_deadlines import REVIEWED_DEADLINES_PATH, load_reviewed_deadlines
 from .undergraduate import load_undergraduate_windows
 
@@ -109,7 +110,6 @@ PUBLIC_DATA = (
     APPLICATIONS_PATH,
     PREDICTIONS_PATH,
     RECURRING_WINDOWS_PATH,
-    REFRESH_STATUS_PATH,
     MONITOR_STATE_PATH,
     PROGRAMS_PATH,
     PROGRAMME_GROUPS_PATH,
@@ -228,6 +228,9 @@ def build_site(output_dir: Path = SITE_DIR) -> Path:
     frontend_index, frontend_closed, university_details = build_frontend_payloads(
         build_date,
         published_audit=published_audit,
+    )
+    write_compact_json(
+        data_dir / REFRESH_STATUS_PATH.name, frontend_index["meta"]["refreshStatus"]
     )
     write_compact_json(data_dir / "frontend-index.json", frontend_index)
     write_compact_json(data_dir / "frontend-closed.json", frontend_closed)
@@ -462,14 +465,15 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
     policies = read_json(WINDOW_POLICIES_PATH)["policies"]
     coverage = read_json(COVERAGE_PATH)["universities"]
     monitor = read_json(MONITOR_STATE_PATH, {})
-    refresh_status = read_json(REFRESH_STATUS_PATH, {})
+    source_monitor = read_json(APPLICATION_SOURCE_STATE_PATH, {"applications": {}})
+    refresh_status = published_refresh_status(
+        read_json(REFRESH_STATUS_PATH, {}), application_payload, monitor, source_monitor
+    )
     adapter_health = read_json(PROGRAMME_ADAPTER_HEALTH_PATH, {"meta": {}})
     published_audit = audit_published_data(
         applications,
         adapter_health=adapter_health.get("universities", {}),
-        source_state=read_json(APPLICATION_SOURCE_STATE_PATH, {"applications": {}}).get(
-            "applications", {}
-        ),
+        source_state=source_monitor.get("applications", {}),
         today=today,
     )
     trusted_ids = {
@@ -554,13 +558,8 @@ def home_snapshot(today: date | None = None) -> dict[str, str]:
         deadline_url = "#application-groups"
         deadline_note = ""
 
-    data_refreshed_at = (
-        refresh_status.get("dataRefreshedAt")
-        or application_payload["meta"]["updatedAt"]
-    )
-    page_checked_at = refresh_status.get("pageCheckedAt") or monitor.get(
-        "meta", {}
-    ).get("checkedAt")
+    data_refreshed_at = refresh_status["dataRefreshedAt"]
+    page_checked_at = refresh_status["pageCheckedAt"]
     monitoring_run_at = refresh_status.get("lastSuccessfulMonitoringRun")
     refreshed_date = date.fromisoformat(data_refreshed_at[:10])
     refresh_age_days = max((today - refreshed_date).days, 0)

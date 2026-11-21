@@ -42,6 +42,22 @@ def generate_refresh_status(
     return payload
 
 
+def published_refresh_status(
+    completed_status: dict, applications: dict, monitor: dict, source_monitor: dict
+) -> dict:
+    """Combine timestamps from datasets that can be published independently."""
+    return {
+        **completed_status,
+        "dataRefreshedAt": applications.get("meta", {}).get("updatedAt")
+        or completed_status.get("dataRefreshedAt"),
+        "pageCheckedAt": _latest_timestamp(
+            monitor.get("meta", {}).get("checkedAt"),
+            source_monitor.get("meta", {}).get("checkedAt"),
+            completed_status.get("pageCheckedAt"),
+        ),
+    }
+
+
 def _iso_timestamp(value: str | datetime | None) -> str:
     if value is None:
         value = datetime.now(timezone.utc)

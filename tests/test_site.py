@@ -7,11 +7,52 @@ from pathlib import Path
 
 import pytest
 
+import gradwindow.frontend as frontend
 import gradwindow.site as site
+from gradwindow.io import read_json
 from gradwindow.paths import ROOT, SITE_DIR, WEB_DIR
 from gradwindow.site import build_site
 
 ANALYTICS_BEACON = "https://static.cloudflareinsights.com/beacon.min.js"
+
+
+def test_build_site_shows_current_data_and_checks_with_an_older_successful_run(
+    tmp_path, monkeypatch
+) -> None:
+    last_completed = "2026-11-05T13:38:00+00:00"
+    data_refreshed = "2026-11-20T15:27:00+00:00"
+    source_checked = "2026-11-20T14:22:00+00:00"
+    timestamps = {
+        site.APPLICATIONS_PATH: {"meta": {"updatedAt": data_refreshed}},
+        site.MONITOR_STATE_PATH: {"meta": {"checkedAt": "2026-11-20T14:20:00+00:00"}},
+        site.APPLICATION_SOURCE_STATE_PATH: {"meta": {"checkedAt": source_checked}},
+        site.REFRESH_STATUS_PATH: {
+            "dataRefreshedAt": last_completed,
+            "pageCheckedAt": last_completed,
+            "lastSuccessfulMonitoringRun": last_completed,
+        },
+    }
+
+    def fixture_read(path, *args):
+        return {**read_json(path, *args), **timestamps.get(path, {})}
+
+    monkeypatch.setattr(site, "read_json", fixture_read)
+    monkeypatch.setattr(frontend, "read_json", fixture_read)
+    index = build_site(tmp_path).read_text(encoding="utf-8")
+    assert "Data refreshed: November 20, 2026" in index
+    assert "Page checked: November 20, 2026" in index
+    assert "Last successful monitoring run: November 5, 2026" in index
+    expected = {
+        "dataRefreshedAt": data_refreshed,
+        "pageCheckedAt": source_checked,
+        "lastSuccessfulMonitoringRun": last_completed,
+    }
+    standalone = read_json(tmp_path / "data" / "refresh-status.json")
+    bundled = read_json(tmp_path / "data" / "frontend-index.json")["meta"][
+        "refreshStatus"
+    ]
+    for key, value in expected.items():
+        assert standalone[key] == bundled[key] == value
 
 
 class MetaDescriptionParser(HTMLParser):

@@ -57,7 +57,29 @@ APPLICATION_FIELDS = {
     "applicantCategories",
     "evidence",
 }
-WINDOW_SCOPE_TYPES = {"institution", "programme-group", "programme"}
+
+
+def window_scope_issue(
+    record: dict, programmes: dict[str, dict], groups: dict[str, dict]
+) -> str | None:
+    scope_type = record.get("scopeType")
+    scope_id = record.get("scopeId")
+    university_id = record.get("universityId")
+    if scope_type == "institution":
+        if scope_id != university_id:
+            return "institution scopeId must match universityId"
+        return None
+    if scope_type == "programme":
+        scopes, label = programmes, "programme"
+    elif scope_type == "programme-group":
+        scopes, label = groups, "group"
+    else:
+        return "invalid scopeType"
+    if scope_id not in scopes:
+        return f"{scope_type} scope references an unknown {label}"
+    if scopes[scope_id]["universityId"] != university_id:
+        return f"{scope_type} scope belongs to another university"
+    return None
 
 
 def valid_http_url(value: str | None) -> bool:
@@ -228,30 +250,9 @@ def validate_data(
         application_ids.add(label)
         if item["universityId"] not in university_ids:
             errors.append(f"{label}: unknown universityId")
-        scope_type = item["scopeType"]
-        scope_id = item["scopeId"]
-        if scope_type not in WINDOW_SCOPE_TYPES:
-            errors.append(f"{label}: invalid scopeType")
-        if scope_type == "institution" and scope_id != item["universityId"]:
-            errors.append(f"{label}: institution scopeId must match universityId")
-        if scope_type == "programme" and scope_id not in program_ids:
-            errors.append(f"{label}: programme scope references an unknown programme")
-        if scope_type == "programme-group" and scope_id not in group_ids:
-            errors.append(f"{label}: programme-group scope references an unknown group")
-        if (
-            scope_type == "programme"
-            and scope_id in programs_by_id
-            and programs_by_id[scope_id]["universityId"] != item["universityId"]
-        ):
-            errors.append(f"{label}: programme scope belongs to another university")
-        if (
-            scope_type == "programme-group"
-            and scope_id in groups_by_id
-            and groups_by_id[scope_id]["universityId"] != item["universityId"]
-        ):
-            errors.append(
-                f"{label}: programme-group scope belongs to another university"
-            )
+        scope_issue = window_scope_issue(item, programs_by_id, groups_by_id)
+        if scope_issue:
+            errors.append(f"{label}: {scope_issue}")
         unknown_categories = sorted(set(item["applicantCategories"]) - category_ids)
         if unknown_categories:
             errors.append(
@@ -282,28 +283,9 @@ def validate_data(
         recurring_ids.add(label)
         if item["universityId"] not in university_ids:
             errors.append(f"{label}: unknown universityId")
-        scope_type = item["scopeType"]
-        scope_id = item["scopeId"]
-        if scope_type == "institution" and scope_id != item["universityId"]:
-            errors.append(f"{label}: institution scopeId must match universityId")
-        if scope_type == "programme" and scope_id not in program_ids:
-            errors.append(f"{label}: programme scope references an unknown programme")
-        if scope_type == "programme-group" and scope_id not in group_ids:
-            errors.append(f"{label}: programme-group scope references an unknown group")
-        if (
-            scope_type == "programme"
-            and scope_id in programs_by_id
-            and programs_by_id[scope_id]["universityId"] != item["universityId"]
-        ):
-            errors.append(f"{label}: programme scope belongs to another university")
-        if (
-            scope_type == "programme-group"
-            and scope_id in groups_by_id
-            and groups_by_id[scope_id]["universityId"] != item["universityId"]
-        ):
-            errors.append(
-                f"{label}: programme-group scope belongs to another university"
-            )
+        scope_issue = window_scope_issue(item, programs_by_id, groups_by_id)
+        if scope_issue:
+            errors.append(f"{label}: {scope_issue}")
         unknown_categories = sorted(set(item["applicantCategories"]) - category_ids)
         if unknown_categories:
             errors.append(
