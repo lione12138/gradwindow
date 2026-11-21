@@ -74,6 +74,9 @@ test("wide undergraduate board shares the tracker sidebar and ranked table", asy
     page.getByRole("button", { name: "Previous page" }),
   ).toBeDisabled();
   await expect(
+    page.getByRole("combobox", { name: "Country or territory" }),
+  ).toBeVisible();
+  await expect(
     table.getByRole("link", { name: "Harvard University", exact: true }),
   ).toHaveCount(0);
   await page.locator("#undergraduate-search").fill("UCL");
@@ -133,6 +136,44 @@ test("mobile undergraduate pagination keeps all windows for each school together
   await expect(range).toHaveCount(0);
   await page.locator("#undergraduate-search").clear();
   await expect(range).toHaveText(`1-20 / ${schools.size}`);
+});
+
+test("undergraduate country choices follow the region and filter schools", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/undergraduate.html");
+  const region = page.locator("#undergraduate-region");
+  const country = page.locator("#undergraduate-country");
+  const schools = page.locator(".undergraduate-table .school-link");
+  const search = page.locator("#undergraduate-search");
+
+  await expect(country.locator('option[value="Canada"]')).toHaveCount(1);
+  await region.selectOption("Europe");
+  await expect(country.locator('option[value="Canada"]')).toHaveCount(0);
+  await expect(country.locator('option[value="France"]')).toHaveCount(1);
+  await page.getByRole("button", { name: "Next page" }).click();
+  await country.selectOption("United Kingdom");
+  await expect(page.locator(".pagination-summary")).toHaveText(/^1-20 \/ /);
+
+  await country.selectOption("France");
+  await expect(schools.filter({ hasText: "HEC Paris" })).toBeVisible();
+  await expect(schools.filter({ hasText: "University of Oxford" })).toHaveCount(
+    0,
+  );
+  await search.fill("EDHEC");
+  await expect(schools).toHaveText(["EDHEC Business School"]);
+  await search.clear();
+  await region.selectOption("all");
+  await expect(country).toHaveValue("France");
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(country).toHaveAccessibleName("国家或地区");
+  await expect(country.locator("option:checked")).toHaveText("法国");
+  await region.selectOption("Asia");
+  await expect(country).toHaveValue("all");
+  await expect(country.locator('option[value="France"]')).toHaveCount(0);
+  await expect(country.locator('option[value="Japan"]')).toHaveText("日本");
+  await expect(schools.filter({ hasText: "EDHEC" })).toHaveCount(0);
 });
 
 test("UCAS windows show the submission dates and the official application route", async ({

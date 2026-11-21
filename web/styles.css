@@ -7046,7 +7046,15 @@ footer p {
 }
 
 .undergraduate-board .primary-filter-row {
-  grid-template-columns: minmax(220px, 1.5fr) repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.undergraduate-board .primary-filter-row .search-box {
+  grid-column: 1 / -1;
+}
+
+.undergraduate-board .primary-filter-row .primary-select {
+  display: flex;
 }
 
 .undergraduate-board .group-heading h3 {

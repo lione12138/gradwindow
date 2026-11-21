@@ -17,6 +17,7 @@ import { groupWindowRecordsForDisplay } from "./window-grouping.js";
 const search = document.getElementById("undergraduate-search");
 const statusFilter = document.getElementById("undergraduate-status");
 const regionFilter = document.getElementById("undergraduate-region");
+const countryFilter = document.getElementById("undergraduate-country");
 const intakeFilter = document.getElementById("undergraduate-intake");
 const sortFilter = document.getElementById("undergraduate-sort");
 const count = document.getElementById("undergraduate-count");
@@ -55,6 +56,25 @@ function populateFilter(select, options) {
     ...options.map(([value, label]) => new Option(label, value)),
   );
   select.value = selected;
+  if (select.selectedIndex === -1) select.selectedIndex = 0;
+}
+
+function matchesRegion({ region }) {
+  return regionFilter.value === "all" || regionFilter.value === region;
+}
+
+function refreshCountryOptions() {
+  if (!records) return;
+  const countries = new Set(
+    records
+      .filter(matchesRegion)
+      .map(({ country }) => country)
+      .filter(Boolean),
+  );
+  const options = [...countries]
+    .map((country) => [country, countryLabel(country, language)])
+    .sort(([, a], [, b]) => a.localeCompare(b, document.documentElement.lang));
+  populateFilter(countryFilter, options);
 }
 
 function refreshFilterOptions() {
@@ -72,6 +92,7 @@ function refreshFilterOptions() {
     regionFilter,
     regions.sort().map((region) => [region, regionLabel(region, language)]),
   );
+  refreshCountryOptions();
   populateFilter(intakeFilter, [...intakes].sort());
 }
 
@@ -303,7 +324,8 @@ function renderUniversity(tbody, group, formatter) {
 function filteredWindows() {
   const query = search.value.trim().toLowerCase();
   return records.filter((record) => {
-    if (regionFilter.value !== "all" && regionFilter.value !== record.region)
+    if (!matchesRegion(record)) return false;
+    if (countryFilter.value !== "all" && countryFilter.value !== record.country)
       return false;
     if (intakeFilter.value !== "all" && intakeFilter.value !== record.intake)
       return false;
@@ -479,7 +501,11 @@ collapse.addEventListener("click", () => {
   expand.focus();
 });
 search.addEventListener("input", renderFirstPage);
-[regionFilter, intakeFilter, sortFilter].forEach((filter) =>
+regionFilter.addEventListener("change", () => {
+  refreshCountryOptions();
+  renderFirstPage();
+});
+[countryFilter, intakeFilter, sortFilter].forEach((filter) =>
   filter.addEventListener("change", renderFirstPage),
 );
 applyLanguage();
