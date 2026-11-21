@@ -68,7 +68,11 @@ test("wide undergraduate board shares the tracker sidebar and ranked table", asy
     (rank) => Number(rank.replace(/^[#=]/, "")),
   );
   expect(ranks).toEqual([...ranks].sort((a, b) => a - b));
+  await page.getByRole("button", { name: "Next page" }).click();
   await page.locator("#undergraduate-region").selectOption("Europe");
+  await expect(
+    page.getByRole("button", { name: "Previous page" }),
+  ).toBeDisabled();
   await expect(
     table.getByRole("link", { name: "Harvard University", exact: true }),
   ).toHaveCount(0);
@@ -80,6 +84,57 @@ test("wide undergraduate board shares the tracker sidebar and ranked table", asy
   await expect(table.locator(".university-group-child")).toHaveCount(2);
   await page.getByRole("button", { name: "Collapse all" }).click();
   await expect(table.locator(".university-group-child")).toHaveCount(0);
+});
+
+test("mobile undergraduate pagination keeps all windows for each school together", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/undergraduate.html");
+  const response = await page.request.get(
+    "/data/undergraduate-applications.json",
+  );
+  const records = await response.json();
+  const schools = new Set(records.map(({ school }) => school));
+  const table = page.locator(".undergraduate-table");
+  const schoolLinks = table.locator(
+    "tbody tr:not(.university-group-child) .school-link",
+  );
+  const range = page.locator(".pagination-summary");
+  const previous = page.getByRole("button", { name: "Previous page" });
+  const next = page.getByRole("button", { name: "Next page" });
+
+  await expect(previous).toBeDisabled();
+  await expect(schoolLinks).toHaveCount(20);
+  await page
+    .getByRole("button", { name: "Expand schools on this page" })
+    .click();
+  await expect(table.locator(".university-group-child").first()).toBeVisible();
+  await expect(schoolLinks).toHaveCount(20);
+  await expect(range).toHaveText(`1-20 / ${schools.size}`);
+
+  const seen = [];
+  for (let offset = 0; offset < schools.size; offset += 20) {
+    const end = Math.min(offset + 20, schools.size);
+    await expect(range).toHaveText(`${offset + 1}-${end} / ${schools.size}`);
+    await expect(schoolLinks).toHaveCount(end - offset);
+    seen.push(...(await schoolLinks.allTextContents()));
+    if (end < schools.size) await next.click();
+  }
+  expect(seen).toHaveLength(schools.size);
+  expect(new Set(seen)).toEqual(schools);
+  await expect(next).toBeDisabled();
+  await expect(page.locator(".group-heading h3")).toBeFocused();
+  await previous.click();
+  await expect(schoolLinks).toHaveCount(20);
+  await expect(table.locator(".university-group-child")).toHaveCount(0);
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(page.getByRole("button", { name: "下一页" })).toBeEnabled();
+  await page.locator("#undergraduate-search").fill("EDHEC");
+  await expect(schoolLinks).toHaveCount(1);
+  await expect(range).toHaveCount(0);
+  await page.locator("#undergraduate-search").clear();
+  await expect(range).toHaveText(`1-20 / ${schools.size}`);
 });
 
 test("UCAS windows show the submission dates and the official application route", async ({
