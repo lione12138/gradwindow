@@ -268,3 +268,26 @@ test("French bachelor rounds show their own deadlines in both languages", async 
   await page.getByRole("button", { name: "Switch language" }).click();
   await expect(thirdRound.getByText("2027 年秋季 · 第三轮")).toBeVisible();
 });
+
+test("EDHEC shows the later international BBA rounds with their own dates", async ({
+  page,
+}) => {
+  await page.goto("/undergraduate.html");
+  await page.locator("#undergraduate-search").fill("EDHEC");
+  await page.locator(".university-group-toggle").click();
+  const rows = page.locator(".undergraduate-window-row");
+  await expect(rows).toHaveCount(5);
+
+  const fourthRound = rows.filter({ hasText: "Fourth round" });
+  await expect(
+    fourthRound.locator('time[datetime="2027-02-16"]'),
+  ).toBeVisible();
+  await expect(
+    fourthRound.locator('time[datetime="2027-04-01"]'),
+  ).toBeVisible();
+
+  await page.getByRole("button", { name: "Switch language" }).click();
+  const fifthRound = rows.filter({ hasText: "第五轮" });
+  await expect(fifthRound.locator('time[datetime="2027-04-06"]')).toBeVisible();
+  await expect(fifthRound.locator('time[datetime="2027-06-08"]')).toBeVisible();
+});
