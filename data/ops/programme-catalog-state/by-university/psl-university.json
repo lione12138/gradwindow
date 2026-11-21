@@ -2,32 +2,32 @@
   "universities": {
     "psl-university": {
       "sourceUrl": "https://psl.eu/formations?field_niveau%5B30%5D=30",
-      "checkedAt": "2026-11-05T13:08:07.646557+00:00",
+      "checkedAt": "2026-11-21T06:51:12.510920+00:00",
       "itemCount": 58,
       "applicationOpensAt": null,
-      "catalogHash": "b84893f4b42ad7ed2d82db212f3449428f641fbbb88c23ba554e402b115cc5ba",
+      "catalogHash": "02511bf4c1cbd27fbabeb92dcc8cfe3a49698f2b67c201cde06665a6cc7fb3fc",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
-      "observedWindowCount": 4,
-      "exactWindowCount": 4,
+      "observedWindowCount": 7,
+      "exactWindowCount": 7,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2027:fall:09": {
           "intakes": [
             "Fall 2027"
           ],
-          "observedWindowCount": 4,
-          "exactWindowCount": 4,
+          "observedWindowCount": 7,
+          "exactWindowCount": 7,
           "recurringPolicyWindowCount": 0
         }
       },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 55,
-      "programmesNeedingReview": 55,
-      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 55 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-11-05T13:08:07.646557+00:00",
-      "windowFingerprint": "4217eddf3d45859e2b9dc0f0a86ac785d561763baa02e7e11be0473b057a189f",
+      "programmesWithoutDeadlines": 53,
+      "programmesNeedingReview": 53,
+      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 53 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-11-21T06:51:12.510920+00:00",
+      "windowFingerprint": "c5b5b75920faf044be135d5e8d4a8edd3adec3a29be9536eae20960ecac9ec16",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -116,10 +116,10 @@
           "degreeType": "Grade de master",
           "faculty": "Paris-Dauphine",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "f8cf6fa9530d631fd9dff4303db08f5e2e71cbc4e1cc2d0d0558c4021f6b1be2",
+          "windowCount": 1,
+          "latestClosesAt": "2027-02-24"
         },
         "psl-jouer-et-mettre-en-scene-2eme-cycle": {
           "name": "Jouer et mettre en scène (2ème cycle)",
@@ -506,10 +506,10 @@
           "degreeType": "Master",
           "faculty": "ENS PSL",
           "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "parseStatus": "parsed",
+          "deadlineHash": "4d5546bef72cf24d3e753909e1cfb834228d17ba93c1725c5561844a350050cd",
+          "windowCount": 2,
+          "latestClosesAt": "2027-04-29"
         },
         "psl-master-politiques-publiques": {
           "name": "Master Politiques publiques",
@@ -613,6 +613,14 @@
         }
       },
       "windows": {
+        "psl-enamoma::Fall 2027::Fall 2027 M2::all": {
+          "programmeId": "psl-enamoma",
+          "intake": "Fall 2027",
+          "opensAt": "2027-01-14",
+          "closesAt": "2027-02-24",
+          "sourceUrl": "https://psl.eu/formation/enamoma",
+          "opensAtBasis": null
+        },
         "psl-master-chimie::Fall 2027::Fall 2027 M2::all": {
           "programmeId": "psl-master-chimie",
           "intake": "Fall 2027",
@@ -627,6 +635,22 @@
           "opensAt": "2027-01-14",
           "closesAt": "2027-02-24",
           "sourceUrl": "https://psl.eu/formation/master-energie",
+          "opensAtBasis": null
+        },
+        "psl-master-physique::Fall 2027::Fall 2027 M1::all": {
+          "programmeId": "psl-master-physique",
+          "intake": "Fall 2027",
+          "opensAt": "2026-11-26",
+          "closesAt": "2027-01-21",
+          "sourceUrl": "https://psl.eu/formation/master-physique",
+          "opensAtBasis": null
+        },
+        "psl-master-physique::Fall 2027::Fall 2027 M2::all": {
+          "programmeId": "psl-master-physique",
+          "intake": "Fall 2027",
+          "opensAt": "2027-02-01",
+          "closesAt": "2027-04-29",
+          "sourceUrl": "https://psl.eu/formation/master-physique",
           "opensAtBasis": null
         },
         "psl-master-sciences-cognitives::Fall 2027::Fall 2027 M1::all": {
@@ -647,6 +671,14 @@
         }
       },
       "windowBaseline": {
+        "psl-enamoma::Fall 2027::Fall 2027 M2::all": {
+          "programmeId": "psl-enamoma",
+          "intake": "Fall 2027",
+          "opensAt": "2027-01-14",
+          "closesAt": "2027-02-24",
+          "sourceUrl": "https://psl.eu/formation/enamoma",
+          "opensAtBasis": null
+        },
         "psl-master-chimie::Fall 2027::Fall 2027 M2::all": {
           "programmeId": "psl-master-chimie",
           "intake": "Fall 2027",
@@ -661,6 +693,22 @@
           "opensAt": "2027-01-14",
           "closesAt": "2027-02-24",
           "sourceUrl": "https://psl.eu/formation/master-energie",
+          "opensAtBasis": null
+        },
+        "psl-master-physique::Fall 2027::Fall 2027 M1::all": {
+          "programmeId": "psl-master-physique",
+          "intake": "Fall 2027",
+          "opensAt": "2026-11-26",
+          "closesAt": "2027-01-21",
+          "sourceUrl": "https://psl.eu/formation/master-physique",
+          "opensAtBasis": null
+        },
+        "psl-master-physique::Fall 2027::Fall 2027 M2::all": {
+          "programmeId": "psl-master-physique",
+          "intake": "Fall 2027",
+          "opensAt": "2027-02-01",
+          "closesAt": "2027-04-29",
+          "sourceUrl": "https://psl.eu/formation/master-physique",
           "opensAtBasis": null
         },
         "psl-master-sciences-cognitives::Fall 2027::Fall 2027 M1::all": {

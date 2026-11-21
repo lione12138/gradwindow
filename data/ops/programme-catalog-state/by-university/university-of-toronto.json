@@ -2,32 +2,23 @@
   "universities": {
     "university-of-toronto": {
       "sourceUrl": "https://www.sgs.utoronto.ca/programs/",
-      "checkedAt": "2026-11-05T13:12:52.713158+00:00",
-      "itemCount": 155,
+      "checkedAt": "2026-11-21T07:02:59.931053+00:00",
+      "itemCount": 153,
       "applicationOpensAt": null,
-      "catalogHash": "baa825ccd748fdc3d0d7b49c1328fb6a7540cf984dd6f564a0e167964e0ae858",
+      "catalogHash": "277d3e074dbd042e14b0574db2537f245945469dd7fcd0cb81fb113548bd6d31",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
-      "windowStatus": "needs-opening-date",
-      "observedWindowCount": 2,
+      "windowStatus": "monitoring",
+      "observedWindowCount": 0,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
-      "windowCountsByCycle": {
-        "2027:fall:09": {
-          "intakes": [
-            "Fall 2027"
-          ],
-          "observedWindowCount": 2,
-          "exactWindowCount": 0,
-          "recurringPolicyWindowCount": 0
-        }
-      },
-      "missingOpeningDateCount": 2,
-      "programmesWithoutDeadlines": 154,
-      "programmesNeedingReview": 155,
-      "limitationReason": "2 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-11-05T13:12:52.713158+00:00",
-      "windowFingerprint": "01e74dfe651012c48d8eb669994c3dc5bc3f693a9ae40c7f62f14bbd3723e633",
+      "windowCountsByCycle": {},
+      "missingOpeningDateCount": 0,
+      "programmesWithoutDeadlines": 153,
+      "programmesNeedingReview": 153,
+      "limitationReason": "The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
+      "lastSuccessfulAt": "2026-11-21T07:02:59.931053+00:00",
+      "windowFingerprint": "201fc9cc3df3e41919a449665c513f4c99dc2982b6b76949d204f912cca1b3b1",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -42,21 +33,21 @@
           "latestClosesAt": null
         },
         "toronto-adult-education-and-community-development-ma": {
-          "name": "Adult Education and Community Development (OISE) (MA)",
+          "name": "OISE – Adult Education and Community Development (MA)",
           "degreeType": "MA",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-adult-education-and-community-development-med": {
-          "name": "Adult Education and Community Development (OISE) (MEd)",
+          "name": "OISE – Adult Education and Community Development (MEd)",
           "degreeType": "MEd",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -112,11 +103,11 @@
           "latestClosesAt": null
         },
         "toronto-architecture-march": {
-          "name": "Architecture (MArch)",
+          "name": "Daniels – Architecture (MArch)",
           "degreeType": "MArch",
           "faculty": "Architecture, Landscape, and Design",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -152,11 +143,11 @@
           "latestClosesAt": null
         },
         "toronto-bioethics-mhsc": {
-          "name": "Bioethics (MHSc)",
+          "name": "Public Health Sciences (MHSc Bioethics) (MHSc)",
           "degreeType": "MHSc",
           "faculty": "Public Health Sciences",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -242,11 +233,11 @@
           "latestClosesAt": null
         },
         "toronto-child-study-and-education-ma": {
-          "name": "Child Study and Education (OISE) (MA)",
+          "name": "OISE – Child Study and Education (MA)",
           "degreeType": "MA",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -302,11 +293,11 @@
           "latestClosesAt": null
         },
         "toronto-community-health-mscch": {
-          "name": "Community Health (MScCH)",
+          "name": "Public Health Sciences (MScCH Community Health) (MScCH)",
           "degreeType": "MScCH",
           "faculty": "Public Health Sciences",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -332,7 +323,7 @@
           "latestClosesAt": null
         },
         "toronto-counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology-ma": {
-          "name": "Counselling and Clinical Psychology – Field in Clinical and Counselling Psychology (OISE) (MA)",
+          "name": "OISE – Counselling and Clinical Psychology – Field in Clinical and Counselling Psychology (MA)",
           "degreeType": "MA",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
@@ -346,17 +337,17 @@
           "degreeType": "MA",
           "faculty": "Psychological Clinical Science",
           "department": "",
-          "parseStatus": "incomplete",
-          "deadlineHash": "f2b89f91288439407a47f723942075da6851e2791fc9ff57f69d46952118a62f",
-          "windowCount": 2,
-          "latestClosesAt": "2026-12-01"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "toronto-counselling-psychology-med": {
           "name": "Counselling Psychology (MEd)",
           "degreeType": "MEd",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -366,13 +357,13 @@
           "degreeType": "MA",
           "faculty": "Criminology and Sociolegal Studies",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-curriculum-and-pedagogy-ma": {
-          "name": "Curriculum and Pedagogy (OISE) (MA)",
+          "name": "OISE – Curriculum and Pedagogy (MA)",
           "degreeType": "MA",
           "faculty": "Curriculum, Teaching and Learning",
           "department": "",
@@ -382,7 +373,7 @@
           "latestClosesAt": null
         },
         "toronto-curriculum-and-pedagogy-med": {
-          "name": "Curriculum and Pedagogy (OISE) (MEd)",
+          "name": "OISE – Curriculum and Pedagogy (MEd)",
           "degreeType": "MEd",
           "faculty": "Curriculum, Teaching and Learning",
           "department": "",
@@ -396,7 +387,7 @@
           "degreeType": "MSc",
           "faculty": "Dentistry",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -406,13 +397,13 @@
           "degreeType": "MSc",
           "faculty": "Dentistry",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-developmental-psychology-and-education-ma": {
-          "name": "Developmental Psychology and Education (MA)",
+          "name": "OISE – Developmental Psychology and Education (MA)",
           "degreeType": "MA",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
@@ -422,7 +413,7 @@
           "latestClosesAt": null
         },
         "toronto-developmental-psychology-and-education-med": {
-          "name": "Developmental Psychology and Education (MEd)",
+          "name": "OISE – Developmental Psychology and Education (MEd)",
           "degreeType": "MEd",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
@@ -436,7 +427,7 @@
           "degreeType": "MA",
           "faculty": "Drama, Theatre and Performance Studies",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -446,7 +437,7 @@
           "degreeType": "MASc",
           "faculty": "Earth Sciences",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -456,7 +447,7 @@
           "degreeType": "MSc",
           "faculty": "Earth Sciences",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -466,7 +457,7 @@
           "degreeType": "MA",
           "faculty": "East Asian Studies",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -476,7 +467,7 @@
           "degreeType": "MSc",
           "faculty": "Ecology and Evolutionary Biology",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -486,13 +477,13 @@
           "degreeType": "MA",
           "faculty": "Economics",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-educational-leadership-and-policy-ma": {
-          "name": "Educational Leadership and Policy (OISE) (MA)",
+          "name": "OISE – Educational Leadership and Policy (MA)",
           "degreeType": "MA",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
@@ -502,7 +493,7 @@
           "latestClosesAt": null
         },
         "toronto-educational-leadership-and-policy-med": {
-          "name": "Educational Leadership and Policy (OISE) (MEd)",
+          "name": "OISE – Educational Leadership and Policy (MEd)",
           "degreeType": "MEd",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
@@ -516,7 +507,7 @@
           "degreeType": "MASc",
           "faculty": "Electrical and Computer Engineering",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -526,7 +517,7 @@
           "degreeType": "MEng",
           "faculty": "Electrical and Computer Engineering",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -536,7 +527,7 @@
           "degreeType": "MA",
           "faculty": "English",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -546,7 +537,7 @@
           "degreeType": "MA (Creative Writing)",
           "faculty": "English",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -556,7 +547,7 @@
           "degreeType": "MES",
           "faculty": "Environment",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -582,7 +573,7 @@
           "latestClosesAt": null
         },
         "toronto-european-and-russian-affairs-ma": {
-          "name": "European and Eurasian Studies (MA)",
+          "name": "Munk – European and Eurasian Studies (MA)",
           "degreeType": "MA",
           "faculty": "European, Russian, and Eurasian Studies",
           "department": "",
@@ -592,7 +583,7 @@
           "latestClosesAt": null
         },
         "toronto-executive-master-of-business-administration-mba-emba": {
-          "name": "Business Administration (EMBA) (MBA (EMBA))",
+          "name": "Rotman – Business Administration (EMBA) (MBA (EMBA))",
           "degreeType": "MBA (EMBA)",
           "faculty": "Management, Rotman School of",
           "department": "",
@@ -602,7 +593,7 @@
           "latestClosesAt": null
         },
         "toronto-finance-mf": {
-          "name": "Finance (MF)",
+          "name": "Rotman – Finance (MF)",
           "degreeType": "MF",
           "faculty": "Management, Rotman School of",
           "department": "",
@@ -616,7 +607,7 @@
           "degreeType": "MFE",
           "faculty": "Economics",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -626,13 +617,13 @@
           "degreeType": "MFI",
           "faculty": "Statistical Sciences",
           "department": "",
-          "parseStatus": "no-deadline",
+          "parseStatus": "catalogue-only",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-financial-risk-management-mfrm": {
-          "name": "Financial Risk Management (MFRM)",
+          "name": "Rotman – Financial Risk Management (MFRM)",
           "degreeType": "MFRM",
           "faculty": "Management, Rotman School of",
           "department": "",
@@ -646,27 +637,27 @@
           "degreeType": "MFAcc",
           "faculty": "Management &amp; Innovation",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-forest-conservation-mfc": {
-          "name": "Forest Conservation (MFC)",
+          "name": "Daniels – Forest Conservation (MFC)",
           "degreeType": "MFC",
           "faculty": "Architecture, Landscape, and Design",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-forestry-mscf": {
-          "name": "Forestry (MScF)",
+          "name": "Daniels – Forestry (MScF)",
           "degreeType": "MScF",
           "faculty": "Architecture, Landscape, and Design",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -676,17 +667,17 @@
           "degreeType": "MA",
           "faculty": "French Language and Literature",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-genetic-counselling-msc": {
-          "name": "Genetic Counselling (MSc)",
+          "name": "Molecular Genetics – Genetic Counselling (MSc)",
           "degreeType": "MSc",
           "faculty": "Molecular Genetics",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -696,7 +687,7 @@
           "degreeType": "MA",
           "faculty": "Geography and Planning",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -706,7 +697,7 @@
           "degreeType": "MSc",
           "faculty": "Geography and Planning",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
@@ -716,43 +707,33 @@
           "degreeType": "MA",
           "faculty": "Germanic Languages and Literatures",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-global-affairs-mga": {
-          "name": "Global Affairs (MGA)",
+          "name": "Munk – Global Affairs (MGA)",
           "degreeType": "MGA",
           "faculty": "Global Affairs and Public Policy",
           "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "toronto-global-executive-master-of-business-administration-dual-degree-mba-gemba": {
-          "name": "Business Administration (GEMBA) (MBA (GEMBA))",
-          "degreeType": "MBA (GEMBA)",
-          "faculty": "Management, Rotman School of",
-          "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-global-executive-master-of-business-administration-for-healthcare-and-the-life-sciences-mba-gemba-hls": {
-          "name": "Business Administration for Healthcare and the Life Sciences (GEMBA-HLS) (MBA (GEMBA-HLS))",
+          "name": "Rotman – Business Administration for Healthcare and the Life Sciences (GEMBA-HLS) (MBA (GEMBA-HLS))",
           "degreeType": "MBA (GEMBA-HLS)",
           "faculty": "Management, Rotman School of",
           "department": "",
-          "parseStatus": "catalogue-only",
+          "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
         },
         "toronto-global-professional-law-gpllm": {
-          "name": "Global Professional Law (GPLLM)",
+          "name": "Law – Global Professional Law (GPLLM) (GPLLM)",
           "degreeType": "GPLLM",
           "faculty": "Law",
           "department": "",
@@ -792,7 +773,7 @@
           "latestClosesAt": null
         },
         "toronto-higher-education-ma": {
-          "name": "Higher Education (MA)",
+          "name": "OISE – Higher Education (MA)",
           "degreeType": "MA",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
@@ -802,7 +783,7 @@
           "latestClosesAt": null
         },
         "toronto-higher-education-med": {
-          "name": "Higher Education (MEd)",
+          "name": "OISE – Higher Education (MEd)",
           "degreeType": "MEd",
           "faculty": "Leadership, Higher and Adult Education",
           "department": "",
@@ -922,7 +903,7 @@
           "latestClosesAt": null
         },
         "toronto-laboratory-medicine-and-pathobiology-msc": {
-          "name": "Laboratory Medicine and Pathobiology (MSc)",
+          "name": "Laboratory Medicine and Pathobiology (MSc / PhD) (MSc)",
           "degreeType": "MSc",
           "faculty": "Laboratory Medicine and Pathobiology",
           "department": "",
@@ -932,7 +913,7 @@
           "latestClosesAt": null
         },
         "toronto-laboratory-medicine-mhsc": {
-          "name": "Laboratory Medicine (MHSc)",
+          "name": "Laboratory Medicine and Pathobiology (MHSc) (MHSc)",
           "degreeType": "MHSc",
           "faculty": "Laboratory Medicine and Pathobiology",
           "department": "",
@@ -942,7 +923,7 @@
           "latestClosesAt": null
         },
         "toronto-landscape-architecture-mla": {
-          "name": "Landscape Architecture (MLA)",
+          "name": "Daniels – Landscape Architecture (MLA)",
           "degreeType": "MLA",
           "faculty": "Architecture, Landscape, and Design",
           "department": "",
@@ -952,7 +933,7 @@
           "latestClosesAt": null
         },
         "toronto-language-and-literacies-education-ma": {
-          "name": "Language and Literacies Education (MA)",
+          "name": "OISE – Language and Literacies Education (MA)",
           "degreeType": "MA",
           "faculty": "Curriculum, Teaching and Learning",
           "department": "",
@@ -962,7 +943,7 @@
           "latestClosesAt": null
         },
         "toronto-language-and-literacies-education-med": {
-          "name": "Language and Literacies Education (MEd)",
+          "name": "OISE – Language and Literacies Education (MEd)",
           "degreeType": "MEd",
           "faculty": "Curriculum, Teaching and Learning",
           "department": "",
@@ -972,7 +953,7 @@
           "latestClosesAt": null
         },
         "toronto-law-llm": {
-          "name": "Law (LLM)",
+          "name": "Law (LLM/MSL/SJD) (LLM)",
           "degreeType": "LLM",
           "faculty": "Law",
           "department": "",
@@ -982,7 +963,7 @@
           "latestClosesAt": null
         },
         "toronto-law-msl": {
-          "name": "Law (MSL)",
+          "name": "Law (LLM/MSL/SJD) (MSL)",
           "degreeType": "MSL",
           "faculty": "Law",
           "department": "",
@@ -1002,7 +983,7 @@
           "latestClosesAt": null
         },
         "toronto-management-analytics-mma": {
-          "name": "Management Analytics (MMA)",
+          "name": "Rotman – Management Analytics (MMA)",
           "degreeType": "MMA",
           "faculty": "Management, Rotman School of",
           "department": "",
@@ -1031,18 +1012,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "toronto-master-of-business-administration-extended-full-time-mba-mba-full-time-extended": {
-          "name": "Business Administration (Extended Full-Time MBA) (MBA (Full-Time Extended))",
-          "degreeType": "MBA (Full-Time Extended)",
-          "faculty": "Management, Rotman School of",
-          "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
         "toronto-master-of-business-administration-full-time-mba-mba-full-time": {
-          "name": "Business Administration (Full-Time MBA) (MBA (Full-Time))",
+          "name": "Rotman – Business Administration (Full-Time MBA) (MBA (Full-Time))",
           "degreeType": "MBA (Full-Time)",
           "faculty": "Management, Rotman School of",
           "department": "",
@@ -1052,7 +1023,7 @@
           "latestClosesAt": null
         },
         "toronto-master-of-business-administration-one-year-full-time-mba-mba-one-year-full-time": {
-          "name": "Business Administration (One Year Full-Time MBA) (MBA (One Year Full-Time))",
+          "name": "Rotman – Business Administration (One-Year MBA) (MBA (One Year Full-Time))",
           "degreeType": "MBA (One Year Full-Time)",
           "faculty": "Management, Rotman School of",
           "department": "",
@@ -1062,7 +1033,7 @@
           "latestClosesAt": null
         },
         "toronto-master-of-management-mmgt-mmgt": {
-          "name": "Management (MMgt) (MMgt)",
+          "name": "Rotman – Management (MMgt) (MMgt)",
           "degreeType": "MMgt",
           "faculty": "Management, Rotman School of",
           "department": "",
@@ -1142,7 +1113,7 @@
           "latestClosesAt": null
         },
         "toronto-medical-genomics-mhsc": {
-          "name": "Medical Genomics (MHSc)",
+          "name": "Molecular Genetics – Medical Genomics (MHSc)",
           "degreeType": "MHSc",
           "faculty": "Molecular Genetics",
           "department": "",
@@ -1192,7 +1163,7 @@
           "latestClosesAt": null
         },
         "toronto-museum-studies-mmst": {
-          "name": "Museum Studies (MMSt)",
+          "name": "Museum Studies (MMSt) (MMSt)",
           "degreeType": "MMSt",
           "faculty": "Museum Studies",
           "department": "",
@@ -1382,7 +1353,7 @@
           "latestClosesAt": null
         },
         "toronto-public-policy-mpp": {
-          "name": "Public Policy (MPP)",
+          "name": "Munk – Public Policy (MPP)",
           "degreeType": "MPP",
           "faculty": "Global Affairs and Public Policy",
           "department": "",
@@ -1412,7 +1383,7 @@
           "latestClosesAt": null
         },
         "toronto-school-and-clinical-child-psychology-ma": {
-          "name": "School and Clinical Child Psychology (MA)",
+          "name": "OISE – School and Clinical Child Psychology (MA)",
           "degreeType": "MA",
           "faculty": "Applied Psychology and Human Development",
           "department": "",
@@ -1432,7 +1403,7 @@
           "latestClosesAt": null
         },
         "toronto-social-justice-education-ma": {
-          "name": "Social Justice Education (MA)",
+          "name": "OISE – Social Justice Education (MA)",
           "degreeType": "MA",
           "faculty": "Social Justice Education",
           "department": "",
@@ -1442,7 +1413,7 @@
           "latestClosesAt": null
         },
         "toronto-social-justice-education-med": {
-          "name": "Social Justice Education (MEd)",
+          "name": "OISE – Social Justice Education (MEd)",
           "degreeType": "MEd",
           "faculty": "Social Justice Education",
           "department": "",
@@ -1522,7 +1493,7 @@
           "latestClosesAt": null
         },
         "toronto-teaching-mt": {
-          "name": "Teaching (OISE) (MT)",
+          "name": "OISE – Teaching (MT)",
           "degreeType": "MT",
           "faculty": "Curriculum, Teaching and Learning",
           "department": "",
@@ -1542,7 +1513,7 @@
           "latestClosesAt": null
         },
         "toronto-urban-design-mud": {
-          "name": "Urban Design (MUD)",
+          "name": "Daniels – Urban Design (MUD)",
           "degreeType": "MUD",
           "faculty": "Architecture, Landscape, and Design",
           "department": "",
@@ -1562,7 +1533,7 @@
           "latestClosesAt": null
         },
         "toronto-visual-studies-mvs": {
-          "name": "Visual Studies (MVS)",
+          "name": "Daniels – Visual Studies (MVS)",
           "degreeType": "MVS",
           "faculty": "Architecture, Landscape, and Design",
           "department": "",
@@ -1582,125 +1553,47 @@
           "latestClosesAt": null
         }
       },
-      "windows": {
-        "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma::Fall 2027::Fall 2027 domestic deadline::domestic": {
-          "programmeId": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
-          "intake": "Fall 2027",
-          "opensAt": null,
-          "closesAt": "2026-12-01",
-          "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
-          "opensAtBasis": null
-        },
-        "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma::Fall 2027::Fall 2027 international deadline::international": {
-          "programmeId": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
-          "intake": "Fall 2027",
-          "opensAt": null,
-          "closesAt": "2026-12-01",
-          "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
-          "opensAtBasis": null
-        }
-      },
-      "windowBaseline": {
-        "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma::Fall 2027::Fall 2027 domestic deadline::domestic": {
-          "programmeId": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
-          "intake": "Fall 2027",
-          "opensAt": null,
-          "closesAt": "2026-12-01",
-          "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
-          "opensAtBasis": null
-        },
-        "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma::Fall 2027::Fall 2027 international deadline::international": {
-          "programmeId": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
-          "intake": "Fall 2027",
-          "opensAt": null,
-          "closesAt": "2026-12-01",
-          "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
-          "opensAtBasis": null
-        }
-      },
+      "windows": {},
+      "windowBaseline": {},
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "apiPages": 2,
         "detailPagesFetched": 24,
-        "detailCacheHits": 24,
+        "detailCacheHits": 0,
         "detailFailures": 0,
         "detailQueue": {
-          "eligibleTasks": 128,
+          "eligibleTasks": 126,
           "attemptedThisRun": 24,
           "checkedThisRun": 24,
           "failedThisRun": 0,
-          "deferredThisRun": 104,
-          "neverChecked": 80,
+          "deferredThisRun": 102,
+          "neverChecked": 69,
           "lastOutcomeCounts": {
-            "checked": 48,
-            "unvisited": 80
+            "checked": 57,
+            "unvisited": 69
           }
         },
         "detailSucceededProgrammeIds": [
+          "toronto-adult-education-and-community-development-ma",
+          "toronto-adult-education-and-community-development-med",
+          "toronto-architecture-march",
+          "toronto-bioethics-mhsc",
+          "toronto-child-study-and-education-ma",
+          "toronto-community-health-mscch",
           "toronto-counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology-ma",
           "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
-          "toronto-counselling-psychology-med",
-          "toronto-criminology-and-sociolegal-studies-ma",
           "toronto-curriculum-and-pedagogy-ma",
           "toronto-curriculum-and-pedagogy-med",
-          "toronto-dentistry-research-msc",
-          "toronto-dentistry-with-specialty-training-msc",
           "toronto-developmental-psychology-and-education-ma",
           "toronto-developmental-psychology-and-education-med",
-          "toronto-drama-theatre-and-performance-studies-ma",
-          "toronto-earth-sciences-masc",
-          "toronto-earth-sciences-msc",
-          "toronto-east-asian-studies-ma",
-          "toronto-ecology-and-evolutionary-biology-msc",
-          "toronto-economics-ma",
           "toronto-educational-leadership-and-policy-ma",
           "toronto-educational-leadership-and-policy-med",
-          "toronto-electrical-and-computer-engineering-masc",
-          "toronto-electrical-and-computer-engineering-meng",
-          "toronto-english-ma",
-          "toronto-english-ma-creative-writing",
-          "toronto-environment-and-sustainability-mes",
           "toronto-environmental-science-menvsc",
           "toronto-environmental-science-msc",
           "toronto-european-and-russian-affairs-ma",
           "toronto-executive-master-of-business-administration-mba-emba",
           "toronto-finance-mf",
-          "toronto-financial-economics-mfe",
-          "toronto-financial-insurance-mfi",
-          "toronto-financial-risk-management-mfrm"
-        ],
-        "detailFailedProgrammeIds": [],
-        "detailUnvisitedProgrammeIds": [
-          "toronto-accounting-and-finance-maccfin",
-          "toronto-adult-education-and-community-development-ma",
-          "toronto-adult-education-and-community-development-med",
-          "toronto-aerospace-and-engineering-masc",
-          "toronto-aerospace-and-engineering-meng",
-          "toronto-anthropology-ma",
-          "toronto-anthropology-msc",
-          "toronto-applied-computing-mscac",
-          "toronto-architecture-march",
-          "toronto-art-history-ma",
-          "toronto-astronomy-and-astrophysics-msc",
-          "toronto-biochemistry-msc",
-          "toronto-bioethics-mhsc",
-          "toronto-biomedical-communications-mscbmc",
-          "toronto-biomedical-engineering-masc",
-          "toronto-biomedical-engineering-meng",
-          "toronto-biotechnology-mbiotech",
-          "toronto-cell-and-systems-biology-msc",
-          "toronto-chemical-engineering-and-applied-chemistry-masc",
-          "toronto-chemical-engineering-and-applied-chemistry-meng",
-          "toronto-chemistry-msc",
-          "toronto-child-study-and-education-ma",
-          "toronto-cinema-studies-ma",
-          "toronto-cities-engineering-and-management-mengcem",
-          "toronto-civil-engineering-masc",
-          "toronto-civil-engineering-meng",
-          "toronto-classics-ma",
-          "toronto-community-health-mscch",
-          "toronto-comparative-literature-ma",
-          "toronto-computer-science-msc",
+          "toronto-financial-risk-management-mfrm",
           "toronto-forensic-accounting-mfacc",
           "toronto-forest-conservation-mfc",
           "toronto-forestry-mscf",
@@ -1710,8 +1603,51 @@
           "toronto-geography-msc",
           "toronto-germanic-languages-and-literatures-ma",
           "toronto-global-affairs-mga",
-          "toronto-global-executive-master-of-business-administration-dual-degree-mba-gemba",
-          "toronto-global-executive-master-of-business-administration-for-healthcare-and-the-life-sciences-mba-gemba-hls",
+          "toronto-global-executive-master-of-business-administration-for-healthcare-and-the-life-sciences-mba-gemba-hls"
+        ],
+        "detailFailedProgrammeIds": [],
+        "detailUnvisitedProgrammeIds": [
+          "toronto-accounting-and-finance-maccfin",
+          "toronto-aerospace-and-engineering-masc",
+          "toronto-aerospace-and-engineering-meng",
+          "toronto-anthropology-ma",
+          "toronto-anthropology-msc",
+          "toronto-applied-computing-mscac",
+          "toronto-art-history-ma",
+          "toronto-astronomy-and-astrophysics-msc",
+          "toronto-biochemistry-msc",
+          "toronto-biomedical-communications-mscbmc",
+          "toronto-biomedical-engineering-masc",
+          "toronto-biomedical-engineering-meng",
+          "toronto-biotechnology-mbiotech",
+          "toronto-cell-and-systems-biology-msc",
+          "toronto-chemical-engineering-and-applied-chemistry-masc",
+          "toronto-chemical-engineering-and-applied-chemistry-meng",
+          "toronto-chemistry-msc",
+          "toronto-cinema-studies-ma",
+          "toronto-cities-engineering-and-management-mengcem",
+          "toronto-civil-engineering-masc",
+          "toronto-civil-engineering-meng",
+          "toronto-classics-ma",
+          "toronto-comparative-literature-ma",
+          "toronto-computer-science-msc",
+          "toronto-counselling-psychology-med",
+          "toronto-criminology-and-sociolegal-studies-ma",
+          "toronto-dentistry-research-msc",
+          "toronto-dentistry-with-specialty-training-msc",
+          "toronto-drama-theatre-and-performance-studies-ma",
+          "toronto-earth-sciences-masc",
+          "toronto-earth-sciences-msc",
+          "toronto-east-asian-studies-ma",
+          "toronto-ecology-and-evolutionary-biology-msc",
+          "toronto-economics-ma",
+          "toronto-electrical-and-computer-engineering-masc",
+          "toronto-electrical-and-computer-engineering-meng",
+          "toronto-english-ma",
+          "toronto-english-ma-creative-writing",
+          "toronto-environment-and-sustainability-mes",
+          "toronto-financial-economics-mfe",
+          "toronto-financial-insurance-mfi",
           "toronto-global-professional-law-gpllm",
           "toronto-health-administration-mhsc",
           "toronto-health-informatics-mhi",
@@ -1740,7 +1676,6 @@
           "toronto-management-analytics-mma",
           "toronto-management-and-professional-accounting-mmpa",
           "toronto-management-of-innovation-mmi",
-          "toronto-master-of-business-administration-extended-full-time-mba-mba-full-time-extended",
           "toronto-master-of-business-administration-full-time-mba-mba-full-time",
           "toronto-master-of-business-administration-one-year-full-time-mba-mba-one-year-full-time",
           "toronto-master-of-management-mmgt-mmgt",
@@ -1875,8 +1810,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/germanic-languages-and-literatures/": {
+            "taskFingerprint": "c871d48f11a76229cee2b1444fb0d50e4cdb158281e55addffcd47d61151c005",
             "modifiedAt": "2025-12-22T13:16:07",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-germanic-languages-and-literatures-ma",
@@ -1890,7 +1826,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "05bd1ff8e308154908906dde4ab03a76f9a5683342f36d222b2b46f3216348b8",
+                "evidenceDocumentHash": "31267ca2298e6e0af0d5210009bfe6da3d31f434509bc54b951b32a44e8d699a",
                 "windows": []
               }
             ]
@@ -2082,65 +2018,24 @@
               }
             ]
           },
-          "https://www.sgs.utoronto.ca/programs/global-executive-master-of-business-administration-dual-degree/": {
-            "modifiedAt": "2025-12-15T15:00:59",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
-            "programmes": [
-              {
-                "id": "toronto-global-executive-master-of-business-administration-dual-degree-mba-gemba",
-                "name": "Business Administration (GEMBA) (MBA (GEMBA))",
-                "degreeType": "MBA (GEMBA)",
-                "faculty": "Management, Rotman School of",
-                "department": "",
-                "sourceUrl": "https://www.sgs.utoronto.ca/programs/global-executive-master-of-business-administration-dual-degree/",
-                "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MBA (GEMBA): Fall 2026 Entry Round 1 – January 20, 2026 Round 2 – April 8, 2026 Round 3 – June 24, 2026 International: MBA (GEMBA): Fall 2026 Entry Round 1 – January 20, 2026 Round 2 – April 8, 2026 Round 3 – June 24, 2026",
-                "parseStatus": "no-deadline",
-                "retrievalMethod": "official-html",
-                "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "a1fe37305e312f5a7eddf37e992f6dc104230da0471acd7067a35702beb0bbf1",
-                "windows": []
-              }
-            ]
-          },
           "https://www.sgs.utoronto.ca/programs/global-executive-master-of-business-administration-for-healthcare-and-the-life-sciences/": {
-            "modifiedAt": "2025-12-15T15:01:54",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "dd8bffffefff830d9ec217cb6c0ad49efd85c17aac699f7cd5ef72b277f62d5a",
+            "modifiedAt": "2026-11-12T14:52:49",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-global-executive-master-of-business-administration-for-healthcare-and-the-life-sciences-mba-gemba-hls",
-                "name": "Business Administration for Healthcare and the Life Sciences (GEMBA-HLS) (MBA (GEMBA-HLS))",
+                "name": "Rotman – Business Administration for Healthcare and the Life Sciences (GEMBA-HLS) (MBA (GEMBA-HLS))",
                 "degreeType": "MBA (GEMBA-HLS)",
                 "faculty": "Management, Rotman School of",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/global-executive-master-of-business-administration-for-healthcare-and-the-life-sciences/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MBA (GEMBA-HLS): Fall 2026 entry Round 1 – May 7, 2026 Round 2 – August 12, 2026 Round 3 – October 1, 2026 International: MBA (GEMBA-HLS): Fall 2026 entry Round 1 – May 7, 2026 Round 2 – August 12, 2026 Round 3 – October 1, 2026",
+                "deadlineText": "Domestic: MBA (GEMBA-HLS): Application Deadline International: MBA (GEMBA-HLS): Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "93d214f28652bd4fbfb41a594f491a3346461f9687df257c42061ae5487e4b2c",
-                "windows": []
-              }
-            ]
-          },
-          "https://www.sgs.utoronto.ca/programs/master-of-business-administration-extended-full-time-mba/": {
-            "modifiedAt": "2025-12-15T15:02:30",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
-            "programmes": [
-              {
-                "id": "toronto-master-of-business-administration-extended-full-time-mba-mba-full-time-extended",
-                "name": "Business Administration (Extended Full-Time MBA) (MBA (Full-Time Extended))",
-                "degreeType": "MBA (Full-Time Extended)",
-                "faculty": "Management, Rotman School of",
-                "department": "",
-                "sourceUrl": "https://www.sgs.utoronto.ca/programs/master-of-business-administration-extended-full-time-mba/",
-                "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MBA (Full-Time Extended): Please note that admissions for the Morning MBA Master of Business Administration have been paused for the 2025-2026 academic year. Fall 2026 Round 1 – September 10, 2025 Round 2 – November 19, 2025 Round 3 – March 4, 2026 Round 4 – May 13, 2026 International: MBA (Full-Time Extended): Fall 2026 Round 1 – September 10, 2025 Round 2 – November 19, 2025 Round 3 – March 4, 2026",
-                "parseStatus": "no-deadline",
-                "retrievalMethod": "official-html",
-                "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "5b8dbc264a0832b040e1598cd3132b04fe50f58bc1138aa176014fd5203d4925",
+                "evidenceDocumentHash": "a4d762f84a0d06742eab7f8c92c89362f2d8c9b3d9bfff03df9e2e2f98d48251",
                 "windows": []
               }
             ]
@@ -2188,35 +2083,35 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/financial-risk-management/": {
-            "taskFingerprint": "4a054e8907211e33faa7b15a30998613038be08b45407290284152387fa9f8ed",
-            "modifiedAt": "2025-11-03T13:14:03",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "157a5a6256e7ceb8e16b0dce84bbe06fb5d45d888dff5c4a398cb4c97a32ab83",
+            "modifiedAt": "2026-11-12T14:54:41",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-financial-risk-management-mfrm",
-                "name": "Financial Risk Management (MFRM)",
+                "name": "Rotman – Financial Risk Management (MFRM)",
                 "degreeType": "MFRM",
                 "faculty": "Management, Rotman School of",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/financial-risk-management/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MFRM: Fall 2026 entry Round 1 – October 15, 2025 Round 2 – January 21, 2026 Round 3 – April 15, 2026 International: MFRM: Fall 2026 Round 1 – October 15, 2025 Round 2 – January 21, 2026",
+                "deadlineText": "Domestic: MFRM: Application Deadline International: MFRM: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "3f6881b242430f9a797ba382700f3ac5ecd6769e8e4a7cce41dd50b5c371eed4",
+                "evidenceDocumentHash": "b2992173d111d854f54f8005cc649cf71fea3cda611b089df9e2bd2a84427ad4",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/curriculum-and-pedagogy/": {
-            "taskFingerprint": "39a9b66c9a76311b873ac1951faadfcf0304ca640c96ea0b0c65c0474c70a39e",
-            "modifiedAt": "2026-09-01T11:27:47",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "af8f5c9c17ecc70963a4054bd32764a7178575d6d4fe2cd27e6de0bf76c68c7b",
+            "modifiedAt": "2026-11-12T13:30:55",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-curriculum-and-pedagogy-ma",
-                "name": "Curriculum and Pedagogy (OISE) (MA)",
+                "name": "OISE – Curriculum and Pedagogy (MA)",
                 "degreeType": "MA",
                 "faculty": "Curriculum, Teaching and Learning",
                 "department": "",
@@ -2226,12 +2121,12 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "3ca9a7382ce78533cba9c79d7b2ededa370295c760790f0ef552f7ae23a1c85e",
+                "evidenceDocumentHash": "730815aa4f68e957f439d657f6dd0b3e24b8b926e09a7aa68e6e66af0bd105b5",
                 "windows": []
               },
               {
                 "id": "toronto-curriculum-and-pedagogy-med",
-                "name": "Curriculum and Pedagogy (OISE) (MEd)",
+                "name": "OISE – Curriculum and Pedagogy (MEd)",
                 "degreeType": "MEd",
                 "faculty": "Curriculum, Teaching and Learning",
                 "department": "",
@@ -2241,7 +2136,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "3ca9a7382ce78533cba9c79d7b2ededa370295c760790f0ef552f7ae23a1c85e",
+                "evidenceDocumentHash": "730815aa4f68e957f439d657f6dd0b3e24b8b926e09a7aa68e6e66af0bd105b5",
                 "windows": []
               }
             ]
@@ -2289,23 +2184,23 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/architecture/": {
-            "taskFingerprint": "e0ffadbf203c0702e73370fe0a63c74254318e207d7efb987a2e04ddf7055f4c",
-            "modifiedAt": "2025-11-03T11:02:56",
-            "fetchedAt": "2026-11-04T12:57:57.263362+00:00",
+            "taskFingerprint": "4ad1b0ef81b450c30a09f3b34927ce22d43a4895f7dfac0240aa6412fe4c19fa",
+            "modifiedAt": "2026-11-12T13:49:14",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-architecture-march",
-                "name": "Architecture (MArch)",
+                "name": "Daniels – Architecture (MArch)",
                 "degreeType": "MArch",
                 "faculty": "Architecture, Landscape, and Design",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/architecture/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MArch: Fall 2026 Entry 05-Jan-2026 International: MArch: Fall 2026 Entry 05-Jan-2026",
+                "deadlineText": "Domestic: MArch: Application Deadline International: MArch: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "e535402d61a8ce1e5fe533b93d5a630460cb6cde9b9c5df0c9fc0ca34314715d",
+                "evidenceDocumentHash": "bf314297592a076ade39b8e91bea32c7921614abb1da18c7f79d911f7121de20",
                 "windows": []
               }
             ]
@@ -2597,8 +2492,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/geography/": {
-            "modifiedAt": "2025-11-03T14:13:29",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "61f0a7613f9a3b9d1dfba5b90a7dd598bf97bbde70857ee8db9c8fe4ed84baa2",
+            "modifiedAt": "2026-09-01T10:49:38",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-geography-ma",
@@ -2608,11 +2504,11 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/geography/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MA, MSc, PhD: Fall 2026 entry 10-Jan-2026 International: MA, MSc, PhD: Fall 2026 entry 10-Jan-2026",
+                "deadlineText": "Domestic: MA, MSc, PhD: Application Deadline International: MA, MSc, PhD: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "7f6a3288bc2e9048c1668c6c4241f358f1937827189243b4370afdc5f24c5de4",
+                "evidenceDocumentHash": "a1b6be0855a64747c36ff04385b9ca81d5afa91be8d7058a7403efc9a05c8e06",
                 "windows": []
               },
               {
@@ -2623,54 +2519,55 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/geography/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MA, MSc, PhD: Fall 2026 entry 10-Jan-2026 International: MA, MSc, PhD: Fall 2026 entry 10-Jan-2026",
+                "deadlineText": "Domestic: MA, MSc, PhD: Application Deadline International: MA, MSc, PhD: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "7f6a3288bc2e9048c1668c6c4241f358f1937827189243b4370afdc5f24c5de4",
+                "evidenceDocumentHash": "a1b6be0855a64747c36ff04385b9ca81d5afa91be8d7058a7403efc9a05c8e06",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/genetic-counselling/": {
-            "modifiedAt": "2025-11-03T13:29:58",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "66314064eb6175570fd0e106694a0c1918c702d751a5f9fc976bf0caac67f8f4",
+            "modifiedAt": "2026-11-19T10:42:23",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-genetic-counselling-msc",
-                "name": "Genetic Counselling (MSc)",
+                "name": "Molecular Genetics – Genetic Counselling (MSc)",
                 "degreeType": "MSc",
                 "faculty": "Molecular Genetics",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/genetic-counselling/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MSc: Fall 2026 entry 07-Jan-2026 International: MSc: Fall 2026 entry 07-Jan-2026",
+                "deadlineText": "Domestic: MSc: Application Deadline International: MSc: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "54fb20f68452999e1ede0eb916e1def6630deecb3a0f5279d79279f14f09ab00",
+                "evidenceDocumentHash": "d1e9cc6c3f77ce54599343f7e29b927dbd41ee39450b0360b374efaccc3286e6",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/finance/": {
-            "taskFingerprint": "e6fb2e2807d2a35ff008eb871a7c603d4379dc2b3c3e64b5f8834b7b1f1f5ee3",
-            "modifiedAt": "2025-11-03T13:16:34",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "dac8d94887944e13bddbdb51c32911335baa12025430c9c09dabb3cbb6b0054e",
+            "modifiedAt": "2026-11-18T13:20:26",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-finance-mf",
-                "name": "Finance (MF)",
+                "name": "Rotman – Finance (MF)",
                 "degreeType": "MF",
                 "faculty": "Management, Rotman School of",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/finance/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MF: Please note that admissions for the Master of Finance have been paused for the 2025-2026 academic year. International: MF: Please note that admissions for the Master of Finance have been paused for the 2025-2026 academic year.",
+                "deadlineText": "Domestic: MF: Application Deadlines International: MF: Application Deadlines",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "2ef79d7d5904a528d9f74f3b9e14f5e005ad84ac797429d4cc4f3da9fceeface",
+                "evidenceDocumentHash": "23530daa61ea49f22e7be55da3bd5cff79d72ebac0a8b5b1f144bf0e721c9804",
                 "windows": []
               }
             ]
@@ -2757,13 +2654,13 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/educational-leadership-and-policy/": {
-            "taskFingerprint": "13eebd4a61073b8b773ff1127279112fac0027cb68afc29c713defbd34f78730",
-            "modifiedAt": "2026-03-05T16:27:07",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "a4c53ec0af14f0034b07e75b3189dbef8d1ddd4932d2eb8c16c62a7f5ccf15c5",
+            "modifiedAt": "2026-11-12T13:39:18",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-educational-leadership-and-policy-ma",
-                "name": "Educational Leadership and Policy (OISE) (MA)",
+                "name": "OISE – Educational Leadership and Policy (MA)",
                 "degreeType": "MA",
                 "faculty": "Leadership, Higher and Adult Education",
                 "department": "",
@@ -2773,12 +2670,12 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "fedb5d03ca8d709b7b3a9b549507b7fa8aa62cfea2c5370bd7b6b00a979d4bb4",
+                "evidenceDocumentHash": "d6edbc9f98c6e9c9943f80fba17fc2815248e07c3e4cd78066618d22184a31cc",
                 "windows": []
               },
               {
                 "id": "toronto-educational-leadership-and-policy-med",
-                "name": "Educational Leadership and Policy (OISE) (MEd)",
+                "name": "OISE – Educational Leadership and Policy (MEd)",
                 "degreeType": "MEd",
                 "faculty": "Leadership, Higher and Adult Education",
                 "department": "",
@@ -2788,19 +2685,19 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "fedb5d03ca8d709b7b3a9b549507b7fa8aa62cfea2c5370bd7b6b00a979d4bb4",
+                "evidenceDocumentHash": "d6edbc9f98c6e9c9943f80fba17fc2815248e07c3e4cd78066618d22184a31cc",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/developmental-psychology-and-education/": {
-            "taskFingerprint": "e1858e65546325033cb44ad4efb3258c0a0af1850c323ec115d5348da7e6eb38",
-            "modifiedAt": "2025-12-16T15:37:45",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "f762a46af664c906cd100fdcf0a6120de2da52b8fa5831129bf45a0b1c490cce",
+            "modifiedAt": "2026-11-12T13:34:51",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-developmental-psychology-and-education-ma",
-                "name": "Developmental Psychology and Education (MA)",
+                "name": "OISE – Developmental Psychology and Education (MA)",
                 "degreeType": "MA",
                 "faculty": "Applied Psychology and Human Development",
                 "department": "",
@@ -2810,12 +2707,12 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "a038bfb297dd8bba053803b998e42530f7bbcc9e95e827d35a1bd84af1a0c5eb",
+                "evidenceDocumentHash": "e67573bf83ba8e6cbb518c60fdebbae78de8f9d48c664619c891756f28441e77",
                 "windows": []
               },
               {
                 "id": "toronto-developmental-psychology-and-education-med",
-                "name": "Developmental Psychology and Education (MEd)",
+                "name": "OISE – Developmental Psychology and Education (MEd)",
                 "degreeType": "MEd",
                 "faculty": "Applied Psychology and Human Development",
                 "department": "",
@@ -2825,19 +2722,19 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "a038bfb297dd8bba053803b998e42530f7bbcc9e95e827d35a1bd84af1a0c5eb",
+                "evidenceDocumentHash": "e67573bf83ba8e6cbb518c60fdebbae78de8f9d48c664619c891756f28441e77",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology/": {
-            "taskFingerprint": "a6039dca9e616edf6f2caeca6a4331d2ee6923877f5189c7801d46ed436f09ce",
-            "modifiedAt": "2025-12-22T13:04:42",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "cc27dc273cc20115d8187dbb411262eef01e6f6d8eb73fff3ede43bfa980ae90",
+            "modifiedAt": "2026-11-12T13:30:25",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology-ma",
-                "name": "Counselling and Clinical Psychology – Field in Clinical and Counselling Psychology (OISE) (MA)",
+                "name": "OISE – Counselling and Clinical Psychology – Field in Clinical and Counselling Psychology (MA)",
                 "degreeType": "MA",
                 "faculty": "Applied Psychology and Human Development",
                 "department": "",
@@ -2847,15 +2744,15 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "9fccf180289896a8f65bc06a25f2c9020b2574ef520a6fad78dd8bf8b21b0f63",
+                "evidenceDocumentHash": "3c646dd48df2ded47484a67e4bad84604a14f7770761432f41dbc0a6220c53bd",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/": {
-            "taskFingerprint": "40827773b8e4630a126746ee7374f46652930c12ade7deb43a4b8db8de2e1633",
-            "modifiedAt": "2025-12-18T14:32:02",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "b0bc329c98eb470a1478e1b3bf7427de3a2f5a789582eed7a7324ed788ff18e9",
+            "modifiedAt": "2026-11-19T10:39:31",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-counselling-and-clinical-psychology-utsc-field-clinical-psychology-ma",
@@ -2865,37 +2762,12 @@
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MA, PhD: Fall 2027 entry 01-Dec-2026 International: MA, PhD: Fall 2027 entry 01-Dec-2026",
-                "parseStatus": "incomplete",
+                "deadlineText": "Domestic: MA, PhD: Application Deadline International: MA, PhD: Application Deadline",
+                "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "1e0e3316d5885fc2c985573b198a48c7622d53b37bd4c5320997d78dc99cae5a",
-                "windows": [
-                  {
-                    "round": "Fall 2027 domestic deadline",
-                    "opensAt": null,
-                    "closesAt": "2026-12-01",
-                    "applicantCategories": [
-                      "domestic"
-                    ],
-                    "intake": "Fall 2027",
-                    "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
-                    "opensAtBasis": null,
-                    "deadlineSemantics": "on"
-                  },
-                  {
-                    "round": "Fall 2027 international deadline",
-                    "opensAt": null,
-                    "closesAt": "2026-12-01",
-                    "applicantCategories": [
-                      "international"
-                    ],
-                    "intake": "Fall 2027",
-                    "sourceUrl": "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/",
-                    "opensAtBasis": null,
-                    "deadlineSemantics": "on"
-                  }
-                ]
+                "evidenceDocumentHash": "300bdf9a78e0980373c7db3423fe3a8d74acd1243bd86e5638c8a8f0d1a50e07",
+                "windows": []
               }
             ]
           },
@@ -3269,23 +3141,23 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/bioethics/": {
-            "taskFingerprint": "f64e382758bf7fc9eaf61ff6d7920bf90952264cd911006f12e4466d21ac4d65",
-            "modifiedAt": "2025-11-03T11:16:03",
-            "fetchedAt": "2026-11-04T12:57:57.263362+00:00",
+            "taskFingerprint": "dc7ed4f2542d8e76271ebd07fab474c6366ffc6ce7d94ce919fab23831164c2c",
+            "modifiedAt": "2026-11-12T13:24:33",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-bioethics-mhsc",
-                "name": "Bioethics (MHSc)",
+                "name": "Public Health Sciences (MHSc Bioethics) (MHSc)",
                 "degreeType": "MHSc",
                 "faculty": "Public Health Sciences",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/bioethics/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MHSc: Fall 2026 entry 16-Jan-2026 International: MHSc: Fall 2026 entry 16-Jan-2026",
+                "deadlineText": "Domestic: MHSc: Application Deadline International: MHSc: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "5cb373ed87d6e92e60bc8c04e935dba976b7f7bb2352ca1351172b0237e00a2f",
+                "evidenceDocumentHash": "5401ebe7ff32cf63083225c965a01ce296fa22766c30604266b5caf94adfe792",
                 "windows": []
               }
             ]
@@ -3335,23 +3207,23 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/community-health/": {
-            "taskFingerprint": "68f101b4ec7ce360696b950ac31658a246dd2921e9f2471a2dc1db581f318e57",
-            "modifiedAt": "2025-11-03T11:28:33",
-            "fetchedAt": "2026-11-04T12:57:57.263362+00:00",
+            "taskFingerprint": "aeb4e3bace74f4408d4f3294364db5b26790272b26d0b87ae8c38a0fdced6e8b",
+            "modifiedAt": "2026-11-12T13:42:55",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-community-health-mscch",
-                "name": "Community Health (MScCH)",
+                "name": "Public Health Sciences (MScCH Community Health) (MScCH)",
                 "degreeType": "MScCH",
                 "faculty": "Public Health Sciences",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/community-health/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MScCH: Fall 2026 Entry 16-Jan-2026 International: MScCH: Fall 2026 Entry 16-Jan-2026",
+                "deadlineText": "Domestic: MScCH: Application Deadline International: MScCH: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "46d6a01c5ec87714e154833ba5dea09a5e7fd0219a1b695f9e303c42d41c2235",
+                "evidenceDocumentHash": "f35c789046a7e9c4944557660dd8a46a7921037652bb99345cb9fc71e895875a",
                 "windows": []
               }
             ]
@@ -3378,8 +3250,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/french-language-and-literature/": {
+            "taskFingerprint": "42c61a526d4a8e32b52aaa24632d19f9b61708bee686758f19717ce476239667",
             "modifiedAt": "2025-12-16T10:29:16",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-french-language-and-literature-ma",
@@ -3393,18 +3266,19 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "28fd97a217bbf615bfd55db3d0a52a4fbe864ba9f4662f0791b0b7df7b686a43",
+                "evidenceDocumentHash": "1e4346992d3cd5c3ee7f8085e7680e0bb182c79a1ae3377cd836520a9f59df2d",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/global-affairs/": {
-            "modifiedAt": "2025-12-22T13:18:27",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "e927b0853bd1a42159f52c7f6a94eff948dd5a54db38586684d6f9e4dfba9f3e",
+            "modifiedAt": "2026-11-19T10:45:04",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-global-affairs-mga",
-                "name": "Global Affairs (MGA)",
+                "name": "Munk – Global Affairs (MGA)",
                 "degreeType": "MGA",
                 "faculty": "Global Affairs and Public Policy",
                 "department": "",
@@ -3414,7 +3288,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "84b856ce5229784bf11376fcb19149e720f860081ef8a4098773a1214a05252f",
+                "evidenceDocumentHash": "9fcced27e856b93a73f5f7755f13512994503ba9dc05b6d4fa7bb64b62764106",
                 "windows": []
               }
             ]
@@ -3603,13 +3477,13 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/adult-education-and-community-development/": {
-            "taskFingerprint": "08b236d9b184c14719e3f8ae74c9f9fb9cf2d57412117443258bab60d8cd0168",
-            "modifiedAt": "2026-03-05T16:26:37",
-            "fetchedAt": "2026-11-04T12:57:57.263362+00:00",
+            "taskFingerprint": "41e7cb3e9558ed35a08d00e2a086ca993f06801cc9d66f2b289de9114cf36173",
+            "modifiedAt": "2026-11-12T13:29:53",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-adult-education-and-community-development-ma",
-                "name": "Adult Education and Community Development (OISE) (MA)",
+                "name": "OISE – Adult Education and Community Development (MA)",
                 "degreeType": "MA",
                 "faculty": "Leadership, Higher and Adult Education",
                 "department": "",
@@ -3619,12 +3493,12 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "ff89b962d6bedf1630b2264031d1cd8aa00d47ad25d7cf8ef26319d395b92256",
+                "evidenceDocumentHash": "d0545c48acc6fb888edf83ebb52b68afedb6392a1c5ce99cab352a49a1093fc4",
                 "windows": []
               },
               {
                 "id": "toronto-adult-education-and-community-development-med",
-                "name": "Adult Education and Community Development (OISE) (MEd)",
+                "name": "OISE – Adult Education and Community Development (MEd)",
                 "degreeType": "MEd",
                 "faculty": "Leadership, Higher and Adult Education",
                 "department": "",
@@ -3634,7 +3508,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "ff89b962d6bedf1630b2264031d1cd8aa00d47ad25d7cf8ef26319d395b92256",
+                "evidenceDocumentHash": "d0545c48acc6fb888edf83ebb52b68afedb6392a1c5ce99cab352a49a1093fc4",
                 "windows": []
               }
             ]
@@ -3830,50 +3704,53 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/forest-conservation/": {
-            "modifiedAt": "2025-11-03T13:18:17",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "ebc9e1b91e552f6d004e0984711b418c30b3e1bf5b0e86a6f3ae847dd1e95bbb",
+            "modifiedAt": "2026-11-12T13:52:05",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-forest-conservation-mfc",
-                "name": "Forest Conservation (MFC)",
+                "name": "Daniels – Forest Conservation (MFC)",
                 "degreeType": "MFC",
                 "faculty": "Architecture, Landscape, and Design",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/forest-conservation/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MFC: Fall 2026 entry Early Application Deadline: 05-Jan-2026 Final Application Deadline: 27-March-2026 International: MFC: Fall 2026 entry Early Application Deadline: 05-Jan-2026 Final Application Deadline: 27-March-2026",
+                "deadlineText": "Domestic: MFC: Application Deadline International: MFC: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "9eea6156cae5a683f381f38763d616e25543bf80a4f5f5231a45c3e96cce6704",
+                "evidenceDocumentHash": "2127d17ce6ba8556fb208c4f8d53cf85030341fe26bc77aba0f012421fac142f",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/forestry/": {
-            "modifiedAt": "2025-11-03T13:18:20",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "taskFingerprint": "d0f6219a9720158d7d5af490d6bc1bd86d4c5483ccbb7b0a85c203276b443371",
+            "modifiedAt": "2026-11-12T13:52:49",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-forestry-mscf",
-                "name": "Forestry (MScF)",
+                "name": "Daniels – Forestry (MScF)",
                 "degreeType": "MScF",
                 "faculty": "Architecture, Landscape, and Design",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/forestry/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MScF, PhD: Fall 2026 entry Early Application Deadline: 05-Jan-2026 Final Application Deadline: 27-March-2026 International: MScF, PhD: Fall 2026 entry Early Application Deadline: 05-Jan-2026 Final Application Deadline: 27-March-2026",
+                "deadlineText": "Domestic: MScF, PhD: Application Deadline International: MScF, PhD: Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "489292868b7d9b429419b44187ab0f30948d7e848009fe13eb78b2c358e4c7f2",
+                "evidenceDocumentHash": "5fa4f69889d887dbcb4584544c92034729738be582996966883c50ea04d830be",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/forensic-accounting/": {
+            "taskFingerprint": "7800835891650ad97b9352602bb4edf7d23a8c7a7f5aabf92b3b916df01f380a",
             "modifiedAt": "2026-05-29T14:05:09",
-            "fetchedAt": "2026-08-28T23:42:16.308455+00:00",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-forensic-accounting-mfacc",
@@ -3887,7 +3764,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "3bff5ef635c750d92219e60eff7b7015e12b9368b6829a36c17d1dfab06fac30",
+                "evidenceDocumentHash": "ce004d3ab4678d6e481b1008d54f485ac522a52b3b2268bdabc9023028a690c5",
                 "windows": []
               }
             ]
@@ -4289,9 +4166,9 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/environmental-science/": {
-            "taskFingerprint": "49c78c575ad3e277349eab53ceb9114758fc1b874c4a24aef15104726e552a83",
-            "modifiedAt": "2026-11-03T15:21:49",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "d5665a5725958adfaa264f005fef907247e640cd097dab7eee5b43dda4aca98c",
+            "modifiedAt": "2026-11-05T15:15:39",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-environmental-science-menvsc",
@@ -4305,7 +4182,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "4716bc9fa25d6b310ec415b24c7d64e6b24beb1fecc3626948f71c8db868b235",
+                "evidenceDocumentHash": "23e897560846c6527c9acf6244e32299a50b7b8ab6657b9f7b5986e5641cbcf9",
                 "windows": []
               },
               {
@@ -4320,7 +4197,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "4716bc9fa25d6b310ec415b24c7d64e6b24beb1fecc3626948f71c8db868b235",
+                "evidenceDocumentHash": "23e897560846c6527c9acf6244e32299a50b7b8ab6657b9f7b5986e5641cbcf9",
                 "windows": []
               }
             ]
@@ -4655,13 +4532,13 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/european-and-russian-affairs/": {
-            "taskFingerprint": "7ea2326cb60f82b2c4c66454413e3dc975ba5ed7e6cc198b8ad6919ed40ae37b",
-            "modifiedAt": "2025-11-03T12:17:48",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "383c7799ff91f0756766e3db5fd25dc8d3d943e27372eee6821e28a10af85db3",
+            "modifiedAt": "2026-11-19T10:44:23",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-european-and-russian-affairs-ma",
-                "name": "European and Eurasian Studies (MA)",
+                "name": "Munk – European and Eurasian Studies (MA)",
                 "degreeType": "MA",
                 "faculty": "European, Russian, and Eurasian Studies",
                 "department": "",
@@ -4671,7 +4548,7 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "e3b482f3c65fb0121e9d1fdb24a4378c15ed2ea70c20c7ecf4346cfbf01d5cac",
+                "evidenceDocumentHash": "1d3a6d52eb9facd801a2d2788973b3cf0ab35bc4dbfbba6ef67a2ca3b0dcc47e",
                 "windows": []
               }
             ]
@@ -4839,13 +4716,13 @@
             ]
           },
           "https://www.sgs.utoronto.ca/programs/child-study-and-education/": {
-            "taskFingerprint": "5e8763bdf83dbf5636b0daef1049dab2460645aff1c15e5e666ec0b497068b50",
-            "modifiedAt": "2026-09-01T11:54:53",
-            "fetchedAt": "2026-11-04T12:57:57.263362+00:00",
+            "taskFingerprint": "5ec63bbd22971ec09d657b3189ac95b30d2bc178415d1c05ffbf087f3c8c14d5",
+            "modifiedAt": "2026-11-12T13:37:19",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-child-study-and-education-ma",
-                "name": "Child Study and Education (OISE) (MA)",
+                "name": "OISE – Child Study and Education (MA)",
                 "degreeType": "MA",
                 "faculty": "Applied Psychology and Human Development",
                 "department": "",
@@ -4855,29 +4732,29 @@
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "ddfe3a734b01a49ae1eb94dba8d6a981686708ae92973788d05e5f9f744f3b3a",
+                "evidenceDocumentHash": "f10bb4aa3af36c77443b1d0773011bc2998aae061c19b7c6bea80f48695ab7a9",
                 "windows": []
               }
             ]
           },
           "https://www.sgs.utoronto.ca/programs/executive-master-of-business-administration/": {
-            "taskFingerprint": "3d39a0765eea8acb5aed7e4ffd4c430e05b4c3f383c45fd4cefbd9500ff22e64",
-            "modifiedAt": "2025-12-15T15:00:02",
-            "fetchedAt": "2026-11-05T13:12:53.597356+00:00",
+            "taskFingerprint": "4996dc50e646dce577511a8437fd4ec9144607fdacf6dbd38b0b41a9504280f7",
+            "modifiedAt": "2026-11-12T14:06:45",
+            "fetchedAt": "2026-11-21T07:03:00.256597+00:00",
             "programmes": [
               {
                 "id": "toronto-executive-master-of-business-administration-mba-emba",
-                "name": "Business Administration (EMBA) (MBA (EMBA))",
+                "name": "Rotman – Business Administration (EMBA) (MBA (EMBA))",
                 "degreeType": "MBA (EMBA)",
                 "faculty": "Management, Rotman School of",
                 "department": "",
                 "sourceUrl": "https://www.sgs.utoronto.ca/programs/executive-master-of-business-administration/",
                 "applicationUrl": "https://admissions.sgs.utoronto.ca/apply/",
-                "deadlineText": "Domestic: MBA (EMBA): Fall 2026 entry Round 1 – January 20, 2026 Round 2 – April 8, 2026 Round 3 – June 24, 2026 International: MBA (EMBA): Fall 2026 entry Round 1 – January 20, 2026 Round 2 – April 8, 2026 Round 3 – June 24, 2026 MBA (EMBA): International applicants are strongly encouraged to apply no later than the 2nd round.",
+                "deadlineText": "Domestic: MBA (EMBA): Application Deadline International: MBA (EMBA): Application Deadline",
                 "parseStatus": "no-deadline",
                 "retrievalMethod": "official-html",
                 "evidenceQuality": "official-full-text",
-                "evidenceDocumentHash": "3ebe6d6f5c18de5f6f89bb582078d8ffe8182e1b490633bb7ba55320d86e28ca",
+                "evidenceDocumentHash": "1afb41aba8452475e7235b8da7720239e10195d0e147056fbf98ca2d8cedad51",
                 "windows": []
               }
             ]
@@ -4980,19 +4857,24 @@
         },
         "detailQueue": {
           "https://www.sgs.utoronto.ca/programs/master-of-management-mmgt/": {
-            "fingerprint": "3a54225780e0acfcb259d5f80492e5840d577240620093509baa4d1bd5814816"
+            "fingerprint": "977e25b74f740668375f97a841c2fc3eb408857ebfd970a86bfeef976fc24c84"
           },
           "https://www.sgs.utoronto.ca/programs/master-of-business-administration-one-year-full-time-mba/": {
-            "fingerprint": "6256705290d3192d2bdcb0896e2db5c3b38f0f0efc04fa63ec9eb1c5f448a0da"
+            "fingerprint": "6aedd08d32833c45c10e699aa2caf8d7bde7fafca7d4610a99bcb11d8d1f348b"
           },
           "https://www.sgs.utoronto.ca/programs/medical-physiology/": {
             "fingerprint": "2449bea490ac3349b775bb076e7e9d51423577f02e2a269845edff5d3a24c917"
           },
           "https://www.sgs.utoronto.ca/programs/germanic-languages-and-literatures/": {
-            "fingerprint": "c871d48f11a76229cee2b1444fb0d50e4cdb158281e55addffcd47d61151c005"
+            "fingerprint": "c871d48f11a76229cee2b1444fb0d50e4cdb158281e55addffcd47d61151c005",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/laboratory-medicine/": {
-            "fingerprint": "c1faa4789e0cb0e9683693a28905869ce0e99ec4c5d7c4c8c3a4ff1923bb46cb"
+            "fingerprint": "ed244c57a11fd1d8ab260fe90d9a19bbefa5c525e6211950cb911726bcb2e83d"
           },
           "https://www.sgs.utoronto.ca/programs/pharmacy/": {
             "fingerprint": "3351e2b8859f22df0058dc40c508ed4f7139526ca7858ee6f673255bf8f1f154"
@@ -5033,38 +4915,37 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/management-analytics/": {
-            "fingerprint": "c4d830c51ea015d43bd7cab895572837fd105006f9ef409a4fa299a76c133376"
-          },
-          "https://www.sgs.utoronto.ca/programs/global-executive-master-of-business-administration-dual-degree/": {
-            "fingerprint": "d10b69ac0b021f312ecaa9be5f8d927653f01abdb85a4e2361c4e3ff929e2706"
+            "fingerprint": "4c18b16a44220f29dcb11d285789f53a088726355c9a27cf9b95d144520d8ec8"
           },
           "https://www.sgs.utoronto.ca/programs/global-executive-master-of-business-administration-for-healthcare-and-the-life-sciences/": {
-            "fingerprint": "996e7972ae56a4d7d704c3427c2f19543c4e2fd9135db3fc3d56aabb1518ab3b"
-          },
-          "https://www.sgs.utoronto.ca/programs/master-of-business-administration-extended-full-time-mba/": {
-            "fingerprint": "119d930bb4c87f880fed11949c70ec26fce4a0ecc54ae012f685f13a7c2a810a"
+            "fingerprint": "dd8bffffefff830d9ec217cb6c0ad49efd85c17aac699f7cd5ef72b277f62d5a",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/master-of-business-administration-full-time-mba/": {
-            "fingerprint": "cdcb102e010a6e2a83921995889173e8c52b1e44e5ba5ea2ed5910e6574694c1"
+            "fingerprint": "b3a9512ca349292f29cece2eecaf3f60bd32cdd0bdf000215aa503b8043f2d7d"
           },
           "https://www.sgs.utoronto.ca/programs/translational-research-in-the-health-sciences/": {
             "fingerprint": "5f770732776e370b3cdfaa5c82ddfc3e655b0ff4b85f99fe6025e498a1778c9c"
           },
           "https://www.sgs.utoronto.ca/programs/financial-risk-management/": {
-            "fingerprint": "4a054e8907211e33faa7b15a30998613038be08b45407290284152387fa9f8ed",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "157a5a6256e7ceb8e16b0dce84bbe06fb5d45d888dff5c4a398cb4c97a32ab83",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/curriculum-and-pedagogy/": {
-            "fingerprint": "39a9b66c9a76311b873ac1951faadfcf0304ca640c96ea0b0c65c0474c70a39e",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "af8f5c9c17ecc70963a4054bd32764a7178575d6d4fe2cd27e6de0bf76c68c7b",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/political-science/": {
             "fingerprint": "1f5e51b4fca05dcc3447c37ac03737b617a484251113533cce33b9cd6e4e4b42"
@@ -5073,12 +4954,12 @@
             "fingerprint": "6fa88854bd86c2a5f432ece5a2f65fd8cbd339811c624357c279bf72128ae68b"
           },
           "https://www.sgs.utoronto.ca/programs/architecture/": {
-            "fingerprint": "e0ffadbf203c0702e73370fe0a63c74254318e207d7efb987a2e04ddf7055f4c",
-            "attemptedAt": "2026-11-04T12:57:57.265801+00:00",
+            "fingerprint": "4ad1b0ef81b450c30a09f3b34927ce22d43a4895f7dfac0240aa6412fe4c19fa",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-04T12:57:57.265801+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/biomedical-engineering/": {
             "fingerprint": "e58ac19da37d09ee88f08acebd689866876927f393ff13a3da2a03417b6fe8d9",
@@ -5089,7 +4970,7 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/school-and-clinical-child-psychology/": {
-            "fingerprint": "43e6260c764705455e51f6e11fc0fcd8c184ec9169dd1de2dfd1a380c459ceca"
+            "fingerprint": "a6a80607466dfe5801859a33d85ea06660796e28edde595ff1eec9ae98e5f44a"
           },
           "https://www.sgs.utoronto.ca/programs/public-health-sciences/": {
             "fingerprint": "40615f56131d4049c23c58a40c6b30193cdeb720310d98576785a312c48909c5"
@@ -5104,68 +4985,78 @@
             "fingerprint": "6333e3ad0eea79be5fe1d0c700b8329d9494c657506b2c3628f88105a2f1d5b2"
           },
           "https://www.sgs.utoronto.ca/programs/law/": {
-            "fingerprint": "c70e4f831e87e12fbb6b7ff5b7176a32ee899670f4c72972cfca2d0def6679bc"
+            "fingerprint": "cdd25bfdf5a410a8e82f6618ad0650ad045320f57b7c4fa282ce91684f335fb0"
           },
           "https://www.sgs.utoronto.ca/programs/language-and-literacies-education/": {
-            "fingerprint": "8b2fefbd8f59e19ead7d3829dfecbdb842f366bc877c12c7e06e90e4cfa327ee"
+            "fingerprint": "f16136f5b4aa1f9cedb8d2e793c65f81bfeff86622b44281bc2aeba4c4aa980c"
           },
           "https://www.sgs.utoronto.ca/programs/higher-education/": {
-            "fingerprint": "b67f2a92d31fd3165065c7f1f2040528a854fac063ce31b995f7f91c32c45623"
+            "fingerprint": "59e54789a3f044fc9c8b5b3a0eb28391c8a406f99e8f604e438c523af782a1ea"
           },
           "https://www.sgs.utoronto.ca/programs/health-policy-management-and-evaluation/": {
             "fingerprint": "6368dff8c0d5a04282660447d67a19640f2748740df7dda0b7c4dbbe2bd4291d"
           },
           "https://www.sgs.utoronto.ca/programs/geography/": {
-            "fingerprint": "61f0a7613f9a3b9d1dfba5b90a7dd598bf97bbde70857ee8db9c8fe4ed84baa2"
+            "fingerprint": "61f0a7613f9a3b9d1dfba5b90a7dd598bf97bbde70857ee8db9c8fe4ed84baa2",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/genetic-counselling/": {
-            "fingerprint": "fe3ca160242956636a21bd08e32346c5535f8d9908cd56f5a59e49207b6a398e"
+            "fingerprint": "66314064eb6175570fd0e106694a0c1918c702d751a5f9fc976bf0caac67f8f4",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/finance/": {
-            "fingerprint": "e6fb2e2807d2a35ff008eb871a7c603d4379dc2b3c3e64b5f8834b7b1f1f5ee3",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "dac8d94887944e13bddbdb51c32911335baa12025430c9c09dabb3cbb6b0054e",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/kinesiology/": {
             "fingerprint": "bf5af473f08820958d9162237a982163ade6719289961d4974c1c6d856b72bae"
           },
           "https://www.sgs.utoronto.ca/programs/educational-leadership-and-policy/": {
-            "fingerprint": "13eebd4a61073b8b773ff1127279112fac0027cb68afc29c713defbd34f78730",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "a4c53ec0af14f0034b07e75b3189dbef8d1ddd4932d2eb8c16c62a7f5ccf15c5",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/developmental-psychology-and-education/": {
-            "fingerprint": "e1858e65546325033cb44ad4efb3258c0a0af1850c323ec115d5348da7e6eb38",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "f762a46af664c906cd100fdcf0a6120de2da52b8fa5831129bf45a0b1c490cce",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-oise-field-clinical-and-counselling-psychology/": {
-            "fingerprint": "a6039dca9e616edf6f2caeca6a4331d2ee6923877f5189c7801d46ed436f09ce",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "cc27dc273cc20115d8187dbb411262eef01e6f6d8eb73fff3ede43bfa980ae90",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/counselling-and-clinical-psychology-utsc-field-clinical-psychology/": {
-            "fingerprint": "40827773b8e4630a126746ee7374f46652930c12ade7deb43a4b8db8de2e1633",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "b0bc329c98eb470a1478e1b3bf7427de3a2f5a789582eed7a7324ed788ff18e9",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/urban-design/": {
-            "fingerprint": "fb8dc367d1bea40c40febc86025a9c9fc386a5190b151bb8ade620f9a87d6f14"
+            "fingerprint": "c17d79384c404e9f964edffe9160af0d8517c1012a56e456590f55074048999d"
           },
           "https://www.sgs.utoronto.ca/programs/nutritional-sciences/": {
             "fingerprint": "20fed846ada064042346d0245617eaf1635cafda0c695e99f64337149aad1379"
@@ -5180,7 +5071,7 @@
             "fingerprint": "c5a5cfa2ed6ba0ae78f70a943cce65e95e27a042e1b76b40724de6fa063dedc1"
           },
           "https://www.sgs.utoronto.ca/programs/mathematical-finance/": {
-            "fingerprint": "29ad4cee12d166d0556e88fe313aac6f37f020c8482ad870256faaae7c55763d"
+            "fingerprint": "c9b137a4348b40ea487a04430ccc80b685d9847b9d479a5d1922c5bae73d6683"
           },
           "https://www.sgs.utoronto.ca/programs/drama-theatre-and-performance-studies/": {
             "fingerprint": "3f518785d832e7a5e4073e808fe110fa9323478408e9d6fec508f252913d8b85",
@@ -5255,12 +5146,12 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/bioethics/": {
-            "fingerprint": "f64e382758bf7fc9eaf61ff6d7920bf90952264cd911006f12e4466d21ac4d65",
-            "attemptedAt": "2026-11-04T12:57:57.265801+00:00",
+            "fingerprint": "dc7ed4f2542d8e76271ebd07fab474c6366ffc6ce7d94ce919fab23831164c2c",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-04T12:57:57.265801+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/astronomy-and-astrophysics/": {
             "fingerprint": "9b3b40afc7a06b79c6a52f3e5d521d7d1317631541c3f58a53e70051619e9170",
@@ -5279,30 +5170,40 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/community-health/": {
-            "fingerprint": "68f101b4ec7ce360696b950ac31658a246dd2921e9f2471a2dc1db581f318e57",
-            "attemptedAt": "2026-11-04T12:57:57.265801+00:00",
+            "fingerprint": "aeb4e3bace74f4408d4f3294364db5b26790272b26d0b87ae8c38a0fdced6e8b",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-04T12:57:57.265801+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/public-policy/": {
-            "fingerprint": "a0902689c091b6fd0f4bfbc043f41f838f94c9267d2ee1bf416268a138580699"
+            "fingerprint": "5b629c33b4bbbb3b1f023657608608d5a120409d8464ffe3960a81ec5f424e08"
           },
           "https://www.sgs.utoronto.ca/programs/french-language-and-literature/": {
-            "fingerprint": "42c61a526d4a8e32b52aaa24632d19f9b61708bee686758f19717ce476239667"
+            "fingerprint": "42c61a526d4a8e32b52aaa24632d19f9b61708bee686758f19717ce476239667",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/global-affairs/": {
-            "fingerprint": "6ecad7cf129a498f792d19540318e9ee624acbf59f68dc2ed8182de0fed7a669"
+            "fingerprint": "e927b0853bd1a42159f52c7f6a94eff948dd5a54db38586684d6f9e4dfba9f3e",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/medical-genomics/": {
-            "fingerprint": "def4edb2e1df3f45c4b9afeceb06740e43a9f964f964decc6d63668d39843f12"
+            "fingerprint": "1965470e2b14cc5d18b8ebe3fd231df87790e4c5b2f3c9a4fddb4086b8071049"
           },
           "https://www.sgs.utoronto.ca/programs/medieval-studies/": {
             "fingerprint": "19eaa3d8556f018cef5bfbdab9123443264f06c2f125a6811988964100c3b7d0"
           },
           "https://www.sgs.utoronto.ca/programs/museum-studies/": {
-            "fingerprint": "120e805de5502635e6a7212829140d01a458874faf4e6621dc819b45f017e05c"
+            "fingerprint": "f19340a999470194e4bc81f0c8b0010ea577d122c93066c554cd0a8792abe8a0"
           },
           "https://www.sgs.utoronto.ca/programs/social-work/": {
             "fingerprint": "9467e24f437be9e688729d5adcb83ca42db74b7f541fc079649180f77270fb89"
@@ -5311,7 +5212,7 @@
             "fingerprint": "e456580a25ca9d29393b9085eddef70250a983dbb2685da8e6e68512d39ac8b9"
           },
           "https://www.sgs.utoronto.ca/programs/visual-studies/": {
-            "fingerprint": "f477f56786c99e38166514fcae2de2d56b0c01f040e54f8848bd349edc62efb5"
+            "fingerprint": "8b74bda72ebf6bf03961c9e6f82350f7cbbe08d610967c9ffef0e291d93f7ea1"
           },
           "https://www.sgs.utoronto.ca/programs/near-and-middle-eastern-civilizations/": {
             "fingerprint": "cfe03ed143cfe1c23cc28f785da4c670d514100e78c60054236cd70ae4159c27"
@@ -5320,12 +5221,12 @@
             "fingerprint": "15e22bf991fe1f690e6b03f462912ab8faf3869c5560c143b08849d79af05f71"
           },
           "https://www.sgs.utoronto.ca/programs/adult-education-and-community-development/": {
-            "fingerprint": "08b236d9b184c14719e3f8ae74c9f9fb9cf2d57412117443258bab60d8cd0168",
-            "attemptedAt": "2026-11-04T12:57:57.265801+00:00",
+            "fingerprint": "41e7cb3e9558ed35a08d00e2a086ca993f06801cc9d66f2b289de9114cf36173",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-04T12:57:57.265801+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/accounting-and-finance/": {
             "fingerprint": "98521fa4d55e46ba831610cf7d7e19b8934d58c18cd585e8fc83b7e073fcb32d",
@@ -5339,13 +5240,13 @@
             "fingerprint": "77f6d533c08110775c94f44d349e694a8b7183f4404535961a3de66d99ab4eec"
           },
           "https://www.sgs.utoronto.ca/programs/landscape-architecture/": {
-            "fingerprint": "e94e846df37ed974c11a510b6585634004411623cceaa3b66dabd095e6151c6e"
+            "fingerprint": "6185abede40d1ce1974a9eeebccfcd05a0967ab1fd7ca8f3013e72a71328a319"
           },
           "https://www.sgs.utoronto.ca/programs/italian-studies/": {
             "fingerprint": "a783887fceb39aa45076d9ebc776066897360baaa4720cac4769d4473ba365e1"
           },
           "https://www.sgs.utoronto.ca/programs/information/": {
-            "fingerprint": "eb192cea01bbaba528852412b1615145674d6e466f2cc6bd2735516f69077248"
+            "fingerprint": "45baf0cfa826bcd6eaf8c1241c7d4a9d03fc80ec6d4bbcf9ef1ad9d27116bb8b"
           },
           "https://www.sgs.utoronto.ca/programs/industrial-relations-and-human-resources/": {
             "fingerprint": "726dcb40cbcab136ec8c15fb41508b235d34f4fdc09e7bda5c4971c2e75cafff"
@@ -5360,13 +5261,28 @@
             "fingerprint": "09d5dbf904fa43504bca35b0e7085bd9edd2f7066d7f41ddb1015e556ccf3974"
           },
           "https://www.sgs.utoronto.ca/programs/forest-conservation/": {
-            "fingerprint": "01925f5892764bf849346dd8a0bb5bd9c5880800aaf4364b395c6ed769500838"
+            "fingerprint": "ebc9e1b91e552f6d004e0984711b418c30b3e1bf5b0e86a6f3ae847dd1e95bbb",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/forestry/": {
-            "fingerprint": "2d6347d12f461c4feb03a5ff386122612e711b7b9abf26d7516dafb7764c8f39"
+            "fingerprint": "d0f6219a9720158d7d5af490d6bc1bd86d4c5483ccbb7b0a85c203276b443371",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/forensic-accounting/": {
-            "fingerprint": "7800835891650ad97b9352602bb4edf7d23a8c7a7f5aabf92b3b916df01f380a"
+            "fingerprint": "7800835891650ad97b9352602bb4edf7d23a8c7a7f5aabf92b3b916df01f380a",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
+            "status": "checked",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
+            "failures": 0,
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/financial-economics/": {
             "fingerprint": "32bd95414ace008a05c6a59e10e68ff8d635c4b8d2ea0a536253bcba7feb5667",
@@ -5385,7 +5301,7 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/teaching/": {
-            "fingerprint": "2003c54d539e83786e59402f992a3a8cffd3345b401d758693bc8b7d62232a3c"
+            "fingerprint": "e43b836b6472c06658c9ec8bea47f7a763bbc0ff0e84396279479c675cf72287"
           },
           "https://www.sgs.utoronto.ca/programs/sustainability-management/": {
             "fingerprint": "57df6e511469bf20ec0014379a2295ed150c2d2a628de05a6cbca15eae463a2e"
@@ -5406,7 +5322,7 @@
             "fingerprint": "06ca373fd67e625e8a170dd12c1e378a9b58a7c6ef2df5264675400bf950c151"
           },
           "https://www.sgs.utoronto.ca/programs/management-and-professional-accounting/": {
-            "fingerprint": "c8a11d1c4d3f684057eb4bcfde2a8729ec63706b27bd5d63b6431db4a05c21d3"
+            "fingerprint": "e1ec27f73403190a48f43e665b6816a1f99500ce6291856bc6f244d4f4291989"
           },
           "https://www.sgs.utoronto.ca/programs/linguistics/": {
             "fingerprint": "519920a453352e7a80653762d0a81bded6cf2204c611762fe31402626a870d45"
@@ -5415,16 +5331,16 @@
             "fingerprint": "fd35959485740b06d21028d5a25234357b34c194a524ef9c281840ef20a9a054"
           },
           "https://www.sgs.utoronto.ca/programs/laboratory-medicine-and-pathobiology/": {
-            "fingerprint": "c15a790cf288a00639fbc9b21d8c7c9fba218d4097d4a6f023b20360391a8b1e"
+            "fingerprint": "d7663c52bc8ba4fadfa94b600b9c4425fa5b040f0a1ff618ade459fa51c6eed8"
           },
           "https://www.sgs.utoronto.ca/programs/immunology/": {
             "fingerprint": "0025317e165ba50352ed8b281a93f3dc131b102a1ee7336ecf10fa8a7277f6a4"
           },
           "https://www.sgs.utoronto.ca/programs/global-professional-law/": {
-            "fingerprint": "de62cd7ca540e84ac9f935a0ffad73e6002d6e3b46b12dd6b6fbc6da50328b00"
+            "fingerprint": "570231767e8fabccd4ade1e208325b7865e618585782c3b3298a306bec727afd"
           },
           "https://www.sgs.utoronto.ca/programs/social-justice-education/": {
-            "fingerprint": "5e4e0367f4832b5f1db226a3bb78b38c726087a7ac482ba9d74b2ecba7e76953"
+            "fingerprint": "1cfae2113d795be407f52620a11404cbf2abeab5f90c2b06f99ca75cc7a8d864"
           },
           "https://www.sgs.utoronto.ca/programs/financial-insurance/": {
             "fingerprint": "ffc672a9923cd30d79131227e6d9cb81a0d18e5df7334a0f9fd34183d049115c",
@@ -5435,15 +5351,15 @@
             "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/women-and-gender-studies/": {
-            "fingerprint": "91598c3e71c6d52eac68073bab345283963ad68874611ad57fe268b9b98cf249"
+            "fingerprint": "6edc453549c334d23bd3dddabfefb6ca2bfb201fba80b0f41b1bbc6169c3e635"
           },
           "https://www.sgs.utoronto.ca/programs/environmental-science/": {
-            "fingerprint": "49c78c575ad3e277349eab53ceb9114758fc1b874c4a24aef15104726e552a83",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "d5665a5725958adfaa264f005fef907247e640cd097dab7eee5b43dda4aca98c",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/ecology-and-evolutionary-biology/": {
             "fingerprint": "1e3ce6bae692c9db3dc45caf8a8dac1f11d7fff3096e0b8543841deb9f41ab8d",
@@ -5498,7 +5414,7 @@
             "fingerprint": "abf194d707510df8fc494e8a5adad17f705f9553da07693cd1dd0169a2a3a736"
           },
           "https://www.sgs.utoronto.ca/programs/pharmaceutical-sciences/": {
-            "fingerprint": "d0fc7dd0e0ace5bd5ff192377266ca4f8dc80da30205cd799bd0375b64ed9a6c"
+            "fingerprint": "b2e45e6ae80be1910c496741791a298e803ce3b8de40c8f39c7360909c40696c"
           },
           "https://www.sgs.utoronto.ca/programs/occupational-therapy/": {
             "fingerprint": "54d1002aa60048faef1835308fbe4dbd14c8c3ff351dbceb225c10912218999a"
@@ -5513,12 +5429,12 @@
             "fingerprint": "3f8a8935fb87c952f88fdce9dd9fb9d2db5074f7cfbdd9c1ec467378a447a717"
           },
           "https://www.sgs.utoronto.ca/programs/european-and-russian-affairs/": {
-            "fingerprint": "7ea2326cb60f82b2c4c66454413e3dc975ba5ed7e6cc198b8ad6919ed40ae37b",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "383c7799ff91f0756766e3db5fd25dc8d3d943e27372eee6821e28a10af85db3",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/economics/": {
             "fingerprint": "4e7711a69a77c3c7049065a7881a3e7e30873918b245c9d23ee16d3c06ca7fcb",
@@ -5569,20 +5485,20 @@
             "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/child-study-and-education/": {
-            "fingerprint": "5e8763bdf83dbf5636b0daef1049dab2460645aff1c15e5e666ec0b497068b50",
-            "attemptedAt": "2026-11-04T12:57:57.265801+00:00",
+            "fingerprint": "5ec63bbd22971ec09d657b3189ac95b30d2bc178415d1c05ffbf087f3c8c14d5",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-04T12:57:57.265801+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-18T12:57:57.265801+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/executive-master-of-business-administration/": {
-            "fingerprint": "3d39a0765eea8acb5aed7e4ffd4c430e05b4c3f383c45fd4cefbd9500ff22e64",
-            "attemptedAt": "2026-11-05T13:12:53.600018+00:00",
+            "fingerprint": "4996dc50e646dce577511a8437fd4ec9144607fdacf6dbd38b0b41a9504280f7",
+            "attemptedAt": "2026-11-21T07:03:00.258178+00:00",
             "status": "checked",
-            "checkedAt": "2026-11-05T13:12:53.600018+00:00",
+            "checkedAt": "2026-11-21T07:03:00.258178+00:00",
             "failures": 0,
-            "nextAttemptAt": "2026-11-19T13:12:53.600018+00:00"
+            "nextAttemptAt": "2026-12-05T07:03:00.258178+00:00"
           },
           "https://www.sgs.utoronto.ca/programs/aerospace-and-engineering/": {
             "fingerprint": "e4c4a123365b5145f23557f7fcc69dea363b2b8377cf7b4db5beed64d62e574e",
