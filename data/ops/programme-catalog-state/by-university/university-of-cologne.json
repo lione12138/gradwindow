@@ -2,10 +2,10 @@
   "universities": {
     "university-of-cologne": {
       "sourceUrl": "https://studieninteressierte.uni-koeln.de/range_of_courses/index_eng.html",
-      "checkedAt": "2026-11-21T06:26:21.329407+00:00",
+      "checkedAt": "2026-11-21T12:49:05.418966+00:00",
       "itemCount": 213,
       "applicationOpensAt": null,
-      "catalogHash": "122e83171444453ef234b91b5de63016f43c09c85f99788981ded6c656793cf2",
+      "catalogHash": "dcf351fcf295669f6057d2e519e5c0ef2a40bda41dd3c982dd63180c36478bab",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "monitoring",
@@ -17,8 +17,8 @@
       "programmesWithoutDeadlines": 213,
       "programmesNeedingReview": 213,
       "limitationReason": "Cologne's official degree directory enumerates its master's variants. Admission procedures and dates depend on the programme and applicant background, so no common exact application window is inferred. The checked official sources currently expose no complete exact opening-and-closing window to this adapter.",
-      "lastSuccessfulAt": "2026-11-21T06:26:21.329407+00:00",
-      "windowFingerprint": "dedef9a0ba0aaf5baa9adc0df109c20de72d150628859544095c3a6a4cad15a0",
+      "lastSuccessfulAt": "2026-11-21T12:49:05.418966+00:00",
+      "windowFingerprint": "022482caaf241bf8db4d30ddb00dfe6e85cb3681d864a14577fdfabf9fc38b84",
       "watchedWindowSourceHash": "87f7a581b6058096729421dacb2361e246cc04147c1a7af8f133f9d1b1073e1a",
       "watchedWindowSourceFingerprintVersion": 3,
       "programmes": {
@@ -1652,6 +1652,16 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
+        "cologne-politics-and-data-analytics-master-of-science-m-sc": {
+          "name": "Politics and Data Analytics",
+          "degreeType": "Master of Science (M.Sc.)",
+          "faculty": "University of Cologne",
+          "department": "University of Cologne",
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
         "cologne-practical-philosophy-master-of-education-teaching-degree-for-secondary-schools-haupt-real-sekundar-and-gesamtschule": {
           "name": "Practical Philosophy",
           "degreeType": "Master of Education, Teaching degree for secondary schools (Haupt-, Real-, Sekundar- and Gesamtschule)",
@@ -1764,16 +1774,6 @@
         },
         "cologne-rehabilitation-sciences-augmentative-and-alternative-communication-master-of-arts-m-a-dual-major": {
           "name": "Rehabilitation Sciences - Augmentative and Alternative Communication",
-          "degreeType": "Master of Arts (M.A. Dual Major)",
-          "faculty": "University of Cologne",
-          "department": "University of Cologne",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "cologne-rehabilitation-sciences-gerontology-master-of-arts-m-a-dual-major": {
-          "name": "Rehabilitation Sciences - Gerontology",
           "degreeType": "Master of Arts (M.A. Dual Major)",
           "faculty": "University of Cologne",
           "department": "University of Cologne",
@@ -2168,7 +2168,7 @@
           "fallbackFailures": 0,
           "fallbackBudgetExhausted": 0,
           "failureKinds": {
-            "server": 1
+            "blocked": 1
           }
         }
       }
