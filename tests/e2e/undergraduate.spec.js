@@ -106,9 +106,7 @@ test("mobile undergraduate pagination keeps all windows for each school together
 
   await expect(previous).toBeDisabled();
   await expect(schoolLinks).toHaveCount(20);
-  await page
-    .getByRole("button", { name: "Expand schools on this page" })
-    .click();
+  await table.locator(".university-group-toggle").first().click();
   await expect(table.locator(".university-group-child").first()).toBeVisible();
   await expect(schoolLinks).toHaveCount(20);
   await expect(range).toHaveText(`1-20 / ${schools.size}`);
