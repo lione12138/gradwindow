@@ -658,6 +658,68 @@ test("All universities lists schools in rank order with mixed window statuses", 
   ).toEqual(openHeaders.map((label) => label.replace(/QS|THE/g, "Ranking")));
 });
 
+test("master's country filter follows region and works across rankings and views", async ({
+  page,
+}) => {
+  await page.clock.setFixedTime(new Date("2026-11-21T12:00:00Z"));
+  await openTracker(page);
+  const region = page.getByRole("combobox", { name: "Region", exact: true });
+  const country = page.locator("#country-filter");
+  const rows = page.locator(".application-table tbody tr[data-school-id]");
+  const all = page.getByRole("tab", { name: /All universities/ });
+
+  await expect(country.locator('option[value="Japan"]')).toHaveCount(1);
+  await region.selectOption("Europe");
+  await expect(country.locator('option[value="Japan"]')).toHaveCount(0);
+  await all.click();
+  await page.getByRole("button", { name: "Next page" }).click();
+  await country.selectOption("United Kingdom");
+  await expect(
+    page.locator('[data-school-id="university-of-oxford"]'),
+  ).toBeVisible();
+  await country.selectOption("France");
+  await expect(rows.first()).toContainText("France");
+  await expect(rows.filter({ hasNotText: "France" })).toHaveCount(0);
+  await expect(page).toHaveURL(/region=Europe&country=France/);
+  await page.reload();
+  await expect(country).toHaveValue("France");
+  await expect(rows.first()).toContainText("France");
+
+  const countryChip = page.locator(
+    '.active-filter-chip[title="Clear filters: France"]',
+  );
+  await countryChip.click();
+  await expect(country).toHaveValue("all");
+  await expect(region).toHaveValue("Europe");
+  await country.selectOption("France");
+  await page.locator("#ranking-filter").selectOption("the");
+  await expect(country).toHaveValue("France");
+  await expect(rows.first()).toContainText("France");
+  await page.getByRole("tab", { name: /Open now/ }).click();
+  await expect(country).toHaveValue("France");
+  await expect(
+    page
+      .locator(
+        '#application-groups [data-status="open"] .school-country-inline',
+      )
+      .first(),
+  ).toHaveText("(France)");
+
+  for (const width of [820, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    const bounds = await country.boundingBox();
+    expect(bounds?.width).toBeGreaterThan(100);
+  }
+  await page.getByRole("button", { name: "Switch language" }).click();
+  await expect(country).toHaveAccessibleName("国家或地区");
+  await expect(country.locator("option:checked")).toHaveText("法国");
+  await page.locator("#region-filter").selectOption("Asia");
+  await expect(country).toHaveValue("all");
+  await expect(country.locator('option[value="France"]')).toHaveCount(0);
+  await expect(country.locator('option[value="Japan"]')).toHaveText("日本");
+  await expect(page).not.toHaveURL(/country=/);
+});
+
 test("favorite and calendar share one column with equal widths", async ({
   page,
 }) => {
