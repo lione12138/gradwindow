@@ -279,8 +279,12 @@ test("EDHEC shows the later international BBA rounds with their own dates", asyn
   await expect(rows).toHaveCount(5);
 
   const fourthRound = rows.filter({ hasText: "Fourth round" });
-  await expect(fourthRound.locator('time[datetime="2027-02-16"]')).toBeVisible();
-  await expect(fourthRound.locator('time[datetime="2027-04-01"]')).toBeVisible();
+  await expect(
+    fourthRound.locator('time[datetime="2027-02-16"]'),
+  ).toBeVisible();
+  await expect(
+    fourthRound.locator('time[datetime="2027-04-01"]'),
+  ).toBeVisible();
 
   await page.getByRole("button", { name: "Switch language" }).click();
   const fifthRound = rows.filter({ hasText: "第五轮" });
