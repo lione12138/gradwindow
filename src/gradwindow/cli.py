@@ -51,6 +51,7 @@ from .reviewed_deadlines import approve_deadline_file
 from .schemas import export_schemas
 from .site import build_site
 from .source_monitor import DEFAULT_MAX_SOURCE_URLS, monitor_application_sources
+from .undergraduate_ucas import run_undergraduate_ucas_discovery
 from .validation import validate_data
 
 DEDICATED_ADAPTER_TIMEOUT_SECONDS = 900
@@ -62,6 +63,10 @@ def main() -> None:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     subparsers.add_parser("validate", help="Validate public datasets")
+    subparsers.add_parser(
+        "discover-undergraduate-ucas",
+        help="Check configured undergraduate UCAS routes and print a review report",
+    )
     build = subparsers.add_parser("build-site", help="Build the deployable site")
     build.add_argument("--output", type=Path, default=SITE_DIR)
     monitor = subparsers.add_parser("monitor", help="Check university pages")
@@ -220,6 +225,10 @@ def main() -> None:
 
     if args.command == "validate":
         _validate_or_exit()
+    elif args.command == "discover-undergraduate-ucas":
+        print(
+            json.dumps(run_undergraduate_ucas_discovery(), ensure_ascii=False, indent=2)
+        )
     elif args.command == "build-site":
         generate_predictions()
         generate_recurring_windows()
