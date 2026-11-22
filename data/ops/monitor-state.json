@@ -1,19 +1,19 @@
 {
   "meta": {
-    "checkedAt": "2026-11-22T12:38:59.770360+00:00",
+    "checkedAt": "2026-11-22T13:59:53.747373+00:00",
     "policy": "One low-frequency request per institution per day. Changes require review and do not automatically create deadlines.",
     "summary": {
       "total": 305,
-      "ok": 247,
-      "changed": 0,
+      "ok": 248,
+      "changed": 4,
       "blocked": 21,
-      "errors": 37
+      "errors": 36
     }
   },
   "universities": {
     "massachusetts-institute-of-technology-mit": {
       "url": "https://oge.mit.edu/graduate-admissions/",
-      "checkedAt": "2026-11-22T12:37:38.075982+00:00",
+      "checkedAt": "2026-11-22T13:58:37.939532+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -28,11 +28,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.728767+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.075982+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.939532+00:00"
     },
     "imperial-college-london": {
       "url": "https://www.imperial.ac.uk/study/apply/postgraduate-taught/",
-      "checkedAt": "2026-11-22T12:37:38.076699+00:00",
+      "checkedAt": "2026-11-22T13:58:37.940078+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -47,11 +47,11 @@
       "deadlineSignalHash": "fbc2680e9a6fb8cff19c87256376a8c61a9174af9c88664dbbbf609a1526e7fe",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.729791+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.076699+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.940078+00:00"
     },
     "stanford-university": {
       "url": "https://gradadmissions.stanford.edu/apply",
-      "checkedAt": "2026-11-22T12:37:38.076991+00:00",
+      "checkedAt": "2026-11-22T13:58:37.940356+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -66,11 +66,11 @@
       "deadlineSignalHash": "315d19a1be1651e28fa7af7800eea1b32241317c41e7b38e47dee01059aca296",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.729791+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.076991+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.940356+00:00"
     },
     "university-of-oxford": {
       "url": "https://www.ox.ac.uk/admissions/graduate/applying-to-oxford",
-      "checkedAt": "2026-11-22T12:37:38.077257+00:00",
+      "checkedAt": "2026-11-22T13:58:37.940526+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -81,7 +81,7 @@
     },
     "harvard-university": {
       "url": "https://gsas.harvard.edu/apply",
-      "checkedAt": "2026-11-22T12:37:38.077608+00:00",
+      "checkedAt": "2026-11-22T13:58:37.940791+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -95,7 +95,7 @@
     },
     "university-of-cambridge": {
       "url": "https://www.postgraduate.study.cam.ac.uk/apply",
-      "checkedAt": "2026-11-22T12:37:38.077787+00:00",
+      "checkedAt": "2026-11-22T13:58:37.941762+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -110,11 +110,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.729791+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.077787+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.941762+00:00"
     },
     "california-institute-of-technology-caltech": {
       "url": "https://gradoffice.caltech.edu/admissions",
-      "checkedAt": "2026-11-22T12:37:38.078022+00:00",
+      "checkedAt": "2026-11-22T13:58:37.941967+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -129,11 +129,11 @@
       "deadlineSignalHash": "c4a7ee88505951b65f843d831d712119039d5bf7fbb72f1aad3e8ca3d0c7cd55",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.730795+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.078022+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.941967+00:00"
     },
     "eth-zurich-swiss-federal-institute-of-technology": {
       "url": "https://ethz.ch/en/studies/master/application.html",
-      "checkedAt": "2026-11-22T12:37:38.078341+00:00",
+      "checkedAt": "2026-11-22T13:58:37.942127+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -148,11 +148,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.730795+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.078341+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.942127+00:00"
     },
     "ucl-university-college-london": {
       "url": "https://www.ucl.ac.uk/prospective-students/graduate/applying-graduate-study",
-      "checkedAt": "2026-11-22T12:37:38.079142+00:00",
+      "checkedAt": "2026-11-22T13:58:37.942771+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -166,11 +166,11 @@
     },
     "national-university-of-singapore-nus": {
       "url": "https://nusgs.nus.edu.sg/admissions/",
-      "checkedAt": "2026-11-22T12:37:38.079424+00:00",
+      "checkedAt": "2026-11-22T13:58:37.942940+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
-      "bytesRead": 225311,
+      "bytesRead": 225312,
       "truncated": false,
       "contentHash": "5c10609c4efcc39695df7b417dd6be2880ef337e168f2b74716511065c4e2251",
       "changed": false,
@@ -181,11 +181,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.730795+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.079424+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.942940+00:00"
     },
     "the-university-of-hong-kong": {
       "url": "https://portal.hku.hk/tpg-admissions/",
-      "checkedAt": "2026-11-22T12:37:38.079680+00:00",
+      "checkedAt": "2026-11-22T13:58:37.943142+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -200,11 +200,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.730795+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.079680+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.943142+00:00"
     },
     "nanyang-technological-university-singapore-ntu-singapore": {
       "url": "https://www.ntu.edu.sg/admissions/graduate",
-      "checkedAt": "2026-11-22T12:37:38.080062+00:00",
+      "checkedAt": "2026-11-22T13:58:37.943371+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -219,11 +219,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.731958+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.080062+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.943371+00:00"
     },
     "peking-university": {
       "url": "https://admission.pku.edu.cn/",
-      "checkedAt": "2026-11-22T12:37:38.080213+00:00",
+      "checkedAt": "2026-11-22T13:58:37.943632+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -238,11 +238,11 @@
       "deadlineSignalHash": "fa0f920dfdef02cbed52763287e7241ffbb254beaf1f6e3f085a9d8971bc5dda",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.732962+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.080213+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.943632+00:00"
     },
     "tsinghua-university": {
       "url": "https://yz.tsinghua.edu.cn/en/",
-      "checkedAt": "2026-11-22T12:37:38.080462+00:00",
+      "checkedAt": "2026-11-22T13:58:37.943776+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -257,11 +257,11 @@
       "deadlineSignalHash": "abf4fd12875808989f9db3ae8e6bc2c043cf02a2eb7360cc469fba373a0db113",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:26.571367+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.080462+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:37.943776+00:00"
     },
     "university-of-pennsylvania": {
       "url": "https://www.upenn.edu/academics/graduate",
-      "checkedAt": "2026-11-22T12:37:38.080690+00:00",
+      "checkedAt": "2026-11-22T13:58:37.944042+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -271,7 +271,7 @@
     },
     "cornell-university": {
       "url": "https://gradschool.cornell.edu/admissions/",
-      "checkedAt": "2026-11-22T12:37:38.080844+00:00",
+      "checkedAt": "2026-11-22T13:58:37.944211+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -282,7 +282,7 @@
     },
     "yale-university": {
       "url": "https://gsas.yale.edu/admissions",
-      "checkedAt": "2026-11-22T12:37:38.370607+00:00",
+      "checkedAt": "2026-11-22T13:58:38.021982+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -297,11 +297,11 @@
       "deadlineSignalHash": "b9b4140cc8731993fceb808515c1e8e4c4f9cf949bacb69e810b27f0392d9daa",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:26.814580+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.370607+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.021982+00:00"
     },
     "the-chinese-university-of-hong-kong": {
       "url": "https://www.gs.cuhk.edu.hk/admissions",
-      "checkedAt": "2026-11-22T12:37:38.380350+00:00",
+      "checkedAt": "2026-11-22T13:58:38.212339+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -316,11 +316,11 @@
       "deadlineSignalHash": "5c12bb228703d98671848c6dbef7584ae57064538c94a1c9be6520fbe1079d3d",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.514695+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.380350+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.212339+00:00"
     },
     "the-university-of-new-south-wales": {
       "url": "https://www.unsw.edu.au/study/how-to-apply/postgraduate",
-      "checkedAt": "2026-11-22T12:37:38.384793+00:00",
+      "checkedAt": "2026-11-22T13:58:38.218621+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -335,11 +335,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:26.740663+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.384793+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.218621+00:00"
     },
     "johns-hopkins-university": {
       "url": "https://provost.jhu.edu/education/graduate-and-professional-education/admissions/",
-      "checkedAt": "2026-11-22T12:37:38.413260+00:00",
+      "checkedAt": "2026-11-22T13:58:38.227028+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -353,7 +353,7 @@
     },
     "university-of-california-berkeley-ucb": {
       "url": "https://grad.berkeley.edu/admissions/",
-      "checkedAt": "2026-11-22T12:37:38.418140+00:00",
+      "checkedAt": "2026-11-22T13:58:38.227977+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -368,11 +368,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:26.630185+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.418140+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.227977+00:00"
     },
     "cole-polytechnique-f-d-rale-de-lausanne": {
       "url": "https://www.epfl.ch/education/admission/admission-2/master-admission-criteria-application/",
-      "checkedAt": "2026-11-22T12:37:38.433220+00:00",
+      "checkedAt": "2026-11-22T13:58:38.266364+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -387,11 +387,11 @@
       "deadlineSignalHash": "a777a21f91a134a4580e1a32e4545d0c1b2a826c08bf752e365a7354eca1e7c0",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:26.887921+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.433220+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.266364+00:00"
     },
     "the-university-of-melbourne": {
       "url": "https://study.unimelb.edu.au/how-to-apply/graduate-coursework-study",
-      "checkedAt": "2026-11-22T12:37:38.518780+00:00",
+      "checkedAt": "2026-11-22T13:58:38.422475+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -402,7 +402,7 @@
     },
     "university-of-chicago": {
       "url": "https://grad.uchicago.edu/admissions/",
-      "checkedAt": "2026-11-22T12:37:38.606080+00:00",
+      "checkedAt": "2026-11-22T13:58:38.444962+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -417,11 +417,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:25.731958+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.606080+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.444962+00:00"
     },
     "technical-university-of-munich": {
       "url": "https://www.tum.de/en/studies/application/application-info-portal",
-      "checkedAt": "2026-11-22T12:37:38.657971+00:00",
+      "checkedAt": "2026-11-22T13:58:38.538221+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -436,11 +436,11 @@
       "deadlineSignalHash": "f3211dfe42fd4fc36b69015b51dc411f197be4cea03b103567ebbbc7f7ed885d",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:26.940351+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.657971+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.538221+00:00"
     },
     "fudan-university": {
       "url": "https://iso.fudan.edu.cn/isoenglish/wnlinewwpplication/list.htm",
-      "checkedAt": "2026-11-22T12:37:38.762925+00:00",
+      "checkedAt": "2026-11-22T13:58:38.581938+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -455,11 +455,11 @@
       "deadlineSignalHash": "0bca4bc8fe357341659d98a0874849dd2df3396369d7c4eaa2ada6885ea236d2",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.349560+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.762925+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.581938+00:00"
     },
     "princeton-university": {
       "url": "https://gradschool.princeton.edu/admission-onboarding",
-      "checkedAt": "2026-11-22T12:37:38.827857+00:00",
+      "checkedAt": "2026-11-22T13:58:38.693303+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -469,7 +469,7 @@
     },
     "the-university-of-sydney": {
       "url": "https://www.sydney.edu.au/study/applying/application-dates.html",
-      "checkedAt": "2026-11-22T12:37:38.894026+00:00",
+      "checkedAt": "2026-11-22T13:58:38.730641+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -484,11 +484,11 @@
       "deadlineSignalHash": "9e26f1e61ef44a026f6c25dc5bfbf05396d076cb13fa007cad77d81627cfa2b8",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.131346+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:38.894026+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.730641+00:00"
     },
     "australian-national-university": {
       "url": "https://study.anu.edu.au/apply",
-      "checkedAt": "2026-11-22T12:37:39.013012+00:00",
+      "checkedAt": "2026-11-22T13:58:38.870312+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -503,11 +503,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.459926+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.013012+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.870312+00:00"
     },
     "mcgill-university": {
       "url": "https://www.mcgill.ca/gradapplicants/how-apply",
-      "checkedAt": "2026-11-22T12:37:39.111736+00:00",
+      "checkedAt": "2026-11-22T13:58:38.911592+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -522,11 +522,11 @@
       "deadlineSignalHash": "eb2c50fdbf335e48f5e82334a8fdad6cd3d9f96a571ac5694212ed80709b0d37",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.176247+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.111736+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:38.911592+00:00"
     },
     "monash-university": {
       "url": "https://www.monash.edu/study/how-to-apply/application-process/international-students",
-      "checkedAt": "2026-11-22T12:37:39.120405+00:00",
+      "checkedAt": "2026-11-22T13:58:39.036639+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -536,7 +536,7 @@
     },
     "university-of-toronto": {
       "url": "https://www.sgs.utoronto.ca/future-students/how-to-apply/",
-      "checkedAt": "2026-11-22T12:37:39.321953+00:00",
+      "checkedAt": "2026-11-22T13:58:39.042635+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -551,11 +551,11 @@
       "deadlineSignalHash": "dafcae818a889ee584c0b026493157f15efe6ddc363ea88de0732d898990f251",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.297011+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.321953+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.042635+00:00"
     },
     "the-hong-kong-university-of-science-and-technology": {
       "url": "https://seng.hkust.edu.hk/academics/taught-postgraduate/msc-it",
-      "checkedAt": "2026-11-22T12:37:39.352568+00:00",
+      "checkedAt": "2026-11-22T13:58:39.084926+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -570,11 +570,11 @@
       "deadlineSignalHash": "c0ff1454a242602124a05040a1e00490bbfcee47d3e3c7b2b85b8518edf0c575",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.133392+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.352568+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.084926+00:00"
     },
     "psl-university": {
       "url": "https://psl.eu/formation/admissions/admissions-en-master/candidater-en-master",
-      "checkedAt": "2026-11-22T12:37:39.396984+00:00",
+      "checkedAt": "2026-11-22T13:58:39.240072+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -589,11 +589,11 @@
       "deadlineSignalHash": "926c240af5b8accec5eb33828b8d16f26b3c70bd5ce8205bb9aa3d9c0e78546a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.230359+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.396984+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.240072+00:00"
     },
     "university-of-edinburgh": {
       "url": "https://study.ed.ac.uk/postgraduate/applying",
-      "checkedAt": "2026-11-22T12:37:39.427361+00:00",
+      "checkedAt": "2026-11-22T13:58:39.330957+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -608,11 +608,11 @@
       "deadlineSignalHash": "30ed4042c7f250e5a5e1feecc13c0ac792e75f710d7a6643ea23c402f6b739eb",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.562137+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.427361+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.330957+00:00"
     },
     "shanghai-jiao-tong-university": {
       "url": "https://isc.sjtu.edu.cn/EN/content.aspx?flag=2&info_lb=38",
-      "checkedAt": "2026-11-22T12:37:39.494311+00:00",
+      "checkedAt": "2026-11-22T13:58:39.413331+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -623,7 +623,7 @@
     },
     "king-s-college-london-kcl": {
       "url": "https://www.kcl.ac.uk/study/postgraduate-taught/how-to-apply",
-      "checkedAt": "2026-11-22T12:37:39.527687+00:00",
+      "checkedAt": "2026-11-22T13:58:39.460149+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -638,11 +638,11 @@
       "deadlineSignalHash": "f6b5084970eed5320eb26a2939ee0206a84a4fdea9b0cd6e858c46f4501c0ae2",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.398017+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.527687+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.460149+00:00"
     },
     "seoul-national-university": {
       "url": "https://en.snu.ac.kr/admission/graduate/application",
-      "checkedAt": "2026-11-22T12:37:39.762294+00:00",
+      "checkedAt": "2026-11-22T13:58:39.521339+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -657,11 +657,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.867260+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.762294+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.521339+00:00"
     },
     "the-university-of-tokyo": {
       "url": "https://www.i.u-tokyo.ac.jp/edu/entra/entra_e.shtml",
-      "checkedAt": "2026-11-22T12:37:39.822456+00:00",
+      "checkedAt": "2026-11-22T13:58:39.544397+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -676,11 +676,11 @@
       "deadlineSignalHash": "600f1e97b8ff63b2ba62bdb9535cf4cf9bf7e3d13398dd2b0a8363c8b88aae0f",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.744518+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.822456+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.544397+00:00"
     },
     "the-university-of-manchester": {
       "url": "https://www.manchester.ac.uk/study/masters/admissions/",
-      "checkedAt": "2026-11-22T12:37:39.846077+00:00",
+      "checkedAt": "2026-11-22T13:58:39.550441+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -695,11 +695,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.629954+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.846077+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.550441+00:00"
     },
     "the-university-of-queensland": {
       "url": "https://study.uq.edu.au/admissions/postgraduate-coursework",
-      "checkedAt": "2026-11-22T12:37:39.879084+00:00",
+      "checkedAt": "2026-11-22T13:58:39.572972+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -714,11 +714,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.075609+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.879084+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.572972+00:00"
     },
     "yonsei-university": {
       "url": "https://graduate.yonsei.ac.kr/graduate_en/admission/forein_fall_schedule.do",
-      "checkedAt": "2026-11-22T12:37:39.944753+00:00",
+      "checkedAt": "2026-11-22T13:58:39.619321+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -733,11 +733,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.462215+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:39.944753+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.619321+00:00"
     },
     "columbia-university": {
       "url": "https://www.gsas.columbia.edu/content/admissions",
-      "checkedAt": "2026-11-22T12:37:40.126807+00:00",
+      "checkedAt": "2026-11-22T13:58:39.668597+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -747,7 +747,7 @@
     },
     "institut-polytechnique-de-paris": {
       "url": "https://www.ip-paris.fr/en/education/useful-information/admissions",
-      "checkedAt": "2026-11-22T12:37:40.276600+00:00",
+      "checkedAt": "2026-11-22T13:58:39.857686+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -762,11 +762,11 @@
       "deadlineSignalHash": "847756afcd80612dc9569ea4eb25c96eb08b203782761ca3105664fa6ba03656",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.978127+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:40.276600+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:39.857686+00:00"
     },
     "northwestern-university": {
       "url": "https://www.tgs.northwestern.edu/admission/",
-      "checkedAt": "2026-11-22T12:37:40.535977+00:00",
+      "checkedAt": "2026-11-22T13:58:40.014665+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -781,34 +781,34 @@
       "deadlineSignalHash": "16d994c36914299a4320de2aaf2e15484beebb313c43d05fbbca0016022faf53",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:27.979455+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:40.535977+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:40.014665+00:00"
     },
     "university-of-british-columbia": {
       "url": "https://www.grad.ubc.ca/prospective-students/application-admission",
-      "checkedAt": "2026-11-22T12:37:40.607361+00:00",
+      "checkedAt": "2026-11-22T13:58:40.114527+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
       "bytesRead": 174250,
       "truncated": false,
-      "contentHash": "192d180ebea78f2bcdf73132cf347699d25e49e057948301ccaaf56cd52303e5",
-      "changed": false,
+      "contentHash": "3fa6db52805dc0122053073e193c96ca5d4ab2c8e795b507dfcaf2d4022a4e7a",
+      "changed": true,
       "changeDetected": true,
-      "pendingContentHash": "3fa6db52805dc0122053073e193c96ca5d4ab2c8e795b507dfcaf2d4022a4e7a",
-      "pendingChangeCount": 1,
+      "pendingContentHash": null,
+      "pendingChangeCount": 0,
       "fingerprintVersion": 3,
       "deadlineSignalHash": "83912dc325df9aae212b89706b3dfb63939f5721dc9458b4bf94f7da7be29b64",
-      "changeSeverity": null,
+      "changeSeverity": "application",
       "firstSeenAt": "2026-06-13T22:26:27.919205+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:40.607361+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:40.114527+00:00"
     },
     "zhejiang-university": {
       "url": "https://iczu.zju.edu.cn/admissionsen/68990/list.psp",
-      "checkedAt": "2026-11-22T12:37:40.711085+00:00",
+      "checkedAt": "2026-11-22T13:58:40.184467+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
-      "bytesRead": 2328,
+      "bytesRead": 2329,
       "truncated": false,
       "contentHash": "e8bb6bcc19227c59c1769846c9b822d1e70b4e7d1e5a81708bb6f5ca34646aee",
       "changed": false,
@@ -819,11 +819,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.411004+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:40.711085+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:40.184467+00:00"
     },
     "delft-university-of-technology": {
       "url": "https://www.tudelft.nl/en/education/admission-and-application/msc-international-diploma/dates-deadlines",
-      "checkedAt": "2026-11-22T12:37:40.911707+00:00",
+      "checkedAt": "2026-11-22T13:58:40.244493+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -838,11 +838,11 @@
       "deadlineSignalHash": "dc4ad6ae50ff6932f68b7f3b16d453be53453829d9b119febec79f8a635bf2bd",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.294496+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:40.911707+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:40.244493+00:00"
     },
     "university-of-california-los-angeles-ucla": {
       "url": "https://grad.ucla.edu/admissions/",
-      "checkedAt": "2026-11-22T12:37:40.947113+00:00",
+      "checkedAt": "2026-11-22T13:58:40.288128+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -857,11 +857,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.242693+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:40.947113+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:40.288128+00:00"
     },
     "the-hong-kong-polytechnic-university": {
       "url": "https://www.polyu.edu.hk/study/pg/taught-postgraduate",
-      "checkedAt": "2026-11-22T12:37:41.081481+00:00",
+      "checkedAt": "2026-11-22T13:58:40.617087+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -876,11 +876,11 @@
       "deadlineSignalHash": "2c968e1bc502693de3fe2d794d4623070e7045082943630f050e3e1ba77ad829",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.875626+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:41.081481+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:40.617087+00:00"
     },
     "university-of-michigan-ann-arbor": {
       "url": "https://rackham.umich.edu/admissions/applying/",
-      "checkedAt": "2026-11-22T12:37:41.220447+00:00",
+      "checkedAt": "2026-11-22T13:58:40.779655+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -890,11 +890,11 @@
     },
     "city-university-of-hong-kong": {
       "url": "https://www.cityu.edu.hk/error/404?item=%2fprogramme%2fprogram-list%2f2026%2fcollege-of-engineering%2fdepartment-of-architecture-and-civil-engineering%2fp60&user=extranet%5cAnonymous&site=PG",
-      "checkedAt": "2026-11-22T12:37:41.243280+00:00",
+      "checkedAt": "2026-11-22T13:58:40.784830+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
-      "bytesRead": 7212,
+      "bytesRead": 7209,
       "truncated": false,
       "contentHash": "07b11d4caa2579f64cddedeffa75d750b0ab30ede8688d689d050d872b4cd3cf",
       "changed": false,
@@ -905,11 +905,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.702669+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:41.243280+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:40.784830+00:00"
     },
     "korea-university": {
       "url": "https://graduate2.korea.ac.kr/admission/schedule.html",
-      "checkedAt": "2026-11-22T12:37:41.332250+00:00",
+      "checkedAt": "2026-11-22T13:58:40.826857+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -924,11 +924,11 @@
       "deadlineSignalHash": "3caa31262149bd396cdecc08d039088f610d272c06d33fcf72bf08020565fe7a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.467922+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:41.332250+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:40.826857+00:00"
     },
     "national-taiwan-university-ntu": {
       "url": "https://admissions.ntu.edu.tw/apply/degree-students/international-students/",
-      "checkedAt": "2026-11-22T12:37:41.355729+00:00",
+      "checkedAt": "2026-11-22T13:58:41.043997+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -943,11 +943,11 @@
       "deadlineSignalHash": "71000006866a182830f54a7b216a5129abe326c222b48b10d2e08083ed8f396f",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.760493+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:41.355729+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.043997+00:00"
     },
     "carnegie-mellon-university": {
       "url": "https://www.cmu.edu/graduate/prospective/index.html",
-      "checkedAt": "2026-11-22T12:37:41.376155+00:00",
+      "checkedAt": "2026-11-22T13:58:41.108171+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -962,11 +962,11 @@
       "deadlineSignalHash": "9a93001d0d878bbe003002ac8d80e3bbc19ad5c9e71c6fc236e4e5a512b2455d",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.583270+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:41.376155+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.108171+00:00"
     },
     "universiti-malaya-um": {
       "url": "https://study.um.edu.my/how-to-apply",
-      "checkedAt": "2026-11-22T12:37:41.593637+00:00",
+      "checkedAt": "2026-11-22T13:58:41.119664+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -981,11 +981,11 @@
       "deadlineSignalHash": "9d23224f8e110b65d936bd6acc967c9f855c88d308f3479193e83291bb6e1b00",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.346260+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:41.593637+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.119664+00:00"
     },
     "university-of-bristol": {
       "url": "https://www.bristol.ac.uk/study/postgraduate/apply/",
-      "checkedAt": "2026-11-22T12:37:41.595057+00:00",
+      "checkedAt": "2026-11-22T13:58:41.130145+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1000,11 +1000,11 @@
       "deadlineSignalHash": "c4ee1e4d1557e41086906026e17f85c91bc39b87fbd656f64d90d5b8ada6d05d",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.516587+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:41.595057+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.130145+00:00"
     },
     "new-york-university-nyu": {
       "url": "https://engineering.nyu.edu/admissions/graduate/apply/application-deadlines",
-      "checkedAt": "2026-11-22T12:37:42.026106+00:00",
+      "checkedAt": "2026-11-22T13:58:41.141511+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1019,11 +1019,11 @@
       "deadlineSignalHash": "cfb21aa3201790caf8d92ce9aa531bb5c61a28219c40ac11d5706ca41a84b71a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:28.977906+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.026106+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.141511+00:00"
     },
     "ku-leuven": {
       "url": "https://icts.kuleuven.be/apps/tuitionfees/application-windows",
-      "checkedAt": "2026-11-22T12:37:42.087701+00:00",
+      "checkedAt": "2026-11-22T13:58:41.154147+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1038,11 +1038,11 @@
       "deadlineSignalHash": "f5fbcc50fccc5ecce003d2473bd23920aee2d3af77b5edfd4c3440c5c9f5bbd2",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.426674+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.087701+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.154147+00:00"
     },
     "the-university-of-amsterdam": {
       "url": "https://www.uva.nl/en/education/admissions/masters/applications-and-admission/applications-and-admission.html",
-      "checkedAt": "2026-11-22T12:37:42.121284+00:00",
+      "checkedAt": "2026-11-22T13:58:41.244255+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -1053,7 +1053,7 @@
     },
     "ludwig-maximilians-universit-t-m-nchen": {
       "url": "https://www.stat.lmu.de/en/studies/interested-master/",
-      "checkedAt": "2026-11-22T12:37:42.140718+00:00",
+      "checkedAt": "2026-11-22T13:58:41.425029+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -1068,11 +1068,11 @@
       "deadlineSignalHash": "29ebf52e95ebf9a26d942900892307432653e720f11fa040925d5a829d438776",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.303407+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.140718+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.425029+00:00"
     },
     "london-school-of-economics-and-political-science-lse": {
       "url": "https://www.lse.ac.uk/study-at-lse/Graduate/Prospective-students/How-to-Apply",
-      "checkedAt": "2026-11-22T12:37:42.188736+00:00",
+      "checkedAt": "2026-11-22T13:58:41.550414+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1087,11 +1087,11 @@
       "deadlineSignalHash": "edad2babfd1c9972872acf0c9191f2670b0ddbd50cc895be171e208ecc57c82c",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.176824+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.188736+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.550414+00:00"
     },
     "king-fahd-university-of-petroleum-and-minerals": {
       "url": "https://www.kfupm.edu.sa/study/graduate-programs-ms",
-      "checkedAt": "2026-11-22T12:37:42.216005+00:00",
+      "checkedAt": "2026-11-22T13:58:41.876269+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1106,11 +1106,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.893885+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.216005+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.876269+00:00"
     },
     "kyoto-university": {
       "url": "https://www.i.kyoto-u.ac.jp/en/admission/application/",
-      "checkedAt": "2026-11-22T12:37:42.242874+00:00",
+      "checkedAt": "2026-11-22T13:58:41.900938+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1125,24 +1125,30 @@
       "deadlineSignalHash": "eb0d3f223e425d4f993f135cc7279a9b645309f4ce01efc45e6cc12ac88c4548",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.241852+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.242874+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.900938+00:00"
     },
     "kaist": {
       "url": "https://admission.kaist.ac.kr/intl-graduate/",
-      "checkedAt": "2026-11-22T12:37:42.518336+00:00",
-      "status": "error",
-      "errorKind": "network",
-      "httpStatus": null,
-      "changed": false,
-      "firstSeenAt": "2026-06-20T08:40:05.428584+00:00",
-      "message": "timed out",
+      "checkedAt": "2026-11-22T13:58:41.967503+00:00",
+      "status": "ok",
+      "httpStatus": 200,
+      "contentType": "text/html;charset=utf-8",
+      "bytesRead": 74360,
+      "truncated": false,
       "contentHash": "9315b70118aea94a22a02cf9cab72c0f254a1ffa3eb747a2ee4962ab97f4bc90",
-      "lastSuccessfulAt": "2026-11-21T12:42:00.819478+00:00",
-      "fingerprintVersion": 3
+      "changed": false,
+      "changeDetected": false,
+      "pendingContentHash": null,
+      "pendingChangeCount": 0,
+      "fingerprintVersion": 3,
+      "deadlineSignalHash": null,
+      "changeSeverity": null,
+      "firstSeenAt": "2026-06-20T08:40:05.428584+00:00",
+      "lastSuccessfulAt": "2026-11-22T13:58:41.967503+00:00"
     },
     "brown-university": {
       "url": "https://graduateschool.brown.edu/apply-mfa-or-doctoral-study-brown",
-      "checkedAt": "2026-11-22T12:37:42.568400+00:00",
+      "checkedAt": "2026-11-22T13:58:41.970627+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1157,11 +1163,11 @@
       "deadlineSignalHash": "be172f24ab7f65a66035e444ec9d40b1938d4d3580ddc0efa1f1b5acd0cd6506",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.067811+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.568400+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:41.970627+00:00"
     },
     "the-university-of-auckland": {
       "url": "https://www.auckland.ac.nz/en/study/applications-and-admissions/apply-now.html",
-      "checkedAt": "2026-11-22T12:37:42.616110+00:00",
+      "checkedAt": "2026-11-22T13:58:42.026404+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -1176,11 +1182,11 @@
       "deadlineSignalHash": "01d16c175f7e60e81193462e126a698e76220330966360f09155c3ec4acb4d2b",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.803345+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.616110+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.026404+00:00"
     },
     "the-university-of-warwick": {
       "url": "https://warwick.ac.uk/study/postgraduate/apply/",
-      "checkedAt": "2026-11-22T12:37:42.665047+00:00",
+      "checkedAt": "2026-11-22T13:58:42.099554+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -1195,15 +1201,15 @@
       "deadlineSignalHash": "63bd6ad723e89946fd1bd68d625d57d0119d1ee2ddf44f374ea8433e23186f1a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.411298+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.665047+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.099554+00:00"
     },
     "university-of-birmingham": {
       "url": "https://www.birmingham.ac.uk/study/postgraduate/apply",
-      "checkedAt": "2026-11-22T12:37:42.856661+00:00",
+      "checkedAt": "2026-11-22T13:58:42.150394+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 161922,
+      "bytesRead": 162711,
       "truncated": false,
       "contentHash": "857a6ed0f75daf274d2348a89f90f816fd58bb1999bcf1524f3a826202907619",
       "changed": false,
@@ -1214,11 +1220,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.532352+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.856661+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.150394+00:00"
     },
     "duke-university": {
       "url": "https://gradschool.duke.edu/admissions/",
-      "checkedAt": "2026-11-22T12:37:42.997561+00:00",
+      "checkedAt": "2026-11-22T13:58:42.266521+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1233,30 +1239,30 @@
       "deadlineSignalHash": "d0afbcfd2d4607587eb359155cfe8ea27c5b2b1b859b7a1f17cccac0a8c0c46d",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.642562+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:42.997561+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.266521+00:00"
     },
     "lund-university": {
       "url": "https://www.lunduniversity.lu.se/study/machine-learning-systems-and-control-masters-programme-TAMSR",
-      "checkedAt": "2026-11-22T12:37:43.001441+00:00",
+      "checkedAt": "2026-11-22T13:58:42.278346+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
       "bytesRead": 129325,
       "truncated": false,
-      "contentHash": "034fe1697c7c6b4de1d5e4f454ce47ebc25b4385b46d46b5f60bb9e3e0be7527",
-      "changed": false,
+      "contentHash": "b9eb6b30b31a51fab0bc53b772ebf638d73581449aa4dbcbfe5a255b39149941",
+      "changed": true,
       "changeDetected": true,
-      "pendingContentHash": "b9eb6b30b31a51fab0bc53b772ebf638d73581449aa4dbcbfe5a255b39149941",
-      "pendingChangeCount": 1,
+      "pendingContentHash": null,
+      "pendingChangeCount": 0,
       "fingerprintVersion": 3,
       "deadlineSignalHash": "cafd048696253bd808717d8d3a4cade556c8a93d65d9d58fe302acf976906e06",
-      "changeSeverity": null,
+      "changeSeverity": "application",
       "firstSeenAt": "2026-06-13T22:26:30.276726+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.001441+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.278346+00:00"
     },
     "university-of-texas-at-austin": {
       "url": "https://graduate.utexas.edu/admissions/apply",
-      "checkedAt": "2026-11-22T12:37:43.027777+00:00",
+      "checkedAt": "2026-11-22T13:58:42.383628+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1271,11 +1277,11 @@
       "deadlineSignalHash": "a68d8f8a5ba829434f6262a6cd1ddb559b512bd31bdf675ffb473ca26d347b64",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.010448+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.027777+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.383628+00:00"
     },
     "sorbonne-university-merged-from-paris-iv-and-upmc": {
       "url": "https://sciences.sorbonne-universite.fr/formation-sciences/offre-de-formation/masters/master-informatique",
-      "checkedAt": "2026-11-22T12:37:43.251746+00:00",
+      "checkedAt": "2026-11-22T13:58:42.460670+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1290,11 +1296,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.345438+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.251746+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.460670+00:00"
     },
     "university-of-illinois-at-urbana-champaign": {
       "url": "https://grad.illinois.edu/admissions/apply-now",
-      "checkedAt": "2026-11-22T12:37:43.253043+00:00",
+      "checkedAt": "2026-11-22T13:58:42.613401+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1309,11 +1315,11 @@
       "deadlineSignalHash": "4a1d269bd6b58e471c9ce45fb1868a7a4e5081d022804a49ed0ad0114d1d3217",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.177451+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.253043+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.613401+00:00"
     },
     "trinity-college-dublin-the-university-of-dublin": {
       "url": "https://www.tcd.ie/study/apply/",
-      "checkedAt": "2026-11-22T12:37:43.379624+00:00",
+      "checkedAt": "2026-11-22T13:58:42.658079+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1328,11 +1334,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.454680+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.379624+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.658079+00:00"
     },
     "universit-paris-saclay": {
       "url": "https://www.universite-paris-saclay.fr/admission/etre-candidat-un-master-paris-saclay",
-      "checkedAt": "2026-11-22T12:37:43.380849+00:00",
+      "checkedAt": "2026-11-22T13:58:42.710380+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1347,11 +1353,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.134410+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.380849+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.710380+00:00"
     },
     "the-university-of-western-australia": {
       "url": "https://www.uwa.edu.au/study/how-to-apply/postgraduate",
-      "checkedAt": "2026-11-22T12:37:43.415207+00:00",
+      "checkedAt": "2026-11-22T13:58:42.738392+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1366,11 +1372,11 @@
       "deadlineSignalHash": "6e80e5a6a90e5d33efa9443779a2fabe7dae7982f1704c3b2266300cb23df948",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.572548+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.415207+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.738392+00:00"
     },
     "university-of-leeds": {
       "url": "https://www.leeds.ac.uk/masters-applying/doc/apply-masters",
-      "checkedAt": "2026-11-22T12:37:43.486111+00:00",
+      "checkedAt": "2026-11-22T13:58:42.943544+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1385,11 +1391,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.115345+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.486111+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:42.943544+00:00"
     },
     "adelaide-university": {
       "url": "https://adelaide.edu.au/study/how-to-apply/postgraduate-coursework",
-      "checkedAt": "2026-11-22T12:37:43.623316+00:00",
+      "checkedAt": "2026-11-22T13:58:42.944935+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -1400,7 +1406,7 @@
     },
     "university-of-glasgow": {
       "url": "https://www.gla.ac.uk/postgraduate/howtoapplyforataughtdegree/",
-      "checkedAt": "2026-11-22T12:37:43.638146+00:00",
+      "checkedAt": "2026-11-22T13:58:43.006134+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -1411,7 +1417,7 @@
     },
     "university-of-california-san-diego-ucsd": {
       "url": "https://grad.ucsd.edu/admissions/",
-      "checkedAt": "2026-11-22T12:37:43.646479+00:00",
+      "checkedAt": "2026-11-22T13:58:43.064174+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1426,11 +1432,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:29.892864+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.646479+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.064174+00:00"
     },
     "kth-royal-institute-of-technology": {
       "url": "https://www.kth.se/en/studies/master/application",
-      "checkedAt": "2026-11-22T12:37:43.709141+00:00",
+      "checkedAt": "2026-11-22T13:58:43.083724+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -1441,7 +1447,7 @@
     },
     "the-university-of-sheffield": {
       "url": "https://sheffield.ac.uk/postgraduate/taught/apply",
-      "checkedAt": "2026-11-22T12:37:43.810163+00:00",
+      "checkedAt": "2026-11-22T13:58:43.263081+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1456,11 +1462,11 @@
       "deadlineSignalHash": "3aaf950a20f6c2df0d4f05149ca53ad488b7d11c6ebff14d24c4b9a5c9fffac7",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.708585+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.810163+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.263081+00:00"
     },
     "universidad-de-buenos-aires": {
       "url": "https://exactas.uba.ar/ensenanza/carreras-de-posgrado/maestrias/",
-      "checkedAt": "2026-11-22T12:37:43.843043+00:00",
+      "checkedAt": "2026-11-22T13:58:43.291823+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1475,11 +1481,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.041940+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:43.843043+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.291823+00:00"
     },
     "durham-university": {
       "url": "https://www.durham.ac.uk/study/postgraduate/",
-      "checkedAt": "2026-11-22T12:37:44.049162+00:00",
+      "checkedAt": "2026-11-22T13:58:43.313395+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1494,15 +1500,15 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.825843+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.049162+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.313395+00:00"
     },
     "ruprecht-karls-universit-t-heidelberg": {
       "url": "https://www.mathinf.uni-heidelberg.de/en/studies/application-master-programs",
-      "checkedAt": "2026-11-22T12:37:44.258638+00:00",
+      "checkedAt": "2026-11-22T13:58:43.357612+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 95251,
+      "bytesRead": 95240,
       "truncated": false,
       "contentHash": "eea5fe76f8e48b7978bd1a9eea43529efcdb9984316645300a964b05d29386ca",
       "changed": false,
@@ -1513,11 +1519,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.781638+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.258638+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.357612+00:00"
     },
     "politecnico-di-milano": {
       "url": "https://www.polimi.it/en/prospective-students/how-to-apply/admission-to-laurea-magistrale",
-      "checkedAt": "2026-11-22T12:37:44.311333+00:00",
+      "checkedAt": "2026-11-22T13:58:43.412794+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1532,11 +1538,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.154725+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.311333+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.412794+00:00"
     },
     "university-of-technology-sydney": {
       "url": "https://www.uts.edu.au/for-students/admissions-entry/application-dates",
-      "checkedAt": "2026-11-22T12:37:44.365879+00:00",
+      "checkedAt": "2026-11-22T13:58:43.456239+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1551,11 +1557,11 @@
       "deadlineSignalHash": "d6fd528753edf5cd5444eeccf49bcb7960fa6ff705c50883a73855437600fdbe",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.892371+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.365879+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.456239+00:00"
     },
     "uppsala-university": {
       "url": "https://www.uu.se/en/study/masters-studies/application.html",
-      "checkedAt": "2026-11-22T12:37:44.405548+00:00",
+      "checkedAt": "2026-11-22T13:58:43.574228+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -1570,11 +1576,11 @@
       "deadlineSignalHash": "1c6baac714f71633f3989b756c2ac4ec73563acbbf8b82036cc7506a748a543a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.753220+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.405548+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.574228+00:00"
     },
     "nanjing-university": {
       "url": "https://istudy.nju.edu.cn/en/",
-      "checkedAt": "2026-11-22T12:37:44.453719+00:00",
+      "checkedAt": "2026-11-22T13:58:43.670447+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -1589,11 +1595,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.345667+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.453719+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.670447+00:00"
     },
     "university-of-copenhagen": {
       "url": "https://www.ku.dk/studies/admission/masters",
-      "checkedAt": "2026-11-22T12:37:44.459680+00:00",
+      "checkedAt": "2026-11-22T13:58:43.949502+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1608,30 +1614,30 @@
       "deadlineSignalHash": "c841c653d5bc926e9aa5d3d4647995c3078568b77373eee5e3ea882f7c86d84b",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.220262+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.459680+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:43.949502+00:00"
     },
     "pennsylvania-state-university": {
       "url": "https://gradschool.psu.edu/admissions/how-to-apply?",
-      "checkedAt": "2026-11-22T12:37:44.512645+00:00",
+      "checkedAt": "2026-11-22T13:58:44.010086+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
-      "bytesRead": 80508,
+      "bytesRead": 80593,
       "truncated": false,
       "contentHash": "85a1df4a0df2ca72d05f0351e9ff52ebb974a4b2562f71efb6bbbe0b7c6291ee",
       "changed": false,
       "changeDetected": true,
-      "pendingContentHash": "7eb38d94fbdd8714e6564486be77c326bdb622167edb137d28de4620efcd4955",
+      "pendingContentHash": "fde3a2706677ef1ecd0a9a6f3c6fc6856ea0dd5df2ce3541da0846a8cd32ade3",
       "pendingChangeCount": 1,
       "fingerprintVersion": 3,
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.978733+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.512645+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.010086+00:00"
     },
     "university-of-washington": {
       "url": "https://grad.uw.edu/prospective-students/how-to-apply/",
-      "checkedAt": "2026-11-22T12:37:44.604958+00:00",
+      "checkedAt": "2026-11-22T13:58:44.010369+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1646,11 +1652,11 @@
       "deadlineSignalHash": "f9622bf7b0f374f512e700059dcf53121d5989c49e123fbf5ade5fb54bbc0758",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:30.841816+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.604958+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.010369+00:00"
     },
     "boston-university": {
       "url": "https://www.bu.edu/cas/admissions/ma-ms/apply/",
-      "checkedAt": "2026-11-22T12:37:44.668038+00:00",
+      "checkedAt": "2026-11-22T13:58:44.161810+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1665,11 +1671,11 @@
       "deadlineSignalHash": "b9f50a2bd3f6d342a0137662ecae7a2ffb0f7146740605bc0b319b9704f3ca72",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.377414+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.668038+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.161810+00:00"
     },
     "the-university-of-osaka": {
       "url": "https://www.ist.osaka-u.ac.jp/english/examinees/admission/guidelines2027.php",
-      "checkedAt": "2026-11-22T12:37:44.909504+00:00",
+      "checkedAt": "2026-11-22T13:58:44.201380+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1684,11 +1690,11 @@
       "deadlineSignalHash": "0f3753eb2e37d4d7d21997555cb9442ef4dfb8b659b094e1425ef250461d0f07",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.633242+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:44.909504+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.201380+00:00"
     },
     "university-of-alberta": {
       "url": "https://www.ualberta.ca/en/graduate-studies/admissions-programs/apply/index.html",
-      "checkedAt": "2026-11-22T12:37:45.085414+00:00",
+      "checkedAt": "2026-11-22T13:58:44.263164+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1703,11 +1709,11 @@
       "deadlineSignalHash": "3e65fc994195aa49ab319279046e6e8bccd645a584b524b7839fd0e37b590289",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.889027+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:45.085414+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.263164+00:00"
     },
     "tokyo-institute-of-technology": {
       "url": "https://admissions.isct.ac.jp/en/013/graduate/programs/science-and-engineering",
-      "checkedAt": "2026-11-22T12:37:45.088322+00:00",
+      "checkedAt": "2026-11-22T13:58:44.274995+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1722,11 +1728,11 @@
       "deadlineSignalHash": "95774177a8a7cdfa81cceab47c5649fcf1d510dbd4462dc3a07358b28d899fdd",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.111770+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:45.088322+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.274995+00:00"
     },
     "the-university-of-nottingham": {
       "url": "https://www.nottingham.ac.uk/pgstudy/how-to-apply/apply-online.aspx",
-      "checkedAt": "2026-11-22T12:37:45.369203+00:00",
+      "checkedAt": "2026-11-22T13:58:44.535542+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1741,11 +1747,11 @@
       "deadlineSignalHash": "f1ec62c491f9457c2736da522184426d1d4f09fd71756fadf09f6c6147b1ea70",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.023630+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:45.369203+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.535542+00:00"
     },
     "freie-universit-t-berlin": {
       "url": "https://www.fu-berlin.de/en/studium/bewerbung/master/index.html",
-      "checkedAt": "2026-11-22T12:37:45.427872+00:00",
+      "checkedAt": "2026-11-22T13:58:44.583616+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1760,11 +1766,11 @@
       "deadlineSignalHash": "256b7b621033c7160a1b999d3fd8e5c680309d1b414d7bd0b44ab3ac3561832f",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.380945+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:45.427872+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.583616+00:00"
     },
     "university-of-zurich-uzh": {
       "url": "https://www.uzh.ch/en/studies/application/master.html",
-      "checkedAt": "2026-11-22T12:37:45.597801+00:00",
+      "checkedAt": "2026-11-22T13:58:44.620632+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -1779,15 +1785,15 @@
       "deadlineSignalHash": "e410a24def0785b49f758977563800260017d2e3a90adca5ec7106198d29bfe4",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.218753+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:45.597801+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.620632+00:00"
     },
     "purdue-university": {
       "url": "https://www.purdue.edu/academics/ogsps/admissions/how-to-apply/",
-      "checkedAt": "2026-11-22T12:37:45.646240+00:00",
+      "checkedAt": "2026-11-22T13:58:44.741514+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
-      "bytesRead": 199418,
+      "bytesRead": 199374,
       "truncated": false,
       "contentHash": "e366a013a5b8f3d2d3426e72c130a281011972e45bdea8d87b656d3296000c4d",
       "changed": false,
@@ -1798,11 +1804,11 @@
       "deadlineSignalHash": "d0afbcfd2d4607587eb359155cfe8ea27c5b2b1b859b7a1f17cccac0a8c0c46d",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.499770+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:45.646240+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.741514+00:00"
     },
     "university-college-dublin": {
       "url": "https://www.ucd.ie/graduateadmissions/",
-      "checkedAt": "2026-11-22T12:37:45.812964+00:00",
+      "checkedAt": "2026-11-22T13:58:44.800464+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1817,11 +1823,11 @@
       "deadlineSignalHash": "e473ab87a888fbfd0e61304521160f091c2a9e175f1be40fee1f9f7bad56f543",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.339137+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:45.812964+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.800464+00:00"
     },
     "tohoku-university": {
       "url": "https://www.tohoku.ac.jp/en/admissions/admission_graduate.html",
-      "checkedAt": "2026-11-22T12:37:45.957631+00:00",
+      "checkedAt": "2026-11-22T13:58:44.935253+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -1836,11 +1842,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.785534+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:45.957631+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.935253+00:00"
     },
     "queen-mary-university-of-london-qmul": {
       "url": "https://www.qmul.ac.uk/postgraduate/taught/",
-      "checkedAt": "2026-11-22T12:37:46.014879+00:00",
+      "checkedAt": "2026-11-22T13:58:44.935886+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1855,15 +1861,15 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.848840+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:46.014879+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:44.935886+00:00"
     },
     "rheinisch-westf-lische-technische-hochschule-aachen": {
       "url": "https://www.rwth-aachen.de/go/id/bxip/lidx/1",
-      "checkedAt": "2026-11-22T12:37:46.084791+00:00",
+      "checkedAt": "2026-11-22T13:58:45.090602+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; Charset=utf-8",
-      "bytesRead": 87868,
+      "bytesRead": 87870,
       "truncated": false,
       "contentHash": "372422010902315d844db3f965bc1068c564cae937d0eb6df9c47e0277937b61",
       "changed": false,
@@ -1874,11 +1880,11 @@
       "deadlineSignalHash": "a9f62794c758a29dcc81582a5469aa3d6004ec7a1842a032a45a6ad5039ea3e2",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.597501+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:46.084791+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:45.090602+00:00"
     },
     "technical-university-of-denmark": {
       "url": "https://www.dtu.dk/english/education/graduate/application-and-admission",
-      "checkedAt": "2026-11-22T12:37:46.120014+00:00",
+      "checkedAt": "2026-11-22T13:58:45.149558+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -1893,11 +1899,11 @@
       "deadlineSignalHash": "0b6a5c28015467a78bf27119ca1cb704eb2d69c15225c6bef9e1a9af92db1819",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.642032+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:46.120014+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:45.149558+00:00"
     },
     "pohang-university-of-science-and-technology-postech": {
       "url": "https://adm-g.postech.ac.kr/",
-      "checkedAt": "2026-11-22T12:37:46.193143+00:00",
+      "checkedAt": "2026-11-22T13:58:45.164332+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1912,11 +1918,11 @@
       "deadlineSignalHash": "d23751f68f3e21895f8f960b85866a7fe67704c88f95b156d76cac38e68501d5",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.345667+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:46.193143+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:45.164332+00:00"
     },
     "king-saud-university": {
       "url": "https://graduatestudies.ksu.edu.sa/en",
-      "checkedAt": "2026-11-22T12:37:46.305389+00:00",
+      "checkedAt": "2026-11-22T13:58:45.216442+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1931,11 +1937,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.025196+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:46.305389+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:45.216442+00:00"
     },
     "sungkyunkwan-university": {
       "url": "https://admission-global.skku.edu/eng/",
-      "checkedAt": "2026-11-22T12:37:46.582108+00:00",
+      "checkedAt": "2026-11-22T13:58:45.335976+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -1950,11 +1956,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.835521+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:46.582108+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:45.335976+00:00"
     },
     "qatar-university": {
       "url": "https://www.qu.edu.qa/en-us/students/admission/graduate/Pages/application-timeline.aspx",
-      "checkedAt": "2026-11-22T12:37:46.602352+00:00",
+      "checkedAt": "2026-11-22T13:58:45.481487+00:00",
       "status": "error",
       "errorKind": "network",
       "httpStatus": null,
@@ -1968,7 +1974,7 @@
     },
     "karlsruhe-institute-of-technology-kit": {
       "url": "https://www.sle.kit.edu/english/vorstudium/master.php",
-      "checkedAt": "2026-11-22T12:37:46.667275+00:00",
+      "checkedAt": "2026-11-22T13:58:45.491145+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -1981,7 +1987,7 @@
     },
     "sapienza-university-of-rome": {
       "url": "https://corsidilaurea.uniroma1.it/en/corso/2026/29932/home",
-      "checkedAt": "2026-11-22T12:37:46.711100+00:00",
+      "checkedAt": "2026-11-22T13:58:45.627178+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -1994,7 +2000,7 @@
     },
     "university-of-southampton": {
       "url": "https://www.southampton.ac.uk/study/postgraduate-taught/apply",
-      "checkedAt": "2026-11-22T12:37:46.834311+00:00",
+      "checkedAt": "2026-11-22T13:58:45.657179+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2009,11 +2015,11 @@
       "deadlineSignalHash": "9e1ca36cdc0dc499bb044bba457adfa18f27104340aa898bf0f4e69ba248c6c7",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:31.116668+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:46.834311+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:45.657179+00:00"
     },
     "university-of-waterloo": {
       "url": "https://uwaterloo.ca/future-graduate-students/applying-graduate-school",
-      "checkedAt": "2026-11-22T12:37:46.896608+00:00",
+      "checkedAt": "2026-11-22T13:58:45.666390+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2024,7 +2030,7 @@
     },
     "utrecht-university": {
       "url": "https://www.uu.nl/en/masters/general-information/application-and-admission",
-      "checkedAt": "2026-11-22T12:37:47.079674+00:00",
+      "checkedAt": "2026-11-22T13:58:45.808817+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2039,11 +2045,11 @@
       "deadlineSignalHash": "501236080627cae608cdae528afca09e910c48636e7f1c8855b9496f785fd1d5",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.467590+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:47.079674+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:45.808817+00:00"
     },
     "lomonosov-moscow-state-university": {
       "url": "https://cpk.msu.ru/",
-      "checkedAt": "2026-11-22T12:37:47.102854+00:00",
+      "checkedAt": "2026-11-22T13:58:46.020489+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2058,11 +2064,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.467590+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:47.102854+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:46.020489+00:00"
     },
     "university-of-st-andrews": {
       "url": "https://www.st-andrews.ac.uk/study/apply/postgraduate/",
-      "checkedAt": "2026-11-22T12:37:47.227849+00:00",
+      "checkedAt": "2026-11-22T13:58:46.032873+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2073,7 +2079,7 @@
     },
     "indian-institute-of-technology-delhi-iitd": {
       "url": "https://home.iitd.ac.in/pg-admissions.php",
-      "checkedAt": "2026-11-22T12:37:47.384248+00:00",
+      "checkedAt": "2026-11-22T13:58:46.117437+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2088,11 +2094,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.709956+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:47.384248+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:46.117437+00:00"
     },
     "leiden-university": {
       "url": "https://www.universiteitleiden.nl/en/education/admission-and-application/masters",
-      "checkedAt": "2026-11-22T12:37:47.480363+00:00",
+      "checkedAt": "2026-11-22T13:58:46.306931+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -2107,11 +2113,11 @@
       "deadlineSignalHash": "2ffcce8525223073d7b8c8642cff87bff46808e0621653e720936987de9b1449",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.412798+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:47.480363+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:46.306931+00:00"
     },
     "pontificia-universidad-cat-lica-de-chile": {
       "url": "https://admision.uc.cl/postgrado/",
-      "checkedAt": "2026-11-22T12:37:47.488637+00:00",
+      "checkedAt": "2026-11-22T13:58:46.335692+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -2124,7 +2130,7 @@
     },
     "rmit-university": {
       "url": "https://www.rmit.edu.au/study-with-us/levels-of-study/postgraduate-study/masters-by-coursework/mc208",
-      "checkedAt": "2026-11-22T12:37:47.610564+00:00",
+      "checkedAt": "2026-11-22T13:58:46.422408+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -2139,11 +2145,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.772993+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:47.610564+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:46.422408+00:00"
     },
     "rice-university": {
       "url": "https://graduate.rice.edu/admissions/how-to-apply",
-      "checkedAt": "2026-11-22T12:37:47.622829+00:00",
+      "checkedAt": "2026-11-22T13:58:46.478728+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2158,15 +2164,15 @@
       "deadlineSignalHash": "b8b603e91874248e4e51666019cb66c7d95566c5ed1e9a6fdb5e7135a2bdb8a6",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.412798+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:47.622829+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:46.478728+00:00"
     },
     "alma-mater-studiorum-university-of-bologna": {
       "url": "https://www.unibo.it/en/study/enrolment-fees-and-other-procedures",
-      "checkedAt": "2026-11-22T12:37:47.701139+00:00",
+      "checkedAt": "2026-11-22T13:58:46.775287+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
-      "bytesRead": 493024,
+      "bytesRead": 492944,
       "truncated": false,
       "contentHash": "bda2efd256a558ee680c775e86a807fc14fbdf000b18976c0c22a5d609abbbaf",
       "changed": false,
@@ -2177,11 +2183,11 @@
       "deadlineSignalHash": "77d834f0c37a5eaea09f8ff5897fa0de8454b4fa46929f39762de2746d17999a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.672656+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:47.701139+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:46.775287+00:00"
     },
     "university-of-helsinki": {
       "url": "https://www.helsinki.fi/en/admissions-and-education/apply-masters-programmes",
-      "checkedAt": "2026-11-22T12:37:47.845313+00:00",
+      "checkedAt": "2026-11-22T13:58:46.813263+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2192,7 +2198,7 @@
     },
     "university-of-bath": {
       "url": "https://www.bath.ac.uk/guides/applying-for-a-masters-degree/",
-      "checkedAt": "2026-11-22T12:37:47.847121+00:00",
+      "checkedAt": "2026-11-22T13:58:46.814464+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2203,7 +2209,7 @@
     },
     "aalto-university": {
       "url": "https://www.aalto.fi/en/admission-services/apply-to-masters-programmes",
-      "checkedAt": "2026-11-22T12:37:47.901368+00:00",
+      "checkedAt": "2026-11-22T13:58:46.901226+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2218,11 +2224,11 @@
       "deadlineSignalHash": "c84a34534479607d15e4a95b3dfbe9b3b72a779ae8724ad0ffdd04d5730d28d6",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.099217+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:47.901368+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:46.901226+00:00"
     },
     "macquarie-university": {
       "url": "https://www.mq.edu.au/study/admissions-and-entry/apply",
-      "checkedAt": "2026-11-22T12:37:48.097142+00:00",
+      "checkedAt": "2026-11-22T13:58:46.911298+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2237,11 +2243,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.673712+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:48.097142+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:46.911298+00:00"
     },
     "aarhus-university": {
       "url": "https://masters.au.dk/how-to-apply",
-      "checkedAt": "2026-11-22T12:37:48.124364+00:00",
+      "checkedAt": "2026-11-22T13:58:47.011352+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2256,11 +2262,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.151865+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:48.124364+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:47.011352+00:00"
     },
     "universiti-sains-malaysia-usm": {
       "url": "https://admission.usm.my/index.php/postgraduate/programmes",
-      "checkedAt": "2026-11-22T12:37:48.200696+00:00",
+      "checkedAt": "2026-11-22T13:58:47.101763+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2275,11 +2281,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.492370+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:48.200696+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:47.101763+00:00"
     },
     "universiti-kebangsaan-malaysia-ukm": {
       "url": "https://www.ukm.my/portalukm/postgraduate/",
-      "checkedAt": "2026-11-22T12:37:48.474397+00:00",
+      "checkedAt": "2026-11-22T13:58:47.215618+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2292,7 +2298,7 @@
     },
     "university-of-oslo": {
       "url": "https://www.uio.no/english/studies/admission/master/",
-      "checkedAt": "2026-11-22T12:37:48.478463+00:00",
+      "checkedAt": "2026-11-22T13:58:47.250652+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -2307,11 +2313,11 @@
       "deadlineSignalHash": "17c2b879ba43ae84e4953a8b84ae02aa75efeeb94ccbf806cccbcdae7b6408b8",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.525326+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:48.478463+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:47.250652+00:00"
     },
     "university-of-wisconsin-madison": {
       "url": "https://grad.wisc.edu/apply/",
-      "checkedAt": "2026-11-22T12:37:48.517304+00:00",
+      "checkedAt": "2026-11-22T13:58:47.367482+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2326,11 +2332,11 @@
       "deadlineSignalHash": "84ec9235511ace5e18a088e8cd5a9c7d8eeb72de5d31e56c2ee6e41e7e88b224",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.849842+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:48.517304+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:47.367482+00:00"
     },
     "universidade-de-s-o-paulo-usp": {
       "url": "https://www5.usp.br/ensino/pos-graduacao/",
-      "checkedAt": "2026-11-22T12:37:48.611461+00:00",
+      "checkedAt": "2026-11-22T13:58:47.426901+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2345,11 +2351,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:32.728257+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:48.611461+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:47.426901+00:00"
     },
     "indian-institute-of-technology-bombay-iitb": {
       "url": "https://acad.iitb.ac.in/admissions/masters/mtech",
-      "checkedAt": "2026-11-22T12:37:48.677000+00:00",
+      "checkedAt": "2026-11-22T13:58:47.564791+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2364,11 +2370,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.056705+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:48.677000+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:47.564791+00:00"
     },
     "university-of-science-and-technology-of-china": {
       "url": "https://ic.ustc.edu.cn/?page_id=742",
-      "checkedAt": "2026-11-22T12:37:49.006738+00:00",
+      "checkedAt": "2026-11-22T13:58:47.610512+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2383,11 +2389,11 @@
       "deadlineSignalHash": "c294d8bcc204d81cba3d570e2349f7f817ff50478c07eebe90ffb994a04666ed",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.286161+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.006738+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:47.610512+00:00"
     },
     "university-of-exeter": {
       "url": "https://www.exeter.ac.uk/masters-degrees/apply/application-deadlines/",
-      "checkedAt": "2026-11-22T12:37:49.010646+00:00",
+      "checkedAt": "2026-11-22T13:58:47.867551+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2402,11 +2408,11 @@
       "deadlineSignalHash": "e70012b138c4e082a3127cfe8c0b6b406189a836f2358b63f2da6fe7495789ff",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.808665+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.010646+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:47.867551+00:00"
     },
     "university-of-california-davis": {
       "url": "https://www.ucdavis.edu/admissions/graduate-school",
-      "checkedAt": "2026-11-22T12:37:49.100736+00:00",
+      "checkedAt": "2026-11-22T13:58:48.116357+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -2417,7 +2423,7 @@
     },
     "universiti-putra-malaysia-upm": {
       "url": "https://upm.edu.my/admission/programmes/postgraduate-76276",
-      "checkedAt": "2026-11-22T12:37:49.278574+00:00",
+      "checkedAt": "2026-11-22T13:58:48.208759+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2432,11 +2438,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.436175+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.278574+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:48.208759+00:00"
     },
     "university-of-liverpool": {
       "url": "https://www.liverpool.ac.uk/postgraduate-taught/applying/",
-      "checkedAt": "2026-11-22T12:37:49.290306+00:00",
+      "checkedAt": "2026-11-22T13:58:48.327160+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2451,15 +2457,15 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.432096+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.290306+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:48.327160+00:00"
     },
     "humboldt-universit-t-zu-berlin": {
       "url": "https://www.hu-berlin.de/en/studies/admission",
-      "checkedAt": "2026-11-22T12:37:49.332349+00:00",
+      "checkedAt": "2026-11-22T13:58:48.380673+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 7439,
+      "bytesRead": 7440,
       "truncated": false,
       "contentHash": "9e3a800e26d7f970a1f80c99632c47545e5362fae18d958cf24f37d555400535",
       "changed": false,
@@ -2470,11 +2476,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.098490+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.332349+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:48.380673+00:00"
     },
     "university-of-vienna": {
       "url": "https://studieren.univie.ac.at/en/admission/master-programmes/",
-      "checkedAt": "2026-11-22T12:37:49.360265+00:00",
+      "checkedAt": "2026-11-22T13:58:48.507747+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2488,7 +2494,7 @@
     },
     "georgia-institute-of-technology": {
       "url": "https://grad.gatech.edu/admissions",
-      "checkedAt": "2026-11-22T12:37:49.539620+00:00",
+      "checkedAt": "2026-11-22T13:58:48.546718+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2503,11 +2509,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:33.647314+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.539620+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:48.546718+00:00"
     },
     "national-tsing-hua-university": {
       "url": "https://admission.nthu.edu.tw/",
-      "checkedAt": "2026-11-22T12:37:49.617608+00:00",
+      "checkedAt": "2026-11-22T13:58:48.583222+00:00",
       "status": "error",
       "errorKind": "network",
       "httpStatus": null,
@@ -2517,7 +2523,7 @@
     },
     "western-university": {
       "url": "https://grad.uwo.ca/index.html",
-      "checkedAt": "2026-11-22T12:37:49.637607+00:00",
+      "checkedAt": "2026-11-22T13:58:48.667584+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -2532,15 +2538,15 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.564615+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.637607+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:48.667584+00:00"
     },
     "universidad-nacional-aut-noma-de-m-xico-unam": {
       "url": "https://www.posgrado.unam.mx/",
-      "checkedAt": "2026-11-22T12:37:49.720402+00:00",
+      "checkedAt": "2026-11-22T13:58:48.753293+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
-      "bytesRead": 177088,
+      "bytesRead": 177086,
       "truncated": false,
       "contentHash": "70163d90f8f64fe8c3911ce1e83e5adb01d12cf5da22bdf1aca3b2528411f598",
       "changed": false,
@@ -2551,11 +2557,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.556836+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.720402+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:48.753293+00:00"
     },
     "tongji-university": {
       "url": "https://study.tongji.edu.cn/",
-      "checkedAt": "2026-11-22T12:37:49.973485+00:00",
+      "checkedAt": "2026-11-22T13:58:49.005354+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -2570,11 +2576,11 @@
       "deadlineSignalHash": "4a7ecb38e53db0826b25ed7410997a79e1c7eed39d55a5c7be7bb2c6c63405e4",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.269050+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:49.973485+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:49.005354+00:00"
     },
     "khalifa-university-of-science-and-technology": {
       "url": "https://pgapply.ku.ac.ae/portal/pg_landing",
-      "checkedAt": "2026-11-22T12:37:50.013006+00:00",
+      "checkedAt": "2026-11-22T13:58:49.063475+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2589,11 +2595,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.194869+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:50.013006+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:49.063475+00:00"
     },
     "erasmus-university-rotterdam": {
       "url": "https://www.eur.nl/en/education/practical-matters/registration/first-registration/master",
-      "checkedAt": "2026-11-22T12:37:50.045602+00:00",
+      "checkedAt": "2026-11-22T13:58:49.322866+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2608,11 +2614,11 @@
       "deadlineSignalHash": "93fa06c184465d081aa0900d27d1ff86bffbd0f722ad0dc2af794fd0de6c75e5",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.872407+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:50.045602+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:49.322866+00:00"
     },
     "newcastle-university": {
       "url": "https://www.ncl.ac.uk/postgraduate/degrees/5056f/",
-      "checkedAt": "2026-11-22T12:37:50.091338+00:00",
+      "checkedAt": "2026-11-22T13:58:49.394878+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2627,15 +2633,15 @@
       "deadlineSignalHash": "abfc0272b14e5dedda22da80869ab61f8eb34ce7932debce367703d9ea038cc3",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.613812+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:50.091338+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:49.394878+00:00"
     },
     "ghent-university": {
       "url": "https://www.ugent.be/prospect/en/administration/application/application-degree",
-      "checkedAt": "2026-11-22T12:37:50.122229+00:00",
+      "checkedAt": "2026-11-22T13:58:49.526110+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
-      "bytesRead": 24386,
+      "bytesRead": 24396,
       "truncated": false,
       "contentHash": "b176e2723514d7358a12c5be5d22163c12e19558865f764d582cad7872b6a096",
       "changed": false,
@@ -2646,11 +2652,11 @@
       "deadlineSignalHash": "2dd53c3e69ed974c4a1784f38f0f171ef89451c8bce13b7cc780c0f92ae54cae",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.242955+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:50.122229+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:49.526110+00:00"
     },
     "university-of-basel": {
       "url": "https://www.unibas.ch/en/Studies/Before-My-Studies/Application-Admission/Application.html",
-      "checkedAt": "2026-11-22T12:37:50.158940+00:00",
+      "checkedAt": "2026-11-22T13:58:49.690100+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -2665,11 +2671,11 @@
       "deadlineSignalHash": "4feeee2cf3ebbdb2b3ba587049d6d74592e897c2bb58218a5fe08234498e584a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.991151+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:50.158940+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:49.690100+00:00"
     },
     "eindhoven-university-of-technology": {
       "url": "https://www.tue.nl/en/education/become-a-tue-student/admission-and-application",
-      "checkedAt": "2026-11-22T12:37:50.315069+00:00",
+      "checkedAt": "2026-11-22T13:58:49.779059+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2680,11 +2686,11 @@
     },
     "university-of-southern-california": {
       "url": "https://gradadm.usc.edu/domestic-students/how-to-apply/",
-      "checkedAt": "2026-11-22T12:37:50.615856+00:00",
+      "checkedAt": "2026-11-22T13:58:50.044601+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
-      "bytesRead": 165407,
+      "bytesRead": 165403,
       "truncated": false,
       "contentHash": "c5d9d6179d5ed2231929b70628ee68a9949ca04434f35fd9b547722cf26d853d",
       "changed": false,
@@ -2695,11 +2701,11 @@
       "deadlineSignalHash": "dcbb79335290d597f5eb481d3fc43dad068b581cdb99288836f43af6bfd7c379",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.208961+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:50.615856+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:50.044601+00:00"
     },
     "wageningen-university-and-research": {
       "url": "https://www.wur.nl/en/education/master/application-admission-masters/apply-masters-programme.htm",
-      "checkedAt": "2026-11-22T12:37:50.887324+00:00",
+      "checkedAt": "2026-11-22T13:58:50.196902+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2710,7 +2716,7 @@
     },
     "hanyang-university": {
       "url": "https://www.grad.hanyang.ac.kr/eng/entrance/calendar.php",
-      "checkedAt": "2026-11-22T12:37:50.947986+00:00",
+      "checkedAt": "2026-11-22T13:58:50.314213+00:00",
       "status": "error",
       "errorKind": "network",
       "httpStatus": null,
@@ -2720,7 +2726,7 @@
     },
     "nagoya-university": {
       "url": "https://admissions.g30.nagoya-u.ac.jp/graduate/",
-      "checkedAt": "2026-11-22T12:37:51.004675+00:00",
+      "checkedAt": "2026-11-22T13:58:50.337273+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2734,7 +2740,7 @@
     },
     "university-of-groningen": {
       "url": "https://www.rug.nl/education/application-enrolment-tuition-fees/admission/",
-      "checkedAt": "2026-11-22T12:37:51.089863+00:00",
+      "checkedAt": "2026-11-22T13:58:50.399443+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -2749,11 +2755,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.369348+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:51.089863+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:50.399443+00:00"
     },
     "technische-universit-t-berlin": {
       "url": "https://www.tu.berlin/en/studying/applying-and-enrolling/dates-deadlines",
-      "checkedAt": "2026-11-22T12:37:51.278506+00:00",
+      "checkedAt": "2026-11-22T13:58:50.456787+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2768,15 +2774,15 @@
       "deadlineSignalHash": "f3dd488f374d387443cb253c4cf31ef0527422b104d051b38c630f8e5b68bd3c",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.154507+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:51.278506+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:50.456787+00:00"
     },
     "universiti-teknologi-malaysia-utm": {
       "url": "https://admission.utm.my/international-postgraduate-study/",
-      "checkedAt": "2026-11-22T12:37:51.292941+00:00",
+      "checkedAt": "2026-11-22T13:58:50.558618+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
-      "bytesRead": 264313,
+      "bytesRead": 264308,
       "truncated": false,
       "contentHash": "36e691181556325e9afaebe85a36bc49fb8f829f92ae8720414b3f022fe74a55",
       "changed": false,
@@ -2787,11 +2793,11 @@
       "deadlineSignalHash": "a6abfc7523c1b2bfafa678d63ea84e5c4a10895e1cb732b25e17da4ae0c8a25f",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.677638+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:51.292941+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:50.558618+00:00"
     },
     "university-of-north-carolina-chapel-hill": {
       "url": "https://gradschool.unc.edu/admissions/deadlines/",
-      "checkedAt": "2026-11-22T12:37:51.347941+00:00",
+      "checkedAt": "2026-11-22T13:58:50.613347+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2806,11 +2812,11 @@
       "deadlineSignalHash": "5a4ae1ec75798cacd6eb3c787cbc58c98a34c4591439b564948d97186b2286e7",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:34.930026+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:51.347941+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:50.613347+00:00"
     },
     "university-of-york": {
       "url": "https://www.york.ac.uk/study/postgraduate-taught/apply/",
-      "checkedAt": "2026-11-22T12:37:51.400387+00:00",
+      "checkedAt": "2026-11-22T13:58:50.777129+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -2825,11 +2831,11 @@
       "deadlineSignalHash": "a72b0c2dcb2a71448634db8d6967161392455f5733520a80aea460052b775b58",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.685612+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:51.400387+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:50.777129+00:00"
     },
     "university-of-montreal": {
       "url": "https://admission.umontreal.ca/programmes/maitrise-en-informatique/",
-      "checkedAt": "2026-11-22T12:37:51.653127+00:00",
+      "checkedAt": "2026-11-22T13:58:50.859222+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -2844,11 +2850,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.563388+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:51.653127+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:50.859222+00:00"
     },
     "washington-university-in-st-louis": {
       "url": "https://graduateschool.wustl.edu/admissions/",
-      "checkedAt": "2026-11-22T12:37:51.791914+00:00",
+      "checkedAt": "2026-11-22T13:58:50.922639+00:00",
       "status": "error",
       "errorKind": "network",
       "httpStatus": null,
@@ -2859,7 +2865,7 @@
     },
     "lancaster-university": {
       "url": "https://www.lancaster.ac.uk/study/postgraduate/applying-for-postgraduate-study/",
-      "checkedAt": "2026-11-22T12:37:51.854403+00:00",
+      "checkedAt": "2026-11-22T13:58:50.958478+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2874,11 +2880,11 @@
       "deadlineSignalHash": "b98a11958e3e1e86e49ccfb9f81948d411799f911104ee3cee3d757bdfc4ed2a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.930042+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:51.854403+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:50.958478+00:00"
     },
     "university-of-barcelona": {
       "url": "https://web.ub.edu/ca/web/estudis/masters-postgraus",
-      "checkedAt": "2026-11-22T12:37:51.935917+00:00",
+      "checkedAt": "2026-11-22T13:58:50.998544+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -2888,7 +2894,7 @@
     },
     "wuhan-university": {
       "url": "https://admission.whu.edu.cn/en/?c=content&a=list&catid=81",
-      "checkedAt": "2026-11-22T12:37:52.005773+00:00",
+      "checkedAt": "2026-11-22T13:58:51.088951+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2899,7 +2905,7 @@
     },
     "stockholm-university": {
       "url": "https://www.su.se/english/education/course-catalogue",
-      "checkedAt": "2026-11-22T12:37:52.099881+00:00",
+      "checkedAt": "2026-11-22T13:58:51.092036+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -2914,15 +2920,15 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.299088+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:52.099881+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:51.092036+00:00"
     },
     "university-of-geneva": {
       "url": "https://www.unige.ch/immatriculations/en/conditions",
-      "checkedAt": "2026-11-22T12:37:52.557951+00:00",
+      "checkedAt": "2026-11-22T13:58:51.340674+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
-      "bytesRead": 6212,
+      "bytesRead": 5166,
       "truncated": false,
       "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "changed": false,
@@ -2933,11 +2939,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:35.855698+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:52.557951+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:51.340674+00:00"
     },
     "texas-a-and-m-university": {
       "url": "https://grad.tamu.edu/admissions",
-      "checkedAt": "2026-11-22T12:37:52.593448+00:00",
+      "checkedAt": "2026-11-22T13:58:51.498339+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -2948,11 +2954,11 @@
     },
     "indian-institute-of-technology-madras-iitm": {
       "url": "https://mtechadm.iitm.ac.in/",
-      "checkedAt": "2026-11-22T12:37:52.654245+00:00",
+      "checkedAt": "2026-11-22T13:58:51.556098+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
-      "bytesRead": 138703,
+      "bytesRead": 138707,
       "truncated": false,
       "contentHash": "c8efb6155b40c66428bcee267675b0c72d681311afec56fca6eaa800500e8c45",
       "changed": false,
@@ -2963,11 +2969,11 @@
       "deadlineSignalHash": "cd047e0f4368b46cdc0d289f0443f1d11484e8aa48ab4e8fdd46dd26c282d0ce",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.462032+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:52.654245+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:51.556098+00:00"
     },
     "kyushu-university": {
       "url": "https://www.isee.kyushu-u.ac.jp/e/",
-      "checkedAt": "2026-11-22T12:37:52.765256+00:00",
+      "checkedAt": "2026-11-22T13:58:51.973079+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -2982,11 +2988,11 @@
       "deadlineSignalHash": "78116b95567060ba7b5ac3dbb887aa1553fd8209fada4dd181b6c4678ec39dab",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.750145+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:52.765256+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:51.973079+00:00"
     },
     "arizona-state-university": {
       "url": "https://admission.asu.edu/apply/graduate/admission",
-      "checkedAt": "2026-11-22T12:37:52.991090+00:00",
+      "checkedAt": "2026-11-22T13:58:51.978598+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3001,11 +3007,11 @@
       "deadlineSignalHash": "c8b61bd6d59ef76b67c63a2b47ec4efe74fb24f4fcccd9d0d9e670ca45e384af",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.973760+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:52.991090+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:51.978598+00:00"
     },
     "university-of-california-santa-barbara-ucsb": {
       "url": "https://www.graddiv.ucsb.edu/admissions/application-and-admission-checklist",
-      "checkedAt": "2026-11-22T12:37:53.249879+00:00",
+      "checkedAt": "2026-11-22T13:58:52.011137+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3020,11 +3026,11 @@
       "deadlineSignalHash": "3dc51bb4f1669f394d01fc365093e74026d5da0e96ced554a2a66f5cfff1bc25",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.393307+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:53.249879+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:52.011137+00:00"
     },
     "chalmers-university-of-technology": {
       "url": "https://www.chalmers.se/en/education/find-masters-programme/",
-      "checkedAt": "2026-11-22T12:37:53.767963+00:00",
+      "checkedAt": "2026-11-22T13:58:52.049447+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3039,11 +3045,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.383665+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:53.767963+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:52.049447+00:00"
     },
     "mcmaster-university": {
       "url": "https://gs.mcmaster.ca/how-to-apply/",
-      "checkedAt": "2026-11-22T12:37:53.801171+00:00",
+      "checkedAt": "2026-11-22T13:58:52.333880+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3058,11 +3064,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.032184+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:53.801171+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:52.333880+00:00"
     },
     "queen-s-university-belfast": {
       "url": "https://www.qub.ac.uk/courses/postgraduate-taught/",
-      "checkedAt": "2026-11-22T12:37:54.084594+00:00",
+      "checkedAt": "2026-11-22T13:58:52.456872+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3077,11 +3083,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:39.118733+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:54.084594+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:52.456872+00:00"
     },
     "al-farabi-kazakh-national-university": {
       "url": "https://welcome.kaznu.kz/en/",
-      "checkedAt": "2026-11-22T12:37:54.202032+00:00",
+      "checkedAt": "2026-11-22T13:58:52.478245+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3096,11 +3102,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.494702+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:54.202032+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:52.478245+00:00"
     },
     "national-yang-ming-chiao-tung-university": {
       "url": "https://oia.nycu.edu.tw/oia/en/app/folder/782",
-      "checkedAt": "2026-11-22T12:37:54.321466+00:00",
+      "checkedAt": "2026-11-22T13:58:52.641946+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -3115,11 +3121,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:39.050750+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:54.321466+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:52.641946+00:00"
     },
     "cardiff-university": {
       "url": "https://www.cardiff.ac.uk/study/postgraduate/taught",
-      "checkedAt": "2026-11-22T12:37:54.427923+00:00",
+      "checkedAt": "2026-11-22T13:58:52.722513+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -3129,7 +3135,7 @@
     },
     "hokkaido-university": {
       "url": "https://www.global.hokudai.ac.jp/admissions/graduate-admissions-overview/",
-      "checkedAt": "2026-11-22T12:37:54.442121+00:00",
+      "checkedAt": "2026-11-22T13:58:52.920600+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3144,11 +3150,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.685612+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:54.442121+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:52.920600+00:00"
     },
     "queen-s-university-ontario": {
       "url": "https://www.queensu.ca/grad-postdoc/grad-studies/apply",
-      "checkedAt": "2026-11-22T12:37:54.528672+00:00",
+      "checkedAt": "2026-11-22T13:58:53.203897+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3163,15 +3169,15 @@
       "deadlineSignalHash": "b6492814e378e133839ecdd9801c9b6ab79a72468f83565e8f6495f2a37c863c",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:38.442894+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:54.528672+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:53.203897+00:00"
     },
     "michigan-state-university": {
       "url": "https://grad.msu.edu/admissions/apply",
-      "checkedAt": "2026-11-22T12:37:54.683730+00:00",
+      "checkedAt": "2026-11-22T13:58:53.241502+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 706540,
+      "bytesRead": 706583,
       "truncated": false,
       "contentHash": "7c8f124a525e94204c1453c588c4884941a7b8dd876332f71736526be7dc83ed",
       "changed": false,
@@ -3182,11 +3188,11 @@
       "deadlineSignalHash": "43817b3c55aa3708b310d6b1423d371599882181ccf8419e8c759366d6d114f3",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.172328+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:54.683730+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:53.241502+00:00"
     },
     "emory-university": {
       "url": "https://gs.emory.edu/admissions/index.html",
-      "checkedAt": "2026-11-22T12:37:54.881607+00:00",
+      "checkedAt": "2026-11-22T13:58:53.402471+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3201,11 +3207,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.616026+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:54.881607+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:53.402471+00:00"
     },
     "university-of-cape-town": {
       "url": "https://uct.ac.za/students/applications-admissions/postgraduate-applications",
-      "checkedAt": "2026-11-22T12:37:55.046025+00:00",
+      "checkedAt": "2026-11-22T13:58:53.419802+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -3218,7 +3224,7 @@
     },
     "technische-universitat-dresden": {
       "url": "https://tu-dresden.de/studium/vor-dem-studium/bewerbung?set_language=en",
-      "checkedAt": "2026-11-22T12:37:55.320819+00:00",
+      "checkedAt": "2026-11-22T13:58:53.607501+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -3233,34 +3239,34 @@
       "deadlineSignalHash": "fc9e5f63c6f0a0c53e549d138031437667a86432370b830c848a8784c4b9757e",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-20T08:40:19.923322+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:55.320819+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:53.607501+00:00"
     },
     "universidad-de-chile": {
       "url": "https://uchile.cl/postgrados",
-      "checkedAt": "2026-11-22T12:37:55.468443+00:00",
+      "checkedAt": "2026-11-22T13:58:53.664420+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
       "bytesRead": 101420,
       "truncated": false,
-      "contentHash": "bc542fe7a88c969ffacf548376ea61d52158fa87fdb4f817b82f91fc6ac29a42",
-      "changed": false,
+      "contentHash": "74ac3b022ef5490ed79946c15b071804b57fcfeffc84c4ad9534c8eeb5f43a03",
+      "changed": true,
       "changeDetected": true,
-      "pendingContentHash": "74ac3b022ef5490ed79946c15b071804b57fcfeffc84c4ad9534c8eeb5f43a03",
-      "pendingChangeCount": 1,
+      "pendingContentHash": null,
+      "pendingChangeCount": 0,
       "fingerprintVersion": 3,
       "deadlineSignalHash": null,
-      "changeSeverity": null,
+      "changeSeverity": "generic",
       "firstSeenAt": "2026-06-13T22:26:37.033288+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:55.468443+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:53.664420+00:00"
     },
     "vrije-universiteit-amsterdam": {
       "url": "https://vu.nl/en/education/master",
-      "checkedAt": "2026-11-22T12:37:55.497021+00:00",
+      "checkedAt": "2026-11-22T13:58:53.940638+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 61994,
+      "bytesRead": 62011,
       "truncated": false,
       "contentHash": "7e8a02c086fd3756ea35a5e08e6cdacc3f0a75560326d38ce8c475925711e1ec",
       "changed": false,
@@ -3271,11 +3277,11 @@
       "deadlineSignalHash": "151f2afa117c409d4e0b30ad99695a5df63ad4a8d83c85d7ed55521ea2346ea8",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:38.708531+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:55.497021+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:53.940638+00:00"
     },
     "tecnol-gico-de-monterrey-itesm": {
       "url": "https://maestriasydiplomados.tec.mx/",
-      "checkedAt": "2026-11-22T12:37:55.595813+00:00",
+      "checkedAt": "2026-11-22T13:58:54.092853+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3290,15 +3296,15 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:38.031933+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:55.595813+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:54.092853+00:00"
     },
     "curtin-university": {
       "url": "https://www.curtin.edu.au/study/applying/domestic/how-to-apply/postgraduate/",
-      "checkedAt": "2026-11-22T12:37:55.663460+00:00",
+      "checkedAt": "2026-11-22T13:58:54.189517+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
-      "bytesRead": 329139,
+      "bytesRead": 331629,
       "truncated": false,
       "contentHash": "c5fc685ea59d40d4f4f27cee7e80ed50a8ea91bb2b174ae3e12f9e70980d085c",
       "changed": false,
@@ -3309,11 +3315,11 @@
       "deadlineSignalHash": "1b89892afaa4db02d970f814647edcd6dd8f6df570576b4c1e2a364b0a416b6d",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.688361+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:55.663460+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:54.189517+00:00"
     },
     "harbin-institute-of-technology": {
       "url": "https://studyathit.hit.edu.cn/18359/list.htm",
-      "checkedAt": "2026-11-22T12:37:55.670547+00:00",
+      "checkedAt": "2026-11-22T13:58:54.224094+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3328,11 +3334,11 @@
       "deadlineSignalHash": "2133f16109fb74bbb4d7b221a57a6db02f58f6b4f96ec3fd00c5adb4a5b6a720",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-20T08:40:20.776075+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:55.670547+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:54.224094+00:00"
     },
     "national-cheng-kung-university-ncku": {
       "url": "https://oia.ncku.edu.tw/p/404-1032-229816.php?Lang=en",
-      "checkedAt": "2026-11-22T12:37:55.777974+00:00",
+      "checkedAt": "2026-11-22T13:58:54.255492+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3347,11 +3353,11 @@
       "deadlineSignalHash": "4e796c14b61ea9de1beca3e236c29f78dd81fb48af1df8012620e82b5c5de63e",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-20T08:40:21.003460+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:55.777974+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:54.255492+00:00"
     },
     "vienna-university-of-technology": {
       "url": "https://www.tuwien.at/en/studies/admission",
-      "checkedAt": "2026-11-22T12:37:55.778915+00:00",
+      "checkedAt": "2026-11-22T13:58:54.437776+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3366,11 +3372,11 @@
       "deadlineSignalHash": "76b9805bbf79d629e929c3b28b730561e1fc30808d0b8984173194d3a7514452",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:38.990923+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:55.778915+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:54.437776+00:00"
     },
     "universitas-indonesia": {
       "url": "https://admission.ui.ac.id/",
-      "checkedAt": "2026-11-22T12:37:55.855624+00:00",
+      "checkedAt": "2026-11-22T13:58:54.467891+00:00",
       "status": "error",
       "errorKind": "network",
       "httpStatus": null,
@@ -3384,7 +3390,7 @@
     },
     "university-of-bern": {
       "url": "https://www.unibe.ch/studies/programs/masters/application/international/index_eng.html",
-      "checkedAt": "2026-11-22T12:37:56.076367+00:00",
+      "checkedAt": "2026-11-22T13:58:54.572114+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3399,11 +3405,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.746851+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:56.076367+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:54.572114+00:00"
     },
     "university-of-wollongong": {
       "url": "https://www.uow.edu.au/study/apply/",
-      "checkedAt": "2026-11-22T12:37:56.114745+00:00",
+      "checkedAt": "2026-11-22T13:58:54.619715+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3418,11 +3424,11 @@
       "deadlineSignalHash": "a22987989c62b43d871ab7536361557987825294d1133d19409782fdda56da0a",
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:37.800065+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:56.114745+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:54.619715+00:00"
     },
     "universit-catholique-de-louvain-ucl": {
       "url": "https://uclouvain.be/en/study/admission.html",
-      "checkedAt": "2026-11-22T12:37:56.427650+00:00",
+      "checkedAt": "2026-11-22T13:58:54.718391+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -3432,7 +3438,7 @@
     },
     "university-of-reading": {
       "url": "https://www.reading.ac.uk/ready-to-study/study/how-to-apply/masters-how-to-apply",
-      "checkedAt": "2026-11-22T12:37:56.780316+00:00",
+      "checkedAt": "2026-11-22T13:58:54.837691+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3447,11 +3453,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:38.607215+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:56.780316+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:54.837691+00:00"
     },
     "university-of-otago": {
       "url": "https://www.otago.ac.nz/study/masters",
-      "checkedAt": "2026-11-22T12:37:56.981897+00:00",
+      "checkedAt": "2026-11-22T13:58:55.221032+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -3461,7 +3467,7 @@
     },
     "university-complutense-madrid": {
       "url": "https://informatica.ucm.es/master",
-      "checkedAt": "2026-11-22T12:37:57.072715+00:00",
+      "checkedAt": "2026-11-22T13:58:55.389610+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3476,15 +3482,15 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:38.226483+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.072715+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:55.389610+00:00"
     },
     "king-abdul-aziz-university-kau": {
       "url": "https://kau.edu.sa/ar/page/admission-to-postgraduate-studies",
-      "checkedAt": "2026-11-22T12:37:57.146886+00:00",
+      "checkedAt": "2026-11-22T13:58:55.393106+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 234261,
+      "bytesRead": 235483,
       "truncated": false,
       "contentHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "changed": false,
@@ -3495,11 +3501,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-06-13T22:26:36.288196+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.146886+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:55.393106+00:00"
     },
     "aix-marseille-university": {
       "url": "https://formations.univ-amu.fr/rechercher",
-      "checkedAt": "2026-11-22T12:38:10.007105+00:00",
+      "checkedAt": "2026-11-22T13:59:05.702838+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3514,11 +3520,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:31.605977+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:10.007105+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:05.702838+00:00"
     },
     "baylor-college-of-medicine": {
       "url": "https://www.bcm.edu/education/graduate-school-of-biomedical-sciences/admissions/application-process",
-      "checkedAt": "2026-11-22T12:38:02.893831+00:00",
+      "checkedAt": "2026-11-22T13:59:00.708091+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3533,11 +3539,11 @@
       "deadlineSignalHash": "14d17e15f91e78922e830780a0fa687d1c8e3afdebcb4b270836d798156c6318",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:19.014692+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:02.893831+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.708091+00:00"
     },
     "beihang-university": {
       "url": "https://is.buaa.edu.cn/en/lxsq/yjs/ssyjs.htm",
-      "checkedAt": "2026-11-22T12:38:05.013772+00:00",
+      "checkedAt": "2026-11-22T13:59:01.735299+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3552,11 +3558,11 @@
       "deadlineSignalHash": "d9a7c2a4a3843c63ad7609ddeec358043a1272f446416ef63c33ab80fa22cfa5",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:55.623897+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.013772+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:01.735299+00:00"
     },
     "beijing-institute-of-technology": {
       "url": "https://isc.bit.edu.cn/aboutbit/faq/b163461.htm",
-      "checkedAt": "2026-11-22T12:38:05.110285+00:00",
+      "checkedAt": "2026-11-22T13:59:01.903754+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3571,11 +3577,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:55.696050+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.110285+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:01.903754+00:00"
     },
     "beijing-normal-university": {
       "url": "https://admission-is.bnu.edu.cn/english/admissionprogram/postgraduateprogram/masterdegree/admissionbrochure2/index.html",
-      "checkedAt": "2026-11-22T12:38:05.005456+00:00",
+      "checkedAt": "2026-11-22T13:59:01.680643+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3590,11 +3596,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:54.786350+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.005456+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:01.680643+00:00"
     },
     "bocconi-university": {
       "url": "https://www.unibocconi.it/en/applying-bocconi/bachelor-and-law-programs/application-and-admissions/admissions",
-      "checkedAt": "2026-11-22T12:38:11.274409+00:00",
+      "checkedAt": "2026-11-22T13:59:07.330107+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3609,11 +3615,11 @@
       "deadlineSignalHash": "6a10121bbb767e36e2fbbf832b5a37137ff25bd17d74625cc8f7c383ba6f3390",
       "changeSeverity": null,
       "firstSeenAt": "2026-11-21T12:42:26.191198+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:11.274409+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:07.330107+00:00"
     },
     "case-western-reserve-university": {
       "url": "https://case.edu/gradstudies/prospective-students/admissions-information/application-deadlines",
-      "checkedAt": "2026-11-22T12:37:59.798804+00:00",
+      "checkedAt": "2026-11-22T13:58:57.670095+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3628,11 +3634,11 @@
       "deadlineSignalHash": "aac05b229bfdf3d320f351a51a76ba62617740124d077f0210ecfea05348b0fe",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:15.065267+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:59.798804+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:57.670095+00:00"
     },
     "central-south-university": {
       "url": "https://intl.csu.edu.cn/info/1140/3776.htm",
-      "checkedAt": "2026-11-22T12:38:07.011754+00:00",
+      "checkedAt": "2026-11-22T13:59:03.643817+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3647,11 +3653,11 @@
       "deadlineSignalHash": "7c981ad417d4770f4f92919c32cc77de73139af74e732c21eab177d185c119b6",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:28.460000+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:07.011754+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:03.643817+00:00"
     },
     "charite-universitatsmedizin-berlin": {
       "url": "https://www.charite.de/en/teaching_learning/application_admission/",
-      "checkedAt": "2026-11-22T12:38:01.777662+00:00",
+      "checkedAt": "2026-11-22T13:59:00.002350+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3666,11 +3672,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:18.077340+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:01.777662+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.002350+00:00"
     },
     "china-agricultural-university": {
       "url": "https://admissions.cau.edu.cn/art/2025/9/29/art_48604_1107314.html",
-      "checkedAt": "2026-11-22T12:38:07.389468+00:00",
+      "checkedAt": "2026-11-22T13:59:03.726418+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3685,11 +3691,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:28.499493+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:07.389468+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:03.726418+00:00"
     },
     "chongqing-university": {
       "url": "https://yz.cqu.edu.cn/sszyml/2026/index.html",
-      "checkedAt": "2026-11-22T12:38:08.505190+00:00",
+      "checkedAt": "2026-11-22T13:59:04.636908+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3704,11 +3710,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:30.698233+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:08.505190+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:04.636908+00:00"
     },
     "dalian-university-of-technology": {
       "url": "https://sie.dlut.edu.cn/English/Scholarship1/CSC_Scholarship/Chinese_University_Program.htm",
-      "checkedAt": "2026-11-22T12:38:07.765168+00:00",
+      "checkedAt": "2026-11-22T13:59:03.899088+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3723,11 +3729,11 @@
       "deadlineSignalHash": "fd9894a098dc4069e88fd71fa7f1b60cedda78891672559fe602723cd7bf0eb2",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:28.914984+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:07.765168+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:03.899088+00:00"
     },
     "dartmouth-college": {
       "url": "https://graduate.dartmouth.edu/admissions/applying-dartmouth",
-      "checkedAt": "2026-11-22T12:37:59.761384+00:00",
+      "checkedAt": "2026-11-22T13:58:57.615922+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3742,11 +3748,11 @@
       "deadlineSignalHash": "05450799814cda1ce1ebc3632ebf71b29da247324728fd987d9ff9013aaae2f8",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:14.996462+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:59.761384+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:57.615922+00:00"
     },
     "deakin-university": {
       "url": "https://www.deakin.edu.au/study/how-to-apply",
-      "checkedAt": "2026-11-22T12:38:03.408219+00:00",
+      "checkedAt": "2026-11-22T13:59:01.003917+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -3756,7 +3762,7 @@
     },
     "edhec-business-school": {
       "url": "https://www.edhec.edu/en/programmes/bba/admissions-and-tuition-fees/international-admissions",
-      "checkedAt": "2026-11-22T12:38:11.146171+00:00",
+      "checkedAt": "2026-11-22T13:59:07.077699+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3771,11 +3777,11 @@
       "deadlineSignalHash": "b95479734f71862be79fadee5f62939ce48a46f4039577b16155bd1e52cbdc9e",
       "changeSeverity": null,
       "firstSeenAt": "2026-11-21T12:42:25.972392+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:11.146171+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:07.077699+00:00"
     },
     "goethe-university-frankfurt": {
       "url": "https://www.uni-frankfurt.de/en/studium/bewerbung-einschreibung/master-studiengaenge",
-      "checkedAt": "2026-11-22T12:38:09.101561+00:00",
+      "checkedAt": "2026-11-22T13:59:04.838761+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3790,11 +3796,11 @@
       "deadlineSignalHash": "f2fba517710a30b96db4c113ae0aa8b5d8d523059aed6c9e7163c4b97d4e3857",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:30.854790+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:09.101561+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:04.838761+00:00"
     },
     "hec-paris": {
       "url": "https://www.hec.edu/en/bachelor-programs/admissions",
-      "checkedAt": "2026-11-22T12:38:11.110247+00:00",
+      "checkedAt": "2026-11-22T13:59:06.821081+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3809,15 +3815,15 @@
       "deadlineSignalHash": "6c3d6c5df8757a23d2296c6f7ea9030474f44123d4a3837ceed391dd166077fa",
       "changeSeverity": null,
       "firstSeenAt": "2026-11-21T12:42:25.832254+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:11.110247+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:06.821081+00:00"
     },
     "hebrew-university-of-jerusalem": {
       "url": "https://registration.huji.ac.il/en/",
-      "checkedAt": "2026-11-22T12:38:02.479620+00:00",
+      "checkedAt": "2026-11-22T13:59:00.215148+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 55736,
+      "bytesRead": 55730,
       "truncated": false,
       "contentHash": "df3a53837ca67f82b4f175bf188e13e7871367cbc4ac5eabb20d473c8d430cb4",
       "changed": false,
@@ -3828,11 +3834,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:18.354021+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:02.479620+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.215148+00:00"
     },
     "huazhong-university-of-science-and-technology": {
       "url": "https://iso.hust.edu.cn/info/1194/4653.htm",
-      "checkedAt": "2026-11-22T12:38:03.842245+00:00",
+      "checkedAt": "2026-11-22T13:59:01.258449+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3847,11 +3853,11 @@
       "deadlineSignalHash": "ae02b573df25db1c39c15034f27693ca608225ca36d787fdff45e60884f42b62",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:54.102317+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:03.842245+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:01.258449+00:00"
     },
     "hunan-university": {
       "url": "https://gra.hnu.edu.cn/info/1075/10250.htm",
-      "checkedAt": "2026-11-22T12:38:07.866777+00:00",
+      "checkedAt": "2026-11-22T13:59:04.231340+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3866,11 +3872,11 @@
       "deadlineSignalHash": "40b9af481ec9bddf4344aa619efe3345327f1c003d135929e22a7d4e19293796",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:29.559539+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:07.866777+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:04.231340+00:00"
     },
     "icahn-school-of-medicine-at-mount-sinai": {
       "url": "https://icahn.mssm.edu/education/masters",
-      "checkedAt": "2026-11-22T12:37:57.568657+00:00",
+      "checkedAt": "2026-11-22T13:58:55.680830+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -3880,7 +3886,7 @@
     },
     "indiana-university-bloomington": {
       "url": "https://graduate.indiana.edu/apply/how-to-apply/index.html",
-      "checkedAt": "2026-11-22T12:38:06.685189+00:00",
+      "checkedAt": "2026-11-22T13:59:03.076474+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -3895,11 +3901,11 @@
       "deadlineSignalHash": "7a165dd6f9561f7bbde8ee25777f321fcb6c57962178f61f33d02ab9aa8871c5",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:57.822152+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:06.685189+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:03.076474+00:00"
     },
     "jilin-university": {
       "url": "https://cie.jlu.edu.cn/info/1079/3656.htm",
-      "checkedAt": "2026-11-22T12:38:05.317145+00:00",
+      "checkedAt": "2026-11-22T13:59:02.066682+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -3914,11 +3920,11 @@
       "deadlineSignalHash": "8f3294601c0fc610bbe7e394bbb8c4b5010903af10ac754495492e197efbd831",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:55.936346+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.317145+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:02.066682+00:00"
     },
     "johannes-gutenberg-university-mainz": {
       "url": "https://www.studium.uni-mainz.de/en/your-application/masters-degrees/",
-      "checkedAt": "2026-11-22T12:38:07.945672+00:00",
+      "checkedAt": "2026-11-22T13:59:04.269450+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -3932,7 +3938,7 @@
     },
     "karolinska-institutet": {
       "url": "https://education.ki.se/bachelors-masters-studies/apply/apply-for-a-masters-programme",
-      "checkedAt": "2026-11-22T12:37:57.698744+00:00",
+      "checkedAt": "2026-11-22T13:58:55.961909+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3947,15 +3953,15 @@
       "deadlineSignalHash": "7a23a46bcfe720856484702bb6167191be4558e70b2ed00e47467e03c8ba2221",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:12.514727+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.698744+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:55.961909+00:00"
     },
     "king-abdullah-university-of-science-and-technology": {
       "url": "https://admissions.kaust.edu.sa/",
-      "checkedAt": "2026-11-22T12:38:03.167155+00:00",
+      "checkedAt": "2026-11-22T13:59:00.764097+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 69529,
+      "bytesRead": 69530,
       "truncated": false,
       "contentHash": "1e280d4a9ba89636424748437a2a3a809316eb9c25a1de78ccf98ac629083f3b",
       "changed": false,
@@ -3966,11 +3972,11 @@
       "deadlineSignalHash": "1953b3961ded30dd1587db0b7e6a901632b3945437a2fdcd311c512e927004c9",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:19.311840+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:03.167155+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.764097+00:00"
     },
     "london-school-of-hygiene-and-tropical-medicine": {
       "url": "https://www.lshtm.ac.uk/study/applications",
-      "checkedAt": "2026-11-22T12:38:10.311959+00:00",
+      "checkedAt": "2026-11-22T13:59:06.207540+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -3980,7 +3986,7 @@
     },
     "maastricht-university": {
       "url": "https://www.maastrichtuniversity.nl/study/admission-enrolment",
-      "checkedAt": "2026-11-22T12:37:59.115860+00:00",
+      "checkedAt": "2026-11-22T13:58:57.276537+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -3995,15 +4001,15 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:14.546996+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:59.115860+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:57.276537+00:00"
     },
     "mayo-clinic-college-of-medicine-and-science": {
       "url": "https://college.mayo.edu/academics/health-sciences-education/programs-a-z/",
-      "checkedAt": "2026-11-22T12:38:05.982892+00:00",
+      "checkedAt": "2026-11-22T13:59:02.905893+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
-      "bytesRead": 97629,
+      "bytesRead": 97630,
       "truncated": false,
       "contentHash": "ec56b35b6cf6053e4b881b54e765e8c54c075265303f202715d7a223982a8c72",
       "changed": false,
@@ -4014,11 +4020,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:57.672354+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.982892+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:02.905893+00:00"
     },
     "medical-university-of-vienna": {
       "url": "https://www.meduniwien.ac.at/web/en/studies-further-education/study-programmes/",
-      "checkedAt": "2026-11-22T12:38:01.606135+00:00",
+      "checkedAt": "2026-11-22T13:58:59.834988+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4033,11 +4039,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:17.897678+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:01.606135+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:59.834988+00:00"
     },
     "nankai-university": {
       "url": "https://ensie.nankai.edu.cn/info/1085/1328.htm",
-      "checkedAt": "2026-11-22T12:38:06.068711+00:00",
+      "checkedAt": "2026-11-22T13:59:03.027795+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -4051,7 +4057,7 @@
     },
     "northwestern-polytechnical-university": {
       "url": "https://studyat.nwpu.edu.cn/info/1303/8791.htm",
-      "checkedAt": "2026-11-22T12:38:05.388645+00:00",
+      "checkedAt": "2026-11-22T13:59:02.273733+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -4066,11 +4072,11 @@
       "deadlineSignalHash": "340ccef06a767a83452ffd146946de702abc2597f2d2da2d987aa9d51462c493",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:56.259732+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.388645+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:02.273733+00:00"
     },
     "norwegian-university-of-science-and-technology": {
       "url": "https://www.ntnu.edu/studies/admissions/master",
-      "checkedAt": "2026-11-22T12:38:02.287968+00:00",
+      "checkedAt": "2026-11-22T13:59:00.172102+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -4085,11 +4091,11 @@
       "deadlineSignalHash": "9c14126cf641f801aad258e024b7a2bb2a93f4760d45af3104d007fe16b1d906",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:18.261179+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:02.287968+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.172102+00:00"
     },
     "peking-union-medical-college": {
       "url": "https://graduate.pumc.edu.cn/zsw/info/1013/2124.htm",
-      "checkedAt": "2026-11-22T12:38:10.698930+00:00",
+      "checkedAt": "2026-11-22T13:59:06.476781+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -4104,15 +4110,15 @@
       "deadlineSignalHash": "dbb409f01b02def1b2f21983a309e6a3e6ebe18a0cf02075e13891519778676e",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:32.848043+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:10.698930+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:06.476781+00:00"
     },
     "pompeu-fabra-university": {
       "url": "https://www.upf.edu/en/web/masters/2_preinscripcio",
-      "checkedAt": "2026-11-22T12:38:10.700008+00:00",
+      "checkedAt": "2026-11-22T13:59:06.594366+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
-      "bytesRead": 179771,
+      "bytesRead": 179773,
       "truncated": false,
       "contentHash": "e38cb4b401859e4bc566654860d0a133283a12d0b29e25a52b9a7f023cfeb4a4",
       "changed": false,
@@ -4123,11 +4129,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:33.423254+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:10.700008+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:06.594366+00:00"
     },
     "queensland-university-of-technology": {
       "url": "https://online.qut.edu.au/how-to-apply/",
-      "checkedAt": "2026-11-22T12:38:10.435926+00:00",
+      "checkedAt": "2026-11-22T13:59:06.207862+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -4140,7 +4146,7 @@
     },
     "radboud-university-nijmegen": {
       "url": "https://www.ru.nl/en/education/application-and-admission/application-procedure-masters/deadlines",
-      "checkedAt": "2026-11-22T12:37:59.817429+00:00",
+      "checkedAt": "2026-11-22T13:58:58.033777+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4155,11 +4161,11 @@
       "deadlineSignalHash": "d391e62d4791467e1584d6f0383fee6e79a2dda5bc3f49c5f7d006328c5e547b",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:15.327616+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:59.817429+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.033777+00:00"
     },
     "rockefeller-university": {
       "url": "https://www.rockefeller.edu/education-and-training/graduate-program-in-bioscience/admissions/",
-      "checkedAt": "2026-11-22T12:37:57.406906+00:00",
+      "checkedAt": "2026-11-22T13:58:55.561544+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4174,11 +4180,11 @@
       "deadlineSignalHash": "db098ae16c3afd167a254b6ff86fc4d45ff893cbe676a640c5dbb1140c08fc1b",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:12.480710+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.406906+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:55.561544+00:00"
     },
     "rutgers-university-new-brunswick": {
       "url": "https://grad.admissions.rutgers.edu/GraduateProgram/",
-      "checkedAt": "2026-11-22T12:38:09.477004+00:00",
+      "checkedAt": "2026-11-22T13:59:05.154870+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4193,11 +4199,11 @@
       "deadlineSignalHash": "68b2319e6ef9cb99a660909c1940c4a3f27dddf2dd5b9ae50ac6d08b1dc4e64a",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:31.120195+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:09.477004+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:05.154870+00:00"
     },
     "scuola-normale-superiore": {
       "url": "https://www.sns.it/en/concorso-ordinario",
-      "checkedAt": "2026-11-22T12:38:10.017355+00:00",
+      "checkedAt": "2026-11-22T13:59:05.721751+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4212,11 +4218,11 @@
       "deadlineSignalHash": "27f5dd4fcdb400f9924adf99989407979fdabd50e14e9393abd8d0efe985e84b",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:31.947598+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:10.017355+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:05.721751+00:00"
     },
     "shandong-university": {
       "url": "https://www.istudy.sdu.edu.cn/info/1291/3972.htm",
-      "checkedAt": "2026-11-22T12:38:06.141239+00:00",
+      "checkedAt": "2026-11-22T13:59:03.065817+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -4231,11 +4237,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:57.726584+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:06.141239+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:03.065817+00:00"
     },
     "shenzhen-university": {
       "url": "https://en.szu.edu.cn/info/1024/1905.htm",
-      "checkedAt": "2026-11-22T12:38:03.398713+00:00",
+      "checkedAt": "2026-11-22T13:59:00.985342+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -4250,11 +4256,11 @@
       "deadlineSignalHash": "8049f62d71ab57df3509e8247dd5f34ecedd4b5cd57449672263c2ceac51717b",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:19.537542+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:03.398713+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.985342+00:00"
     },
     "sichuan-university": {
       "url": "https://global.scu.edu.cn/oso/article/details/26d7342c-12a9-4441-8748-2b549c0be104?lang=en",
-      "checkedAt": "2026-11-22T12:38:04.033894+00:00",
+      "checkedAt": "2026-11-22T13:59:01.389108+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4269,11 +4275,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:54.267415+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:04.033894+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:01.389108+00:00"
     },
     "soochow-university-china": {
       "url": "https://yjs.suda.edu.cn/54/2c/c8365a676908/page.htm",
-      "checkedAt": "2026-11-22T12:38:10.234828+00:00",
+      "checkedAt": "2026-11-22T13:59:05.765520+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 410,
@@ -4287,7 +4293,7 @@
     },
     "south-china-university-of-technology": {
       "url": "https://yz.scut.edu.cn/2025/1009/c30111a604485/page.htm",
-      "checkedAt": "2026-11-22T12:38:08.305790+00:00",
+      "checkedAt": "2026-11-22T13:59:04.489202+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -4302,11 +4308,11 @@
       "deadlineSignalHash": "445de401f123c3cd2fd075af4f9e99a4c651cdb898d7667fa671230c1f78fd1c",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:30.544179+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:08.305790+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:04.489202+00:00"
     },
     "southeast-university": {
       "url": "https://cis.seu.edu.cn/hwenglish/2025/1125/c14041a546671/page.htm",
-      "checkedAt": "2026-11-22T12:38:07.691498+00:00",
+      "checkedAt": "2026-11-22T13:59:03.879460+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -4321,11 +4327,11 @@
       "deadlineSignalHash": "d3f743dc8ec1ecf6f3bb3dfe616223356a998b70a0f8e182b97ba840b277594c",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:28.880001+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:07.691498+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:03.879460+00:00"
     },
     "southern-university-of-science-and-technology": {
       "url": "https://med.sustech.edu.cn/en/NewsDetailNE?AID=7174&classIDNow=3451",
-      "checkedAt": "2026-11-22T12:38:03.379065+00:00",
+      "checkedAt": "2026-11-22T13:59:00.876601+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4340,11 +4346,11 @@
       "deadlineSignalHash": "24b6c0bc3242b5dcfc6d27e6e3860f1cab3813d463e38a02c13527ae93720002",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:19.491175+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:03.379065+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.876601+00:00"
     },
     "sun-yat-sen-university": {
       "url": "https://graduate.sysu.edu.cn/zsw/",
-      "checkedAt": "2026-11-22T12:37:58.411245+00:00",
+      "checkedAt": "2026-11-22T13:58:56.601869+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -4359,11 +4365,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:13.587214+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.411245+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.601869+00:00"
     },
     "swinburne-university-of-technology": {
       "url": "https://www.swinburne.edu.au/courses/applying/",
-      "checkedAt": "2026-11-22T12:38:03.789357+00:00",
+      "checkedAt": "2026-11-22T13:59:01.247393+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -4378,11 +4384,11 @@
       "deadlineSignalHash": "707e5690e97dcde3cab72468381ba1442048094cf546a0cd804532814e86dad3",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:19.786428+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:03.789357+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:01.247393+00:00"
     },
     "technion-israel-institute-of-technology": {
       "url": "https://graduate.technion.ac.il/en/registration-dates-instructions/",
-      "checkedAt": "2026-11-22T12:38:06.900675+00:00",
+      "checkedAt": "2026-11-22T13:59:03.590678+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4397,30 +4403,30 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:58.120451+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:06.900675+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:03.590678+00:00"
     },
     "tel-aviv-university": {
       "url": "https://international.tau.ac.il/Degree_Programs",
-      "checkedAt": "2026-11-22T12:38:02.540177+00:00",
+      "checkedAt": "2026-11-22T13:59:00.392054+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
       "bytesRead": 84271,
       "truncated": false,
-      "contentHash": "31dd99792cd298ea844c6cd7794624ea06b801dee4df58b04f191b11be78c30c",
-      "changed": false,
+      "contentHash": "d05492fbc6fdc66d3b37a2a0f3c7db2bd66e6b75f3b31a32957e9e5b43426c8b",
+      "changed": true,
       "changeDetected": true,
-      "pendingContentHash": "d05492fbc6fdc66d3b37a2a0f3c7db2bd66e6b75f3b31a32957e9e5b43426c8b",
-      "pendingChangeCount": 1,
+      "pendingContentHash": null,
+      "pendingChangeCount": 0,
       "fingerprintVersion": 3,
       "deadlineSignalHash": "6539931080086d6a04014e8529b983da9a8966e45ad0d44284741e161051b4d3",
-      "changeSeverity": null,
+      "changeSeverity": "application",
       "firstSeenAt": "2026-08-11T07:38:18.487881+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:02.540177+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.392054+00:00"
     },
     "education-university-of-hong-kong": {
       "url": "https://www.eduhk.hk/acadprog/postgrad/",
-      "checkedAt": "2026-11-22T12:38:09.777665+00:00",
+      "checkedAt": "2026-11-22T13:59:05.455494+00:00",
       "status": "error",
       "errorKind": "network",
       "httpStatus": null,
@@ -4430,7 +4436,7 @@
     },
     "ohio-state-university": {
       "url": "https://gpadmissions.osu.edu/",
-      "checkedAt": "2026-11-22T12:37:58.341683+00:00",
+      "checkedAt": "2026-11-22T13:58:56.536648+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -4445,11 +4451,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:13.564522+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.341683+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.536648+00:00"
     },
     "university-of-texas-md-anderson-cancer-center": {
       "url": "https://www.mdanderson.org/education-training/degree-granting-schools.html",
-      "checkedAt": "2026-11-22T12:38:04.004358+00:00",
+      "checkedAt": "2026-11-22T13:59:01.283600+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4464,11 +4470,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:54.162670+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:04.004358+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:01.283600+00:00"
     },
     "university-of-texas-southwestern-medical-center": {
       "url": "https://www.utsouthwestern.edu/education/students/admissions/",
-      "checkedAt": "2026-11-22T12:37:58.123946+00:00",
+      "checkedAt": "2026-11-22T13:58:56.302940+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -4483,11 +4489,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:13.276081+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.123946+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.302940+00:00"
     },
     "tianjin-university": {
       "url": "https://sie.tju.edu.cn/en/xwxm/MASTERPROGRAMS/202510/t20251013_324447.html",
-      "checkedAt": "2026-11-22T12:38:05.405313+00:00",
+      "checkedAt": "2026-11-22T13:59:02.482820+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -4501,7 +4507,7 @@
     },
     "tufts-university": {
       "url": "https://www.tufts.edu/admissions/graduate",
-      "checkedAt": "2026-11-22T12:38:00.505798+00:00",
+      "checkedAt": "2026-11-22T13:58:58.669707+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4516,11 +4522,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:15.558678+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:00.505798+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.669707+00:00"
     },
     "universitat-autonoma-de-barcelona": {
       "url": "https://www.uab.cat/sites/ContentServer/studies/graduate/university-master-s-degrees/application-for-admission-to-a-master-s-degree-1345666814858.html",
-      "checkedAt": "2026-11-22T12:38:06.686314+00:00",
+      "checkedAt": "2026-11-22T13:59:03.418881+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -4533,7 +4539,7 @@
     },
     "university-of-alabama-at-birmingham": {
       "url": "https://catalog.uab.edu/graduate/admission/",
-      "checkedAt": "2026-11-22T12:38:02.089081+00:00",
+      "checkedAt": "2026-11-22T13:59:00.092120+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4548,11 +4554,11 @@
       "deadlineSignalHash": "abe7121e0335bdd644574c31c769e164b2817bcf59aac144e320e5c7f3177ea9",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:18.178616+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:02.089081+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.092120+00:00"
     },
     "university-of-antwerp": {
       "url": "https://www.uantwerpen.be/en/study/admission-and-enrolment/",
-      "checkedAt": "2026-11-22T12:38:00.590926+00:00",
+      "checkedAt": "2026-11-22T13:58:58.684817+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4567,11 +4573,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:16.275227+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:00.590926+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.684817+00:00"
     },
     "university-of-arizona": {
       "url": "https://grad.arizona.edu/admissions-guides/",
-      "checkedAt": "2026-11-22T12:38:05.492976+00:00",
+      "checkedAt": "2026-11-22T13:59:02.659839+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4586,11 +4592,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:57.477691+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.492976+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:02.659839+00:00"
     },
     "university-of-bonn": {
       "url": "https://www.uni-bonn.de/en/studying/application-admission-and-enrollment/application-deadlines",
-      "checkedAt": "2026-11-22T12:37:58.640117+00:00",
+      "checkedAt": "2026-11-22T13:58:56.652773+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=utf-8",
@@ -4605,11 +4611,11 @@
       "deadlineSignalHash": "843f6aa8430186c9b185e39c3b37b9e4fc5b856d3536dc9094e1e452c9eaeca2",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:13.709028+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.640117+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.652773+00:00"
     },
     "university-of-calgary": {
       "url": "https://grad.ucalgary.ca/future-students/graduate/admissions/how-apply",
-      "checkedAt": "2026-11-22T12:38:00.173646+00:00",
+      "checkedAt": "2026-11-22T13:58:58.649117+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4624,11 +4630,11 @@
       "deadlineSignalHash": "49439a3d9cdc1041a2fbef93addae340258f6319d07663f30b0abb476e790c66",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:15.533597+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:00.173646+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.649117+00:00"
     },
     "university-of-california-irvine": {
       "url": "https://grad.uci.edu/admissions/degree-programs/",
-      "checkedAt": "2026-11-22T12:37:58.656411+00:00",
+      "checkedAt": "2026-11-22T13:58:56.896149+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4643,11 +4649,11 @@
       "deadlineSignalHash": "0a7f5ea7c7b80521ef6edd0436b6d80df4fa7abc992629db622272f08d86e07d",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:14.121044+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.656411+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.896149+00:00"
     },
     "university-of-california-san-francisco": {
       "url": "https://graduate.ucsf.edu/admission",
-      "checkedAt": "2026-11-22T12:37:57.197654+00:00",
+      "checkedAt": "2026-11-22T13:58:55.488110+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4662,11 +4668,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:12.457044+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.197654+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:55.488110+00:00"
     },
     "university-of-california-santa-cruz": {
       "url": "https://graduateadmissions.ucsc.edu",
-      "checkedAt": "2026-11-22T12:38:00.554075+00:00",
+      "checkedAt": "2026-11-22T13:58:58.684401+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4681,11 +4687,11 @@
       "deadlineSignalHash": "b51df5d8d302fa78502aa33041671dee22c7cc2d625fe399ab8735e6eed1d086",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:15.907912+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:00.554075+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.684401+00:00"
     },
     "university-of-chinese-academy-of-sciences": {
       "url": "https://english.ucas.ac.cn/index.php/admission/international-students",
-      "checkedAt": "2026-11-22T12:37:57.780341+00:00",
+      "checkedAt": "2026-11-22T13:58:56.209632+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4700,11 +4706,11 @@
       "deadlineSignalHash": "6fcb38ddc858fc8592e4f693d04a2ed1f7d607fa95b660f456bce18a97bee884",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:12.817919+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.780341+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.209632+00:00"
     },
     "university-of-cologne": {
       "url": "https://www.uni-koeln.de/en/international/study-in-cologne/international-applications/master-students-prospective",
-      "checkedAt": "2026-11-22T12:38:00.978153+00:00",
+      "checkedAt": "2026-11-22T13:58:58.953281+00:00",
       "status": "http-error",
       "errorKind": "server",
       "httpStatus": 500,
@@ -4714,7 +4720,7 @@
     },
     "university-of-colorado-anschutz-medical-campus": {
       "url": "https://graduateschool.cuanschutz.edu/admissions",
-      "checkedAt": "2026-11-22T12:38:02.601830+00:00",
+      "checkedAt": "2026-11-22T13:59:00.523668+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4729,11 +4735,11 @@
       "deadlineSignalHash": "215e2fa2bbacfdbacbd1be185637966b0bd99c530f5f1db0ab6fced6acfe1141",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:18.984852+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:02.601830+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:00.523668+00:00"
     },
     "university-of-colorado-boulder": {
       "url": "https://www.colorado.edu/graduateschool/admissions",
-      "checkedAt": "2026-11-22T12:37:58.144038+00:00",
+      "checkedAt": "2026-11-22T13:58:56.335624+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4748,11 +4754,11 @@
       "deadlineSignalHash": "20fe1c384eaf60eed7f14c9217514ebc1dfdc0c3e7d8a768f4291bfc7a66330d",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:13.293200+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.144038+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.335624+00:00"
     },
     "university-of-electronic-science-and-technology-of-china": {
       "url": "https://en.uestc.edu.cn/UESTC_Admission_Brochure-EN.pdf",
-      "checkedAt": "2026-11-22T12:38:14.151944+00:00",
+      "checkedAt": "2026-11-22T13:59:14.183537+00:00",
       "status": "error",
       "message": "Stream has ended unexpectedly",
       "changed": false,
@@ -4760,7 +4766,7 @@
     },
     "university-of-florida": {
       "url": "https://grad.ufl.edu/future/your-future/",
-      "checkedAt": "2026-11-22T12:37:58.832894+00:00",
+      "checkedAt": "2026-11-22T13:58:57.151367+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4775,11 +4781,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:14.273844+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.832894+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:57.151367+00:00"
     },
     "university-of-freiburg": {
       "url": "https://uni-freiburg.de/en/studies/applying/how-do-i-apply/",
-      "checkedAt": "2026-11-22T12:38:00.786966+00:00",
+      "checkedAt": "2026-11-22T13:58:58.863836+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4794,11 +4800,11 @@
       "deadlineSignalHash": "4f14e8b3429e47ef734c82003087400508d665c287bc76562ee362a791689e3d",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:16.556104+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:00.786966+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.863836+00:00"
     },
     "university-of-gothenburg": {
       "url": "https://www.gu.se/en/study-in-gothenburg/apply/apply-for-masters-program",
-      "checkedAt": "2026-11-22T12:38:01.203214+00:00",
+      "checkedAt": "2026-11-22T13:58:59.142927+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4813,11 +4819,11 @@
       "deadlineSignalHash": "5cb326548d7417fdc0b864629507d424a80c9b6574ccd960c95a7c7a6668290e",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:17.239309+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:01.203214+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:59.142927+00:00"
     },
     "university-of-gottingen": {
       "url": "https://www.uni-goettingen.de/en/46537.html",
-      "checkedAt": "2026-11-22T12:37:58.791107+00:00",
+      "checkedAt": "2026-11-22T13:58:57.114857+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -4832,11 +4838,11 @@
       "deadlineSignalHash": "34c0b80c2756c50b68d2e375ed6d83766dd1c4af3eec45553c785ae2c947e831",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:14.250195+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.791107+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:57.114857+00:00"
     },
     "university-of-hamburg": {
       "url": "https://www.uni-hamburg.de/en/campuscenter/bewerbung/international/master.html",
-      "checkedAt": "2026-11-22T12:37:58.748139+00:00",
+      "checkedAt": "2026-11-22T13:58:57.020963+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4851,11 +4857,11 @@
       "deadlineSignalHash": "fb7cdc858640a55884f7be6ab4f2b820e080bb48b54d59cf798c15f21e9411d1",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:14.180377+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.748139+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:57.020963+00:00"
     },
     "university-of-lausanne": {
       "url": "https://candidature.unil.ch/",
-      "checkedAt": "2026-11-22T12:38:04.129675+00:00",
+      "checkedAt": "2026-11-22T13:59:01.552065+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4870,11 +4876,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:54.753592+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:04.129675+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:01.552065+00:00"
     },
     "university-of-leicester": {
       "url": "https://le.ac.uk/study/postgraduates/how-to-apply/applications",
-      "checkedAt": "2026-11-22T12:38:00.130989+00:00",
+      "checkedAt": "2026-11-22T13:58:58.298233+00:00",
       "status": "blocked",
       "errorKind": "blocked",
       "httpStatus": 403,
@@ -4887,7 +4893,7 @@
     },
     "university-of-macau": {
       "url": "https://grs.um.edu.mo/index.php/prospective-students/master-postgraduate-certificate-diploma-programmes/",
-      "checkedAt": "2026-11-22T12:38:01.331069+00:00",
+      "checkedAt": "2026-11-22T13:58:59.548169+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4902,11 +4908,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:17.796054+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:01.331069+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:59.548169+00:00"
     },
     "university-of-maryland-college-park": {
       "url": "https://gradschool.umd.edu/admissions",
-      "checkedAt": "2026-11-22T12:37:57.820637+00:00",
+      "checkedAt": "2026-11-22T13:58:56.211477+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4921,11 +4927,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:12.980374+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.820637+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.211477+00:00"
     },
     "university-of-massachusetts-amherst": {
       "url": "https://www.umass.edu/graduate/apply/how-apply",
-      "checkedAt": "2026-11-22T12:38:08.106474+00:00",
+      "checkedAt": "2026-11-22T13:59:04.326088+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4940,11 +4946,11 @@
       "deadlineSignalHash": "1de4c0d8e0b68b275cd266ea39dd99306e11840483ad11ca8754ce94fdb27bd6",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:29.984761+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:08.106474+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:04.326088+00:00"
     },
     "university-of-massachusetts-chan-medical-school": {
       "url": "https://connect.umassmed.edu/apply/",
-      "checkedAt": "2026-11-22T12:38:10.776669+00:00",
+      "checkedAt": "2026-11-22T13:59:06.672894+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4959,11 +4965,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:33.476947+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:10.776669+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:06.672894+00:00"
     },
     "university-of-milan": {
       "url": "https://apply.unimi.it/institutions/institution/1-university-milan",
-      "checkedAt": "2026-11-22T12:38:10.294501+00:00",
+      "checkedAt": "2026-11-22T13:59:06.091083+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -4978,11 +4984,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:32.420773+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:10.294501+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:06.091083+00:00"
     },
     "university-of-minnesota-twin-cities": {
       "url": "https://grad.umn.edu/admissions",
-      "checkedAt": "2026-11-22T12:37:57.744014+00:00",
+      "checkedAt": "2026-11-22T13:58:55.990315+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -4997,11 +5003,11 @@
       "deadlineSignalHash": "56681d2b25236545f637f74c0bdb8b40a6144db812fa605b94d1f0df7c855e7f",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:12.561343+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.744014+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:55.990315+00:00"
     },
     "university-of-montpellier": {
       "url": "https://formations.umontpellier.fr/fr/formations/master-XB.html",
-      "checkedAt": "2026-11-22T12:38:09.919263+00:00",
+      "checkedAt": "2026-11-22T13:59:05.547351+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -5016,11 +5022,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:31.306330+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:09.919263+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:05.547351+00:00"
     },
     "university-of-munster": {
       "url": "https://www.uni-muenster.de/studieninteressierte/en/bewerbung/master.html",
-      "checkedAt": "2026-11-22T12:38:01.182352+00:00",
+      "checkedAt": "2026-11-22T13:58:59.044625+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -5035,11 +5041,11 @@
       "deadlineSignalHash": "ce62f90f175969dca6dba6f4943361e50647c5a1337c542b0dce374cff659325",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:17.106403+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:01.182352+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:59.044625+00:00"
     },
     "university-of-notre-dame": {
       "url": "https://www.nd.edu/admissions/graduate-admissions/",
-      "checkedAt": "2026-11-22T12:38:00.745963+00:00",
+      "checkedAt": "2026-11-22T13:58:58.851890+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -5054,11 +5060,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:16.406424+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:00.745963+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.851890+00:00"
     },
     "university-of-ottawa": {
       "url": "https://www.uottawa.ca/study/graduate-studies/how-to-apply",
-      "checkedAt": "2026-11-22T12:38:00.683411+00:00",
+      "checkedAt": "2026-11-22T13:58:58.720747+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -5073,11 +5079,11 @@
       "deadlineSignalHash": "a55394b18bec132086424f1e226eae9f0ee560ae6a900dfdda5b3c222cb249cc",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:16.276764+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:00.683411+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.720747+00:00"
     },
     "university-of-padua": {
       "url": "https://www.unipd.it/en/avvisi-ammissione-lauree-magistrali",
-      "checkedAt": "2026-11-22T12:38:08.847016+00:00",
+      "checkedAt": "2026-11-22T13:59:04.832045+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -5092,11 +5098,11 @@
       "deadlineSignalHash": "9deb8e4d47bfb20b897c44a92e9601746f922fe5f7c18f2875d071e604dbecc2",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:30.832110+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:08.847016+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:04.832045+00:00"
     },
     "university-of-pittsburgh": {
       "url": "https://www.gradstudies.pitt.edu/admissions",
-      "checkedAt": "2026-11-22T12:37:57.821569+00:00",
+      "checkedAt": "2026-11-22T13:58:56.244968+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -5111,11 +5117,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:12.989330+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:57.821569+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.244968+00:00"
     },
     "university-of-rochester": {
       "url": "https://www.rochester.edu/admissions/",
-      "checkedAt": "2026-11-22T12:37:59.532954+00:00",
+      "checkedAt": "2026-11-22T13:58:57.433037+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -5130,30 +5136,30 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:14.745367+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:59.532954+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:57.433037+00:00"
     },
     "university-of-strasbourg": {
       "url": "https://en.unistra.fr/fr/candidater",
-      "checkedAt": "2026-11-22T12:38:01.232985+00:00",
+      "checkedAt": "2026-11-22T13:58:59.297023+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 563056,
+      "bytesRead": 563058,
       "truncated": false,
       "contentHash": "c655794501099f66b87088a266fa4b1bf09afa9156e6b0c276ed66b2c37f9c51",
       "changed": false,
-      "changeDetected": false,
-      "pendingContentHash": null,
-      "pendingChangeCount": 0,
+      "changeDetected": true,
+      "pendingContentHash": "85a0b3e6f09d0b6d65777e37a8519760072521e7cd295073425c11d6146e355e",
+      "pendingChangeCount": 1,
       "fingerprintVersion": 3,
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:17.260373+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:01.232985+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:59.297023+00:00"
     },
     "university-of-twente": {
       "url": "https://www.utwente.nl/en/education/master/application-admission/",
-      "checkedAt": "2026-11-22T12:37:59.870495+00:00",
+      "checkedAt": "2026-11-22T13:58:58.167797+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -5168,11 +5174,11 @@
       "deadlineSignalHash": "d1a13573dc7f516c287963c8168140b91b6c0b3dbde30d2877fd9ee5db965de0",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:15.377840+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:59.870495+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.167797+00:00"
     },
     "university-of-tubingen": {
       "url": "https://uni-tuebingen.de/en/study/application-and-enrollment/masters-degree.html",
-      "checkedAt": "2026-11-22T12:37:58.654067+00:00",
+      "checkedAt": "2026-11-22T13:58:56.805267+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -5187,11 +5193,11 @@
       "deadlineSignalHash": "87d177fcd7ab4355c2d8b93f22b43a3dd3f8a6cc7fd59905b17cba24fbf70e67",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:13.795671+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.654067+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.805267+00:00"
     },
     "university-of-utah": {
       "url": "https://gradschool.utah.edu/future-students/admissions.php",
-      "checkedAt": "2026-11-22T12:38:01.272719+00:00",
+      "checkedAt": "2026-11-22T13:58:59.468654+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -5206,11 +5212,11 @@
       "deadlineSignalHash": "10044e4882ef78d51630f08d19e91db664fd31db02d1c03b5005aeac205fcacd",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:17.362011+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:01.272719+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:59.468654+00:00"
     },
     "university-of-virginia": {
       "url": "https://graduate.as.virginia.edu/apply",
-      "checkedAt": "2026-11-22T12:38:10.287094+00:00",
+      "checkedAt": "2026-11-22T13:59:05.781753+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -5220,7 +5226,7 @@
     },
     "university-of-wurzburg": {
       "url": "https://www.uni-wuerzburg.de/en/studying-at-jmu/studienangelegenheiten/application-and-enrolment/masterstudy/",
-      "checkedAt": "2026-11-22T12:38:00.909524+00:00",
+      "checkedAt": "2026-11-22T13:58:58.866764+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -5235,11 +5241,11 @@
       "deadlineSignalHash": "f1a30b302c71c78d503b33737f5ee4e7e01fce453f6b905b2e4c13fcaa4bd697",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:16.618753+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:00.909524+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:58.866764+00:00"
     },
     "universite-grenoble-alpes": {
       "url": "https://www.univ-grenoble-alpes.fr/education/how-to-apply/applying-and-registering/apply/",
-      "checkedAt": "2026-11-22T12:38:08.238583+00:00",
+      "checkedAt": "2026-11-22T13:59:04.388502+00:00",
       "status": "http-error",
       "errorKind": "http",
       "httpStatus": 404,
@@ -5253,7 +5259,7 @@
     },
     "universite-paris-cite": {
       "url": "https://u-paris.fr/language/en/admission-as-an-independent-international-student/",
-      "checkedAt": "2026-11-22T12:37:58.137320+00:00",
+      "checkedAt": "2026-11-22T13:58:56.316773+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -5268,11 +5274,11 @@
       "deadlineSignalHash": "6750f12af4506eafb205bb411a39bc43acba86b944bd9135bb5b71308286d8aa",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:13.281991+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.137320+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.316773+00:00"
     },
     "universite-libre-de-bruxelles-ulb": {
       "url": "https://www.ulb.be/en/enrolment",
-      "checkedAt": "2026-11-22T12:38:05.413098+00:00",
+      "checkedAt": "2026-11-22T13:59:02.620200+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html;charset=UTF-8",
@@ -5287,11 +5293,11 @@
       "deadlineSignalHash": "fd6081a4fbaf0f8fba6a3005750af859d8778b95af835a96add2fa1583758d5c",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:57.194820+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.413098+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:02.620200+00:00"
     },
     "vanderbilt-university": {
       "url": "https://gradschool.vanderbilt.edu/admissions/apply/",
-      "checkedAt": "2026-11-22T12:37:58.239337+00:00",
+      "checkedAt": "2026-11-22T13:58:56.370587+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=UTF-8",
@@ -5306,15 +5312,15 @@
       "deadlineSignalHash": "69290776f050c303f117ce5a60cdda17cb8305a192523fad2a0e599c45ba67d8",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:13.364089+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:37:58.239337+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:56.370587+00:00"
     },
     "weizmann-institute-of-science": {
       "url": "https://www.weizmann.ac.il/wsos/admissions/about-msc-tracks",
-      "checkedAt": "2026-11-22T12:38:01.360578+00:00",
+      "checkedAt": "2026-11-22T13:58:59.621262+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
-      "bytesRead": 85427,
+      "bytesRead": 85428,
       "truncated": false,
       "contentHash": "2c25f60b5d6f629213958db46ab94a6812e2daa04a279116d3b748d4df684834",
       "changed": false,
@@ -5325,11 +5331,11 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-11T07:38:17.873945+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:01.360578+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:58:59.621262+00:00"
     },
     "xi-an-jiaotong-university": {
       "url": "https://sie.xjtu.edu.cn/en/masterphd2026E.pdf",
-      "checkedAt": "2026-11-22T12:38:09.778697+00:00",
+      "checkedAt": "2026-11-22T13:59:05.156237+00:00",
       "status": "error",
       "message": "Invalid object in /Pages",
       "changed": false,
@@ -5340,7 +5346,7 @@
     },
     "xiamen-university": {
       "url": "https://admissions.xmu.edu.cn/Admissions/Master_s_Students.htm",
-      "checkedAt": "2026-11-22T12:38:05.322829+00:00",
+      "checkedAt": "2026-11-22T13:59:02.224303+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html",
@@ -5355,11 +5361,11 @@
       "deadlineSignalHash": "77c826f3e9e2386f54649e4178f0fe236caff17146d0b53761268ae26aa7b6f1",
       "changeSeverity": null,
       "firstSeenAt": "2026-08-12T05:47:56.136737+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:05.322829+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:02.224303+00:00"
     },
     "zhengzhou-university": {
       "url": "https://nox.zzu.edu.cn/authn/base/",
-      "checkedAt": "2026-11-22T12:38:10.507633+00:00",
+      "checkedAt": "2026-11-22T13:59:06.450306+00:00",
       "status": "ok",
       "httpStatus": 200,
       "contentType": "text/html; charset=utf-8",
@@ -5374,7 +5380,7 @@
       "deadlineSignalHash": null,
       "changeSeverity": null,
       "firstSeenAt": "2026-08-13T10:20:32.815366+00:00",
-      "lastSuccessfulAt": "2026-11-22T12:38:10.507633+00:00"
+      "lastSuccessfulAt": "2026-11-22T13:59:06.450306+00:00"
     }
   }
 }
