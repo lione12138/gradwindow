@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-21T13:44:21.732659+00:00",
+    "updatedAt": "2026-11-22T13:45:18.991610+00:00",
     "dryRun": false,
     "replaceExisting": false,
     "description": "Batch generic programme discovery report. Candidates stay in data/ops/programme-candidates.json until reviewed."
@@ -15,7 +15,7 @@
     "readyToApprove": 0,
     "needsOpeningReview": 0,
     "needsOpeningDate": 614,
-    "needsAdapter": 655,
+    "needsAdapter": 657,
     "comingSoonMonitor": 0,
     "deadlineUnavailableMonitor": 1
   },
@@ -83,7 +83,7 @@
       "assistedDiscovery": true,
       "stage": "extraction",
       "errorType": "HTTPStatusError",
-      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: 8dc01146-606c-4cb7-839c-9b061aeabbd2)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "message": "Client error '400 Bad Request' for url 'https://api.deepseek.com/chat/completions'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400; responseBody={\"error\":{\"message\":\"The supported API model names are deepseek-flash, deepseek-v4-pro, but you passed . (request_id: e61b132b-9029-4450-87fe-c5f8a16ec48a)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "dryRun": false,
       "batchStatus": "error"
     },
@@ -91,22 +91,22 @@
       "status": "ok",
       "universityId": "university-of-southampton",
       "sourceUrl": "https://www.southampton.ac.uk/courses/postgraduate-taught",
-      "checkedAt": "2026-11-21T13:46:40.566245+00:00",
+      "checkedAt": "2026-11-22T13:47:47.419336+00:00",
       "catalogProgrammes": 219,
       "previousCatalogProgrammes": 219,
       "knownProgrammes": 202,
-      "newCandidates": 10,
+      "newCandidates": 2,
       "newGuidanceCandidates": 0,
       "publishedRecurringPolicyRecords": 0,
       "newWindowCandidates": 0,
       "changedWindowCandidates": 0,
       "pendingWindowCandidates": 0,
-      "pendingCandidates": 431,
+      "pendingCandidates": 433,
       "pendingGuidanceCandidates": 194,
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 16,
+      "observedWindowCount": 36,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -114,39 +114,39 @@
           "intakes": [
             "September 2026"
           ],
-          "observedWindowCount": 16,
+          "observedWindowCount": 36,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 16,
-      "programmesWithoutDeadlines": 211,
+      "missingOpeningDateCount": 36,
+      "programmesWithoutDeadlines": 201,
       "programmesNeedingReview": 219,
-      "limitationReason": "16 parsed deadline(s) lack an official exact opening date.",
+      "limitationReason": "36 parsed deadline(s) lack an official exact opening date.",
       "adapterWarnings": [],
       "adapterDiagnostics": {
         "catalogueComplete": true,
         "detailSucceededProgrammeIds": [
-          "southampton-marketing-management-msc",
-          "southampton-master-of-business-administration-mba",
-          "southampton-mechanical-engineering-acoustical-engineering-meng",
-          "southampton-mechanical-engineering-aerospace-engineering-meng",
-          "southampton-mechanical-engineering-automotive-engineering-meng",
-          "southampton-mechanical-engineering-biomedical-engineering-meng",
-          "southampton-mechanical-engineering-manufacturing-meng",
-          "southampton-mechanical-engineering-mechatronics-meng",
-          "southampton-mechanical-engineering-meng",
-          "southampton-mechanical-engineering-sustainable-energy-systems-meng",
-          "southampton-mechatronic-engineering-meng",
-          "southampton-mechatronics-advanced-mechanical-engineering-science-msc",
-          "southampton-medical-technology-innovation-and-design-msc",
-          "southampton-micro-and-nanotechnology-msc",
-          "southampton-microelectronics-systems-design-msc",
-          "southampton-neonatology-msc",
-          "southampton-nursing-adult-msc",
-          "southampton-nursing-child-msc",
-          "southampton-nursing-mental-health-msc",
-          "southampton-nursing-studies-msc"
+          "southampton-ocean-and-earth-science-by-research-msc",
+          "southampton-oceanography-msc",
+          "southampton-operational-research-and-data-science-msc",
+          "southampton-operational-research-and-finance-msc",
+          "southampton-optical-engineering-msc",
+          "southampton-philosophy-ma",
+          "southampton-politics-msc",
+          "southampton-professional-practice-in-health-sciences-msc",
+          "southampton-project-management-msc",
+          "southampton-propulsion-and-engine-systems-engineering-advanced-mechanical-engineering-science-msc",
+          "southampton-psychology-msc",
+          "southampton-public-administration-mpa",
+          "southampton-public-health-mph",
+          "southampton-race-car-aerodynamics-msc",
+          "southampton-risk-and-finance-msc",
+          "southampton-risk-management-msc",
+          "southampton-robotics-and-autonomous-systems-msc",
+          "southampton-robotics-meng",
+          "southampton-robotics-with-industrial-placement-year-meng",
+          "southampton-shipping-finance-msc"
         ],
         "detailFailedProgrammeIds": [],
         "detailUnvisitedProgrammeIds": [
@@ -295,7 +295,6 @@
           "southampton-luxury-brand-management-ma",
           "southampton-ma-cultural-heritage-studies-heritage-and-public-history-typical-offer-2-2-degree-duration-1-year",
           "southampton-ma-cultural-heritage-studies-heritage-and-the-arts-typical-offer-2-2-degree-duration-1-year",
-          "southampton-ma-philosophy-typical-offer-2-2-degree-duration-1-year",
           "southampton-ma-tesol-for-experienced-teachers-typical-offer-2-2-degree-duration-1-year",
           "southampton-ma-tesol-typical-offer-2-2-degree-duration-1-year",
           "southampton-ma-textile-design-typical-offer-2-2-degree-duration-1-year",
@@ -313,28 +312,24 @@
           "southampton-maritime-engineering-science-yacht-and-high-performance-craft-msc",
           "southampton-maritime-law-llm",
           "southampton-marketing-analytics-msc",
-          "southampton-meng-robotics-typical-offer-aaa-ucas-course-code-h672-duration-4-years",
-          "southampton-meng-robotics-with-industrial-placement-year-typical-offer-aaa-ucas-course-code-h67h-duration-5-years",
+          "southampton-marketing-management-msc",
+          "southampton-master-of-business-administration-mba",
+          "southampton-mechanical-engineering-acoustical-engineering-meng",
+          "southampton-mechanical-engineering-aerospace-engineering-meng",
+          "southampton-mechanical-engineering-automotive-engineering-meng",
+          "southampton-mechanical-engineering-biomedical-engineering-meng",
+          "southampton-mechanical-engineering-manufacturing-meng",
+          "southampton-mechanical-engineering-mechatronics-meng",
+          "southampton-mechanical-engineering-meng",
+          "southampton-mechanical-engineering-sustainable-energy-systems-meng",
+          "southampton-mechatronic-engineering-meng",
+          "southampton-mechatronics-advanced-mechanical-engineering-science-msc",
+          "southampton-medical-technology-innovation-and-design-msc",
           "southampton-meng-software-engineering-typical-offer-aaa-ucas-course-code-g600-duration-4-years",
-          "southampton-mpa-public-administration-typical-offer-2-1-degree-duration-1-year",
-          "southampton-mph-public-health-typical-offer-2-2-degree-duration-1-year",
+          "southampton-micro-and-nanotechnology-msc",
+          "southampton-microelectronics-systems-design-msc",
           "southampton-mres-wildlife-conservation-typical-offer-2-1-degree-duration-1-year",
           "southampton-msc-higher-archaeological-practice-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-ocean-and-earth-science-by-research-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-oceanography-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-operational-research-and-data-science-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-operational-research-and-finance-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-optical-engineering-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-politics-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-professional-practice-in-health-sciences-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-project-management-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-propulsion-and-engine-systems-engineering-advanced-mechanical-engineering-science-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-psychology-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-race-car-aerodynamics-typical-offer-first-class-degree-duration-1-year",
-          "southampton-msc-risk-and-finance-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-risk-management-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-robotics-and-autonomous-systems-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-shipping-finance-typical-offer-2-2-degree-duration-1-year",
           "southampton-msc-social-research-methods-with-applied-statistics-typical-offer-2-1-degree-duration-1-year",
           "southampton-msc-social-research-methods-with-demography-typical-offer-2-1-degree-duration-1-year",
           "southampton-msc-software-engineering-typical-offer-2-1-degree-duration-1-year",
@@ -348,7 +343,12 @@
           "southampton-msc-transportation-planning-and-engineering-behaviour-typical-offer-2-1-degree-duration-1-year",
           "southampton-msc-transportation-planning-and-engineering-infrastructure-typical-offer-2-1-degree-duration-1-year",
           "southampton-msc-transportation-planning-and-engineering-operations-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-wireless-and-quantum-communications-typical-offer-2-1-degree-duration-1-year"
+          "southampton-msc-wireless-and-quantum-communications-typical-offer-2-1-degree-duration-1-year",
+          "southampton-neonatology-msc",
+          "southampton-nursing-adult-msc",
+          "southampton-nursing-child-msc",
+          "southampton-nursing-mental-health-msc",
+          "southampton-nursing-studies-msc"
         ],
         "detailMonitor": {
           "eligiblePages": 219,
@@ -356,7 +356,7 @@
           "succeededThisRun": 20,
           "failedThisRun": 0,
           "deferredThisRun": 199,
-          "unvisitedPages": 40
+          "unvisitedPages": 20
         },
         "transport": {
           "requests": 21,
@@ -374,35 +374,57 @@
       "recordDiff": {
         "previous": {
           "programmes": 219,
-          "windows": 136
+          "windows": 152
         },
         "current": {
           "programmes": 219,
-          "windows": 152
+          "windows": 188
         },
         "disappearedProgrammeIds": [
-          "southampton-mba-master-of-business-administration-typical-offer-2-2-degree-duration-1-year",
-          "southampton-meng-mechanical-engineering-acoustical-engineering-typical-offer-a-aa-ucas-course-code-4r23-duration-4-years",
-          "southampton-meng-mechanical-engineering-aerospace-engineering-typical-offer-a-aa-ucas-course-code-hh34-duration-4-years",
-          "southampton-meng-mechanical-engineering-automotive-engineering-typical-offer-a-aa-ucas-course-code-h390-duration-4-years",
-          "southampton-meng-mechanical-engineering-biomedical-engineering-typical-offer-a-aa-ucas-course-code-4r29-duration-4-years",
-          "southampton-meng-mechanical-engineering-manufacturing-typical-offer-a-aa-ucas-course-code-hh38-duration-4-years",
-          "southampton-meng-mechanical-engineering-mechatronics-typical-offer-a-aa-ucas-course-code-hh37-duration-4-years",
-          "southampton-meng-mechanical-engineering-sustainable-energy-systems-typical-offer-a-aa-ucas-course-code-hh32-duration-4-years",
-          "southampton-meng-mechanical-engineering-typical-offer-a-aa-ucas-course-code-h301-duration-4-years",
-          "southampton-meng-mechatronic-engineering-typical-offer-a-aa-ucas-course-code-hhh6-duration-4-years",
-          "southampton-msc-marketing-management-typical-offer-2-2-degree-duration-1-year",
-          "southampton-msc-mechatronics-advanced-mechanical-engineering-science-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-medical-technology-innovation-and-design-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-micro-and-nanotechnology-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-microelectronics-systems-design-typical-offer-2-1-degree-duration-1-year",
-          "southampton-msc-neonatology-typical-offer-2-2-degree-duration-2-to-3-years",
-          "southampton-msc-nursing-adult-typical-offer-2-2-degree-duration-2-years",
-          "southampton-msc-nursing-child-typical-offer-2-2-degree-duration-2-years",
-          "southampton-msc-nursing-mental-health-typical-offer-2-2-degree-duration-2-years",
-          "southampton-msc-nursing-studies-typical-offer-2-2-degree-duration-2-years"
+          "southampton-ma-philosophy-typical-offer-2-2-degree-duration-1-year",
+          "southampton-meng-robotics-typical-offer-aaa-ucas-course-code-h672-duration-4-years",
+          "southampton-meng-robotics-with-industrial-placement-year-typical-offer-aaa-ucas-course-code-h67h-duration-5-years",
+          "southampton-mpa-public-administration-typical-offer-2-1-degree-duration-1-year",
+          "southampton-mph-public-health-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-ocean-and-earth-science-by-research-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-oceanography-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-operational-research-and-data-science-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-operational-research-and-finance-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-optical-engineering-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-politics-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-professional-practice-in-health-sciences-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-project-management-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-propulsion-and-engine-systems-engineering-advanced-mechanical-engineering-science-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-psychology-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-race-car-aerodynamics-typical-offer-first-class-degree-duration-1-year",
+          "southampton-msc-risk-and-finance-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-risk-management-typical-offer-2-2-degree-duration-1-year",
+          "southampton-msc-robotics-and-autonomous-systems-typical-offer-2-1-degree-duration-1-year",
+          "southampton-msc-shipping-finance-typical-offer-2-2-degree-duration-1-year"
         ],
         "addedProgrammeIds": [
+          "southampton-ocean-and-earth-science-by-research-msc",
+          "southampton-oceanography-msc",
+          "southampton-operational-research-and-data-science-msc",
+          "southampton-operational-research-and-finance-msc",
+          "southampton-optical-engineering-msc",
+          "southampton-philosophy-ma",
+          "southampton-politics-msc",
+          "southampton-professional-practice-in-health-sciences-msc",
+          "southampton-project-management-msc",
+          "southampton-propulsion-and-engine-systems-engineering-advanced-mechanical-engineering-science-msc",
+          "southampton-psychology-msc",
+          "southampton-public-administration-mpa",
+          "southampton-public-health-mph",
+          "southampton-race-car-aerodynamics-msc",
+          "southampton-risk-and-finance-msc",
+          "southampton-risk-management-msc",
+          "southampton-robotics-and-autonomous-systems-msc",
+          "southampton-robotics-meng",
+          "southampton-robotics-with-industrial-placement-year-meng",
+          "southampton-shipping-finance-msc"
+        ],
+        "changedProgrammeIds": [
           "southampton-marketing-management-msc",
           "southampton-master-of-business-administration-mba",
           "southampton-mechanical-engineering-acoustical-engineering-meng",
@@ -424,55 +446,53 @@
           "southampton-nursing-mental-health-msc",
           "southampton-nursing-studies-msc"
         ],
-        "changedProgrammeIds": [
-          "southampton-international-security-and-risk-msc",
-          "southampton-internet-of-things-msc",
-          "southampton-languages-and-cultures-ma",
-          "southampton-laws-llm",
-          "southampton-leadership-and-management-in-health-and-social-care-msc",
-          "southampton-logistics-and-supply-chain-analytics-msc",
-          "southampton-luxury-brand-management-ma",
-          "southampton-machine-learning-msc",
-          "southampton-management-and-artificial-intelligence-msc",
-          "southampton-management-msc",
-          "southampton-marine-environment-and-resources-msc",
-          "southampton-maritime-archaeology-msc",
-          "southampton-maritime-engineering-meng",
-          "southampton-maritime-engineering-science-advanced-computational-engineering-msc",
-          "southampton-maritime-engineering-science-marine-engineering-and-autonomy-msc",
-          "southampton-maritime-engineering-science-naval-architecture-msc",
-          "southampton-maritime-engineering-science-ocean-energy-offshore-engineering-msc",
-          "southampton-maritime-engineering-science-yacht-and-high-performance-craft-msc",
-          "southampton-maritime-law-llm",
-          "southampton-marketing-analytics-msc"
-        ],
         "disappearedWindowIds": [],
         "addedWindowIds": [
-          "southampton-marketing-management-msc::September 2026::International students::international-students",
-          "southampton-marketing-management-msc::September 2026::UK students::domestic-students",
-          "southampton-master-of-business-administration-mba::September 2026::International students::international-students",
-          "southampton-master-of-business-administration-mba::September 2026::UK students::domestic-students",
-          "southampton-mechatronics-advanced-mechanical-engineering-science-msc::September 2026::Application deadline::all",
-          "southampton-mechatronics-advanced-mechanical-engineering-science-msc::September 2026::International students::international-students",
-          "southampton-mechatronics-advanced-mechanical-engineering-science-msc::September 2026::UK students::domestic-students",
-          "southampton-medical-technology-innovation-and-design-msc::September 2026::International students::international-students",
-          "southampton-medical-technology-innovation-and-design-msc::September 2026::UK students::domestic-students",
-          "southampton-micro-and-nanotechnology-msc::September 2026::International students::international-students",
-          "southampton-micro-and-nanotechnology-msc::September 2026::UK students::domestic-students",
-          "southampton-microelectronics-systems-design-msc::September 2026::International students::international-students",
-          "southampton-microelectronics-systems-design-msc::September 2026::UK students::domestic-students",
-          "southampton-neonatology-msc::September 2026::Application deadline::all",
-          "southampton-nursing-studies-msc::September 2026::International students::international-students",
-          "southampton-nursing-studies-msc::September 2026::UK students::domestic-students"
+          "southampton-ocean-and-earth-science-by-research-msc::September 2026::International students::international-students",
+          "southampton-ocean-and-earth-science-by-research-msc::September 2026::UK students::domestic-students",
+          "southampton-oceanography-msc::September 2026::Application deadline::all",
+          "southampton-operational-research-and-data-science-msc::September 2026::International applicants::international-students",
+          "southampton-operational-research-and-data-science-msc::September 2026::International applicants::international-students::2",
+          "southampton-operational-research-and-finance-msc::September 2026::International students::international-students",
+          "southampton-operational-research-and-finance-msc::September 2026::UK students::domestic-students",
+          "southampton-optical-engineering-msc::September 2026::Application deadline::all",
+          "southampton-optical-engineering-msc::September 2026::International students::international-students",
+          "southampton-optical-engineering-msc::September 2026::UK students::domestic-students",
+          "southampton-philosophy-ma::September 2026::International students::international-students",
+          "southampton-philosophy-ma::September 2026::UK students::domestic-students",
+          "southampton-politics-msc::September 2026::International students::international-students",
+          "southampton-politics-msc::September 2026::UK students::domestic-students",
+          "southampton-professional-practice-in-health-sciences-msc::September 2026::Application deadline::all",
+          "southampton-project-management-msc::September 2026::International students::international-students",
+          "southampton-project-management-msc::September 2026::UK students::domestic-students",
+          "southampton-propulsion-and-engine-systems-engineering-advanced-mechanical-engineering-science-msc::September 2026::Application deadline::all",
+          "southampton-propulsion-and-engine-systems-engineering-advanced-mechanical-engineering-science-msc::September 2026::International students::international-students",
+          "southampton-propulsion-and-engine-systems-engineering-advanced-mechanical-engineering-science-msc::September 2026::UK students::domestic-students",
+          "southampton-psychology-msc::September 2026::Application deadline::all",
+          "southampton-public-administration-mpa::September 2026::International students::international-students",
+          "southampton-public-administration-mpa::September 2026::UK students::domestic-students",
+          "southampton-public-health-mph::September 2026::International students::international-students",
+          "southampton-public-health-mph::September 2026::UK students::domestic-students",
+          "southampton-race-car-aerodynamics-msc::September 2026::Application deadline::all",
+          "southampton-race-car-aerodynamics-msc::September 2026::International students::international-students",
+          "southampton-race-car-aerodynamics-msc::September 2026::UK students::domestic-students",
+          "southampton-risk-and-finance-msc::September 2026::International students::international-students",
+          "southampton-risk-and-finance-msc::September 2026::UK students::domestic-students",
+          "southampton-risk-management-msc::September 2026::International students::international-students",
+          "southampton-risk-management-msc::September 2026::UK students::domestic-students",
+          "southampton-robotics-and-autonomous-systems-msc::September 2026::International students::international-students",
+          "southampton-robotics-and-autonomous-systems-msc::September 2026::UK students::domestic-students",
+          "southampton-shipping-finance-msc::September 2026::International students::international-students",
+          "southampton-shipping-finance-msc::September 2026::UK students::domestic-students"
         ],
         "changedWindowIds": []
       },
       "windowRemovalAssessmentAvailable": true,
       "disappearedWindowDetails": {},
       "disappearedProgrammeDetails": {
-        "southampton-mba-master-of-business-administration-typical-offer-2-2-degree-duration-1-year": {
-          "name": "MBA Master of Business Administration Typical offer: 2:2 degree Duration: 1 year",
-          "degreeType": "MBA",
+        "southampton-ma-philosophy-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MA Philosophy Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MA",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -480,8 +500,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-mechanical-engineering-acoustical-engineering-typical-offer-a-aa-ucas-course-code-4r23-duration-4-years": {
-          "name": "MEng Mechanical Engineering / Acoustical Engineering Typical offer: A*AA UCAS course code: 4R23 Duration: 4 years",
+        "southampton-meng-robotics-typical-offer-aaa-ucas-course-code-h672-duration-4-years": {
+          "name": "MEng Robotics Typical offer: AAA UCAS course code: H672 Duration: 4 years",
           "degreeType": "MENG",
           "faculty": "",
           "department": "",
@@ -490,8 +510,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-mechanical-engineering-aerospace-engineering-typical-offer-a-aa-ucas-course-code-hh34-duration-4-years": {
-          "name": "MEng Mechanical Engineering / Aerospace Engineering Typical offer: A*AA UCAS course code: HH34 Duration: 4 years",
+        "southampton-meng-robotics-with-industrial-placement-year-typical-offer-aaa-ucas-course-code-h67h-duration-5-years": {
+          "name": "MEng Robotics with Industrial Placement Year Typical offer: AAA UCAS course code: H67H Duration: 5 years",
           "degreeType": "MENG",
           "faculty": "",
           "department": "",
@@ -500,9 +520,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-mechanical-engineering-automotive-engineering-typical-offer-a-aa-ucas-course-code-h390-duration-4-years": {
-          "name": "MEng Mechanical Engineering / Automotive Engineering Typical offer: A*AA UCAS course code: H390 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-mpa-public-administration-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MPA Public Administration Typical offer: 2:1 degree Duration: 1 year",
+          "degreeType": "MPA",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -510,9 +530,9 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-mechanical-engineering-biomedical-engineering-typical-offer-a-aa-ucas-course-code-4r29-duration-4-years": {
-          "name": "MEng Mechanical Engineering / Biomedical Engineering Typical offer: A*AA UCAS course code: 4R29 Duration: 4 years",
-          "degreeType": "MENG",
+        "southampton-mph-public-health-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MPH Public Health Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MPH",
           "faculty": "",
           "department": "",
           "parseStatus": "catalogue-only",
@@ -520,58 +540,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-meng-mechanical-engineering-manufacturing-typical-offer-a-aa-ucas-course-code-hh38-duration-4-years": {
-          "name": "MEng Mechanical Engineering / Manufacturing Typical offer: A*AA UCAS course code: HH38 Duration: 4 years",
-          "degreeType": "MENG",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "southampton-meng-mechanical-engineering-mechatronics-typical-offer-a-aa-ucas-course-code-hh37-duration-4-years": {
-          "name": "MEng Mechanical Engineering / Mechatronics Typical offer: A*AA UCAS course code: HH37 Duration: 4 years",
-          "degreeType": "MENG",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "southampton-meng-mechanical-engineering-sustainable-energy-systems-typical-offer-a-aa-ucas-course-code-hh32-duration-4-years": {
-          "name": "MEng Mechanical Engineering / Sustainable Energy Systems Typical offer: A*AA UCAS course code: HH32 Duration: 4 years",
-          "degreeType": "MENG",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "southampton-meng-mechanical-engineering-typical-offer-a-aa-ucas-course-code-h301-duration-4-years": {
-          "name": "MEng Mechanical Engineering Typical offer: A*AA UCAS course code: H301 Duration: 4 years",
-          "degreeType": "MENG",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "southampton-meng-mechatronic-engineering-typical-offer-a-aa-ucas-course-code-hhh6-duration-4-years": {
-          "name": "MEng Mechatronic Engineering Typical offer: A*AA UCAS course code: HHH6 Duration: 4 years",
-          "degreeType": "MENG",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "catalogue-only",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
-        },
-        "southampton-msc-marketing-management-typical-offer-2-2-degree-duration-1-year": {
-          "name": "MSc Marketing Management Typical offer: 2:2 degree Duration: 1 year",
+        "southampton-msc-ocean-and-earth-science-by-research-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Ocean and Earth Science by Research Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -580,8 +550,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-mechatronics-advanced-mechanical-engineering-science-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Mechatronics (Advanced Mechanical Engineering Science) Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-oceanography-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Oceanography Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -590,8 +560,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-medical-technology-innovation-and-design-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Medical Technology, Innovation and Design Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-operational-research-and-data-science-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Operational Research and Data Science Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -600,8 +570,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-micro-and-nanotechnology-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Micro and Nanotechnology Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-operational-research-and-finance-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Operational Research and Finance Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -610,8 +580,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-microelectronics-systems-design-typical-offer-2-1-degree-duration-1-year": {
-          "name": "MSc Microelectronics Systems Design Typical offer: 2:1 degree Duration: 1 year",
+        "southampton-msc-optical-engineering-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Optical Engineering Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -620,8 +590,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-neonatology-typical-offer-2-2-degree-duration-2-to-3-years": {
-          "name": "MSc Neonatology Typical offer: 2:2 degree Duration: 2 to 3 years",
+        "southampton-msc-politics-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Politics Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -630,8 +600,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-nursing-adult-typical-offer-2-2-degree-duration-2-years": {
-          "name": "MSc Nursing: Adult Typical offer: 2:2 degree Duration: 2 years",
+        "southampton-msc-professional-practice-in-health-sciences-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Professional Practice in Health Sciences Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -640,8 +610,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-nursing-child-typical-offer-2-2-degree-duration-2-years": {
-          "name": "MSc Nursing: Child Typical offer: 2:2 degree Duration: 2 years",
+        "southampton-msc-project-management-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Project Management Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -650,8 +620,8 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-nursing-mental-health-typical-offer-2-2-degree-duration-2-years": {
-          "name": "MSc Nursing: Mental Health Typical offer: 2:2 degree Duration: 2 years",
+        "southampton-msc-propulsion-and-engine-systems-engineering-advanced-mechanical-engineering-science-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Propulsion and Engine Systems Engineering (Advanced Mechanical Engineering Science) Typical offer: 2:1 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -660,8 +630,58 @@
           "windowCount": 0,
           "latestClosesAt": null
         },
-        "southampton-msc-nursing-studies-typical-offer-2-2-degree-duration-2-years": {
-          "name": "MSc Nursing Studies Typical offer: 2:2 degree Duration: 2 years",
+        "southampton-msc-psychology-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Psychology Typical offer: 2:1 degree Duration: 1 year",
+          "degreeType": "MSC",
+          "faculty": "",
+          "department": "",
+          "parseStatus": "catalogue-only",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "southampton-msc-race-car-aerodynamics-typical-offer-first-class-degree-duration-1-year": {
+          "name": "MSc Race Car Aerodynamics Typical offer: First class degree Duration: 1 year",
+          "degreeType": "MSC",
+          "faculty": "",
+          "department": "",
+          "parseStatus": "catalogue-only",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "southampton-msc-risk-and-finance-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Risk and Finance Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MSC",
+          "faculty": "",
+          "department": "",
+          "parseStatus": "catalogue-only",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "southampton-msc-risk-management-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Risk Management Typical offer: 2:2 degree Duration: 1 year",
+          "degreeType": "MSC",
+          "faculty": "",
+          "department": "",
+          "parseStatus": "catalogue-only",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "southampton-msc-robotics-and-autonomous-systems-typical-offer-2-1-degree-duration-1-year": {
+          "name": "MSc Robotics and Autonomous Systems Typical offer: 2:1 degree Duration: 1 year",
+          "degreeType": "MSC",
+          "faculty": "",
+          "department": "",
+          "parseStatus": "catalogue-only",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
+        },
+        "southampton-msc-shipping-finance-typical-offer-2-2-degree-duration-1-year": {
+          "name": "MSc Shipping Finance Typical offer: 2:2 degree Duration: 1 year",
           "degreeType": "MSC",
           "faculty": "",
           "department": "",
@@ -671,7 +691,7 @@
           "latestClosesAt": null
         }
       },
-      "windowFingerprint": "6200191ed559b0c670ed2f403824231c0fdfe3ac6941d397c682fc6f2ce423fa",
+      "windowFingerprint": "d605f1ce082a5bc27ee91e7c7f258600c3624f124f568e0b9368aa59ac8e0b86",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "dryRun": false,
@@ -5871,7 +5891,7 @@
         "universityId": "university-of-southampton",
         "programmeName": "Optical Engineering (MSc)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/optical-engineering-masters-msc",
-        "windowCount": 2,
+        "windowCount": 3,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
@@ -5916,7 +5936,7 @@
         "universityId": "university-of-southampton",
         "programmeName": "Propulsion and Engine Systems Engineering (Advanced Mechanical Engineering Science) (MSc)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/propulsion-engine-systems-engineering-advanced-mechanical-engineering-science-masters-msc",
-        "windowCount": 2,
+        "windowCount": 3,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
@@ -5979,7 +5999,7 @@
         "universityId": "university-of-southampton",
         "programmeName": "Race Car Aerodynamics (MSc)",
         "sourceUrl": "https://www.southampton.ac.uk/courses/race-car-aerodynamics-masters-msc",
-        "windowCount": 2,
+        "windowCount": 3,
         "parseStatus": "incomplete",
         "reviewReason": "At least one opening date is not published as an exact date; confirm it on the programme page."
       },
@@ -12103,6 +12123,24 @@
         "sourceUrl": "https://www.southampton.ac.uk/courses/wireless-quantum-communications-masters-msc",
         "windowCount": 0,
         "parseStatus": "catalogue-only",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:southampton-robotics-meng",
+        "universityId": "university-of-southampton",
+        "programmeName": "Robotics (MEng)",
+        "sourceUrl": "https://www.southampton.ac.uk/courses/robotics-engineering-masters-meng",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
+        "reviewReason": "No application deadline was parsed."
+      },
+      {
+        "id": "new-programme:southampton-robotics-with-industrial-placement-year-meng",
+        "universityId": "university-of-southampton",
+        "programmeName": "Robotics with Industrial Placement Year (MEng)",
+        "sourceUrl": "https://www.southampton.ac.uk/courses/robotics-engineering-with-industrial-placement-masters-meng",
+        "windowCount": 0,
+        "parseStatus": "no-deadline",
         "reviewReason": "No application deadline was parsed."
       }
     ],

@@ -2,23 +2,23 @@
   "universities": {
     "university-of-british-columbia": {
       "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs",
-      "checkedAt": "2026-11-21T13:28:05.699492+00:00",
+      "checkedAt": "2026-11-22T13:28:49.749521+00:00",
       "itemCount": 228,
       "applicationOpensAt": null,
-      "catalogHash": "1832b15d91aceab3200f184cb26c30fbc5ee896e1a4657a45c6b5f6e4f1be296",
+      "catalogHash": "fd3815b10ac4b2db1f2ab4143448a4573440b4451b8753429f36f43ba94ac957",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "partial",
-      "observedWindowCount": 250,
-      "exactWindowCount": 250,
+      "observedWindowCount": 249,
+      "exactWindowCount": 249,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
         "2027:fall:09": {
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 184,
-          "exactWindowCount": 184,
+          "observedWindowCount": 182,
+          "exactWindowCount": 182,
           "recurringPolicyWindowCount": 0
         },
         "2027:other:01": {
@@ -57,8 +57,8 @@
           "intakes": [
             "January 2028"
           ],
-          "observedWindowCount": 21,
-          "exactWindowCount": 21,
+          "observedWindowCount": 22,
+          "exactWindowCount": 22,
           "recurringPolicyWindowCount": 0
         },
         "2028:other:05": {
@@ -79,11 +79,11 @@
         }
       },
       "missingOpeningDateCount": 0,
-      "programmesWithoutDeadlines": 48,
-      "programmesNeedingReview": 48,
-      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 48 programme(s) expose no parsed deadline.",
-      "lastSuccessfulAt": "2026-11-21T13:28:05.699492+00:00",
-      "windowFingerprint": "a22266af9c8a8597c16ec8b211fdc221df2a7d7ed49959790abe859ce40fdc90",
+      "programmesWithoutDeadlines": 50,
+      "programmesNeedingReview": 50,
+      "limitationReason": "Observed dates are incomplete or not safe for automatic publication. 50 programme(s) expose no parsed deadline.",
+      "lastSuccessfulAt": "2026-11-22T13:28:49.749521+00:00",
+      "windowFingerprint": "be8e3573958473075aa8c90bde904043cf383ecf767bbed759488fe329d60165",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -1692,10 +1692,10 @@
           "degreeType": "MND",
           "faculty": "Faculty of Land and Food Systems",
           "department": "Nutrition and Dietetics",
-          "parseStatus": "parsed",
-          "deadlineHash": "5daabf3485522ead441722ce02a4135a484f7e1ad9d041d691bc3c84891b936b",
-          "windowCount": 1,
-          "latestClosesAt": "2026-11-20"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "ubc-master-of-occupational-therapy-mot": {
           "name": "Master of Occupational Therapy (MOT)",
@@ -1823,9 +1823,9 @@
           "faculty": "Faculty of Science",
           "department": "Botany",
           "parseStatus": "parsed",
-          "deadlineHash": "ef9baa90bd4855bbc94349fe7d44c0ec37aa6326638e2f292aa094b196c2f1f6",
-          "windowCount": 1,
-          "latestClosesAt": "2027-01-10"
+          "deadlineHash": "f498d1a797b55cdf13fb9261f6563e3cccb58647d8b51c1501f0950f0d749166",
+          "windowCount": 2,
+          "latestClosesAt": "2027-07-01"
         },
         "ubc-master-of-science-in-business-administration-in-finance-mscb": {
           "name": "Master of Science in Business Administration in Finance (MSCB)",
@@ -2132,10 +2132,10 @@
           "degreeType": "MSc",
           "faculty": "Faculty of Medicine",
           "department": "Neuroscience",
-          "parseStatus": "parsed",
-          "deadlineHash": "f2456eb607ac0bebca6b00fb2d705be10d6e9f721aa757b44abc165bec0f7562",
-          "windowCount": 1,
-          "latestClosesAt": "2026-11-15"
+          "parseStatus": "no-deadline",
+          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "windowCount": 0,
+          "latestClosesAt": null
         },
         "ubc-master-of-science-in-nursing-msn": {
           "name": "Master of Science in Nursing (MSN)",
@@ -3617,14 +3617,6 @@
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-music-voice",
           "opensAtBasis": null
         },
-        "ubc-master-of-nutrition-and-dietetics-mnd::September 2027::Application deadline::all": {
-          "programmeId": "ubc-master-of-nutrition-and-dietetics-mnd",
-          "intake": "September 2027",
-          "opensAt": "2026-07-15",
-          "closesAt": "2026-11-20",
-          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-nutrition-dietetics",
-          "opensAtBasis": null
-        },
         "ubc-master-of-occupational-therapy-mot::September 2027::Application deadline::all": {
           "programmeId": "ubc-master-of-occupational-therapy-mot",
           "intake": "September 2027",
@@ -3719,6 +3711,14 @@
           "opensAt": "2026-08-15",
           "closesAt": "2026-12-31",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-bioinformatics",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-botany-msc::January 2028::Application deadline::all": {
+          "programmeId": "ubc-master-of-science-in-botany-msc",
+          "intake": "January 2028",
+          "opensAt": "2026-11-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-botany",
           "opensAtBasis": null
         },
         "ubc-master-of-science-in-botany-msc::September 2027::Application deadline::all": {
@@ -4039,14 +4039,6 @@
           "opensAt": "2026-09-30",
           "closesAt": "2027-02-15",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-microbiology-immunology",
-          "opensAtBasis": null
-        },
-        "ubc-master-of-science-in-neuroscience-msc::September 2027::Application deadline::all": {
-          "programmeId": "ubc-master-of-science-in-neuroscience-msc",
-          "intake": "September 2027",
-          "opensAt": "2026-07-15",
-          "closesAt": "2026-11-15",
-          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-neuroscience",
           "opensAtBasis": null
         },
         "ubc-master-of-science-in-occupational-and-environmental-hygiene-msc::September 2027::Application deadline::all": {
@@ -5619,14 +5611,6 @@
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-music-voice",
           "opensAtBasis": null
         },
-        "ubc-master-of-nutrition-and-dietetics-mnd::September 2027::Application deadline::all": {
-          "programmeId": "ubc-master-of-nutrition-and-dietetics-mnd",
-          "intake": "September 2027",
-          "opensAt": "2026-07-15",
-          "closesAt": "2026-11-20",
-          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-nutrition-dietetics",
-          "opensAtBasis": null
-        },
         "ubc-master-of-occupational-therapy-mot::September 2027::Application deadline::all": {
           "programmeId": "ubc-master-of-occupational-therapy-mot",
           "intake": "September 2027",
@@ -5721,6 +5705,14 @@
           "opensAt": "2026-08-15",
           "closesAt": "2026-12-31",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-bioinformatics",
+          "opensAtBasis": null
+        },
+        "ubc-master-of-science-in-botany-msc::January 2028::Application deadline::all": {
+          "programmeId": "ubc-master-of-science-in-botany-msc",
+          "intake": "January 2028",
+          "opensAt": "2026-11-01",
+          "closesAt": "2027-07-01",
+          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-botany",
           "opensAtBasis": null
         },
         "ubc-master-of-science-in-botany-msc::September 2027::Application deadline::all": {
@@ -6041,14 +6033,6 @@
           "opensAt": "2026-09-30",
           "closesAt": "2027-02-15",
           "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-microbiology-immunology",
-          "opensAtBasis": null
-        },
-        "ubc-master-of-science-in-neuroscience-msc::September 2027::Application deadline::all": {
-          "programmeId": "ubc-master-of-science-in-neuroscience-msc",
-          "intake": "September 2027",
-          "opensAt": "2026-07-15",
-          "closesAt": "2026-11-15",
-          "sourceUrl": "https://www.grad.ubc.ca/prospective-students/graduate-degree-programs/master-of-science-neuroscience",
           "opensAtBasis": null
         },
         "ubc-master-of-science-in-occupational-and-environmental-hygiene-msc::September 2027::Application deadline::all": {
