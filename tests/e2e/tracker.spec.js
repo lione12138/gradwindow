@@ -695,21 +695,23 @@ test("master's country filter follows region and works across rankings and views
   await page.locator("#ranking-filter").selectOption("the");
   await expect(country).toHaveValue("France");
   await expect(rows.first()).toContainText("France");
+  await country.selectOption("United States");
   await page.getByRole("tab", { name: /Open now/ }).click();
-  await expect(country).toHaveValue("France");
+  await expect(country).toHaveValue("United States");
+  const openCountries = page.locator(
+    '#application-groups [data-status="open"] .school-country-inline',
+  );
+  await expect(openCountries.first()).toHaveText("(United States)");
   await expect(
-    page
-      .locator(
-        '#application-groups [data-status="open"] .school-country-inline',
-      )
-      .first(),
-  ).toHaveText("(France)");
+    openCountries.filter({ hasNotText: "(United States)" }),
+  ).toHaveCount(0);
 
   for (const width of [820, 390]) {
     await page.setViewportSize({ width, height: 844 });
     const bounds = await country.boundingBox();
     expect(bounds?.width).toBeGreaterThan(100);
   }
+  await country.selectOption("France");
   await page.getByRole("button", { name: "Switch language" }).click();
   await expect(country).toHaveAccessibleName("国家或地区");
   await expect(country.locator("option:checked")).toHaveText("法国");
