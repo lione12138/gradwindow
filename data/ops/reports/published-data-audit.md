@@ -1,12 +1,12 @@
 # Published data audit
 
-Generated for 2026-11-21.
+Generated for 2026-11-22.
 
-- Active issues: 709
+- Active issues: 710
 - Universities needing review: 11
 - Records quarantined from SEO aggregates: 507
 - Suspicious intake/deadline mappings: 219
-- Published records missing from a healthy current snapshot: 78
+- Published records missing from a healthy current snapshot: 79
 - Published records changed from a healthy current snapshot: 406
 - Published records with source URL-only changes: 6
 
@@ -698,6 +698,7 @@ Generated for 2026-11-21.
 - `ubc-master-of-engineering-in-mining-engineering-meng-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2027-02-05) — retire-or-correct-review
 - `ubc-master-of-music-in-conducting-emphasis-wind-conducting-mmus-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — retire-or-correct-review
 - `ubc-master-of-music-in-orchestral-instrument-mmus-2027-application-deadline` — **published-record-missing-from-snapshot** (university-of-british-columbia, September 2027, closes 2026-12-01) — retire-or-correct-review
+- `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **published-record-missing-from-snapshot** (university-of-edinburgh, September 2026, closes 2027-02-01) — retire-or-correct-review
 - `edinburgh-clinical-education-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-02-01) — correct-intake-or-document-flexible-entry
 - `edinburgh-critical-care-online-learning-msc-2026-main-application-deadline` — **suspicious-intake-window** (university-of-edinburgh, September 2026, closes 2027-03-05) — correct-intake-or-document-flexible-entry
 - `edinburgh-inclusive-education-msc-2026-main-application-deadline` — **published-record-missing-from-snapshot** (university-of-edinburgh, September 2026, closes 2026-12-07) — retire-or-correct-review

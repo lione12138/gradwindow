@@ -2,14 +2,14 @@
   "universities": {
     "university-of-bristol": {
       "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/search/",
-      "checkedAt": "2026-11-21T12:46:54.740768+00:00",
+      "checkedAt": "2026-11-22T12:43:14.990472+00:00",
       "itemCount": 142,
       "applicationOpensAt": null,
-      "catalogHash": "44310a78ef7a2573a6e51a2120f61cd453de4db2e95f78d1eeaf059e28b66fbc",
+      "catalogHash": "7ba3323b8b932ca7347a97a891ddacac7ee50d1a1533cded7ada6b152ed3dc45",
       "catalogueStatus": "ok",
       "catalogueGranularity": "programme-level",
       "windowStatus": "needs-opening-date",
-      "observedWindowCount": 276,
+      "observedWindowCount": 278,
       "exactWindowCount": 0,
       "recurringPolicyWindowCount": 0,
       "windowCountsByCycle": {
@@ -25,17 +25,17 @@
           "intakes": [
             "September 2027"
           ],
-          "observedWindowCount": 274,
+          "observedWindowCount": 276,
           "exactWindowCount": 0,
           "recurringPolicyWindowCount": 0
         }
       },
-      "missingOpeningDateCount": 276,
-      "programmesWithoutDeadlines": 4,
+      "missingOpeningDateCount": 278,
+      "programmesWithoutDeadlines": 3,
       "programmesNeedingReview": 142,
-      "limitationReason": "276 parsed deadline(s) lack an official exact opening date.",
-      "lastSuccessfulAt": "2026-11-21T12:46:54.740768+00:00",
-      "windowFingerprint": "5a049f3b155a804d4e473d8425a85c5864c3815d090fcb807f462c058e1ad019",
+      "limitationReason": "278 parsed deadline(s) lack an official exact opening date.",
+      "lastSuccessfulAt": "2026-11-22T12:43:14.990472+00:00",
+      "windowFingerprint": "fe9ba6ef17caa01fd61ac8cd1d238d9103678ae7c92e5719369d9ef575db9d75",
       "watchedWindowSourceHash": null,
       "watchedWindowSourceFingerprintVersion": null,
       "programmes": {
@@ -272,12 +272,12 @@
         "bristol-ma-history": {
           "name": "MA History",
           "degreeType": "MA",
-          "faculty": "",
-          "department": "",
-          "parseStatus": "no-deadline",
-          "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-          "windowCount": 0,
-          "latestClosesAt": null
+          "faculty": "Arts Law and Social Sciences",
+          "department": "School of Humanities",
+          "parseStatus": "incomplete",
+          "deadlineHash": "49b1b0eac13755e1e335ec48f37af52cb0f24b3a3ed4660a2f6a5621e9ffc51e",
+          "windowCount": 2,
+          "latestClosesAt": "2027-09-09"
         },
         "bristol-ma-immersive-arts-virtual-and-augmented-reality": {
           "name": "MA Immersive Arts (Virtual and Augmented Reality)",
@@ -1032,22 +1032,22 @@
         "bristol-msc-management": {
           "name": "MSc Management",
           "degreeType": "MSc",
-          "faculty": "Arts Law and Social Sciences",
-          "department": "University of Bristol Business School",
-          "parseStatus": "incomplete",
-          "deadlineHash": "d1e4be16f9274dd6091157220bdb358e334b38b90c11eeef9e408dd2855b1f29",
-          "windowCount": 2,
-          "latestClosesAt": "2027-09-09"
-        },
-        "bristol-msc-management-digitalisation-and-big-data": {
-          "name": "MSc Management (Digitalisation and Big Data)",
-          "degreeType": "MSc",
           "faculty": "",
           "department": "",
           "parseStatus": "no-deadline",
           "deadlineHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
           "windowCount": 0,
           "latestClosesAt": null
+        },
+        "bristol-msc-management-digitalisation-and-big-data": {
+          "name": "MSc Management (Digitalisation and Big Data)",
+          "degreeType": "MSc",
+          "faculty": "Arts Law and Social Sciences",
+          "department": "University of Bristol Business School",
+          "parseStatus": "incomplete",
+          "deadlineHash": "d37ccb2739e1854cb981be712cd29f6d190ec587befb933e1f9842079c821b4c",
+          "windowCount": 2,
+          "latestClosesAt": "2027-09-09"
         },
         "bristol-msc-management-entrepreneurship-and-innovation": {
           "name": "MSc Management (Entrepreneurship and Innovation)",
@@ -1827,6 +1827,22 @@
           "opensAt": null,
           "closesAt": "2027-08-12",
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/ma-games-design-narrative/",
+          "opensAtBasis": null
+        },
+        "bristol-ma-history::September 2027::Home applicants::home": {
+          "programmeId": "bristol-ma-history",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-09-09",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/ma-history/",
+          "opensAtBasis": null
+        },
+        "bristol-ma-history::September 2027::Overseas applicants::international": {
+          "programmeId": "bristol-ma-history",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-12",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/ma-history/",
           "opensAtBasis": null
         },
         "bristol-ma-immersive-arts-virtual-and-augmented-reality::September 2027::Home applicants::home": {
@@ -2997,20 +3013,20 @@
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-internet-of-things-with-ai/",
           "opensAtBasis": null
         },
-        "bristol-msc-management::September 2027::Home applicants::home": {
-          "programmeId": "bristol-msc-management",
+        "bristol-msc-management-digitalisation-and-big-data::September 2027::Home applicants::home": {
+          "programmeId": "bristol-msc-management-digitalisation-and-big-data",
           "intake": "September 2027",
           "opensAt": null,
           "closesAt": "2027-09-09",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management/",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management-digitalisation-and-big-data/",
           "opensAtBasis": null
         },
-        "bristol-msc-management::September 2027::Overseas applicants::international": {
-          "programmeId": "bristol-msc-management",
+        "bristol-msc-management-digitalisation-and-big-data::September 2027::Overseas applicants::international": {
+          "programmeId": "bristol-msc-management-digitalisation-and-big-data",
           "intake": "September 2027",
           "opensAt": null,
           "closesAt": "2027-08-12",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management/",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management-digitalisation-and-big-data/",
           "opensAtBasis": null
         },
         "bristol-msc-management-entrepreneurship-and-innovation::September 2027::Home applicants::home": {
@@ -4039,6 +4055,22 @@
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/ma-games-design-narrative/",
           "opensAtBasis": null
         },
+        "bristol-ma-history::September 2027::Home applicants::home": {
+          "programmeId": "bristol-ma-history",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-09-09",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/ma-history/",
+          "opensAtBasis": null
+        },
+        "bristol-ma-history::September 2027::Overseas applicants::international": {
+          "programmeId": "bristol-ma-history",
+          "intake": "September 2027",
+          "opensAt": null,
+          "closesAt": "2027-08-12",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/ma-history/",
+          "opensAtBasis": null
+        },
         "bristol-ma-immersive-arts-virtual-and-augmented-reality::September 2027::Home applicants::home": {
           "programmeId": "bristol-ma-immersive-arts-virtual-and-augmented-reality",
           "intake": "September 2027",
@@ -5207,20 +5239,20 @@
           "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-internet-of-things-with-ai/",
           "opensAtBasis": null
         },
-        "bristol-msc-management::September 2027::Home applicants::home": {
-          "programmeId": "bristol-msc-management",
+        "bristol-msc-management-digitalisation-and-big-data::September 2027::Home applicants::home": {
+          "programmeId": "bristol-msc-management-digitalisation-and-big-data",
           "intake": "September 2027",
           "opensAt": null,
           "closesAt": "2027-09-09",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management/",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management-digitalisation-and-big-data/",
           "opensAtBasis": null
         },
-        "bristol-msc-management::September 2027::Overseas applicants::international": {
-          "programmeId": "bristol-msc-management",
+        "bristol-msc-management-digitalisation-and-big-data::September 2027::Overseas applicants::international": {
+          "programmeId": "bristol-msc-management-digitalisation-and-big-data",
           "intake": "September 2027",
           "opensAt": null,
           "closesAt": "2027-08-12",
-          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management/",
+          "sourceUrl": "https://www.bristol.ac.uk/study/postgraduate/taught/msc-management-digitalisation-and-big-data/",
           "opensAtBasis": null
         },
         "bristol-msc-management-entrepreneurship-and-innovation::September 2027::Home applicants::home": {
