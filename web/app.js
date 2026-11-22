@@ -599,9 +599,9 @@ function uniqueSorted(values) {
   return [...new Set(values)].sort((a, b) => a.localeCompare(b, "zh-CN"));
 }
 
-function populateSelect(elementId, values, labeler = (value) => value) {
+function populateSelect(elementId, values, labeler, requestedValue) {
   const select = document.getElementById(elementId);
-  const selected = select.value;
+  const selected = requestedValue ?? select.value;
   [...select.options].slice(1).forEach((option) => option.remove());
   values.forEach((value) => {
     const option = document.createElement("option");
@@ -609,9 +609,9 @@ function populateSelect(elementId, values, labeler = (value) => value) {
     option.textContent = labeler(value);
     select.appendChild(option);
   });
-  select.value = [...select.options].some((option) => option.value === selected)
-    ? selected
-    : "all";
+  select.value = selected;
+  if (select.selectedIndex === -1) select.value = "all";
+  return select.value;
 }
 
 function populateIntakeSelect() {
@@ -780,16 +780,40 @@ function rankRangeLabel(limit) {
     .replace("{limit}", limit);
 }
 
-function refreshFilterOptions() {
-  populateSelect(
-    "region-filter",
+function matchesRegion({ region }) {
+  return state.region === "all" || state.region === region;
+}
+
+function matchesGeography(school) {
+  return (
+    matchesRegion(school) &&
+    (state.country === "all" || state.country === school.country)
+  );
+}
+
+function refreshCountryOptions(universities = selectedDirectoryUniversities()) {
+  state.country = populateSelect(
+    "country-filter",
     uniqueSorted(
-      [...recordsInSelectedRanking(), ...selectedDirectoryUniversities()]
-        .map((record) => record.region)
+      universities
+        .filter(matchesRegion)
+        .map(({ country }) => country)
         .filter(Boolean),
     ),
-    (region) => regionLabel(region, state.language),
+    (country) => countryLabel(country, state.language),
+    state.country,
   );
+}
+
+function refreshFilterOptions() {
+  const universities = selectedDirectoryUniversities();
+  state.region = populateSelect(
+    "region-filter",
+    uniqueSorted(universities.map(({ region }) => region).filter(Boolean)),
+    (region) => regionLabel(region, state.language),
+    state.region,
+  );
+  refreshCountryOptions(universities);
   populateIntakeSelect();
   populateSelect(
     "applicant-filter",
@@ -858,7 +882,7 @@ function filteredRecords() {
       (!state.selectedUniversityId ||
         record.universityId === state.selectedUniversityId) &&
       (!query || recordSearchText(record).includes(query)) &&
-      (state.region === "all" || record.region === state.region) &&
+      matchesGeography(record) &&
       (state.intake === "all" || recordIntake(record).key === state.intake) &&
       (state.applicantCategory === "all" ||
         record.applicantCategories?.includes(state.applicantCategory)) &&
@@ -905,7 +929,7 @@ function filteredUniversities() {
       (!state.selectedUniversityId ||
         university.id === state.selectedUniversityId) &&
       (!query || searchable.includes(query)) &&
-      (state.region === "all" || university.region === state.region) &&
+      matchesGeography(university) &&
       (state.selectedUniversityId ||
         university.rankPosition <= Number(state.rankLimit)) &&
       (!state.favoritesOnly ||
@@ -945,6 +969,7 @@ function activeNonStatusFilter() {
     hasActiveSearch() ||
     state.ranking !== "qs" ||
     state.region !== "all" ||
+    state.country !== "all" ||
     state.intake !== "all" ||
     state.applicantCategory !== "all" ||
     state.deadlineRange !== "all" ||
@@ -964,7 +989,6 @@ function syncFilterInputs() {
   document.getElementById("search-input").value = state.search;
   document.getElementById("ranking-filter").value = state.ranking;
   refreshFilterOptions();
-  document.getElementById("region-filter").value = state.region;
   document.getElementById("intake-filter").value = state.intake;
   document.getElementById("applicant-filter").value = state.applicantCategory;
   document.getElementById("deadline-range-filter").value = state.deadlineRange;
@@ -981,6 +1005,7 @@ function resetFilter(filter) {
     state.intake = "all";
   }
   if (filter === "region") state.region = "all";
+  if (filter === "country") state.country = "all";
   if (filter === "intake") state.intake = "all";
   if (filter === "applicantCategory") state.applicantCategory = "all";
   if (filter === "deadlineRange") state.deadlineRange = "all";
@@ -998,6 +1023,7 @@ function clearFilters() {
   state.selectedUniversityId = "";
   state.ranking = "qs";
   state.region = "all";
+  state.country = "all";
   state.intake = "all";
   state.applicantCategory = "all";
   state.deadlineRange = "all";
@@ -1038,6 +1064,12 @@ function activeFilterItems() {
     items.push({
       key: "region",
       label: regionLabel(state.region, state.language),
+    });
+  }
+  if (state.country !== "all") {
+    items.push({
+      key: "country",
+      label: countryLabel(state.country, state.language),
     });
   }
   if (state.intake !== "all") {
@@ -2520,6 +2552,7 @@ function syncUrl() {
   }
   if (state.ranking !== "qs") params.set("ranking", state.ranking);
   if (state.region !== "all") params.set("region", state.region);
+  if (state.country !== "all") params.set("country", state.country);
   if (state.intake !== "all") params.set("intake", state.intake);
   if (state.status !== "open") params.set("status", state.status);
   if (state.sort !== "rank") params.set("sort", state.sort);
@@ -2548,6 +2581,7 @@ function loadUrlState() {
   state.ranking =
     params.get("ranking") || rankingForUniversity(state.selectedUniversityId);
   state.region = params.get("region") || "all";
+  state.country = params.get("country") || "all";
   state.intake = params.get("intake") || "all";
   state.applicantCategory = params.get("applicant") || "all";
   state.deadlineRange = ["30", "90", "180"].includes(params.get("deadline"))
@@ -2998,6 +3032,15 @@ function bindEvents() {
     .getElementById("region-filter")
     .addEventListener("change", (event) => {
       state.region = event.target.value;
+      refreshCountryOptions();
+      resetPages();
+      syncUrl();
+      render();
+    });
+  document
+    .getElementById("country-filter")
+    .addEventListener("change", (event) => {
+      state.country = event.target.value;
       resetPages();
       syncUrl();
       render();
@@ -3220,14 +3263,6 @@ async function init() {
     ]);
     if (!allowedStatuses.has(state.status)) state.status = "open";
     if (
-      state.region !== "all" &&
-      ![...document.getElementById("region-filter").options].some(
-        (option) => option.value === state.region,
-      )
-    ) {
-      state.region = "all";
-    }
-    if (
       state.intake !== "all" &&
       ![...document.getElementById("intake-filter").options].some(
         (option) => option.value === state.intake,
@@ -3237,7 +3272,6 @@ async function init() {
     }
     document.getElementById("search-input").value = state.search;
     document.getElementById("hero-search-input").value = state.search;
-    document.getElementById("region-filter").value = state.region;
     document.getElementById("intake-filter").value = state.intake;
     document.getElementById("applicant-filter").value = state.applicantCategory;
     document.getElementById("deadline-range-filter").value =

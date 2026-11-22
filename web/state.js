@@ -23,6 +23,7 @@ export const state = {
   search: "",
   selectedUniversityId: "",
   region: "all",
+  country: "all",
   intake: "all",
   applicantCategory: "all",
   deadlineRange: "all",

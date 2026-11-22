@@ -7034,6 +7034,36 @@ footer p {
   }
 }
 
+@media (min-width: 981px) and (max-width: 1399px) {
+  #application-board .primary-filter-row {
+    grid-template-columns: minmax(190px, 1.5fr) minmax(145px, 1fr) repeat(3, minmax(110px, 1fr)) auto;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 980px) {
+  #application-board .quick-filter-panel .toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #application-board .primary-filter-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  #application-board .primary-filter-row .search-box {
+    grid-column: 1 / -1;
+  }
+
+  #application-board .primary-filter-row .primary-select {
+    display: flex;
+  }
+}
+
+@media (max-width: 720px) {
+  #mobile-filter-toggle {
+    grid-column: 1 / -1;
+  }
+}
+
 .undergraduate-board > .section-heading h1 {
   margin: 0;
   font-size: clamp(25px, 3vw, 34px);
